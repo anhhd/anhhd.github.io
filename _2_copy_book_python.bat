@@ -8,3 +8,6 @@ set "destination=.\ds-book-python\"
 del /S "%destination%\*" /F /Q
 
 xcopy /s "%source%" "%destination%"
+
+REM -delete .ipynb
+del /S /Q "%destination%\*.ipynb"
