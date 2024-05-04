@@ -2,6 +2,6 @@ cd %cd%
 
 git add .
 git commit -m "Update website"
-git push
+git push origin master
 
 echo "Finish your website!"
