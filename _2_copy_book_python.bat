@@ -10,4 +10,4 @@ del /S "%destination%\*" /F /Q
 xcopy /s "%source%" "%destination%"
 
 REM -delete .ipynb
-del /S /Q "%destination%\*.ipynb"
+REM del /S /Q "%destination%\*.ipynb"
