@@ -466,6 +466,24 @@
   },
   {
    "cell_type": "markdown",
+   "id": "273bbfbd",
+   "metadata": {},
+   "source": [
+    "---"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "72377c45",
+   "metadata": {},
+   "source": [
+    "**Các tips khi sử dụng Visual Studio**:\n",
+    "\n",
+    "- `# %%%`: Cho phép chạy code tương tự như các cell trong notebook (nên dùng). Khi sử dụng cách này, các file `.py` có thể tương tác và sử dụng dễ dàng thay vì phải chọn và chạy bằng phím `Shift + Enter`"
+   ]
+  },
+  {
+   "cell_type": "markdown",
    "id": "464e7793",
    "metadata": {},
    "source": [
