@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="vn" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>10. Trực quan hóa với Seaborn &mdash; Phân tích dữ liệu với Python 2019 documentation</title>
+  <title>9. Trực quan hóa với Seaborn &mdash; Phân tích dữ liệu với Python 2019 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
@@ -16,7 +16,7 @@
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="_static/documentation_options.js?v=1ea3fed6"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="_static/copybutton.js?v=f281be69"></script>
@@ -26,8 +26,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="11. Làm việc với các file trong máy tính" href="p01-13-lam-viec-voi-files.html" />
-    <link rel="prev" title="9. Trực quan hóa với Matplotlib" href="p01-08-matplotlib.html" /> 
+    <link rel="next" title="10. Trực quan hóa với Matplotlib" href="p01-10-matplotlib.html" />
+    <link rel="prev" title="8. Numpy" href="p01-08-numpy.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -52,46 +52,45 @@
               <p class="caption" role="heading"><span class="caption-text">Python cơ bản</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="p01-01-gioi-thieu-python.html">1. Giới thiệu về Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-02-jupyter-lab.html">2. Python IDE - Jupyter lab &amp; Visual Studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-02-python-ide.html">2. Python IDE - Jupyter lab &amp; Visual Studio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-03-cau-truc-du-lieu-python.html">3. Các cấu trúc cơ bản trong Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-03-numpy.html">4. Numpy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-05-pandas.html">5. Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-pandas.html">4. Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-05-ngu-phap-bieu-do.html">5. Ngữ pháp của biểu đồ với <code class="docutils literal notranslate"><span class="pre">plotnine</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-06-datetime.html">6. Dữ liệu thời gian trong Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-06-ngu-phap-bieu-do.html">7. Ngữ pháp của biểu đồ với <code class="docutils literal notranslate"><span class="pre">plotnine</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-07-lam-viec-voi-text.html">8. Biến đổi dữ liệu text trong python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-08-matplotlib.html">9. Trực quan hóa với Matplotlib</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">10. Trực quan hóa với Seaborn</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Object-interfaces">10.1. Object interfaces</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Các-layer-cơ-bản">10.1.1. Các layer cơ bản</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Facet">10.1.2. Facet</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Chia-nhóm-dữ-liệu">10.1.3. Chia nhóm dữ liệu</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Scale">10.1.4. Scale</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Histogram-&amp;-Density">10.1.5. Histogram &amp; Density</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-07-lam-viec-voi-text.html">7. Biến đổi dữ liệu text trong python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-08-numpy.html">8. Numpy</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">9. Trực quan hóa với Seaborn</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Object-interfaces">9.1. Object interfaces</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Các-layer-cơ-bản">9.1.1. Các layer cơ bản</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Facet">9.1.2. Facet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Chia-nhóm-dữ-liệu">9.1.3. Chia nhóm dữ liệu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Scale">9.1.4. Scale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Histogram-&amp;-Density">9.1.5. Histogram &amp; Density</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Các-biểu-đồ-dạng-khác">10.2. Các biểu đồ dạng khác</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Scatterplot">10.2.1. Scatterplot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Point-plot">10.2.2. Point plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Histogram-&amp;-density">10.2.3. Histogram &amp; density</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Kernel-density">10.2.4. Kernel density</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Joint-plot">10.2.5. Joint plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Các-biểu-đồ-dạng-khác">9.2. Các biểu đồ dạng khác</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Scatterplot">9.2.1. Scatterplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Point-plot">9.2.2. Point plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Histogram-&amp;-density">9.2.3. Histogram &amp; density</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Kernel-density">9.2.4. Kernel density</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Joint-plot">9.2.5. Joint plot</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Pair-plot">10.3. Pair plot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">10.4. Facet</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Category-plot">10.5. Category plot</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Factor-plot">10.5.1. Factor plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Barplot">10.5.2. Barplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Pair-plot">9.3. Pair plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">9.4. Facet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Category-plot">9.5. Category plot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Factor-plot">9.5.1. Factor plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Barplot">9.5.2. Barplot</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Tùy-chỉnh-các-thành-phần">10.6. Tùy chỉnh các thành phần</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Lưu-ý-khác">10.7. Lưu ý khác</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Tài-liệu-tham-khảo">10.8. Tài liệu tham khảo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tùy-chỉnh-các-thành-phần">9.6. Tùy chỉnh các thành phần</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Lưu-ý-khác">9.7. Lưu ý khác</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tài-liệu-tham-khảo">9.8. Tài liệu tham khảo</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="p01-13-lam-viec-voi-files.html">11. Làm việc với các file trong máy tính</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-19-so-sanh-python-r.html">12. So sánh R với Python cơ bản</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-99-tricks-python.html">13. Các mẹo trong Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-10-matplotlib.html">10. Trực quan hóa với Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-19-so-sanh-python-r.html">11. So sánh R với Python cơ bản</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-99-tricks-python.html">12. Các mẹo trong Python</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Machine learning với sklearn</span></p>
 <ul>
@@ -128,7 +127,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">10. </span>Trực quan hóa với Seaborn</li>
+      <li class="breadcrumb-item active"><span class="section-number">9. </span>Trực quan hóa với Seaborn</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/p01-09-seaborn.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -139,7 +138,7 @@
            <div itemprop="articleBody">
              
   <section id="Trực-quan-hóa-với-Seaborn">
-<h1><span class="section-number">10. </span>Trực quan hóa với Seaborn<a class="headerlink" href="#Trực-quan-hóa-với-Seaborn" title="Link to this heading"></a></h1>
+<h1><span class="section-number">9. </span>Trực quan hóa với Seaborn<a class="headerlink" href="#Trực-quan-hóa-với-Seaborn" title="Link to this heading"></a></h1>
 <p>Seaborn là package được xây dựng dựa trên nền của matplotlib, hỗ trợ tốt hơn việc trực quan hóa dữ liệu. Flow trực quan hóa dữ liệu với <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> gần tương đồng với <code class="docutils literal notranslate"><span class="pre">GGPLOT2</span></code> và được tiến hành như sau:</p>
 <ul class="simple">
 <li><p>Chuẩn bị dữ liệu</p></li>
@@ -252,10 +251,11 @@
 </div></div>
 </div>
 <div class="note docutils container">
+<p class="rubric" id="luu-y">Lưu ý</p>
 <p>Từ phiên bản <code class="docutils literal notranslate"><span class="pre">0.12</span></code>, seaborn cho phép xây dựng biểu đồ thông qua <code class="docutils literal notranslate"><span class="pre">objects</span> <span class="pre">interface</span></code>. Đây là cách xây dựng biểu đồ mới, cho phép thực hiện biểu đồ thông qua các layer với các nhóm biểu đồ thông dụng như: bar, line, histogram, dot</p>
 </div>
 <section id="Object-interfaces">
-<h2><span class="section-number">10.1. </span>Object interfaces<a class="headerlink" href="#Object-interfaces" title="Link to this heading"></a></h2>
+<h2><span class="section-number">9.1. </span>Object interfaces<a class="headerlink" href="#Object-interfaces" title="Link to this heading"></a></h2>
 <p>Với <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> mới, ta có thể viết phần lớn các biểu đồ thông dụng theo cách viết của ngữ pháp biểu đồ với các layers được đặt chồng lấn lên nhau.</p>
 <p>Công thức tổng quát dạng đơn giản.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>so.Plot(data, x, y).add(so.layers())
@@ -284,7 +284,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">so.scale</span></code>: Dùng để scale các trục</p></li>
 </ul>
 <section id="Các-layer-cơ-bản">
-<h3><span class="section-number">10.1.1. </span>Các layer cơ bản<a class="headerlink" href="#Các-layer-cơ-bản" title="Link to this heading"></a></h3>
+<h3><span class="section-number">9.1.1. </span>Các layer cơ bản<a class="headerlink" href="#Các-layer-cơ-bản" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -300,12 +300,12 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-09-seaborn_5_0.png" class="no-scaled-link" src="_images/p01-09-seaborn_5_0.png" style="width: 623px; height: 463px;" />
+<img alt="_images/p01-09-seaborn_6_0.png" class="no-scaled-link" src="_images/p01-09-seaborn_6_0.png" style="width: 623px; height: 463px;" />
 </div>
 </div>
 </section>
 <section id="Facet">
-<h3><span class="section-number">10.1.2. </span>Facet<a class="headerlink" href="#Facet" title="Link to this heading"></a></h3>
+<h3><span class="section-number">9.1.2. </span>Facet<a class="headerlink" href="#Facet" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
@@ -319,12 +319,12 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-09-seaborn_7_0.png" class="no-scaled-link" src="_images/p01-09-seaborn_7_0.png" style="width: 623px; height: 464px;" />
+<img alt="_images/p01-09-seaborn_8_0.png" class="no-scaled-link" src="_images/p01-09-seaborn_8_0.png" style="width: 623px; height: 464px;" />
 </div>
 </div>
 </section>
 <section id="Chia-nhóm-dữ-liệu">
-<h3><span class="section-number">10.1.3. </span>Chia nhóm dữ liệu<a class="headerlink" href="#Chia-nhóm-dữ-liệu" title="Link to this heading"></a></h3>
+<h3><span class="section-number">9.1.3. </span>Chia nhóm dữ liệu<a class="headerlink" href="#Chia-nhóm-dữ-liệu" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -338,12 +338,12 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-09-seaborn_9_0.png" class="no-scaled-link" src="_images/p01-09-seaborn_9_0.png" style="width: 623px; height: 463px;" />
+<img alt="_images/p01-09-seaborn_10_0.png" class="no-scaled-link" src="_images/p01-09-seaborn_10_0.png" style="width: 623px; height: 463px;" />
 </div>
 </div>
 </section>
 <section id="Scale">
-<h3><span class="section-number">10.1.4. </span>Scale<a class="headerlink" href="#Scale" title="Link to this heading"></a></h3>
+<h3><span class="section-number">9.1.4. </span>Scale<a class="headerlink" href="#Scale" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
@@ -358,12 +358,12 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-09-seaborn_11_0.png" class="no-scaled-link" src="_images/p01-09-seaborn_11_0.png" style="width: 623px; height: 464px;" />
+<img alt="_images/p01-09-seaborn_12_0.png" class="no-scaled-link" src="_images/p01-09-seaborn_12_0.png" style="width: 623px; height: 464px;" />
 </div>
 </div>
 </section>
 <section id="Histogram-&amp;-Density">
-<h3><span class="section-number">10.1.5. </span>Histogram &amp; Density<a class="headerlink" href="#Histogram-&-Density" title="Link to this heading"></a></h3>
+<h3><span class="section-number">9.1.5. </span>Histogram &amp; Density<a class="headerlink" href="#Histogram-&-Density" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -377,7 +377,7 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-09-seaborn_13_0.png" class="no-scaled-link" src="_images/p01-09-seaborn_13_0.png" style="width: 623px; height: 463px;" />
+<img alt="_images/p01-09-seaborn_14_0.png" class="no-scaled-link" src="_images/p01-09-seaborn_14_0.png" style="width: 623px; height: 463px;" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -393,13 +393,13 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-09-seaborn_14_0.png" class="no-scaled-link" src="_images/p01-09-seaborn_14_0.png" style="width: 623px; height: 464px;" />
+<img alt="_images/p01-09-seaborn_15_0.png" class="no-scaled-link" src="_images/p01-09-seaborn_15_0.png" style="width: 623px; height: 464px;" />
 </div>
 </div>
 </section>
 </section>
 <section id="Các-biểu-đồ-dạng-khác">
-<h2><span class="section-number">10.2. </span>Các biểu đồ dạng khác<a class="headerlink" href="#Các-biểu-đồ-dạng-khác" title="Link to this heading"></a></h2>
+<h2><span class="section-number">9.2. </span>Các biểu đồ dạng khác<a class="headerlink" href="#Các-biểu-đồ-dạng-khác" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
@@ -553,7 +553,7 @@
 </div></div>
 </div>
 <section id="Scatterplot">
-<h3><span class="section-number">10.2.1. </span>Scatterplot<a class="headerlink" href="#Scatterplot" title="Link to this heading"></a></h3>
+<h3><span class="section-number">9.2.1. </span>Scatterplot<a class="headerlink" href="#Scatterplot" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
@@ -567,12 +567,12 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-09-seaborn_19_0.png" class="no-scaled-link" src="_images/p01-09-seaborn_19_0.png" style="width: 563px; height: 430px;" />
+<img alt="_images/p01-09-seaborn_20_0.png" class="no-scaled-link" src="_images/p01-09-seaborn_20_0.png" style="width: 563px; height: 430px;" />
 </div>
 </div>
 </section>
 <section id="Point-plot">
-<h3><span class="section-number">10.2.2. </span>Point plot<a class="headerlink" href="#Point-plot" title="Link to this heading"></a></h3>
+<h3><span class="section-number">9.2.2. </span>Point plot<a class="headerlink" href="#Point-plot" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
@@ -677,12 +677,12 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-09-seaborn_22_0.png" class="no-scaled-link" src="_images/p01-09-seaborn_22_0.png" style="width: 571px; height: 430px;" />
+<img alt="_images/p01-09-seaborn_23_0.png" class="no-scaled-link" src="_images/p01-09-seaborn_23_0.png" style="width: 571px; height: 430px;" />
 </div>
 </div>
 </section>
 <section id="Histogram-&amp;-density">
-<h3><span class="section-number">10.2.3. </span>Histogram &amp; density<a class="headerlink" href="#Histogram-&-density" title="Link to this heading"></a></h3>
+<h3><span class="section-number">9.2.3. </span>Histogram &amp; density<a class="headerlink" href="#Histogram-&-density" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
@@ -726,12 +726,12 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-09-seaborn_24_1.png" class="no-scaled-link" src="_images/p01-09-seaborn_24_1.png" style="width: 563px; height: 435px;" />
+<img alt="_images/p01-09-seaborn_25_1.png" class="no-scaled-link" src="_images/p01-09-seaborn_25_1.png" style="width: 563px; height: 435px;" />
 </div>
 </div>
 </section>
 <section id="Kernel-density">
-<h3><span class="section-number">10.2.4. </span>Kernel density<a class="headerlink" href="#Kernel-density" title="Link to this heading"></a></h3>
+<h3><span class="section-number">9.2.4. </span>Kernel density<a class="headerlink" href="#Kernel-density" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
@@ -745,12 +745,12 @@ https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-09-seaborn_26_0.png" class="no-scaled-link" src="_images/p01-09-seaborn_26_0.png" style="width: 563px; height: 412px;" />
+<img alt="_images/p01-09-seaborn_27_0.png" class="no-scaled-link" src="_images/p01-09-seaborn_27_0.png" style="width: 563px; height: 412px;" />
 </div>
 </div>
 </section>
 <section id="Joint-plot">
-<h3><span class="section-number">10.2.5. </span>Joint plot<a class="headerlink" href="#Joint-plot" title="Link to this heading"></a></h3>
+<h3><span class="section-number">9.2.5. </span>Joint plot<a class="headerlink" href="#Joint-plot" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
@@ -789,7 +789,7 @@ Cell <span class="ansi-green-intense-fg ansi-bold">In[16], line 3</span>
 </section>
 </section>
 <section id="Pair-plot">
-<h2><span class="section-number">10.3. </span>Pair plot<a class="headerlink" href="#Pair-plot" title="Link to this heading"></a></h2>
+<h2><span class="section-number">9.3. </span>Pair plot<a class="headerlink" href="#Pair-plot" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -801,7 +801,7 @@ Cell <span class="ansi-green-intense-fg ansi-bold">In[16], line 3</span>
 </div>
 </section>
 <section id="id2">
-<h2><span class="section-number">10.4. </span>Facet<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<h2><span class="section-number">9.4. </span>Facet<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">seaborn</span></code> hỗ trợ hệ thống facet</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -850,9 +850,9 @@ Cell <span class="ansi-green-intense-fg ansi-bold">In[16], line 3</span>
 </div>
 </section>
 <section id="Category-plot">
-<h2><span class="section-number">10.5. </span>Category plot<a class="headerlink" href="#Category-plot" title="Link to this heading"></a></h2>
+<h2><span class="section-number">9.5. </span>Category plot<a class="headerlink" href="#Category-plot" title="Link to this heading"></a></h2>
 <section id="Factor-plot">
-<h3><span class="section-number">10.5.1. </span>Factor plot<a class="headerlink" href="#Factor-plot" title="Link to this heading"></a></h3>
+<h3><span class="section-number">9.5.1. </span>Factor plot<a class="headerlink" href="#Factor-plot" title="Link to this heading"></a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -900,7 +900,7 @@ Cell <span class="ansi-green-intense-fg ansi-bold">In[16], line 3</span>
 </div>
 </section>
 <section id="Barplot">
-<h3><span class="section-number">10.5.2. </span>Barplot<a class="headerlink" href="#Barplot" title="Link to this heading"></a></h3>
+<h3><span class="section-number">9.5.2. </span>Barplot<a class="headerlink" href="#Barplot" title="Link to this heading"></a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -912,7 +912,7 @@ Cell <span class="ansi-green-intense-fg ansi-bold">In[16], line 3</span>
 </section>
 </section>
 <section id="Tùy-chỉnh-các-thành-phần">
-<h2><span class="section-number">10.6. </span>Tùy chỉnh các thành phần<a class="headerlink" href="#Tùy-chỉnh-các-thành-phần" title="Link to this heading"></a></h2>
+<h2><span class="section-number">9.6. </span>Tùy chỉnh các thành phần<a class="headerlink" href="#Tùy-chỉnh-các-thành-phần" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -944,7 +944,7 @@ Cell <span class="ansi-green-intense-fg ansi-bold">In[16], line 3</span>
 </div>
 </section>
 <section id="Lưu-ý-khác">
-<h2><span class="section-number">10.7. </span>Lưu ý khác<a class="headerlink" href="#Lưu-ý-khác" title="Link to this heading"></a></h2>
+<h2><span class="section-number">9.7. </span>Lưu ý khác<a class="headerlink" href="#Lưu-ý-khác" title="Link to this heading"></a></h2>
 <p><strong>Lưu ý</strong>: <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> không áp dụng chain method một cách đơn giản giống pandas được</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -979,7 +979,7 @@ Cell <span class="ansi-green-intense-fg ansi-bold">In[16], line 3</span>
 </div>
 </section>
 <section id="Tài-liệu-tham-khảo">
-<h2><span class="section-number">10.8. </span>Tài liệu tham khảo<a class="headerlink" href="#Tài-liệu-tham-khảo" title="Link to this heading"></a></h2>
+<h2><span class="section-number">9.8. </span>Tài liệu tham khảo<a class="headerlink" href="#Tài-liệu-tham-khảo" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://seaborn.pydata.org/tutorial.html">https://seaborn.pydata.org/tutorial.html</a></p></li>
 </ul>
@@ -990,14 +990,14 @@ Cell <span class="ansi-green-intense-fg ansi-bold">In[16], line 3</span>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="p01-08-matplotlib.html" class="btn btn-neutral float-left" title="9. Trực quan hóa với Matplotlib" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="p01-13-lam-viec-voi-files.html" class="btn btn-neutral float-right" title="11. Làm việc với các file trong máy tính" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="p01-08-numpy.html" class="btn btn-neutral float-left" title="8. Numpy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="p01-10-matplotlib.html" class="btn btn-neutral float-right" title="10. Trực quan hóa với Matplotlib" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2019, Anh Hoang Duc.</p>
+    <p>&#169; Copyright 2022, Anh Hoang Duc.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -11,18 +11,46 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Cơ bản về numpy \n",
+    "## Cơ bản về numpy "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Numpy là viết tắt của `Numerical Python`, là một thư viện hỗ trợ tính toán trong Python cho phép xây dựng và tính toán dữ liệu dạng ma trận (`array`) và các phép tính tính toán học.\n",
     "\n",
-    "Numpy là viết tắt của `Numerical Python`, là một thư viện hỗ trợ tính toán trong Python  "
+    "Array là một mảng dữ liệu có thể có 1 hoặc nhiều chiều như sau"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![](Image/np_array.png)"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 1,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]"
+      ]
+     },
+     "execution_count": 1,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
-    "L1 = list(range(0, 10))"
+    "import numpy as np\n",
+    "# Mảng 1 chiều\n",
+    "one_array = list(range(0, 10))\n",
+    "one_array"
    ]
   },
   {
@@ -33,7 +61,7 @@
     {
      "data": {
       "text/plain": [
-       "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]"
+       "list"
       ]
      },
      "execution_count": 2,
@@ -42,7 +70,7 @@
     }
    ],
    "source": [
-    "L1"
+    "type(one_array)"
    ]
   },
   {
@@ -53,7 +81,7 @@
     {
      "data": {
       "text/plain": [
-       "list"
+       "int"
       ]
      },
      "execution_count": 3,
@@ -62,27 +90,7 @@
     }
    ],
    "source": [
-    "type(L1)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 4,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "int"
-      ]
-     },
-     "execution_count": 4,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "type(L1[0])"
+    "type(one_array[0])"
    ]
   },
   {
@@ -94,7 +102,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": 4,
    "metadata": {},
    "outputs": [
     {
@@ -103,20 +111,19 @@
        "array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])"
       ]
      },
-     "execution_count": 5,
+     "execution_count": 4,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
-    "import numpy as np\n",
-    "L2 = np.array(range(0, 10))\n",
-    "L2"
+    "new_array = np.array(range(0, 10))\n",
+    "new_array"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
+   "execution_count": 5,
    "metadata": {},
    "outputs": [
     {
@@ -125,13 +132,13 @@
        "numpy.ndarray"
       ]
      },
-     "execution_count": 6,
+     "execution_count": 5,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
-    "type(L2)"
+    "type(new_array)"
    ]
   },
   {
@@ -145,7 +152,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": 6,
    "metadata": {},
    "outputs": [
     {
@@ -154,7 +161,7 @@
        "array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])"
       ]
      },
-     "execution_count": 7,
+     "execution_count": 6,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -166,7 +173,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 8,
+   "execution_count": 7,
    "metadata": {},
    "outputs": [
     {
@@ -176,7 +183,7 @@
        "       [1., 1., 1.]])"
       ]
      },
-     "execution_count": 8,
+     "execution_count": 7,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -195,7 +202,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 9,
+   "execution_count": 8,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -204,7 +211,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 10,
+   "execution_count": 9,
    "metadata": {},
    "outputs": [
     {
@@ -214,7 +221,7 @@
        "       [3.14, 3.14, 3.14]])"
       ]
      },
-     "execution_count": 10,
+     "execution_count": 9,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -225,7 +232,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 11,
+   "execution_count": 10,
    "metadata": {},
    "outputs": [
     {
@@ -234,7 +241,7 @@
        "array([ 2,  4,  6,  8, 10, 12, 14, 16, 18])"
       ]
      },
-     "execution_count": 11,
+     "execution_count": 10,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -246,11 +253,65 @@
   },
   {
    "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[0.55873045, 0.17101057, 0.864648  ],\n",
+       "       [0.11256483, 0.59552714, 0.2146484 ],\n",
+       "       [0.64488892, 0.70919041, 0.34403623]])"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Array 3x3 giá trị random trong khoảng 0,1 (uniform distribution)\n",
+    "np.random.random((3,3))"
+   ]
+  },
+  {
+   "cell_type": "code",
    "execution_count": 12,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([ 0.76025825, -1.57825439, -1.38003726,  0.81866305,  0.30683283,\n",
+       "        0.91609823, -0.28262441,  0.0831453 ,  0.07946278, -0.83933616,\n",
+       "       -0.85323391,  1.38111961, -0.3100797 , -0.93036297,  1.01950134,\n",
+       "        1.43045853, -0.94779552, -0.69448328, -1.44346081,  1.40828162,\n",
+       "        0.5429329 ,  0.44732211,  1.00303219, -0.57363001, -0.09862848,\n",
+       "       -0.67667372, -1.94827157, -0.7656969 ,  0.38564589,  1.29107981,\n",
+       "        0.13908446,  2.00214063,  0.85992258,  0.14703325,  1.16544076,\n",
+       "        0.36473788,  1.11848992, -2.58151903,  0.38248601,  1.52176957,\n",
+       "        0.54143324, -1.51787563,  0.8095043 , -0.28132862, -1.20142799,\n",
+       "       -0.96373088,  0.31622672, -0.510379  , -0.60201529, -0.16995291,\n",
+       "       -0.10727428,  0.99455544,  1.43689838,  0.06690922, -0.61890555,\n",
+       "        0.21505744,  0.85106305,  0.76291652,  1.43366877,  0.12512296,\n",
+       "       -0.41927812, -2.2809709 ,  0.30413348,  0.93702947, -0.57308665,\n",
+       "       -1.2016411 ,  0.15650302, -0.50422508,  1.53851802, -0.36468095,\n",
+       "       -0.24456951,  0.49703849,  0.62333574, -1.39376727, -0.11425637,\n",
+       "       -0.73034035,  1.18340278, -0.27851846, -0.05402435, -0.30502632,\n",
+       "        0.74238418,  0.97476529,  0.28831737, -0.92192898,  0.54406568,\n",
+       "        1.54547819, -0.29429902, -0.88713068,  1.22261824, -1.00247142,\n",
+       "        0.73288417,  0.10953587, -0.5792053 ,  0.93041617, -0.72188136,\n",
+       "       -0.52031037, -1.66368144,  1.77244174, -1.37504546,  0.94003123])"
+      ]
+     },
+     "execution_count": 12,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
-    "# Array 3x3 giá trị random trong khoảng 0,1 (uniform distribution)"
+    "# Random theo phân phối chuẩn\n",
+    "np.random.normal(0,1, 100)"
    ]
   },
   {
@@ -261,65 +322,12 @@
     {
      "data": {
       "text/plain": [
-       "array([[0.57631712, 0.41768034, 0.67665236],\n",
-       "       [0.05258287, 0.18273211, 0.43223421],\n",
-       "       [0.30320747, 0.28066927, 0.37133616]])"
+       "array([[1, 9, 8],\n",
+       "       [5, 6, 2],\n",
+       "       [8, 2, 2]])"
       ]
      },
      "execution_count": 13,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "np.random.random((3,3))"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 14,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "# Random theo phân phối chuẩn"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 15,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "array([[-0.22007124,  0.90094741, -0.04069485],\n",
-       "       [ 1.22450006,  0.38860242, -0.46790895],\n",
-       "       [-1.16381358, -1.18725223, -0.60643464]])"
-      ]
-     },
-     "execution_count": 15,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "np.random.normal(0,1, (3,3))"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 16,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "array([[8, 4, 2],\n",
-       "       [5, 1, 5],\n",
-       "       [6, 7, 9]])"
-      ]
-     },
-     "execution_count": 16,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -331,7 +339,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 17,
+   "execution_count": 14,
    "metadata": {},
    "outputs": [
     {
@@ -349,7 +357,7 @@
        "       4.59183673, 4.69387755, 4.79591837, 4.89795918, 5.        ])"
       ]
      },
-     "execution_count": 17,
+     "execution_count": 14,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -373,22 +381,22 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 18,
+   "execution_count": 15,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "array([[[-0.12285773, -0.77931374,  0.17455533, -0.21175972],\n",
-       "        [ 0.42706988,  0.10828687,  0.72438997,  0.17277964],\n",
-       "        [ 0.29308257,  0.85646169, -0.08286228,  0.46052946]],\n",
+       "array([[[ 0.06970451, -0.26288793, -0.01117305, -1.24629867],\n",
+       "        [-0.55028247, -0.12324752,  2.20743936,  3.19588393],\n",
+       "        [ 0.02587897, -1.44135126,  0.43530432,  1.89462402]],\n",
        "\n",
-       "       [[-1.73434574,  0.43020879,  0.52509631, -0.75041061],\n",
-       "        [-1.1062507 ,  0.52989115,  0.21571298, -2.23330962],\n",
-       "        [ 0.42127505, -0.21586672,  1.4154433 ,  2.20955452]]])"
+       "       [[-0.8051924 , -0.60224133,  0.6006951 ,  0.72837807],\n",
+       "        [ 0.10179396,  1.47488236, -0.86162609, -1.31272577],\n",
+       "        [ 1.08814531, -0.92716925,  0.54080284,  0.6210672 ]]])"
       ]
      },
-     "execution_count": 18,
+     "execution_count": 15,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -405,16 +413,16 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 19,
+   "execution_count": 16,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "array([3, 5, 6, 4, 6, 7])"
+       "array([6, 2, 7, 0, 1, 8])"
       ]
      },
-     "execution_count": 19,
+     "execution_count": 16,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -425,7 +433,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 20,
+   "execution_count": 17,
    "metadata": {},
    "outputs": [
     {
@@ -434,7 +442,7 @@
        "1"
       ]
      },
-     "execution_count": 20,
+     "execution_count": 17,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -445,7 +453,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 21,
+   "execution_count": 18,
    "metadata": {},
    "outputs": [
     {
@@ -454,7 +462,7 @@
        "(2, 3)"
       ]
      },
-     "execution_count": 21,
+     "execution_count": 18,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -465,7 +473,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 22,
+   "execution_count": 19,
    "metadata": {},
    "outputs": [
     {
@@ -474,7 +482,7 @@
        "24"
       ]
      },
-     "execution_count": 22,
+     "execution_count": 19,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -496,7 +504,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 23,
+   "execution_count": 20,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -505,18 +513,18 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 24,
+   "execution_count": 21,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "array([[1, 2, 9],\n",
-       "       [6, 4, 7],\n",
-       "       [2, 5, 1]])"
+       "array([[8, 5, 0],\n",
+       "       [9, 2, 7],\n",
+       "       [2, 0, 6]])"
       ]
      },
-     "execution_count": 24,
+     "execution_count": 21,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -527,16 +535,16 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 25,
+   "execution_count": 22,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "2"
+       "5"
       ]
      },
-     "execution_count": 25,
+     "execution_count": 22,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -547,16 +555,16 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 26,
+   "execution_count": 23,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "6"
+       "9"
       ]
      },
-     "execution_count": 26,
+     "execution_count": 23,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -567,16 +575,16 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 27,
+   "execution_count": 24,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "5"
+       "0"
       ]
      },
-     "execution_count": 27,
+     "execution_count": 24,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -594,7 +602,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 28,
+   "execution_count": 25,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -603,7 +611,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 29,
+   "execution_count": 26,
    "metadata": {},
    "outputs": [
     {
@@ -612,7 +620,7 @@
        "array([1, 2, 3, 4, 5, 6, 7, 8, 9])"
       ]
      },
-     "execution_count": 29,
+     "execution_count": 26,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -630,7 +638,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 30,
+   "execution_count": 27,
    "metadata": {},
    "outputs": [
     {
@@ -639,7 +647,7 @@
        "array([1, 2, 3, 4, 5])"
       ]
      },
-     "execution_count": 30,
+     "execution_count": 27,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -650,7 +658,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 31,
+   "execution_count": 28,
    "metadata": {},
    "outputs": [
     {
@@ -659,7 +667,7 @@
        "array([3, 4, 5])"
       ]
      },
-     "execution_count": 31,
+     "execution_count": 28,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -670,7 +678,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 32,
+   "execution_count": 29,
    "metadata": {},
    "outputs": [
     {
@@ -679,7 +687,7 @@
        "array([6, 7, 8, 9])"
       ]
      },
-     "execution_count": 32,
+     "execution_count": 29,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -690,7 +698,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 33,
+   "execution_count": 30,
    "metadata": {},
    "outputs": [
     {
@@ -699,7 +707,7 @@
        "array([1, 3, 5, 7, 9])"
       ]
      },
-     "execution_count": 33,
+     "execution_count": 30,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -710,7 +718,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 34,
+   "execution_count": 31,
    "metadata": {},
    "outputs": [
     {
@@ -719,7 +727,7 @@
        "array([1, 4, 7])"
       ]
      },
-     "execution_count": 34,
+     "execution_count": 31,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -730,7 +738,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 35,
+   "execution_count": 32,
    "metadata": {},
    "outputs": [
     {
@@ -739,7 +747,7 @@
        "array([2, 4, 6, 8])"
       ]
      },
-     "execution_count": 35,
+     "execution_count": 32,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -759,7 +767,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 36,
+   "execution_count": 33,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -768,7 +776,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 37,
+   "execution_count": 34,
    "metadata": {},
    "outputs": [
     {
@@ -777,7 +785,7 @@
        "numpy.ndarray"
       ]
      },
-     "execution_count": 37,
+     "execution_count": 34,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -788,7 +796,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 38,
+   "execution_count": 35,
    "metadata": {},
    "outputs": [
     {
@@ -797,7 +805,7 @@
        "array([1, 2, 3, 4, 5, 6, 7, 8, 9])"
       ]
      },
-     "execution_count": 38,
+     "execution_count": 35,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -808,7 +816,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 39,
+   "execution_count": 36,
    "metadata": {},
    "outputs": [
     {
@@ -819,7 +827,7 @@
        "       [7, 8, 9]])"
       ]
      },
-     "execution_count": 39,
+     "execution_count": 36,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -839,7 +847,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 40,
+   "execution_count": 37,
    "metadata": {},
    "outputs": [
     {
@@ -848,7 +856,7 @@
        "array([1, 2, 3, 4, 5, 6, 7, 8, 9])"
       ]
      },
-     "execution_count": 40,
+     "execution_count": 37,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -860,7 +868,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 41,
+   "execution_count": 38,
    "metadata": {},
    "outputs": [
     {
@@ -870,7 +878,7 @@
        "       [7, 4]])"
       ]
      },
-     "execution_count": 41,
+     "execution_count": 38,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -882,7 +890,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 42,
+   "execution_count": 39,
    "metadata": {},
    "outputs": [
     {
@@ -892,7 +900,7 @@
        "       [8, 5]])"
       ]
      },
-     "execution_count": 42,
+     "execution_count": 39,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -910,7 +918,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 43,
+   "execution_count": 40,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -920,7 +928,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 44,
+   "execution_count": 41,
    "metadata": {},
    "outputs": [
     {
@@ -929,7 +937,7 @@
        "array([1, 2, 3, 6, 9])"
       ]
      },
-     "execution_count": 44,
+     "execution_count": 41,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -940,7 +948,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 45,
+   "execution_count": 42,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -950,18 +958,18 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 46,
+   "execution_count": 43,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "array([[7, 6, 7],\n",
-       "       [2, 8, 1],\n",
-       "       [6, 8, 4]])"
+       "array([[9, 3, 9],\n",
+       "       [2, 9, 1],\n",
+       "       [1, 9, 6]])"
       ]
      },
-     "execution_count": 46,
+     "execution_count": 43,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -972,18 +980,18 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 47,
+   "execution_count": 44,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "array([[2, 6, 1],\n",
-       "       [6, 8, 4],\n",
-       "       [7, 8, 7]])"
+       "array([[1, 3, 1],\n",
+       "       [2, 9, 6],\n",
+       "       [9, 9, 9]])"
       ]
      },
-     "execution_count": 47,
+     "execution_count": 44,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -994,18 +1002,18 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 48,
+   "execution_count": 45,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "array([[6, 7, 7],\n",
-       "       [1, 2, 8],\n",
-       "       [4, 6, 8]])"
+       "array([[3, 9, 9],\n",
+       "       [1, 2, 9],\n",
+       "       [1, 6, 9]])"
       ]
      },
-     "execution_count": 48,
+     "execution_count": 45,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1018,22 +1026,103 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Các phép toán trong array của Python tương tự như R\n",
-    "\n",
-    "## Biến đổi từ dataframe sang array\n",
-    "\n",
-    "Các phép toán ứng dụng của machine learning chủ yếu làm việc với array. Trong khi đó, cấu trúc dữ liệu cơ bản khi làm việc về phân tích và khám phá dữ liệu lại là pd.DataFrame và pd.Series. Do đó, cần phải thành thạo việc biến đổi qua lại các kiểu dữ liệu trên\n",
-    "\n",
-    "### List sang array"
+    "## Các phép toán cơ bản trong numpy"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Numpy có chứa các hàm tính toán toán học mà các thư viện mặc định của python không có. Ta có thể sử dụng như sau"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 46,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([ 9.06661188,  6.62068848, 11.29608551,  5.61416346, 10.73621897,\n",
+       "        9.81364447, 11.8802057 ,  9.76555625, 12.62739733, 10.74900392])"
+      ]
+     },
+     "execution_count": 46,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x = np.random.normal(10, 2, 10)\n",
+    "x"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 47,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([ 82.20345102,  43.83351597, 127.60154784,  31.51883137,\n",
+       "       115.26639783,  96.30761769, 141.13928748,  95.36608879,\n",
+       "       159.45116344, 115.54108533])"
+      ]
+     },
+     "execution_count": 47,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Bình phương\n",
+    "np.square(x)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 48,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([3.01108151, 2.57306986, 3.36096497, 2.3694226 , 3.276617  ,\n",
+       "       3.13267369, 3.44676743, 3.124989  , 3.55350494, 3.27856736])"
+      ]
+     },
+     "execution_count": 48,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Căn bậc 2\n",
+    "np.sqrt(x)"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 49,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([2.20459864, 1.89019936, 2.42445625, 1.72529259, 2.37362298,\n",
+       "       2.28377371, 2.47487363, 2.27886153, 2.53586885, 2.37481309])"
+      ]
+     },
+     "execution_count": 49,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
-    "my_list = [1,2,3,4]"
+    "# log\n",
+    "np.log(x)"
    ]
   },
   {
@@ -1044,10 +1133,55 @@
     {
      "data": {
       "text/plain": [
-       "list"
+       "array([109.06661188, 106.62068848, 111.29608551, 105.61416346,\n",
+       "       110.73621897, 109.81364447, 111.8802057 , 109.76555625,\n",
+       "       112.62739733, 110.74900392])"
       ]
      },
      "execution_count": 50,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Cộng thêm các giá trị\n",
+    "x + 100"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "\n",
+    "\n",
+    "## Biến đổi từ dataframe sang array\n",
+    "\n",
+    "Các phép toán ứng dụng của machine learning chủ yếu làm việc với array. Trong khi đó, cấu trúc dữ liệu cơ bản khi làm việc về phân tích và khám phá dữ liệu lại là pd.DataFrame và pd.Series. Do đó, cần phải thành thạo việc biến đổi qua lại các kiểu dữ liệu trên\n",
+    "\n",
+    "### List sang array"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 51,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "my_list = [1,2,3,4]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 52,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "list"
+      ]
+     },
+     "execution_count": 52,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1058,7 +1192,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 51,
+   "execution_count": 53,
    "metadata": {},
    "outputs": [
     {
@@ -1067,7 +1201,7 @@
        "array([1, 2, 3, 4])"
       ]
      },
-     "execution_count": 51,
+     "execution_count": 53,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1086,7 +1220,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 52,
+   "execution_count": 54,
    "metadata": {},
    "outputs": [
     {
@@ -1141,7 +1275,7 @@
        "2  3  c"
       ]
      },
-     "execution_count": 52,
+     "execution_count": 54,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1157,7 +1291,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 53,
+   "execution_count": 55,
    "metadata": {},
    "outputs": [
     {
@@ -1168,7 +1302,7 @@
        "       [3, 'c']], dtype=object)"
       ]
      },
-     "execution_count": 53,
+     "execution_count": 55,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1180,7 +1314,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 54,
+   "execution_count": 56,
    "metadata": {},
    "outputs": [
     {
@@ -1189,7 +1323,7 @@
        "numpy.ndarray"
       ]
      },
-     "execution_count": 54,
+     "execution_count": 56,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1200,7 +1334,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 55,
+   "execution_count": 57,
    "metadata": {},
    "outputs": [
     {
@@ -1209,7 +1343,7 @@
        "(3, 2)"
       ]
      },
-     "execution_count": 55,
+     "execution_count": 57,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1221,7 +1355,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 56,
+   "execution_count": 58,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -1231,7 +1365,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 57,
+   "execution_count": 59,
    "metadata": {},
    "outputs": [
     {
@@ -1240,7 +1374,7 @@
        "(3,)"
       ]
      },
-     "execution_count": 57,
+     "execution_count": 59,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1258,7 +1392,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 58,
+   "execution_count": 60,
    "metadata": {},
    "outputs": [
     {
@@ -1267,13 +1401,22 @@
        "(3, 1)"
       ]
      },
-     "execution_count": 58,
+     "execution_count": 60,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
     "series_array.reshape(3, 1).shape"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Tài liệu tham khảo\n",
+    "\n",
+    "- https://numpy.org/"
    ]
   }
  ],
@@ -1293,7 +1436,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.11.4"
+   "version": "3.11.5"
   }
  },
  "nbformat": 4,

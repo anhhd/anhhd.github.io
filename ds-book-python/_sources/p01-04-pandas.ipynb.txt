@@ -468,7 +468,14 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "**Biến category**: Trong pandas cho phép sử dụng biến category tương tự như factor của R"
+    "---"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Biến category**: Trong pandas cho phép sử dụng biến category - là loại định dạng dữ liệu cho phép tạo các nhóm. Định dạng này tương tự như `factor` của R"
    ]
   },
   {
@@ -500,20 +507,29 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### DataFrame \n",
-    "\n",
-    "DataFrame có cấu trúc tương tự như R dataframe. Một dataframe có thể được tạo ra từ `dictionary` hoặc `Series`."
+    "Ta cũng có thể biến đổi định dạng dữ liệu sang category theo các cách khác như sau"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 17,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "pandas.core.series.Series"
+      ]
+     },
+     "execution_count": 17,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
    "source": [
-    "# Tạo dictionary\n",
-    "df_dict = {'group': ['a', 'b', 'a', 'b', 'c'],\n",
-    "'value': [1, 2, 4, 2, 3]}"
+    "x = pd.Series([\"a\", \"a\", \"b\"])\n",
+    "x = x.astype(\"category\")\n",
+    "type(x)"
    ]
   },
   {
@@ -524,10 +540,54 @@
     {
      "data": {
       "text/plain": [
-       "{'group': ['a', 'b', 'a', 'b', 'c'], 'value': [1, 2, 4, 2, 3]}"
+       "count     3\n",
+       "unique    2\n",
+       "top       a\n",
+       "freq      2\n",
+       "dtype: object"
       ]
      },
      "execution_count": 18,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x.describe()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### DataFrame \n",
+    "\n",
+    "DataFrame có cấu trúc tương tự như R dataframe. Một dataframe có thể được tạo ra từ `dictionary` hoặc `Series`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Tạo dictionary\n",
+    "df_dict = {'group': ['a', 'b', 'a', 'b', 'c'],\n",
+    "'value': [1, 2, 4, 2, 3]}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'group': ['a', 'b', 'a', 'b', 'c'], 'value': [1, 2, 4, 2, 3]}"
+      ]
+     },
+     "execution_count": 20,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -538,7 +598,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 19,
+   "execution_count": 21,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -548,7 +608,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 20,
+   "execution_count": 22,
    "metadata": {},
    "outputs": [
     {
@@ -615,7 +675,7 @@
        "4     c      3"
       ]
      },
-     "execution_count": 20,
+     "execution_count": 22,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -626,7 +686,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 21,
+   "execution_count": 23,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -636,7 +696,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 22,
+   "execution_count": 24,
    "metadata": {},
    "outputs": [
     {
@@ -703,7 +763,7 @@
        "five      c      3"
       ]
      },
-     "execution_count": 22,
+     "execution_count": 24,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -747,7 +807,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 23,
+   "execution_count": 25,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -767,7 +827,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 24,
+   "execution_count": 26,
    "metadata": {},
    "outputs": [
     {
@@ -867,7 +927,7 @@
        "2     1  "
       ]
      },
-     "execution_count": 24,
+     "execution_count": 26,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -879,7 +939,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 25,
+   "execution_count": 27,
    "metadata": {},
    "outputs": [
     {
@@ -1010,7 +1070,7 @@
        "[8 rows x 11 columns]"
       ]
      },
-     "execution_count": 25,
+     "execution_count": 27,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1022,7 +1082,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 26,
+   "execution_count": 28,
    "metadata": {},
    "outputs": [
     {
@@ -1083,7 +1143,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 27,
+   "execution_count": 29,
    "metadata": {},
    "outputs": [
     {
@@ -1097,7 +1157,7 @@
        "Name: mpg, Length: 32, dtype: float64"
       ]
      },
-     "execution_count": 27,
+     "execution_count": 29,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1109,7 +1169,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 28,
+   "execution_count": 30,
    "metadata": {},
    "outputs": [
     {
@@ -1123,7 +1183,7 @@
        "Name: mpg, Length: 32, dtype: float64"
       ]
      },
-     "execution_count": 28,
+     "execution_count": 30,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1135,7 +1195,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 29,
+   "execution_count": 31,
    "metadata": {},
    "outputs": [
     {
@@ -1205,7 +1265,7 @@
        "[32 rows x 2 columns]"
       ]
      },
-     "execution_count": 29,
+     "execution_count": 31,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1216,7 +1276,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 30,
+   "execution_count": 32,
    "metadata": {},
    "outputs": [
     {
@@ -1292,7 +1352,7 @@
        "[32 rows x 3 columns]"
       ]
      },
-     "execution_count": 30,
+     "execution_count": 32,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1311,7 +1371,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 31,
+   "execution_count": 33,
    "metadata": {},
    "outputs": [
     {
@@ -1387,7 +1447,7 @@
        "[32 rows x 3 columns]"
       ]
      },
-     "execution_count": 31,
+     "execution_count": 33,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1413,7 +1473,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 32,
+   "execution_count": 34,
    "metadata": {},
    "outputs": [
     {
@@ -1513,7 +1573,7 @@
        "3     1  "
       ]
      },
-     "execution_count": 32,
+     "execution_count": 34,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1528,173 +1588,6 @@
    "metadata": {},
    "source": [
     "`iloc` cũng cho phép lấy theo cột"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 33,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/html": [
-       "<div>\n",
-       "<style scoped>\n",
-       "    .dataframe tbody tr th:only-of-type {\n",
-       "        vertical-align: middle;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe tbody tr th {\n",
-       "        vertical-align: top;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe thead th {\n",
-       "        text-align: right;\n",
-       "    }\n",
-       "</style>\n",
-       "<table border=\"1\" class=\"dataframe\">\n",
-       "  <thead>\n",
-       "    <tr style=\"text-align: right;\">\n",
-       "      <th></th>\n",
-       "      <th>mpg</th>\n",
-       "      <th>cyl</th>\n",
-       "    </tr>\n",
-       "  </thead>\n",
-       "  <tbody>\n",
-       "    <tr>\n",
-       "      <th>1</th>\n",
-       "      <td>21.0</td>\n",
-       "      <td>6</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>2</th>\n",
-       "      <td>22.8</td>\n",
-       "      <td>4</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>3</th>\n",
-       "      <td>21.4</td>\n",
-       "      <td>6</td>\n",
-       "    </tr>\n",
-       "  </tbody>\n",
-       "</table>\n",
-       "</div>"
-      ],
-      "text/plain": [
-       "    mpg  cyl\n",
-       "1  21.0    6\n",
-       "2  22.8    4\n",
-       "3  21.4    6"
-      ]
-     },
-     "execution_count": 33,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "# 3 dòng đầu tiên, 2 biến đầu tiên\n",
-    "mtcars.iloc[1:4, 1:3]"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "---"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "**Lưu ý**: Trong pandas, ta có thể kết hợp truy vấn cả cột và dòng theo dạng `pipe` khi áp dụng method do mỗi object biến đổi dữ liệu trong pandas đều là một DataFrame"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 34,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/html": [
-       "<div>\n",
-       "<style scoped>\n",
-       "    .dataframe tbody tr th:only-of-type {\n",
-       "        vertical-align: middle;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe tbody tr th {\n",
-       "        vertical-align: top;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe thead th {\n",
-       "        text-align: right;\n",
-       "    }\n",
-       "</style>\n",
-       "<table border=\"1\" class=\"dataframe\">\n",
-       "  <thead>\n",
-       "    <tr style=\"text-align: right;\">\n",
-       "      <th></th>\n",
-       "      <th>mpg</th>\n",
-       "      <th>cyl</th>\n",
-       "    </tr>\n",
-       "  </thead>\n",
-       "  <tbody>\n",
-       "    <tr>\n",
-       "      <th>1</th>\n",
-       "      <td>21.0</td>\n",
-       "      <td>6</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>2</th>\n",
-       "      <td>22.8</td>\n",
-       "      <td>4</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>3</th>\n",
-       "      <td>21.4</td>\n",
-       "      <td>6</td>\n",
-       "    </tr>\n",
-       "  </tbody>\n",
-       "</table>\n",
-       "</div>"
-      ],
-      "text/plain": [
-       "    mpg  cyl\n",
-       "1  21.0    6\n",
-       "2  22.8    4\n",
-       "3  21.4    6"
-      ]
-     },
-     "execution_count": 34,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "mtcars[['mpg', 'cyl']].\\\n",
-    "    iloc[1:4]"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "### Lọc dữ liệu theo điều kiện"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "`pandas` cho phép lọc theo điều kiện theo 2 cách:\n",
-    "\n",
-    "- Sử dụng phương pháp lọc thông thường, cấu truc: `df[df.var1 > a & df.var2 < b]`\n",
-    "- Sử dụng `query` method\n",
-    "\n",
-    "**Ví dụ sử dụng phương pháp lọc thông thường**"
    ]
   },
   {
@@ -1723,117 +1616,35 @@
        "  <thead>\n",
        "    <tr style=\"text-align: right;\">\n",
        "      <th></th>\n",
-       "      <th>name</th>\n",
        "      <th>mpg</th>\n",
        "      <th>cyl</th>\n",
-       "      <th>disp</th>\n",
-       "      <th>hp</th>\n",
-       "      <th>drat</th>\n",
-       "      <th>wt</th>\n",
-       "      <th>qsec</th>\n",
-       "      <th>vs</th>\n",
-       "      <th>am</th>\n",
-       "      <th>gear</th>\n",
-       "      <th>carb</th>\n",
        "    </tr>\n",
        "  </thead>\n",
        "  <tbody>\n",
        "    <tr>\n",
-       "      <th>0</th>\n",
-       "      <td>Mazda RX4</td>\n",
-       "      <td>21.0</td>\n",
-       "      <td>6</td>\n",
-       "      <td>160.0</td>\n",
-       "      <td>110</td>\n",
-       "      <td>3.90</td>\n",
-       "      <td>2.620</td>\n",
-       "      <td>16.46</td>\n",
-       "      <td>0</td>\n",
-       "      <td>1</td>\n",
-       "      <td>4</td>\n",
-       "      <td>4</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
        "      <th>1</th>\n",
-       "      <td>Mazda RX4 Wag</td>\n",
        "      <td>21.0</td>\n",
        "      <td>6</td>\n",
-       "      <td>160.0</td>\n",
-       "      <td>110</td>\n",
-       "      <td>3.90</td>\n",
-       "      <td>2.875</td>\n",
-       "      <td>17.02</td>\n",
-       "      <td>0</td>\n",
-       "      <td>1</td>\n",
-       "      <td>4</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>22.8</td>\n",
        "      <td>4</td>\n",
        "    </tr>\n",
        "    <tr>\n",
-       "      <th>...</th>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>27</th>\n",
-       "      <td>Lotus Europa</td>\n",
-       "      <td>30.4</td>\n",
-       "      <td>4</td>\n",
-       "      <td>95.1</td>\n",
-       "      <td>113</td>\n",
-       "      <td>3.77</td>\n",
-       "      <td>1.513</td>\n",
-       "      <td>16.90</td>\n",
-       "      <td>1</td>\n",
-       "      <td>1</td>\n",
-       "      <td>5</td>\n",
-       "      <td>2</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>31</th>\n",
-       "      <td>Volvo 142E</td>\n",
+       "      <th>3</th>\n",
        "      <td>21.4</td>\n",
-       "      <td>4</td>\n",
-       "      <td>121.0</td>\n",
-       "      <td>109</td>\n",
-       "      <td>4.11</td>\n",
-       "      <td>2.780</td>\n",
-       "      <td>18.60</td>\n",
-       "      <td>1</td>\n",
-       "      <td>1</td>\n",
-       "      <td>4</td>\n",
-       "      <td>2</td>\n",
+       "      <td>6</td>\n",
        "    </tr>\n",
        "  </tbody>\n",
        "</table>\n",
-       "<p>14 rows × 12 columns</p>\n",
        "</div>"
       ],
       "text/plain": [
-       "             name   mpg  cyl   disp   hp  drat     wt   qsec  vs  am  gear  \\\n",
-       "0       Mazda RX4  21.0    6  160.0  110  3.90  2.620  16.46   0   1     4   \n",
-       "1   Mazda RX4 Wag  21.0    6  160.0  110  3.90  2.875  17.02   0   1     4   \n",
-       "..            ...   ...  ...    ...  ...   ...    ...    ...  ..  ..   ...   \n",
-       "27   Lotus Europa  30.4    4   95.1  113  3.77  1.513  16.90   1   1     5   \n",
-       "31     Volvo 142E  21.4    4  121.0  109  4.11  2.780  18.60   1   1     4   \n",
-       "\n",
-       "    carb  \n",
-       "0      4  \n",
-       "1      4  \n",
-       "..   ...  \n",
-       "27     2  \n",
-       "31     2  \n",
-       "\n",
-       "[14 rows x 12 columns]"
+       "    mpg  cyl\n",
+       "1  21.0    6\n",
+       "2  22.8    4\n",
+       "3  21.4    6"
       ]
      },
      "execution_count": 35,
@@ -1842,8 +1653,22 @@
     }
    ],
    "source": [
-    "# Lọc mpg >= 20\n",
-    "mtcars[mtcars.mpg >= 20]"
+    "# 3 dòng đầu tiên, 2 biến đầu tiên\n",
+    "mtcars.iloc[1:4, 1:3]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "---"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Lưu ý**: Trong pandas, ta có thể kết hợp truy vấn cả cột và dòng theo dạng `pipe` khi áp dụng method do mỗi object biến đổi dữ liệu trong pandas đều là một DataFrame"
    ]
   },
   {
@@ -1872,117 +1697,35 @@
        "  <thead>\n",
        "    <tr style=\"text-align: right;\">\n",
        "      <th></th>\n",
-       "      <th>name</th>\n",
        "      <th>mpg</th>\n",
        "      <th>cyl</th>\n",
-       "      <th>disp</th>\n",
-       "      <th>hp</th>\n",
-       "      <th>drat</th>\n",
-       "      <th>wt</th>\n",
-       "      <th>qsec</th>\n",
-       "      <th>vs</th>\n",
-       "      <th>am</th>\n",
-       "      <th>gear</th>\n",
-       "      <th>carb</th>\n",
        "    </tr>\n",
        "  </thead>\n",
        "  <tbody>\n",
        "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>21.0</td>\n",
+       "      <td>6</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
        "      <th>2</th>\n",
-       "      <td>Datsun 710</td>\n",
        "      <td>22.8</td>\n",
        "      <td>4</td>\n",
-       "      <td>108.0</td>\n",
-       "      <td>93</td>\n",
-       "      <td>3.85</td>\n",
-       "      <td>2.320</td>\n",
-       "      <td>18.61</td>\n",
-       "      <td>1</td>\n",
-       "      <td>1</td>\n",
-       "      <td>4</td>\n",
-       "      <td>1</td>\n",
        "    </tr>\n",
        "    <tr>\n",
-       "      <th>7</th>\n",
-       "      <td>Merc 240D</td>\n",
-       "      <td>24.4</td>\n",
-       "      <td>4</td>\n",
-       "      <td>146.7</td>\n",
-       "      <td>62</td>\n",
-       "      <td>3.69</td>\n",
-       "      <td>3.190</td>\n",
-       "      <td>20.00</td>\n",
-       "      <td>1</td>\n",
-       "      <td>0</td>\n",
-       "      <td>4</td>\n",
-       "      <td>2</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>...</th>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>27</th>\n",
-       "      <td>Lotus Europa</td>\n",
-       "      <td>30.4</td>\n",
-       "      <td>4</td>\n",
-       "      <td>95.1</td>\n",
-       "      <td>113</td>\n",
-       "      <td>3.77</td>\n",
-       "      <td>1.513</td>\n",
-       "      <td>16.90</td>\n",
-       "      <td>1</td>\n",
-       "      <td>1</td>\n",
-       "      <td>5</td>\n",
-       "      <td>2</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>31</th>\n",
-       "      <td>Volvo 142E</td>\n",
+       "      <th>3</th>\n",
        "      <td>21.4</td>\n",
-       "      <td>4</td>\n",
-       "      <td>121.0</td>\n",
-       "      <td>109</td>\n",
-       "      <td>4.11</td>\n",
-       "      <td>2.780</td>\n",
-       "      <td>18.60</td>\n",
-       "      <td>1</td>\n",
-       "      <td>1</td>\n",
-       "      <td>4</td>\n",
-       "      <td>2</td>\n",
+       "      <td>6</td>\n",
        "    </tr>\n",
        "  </tbody>\n",
        "</table>\n",
-       "<p>11 rows × 12 columns</p>\n",
        "</div>"
       ],
       "text/plain": [
-       "            name   mpg  cyl   disp   hp  drat     wt   qsec  vs  am  gear  \\\n",
-       "2     Datsun 710  22.8    4  108.0   93  3.85  2.320  18.61   1   1     4   \n",
-       "7      Merc 240D  24.4    4  146.7   62  3.69  3.190  20.00   1   0     4   \n",
-       "..           ...   ...  ...    ...  ...   ...    ...    ...  ..  ..   ...   \n",
-       "27  Lotus Europa  30.4    4   95.1  113  3.77  1.513  16.90   1   1     5   \n",
-       "31    Volvo 142E  21.4    4  121.0  109  4.11  2.780  18.60   1   1     4   \n",
-       "\n",
-       "    carb  \n",
-       "2      1  \n",
-       "7      2  \n",
-       "..   ...  \n",
-       "27     2  \n",
-       "31     2  \n",
-       "\n",
-       "[11 rows x 12 columns]"
+       "    mpg  cyl\n",
+       "1  21.0    6\n",
+       "2  22.8    4\n",
+       "3  21.4    6"
       ]
      },
      "execution_count": 36,
@@ -1991,21 +1734,27 @@
     }
    ],
    "source": [
-    "# mpg >= 20 & cyl = 4\n",
-    "mtcars[(mtcars.mpg >= 20) & (mtcars.cyl == 4)]"
+    "mtcars[['mpg', 'cyl']].\\\n",
+    "    iloc[1:4]"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Với cách thức như trên, ta sẽ gặp khó khăn trong trường hợp các bước truy vấn dữ liệu xảy ra liên tục.\n",
-    "Ví dụ:\n",
+    "### Lọc dữ liệu theo điều kiện"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "`pandas` cho phép lọc theo điều kiện theo 2 cách:\n",
     "\n",
-    "- Từ `mtcars` lấy các dòng có `mpg >= 20`\n",
-    "- Từ tập dữ liệu vừa có, lọc tiếp `cyl = 4`\n",
+    "- Sử dụng phương pháp lọc thông thường, cấu truc: `df[df.var1 > a & df.var2 < b]`\n",
+    "- Sử dụng `query` method\n",
     "\n",
-    "Để giải quyết các trường hợp trên, ta có thể sử dụng query method như sau"
+    "**Ví dụ sử dụng phương pháp lọc thông thường**"
    ]
   },
   {
@@ -2153,8 +1902,8 @@
     }
    ],
    "source": [
-    "# mpg >= 20\n",
-    "mtcars.query('mpg >= 20')"
+    "# Lọc mpg >= 20\n",
+    "mtcars[mtcars.mpg >= 20]"
    ]
   },
   {
@@ -2302,6 +2051,317 @@
     }
    ],
    "source": [
+    "# mpg >= 20 & cyl = 4\n",
+    "mtcars[(mtcars.mpg >= 20) & (mtcars.cyl == 4)]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Với cách thức như trên, ta sẽ gặp khó khăn trong trường hợp các bước truy vấn dữ liệu xảy ra liên tục.\n",
+    "Ví dụ:\n",
+    "\n",
+    "- Từ `mtcars` lấy các dòng có `mpg >= 20`\n",
+    "- Từ tập dữ liệu vừa có, lọc tiếp `cyl = 4`\n",
+    "\n",
+    "Để giải quyết các trường hợp trên, ta có thể sử dụng query method như sau"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>name</th>\n",
+       "      <th>mpg</th>\n",
+       "      <th>cyl</th>\n",
+       "      <th>disp</th>\n",
+       "      <th>hp</th>\n",
+       "      <th>drat</th>\n",
+       "      <th>wt</th>\n",
+       "      <th>qsec</th>\n",
+       "      <th>vs</th>\n",
+       "      <th>am</th>\n",
+       "      <th>gear</th>\n",
+       "      <th>carb</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>Mazda RX4</td>\n",
+       "      <td>21.0</td>\n",
+       "      <td>6</td>\n",
+       "      <td>160.0</td>\n",
+       "      <td>110</td>\n",
+       "      <td>3.90</td>\n",
+       "      <td>2.620</td>\n",
+       "      <td>16.46</td>\n",
+       "      <td>0</td>\n",
+       "      <td>1</td>\n",
+       "      <td>4</td>\n",
+       "      <td>4</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>Mazda RX4 Wag</td>\n",
+       "      <td>21.0</td>\n",
+       "      <td>6</td>\n",
+       "      <td>160.0</td>\n",
+       "      <td>110</td>\n",
+       "      <td>3.90</td>\n",
+       "      <td>2.875</td>\n",
+       "      <td>17.02</td>\n",
+       "      <td>0</td>\n",
+       "      <td>1</td>\n",
+       "      <td>4</td>\n",
+       "      <td>4</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>...</th>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>27</th>\n",
+       "      <td>Lotus Europa</td>\n",
+       "      <td>30.4</td>\n",
+       "      <td>4</td>\n",
+       "      <td>95.1</td>\n",
+       "      <td>113</td>\n",
+       "      <td>3.77</td>\n",
+       "      <td>1.513</td>\n",
+       "      <td>16.90</td>\n",
+       "      <td>1</td>\n",
+       "      <td>1</td>\n",
+       "      <td>5</td>\n",
+       "      <td>2</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>31</th>\n",
+       "      <td>Volvo 142E</td>\n",
+       "      <td>21.4</td>\n",
+       "      <td>4</td>\n",
+       "      <td>121.0</td>\n",
+       "      <td>109</td>\n",
+       "      <td>4.11</td>\n",
+       "      <td>2.780</td>\n",
+       "      <td>18.60</td>\n",
+       "      <td>1</td>\n",
+       "      <td>1</td>\n",
+       "      <td>4</td>\n",
+       "      <td>2</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "<p>14 rows × 12 columns</p>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "             name   mpg  cyl   disp   hp  drat     wt   qsec  vs  am  gear  \\\n",
+       "0       Mazda RX4  21.0    6  160.0  110  3.90  2.620  16.46   0   1     4   \n",
+       "1   Mazda RX4 Wag  21.0    6  160.0  110  3.90  2.875  17.02   0   1     4   \n",
+       "..            ...   ...  ...    ...  ...   ...    ...    ...  ..  ..   ...   \n",
+       "27   Lotus Europa  30.4    4   95.1  113  3.77  1.513  16.90   1   1     5   \n",
+       "31     Volvo 142E  21.4    4  121.0  109  4.11  2.780  18.60   1   1     4   \n",
+       "\n",
+       "    carb  \n",
+       "0      4  \n",
+       "1      4  \n",
+       "..   ...  \n",
+       "27     2  \n",
+       "31     2  \n",
+       "\n",
+       "[14 rows x 12 columns]"
+      ]
+     },
+     "execution_count": 39,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# mpg >= 20\n",
+    "mtcars.query('mpg >= 20')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>name</th>\n",
+       "      <th>mpg</th>\n",
+       "      <th>cyl</th>\n",
+       "      <th>disp</th>\n",
+       "      <th>hp</th>\n",
+       "      <th>drat</th>\n",
+       "      <th>wt</th>\n",
+       "      <th>qsec</th>\n",
+       "      <th>vs</th>\n",
+       "      <th>am</th>\n",
+       "      <th>gear</th>\n",
+       "      <th>carb</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>Datsun 710</td>\n",
+       "      <td>22.8</td>\n",
+       "      <td>4</td>\n",
+       "      <td>108.0</td>\n",
+       "      <td>93</td>\n",
+       "      <td>3.85</td>\n",
+       "      <td>2.320</td>\n",
+       "      <td>18.61</td>\n",
+       "      <td>1</td>\n",
+       "      <td>1</td>\n",
+       "      <td>4</td>\n",
+       "      <td>1</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>7</th>\n",
+       "      <td>Merc 240D</td>\n",
+       "      <td>24.4</td>\n",
+       "      <td>4</td>\n",
+       "      <td>146.7</td>\n",
+       "      <td>62</td>\n",
+       "      <td>3.69</td>\n",
+       "      <td>3.190</td>\n",
+       "      <td>20.00</td>\n",
+       "      <td>1</td>\n",
+       "      <td>0</td>\n",
+       "      <td>4</td>\n",
+       "      <td>2</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>...</th>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>27</th>\n",
+       "      <td>Lotus Europa</td>\n",
+       "      <td>30.4</td>\n",
+       "      <td>4</td>\n",
+       "      <td>95.1</td>\n",
+       "      <td>113</td>\n",
+       "      <td>3.77</td>\n",
+       "      <td>1.513</td>\n",
+       "      <td>16.90</td>\n",
+       "      <td>1</td>\n",
+       "      <td>1</td>\n",
+       "      <td>5</td>\n",
+       "      <td>2</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>31</th>\n",
+       "      <td>Volvo 142E</td>\n",
+       "      <td>21.4</td>\n",
+       "      <td>4</td>\n",
+       "      <td>121.0</td>\n",
+       "      <td>109</td>\n",
+       "      <td>4.11</td>\n",
+       "      <td>2.780</td>\n",
+       "      <td>18.60</td>\n",
+       "      <td>1</td>\n",
+       "      <td>1</td>\n",
+       "      <td>4</td>\n",
+       "      <td>2</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "<p>11 rows × 12 columns</p>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "            name   mpg  cyl   disp   hp  drat     wt   qsec  vs  am  gear  \\\n",
+       "2     Datsun 710  22.8    4  108.0   93  3.85  2.320  18.61   1   1     4   \n",
+       "7      Merc 240D  24.4    4  146.7   62  3.69  3.190  20.00   1   0     4   \n",
+       "..           ...   ...  ...    ...  ...   ...    ...    ...  ..  ..   ...   \n",
+       "27  Lotus Europa  30.4    4   95.1  113  3.77  1.513  16.90   1   1     5   \n",
+       "31    Volvo 142E  21.4    4  121.0  109  4.11  2.780  18.60   1   1     4   \n",
+       "\n",
+       "    carb  \n",
+       "2      1  \n",
+       "7      2  \n",
+       "..   ...  \n",
+       "27     2  \n",
+       "31     2  \n",
+       "\n",
+       "[11 rows x 12 columns]"
+      ]
+     },
+     "execution_count": 40,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
     "# Lấy thêm điều kiện cyl == 4\n",
     "mtcars.\\\n",
     "    query('mpg >= 20').\\\n",
@@ -2317,7 +2377,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 39,
+   "execution_count": 41,
    "metadata": {},
    "outputs": [
     {
@@ -2387,7 +2447,7 @@
        "[8 rows x 2 columns]"
       ]
      },
-     "execution_count": 39,
+     "execution_count": 41,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2428,7 +2488,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 40,
+   "execution_count": 42,
    "metadata": {},
    "outputs": [
     {
@@ -2483,7 +2543,7 @@
        "17  32.4   1"
       ]
      },
-     "execution_count": 40,
+     "execution_count": 42,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2511,7 +2571,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 41,
+   "execution_count": 43,
    "metadata": {},
    "outputs": [
     {
@@ -2648,7 +2708,7 @@
        "[32 rows x 12 columns]"
       ]
      },
-     "execution_count": 41,
+     "execution_count": 43,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2660,7 +2720,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 42,
+   "execution_count": 44,
    "metadata": {},
    "outputs": [
     {
@@ -2797,7 +2857,7 @@
        "[32 rows x 12 columns]"
       ]
      },
-     "execution_count": 42,
+     "execution_count": 44,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2826,7 +2886,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 43,
+   "execution_count": 45,
    "metadata": {},
    "outputs": [
     {
@@ -2960,7 +3020,7 @@
        "4   0     3     2  "
       ]
      },
-     "execution_count": 43,
+     "execution_count": 45,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2985,244 +3045,6 @@
    "metadata": {},
    "source": [
     "Ta có thể tạo và xóa biến bằng cách gán một cột mới và sử dụng `drop` method"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 44,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/html": [
-       "<div>\n",
-       "<style scoped>\n",
-       "    .dataframe tbody tr th:only-of-type {\n",
-       "        vertical-align: middle;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe tbody tr th {\n",
-       "        vertical-align: top;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe thead th {\n",
-       "        text-align: right;\n",
-       "    }\n",
-       "</style>\n",
-       "<table border=\"1\" class=\"dataframe\">\n",
-       "  <thead>\n",
-       "    <tr style=\"text-align: right;\">\n",
-       "      <th></th>\n",
-       "      <th>name</th>\n",
-       "      <th>mpg</th>\n",
-       "      <th>cyl</th>\n",
-       "      <th>disp</th>\n",
-       "      <th>hp</th>\n",
-       "      <th>drat</th>\n",
-       "      <th>wt</th>\n",
-       "      <th>qsec</th>\n",
-       "      <th>vs</th>\n",
-       "      <th>am</th>\n",
-       "      <th>gear</th>\n",
-       "      <th>carb</th>\n",
-       "      <th>new_var</th>\n",
-       "    </tr>\n",
-       "  </thead>\n",
-       "  <tbody>\n",
-       "    <tr>\n",
-       "      <th>0</th>\n",
-       "      <td>Mazda RX4</td>\n",
-       "      <td>21.0</td>\n",
-       "      <td>6</td>\n",
-       "      <td>160.0</td>\n",
-       "      <td>110</td>\n",
-       "      <td>3.90</td>\n",
-       "      <td>2.620</td>\n",
-       "      <td>16.46</td>\n",
-       "      <td>0</td>\n",
-       "      <td>1</td>\n",
-       "      <td>4</td>\n",
-       "      <td>4</td>\n",
-       "      <td>4</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>1</th>\n",
-       "      <td>Mazda RX4 Wag</td>\n",
-       "      <td>21.0</td>\n",
-       "      <td>6</td>\n",
-       "      <td>160.0</td>\n",
-       "      <td>110</td>\n",
-       "      <td>3.90</td>\n",
-       "      <td>2.875</td>\n",
-       "      <td>17.02</td>\n",
-       "      <td>0</td>\n",
-       "      <td>1</td>\n",
-       "      <td>4</td>\n",
-       "      <td>4</td>\n",
-       "      <td>4</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>2</th>\n",
-       "      <td>Datsun 710</td>\n",
-       "      <td>22.8</td>\n",
-       "      <td>4</td>\n",
-       "      <td>108.0</td>\n",
-       "      <td>93</td>\n",
-       "      <td>3.85</td>\n",
-       "      <td>2.320</td>\n",
-       "      <td>18.61</td>\n",
-       "      <td>1</td>\n",
-       "      <td>1</td>\n",
-       "      <td>4</td>\n",
-       "      <td>1</td>\n",
-       "      <td>4</td>\n",
-       "    </tr>\n",
-       "  </tbody>\n",
-       "</table>\n",
-       "</div>"
-      ],
-      "text/plain": [
-       "            name   mpg  cyl   disp   hp  drat     wt   qsec  vs  am  gear  \\\n",
-       "0      Mazda RX4  21.0    6  160.0  110  3.90  2.620  16.46   0   1     4   \n",
-       "1  Mazda RX4 Wag  21.0    6  160.0  110  3.90  2.875  17.02   0   1     4   \n",
-       "2     Datsun 710  22.8    4  108.0   93  3.85  2.320  18.61   1   1     4   \n",
-       "\n",
-       "   carb  new_var  \n",
-       "0     4        4  \n",
-       "1     4        4  \n",
-       "2     1        4  "
-      ]
-     },
-     "execution_count": 44,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "# Tạo biến mới\n",
-    "mtcars['new_var'] = 4\n",
-    "mtcars.head(3)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 45,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/html": [
-       "<div>\n",
-       "<style scoped>\n",
-       "    .dataframe tbody tr th:only-of-type {\n",
-       "        vertical-align: middle;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe tbody tr th {\n",
-       "        vertical-align: top;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe thead th {\n",
-       "        text-align: right;\n",
-       "    }\n",
-       "</style>\n",
-       "<table border=\"1\" class=\"dataframe\">\n",
-       "  <thead>\n",
-       "    <tr style=\"text-align: right;\">\n",
-       "      <th></th>\n",
-       "      <th>name</th>\n",
-       "      <th>mpg</th>\n",
-       "      <th>cyl</th>\n",
-       "      <th>disp</th>\n",
-       "      <th>hp</th>\n",
-       "      <th>drat</th>\n",
-       "      <th>wt</th>\n",
-       "      <th>qsec</th>\n",
-       "      <th>vs</th>\n",
-       "      <th>am</th>\n",
-       "      <th>gear</th>\n",
-       "      <th>carb</th>\n",
-       "    </tr>\n",
-       "  </thead>\n",
-       "  <tbody>\n",
-       "    <tr>\n",
-       "      <th>0</th>\n",
-       "      <td>Mazda RX4</td>\n",
-       "      <td>21.0</td>\n",
-       "      <td>6</td>\n",
-       "      <td>160.0</td>\n",
-       "      <td>110</td>\n",
-       "      <td>3.90</td>\n",
-       "      <td>2.620</td>\n",
-       "      <td>16.46</td>\n",
-       "      <td>0</td>\n",
-       "      <td>1</td>\n",
-       "      <td>4</td>\n",
-       "      <td>4</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>1</th>\n",
-       "      <td>Mazda RX4 Wag</td>\n",
-       "      <td>21.0</td>\n",
-       "      <td>6</td>\n",
-       "      <td>160.0</td>\n",
-       "      <td>110</td>\n",
-       "      <td>3.90</td>\n",
-       "      <td>2.875</td>\n",
-       "      <td>17.02</td>\n",
-       "      <td>0</td>\n",
-       "      <td>1</td>\n",
-       "      <td>4</td>\n",
-       "      <td>4</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>2</th>\n",
-       "      <td>Datsun 710</td>\n",
-       "      <td>22.8</td>\n",
-       "      <td>4</td>\n",
-       "      <td>108.0</td>\n",
-       "      <td>93</td>\n",
-       "      <td>3.85</td>\n",
-       "      <td>2.320</td>\n",
-       "      <td>18.61</td>\n",
-       "      <td>1</td>\n",
-       "      <td>1</td>\n",
-       "      <td>4</td>\n",
-       "      <td>1</td>\n",
-       "    </tr>\n",
-       "  </tbody>\n",
-       "</table>\n",
-       "</div>"
-      ],
-      "text/plain": [
-       "            name   mpg  cyl   disp   hp  drat     wt   qsec  vs  am  gear  \\\n",
-       "0      Mazda RX4  21.0    6  160.0  110  3.90  2.620  16.46   0   1     4   \n",
-       "1  Mazda RX4 Wag  21.0    6  160.0  110  3.90  2.875  17.02   0   1     4   \n",
-       "2     Datsun 710  22.8    4  108.0   93  3.85  2.320  18.61   1   1     4   \n",
-       "\n",
-       "   carb  \n",
-       "0     4  \n",
-       "1     4  \n",
-       "2     1  "
-      ]
-     },
-     "execution_count": 45,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "# Drop biến new_var\n",
-    "mtcars.drop('new_var',\\\n",
-    "            axis = 'columns').\\\n",
-    "        head(3)"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "**Lưu ý**: Khi drop biến, ta phải lưu ý gán lại giá trị vào dataframe ban đầu. Như cách viết trên, `mtcars` sẽ chưa được loại bỏ biến `new_var`"
    ]
   },
   {
@@ -3337,6 +3159,8 @@
     }
    ],
    "source": [
+    "# Tạo biến mới\n",
+    "mtcars['new_var'] = 4\n",
     "mtcars.head(3)"
    ]
   },
@@ -3448,6 +3272,242 @@
     }
    ],
    "source": [
+    "# Drop biến new_var\n",
+    "mtcars.drop('new_var',\\\n",
+    "            axis = 'columns').\\\n",
+    "        head(3)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Lưu ý**: Khi drop biến, ta phải lưu ý gán lại giá trị vào dataframe ban đầu. Như cách viết trên, `mtcars` sẽ chưa được loại bỏ biến `new_var`"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 48,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>name</th>\n",
+       "      <th>mpg</th>\n",
+       "      <th>cyl</th>\n",
+       "      <th>disp</th>\n",
+       "      <th>hp</th>\n",
+       "      <th>drat</th>\n",
+       "      <th>wt</th>\n",
+       "      <th>qsec</th>\n",
+       "      <th>vs</th>\n",
+       "      <th>am</th>\n",
+       "      <th>gear</th>\n",
+       "      <th>carb</th>\n",
+       "      <th>new_var</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>Mazda RX4</td>\n",
+       "      <td>21.0</td>\n",
+       "      <td>6</td>\n",
+       "      <td>160.0</td>\n",
+       "      <td>110</td>\n",
+       "      <td>3.90</td>\n",
+       "      <td>2.620</td>\n",
+       "      <td>16.46</td>\n",
+       "      <td>0</td>\n",
+       "      <td>1</td>\n",
+       "      <td>4</td>\n",
+       "      <td>4</td>\n",
+       "      <td>4</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>Mazda RX4 Wag</td>\n",
+       "      <td>21.0</td>\n",
+       "      <td>6</td>\n",
+       "      <td>160.0</td>\n",
+       "      <td>110</td>\n",
+       "      <td>3.90</td>\n",
+       "      <td>2.875</td>\n",
+       "      <td>17.02</td>\n",
+       "      <td>0</td>\n",
+       "      <td>1</td>\n",
+       "      <td>4</td>\n",
+       "      <td>4</td>\n",
+       "      <td>4</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>Datsun 710</td>\n",
+       "      <td>22.8</td>\n",
+       "      <td>4</td>\n",
+       "      <td>108.0</td>\n",
+       "      <td>93</td>\n",
+       "      <td>3.85</td>\n",
+       "      <td>2.320</td>\n",
+       "      <td>18.61</td>\n",
+       "      <td>1</td>\n",
+       "      <td>1</td>\n",
+       "      <td>4</td>\n",
+       "      <td>1</td>\n",
+       "      <td>4</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "            name   mpg  cyl   disp   hp  drat     wt   qsec  vs  am  gear  \\\n",
+       "0      Mazda RX4  21.0    6  160.0  110  3.90  2.620  16.46   0   1     4   \n",
+       "1  Mazda RX4 Wag  21.0    6  160.0  110  3.90  2.875  17.02   0   1     4   \n",
+       "2     Datsun 710  22.8    4  108.0   93  3.85  2.320  18.61   1   1     4   \n",
+       "\n",
+       "   carb  new_var  \n",
+       "0     4        4  \n",
+       "1     4        4  \n",
+       "2     1        4  "
+      ]
+     },
+     "execution_count": 48,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "mtcars.head(3)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 49,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>name</th>\n",
+       "      <th>mpg</th>\n",
+       "      <th>cyl</th>\n",
+       "      <th>disp</th>\n",
+       "      <th>hp</th>\n",
+       "      <th>drat</th>\n",
+       "      <th>wt</th>\n",
+       "      <th>qsec</th>\n",
+       "      <th>vs</th>\n",
+       "      <th>am</th>\n",
+       "      <th>gear</th>\n",
+       "      <th>carb</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>Mazda RX4</td>\n",
+       "      <td>21.0</td>\n",
+       "      <td>6</td>\n",
+       "      <td>160.0</td>\n",
+       "      <td>110</td>\n",
+       "      <td>3.90</td>\n",
+       "      <td>2.620</td>\n",
+       "      <td>16.46</td>\n",
+       "      <td>0</td>\n",
+       "      <td>1</td>\n",
+       "      <td>4</td>\n",
+       "      <td>4</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>Mazda RX4 Wag</td>\n",
+       "      <td>21.0</td>\n",
+       "      <td>6</td>\n",
+       "      <td>160.0</td>\n",
+       "      <td>110</td>\n",
+       "      <td>3.90</td>\n",
+       "      <td>2.875</td>\n",
+       "      <td>17.02</td>\n",
+       "      <td>0</td>\n",
+       "      <td>1</td>\n",
+       "      <td>4</td>\n",
+       "      <td>4</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>Datsun 710</td>\n",
+       "      <td>22.8</td>\n",
+       "      <td>4</td>\n",
+       "      <td>108.0</td>\n",
+       "      <td>93</td>\n",
+       "      <td>3.85</td>\n",
+       "      <td>2.320</td>\n",
+       "      <td>18.61</td>\n",
+       "      <td>1</td>\n",
+       "      <td>1</td>\n",
+       "      <td>4</td>\n",
+       "      <td>1</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "            name   mpg  cyl   disp   hp  drat     wt   qsec  vs  am  gear  \\\n",
+       "0      Mazda RX4  21.0    6  160.0  110  3.90  2.620  16.46   0   1     4   \n",
+       "1  Mazda RX4 Wag  21.0    6  160.0  110  3.90  2.875  17.02   0   1     4   \n",
+       "2     Datsun 710  22.8    4  108.0   93  3.85  2.320  18.61   1   1     4   \n",
+       "\n",
+       "   carb  \n",
+       "0     4  \n",
+       "1     4  \n",
+       "2     1  "
+      ]
+     },
+     "execution_count": 49,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
     "# Xóa hoàn toàn new_var\n",
     "mtcars = mtcars.drop('new_var', axis = 'columns')\n",
     "mtcars.head(3)"
@@ -3462,7 +3522,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 48,
+   "execution_count": 50,
    "metadata": {},
    "outputs": [
     {
@@ -3544,7 +3604,7 @@
        "[32 rows x 4 columns]"
       ]
      },
-     "execution_count": 48,
+     "execution_count": 50,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -3576,7 +3636,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 49,
+   "execution_count": 51,
    "metadata": {},
    "outputs": [
     {
@@ -3590,7 +3650,7 @@
        "Name: mpg, Length: 32, dtype: float64"
       ]
      },
-     "execution_count": 49,
+     "execution_count": 51,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -3602,7 +3662,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 50,
+   "execution_count": 52,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -3612,7 +3672,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 51,
+   "execution_count": 53,
    "metadata": {},
    "outputs": [
     {
@@ -3755,7 +3815,7 @@
        "[19 rows x 13 columns]"
       ]
      },
-     "execution_count": 51,
+     "execution_count": 53,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -3766,7 +3826,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 52,
+   "execution_count": 54,
    "metadata": {},
    "outputs": [
     {
@@ -3909,7 +3969,7 @@
        "[13 rows x 13 columns]"
       ]
      },
-     "execution_count": 52,
+     "execution_count": 54,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -3929,7 +3989,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 53,
+   "execution_count": 55,
    "metadata": {},
    "outputs": [
     {
@@ -3958,7 +4018,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 54,
+   "execution_count": 56,
    "metadata": {},
    "outputs": [
     {
@@ -4017,7 +4077,7 @@
        "2     Lisa  Engineering       2004"
       ]
      },
-     "execution_count": 54,
+     "execution_count": 56,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -4035,7 +4095,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 55,
+   "execution_count": 57,
    "metadata": {},
    "outputs": [
     {
@@ -4101,7 +4161,7 @@
        "3      Sue           HR        NaN"
       ]
      },
-     "execution_count": 55,
+     "execution_count": 57,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -4112,7 +4172,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 56,
+   "execution_count": 58,
    "metadata": {},
    "outputs": [
     {
@@ -4171,7 +4231,7 @@
        "2     Jake  Engineering       2012"
       ]
      },
-     "execution_count": 56,
+     "execution_count": 58,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -4191,7 +4251,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 57,
+   "execution_count": 59,
    "metadata": {},
    "outputs": [
     {
@@ -4219,7 +4279,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 58,
+   "execution_count": 60,
    "metadata": {},
    "outputs": [
     {
@@ -4290,7 +4350,7 @@
        "3      Sue           HR   Sue   90000"
       ]
      },
-     "execution_count": 58,
+     "execution_count": 60,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -4301,7 +4361,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 59,
+   "execution_count": 61,
    "metadata": {},
    "outputs": [
     {
@@ -4367,7 +4427,7 @@
        "3      Sue           HR   90000"
       ]
      },
-     "execution_count": 59,
+     "execution_count": 61,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -4403,7 +4463,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 60,
+   "execution_count": 62,
    "metadata": {},
    "outputs": [
     {
@@ -4435,7 +4495,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 61,
+   "execution_count": 63,
    "metadata": {},
    "outputs": [
     {
@@ -4502,7 +4562,7 @@
        "1  2  9"
       ]
      },
-     "execution_count": 61,
+     "execution_count": 63,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -4521,7 +4581,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 62,
+   "execution_count": 64,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -4531,7 +4591,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 63,
+   "execution_count": 65,
    "metadata": {},
    "outputs": [
     {
@@ -4597,7 +4657,7 @@
        "0  NaN  NaN    x"
       ]
      },
-     "execution_count": 63,
+     "execution_count": 65,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -4615,7 +4675,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 64,
+   "execution_count": 66,
    "metadata": {},
    "outputs": [
     {
@@ -4678,7 +4738,7 @@
        "2      3  6  9  z"
       ]
      },
-     "execution_count": 64,
+     "execution_count": 66,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -4710,7 +4770,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 65,
+   "execution_count": 67,
    "metadata": {},
    "outputs": [
     {
@@ -4847,7 +4907,7 @@
        "[8 rows x 12 columns]"
       ]
      },
-     "execution_count": 65,
+     "execution_count": 67,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -4859,7 +4919,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 66,
+   "execution_count": 68,
    "metadata": {},
    "outputs": [
     {
@@ -4966,7 +5026,7 @@
        "   1     7.0  28.371429  4.757701  21.4  25.050  30.40  31.400  33.9"
       ]
      },
-     "execution_count": 66,
+     "execution_count": 68,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -4980,7 +5040,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 67,
+   "execution_count": 69,
    "metadata": {},
    "outputs": [
     {
@@ -5113,7 +5173,7 @@
        "1   25.05  20.35  30.4  21.000  31.40  26.0  33.9  "
       ]
      },
-     "execution_count": 67,
+     "execution_count": 69,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -5141,7 +5201,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 68,
+   "execution_count": 70,
    "metadata": {},
    "outputs": [
     {
@@ -5196,7 +5256,7 @@
        "1   24.392308  33.9"
       ]
      },
-     "execution_count": 68,
+     "execution_count": 70,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -5209,7 +5269,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 69,
+   "execution_count": 71,
    "metadata": {},
    "outputs": [
     {
@@ -5286,7 +5346,7 @@
        "1   24.392308  33.9  1.513  3.570    1.51912"
       ]
      },
-     "execution_count": 69,
+     "execution_count": 71,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -5308,7 +5368,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 70,
+   "execution_count": 72,
    "metadata": {},
    "outputs": [
     {
@@ -5372,7 +5432,7 @@
        "1   24.392308  21.00"
       ]
      },
-     "execution_count": 70,
+     "execution_count": 72,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -5395,7 +5455,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 71,
+   "execution_count": 73,
    "metadata": {},
    "outputs": [
     {
@@ -5446,7 +5506,7 @@
        "1   15.024"
       ]
      },
-     "execution_count": 71,
+     "execution_count": 73,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -5469,7 +5529,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 72,
+   "execution_count": 74,
    "metadata": {},
    "outputs": [
     {
@@ -5542,7 +5602,7 @@
        "1   118.5  198.6  2.857500  2.028286"
       ]
      },
-     "execution_count": 72,
+     "execution_count": 74,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -5579,7 +5639,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 73,
+   "execution_count": 75,
    "metadata": {},
    "outputs": [
     {
@@ -5612,7 +5672,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 74,
+   "execution_count": 76,
    "metadata": {},
    "outputs": [
     {
@@ -5667,7 +5727,7 @@
        "2  3  6"
       ]
      },
-     "execution_count": 74,
+     "execution_count": 76,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -5679,7 +5739,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 75,
+   "execution_count": 77,
    "metadata": {},
    "outputs": [
     {
@@ -5738,7 +5798,7 @@
        "2  3  6  7.8"
       ]
      },
-     "execution_count": 75,
+     "execution_count": 77,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -5767,7 +5827,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 76,
+   "execution_count": 78,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -5781,7 +5841,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 77,
+   "execution_count": 79,
    "metadata": {},
    "outputs": [
     {
@@ -5844,202 +5904,13 @@
        "2   3     5    b    z"
       ]
      },
-     "execution_count": 77,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "my_df"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 78,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/html": [
-       "<div>\n",
-       "<style scoped>\n",
-       "    .dataframe tbody tr th:only-of-type {\n",
-       "        vertical-align: middle;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe tbody tr th {\n",
-       "        vertical-align: top;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe thead th {\n",
-       "        text-align: right;\n",
-       "    }\n",
-       "</style>\n",
-       "<table border=\"1\" class=\"dataframe\">\n",
-       "  <thead>\n",
-       "    <tr style=\"text-align: right;\">\n",
-       "      <th></th>\n",
-       "      <th>id</th>\n",
-       "      <th>variable</th>\n",
-       "      <th>value</th>\n",
-       "    </tr>\n",
-       "  </thead>\n",
-       "  <tbody>\n",
-       "    <tr>\n",
-       "      <th>0</th>\n",
-       "      <td>1</td>\n",
-       "      <td>var1</td>\n",
-       "      <td>3</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>1</th>\n",
-       "      <td>2</td>\n",
-       "      <td>var1</td>\n",
-       "      <td>4</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>...</th>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>7</th>\n",
-       "      <td>2</td>\n",
-       "      <td>var3</td>\n",
-       "      <td>y</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>8</th>\n",
-       "      <td>3</td>\n",
-       "      <td>var3</td>\n",
-       "      <td>z</td>\n",
-       "    </tr>\n",
-       "  </tbody>\n",
-       "</table>\n",
-       "<p>9 rows × 3 columns</p>\n",
-       "</div>"
-      ],
-      "text/plain": [
-       "    id variable value\n",
-       "0    1     var1     3\n",
-       "1    2     var1     4\n",
-       "..  ..      ...   ...\n",
-       "7    2     var3     y\n",
-       "8    3     var3     z\n",
-       "\n",
-       "[9 rows x 3 columns]"
-      ]
-     },
-     "execution_count": 78,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "pd.melt(my_df, 'id')"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 79,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/html": [
-       "<div>\n",
-       "<style scoped>\n",
-       "    .dataframe tbody tr th:only-of-type {\n",
-       "        vertical-align: middle;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe tbody tr th {\n",
-       "        vertical-align: top;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe thead th {\n",
-       "        text-align: right;\n",
-       "    }\n",
-       "</style>\n",
-       "<table border=\"1\" class=\"dataframe\">\n",
-       "  <thead>\n",
-       "    <tr style=\"text-align: right;\">\n",
-       "      <th></th>\n",
-       "      <th>id</th>\n",
-       "      <th>var1</th>\n",
-       "      <th>variable</th>\n",
-       "      <th>value</th>\n",
-       "    </tr>\n",
-       "  </thead>\n",
-       "  <tbody>\n",
-       "    <tr>\n",
-       "      <th>0</th>\n",
-       "      <td>1</td>\n",
-       "      <td>3</td>\n",
-       "      <td>var2</td>\n",
-       "      <td>a</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>1</th>\n",
-       "      <td>2</td>\n",
-       "      <td>4</td>\n",
-       "      <td>var2</td>\n",
-       "      <td>a</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>...</th>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "      <td>...</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>4</th>\n",
-       "      <td>2</td>\n",
-       "      <td>4</td>\n",
-       "      <td>var3</td>\n",
-       "      <td>y</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>5</th>\n",
-       "      <td>3</td>\n",
-       "      <td>5</td>\n",
-       "      <td>var3</td>\n",
-       "      <td>z</td>\n",
-       "    </tr>\n",
-       "  </tbody>\n",
-       "</table>\n",
-       "<p>6 rows × 4 columns</p>\n",
-       "</div>"
-      ],
-      "text/plain": [
-       "    id  var1 variable value\n",
-       "0    1     3     var2     a\n",
-       "1    2     4     var2     a\n",
-       "..  ..   ...      ...   ...\n",
-       "4    2     4     var3     y\n",
-       "5    3     5     var3     z\n",
-       "\n",
-       "[6 rows x 4 columns]"
-      ]
-     },
      "execution_count": 79,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
-    "pd.melt(my_df, ['id', 'var1'])"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "---\n",
-    "\n",
-    "Xoay chiều từ dọc sang ngang"
+    "my_df"
    ]
   },
   {
@@ -6126,13 +5997,202 @@
     }
    ],
    "source": [
+    "pd.melt(my_df, 'id')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 81,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>id</th>\n",
+       "      <th>var1</th>\n",
+       "      <th>variable</th>\n",
+       "      <th>value</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>1</td>\n",
+       "      <td>3</td>\n",
+       "      <td>var2</td>\n",
+       "      <td>a</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>2</td>\n",
+       "      <td>4</td>\n",
+       "      <td>var2</td>\n",
+       "      <td>a</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>...</th>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>2</td>\n",
+       "      <td>4</td>\n",
+       "      <td>var3</td>\n",
+       "      <td>y</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>5</th>\n",
+       "      <td>3</td>\n",
+       "      <td>5</td>\n",
+       "      <td>var3</td>\n",
+       "      <td>z</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "<p>6 rows × 4 columns</p>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "    id  var1 variable value\n",
+       "0    1     3     var2     a\n",
+       "1    2     4     var2     a\n",
+       "..  ..   ...      ...   ...\n",
+       "4    2     4     var3     y\n",
+       "5    3     5     var3     z\n",
+       "\n",
+       "[6 rows x 4 columns]"
+      ]
+     },
+     "execution_count": 81,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "pd.melt(my_df, ['id', 'var1'])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "---\n",
+    "\n",
+    "Xoay chiều từ dọc sang ngang"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 82,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>id</th>\n",
+       "      <th>variable</th>\n",
+       "      <th>value</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>1</td>\n",
+       "      <td>var1</td>\n",
+       "      <td>3</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>2</td>\n",
+       "      <td>var1</td>\n",
+       "      <td>4</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>...</th>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>7</th>\n",
+       "      <td>2</td>\n",
+       "      <td>var3</td>\n",
+       "      <td>y</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>8</th>\n",
+       "      <td>3</td>\n",
+       "      <td>var3</td>\n",
+       "      <td>z</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "<p>9 rows × 3 columns</p>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "    id variable value\n",
+       "0    1     var1     3\n",
+       "1    2     var1     4\n",
+       "..  ..      ...   ...\n",
+       "7    2     var3     y\n",
+       "8    3     var3     z\n",
+       "\n",
+       "[9 rows x 3 columns]"
+      ]
+     },
+     "execution_count": 82,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
     "df2 = pd.melt(my_df, 'id')\n",
     "df2"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 81,
+   "execution_count": 83,
    "metadata": {},
    "outputs": [
     {
@@ -6195,7 +6255,7 @@
        "2          3    5    b    z"
       ]
      },
-     "execution_count": 81,
+     "execution_count": 83,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -6215,7 +6275,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 82,
+   "execution_count": 84,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -6224,7 +6284,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 83,
+   "execution_count": 85,
    "metadata": {},
    "outputs": [
     {
@@ -6237,7 +6297,7 @@
        "dtype: bool"
       ]
      },
-     "execution_count": 83,
+     "execution_count": 85,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -6248,7 +6308,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 84,
+   "execution_count": 86,
    "metadata": {},
    "outputs": [
     {
@@ -6307,7 +6367,7 @@
        "2  1  2.0  3.0"
       ]
      },
-     "execution_count": 84,
+     "execution_count": 86,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -6321,7 +6381,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 85,
+   "execution_count": 87,
    "metadata": {},
    "outputs": [
     {
@@ -6366,7 +6426,7 @@
        "2  1  2.0  3.0"
       ]
      },
-     "execution_count": 85,
+     "execution_count": 87,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -6378,7 +6438,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 86,
+   "execution_count": 88,
    "metadata": {},
    "outputs": [
     {
@@ -6429,7 +6489,7 @@
        "2  1"
       ]
      },
-     "execution_count": 86,
+     "execution_count": 88,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -6447,7 +6507,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 87,
+   "execution_count": 89,
    "metadata": {},
    "outputs": [
     {
@@ -6506,7 +6566,7 @@
        "2  1   2.0   3.0"
       ]
      },
-     "execution_count": 87,
+     "execution_count": 89,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -6526,7 +6586,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 88,
+   "execution_count": 90,
    "metadata": {},
    "outputs": [
     {
@@ -6581,7 +6641,7 @@
        "2     3      8"
       ]
      },
-     "execution_count": 88,
+     "execution_count": 90,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -6596,7 +6656,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 89,
+   "execution_count": 91,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -6605,7 +6665,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 90,
+   "execution_count": 92,
    "metadata": {},
    "outputs": [
     {
@@ -6664,7 +6724,7 @@
        "2     3      8      7.0"
       ]
      },
-     "execution_count": 90,
+     "execution_count": 92,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -6682,7 +6742,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 91,
+   "execution_count": 93,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -6693,13 +6753,6 @@
     "    'var3' : ['x', 'y', 'z']\n",
     "})"
    ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": []
   },
   {
    "cell_type": "markdown",
@@ -6792,7 +6845,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 92,
+   "execution_count": 94,
    "metadata": {},
    "outputs": [
     {
@@ -6830,12 +6883,14 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Lưu dữ liệu"
+    "### Lưu dữ liệu\n",
+    "\n",
+    "**Lưu dưới dạng pickle**"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 93,
+   "execution_count": 95,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -6848,7 +6903,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 94,
+   "execution_count": 96,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -6873,6 +6928,25 @@
     "# Load dữ liệu\n",
     "my_df2 = pd.read_pickle('my_df.pkl')\n",
     "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "---\n",
+    "\n",
+    "Ngoài ra, pandas có thể hỗ trợ dễ dàng lưu trữ thành các định dạng khác như xlsx, parquet,..."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 97,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "my_df.to_excel('test_excel_pdf.xlsx')\n",
+    "my_df.to_parquet('test_pq.xlsx')"
    ]
   },
   {

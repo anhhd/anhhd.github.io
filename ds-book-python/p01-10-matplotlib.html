@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="vn" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>9. Trực quan hóa với Matplotlib &mdash; Phân tích dữ liệu với Python 2019 documentation</title>
+  <title>10. Trực quan hóa với Matplotlib &mdash; Phân tích dữ liệu với Python 2019 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
@@ -16,7 +16,7 @@
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="_static/documentation_options.js?v=1ea3fed6"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="_static/copybutton.js?v=f281be69"></script>
@@ -26,8 +26,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="10. Trực quan hóa với Seaborn" href="p01-09-seaborn.html" />
-    <link rel="prev" title="8. Biến đổi dữ liệu text trong python" href="p01-07-lam-viec-voi-text.html" /> 
+    <link rel="next" title="11. So sánh R với Python cơ bản" href="p01-19-so-sanh-python-r.html" />
+    <link rel="prev" title="9. Trực quan hóa với Seaborn" href="p01-09-seaborn.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -52,37 +52,36 @@
               <p class="caption" role="heading"><span class="caption-text">Python cơ bản</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="p01-01-gioi-thieu-python.html">1. Giới thiệu về Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-02-jupyter-lab.html">2. Python IDE - Jupyter lab &amp; Visual Studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-02-python-ide.html">2. Python IDE - Jupyter lab &amp; Visual Studio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-03-cau-truc-du-lieu-python.html">3. Các cấu trúc cơ bản trong Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-03-numpy.html">4. Numpy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-05-pandas.html">5. Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-pandas.html">4. Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-05-ngu-phap-bieu-do.html">5. Ngữ pháp của biểu đồ với <code class="docutils literal notranslate"><span class="pre">plotnine</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-06-datetime.html">6. Dữ liệu thời gian trong Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-06-ngu-phap-bieu-do.html">7. Ngữ pháp của biểu đồ với <code class="docutils literal notranslate"><span class="pre">plotnine</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-07-lam-viec-voi-text.html">8. Biến đổi dữ liệu text trong python</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">9. Trực quan hóa với Matplotlib</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Cơ-bản-về-matplotlib">9.1. Cơ bản về matplotlib</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Hai-cách-xây-dựng-biểu-đồ">9.2. Hai cách xây dựng biểu đồ</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Matlab-style">9.2.1. Matlab style</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Lập-trình-đối-tượng">9.2.2. Lập trình đối tượng</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-07-lam-viec-voi-text.html">7. Biến đổi dữ liệu text trong python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-08-numpy.html">8. Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-09-seaborn.html">9. Trực quan hóa với Seaborn</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">10. Trực quan hóa với Matplotlib</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Cơ-bản-về-matplotlib">10.1. Cơ bản về matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Hai-cách-xây-dựng-biểu-đồ">10.2. Hai cách xây dựng biểu đồ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Matlab-style">10.2.1. Matlab style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Lập-trình-đối-tượng">10.2.2. Lập trình đối tượng</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Các-loại-biểu-đồ-thường-dùng">9.3. Các loại biểu đồ thường dùng</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Scatter-plot">9.3.1. Scatter plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Contour-plot">9.3.2. Contour plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Histogram">9.3.3. Histogram</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Text">9.3.4. Text</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Box-plot">9.3.5. Box plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Area-chart">9.3.6. Area chart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Các-loại-biểu-đồ-thường-dùng">10.3. Các loại biểu đồ thường dùng</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Scatter-plot">10.3.1. Scatter plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Contour-plot">10.3.2. Contour plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Histogram">10.3.3. Histogram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Text">10.3.4. Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Box-plot">10.3.5. Box plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Area-chart">10.3.6. Area chart</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Tinh-chỉnh-các-thành-phần">9.4. Tinh chỉnh các thành phần</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Tài-liệu-tham-khảo">9.5. Tài liệu tham khảo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tinh-chỉnh-các-thành-phần">10.4. Tinh chỉnh các thành phần</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tài-liệu-tham-khảo">10.5. Tài liệu tham khảo</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="p01-09-seaborn.html">10. Trực quan hóa với Seaborn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-13-lam-viec-voi-files.html">11. Làm việc với các file trong máy tính</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-19-so-sanh-python-r.html">12. So sánh R với Python cơ bản</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-99-tricks-python.html">13. Các mẹo trong Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-19-so-sanh-python-r.html">11. So sánh R với Python cơ bản</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-99-tricks-python.html">12. Các mẹo trong Python</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Machine learning với sklearn</span></p>
 <ul>
@@ -119,9 +118,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">9. </span>Trực quan hóa với Matplotlib</li>
+      <li class="breadcrumb-item active"><span class="section-number">10. </span>Trực quan hóa với Matplotlib</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/p01-08-matplotlib.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/p01-10-matplotlib.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -130,9 +129,9 @@
            <div itemprop="articleBody">
              
   <section id="Trực-quan-hóa-với-Matplotlib">
-<h1><span class="section-number">9. </span>Trực quan hóa với Matplotlib<a class="headerlink" href="#Trực-quan-hóa-với-Matplotlib" title="Link to this heading"></a></h1>
+<h1><span class="section-number">10. </span>Trực quan hóa với Matplotlib<a class="headerlink" href="#Trực-quan-hóa-với-Matplotlib" title="Link to this heading"></a></h1>
 <section id="Cơ-bản-về-matplotlib">
-<h2><span class="section-number">9.1. </span>Cơ bản về matplotlib<a class="headerlink" href="#Cơ-bản-về-matplotlib" title="Link to this heading"></a></h2>
+<h2><span class="section-number">10.1. </span>Cơ bản về matplotlib<a class="headerlink" href="#Cơ-bản-về-matplotlib" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> là thư viện được sử dụng rộng rãi trong Python khi trực quan hóa dữ liệu. Tuy nhiên, với những người mới sử dụng <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> có thể sẽ có nhiều khó khăn do có 2 cách viết xây dựng biểu đồ trong matplotlib. Mặc dù vậy, việc sử dụng và hiểu cách làm việc với matplotlib sẽ rất có ích trong việc xây dựng các biểu đồ nâng cao bởi lẽ các thư viện nâng cao như <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> đều được xây dựng trên nền của <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p>
 <hr class="docutils" />
 <p>Ví dụ cơ bản <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p>
@@ -211,7 +210,7 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-08-matplotlib_6_0.png" class="no-scaled-link" src="_images/p01-08-matplotlib_6_0.png" style="width: 568px; height: 413px;" />
+<img alt="_images/p01-10-matplotlib_6_0.png" class="no-scaled-link" src="_images/p01-10-matplotlib_6_0.png" style="width: 568px; height: 413px;" />
 </div>
 </div>
 <p><strong>Giải thích</strong>: - <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> tạo một object plot. Các câu lệnh của <code class="docutils literal notranslate"><span class="pre">plt</span></code> sẽ thay đổi các thành phần trong plot (add, remove, modify…). - <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> sẽ hiển thị object cuối cùng sau khi đã thực hiện toàn bộ câu lệnh. - Khi thực hiện option <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline</span></code>, sẽ không cần sử dụng <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code></p>
@@ -221,7 +220,7 @@
 </div>
 </section>
 <section id="Hai-cách-xây-dựng-biểu-đồ">
-<h2><span class="section-number">9.2. </span>Hai cách xây dựng biểu đồ<a class="headerlink" href="#Hai-cách-xây-dựng-biểu-đồ" title="Link to this heading"></a></h2>
+<h2><span class="section-number">10.2. </span>Hai cách xây dựng biểu đồ<a class="headerlink" href="#Hai-cách-xây-dựng-biểu-đồ" title="Link to this heading"></a></h2>
 <p>Mặc dù <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> rất mạnh nhưng lại gây khó khăn cho người mới dùng vì có 2 cách xây dựng biểu đồ:</p>
 <ul class="simple">
 <li><p>Theo <code class="docutils literal notranslate"><span class="pre">matlab</span></code></p></li>
@@ -229,7 +228,7 @@
 </ul>
 <p>Với những người sử dụng R chuyển sang Python, nên sử dụng cách viết lập trình đối tượng.</p>
 <section id="Matlab-style">
-<h3><span class="section-number">9.2.1. </span>Matlab style<a class="headerlink" href="#Matlab-style" title="Link to this heading"></a></h3>
+<h3><span class="section-number">10.2.1. </span>Matlab style<a class="headerlink" href="#Matlab-style" title="Link to this heading"></a></h3>
 <p>Cách này được thực hiện thực hiện như sau:</p>
 <ul class="simple">
 <li><p>Tạo biểu đồ</p></li>
@@ -254,13 +253,13 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-08-matplotlib_8_0.png" class="no-scaled-link" src="_images/p01-08-matplotlib_8_0.png" style="width: 559px; height: 413px;" />
+<img alt="_images/p01-10-matplotlib_8_0.png" class="no-scaled-link" src="_images/p01-10-matplotlib_8_0.png" style="width: 559px; height: 413px;" />
 </div>
 </div>
 <p><strong>Lưu ý</strong>: Hai biểu đồ phải được đặt cùng trong 1 cell khi xây dựng biểu đồ</p>
 </section>
 <section id="Lập-trình-đối-tượng">
-<h3><span class="section-number">9.2.2. </span>Lập trình đối tượng<a class="headerlink" href="#Lập-trình-đối-tượng" title="Link to this heading"></a></h3>
+<h3><span class="section-number">10.2.2. </span>Lập trình đối tượng<a class="headerlink" href="#Lập-trình-đối-tượng" title="Link to this heading"></a></h3>
 <p>Với cách lập trình đối tượng, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> được xây dựng như sau</p>
 <p>Sử dụng <code class="docutils literal notranslate"><span class="pre">plt.subplots()</span></code>, kết quả trả ra là 2 object dạng <code class="docutils literal notranslate"><span class="pre">figure</span></code> và <code class="docutils literal notranslate"><span class="pre">axes</span></code> trong matplotlib.</p>
 <ul class="simple">
@@ -301,7 +300,7 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-08-matplotlib_12_0.png" class="no-scaled-link" src="_images/p01-08-matplotlib_12_0.png" style="width: 559px; height: 461px;" />
+<img alt="_images/p01-10-matplotlib_12_0.png" class="no-scaled-link" src="_images/p01-10-matplotlib_12_0.png" style="width: 559px; height: 461px;" />
 </div>
 </div>
 <hr class="docutils" />
@@ -321,7 +320,7 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-08-matplotlib_14_0.png" class="no-scaled-link" src="_images/p01-08-matplotlib_14_0.png" style="width: 568px; height: 434px;" />
+<img alt="_images/p01-10-matplotlib_14_0.png" class="no-scaled-link" src="_images/p01-10-matplotlib_14_0.png" style="width: 568px; height: 434px;" />
 </div>
 </div>
 <hr class="docutils" />
@@ -363,15 +362,15 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-08-matplotlib_16_1.png" class="no-scaled-link" src="_images/p01-08-matplotlib_16_1.png" style="width: 587px; height: 454px;" />
+<img alt="_images/p01-10-matplotlib_16_1.png" class="no-scaled-link" src="_images/p01-10-matplotlib_16_1.png" style="width: 587px; height: 454px;" />
 </div>
 </div>
 </section>
 </section>
 <section id="Các-loại-biểu-đồ-thường-dùng">
-<h2><span class="section-number">9.3. </span>Các loại biểu đồ thường dùng<a class="headerlink" href="#Các-loại-biểu-đồ-thường-dùng" title="Link to this heading"></a></h2>
+<h2><span class="section-number">10.3. </span>Các loại biểu đồ thường dùng<a class="headerlink" href="#Các-loại-biểu-đồ-thường-dùng" title="Link to this heading"></a></h2>
 <section id="Scatter-plot">
-<h3><span class="section-number">9.3.1. </span>Scatter plot<a class="headerlink" href="#Scatter-plot" title="Link to this heading"></a></h3>
+<h3><span class="section-number">10.3.1. </span>Scatter plot<a class="headerlink" href="#Scatter-plot" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
@@ -394,12 +393,12 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-08-matplotlib_18_0.png" class="no-scaled-link" src="_images/p01-08-matplotlib_18_0.png" style="width: 546px; height: 413px;" />
+<img alt="_images/p01-10-matplotlib_18_0.png" class="no-scaled-link" src="_images/p01-10-matplotlib_18_0.png" style="width: 546px; height: 413px;" />
 </div>
 </div>
 </section>
 <section id="Contour-plot">
-<h3><span class="section-number">9.3.2. </span>Contour plot<a class="headerlink" href="#Contour-plot" title="Link to this heading"></a></h3>
+<h3><span class="section-number">10.3.2. </span>Contour plot<a class="headerlink" href="#Contour-plot" title="Link to this heading"></a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
@@ -431,7 +430,7 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-08-matplotlib_21_0.png" class="no-scaled-link" src="_images/p01-08-matplotlib_21_0.png" style="width: 539px; height: 418px;" />
+<img alt="_images/p01-10-matplotlib_21_0.png" class="no-scaled-link" src="_images/p01-10-matplotlib_21_0.png" style="width: 539px; height: 418px;" />
 </div>
 </div>
 ---<p>Ta cũng có thể tạo biểu đồ có figure ẩn như sau</p>
@@ -449,12 +448,12 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-08-matplotlib_24_0.png" class="no-scaled-link" src="_images/p01-08-matplotlib_24_0.png" style="width: 539px; height: 418px;" />
+<img alt="_images/p01-10-matplotlib_24_0.png" class="no-scaled-link" src="_images/p01-10-matplotlib_24_0.png" style="width: 539px; height: 418px;" />
 </div>
 </div>
 </section>
 <section id="Histogram">
-<h3><span class="section-number">9.3.3. </span>Histogram<a class="headerlink" href="#Histogram" title="Link to this heading"></a></h3>
+<h3><span class="section-number">10.3.3. </span>Histogram<a class="headerlink" href="#Histogram" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
@@ -476,12 +475,12 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-08-matplotlib_26_0.png" class="no-scaled-link" src="_images/p01-08-matplotlib_26_0.png" style="width: 552px; height: 414px;" />
+<img alt="_images/p01-10-matplotlib_26_0.png" class="no-scaled-link" src="_images/p01-10-matplotlib_26_0.png" style="width: 552px; height: 414px;" />
 </div>
 </div>
 </section>
 <section id="Text">
-<h3><span class="section-number">9.3.4. </span>Text<a class="headerlink" href="#Text" title="Link to this heading"></a></h3>
+<h3><span class="section-number">10.3.4. </span>Text<a class="headerlink" href="#Text" title="Link to this heading"></a></h3>
 <p>Ta có thể còn <code class="docutils literal notranslate"><span class="pre">annotate</span></code> bằng cách dùng method <code class="docutils literal notranslate"><span class="pre">ax.annotate</span></code></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
@@ -508,12 +507,12 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-08-matplotlib_29_0.png" class="no-scaled-link" src="_images/p01-08-matplotlib_29_0.png" style="width: 552px; height: 413px;" />
+<img alt="_images/p01-10-matplotlib_29_0.png" class="no-scaled-link" src="_images/p01-10-matplotlib_29_0.png" style="width: 552px; height: 413px;" />
 </div>
 </div>
 </section>
 <section id="Box-plot">
-<h3><span class="section-number">9.3.5. </span>Box plot<a class="headerlink" href="#Box-plot" title="Link to this heading"></a></h3>
+<h3><span class="section-number">10.3.5. </span>Box plot<a class="headerlink" href="#Box-plot" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
@@ -529,12 +528,12 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-08-matplotlib_31_0.png" class="no-scaled-link" src="_images/p01-08-matplotlib_31_0.png" style="width: 546px; height: 413px;" />
+<img alt="_images/p01-10-matplotlib_31_0.png" class="no-scaled-link" src="_images/p01-10-matplotlib_31_0.png" style="width: 546px; height: 413px;" />
 </div>
 </div>
 </section>
 <section id="Area-chart">
-<h3><span class="section-number">9.3.6. </span>Area chart<a class="headerlink" href="#Area-chart" title="Link to this heading"></a></h3>
+<h3><span class="section-number">10.3.6. </span>Area chart<a class="headerlink" href="#Area-chart" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
@@ -565,18 +564,18 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-08-matplotlib_33_0.png" class="no-scaled-link" src="_images/p01-08-matplotlib_33_0.png" style="width: 229px; height: 234px;" />
+<img alt="_images/p01-10-matplotlib_33_0.png" class="no-scaled-link" src="_images/p01-10-matplotlib_33_0.png" style="width: 229px; height: 234px;" />
 </div>
 </div>
 </section>
 </section>
 <section id="Tinh-chỉnh-các-thành-phần">
-<h2><span class="section-number">9.4. </span>Tinh chỉnh các thành phần<a class="headerlink" href="#Tinh-chỉnh-các-thành-phần" title="Link to this heading"></a></h2>
+<h2><span class="section-number">10.4. </span>Tinh chỉnh các thành phần<a class="headerlink" href="#Tinh-chỉnh-các-thành-phần" title="Link to this heading"></a></h2>
 <p>Các thành phần phụ của <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> như sau</p>
 <img alt="_images/matplotlib-02.png" src="_images/matplotlib-02.png" />
 </section>
 <section id="Tài-liệu-tham-khảo">
-<h2><span class="section-number">9.5. </span>Tài liệu tham khảo<a class="headerlink" href="#Tài-liệu-tham-khảo" title="Link to this heading"></a></h2>
+<h2><span class="section-number">10.5. </span>Tài liệu tham khảo<a class="headerlink" href="#Tài-liệu-tham-khảo" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Python Data Science Handbook - Chương 4</p></li>
 <li><p><a class="reference external" href="https://pbpython.com/effective-matplotlib.html">https://pbpython.com/effective-matplotlib.html</a></p></li>
@@ -598,14 +597,14 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="p01-07-lam-viec-voi-text.html" class="btn btn-neutral float-left" title="8. Biến đổi dữ liệu text trong python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="p01-09-seaborn.html" class="btn btn-neutral float-right" title="10. Trực quan hóa với Seaborn" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="p01-09-seaborn.html" class="btn btn-neutral float-left" title="9. Trực quan hóa với Seaborn" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="p01-19-so-sanh-python-r.html" class="btn btn-neutral float-right" title="11. So sánh R với Python cơ bản" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2019, Anh Hoang Duc.</p>
+    <p>&#169; Copyright 2022, Anh Hoang Duc.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="vn" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5. Pandas &mdash; Phân tích dữ liệu với Python 2019 documentation</title>
+  <title>4. Pandas &mdash; Phân tích dữ liệu với Python 2019 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
@@ -16,7 +16,7 @@
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="_static/documentation_options.js?v=1ea3fed6"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="_static/copybutton.js?v=f281be69"></script>
@@ -26,8 +26,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="6. Dữ liệu thời gian trong Python" href="p01-06-datetime.html" />
-    <link rel="prev" title="4. Numpy" href="p01-03-numpy.html" /> 
+    <link rel="next" title="5. Ngữ pháp của biểu đồ với plotnine" href="p01-05-ngu-phap-bieu-do.html" />
+    <link rel="prev" title="3. Các cấu trúc cơ bản trong Python" href="p01-03-cau-truc-du-lieu-python.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -52,70 +52,69 @@
               <p class="caption" role="heading"><span class="caption-text">Python cơ bản</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="p01-01-gioi-thieu-python.html">1. Giới thiệu về Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-02-jupyter-lab.html">2. Python IDE - Jupyter lab &amp; Visual Studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-02-python-ide.html">2. Python IDE - Jupyter lab &amp; Visual Studio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-03-cau-truc-du-lieu-python.html">3. Các cấu trúc cơ bản trong Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-03-numpy.html">4. Numpy</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Pandas</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Giới-thiệu-về-pandas">5.1. Giới thiệu về pandas</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Series">5.1.1. Series</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataFrame">5.1.2. DataFrame</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Pandas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Giới-thiệu-về-pandas">4.1. Giới thiệu về pandas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Series">4.1.1. Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataFrame">4.1.2. DataFrame</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Nhóm-câu-lệnh-truy-vấn-dữ-liệu">5.2. Nhóm câu lệnh truy vấn dữ liệu</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Chọn-biến">5.2.1. Chọn biến</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Lọc-dữ-liệu-theo-dòng">5.2.2. Lọc dữ liệu theo dòng</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Lọc-dữ-liệu-theo-điều-kiện">5.2.3. Lọc dữ liệu theo điều kiện</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Sắp-xếp-lại-dữ-liệu">5.2.4. Sắp xếp lại dữ liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Nhóm-câu-lệnh-truy-vấn-dữ-liệu">4.2. Nhóm câu lệnh truy vấn dữ liệu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Chọn-biến">4.2.1. Chọn biến</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Lọc-dữ-liệu-theo-dòng">4.2.2. Lọc dữ liệu theo dòng</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Lọc-dữ-liệu-theo-điều-kiện">4.2.3. Lọc dữ liệu theo điều kiện</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Sắp-xếp-lại-dữ-liệu">4.2.4. Sắp xếp lại dữ liệu</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Nhóm-câu-lệnh-biến-đổi-dữ-liệu">5.3. Nhóm câu lệnh biến đổi dữ liệu</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Đổi-tên-biến">5.3.1. Đổi tên biến</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Tạo-&amp;-xóa-biến-mới">5.3.2. Tạo &amp; xóa biến mới</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Tạo-biến-mới-theo-nhóm">5.3.3. Tạo biến mới theo nhóm</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Join">5.3.4. Join</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Ghép-dữ-liệu">5.3.5. Ghép dữ liệu</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Ghép-dòng">5.3.5.1. Ghép dòng</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Ghép-theo-cột">5.3.5.2. Ghép theo cột</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#Tổng-hợp-dữ-liệu">5.4. Tổng hợp dữ liệu</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#groupby-&amp;-aggregate">5.4.1. groupby &amp; aggregate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Pivot-table">5.4.2. Pivot table</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#Các-hàm-nâng-cao">5.5. Các hàm nâng cao</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#select_dtype">5.5.1. select_dtype</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Xoay-chiều-dữ-liệu">5.5.2. Xoay chiều dữ liệu</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Làm-việc-với-missing-value">5.5.3. Làm việc với missing value</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Các-hàm-khác">5.5.4. Các hàm khác</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Lag">5.5.4.1. Lag</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Rank">5.5.4.2. Rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Nhóm-câu-lệnh-biến-đổi-dữ-liệu">4.3. Nhóm câu lệnh biến đổi dữ liệu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Đổi-tên-biến">4.3.1. Đổi tên biến</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Tạo-&amp;-xóa-biến-mới">4.3.2. Tạo &amp; xóa biến mới</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Tạo-biến-mới-theo-nhóm">4.3.3. Tạo biến mới theo nhóm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Join">4.3.4. Join</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Ghép-dữ-liệu">4.3.5. Ghép dữ liệu</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Ghép-dòng">4.3.5.1. Ghép dòng</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Ghép-theo-cột">4.3.5.2. Ghép theo cột</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Đọc-&amp;-ghi-dữ-liệu">5.6. Đọc &amp; ghi dữ liệu</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Import-dữ-liệu">5.6.1. Import dữ liệu</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Kết-nối-với-database">5.6.1.1. Kết nối với database</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Import-từ-file">5.6.1.2. Import từ file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tổng-hợp-dữ-liệu">4.4. Tổng hợp dữ liệu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#groupby-&amp;-aggregate">4.4.1. groupby &amp; aggregate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Pivot-table">4.4.2. Pivot table</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#Lưu-dữ-liệu">5.6.2. Lưu dữ liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Các-hàm-nâng-cao">4.5. Các hàm nâng cao</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#select_dtype">4.5.1. select_dtype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Xoay-chiều-dữ-liệu">4.5.2. Xoay chiều dữ liệu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Làm-việc-với-missing-value">4.5.3. Làm việc với missing value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Các-hàm-khác">4.5.4. Các hàm khác</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Lag">4.5.4.1. Lag</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Rank">4.5.4.2. Rank</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Tài-liệu-tham-khảo">5.7. Tài liệu tham khảo</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#Đọc-&amp;-ghi-dữ-liệu">4.6. Đọc &amp; ghi dữ liệu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Import-dữ-liệu">4.6.1. Import dữ liệu</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Kết-nối-với-database">4.6.1.1. Kết nối với database</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Import-từ-file">4.6.1.2. Import từ file</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Lưu-dữ-liệu">4.6.2. Lưu dữ liệu</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Tài-liệu-tham-khảo">4.7. Tài liệu tham khảo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="p01-05-ngu-phap-bieu-do.html">5. Ngữ pháp của biểu đồ với <code class="docutils literal notranslate"><span class="pre">plotnine</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-06-datetime.html">6. Dữ liệu thời gian trong Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-06-ngu-phap-bieu-do.html">7. Ngữ pháp của biểu đồ với <code class="docutils literal notranslate"><span class="pre">plotnine</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-07-lam-viec-voi-text.html">8. Biến đổi dữ liệu text trong python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-08-matplotlib.html">9. Trực quan hóa với Matplotlib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-09-seaborn.html">10. Trực quan hóa với Seaborn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-13-lam-viec-voi-files.html">11. Làm việc với các file trong máy tính</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-19-so-sanh-python-r.html">12. So sánh R với Python cơ bản</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-99-tricks-python.html">13. Các mẹo trong Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-07-lam-viec-voi-text.html">7. Biến đổi dữ liệu text trong python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-08-numpy.html">8. Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-09-seaborn.html">9. Trực quan hóa với Seaborn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-10-matplotlib.html">10. Trực quan hóa với Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-19-so-sanh-python-r.html">11. So sánh R với Python cơ bản</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-99-tricks-python.html">12. Các mẹo trong Python</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Machine learning với sklearn</span></p>
 <ul>
@@ -152,9 +151,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">5. </span>Pandas</li>
+      <li class="breadcrumb-item active"><span class="section-number">4. </span>Pandas</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/p01-05-pandas.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/p01-04-pandas.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -163,7 +162,7 @@
            <div itemprop="articleBody">
              
   <section id="Pandas">
-<h1><span class="section-number">5. </span>Pandas<a class="headerlink" href="#Pandas" title="Link to this heading"></a></h1>
+<h1><span class="section-number">4. </span>Pandas<a class="headerlink" href="#Pandas" title="Link to this heading"></a></h1>
 <p>Khi bắt tay vào công việc phân tích số liệu, việc đầu tiên ta cần phải làm là thu thập dữ liệu từ nhiều nguồn khác nhau. Sau khi hoàn thành xong bước này, ta sẽ phải dành phần lớn thời gian để làm sạch, biến đổi và tổng hợp dữ liệu nhằm tìm kiếm các insights hoặc chuẩn bị dữ liệu cho các bước xây dựng mô hình, dự báo.</p>
 <p>Với python, định dạng dữ liệu cho phép phân tích &amp; xử lý dữ liệu gọi là <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> - tương tự như dataframe trong R. Tuy nhiên, định dạng này không có mặc định trong python mà phải đi qua thư viện <code class="docutils literal notranslate"><span class="pre">pandas</span></code> (viết tắt của <code class="docutils literal notranslate"><span class="pre">panel</span> <span class="pre">data</span></code>). Trong chương này, ta sẽ tìm hiểu thư viện nổi tiếng nhất trong <code class="docutils literal notranslate"><span class="pre">python</span></code> trong việc làm sạch và biến đổi dữ liệu là <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
 <p>Ta có thể cài đặt &amp; gọi pandas như sau</p>
@@ -174,7 +173,7 @@
 </pre></div>
 </div>
 <section id="Giới-thiệu-về-pandas">
-<h2><span class="section-number">5.1. </span>Giới thiệu về pandas<a class="headerlink" href="#Giới-thiệu-về-pandas" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.1. </span>Giới thiệu về pandas<a class="headerlink" href="#Giới-thiệu-về-pandas" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Pandas</span></code> là viết tắt của <code class="docutils literal notranslate"><span class="pre">panel</span> <span class="pre">data</span></code>, pandas dataframe có thể coi như <code class="docutils literal notranslate"><span class="pre">dataframe</span></code> trong R</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -323,7 +322,7 @@ dtype: float64
 </div></div>
 </div>
 <section id="Series">
-<h3><span class="section-number">5.1.1. </span>Series<a class="headerlink" href="#Series" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.1.1. </span>Series<a class="headerlink" href="#Series" title="Link to this heading"></a></h3>
 <p>Series là mảng một chiều, <code class="docutils literal notranslate"><span class="pre">Series</span></code> có thể chứa <code class="docutils literal notranslate"><span class="pre">index</span></code> và <code class="docutils literal notranslate"><span class="pre">values</span></code>. Series có thể coi như là mảng một chiều mở rộng của numpy array</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
@@ -537,7 +536,8 @@ d    True
 dtype: bool
 </pre></div></div>
 </div>
-<p><strong>Biến category</strong>: Trong pandas cho phép sử dụng biến category tương tự như factor của R</p>
+<hr class="docutils" />
+<p><strong>Biến category</strong>: Trong pandas cho phép sử dụng biến category - là loại định dạng dữ liệu cho phép tạo các nhóm. Định dạng này tương tự như <code class="docutils literal notranslate"><span class="pre">factor</span></code> của R</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
@@ -560,25 +560,31 @@ freq      2
 dtype: object
 </pre></div></div>
 </div>
-</section>
-<section id="DataFrame">
-<h3><span class="section-number">5.1.2. </span>DataFrame<a class="headerlink" href="#DataFrame" title="Link to this heading"></a></h3>
-<p>DataFrame có cấu trúc tương tự như R dataframe. Một dataframe có thể được tạo ra từ <code class="docutils literal notranslate"><span class="pre">dictionary</span></code> hoặc <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p>
-<div class="nbinput nblast docutils container">
+<p>Ta cũng có thể biến đổi định dạng dữ liệu sang category theo các cách khác như sau</p>
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo dictionary</span>
-<span class="n">df_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;group&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">],</span>
-<span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]}</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">])</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+pandas.core.series.Series
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_dict</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -588,11 +594,46 @@ dtype: object
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
+count     3
+unique    2
+top       a
+freq      2
+dtype: object
+</pre></div></div>
+</div>
+</section>
+<section id="DataFrame">
+<h3><span class="section-number">4.1.2. </span>DataFrame<a class="headerlink" href="#DataFrame" title="Link to this heading"></a></h3>
+<p>DataFrame có cấu trúc tương tự như R dataframe. Một dataframe có thể được tạo ra từ <code class="docutils literal notranslate"><span class="pre">dictionary</span></code> hoặc <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo dictionary</span>
+<span class="n">df_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;group&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">],</span>
+<span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]}</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_dict</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
 {&#39;group&#39;: [&#39;a&#39;, &#39;b&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;], &#39;value&#39;: [1, 2, 4, 2, 3]}
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert sang data.frame</span>
@@ -601,7 +642,7 @@ dtype: object
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
@@ -609,7 +650,7 @@ dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -666,7 +707,7 @@ dtype: object
 </div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_dict</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">],</span>
@@ -675,7 +716,7 @@ dtype: object
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span>
@@ -683,7 +724,7 @@ dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -753,7 +794,7 @@ dtype: object
 </pre></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">plotnine.data</span> <span class="kn">import</span> <span class="n">mtcars</span>
@@ -767,7 +808,7 @@ dtype: object
 <li><p><code class="docutils literal notranslate"><span class="pre">info</span></code>: Định dạng các biến</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hiển thị 3 dòng đầu tiên</span>
@@ -776,7 +817,7 @@ dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -863,7 +904,7 @@ dtype: object
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Thống kê cơ bản</span>
@@ -872,7 +913,7 @@ dtype: object
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -984,7 +1025,7 @@ dtype: object
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hiển thị định dạng dữ liệu</span>
@@ -1021,16 +1062,16 @@ memory usage: 3.1+ KB
 </section>
 </section>
 <section id="Nhóm-câu-lệnh-truy-vấn-dữ-liệu">
-<h2><span class="section-number">5.2. </span>Nhóm câu lệnh truy vấn dữ liệu<a class="headerlink" href="#Nhóm-câu-lệnh-truy-vấn-dữ-liệu" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.2. </span>Nhóm câu lệnh truy vấn dữ liệu<a class="headerlink" href="#Nhóm-câu-lệnh-truy-vấn-dữ-liệu" title="Link to this heading"></a></h2>
 <section id="Chọn-biến">
-<h3><span class="section-number">5.2.1. </span>Chọn biến<a class="headerlink" href="#Chọn-biến" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.2.1. </span>Chọn biến<a class="headerlink" href="#Chọn-biến" title="Link to this heading"></a></h3>
 <p>Trong pandas có 2 cách chọn các biến</p>
 <ul class="simple">
 <li><p><strong>Cách 1</strong>: Sử dụng dạng attribute - bị giới hạn và chỉ dùng với 1 biến</p></li>
 <li><p><strong>Cách 2</strong>: Sử dụng các biến dưới dạng list</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cách 1: Chọn biến mpg theo attribute</span>
@@ -1039,7 +1080,7 @@ memory usage: 3.1+ KB
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1053,7 +1094,7 @@ Name: mpg, Length: 32, dtype: float64
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cách 2: Chọn biến theo dạng list</span>
@@ -1062,7 +1103,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1076,7 +1117,7 @@ Name: mpg, Length: 32, dtype: float64
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="p">[[</span><span class="s1">&#39;mpg&#39;</span><span class="p">,</span> <span class="s1">&#39;cyl&#39;</span><span class="p">]]</span>
@@ -1084,7 +1125,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1142,7 +1183,7 @@ Name: mpg, Length: 32, dtype: float64
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mpg&#39;</span><span class="p">,</span> <span class="s1">&#39;cyl&#39;</span><span class="p">,</span> <span class="s1">&#39;vs&#39;</span><span class="p">]</span>
@@ -1151,7 +1192,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1216,7 +1257,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 <p>Ngoài cách trên, ta có thể sử dụng method <code class="docutils literal notranslate"><span class="pre">filter</span></code> như sau</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="o">.</span>\
@@ -1225,7 +1266,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1290,10 +1331,10 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </section>
 <section id="Lọc-dữ-liệu-theo-dòng">
-<h3><span class="section-number">5.2.2. </span>Lọc dữ liệu theo dòng<a class="headerlink" href="#Lọc-dữ-liệu-theo-dòng" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.2.2. </span>Lọc dữ liệu theo dòng<a class="headerlink" href="#Lọc-dữ-liệu-theo-dòng" title="Link to this heading"></a></h3>
 <p>Ta có thể lấy thứ tự số dòng trong 1 dataframe với <code class="docutils literal notranslate"><span class="pre">iloc</span></code></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lấy các dòng từ 1 đến 4</span>
@@ -1302,7 +1343,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1390,7 +1431,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">iloc</span></code> cũng cho phép lấy theo cột</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3 dòng đầu tiên, 2 biến đầu tiên</span>
@@ -1399,7 +1440,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1448,7 +1489,7 @@ Name: mpg, Length: 32, dtype: float64
 <hr class="docutils" />
 <p><strong>Lưu ý</strong>: Trong pandas, ta có thể kết hợp truy vấn cả cột và dòng theo dạng <code class="docutils literal notranslate"><span class="pre">pipe</span></code> khi áp dụng method do mỗi object biến đổi dữ liệu trong pandas đều là một DataFrame</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="p">[[</span><span class="s1">&#39;mpg&#39;</span><span class="p">,</span> <span class="s1">&#39;cyl&#39;</span><span class="p">]]</span><span class="o">.</span>\
@@ -1457,7 +1498,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1505,7 +1546,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </section>
 <section id="Lọc-dữ-liệu-theo-điều-kiện">
-<h3><span class="section-number">5.2.3. </span>Lọc dữ liệu theo điều kiện<a class="headerlink" href="#Lọc-dữ-liệu-theo-điều-kiện" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.2.3. </span>Lọc dữ liệu theo điều kiện<a class="headerlink" href="#Lọc-dữ-liệu-theo-điều-kiện" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> cho phép lọc theo điều kiện theo 2 cách:</p>
 <ul class="simple">
 <li><p>Sử dụng phương pháp lọc thông thường, cấu truc: <code class="docutils literal notranslate"><span class="pre">df[df.var1</span> <span class="pre">&gt;</span> <span class="pre">a</span> <span class="pre">&amp;</span> <span class="pre">df.var2</span> <span class="pre">&lt;</span> <span class="pre">b]</span></code></p></li>
@@ -1513,7 +1554,7 @@ Name: mpg, Length: 32, dtype: float64
 </ul>
 <p><strong>Ví dụ sử dụng phương pháp lọc thông thường</strong></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lọc mpg &gt;= 20</span>
@@ -1522,7 +1563,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1640,7 +1681,7 @@ Name: mpg, Length: 32, dtype: float64
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mpg &gt;= 20 &amp; cyl = 4</span>
@@ -1649,7 +1690,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1773,7 +1814,7 @@ Name: mpg, Length: 32, dtype: float64
 </ul>
 <p>Để giải quyết các trường hợp trên, ta có thể sử dụng query method như sau</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mpg &gt;= 20</span>
@@ -1782,7 +1823,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1900,7 +1941,7 @@ Name: mpg, Length: 32, dtype: float64
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lấy thêm điều kiện cyl == 4</span>
@@ -1911,7 +1952,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2030,7 +2071,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 <p><strong>Lưu ý</strong>: Ta có thể kết hợp liên tục các điều kiện lọc theo dòng &amp; cột tương tự như pipe operator trong R như sau</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="o">.</span>\
@@ -2042,7 +2083,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2109,7 +2150,7 @@ Name: mpg, Length: 32, dtype: float64
 <hr class="docutils" />
 <p><strong>Lưu ý</strong>: <code class="docutils literal notranslate"><span class="pre">pandas</span></code> cho phép chúng ta có thể sử dụng linh hoạt nhiều cách thức truy vấn dữ liệu. Tuy nhiên, với phương thức lấy dữ liệu theo dòng và cột thuận tiên, ta nên sử dụng kết hợp giữa <code class="docutils literal notranslate"><span class="pre">filter</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">query</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="o">.</span>\
@@ -2120,7 +2161,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2168,10 +2209,10 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </section>
 <section id="Sắp-xếp-lại-dữ-liệu">
-<h3><span class="section-number">5.2.4. </span>Sắp xếp lại dữ liệu<a class="headerlink" href="#Sắp-xếp-lại-dữ-liệu" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.2.4. </span>Sắp xếp lại dữ liệu<a class="headerlink" href="#Sắp-xếp-lại-dữ-liệu" title="Link to this heading"></a></h3>
 <p>Ta có thể sort lại dữ liệu với method <code class="docutils literal notranslate"><span class="pre">sort_values</span></code></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lọc từ thấp đến cao</span>
@@ -2180,7 +2221,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2298,7 +2339,7 @@ Name: mpg, Length: 32, dtype: float64
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lọc từ cao đến thấp</span>
@@ -2307,7 +2348,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2427,12 +2468,12 @@ Name: mpg, Length: 32, dtype: float64
 </section>
 </section>
 <section id="Nhóm-câu-lệnh-biến-đổi-dữ-liệu">
-<h2><span class="section-number">5.3. </span>Nhóm câu lệnh biến đổi dữ liệu<a class="headerlink" href="#Nhóm-câu-lệnh-biến-đổi-dữ-liệu" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.3. </span>Nhóm câu lệnh biến đổi dữ liệu<a class="headerlink" href="#Nhóm-câu-lệnh-biến-đổi-dữ-liệu" title="Link to this heading"></a></h2>
 <section id="Đổi-tên-biến">
-<h3><span class="section-number">5.3.1. </span>Đổi tên biến<a class="headerlink" href="#Đổi-tên-biến" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.3.1. </span>Đổi tên biến<a class="headerlink" href="#Đổi-tên-biến" title="Link to this heading"></a></h3>
 <p><strong>Cấu trúc</strong>: <code class="docutils literal notranslate"><span class="pre">df.rename(columns</span> <span class="pre">=</span> <span class="pre">{old_var</span> <span class="pre">:</span> <span class="pre">new_var})</span></code></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars_2</span> <span class="o">=</span> <span class="n">mtcars</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span>
@@ -2444,7 +2485,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2562,10 +2603,10 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </section>
 <section id="Tạo-&amp;-xóa-biến-mới">
-<h3><span class="section-number">5.3.2. </span>Tạo &amp; xóa biến mới<a class="headerlink" href="#Tạo-&-xóa-biến-mới" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.3.2. </span>Tạo &amp; xóa biến mới<a class="headerlink" href="#Tạo-&-xóa-biến-mới" title="Link to this heading"></a></h3>
 <p>Ta có thể tạo và xóa biến bằng cách gán một cột mới và sử dụng <code class="docutils literal notranslate"><span class="pre">drop</span></code> method</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo biến mới</span>
@@ -2575,7 +2616,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2666,7 +2707,7 @@ Name: mpg, Length: 32, dtype: float64
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop biến new_var</span>
@@ -2677,7 +2718,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2765,7 +2806,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 <p><strong>Lưu ý</strong>: Khi drop biến, ta phải lưu ý gán lại giá trị vào dataframe ban đầu. Như cách viết trên, <code class="docutils literal notranslate"><span class="pre">mtcars</span></code> sẽ chưa được loại bỏ biến <code class="docutils literal notranslate"><span class="pre">new_var</span></code></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -2773,7 +2814,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2864,7 +2905,7 @@ Name: mpg, Length: 32, dtype: float64
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Xóa hoàn toàn new_var</span>
@@ -2874,7 +2915,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2962,7 +3003,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 <p>Bên cạnh các phương pháp trên, để thuận tiện cho việc tạo <code class="docutils literal notranslate"><span class="pre">chain</span> <span class="pre">operator</span></code>, ta có thể dùng <code class="docutils literal notranslate"><span class="pre">assign</span></code> method</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span>
@@ -2973,7 +3014,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -3044,13 +3085,13 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </section>
 <section id="Tạo-biến-mới-theo-nhóm">
-<h3><span class="section-number">5.3.3. </span>Tạo biến mới theo nhóm<a class="headerlink" href="#Tạo-biến-mới-theo-nhóm" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.3.3. </span>Tạo biến mới theo nhóm<a class="headerlink" href="#Tạo-biến-mới-theo-nhóm" title="Link to this heading"></a></h3>
 <p>Ta có thể tạo biến mới theo nhóm bằng cách kết hợp giữa <code class="docutils literal notranslate"><span class="pre">groupby</span></code> và <code class="docutils literal notranslate"><span class="pre">transform</span></code>. Công thức như sau</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_var&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;group_var&#39;</span><span class="p">)[</span><span class="s1">&#39;calculated_var&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="err">`</span><span class="n">function</span><span class="err">`</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Biến đổi biến value thành mean trong từng nhóm</span>
@@ -3059,7 +3100,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -3073,7 +3114,7 @@ Name: mpg, Length: 32, dtype: float64
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo biến mới</span>
@@ -3082,7 +3123,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;am == 0&#39;</span><span class="p">)</span>
@@ -3090,7 +3131,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -3214,7 +3255,7 @@ Name: mpg, Length: 32, dtype: float64
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;am == 1&#39;</span><span class="p">)</span>
@@ -3222,7 +3263,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -3347,10 +3388,10 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </section>
 <section id="Join">
-<h3><span class="section-number">5.3.4. </span>Join<a class="headerlink" href="#Join" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.3.4. </span>Join<a class="headerlink" href="#Join" title="Link to this heading"></a></h3>
 <p>Tương tự như R, join trong Python có thể dùng hàm <code class="docutils literal notranslate"><span class="pre">merge</span></code></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;employee&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="s1">&#39;Lisa&#39;</span><span class="p">,</span> <span class="s1">&#39;Sue&#39;</span><span class="p">],</span>
@@ -3378,7 +3419,7 @@ Name: mpg, Length: 32, dtype: float64
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">)</span>
@@ -3386,7 +3427,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -3438,7 +3479,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 <p><strong>Lưu ý</strong>: Khi dùng merge, sẽ tự động bỏ các trường không chứa trong cả 2 bảng. Nếu muốn chuyển thành <code class="docutils literal notranslate"><span class="pre">left_join</span></code>, cần thêm option <code class="docutils literal notranslate"><span class="pre">how</span></code></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s2">&quot;left&quot;</span><span class="p">)</span>
@@ -3446,7 +3487,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -3503,7 +3544,7 @@ Name: mpg, Length: 32, dtype: float64
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s1">&#39;right&#39;</span><span class="p">)</span>
@@ -3511,7 +3552,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -3564,7 +3605,7 @@ Name: mpg, Length: 32, dtype: float64
 <hr class="docutils" />
 <p>Với trường hợp bảng dữ liệu khác key, ta cần lựa chọn các biến ở bảng</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="s1">&#39;Lisa&#39;</span><span class="p">,</span> <span class="s1">&#39;Sue&#39;</span><span class="p">],</span>
@@ -3591,7 +3632,7 @@ Name: mpg, Length: 32, dtype: float64
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df3</span><span class="p">,</span> <span class="n">left_on</span> <span class="o">=</span> <span class="s1">&#39;employee&#39;</span><span class="p">,</span> <span class="n">right_on</span> <span class="o">=</span> <span class="s1">&#39;name&#39;</span><span class="p">)</span>
@@ -3599,7 +3640,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -3661,7 +3702,7 @@ Name: mpg, Length: 32, dtype: float64
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop name khi không cần thiết</span>
@@ -3673,7 +3714,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -3731,12 +3772,12 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </section>
 <section id="Ghép-dữ-liệu">
-<h3><span class="section-number">5.3.5. </span>Ghép dữ liệu<a class="headerlink" href="#Ghép-dữ-liệu" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.3.5. </span>Ghép dữ liệu<a class="headerlink" href="#Ghép-dữ-liệu" title="Link to this heading"></a></h3>
 <p>Với pandas, cấu trúc của DataFrame được chia thành hàng và cột. Do đó, cả 2 trường hợp ghép dòng và ghép cột, ta có thể dùng hàm <code class="docutils literal notranslate"><span class="pre">concat</span></code></p>
 <section id="Ghép-dòng">
-<h4><span class="section-number">5.3.5.1. </span>Ghép dòng<a class="headerlink" href="#Ghép-dòng" title="Link to this heading"></a></h4>
+<h4><span class="section-number">4.3.5.1. </span>Ghép dòng<a class="headerlink" href="#Ghép-dòng" title="Link to this heading"></a></h4>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
@@ -3767,7 +3808,7 @@ Name: mpg, Length: 32, dtype: float64
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -3776,7 +3817,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -3834,9 +3875,9 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </section>
 <section id="Ghép-theo-cột">
-<h4><span class="section-number">5.3.5.2. </span>Ghép theo cột<a class="headerlink" href="#Ghép-theo-cột" title="Link to this heading"></a></h4>
+<h4><span class="section-number">4.3.5.2. </span>Ghép theo cột<a class="headerlink" href="#Ghép-theo-cột" title="Link to this heading"></a></h4>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
@@ -3845,7 +3886,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df3</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
@@ -3853,7 +3894,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -3911,7 +3952,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 <p><strong>Lưu ý</strong>: Xảy ra lỗi trên vì df1 và df3 đang có 2 hệ thống index khác nhau. Muốn ghép theo cột bình thường cần reset index của dataframe đầu tiên.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span> <span class="n">df3</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
@@ -3919,7 +3960,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -3977,12 +4018,12 @@ Name: mpg, Length: 32, dtype: float64
 </section>
 </section>
 <section id="Tổng-hợp-dữ-liệu">
-<h2><span class="section-number">5.4. </span>Tổng hợp dữ liệu<a class="headerlink" href="#Tổng-hợp-dữ-liệu" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.4. </span>Tổng hợp dữ liệu<a class="headerlink" href="#Tổng-hợp-dữ-liệu" title="Link to this heading"></a></h2>
 <section id="groupby-&amp;-aggregate">
-<h3><span class="section-number">5.4.1. </span>groupby &amp; aggregate<a class="headerlink" href="#groupby-&-aggregate" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.4.1. </span>groupby &amp; aggregate<a class="headerlink" href="#groupby-&-aggregate" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> cho phép sử dụng nhiều cách linh hoạt để tổng hợp dữ liệu nhanh chóng với <code class="docutils literal notranslate"><span class="pre">agg</span></code> method kết hợp với <code class="docutils literal notranslate"><span class="pre">groupby</span></code> method</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Summary toàn bộ data.frame</span>
@@ -3991,7 +4032,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -4109,7 +4150,7 @@ Name: mpg, Length: 32, dtype: float64
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Summary theo nhóm với biến mpg</span>
@@ -4120,7 +4161,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -4217,7 +4258,7 @@ Name: mpg, Length: 32, dtype: float64
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Summary theo nhóm, chuyển thành data.frame</span>
@@ -4229,7 +4270,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -4354,7 +4395,7 @@ Name: mpg, Length: 32, dtype: float64
 <li><p>Dùng tupple: <code class="docutils literal notranslate"><span class="pre">df.agg(mean_x</span> <span class="pre">=</span> <span class="pre">('x',</span> <span class="pre">'mean'),</span> <span class="pre">max_x</span> <span class="pre">=</span> <span class="pre">('x',</span> <span class="pre">'max'))</span></code></p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[70]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dùng list</span>
@@ -4364,7 +4405,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[70]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -4411,7 +4452,7 @@ Name: mpg, Length: 32, dtype: float64
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dùng dictionary</span>
@@ -4423,7 +4464,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -4492,7 +4533,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 <p>Với cách viết trên, sẽ hiện tên cột không như mong muốn, ta có thể sửa lại như sau:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[70]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p25</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
@@ -4505,7 +4546,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[70]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -4561,7 +4602,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 <p>Với cách thứ 3, dùng dưới dạng thể hiện tuple sẽ cho phép ta tùy biến nhanh chóng việc tổng hợp dữ liệu</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dùng tuple</span>
@@ -4572,7 +4613,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -4616,10 +4657,10 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </section>
 <section id="Pivot-table">
-<h3><span class="section-number">5.4.2. </span>Pivot table<a class="headerlink" href="#Pivot-table" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.4.2. </span>Pivot table<a class="headerlink" href="#Pivot-table" title="Link to this heading"></a></h3>
 <p>Bên cạnh nhóm <code class="docutils literal notranslate"><span class="pre">groupby</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">agg</span></code>, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> cho phép sử dụng <code class="docutils literal notranslate"><span class="pre">pivot_table</span></code> để tổng hợp dữ liệu nhiều chiều</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
@@ -4632,7 +4673,7 @@ Name: mpg, Length: 32, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -4698,12 +4739,12 @@ Name: mpg, Length: 32, dtype: float64
 </section>
 </section>
 <section id="Các-hàm-nâng-cao">
-<h2><span class="section-number">5.5. </span>Các hàm nâng cao<a class="headerlink" href="#Các-hàm-nâng-cao" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.5. </span>Các hàm nâng cao<a class="headerlink" href="#Các-hàm-nâng-cao" title="Link to this heading"></a></h2>
 <section id="select_dtype">
-<h3><span class="section-number">5.5.1. </span>select_dtype<a class="headerlink" href="#select_dtype" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.5.1. </span>select_dtype<a class="headerlink" href="#select_dtype" title="Link to this heading"></a></h3>
 <p>pandas cho phép select cùng lúc các biến cùng thuộc một kiểu dữ liệu. Xem ví dụ dưới đây:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[75]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
@@ -4735,7 +4776,7 @@ memory usage: 228.0+ bytes
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[76]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chọn các biến là biến số dạng integer</span>
@@ -4744,7 +4785,7 @@ memory usage: 228.0+ bytes
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[76]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -4791,7 +4832,7 @@ memory usage: 228.0+ bytes
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[75]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chọn các biến là biến số</span>
@@ -4800,7 +4841,7 @@ memory usage: 228.0+ bytes
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[75]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -4852,14 +4893,14 @@ memory usage: 228.0+ bytes
 </div>
 </section>
 <section id="Xoay-chiều-dữ-liệu">
-<h3><span class="section-number">5.5.2. </span>Xoay chiều dữ liệu<a class="headerlink" href="#Xoay-chiều-dữ-liệu" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.5.2. </span>Xoay chiều dữ liệu<a class="headerlink" href="#Xoay-chiều-dữ-liệu" title="Link to this heading"></a></h3>
 <p>Pandas cho phép xoay chiều dữ liệu từ ngang sang dọc và dọc sang ngang với 2 hàm:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">melt</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">long_to_wide</span></code></p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[76]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
@@ -4872,7 +4913,7 @@ memory usage: 228.0+ bytes
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[79]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span>
@@ -4880,7 +4921,7 @@ memory usage: 228.0+ bytes
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[79]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -4935,7 +4976,7 @@ memory usage: 228.0+ bytes
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[80]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">my_df</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">)</span>
@@ -4943,7 +4984,7 @@ memory usage: 228.0+ bytes
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[80]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -5007,7 +5048,7 @@ memory usage: 228.0+ bytes
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[79]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[81]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">my_df</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;var1&#39;</span><span class="p">])</span>
@@ -5015,7 +5056,7 @@ memory usage: 228.0+ bytes
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[79]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[81]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -5087,7 +5128,7 @@ memory usage: 228.0+ bytes
 <hr class="docutils" />
 <p>Xoay chiều từ dọc sang ngang</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[80]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[82]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">my_df</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">)</span>
@@ -5096,7 +5137,7 @@ memory usage: 228.0+ bytes
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[80]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[82]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -5160,7 +5201,7 @@ memory usage: 228.0+ bytes
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[81]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[83]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="s1">&#39;variable&#39;</span><span class="p">,</span>
@@ -5170,7 +5211,7 @@ memory usage: 228.0+ bytes
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[81]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[83]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -5226,9 +5267,9 @@ memory usage: 228.0+ bytes
 </div>
 </section>
 <section id="Làm-việc-với-missing-value">
-<h3><span class="section-number">5.5.3. </span>Làm việc với missing value<a class="headerlink" href="#Làm-việc-với-missing-value" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.5.3. </span>Làm việc với missing value<a class="headerlink" href="#Làm-việc-với-missing-value" title="Link to this heading"></a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[82]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[84]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_null</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">])</span>
@@ -5236,7 +5277,7 @@ memory usage: 228.0+ bytes
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[83]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[85]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_null</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
@@ -5244,7 +5285,7 @@ memory usage: 228.0+ bytes
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[83]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[85]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -5257,7 +5298,7 @@ dtype: bool
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[84]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[86]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_null</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
@@ -5268,7 +5309,7 @@ dtype: bool
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[84]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[86]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -5319,7 +5360,7 @@ dtype: bool
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[85]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[87]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dropna sẽ loại tất cả các dòng chứa missing value</span>
@@ -5328,7 +5369,7 @@ dtype: bool
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[85]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[87]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -5367,7 +5408,7 @@ dtype: bool
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[86]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[88]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_null</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="s1">&#39;columns&#39;</span><span class="p">)</span>
@@ -5375,7 +5416,7 @@ dtype: bool
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[86]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[88]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -5421,7 +5462,7 @@ dtype: bool
 <li><p><code class="docutils literal notranslate"><span class="pre">fillna</span></code>: Cho phép điền giá trị thiếu vào missing value</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[87]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[89]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_null</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">99</span><span class="p">)</span>
@@ -5429,7 +5470,7 @@ dtype: bool
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[87]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[89]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -5481,11 +5522,11 @@ dtype: bool
 </div>
 </section>
 <section id="Các-hàm-khác">
-<h3><span class="section-number">5.5.4. </span>Các hàm khác<a class="headerlink" href="#Các-hàm-khác" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.5.4. </span>Các hàm khác<a class="headerlink" href="#Các-hàm-khác" title="Link to this heading"></a></h3>
 <section id="Lag">
-<h4><span class="section-number">5.5.4.1. </span>Lag<a class="headerlink" href="#Lag" title="Link to this heading"></a></h4>
+<h4><span class="section-number">4.5.4.1. </span>Lag<a class="headerlink" href="#Lag" title="Link to this heading"></a></h4>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[88]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[90]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
@@ -5497,7 +5538,7 @@ dtype: bool
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[88]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[90]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -5544,7 +5585,7 @@ dtype: bool
 </div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[89]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[91]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;value_1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -5552,7 +5593,7 @@ dtype: bool
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[90]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[92]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
@@ -5560,7 +5601,7 @@ dtype: bool
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[90]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[92]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -5612,9 +5653,9 @@ dtype: bool
 </div>
 </section>
 <section id="Rank">
-<h4><span class="section-number">5.5.4.2. </span>Rank<a class="headerlink" href="#Rank" title="Link to this heading"></a></h4>
+<h4><span class="section-number">4.5.4.2. </span>Rank<a class="headerlink" href="#Rank" title="Link to this heading"></a></h4>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[91]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[93]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
@@ -5626,23 +5667,15 @@ dtype: bool
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-</div>
 </section>
 </section>
 </section>
 <section id="Đọc-&amp;-ghi-dữ-liệu">
-<h2><span class="section-number">5.6. </span>Đọc &amp; ghi dữ liệu<a class="headerlink" href="#Đọc-&-ghi-dữ-liệu" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.6. </span>Đọc &amp; ghi dữ liệu<a class="headerlink" href="#Đọc-&-ghi-dữ-liệu" title="Link to this heading"></a></h2>
 <section id="Import-dữ-liệu">
-<h3><span class="section-number">5.6.1. </span>Import dữ liệu<a class="headerlink" href="#Import-dữ-liệu" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.6.1. </span>Import dữ liệu<a class="headerlink" href="#Import-dữ-liệu" title="Link to this heading"></a></h3>
 <section id="Kết-nối-với-database">
-<h4><span class="section-number">5.6.1.1. </span>Kết nối với database<a class="headerlink" href="#Kết-nối-với-database" title="Link to this heading"></a></h4>
+<h4><span class="section-number">4.6.1.1. </span>Kết nối với database<a class="headerlink" href="#Kết-nối-với-database" title="Link to this heading"></a></h4>
 <p>Ta có thể đọc dữ liệu từ SQL Server thông qua odbc</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyodbc</span>
 <span class="n">conn</span> <span class="o">=</span> <span class="n">pyodbc</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
@@ -5667,7 +5700,7 @@ dtype: bool
 </div>
 </section>
 <section id="Import-từ-file">
-<h4><span class="section-number">5.6.1.2. </span>Import từ file<a class="headerlink" href="#Import-từ-file" title="Link to this heading"></a></h4>
+<h4><span class="section-number">4.6.1.2. </span>Import từ file<a class="headerlink" href="#Import-từ-file" title="Link to this heading"></a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;file.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -5675,7 +5708,7 @@ dtype: bool
 <li><p>Kiểm tra các kiểu dữ liệu có thể đọc</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[92]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[94]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>pd.read_*
@@ -5712,9 +5745,10 @@ pd.read_xml
 </section>
 </section>
 <section id="Lưu-dữ-liệu">
-<h3><span class="section-number">5.6.2. </span>Lưu dữ liệu<a class="headerlink" href="#Lưu-dữ-liệu" title="Link to this heading"></a></h3>
+<h3><span class="section-number">4.6.2. </span>Lưu dữ liệu<a class="headerlink" href="#Lưu-dữ-liệu" title="Link to this heading"></a></h3>
+<p><strong>Lưu dưới dạng pickle</strong></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[93]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[95]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
@@ -5726,7 +5760,7 @@ pd.read_xml
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[94]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[96]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pickle</span>
@@ -5741,10 +5775,21 @@ pd.read_xml
 <span class="n">my_df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s1">&#39;my_df.pkl&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+<hr class="docutils" />
+<p>Ngoài ra, pandas có thể hỗ trợ dễ dàng lưu trữ thành các định dạng khác như xlsx, parquet,…</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[97]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s1">&#39;test_excel_pdf.xlsx&#39;</span><span class="p">)</span>
+<span class="n">my_df</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="s1">&#39;test_pq.xlsx&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </section>
 </section>
 <section id="Tài-liệu-tham-khảo">
-<h2><span class="section-number">5.7. </span>Tài liệu tham khảo<a class="headerlink" href="#Tài-liệu-tham-khảo" title="Link to this heading"></a></h2>
+<h2><span class="section-number">4.7. </span>Tài liệu tham khảo<a class="headerlink" href="#Tài-liệu-tham-khảo" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a href="#id1"><span class="problematic" id="id2">`https://github.com/jorisvandenbossche/pandas-tutorial &lt;&gt;`__</span></a></p></li>
 <li><p><a href="#id1"><span class="problematic" id="id3">`https://aeturrell.github.io/python4DS/data-tidy.html &lt;&gt;`__</span></a></p></li>
@@ -5756,14 +5801,14 @@ pd.read_xml
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="p01-03-numpy.html" class="btn btn-neutral float-left" title="4. Numpy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="p01-06-datetime.html" class="btn btn-neutral float-right" title="6. Dữ liệu thời gian trong Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="p01-03-cau-truc-du-lieu-python.html" class="btn btn-neutral float-left" title="3. Các cấu trúc cơ bản trong Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="p01-05-ngu-phap-bieu-do.html" class="btn btn-neutral float-right" title="5. Ngữ pháp của biểu đồ với plotnine" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2019, Anh Hoang Duc.</p>
+    <p>&#169; Copyright 2022, Anh Hoang Duc.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

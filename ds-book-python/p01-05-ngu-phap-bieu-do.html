@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="vn" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>7. Ngữ pháp của biểu đồ với plotnine &mdash; Phân tích dữ liệu với Python 2019 documentation</title>
+  <title>5. Ngữ pháp của biểu đồ với plotnine &mdash; Phân tích dữ liệu với Python 2019 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
@@ -16,7 +16,7 @@
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="_static/documentation_options.js?v=1ea3fed6"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="_static/copybutton.js?v=f281be69"></script>
@@ -26,8 +26,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="8. Biến đổi dữ liệu text trong python" href="p01-07-lam-viec-voi-text.html" />
-    <link rel="prev" title="6. Dữ liệu thời gian trong Python" href="p01-06-datetime.html" /> 
+    <link rel="next" title="6. Dữ liệu thời gian trong Python" href="p01-06-datetime.html" />
+    <link rel="prev" title="4. Pandas" href="p01-04-pandas.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -52,49 +52,48 @@
               <p class="caption" role="heading"><span class="caption-text">Python cơ bản</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="p01-01-gioi-thieu-python.html">1. Giới thiệu về Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-02-jupyter-lab.html">2. Python IDE - Jupyter lab &amp; Visual Studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-02-python-ide.html">2. Python IDE - Jupyter lab &amp; Visual Studio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-03-cau-truc-du-lieu-python.html">3. Các cấu trúc cơ bản trong Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-03-numpy.html">4. Numpy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-05-pandas.html">5. Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-pandas.html">4. Pandas</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Ngữ pháp của biểu đồ với <code class="docutils literal notranslate"><span class="pre">plotnine</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Giới-thiệu">5.1. Giới thiệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Xây-dựng-biểu-đồ">5.2. Xây dựng biểu đồ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Biểu-đồ-cơ-bản">5.2.1. Biểu đồ cơ bản</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Facet">5.2.2. Facet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Thuộc-tính-hình-học---geom">5.2.3. Thuộc tính hình học - geom</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Tính-toán-thống-kê---statistical-transformations">5.2.4. Tính toán thống kê - statistical transformations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Vị-trí-trong-biểu-đồ">5.2.5. Vị trí trong biểu đồ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Hệ-trục-tọa-độ">5.2.6. Hệ trục tọa độ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Các-yếu-tố-khác">5.2.7. Các yếu tố khác</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Labs">5.2.7.1. Labs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Theme">5.2.7.2. Theme</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Thay-đổi-màu-trong-biểu-đồ">5.2.8. Thay đổi màu trong biểu đồ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Các-mẹo-với-plotnine">5.3. Các mẹo với <code class="docutils literal notranslate"><span class="pre">plotnine</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Đặt-global-option-cho-theme">5.3.1. Đặt global option cho theme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Loại-bỏ-legend-trong-1-lớp">5.3.2. Loại bỏ legend trong 1 lớp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Làm-nổi-bật-biểu-đồ-với-annotate">5.3.3. Làm nổi bật biểu đồ với <code class="docutils literal notranslate"><span class="pre">annotate</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Hiển-thị-text-biểu-đồ-ở-giữa-bar-chart">5.3.4. Hiển thị text biểu đồ ở giữa bar chart</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Các-package-bổ-trợ">5.4. Các package bổ trợ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Kết-hợp-nhiều-biểu-đồ-với-patchworklib">5.4.1. Kết hợp nhiều biểu đồ với <code class="docutils literal notranslate"><span class="pre">patchworklib</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Biểu-đồ-động-với-lets-plot">5.4.2. Biểu đồ động với lets-plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Tài-liệu-tham-khảo">5.5. Tài liệu tham khảo</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="p01-06-datetime.html">6. Dữ liệu thời gian trong Python</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">7. Ngữ pháp của biểu đồ với <code class="docutils literal notranslate"><span class="pre">plotnine</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Giới-thiệu">7.1. Giới thiệu</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Xây-dựng-biểu-đồ">7.2. Xây dựng biểu đồ</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Biểu-đồ-cơ-bản">7.2.1. Biểu đồ cơ bản</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Facet">7.2.2. Facet</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Thuộc-tính-hình-học---geom">7.2.3. Thuộc tính hình học - geom</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Tính-toán-thống-kê---statistical-transformations">7.2.4. Tính toán thống kê - statistical transformations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Vị-trí-trong-biểu-đồ">7.2.5. Vị trí trong biểu đồ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Hệ-trục-tọa-độ">7.2.6. Hệ trục tọa độ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Các-yếu-tố-khác">7.2.7. Các yếu tố khác</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Labs">7.2.7.1. Labs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Theme">7.2.7.2. Theme</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#Thay-đổi-màu-trong-biểu-đồ">7.2.8. Thay đổi màu trong biểu đồ</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#Các-mẹo-với-plotnine">7.3. Các mẹo với <code class="docutils literal notranslate"><span class="pre">plotnine</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Đặt-global-option-cho-theme">7.3.1. Đặt global option cho theme</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Loại-bỏ-legend-trong-1-lớp">7.3.2. Loại bỏ legend trong 1 lớp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Làm-nổi-bật-biểu-đồ-với-annotate">7.3.3. Làm nổi bật biểu đồ với <code class="docutils literal notranslate"><span class="pre">annotate</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Hiển-thị-text-biểu-đồ-ở-giữa-bar-chart">7.3.4. Hiển thị text biểu đồ ở giữa bar chart</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#Các-package-bổ-trợ">7.4. Các package bổ trợ</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Kết-hợp-nhiều-biểu-đồ-với-patchworklib">7.4.1. Kết hợp nhiều biểu đồ với <code class="docutils literal notranslate"><span class="pre">patchworklib</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Biểu-đồ-động-với-lets-plot">7.4.2. Biểu đồ động với lets-plot</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#Tài-liệu-tham-khảo">7.5. Tài liệu tham khảo</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="p01-07-lam-viec-voi-text.html">8. Biến đổi dữ liệu text trong python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-08-matplotlib.html">9. Trực quan hóa với Matplotlib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-09-seaborn.html">10. Trực quan hóa với Seaborn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-13-lam-viec-voi-files.html">11. Làm việc với các file trong máy tính</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-19-so-sanh-python-r.html">12. So sánh R với Python cơ bản</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-99-tricks-python.html">13. Các mẹo trong Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-07-lam-viec-voi-text.html">7. Biến đổi dữ liệu text trong python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-08-numpy.html">8. Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-09-seaborn.html">9. Trực quan hóa với Seaborn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-10-matplotlib.html">10. Trực quan hóa với Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-19-so-sanh-python-r.html">11. So sánh R với Python cơ bản</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-99-tricks-python.html">12. Các mẹo trong Python</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Machine learning với sklearn</span></p>
 <ul>
@@ -131,9 +130,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">7. </span>Ngữ pháp của biểu đồ với <code class="docutils literal notranslate"><span class="pre">plotnine</span></code></li>
+      <li class="breadcrumb-item active"><span class="section-number">5. </span>Ngữ pháp của biểu đồ với <code class="docutils literal notranslate"><span class="pre">plotnine</span></code></li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/p01-06-ngu-phap-bieu-do.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/p01-05-ngu-phap-bieu-do.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -142,9 +141,9 @@
            <div itemprop="articleBody">
              
   <section id="Ngữ-pháp-của-biểu-đồ-với-plotnine">
-<h1><span class="section-number">7. </span>Ngữ pháp của biểu đồ với <code class="docutils literal notranslate"><span class="pre">plotnine</span></code><a class="headerlink" href="#Ngữ-pháp-của-biểu-đồ-với-plotnine" title="Link to this heading"></a></h1>
+<h1><span class="section-number">5. </span>Ngữ pháp của biểu đồ với <code class="docutils literal notranslate"><span class="pre">plotnine</span></code><a class="headerlink" href="#Ngữ-pháp-của-biểu-đồ-với-plotnine" title="Link to this heading"></a></h1>
 <section id="Giới-thiệu">
-<h2><span class="section-number">7.1. </span>Giới thiệu<a class="headerlink" href="#Giới-thiệu" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.1. </span>Giới thiệu<a class="headerlink" href="#Giới-thiệu" title="Link to this heading"></a></h2>
 <p>Trong lĩnh vực phân tích dữ liệu, bên cạnh việc biến đổi dữ liệu, kỹ năng trực quan hóa biểu đồ là kỹ năng đặc biệt quan trọng, giúp cho người đọc báo cáo, phân tích nắm được kết quả phân tích một cách đơn giản hơn.</p>
 <p>Với python, việc trực quan hóa thường được sử dụng với <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> hoặc <code class="docutils literal notranslate"><span class="pre">searborn</span></code>. Tuy nhiên, trong lĩnh vực trực quan hóa dữ liệu, tư tưởng mang tính đột phá là tư duy <em>ngữ pháp biểu đồ</em> và được phổ biến rộng rãi qua ngôn ngữ R. Với <code class="docutils literal notranslate"><span class="pre">python</span></code>, ta có thể sử dụng package <code class="docutils literal notranslate"><span class="pre">plotnine</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">plotnine</span>
@@ -173,9 +172,9 @@
 </div></blockquote>
 </section>
 <section id="Xây-dựng-biểu-đồ">
-<h2><span class="section-number">7.2. </span>Xây dựng biểu đồ<a class="headerlink" href="#Xây-dựng-biểu-đồ" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.2. </span>Xây dựng biểu đồ<a class="headerlink" href="#Xây-dựng-biểu-đồ" title="Link to this heading"></a></h2>
 <section id="Biểu-đồ-cơ-bản">
-<h3><span class="section-number">7.2.1. </span>Biểu đồ cơ bản<a class="headerlink" href="#Biểu-đồ-cơ-bản" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.2.1. </span>Biểu đồ cơ bản<a class="headerlink" href="#Biểu-đồ-cơ-bản" title="Link to this heading"></a></h3>
 <p>Câu lệnh cơ bản của <code class="docutils literal notranslate"><span class="pre">ggplot</span></code> như sau:</p>
 <div class="highlight-{python} notranslate"><div class="highlight"><pre><span></span>ggplot(data = &lt;DATA&gt;) +
   &lt;GEOM_FUNCTION&gt;(mapping = aes(&lt;MAPPINGS&gt;))
@@ -337,7 +336,7 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_10_0.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_10_0.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_10_0.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_10_0.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -367,7 +366,7 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_12_0.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_12_0.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_12_0.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_12_0.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -381,7 +380,7 @@
 </div>
 </section>
 <section id="Facet">
-<h3><span class="section-number">7.2.2. </span>Facet<a class="headerlink" href="#Facet" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.2.2. </span>Facet<a class="headerlink" href="#Facet" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">Facet</span></code> cho phép chúng ta chia dữ liệu thành nhiều phần theo từng nhóm và xây dựng biểu đồ cho mỗi nhóm trong đó. Câu lệnh của facet như sau</p>
 <div class="highlight-{python notranslate"><div class="highlight"><pre><span></span>facet_wrap( group_variable,   # Chia nhóm
             nrow = 2,         # Số lượng dòng trong biểu đồ
@@ -406,7 +405,7 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_16_0.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_16_0.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_16_0.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_16_0.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -440,7 +439,7 @@
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_18_0.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_18_0.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_18_0.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_18_0.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -454,7 +453,7 @@
 </div>
 </section>
 <section id="Thuộc-tính-hình-học---geom">
-<h3><span class="section-number">7.2.3. </span>Thuộc tính hình học - geom<a class="headerlink" href="#Thuộc-tính-hình-học---geom" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.2.3. </span>Thuộc tính hình học - geom<a class="headerlink" href="#Thuộc-tính-hình-học---geom" title="Link to this heading"></a></h3>
 <p>Các loại biểu đồ khác nhau trong <code class="docutils literal notranslate"><span class="pre">plotnine</span></code> chỉ khác nhau ở <code class="docutils literal notranslate"><span class="pre">geom_</span></code> - thuộc tính hình học của biểu đồ. Mỗi <code class="docutils literal notranslate"><span class="pre">geom</span></code> sẽ có các tham số khác nhau cần được điều chỉnh.</p>
 <p>Trong ví dụ dưới đây, ta vẽ 2 loại biểu đồ chồng lên nhau gồm 1. biểu đồ điểm và 2. biểu đồ thể hiện xu hướng</p>
 <div class="nbinput docutils container">
@@ -480,7 +479,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_20_1.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_20_1.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_20_1.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_20_1.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -518,7 +517,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_22_1.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_22_1.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_22_1.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_22_1.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -553,7 +552,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_24_0.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_24_0.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_24_0.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_24_0.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -579,7 +578,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_25_0.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_25_0.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_25_0.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_25_0.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -605,7 +604,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_26_0.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_26_0.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_26_0.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_26_0.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -639,7 +638,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_27_1.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_27_1.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_27_1.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_27_1.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -653,7 +652,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 </div>
 </section>
 <section id="Tính-toán-thống-kê---statistical-transformations">
-<h3><span class="section-number">7.2.4. </span>Tính toán thống kê - statistical transformations<a class="headerlink" href="#Tính-toán-thống-kê---statistical-transformations" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.2.4. </span>Tính toán thống kê - statistical transformations<a class="headerlink" href="#Tính-toán-thống-kê---statistical-transformations" title="Link to this heading"></a></h3>
 <p>Đối với lớp <em>tính toán thống kê</em> (statistical transformation), biểu đồ không được vẽ trực tiếp với 2 trục tung và trục hoành mà sẽ phải trải qua bước tính toán thống kê trước.</p>
 <p>Xem ví dụ biểu đồ cột dưới đây.</p>
 <div class="nbinput docutils container">
@@ -671,7 +670,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_29_0.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_29_0.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_29_0.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_29_0.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -699,7 +698,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_31_0.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_31_0.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_31_0.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_31_0.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -713,7 +712,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 </div>
 </section>
 <section id="Vị-trí-trong-biểu-đồ">
-<h3><span class="section-number">7.2.5. </span>Vị trí trong biểu đồ<a class="headerlink" href="#Vị-trí-trong-biểu-đồ" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.2.5. </span>Vị trí trong biểu đồ<a class="headerlink" href="#Vị-trí-trong-biểu-đồ" title="Link to this heading"></a></h3>
 <p>Quay lại ví dụ <code class="docutils literal notranslate"><span class="pre">bar</span> <span class="pre">chart</span></code> phía trên, khi xây dựng biểu đồ có 2 hoặc nhiều nhóm, biểu đồ có thể có 3 kiểu vị trí như sau:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">position</span> <span class="pre">=</span> <span class="pre">&quot;identity&quot;</span></code> (default): Giữ nguyên chế độ mặc định, để dạng stack bar với giá trị trục y mặc định</p></li>
@@ -735,7 +734,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_33_0.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_33_0.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_33_0.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_33_0.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -762,7 +761,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_34_0.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_34_0.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_34_0.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_34_0.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -789,7 +788,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_35_0.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_35_0.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_35_0.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_35_0.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -816,7 +815,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_37_0.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_37_0.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_37_0.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_37_0.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -843,7 +842,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_38_0.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_38_0.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_38_0.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_38_0.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -962,7 +961,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_42_0.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_42_0.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_42_0.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_42_0.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -990,7 +989,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_43_0.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_43_0.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_43_0.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_43_0.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1004,7 +1003,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 </div>
 </section>
 <section id="Hệ-trục-tọa-độ">
-<h3><span class="section-number">7.2.6. </span>Hệ trục tọa độ<a class="headerlink" href="#Hệ-trục-tọa-độ" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.2.6. </span>Hệ trục tọa độ<a class="headerlink" href="#Hệ-trục-tọa-độ" title="Link to this heading"></a></h3>
 <p>Biểu đồ thông thường được xây trên hệ trục tọa độ Đề-các với tỷ lệ 1-1. Bên cạnh hệ trục này, <code class="docutils literal notranslate"><span class="pre">ggplot2</span></code> hỗ trợ các hệ trục tọa độ khác nhưng thông dụng nhất là <code class="docutils literal notranslate"><span class="pre">coord_flip</span></code>, cho phép đổi vị trí hai trục tọa độ cho nhau</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
@@ -1020,7 +1019,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_45_0.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_45_0.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_45_0.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_45_0.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1034,14 +1033,14 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 </div>
 </section>
 <section id="Các-yếu-tố-khác">
-<h3><span class="section-number">7.2.7. </span>Các yếu tố khác<a class="headerlink" href="#Các-yếu-tố-khác" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.2.7. </span>Các yếu tố khác<a class="headerlink" href="#Các-yếu-tố-khác" title="Link to this heading"></a></h3>
 <p>Bên cạnh các lớp biểu đồ đã phân tích trên, khi xây dựng biểu đồ với, còn 2 nhóm câu lệnh thường sử dụng:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">labs</span></code>: Đặt tên bản đồ, chú giải, tên các trục</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">theme</span></code>: Sử dụng để có bản đồ đẹp và phù hợp hơn</p></li>
 </ul>
 <section id="Labs">
-<h4><span class="section-number">7.2.7.1. </span>Labs<a class="headerlink" href="#Labs" title="Link to this heading"></a></h4>
+<h4><span class="section-number">5.2.7.1. </span>Labs<a class="headerlink" href="#Labs" title="Link to this heading"></a></h4>
 <p>Để điều chỉnh tên biểu đồ, chú giải, ta có thể sử dụng câu lệnh <code class="docutils literal notranslate"><span class="pre">labs</span></code></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;title&quot;</span><span class="p">,</span>
      <span class="n">subtitle</span> <span class="o">=</span> <span class="s2">&quot;subtitle&quot;</span><span class="p">,</span>
@@ -1068,7 +1067,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_49_0.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_49_0.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_49_0.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_49_0.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1082,7 +1081,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 </div>
 </section>
 <section id="Theme">
-<h4><span class="section-number">7.2.7.2. </span>Theme<a class="headerlink" href="#Theme" title="Link to this heading"></a></h4>
+<h4><span class="section-number">5.2.7.2. </span>Theme<a class="headerlink" href="#Theme" title="Link to this heading"></a></h4>
 <p>Khi xây dựng biểu đồ với <code class="docutils literal notranslate"><span class="pre">ggplot2</span></code>, ta có thể sử dụng rất nhiều <code class="docutils literal notranslate"><span class="pre">theme</span></code> có sẵn nhưng được dùng nhiều nhất là <code class="docutils literal notranslate"><span class="pre">theme_bw()</span></code>, <code class="docutils literal notranslate"><span class="pre">theme_classic()</span></code>, <code class="docutils literal notranslate"><span class="pre">theme_minimal()</span></code></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
@@ -1099,7 +1098,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_51_0.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_51_0.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_51_0.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_51_0.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1123,7 +1122,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_52_0.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_52_0.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_52_0.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_52_0.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1147,7 +1146,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_53_0.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_53_0.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_53_0.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_53_0.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1171,7 +1170,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_54_0.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_54_0.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_54_0.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_54_0.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1206,7 +1205,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_56_0.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_56_0.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_56_0.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_56_0.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1222,7 +1221,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 </section>
 </section>
 <section id="Thay-đổi-màu-trong-biểu-đồ">
-<h3><span class="section-number">7.2.8. </span>Thay đổi màu trong biểu đồ<a class="headerlink" href="#Thay-đổi-màu-trong-biểu-đồ" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.2.8. </span>Thay đổi màu trong biểu đồ<a class="headerlink" href="#Thay-đổi-màu-trong-biểu-đồ" title="Link to this heading"></a></h3>
 <p>Hệ mã màu trong <code class="docutils literal notranslate"><span class="pre">plotnine</span></code> được chia làm 2 nhóm chính:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">color</span></code>: Với các nhóm biểu đồ điểm, đường (<code class="docutils literal notranslate"><span class="pre">point</span></code>, <code class="docutils literal notranslate"><span class="pre">line</span></code>)</p></li>
@@ -1250,7 +1249,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_59_0.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_59_0.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_59_0.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_59_0.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1274,7 +1273,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_60_0.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_60_0.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_60_0.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_60_0.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1289,9 +1288,9 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 </section>
 </section>
 <section id="Các-mẹo-với-plotnine">
-<h2><span class="section-number">7.3. </span>Các mẹo với <code class="docutils literal notranslate"><span class="pre">plotnine</span></code><a class="headerlink" href="#Các-mẹo-với-plotnine" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.3. </span>Các mẹo với <code class="docutils literal notranslate"><span class="pre">plotnine</span></code><a class="headerlink" href="#Các-mẹo-với-plotnine" title="Link to this heading"></a></h2>
 <section id="Đặt-global-option-cho-theme">
-<h3><span class="section-number">7.3.1. </span>Đặt global option cho theme<a class="headerlink" href="#Đặt-global-option-cho-theme" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.1. </span>Đặt global option cho theme<a class="headerlink" href="#Đặt-global-option-cho-theme" title="Link to this heading"></a></h3>
 <p>Khi bắt đầu project, ta có thể đặt một <code class="docutils literal notranslate"><span class="pre">theme</span></code> để sử dụng với tất cả biểu đồ với hàm <code class="docutils literal notranslate"><span class="pre">theme_set</span></code>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
@@ -1310,7 +1309,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_63_0.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_63_0.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_63_0.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_63_0.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1324,7 +1323,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 </div>
 </section>
 <section id="Loại-bỏ-legend-trong-1-lớp">
-<h3><span class="section-number">7.3.2. </span>Loại bỏ legend trong 1 lớp<a class="headerlink" href="#Loại-bỏ-legend-trong-1-lớp" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.2. </span>Loại bỏ legend trong 1 lớp<a class="headerlink" href="#Loại-bỏ-legend-trong-1-lớp" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
@@ -1356,7 +1355,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_65_1.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_65_1.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_65_1.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_65_1.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1399,7 +1398,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_66_1.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_66_1.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_66_1.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_66_1.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1413,7 +1412,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 </div>
 </section>
 <section id="Làm-nổi-bật-biểu-đồ-với-annotate">
-<h3><span class="section-number">7.3.3. </span>Làm nổi bật biểu đồ với <code class="docutils literal notranslate"><span class="pre">annotate</span></code><a class="headerlink" href="#Làm-nổi-bật-biểu-đồ-với-annotate" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.3. </span>Làm nổi bật biểu đồ với <code class="docutils literal notranslate"><span class="pre">annotate</span></code><a class="headerlink" href="#Làm-nổi-bật-biểu-đồ-với-annotate" title="Link to this heading"></a></h3>
 <p>Trong biểu đồ, để tạo hiệu ứng tốt nhất, ta có thể thêm các vùng highlight để làm nổi bật biểu đồ bằng cách sử dụng <code class="docutils literal notranslate"><span class="pre">annotate</span></code>.</p>
 <p>Hàm <code class="docutils literal notranslate"><span class="pre">annotate</span></code> tương tự như <code class="docutils literal notranslate"><span class="pre">geom</span></code> nhưng khác biệt ở chỗ, tham số của annotate được thêm vào dưới dạng vector.</p>
 <div class="nbinput docutils container">
@@ -1431,7 +1430,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_68_0.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_68_0.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_68_0.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_68_0.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1445,7 +1444,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 </div>
 </section>
 <section id="Hiển-thị-text-biểu-đồ-ở-giữa-bar-chart">
-<h3><span class="section-number">7.3.4. </span>Hiển thị text biểu đồ ở giữa bar chart<a class="headerlink" href="#Hiển-thị-text-biểu-đồ-ở-giữa-bar-chart" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.3.4. </span>Hiển thị text biểu đồ ở giữa bar chart<a class="headerlink" href="#Hiển-thị-text-biểu-đồ-ở-giữa-bar-chart" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Sử dụng option <code class="docutils literal notranslate"><span class="pre">position</span> <span class="pre">=</span> <span class="pre">position_stack(vjust</span> <span class="pre">=</span> <span class="pre">0.5)</span></code></p></li>
 </ul>
@@ -1549,7 +1548,7 @@ C:\Users\Hoang Duc Anh\AppData\Local\Temp\ipykernel_21780\179534537.py:1: Future
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_71_0.png" class="no-scaled-link" src="_images/p01-06-ngu-phap-bieu-do_71_0.png" style="width: 640px; height: 480px;" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_71_0.png" class="no-scaled-link" src="_images/p01-05-ngu-phap-bieu-do_71_0.png" style="width: 640px; height: 480px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1564,9 +1563,9 @@ C:\Users\Hoang Duc Anh\AppData\Local\Temp\ipykernel_21780\179534537.py:1: Future
 </section>
 </section>
 <section id="Các-package-bổ-trợ">
-<h2><span class="section-number">7.4. </span>Các package bổ trợ<a class="headerlink" href="#Các-package-bổ-trợ" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.4. </span>Các package bổ trợ<a class="headerlink" href="#Các-package-bổ-trợ" title="Link to this heading"></a></h2>
 <section id="Kết-hợp-nhiều-biểu-đồ-với-patchworklib">
-<h3><span class="section-number">7.4.1. </span>Kết hợp nhiều biểu đồ với <code class="docutils literal notranslate"><span class="pre">patchworklib</span></code><a class="headerlink" href="#Kết-hợp-nhiều-biểu-đồ-với-patchworklib" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.4.1. </span>Kết hợp nhiều biểu đồ với <code class="docutils literal notranslate"><span class="pre">patchworklib</span></code><a class="headerlink" href="#Kết-hợp-nhiều-biểu-đồ-với-patchworklib" title="Link to this heading"></a></h3>
 <p>Khi trực quan hóa dữ liệu, ta có thể kết hợp nhiều biểu đồ với nhau để thành 1 biểu đồ duy nhất. Để kết hợp các biểu đồ của <code class="docutils literal notranslate"><span class="pre">ggplotnine</span></code>, ta có thể sử dụng package <code class="docutils literal notranslate"><span class="pre">patchworklib</span></code>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
@@ -1614,12 +1613,12 @@ C:\Users\Hoang Duc Anh\AppData\Local\Temp\ipykernel_21780\179534537.py:1: Future
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="_images/p01-06-ngu-phap-bieu-do_76_0.png" src="_images/p01-06-ngu-phap-bieu-do_76_0.png" />
+<img alt="_images/p01-05-ngu-phap-bieu-do_76_0.png" src="_images/p01-05-ngu-phap-bieu-do_76_0.png" />
 </div>
 </div>
 </section>
 <section id="Biểu-đồ-động-với-lets-plot">
-<h3><span class="section-number">7.4.2. </span>Biểu đồ động với lets-plot<a class="headerlink" href="#Biểu-đồ-động-với-lets-plot" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.4.2. </span>Biểu đồ động với lets-plot<a class="headerlink" href="#Biểu-đồ-động-với-lets-plot" title="Link to this heading"></a></h3>
 <p>Ta có thể tạo biểu đồ theo dạng plotnine động với <code class="docutils literal notranslate"><span class="pre">lets-plot</span></code></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
@@ -1745,7 +1744,7 @@ C:\Users\Hoang Duc Anh\AppData\Local\Temp\ipykernel_21780\179534537.py:1: Future
 </section>
 </section>
 <section id="Tài-liệu-tham-khảo">
-<h2><span class="section-number">7.5. </span>Tài liệu tham khảo<a class="headerlink" href="#Tài-liệu-tham-khảo" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.5. </span>Tài liệu tham khảo<a class="headerlink" href="#Tài-liệu-tham-khảo" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://aeturrell.github.io/python4DS/data-visualise.html">https://aeturrell.github.io/python4DS/data-visualise.html</a></p></li>
 <li><p><a class="reference external" href="https://lets-plot.org/python/index.html">https://lets-plot.org/python/index.html</a></p></li>
@@ -1758,14 +1757,14 @@ C:\Users\Hoang Duc Anh\AppData\Local\Temp\ipykernel_21780\179534537.py:1: Future
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="p01-06-datetime.html" class="btn btn-neutral float-left" title="6. Dữ liệu thời gian trong Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="p01-07-lam-viec-voi-text.html" class="btn btn-neutral float-right" title="8. Biến đổi dữ liệu text trong python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="p01-04-pandas.html" class="btn btn-neutral float-left" title="4. Pandas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="p01-06-datetime.html" class="btn btn-neutral float-right" title="6. Dữ liệu thời gian trong Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2019, Anh Hoang Duc.</p>
+    <p>&#169; Copyright 2022, Anh Hoang Duc.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

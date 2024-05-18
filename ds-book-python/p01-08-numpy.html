@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="vn" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4. Numpy &mdash; Phân tích dữ liệu với Python 2019 documentation</title>
+  <title>8. Numpy &mdash; Phân tích dữ liệu với Python 2019 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
@@ -16,7 +16,7 @@
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="_static/documentation_options.js?v=1ea3fed6"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="_static/copybutton.js?v=f281be69"></script>
@@ -26,8 +26,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="5. Pandas" href="p01-05-pandas.html" />
-    <link rel="prev" title="3. Các cấu trúc cơ bản trong Python" href="p01-03-cau-truc-du-lieu-python.html" /> 
+    <link rel="next" title="9. Trực quan hóa với Seaborn" href="p01-09-seaborn.html" />
+    <link rel="prev" title="7. Biến đổi dữ liệu text trong python" href="p01-07-lam-viec-voi-text.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -52,35 +52,36 @@
               <p class="caption" role="heading"><span class="caption-text">Python cơ bản</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="p01-01-gioi-thieu-python.html">1. Giới thiệu về Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-02-jupyter-lab.html">2. Python IDE - Jupyter lab &amp; Visual Studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-02-python-ide.html">2. Python IDE - Jupyter lab &amp; Visual Studio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-03-cau-truc-du-lieu-python.html">3. Các cấu trúc cơ bản trong Python</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Numpy</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Cơ-bản-về-numpy">4.1. Cơ bản về numpy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Tạo-array-cơ-bản">4.2. Tạo array cơ bản</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Các-thuộc-tính-của-array">4.3. Các thuộc tính của array</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Trích-xuất-dữ-liệu-trong-array">4.4. Trích xuất dữ liệu trong array</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Chiết-xuất-array-theo-chuỗi">4.4.1. Chiết xuất array theo chuỗi</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#Thay-đổi-chiều-trong-array">4.5. Thay đổi chiều trong array</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Fancy-index">4.6. Fancy index</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Các-phép-toán-trong-array">4.7. Các phép toán trong array</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Biến-đổi-từ-dataframe-sang-array">4.8. Biến đổi từ dataframe sang array</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#List-sang-array">4.8.1. List sang array</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Series-&amp;-DataFrame-sang-array">4.8.2. Series &amp; DataFrame sang array</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="p01-05-pandas.html">5. Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-pandas.html">4. Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-05-ngu-phap-bieu-do.html">5. Ngữ pháp của biểu đồ với <code class="docutils literal notranslate"><span class="pre">plotnine</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-06-datetime.html">6. Dữ liệu thời gian trong Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-06-ngu-phap-bieu-do.html">7. Ngữ pháp của biểu đồ với <code class="docutils literal notranslate"><span class="pre">plotnine</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-07-lam-viec-voi-text.html">8. Biến đổi dữ liệu text trong python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-08-matplotlib.html">9. Trực quan hóa với Matplotlib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-09-seaborn.html">10. Trực quan hóa với Seaborn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-13-lam-viec-voi-files.html">11. Làm việc với các file trong máy tính</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-19-so-sanh-python-r.html">12. So sánh R với Python cơ bản</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-99-tricks-python.html">13. Các mẹo trong Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-07-lam-viec-voi-text.html">7. Biến đổi dữ liệu text trong python</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">8. Numpy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Cơ-bản-về-numpy">8.1. Cơ bản về numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tạo-array-cơ-bản">8.2. Tạo array cơ bản</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Các-thuộc-tính-của-array">8.3. Các thuộc tính của array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Trích-xuất-dữ-liệu-trong-array">8.4. Trích xuất dữ liệu trong array</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Chiết-xuất-array-theo-chuỗi">8.4.1. Chiết xuất array theo chuỗi</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Thay-đổi-chiều-trong-array">8.5. Thay đổi chiều trong array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Fancy-index">8.6. Fancy index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Các-phép-toán-trong-array">8.7. Các phép toán trong array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Các-phép-toán-cơ-bản-trong-numpy">8.8. Các phép toán cơ bản trong numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Biến-đổi-từ-dataframe-sang-array">8.9. Biến đổi từ dataframe sang array</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#List-sang-array">8.9.1. List sang array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Series-&amp;-DataFrame-sang-array">8.9.2. Series &amp; DataFrame sang array</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Tài-liệu-tham-khảo">8.10. Tài liệu tham khảo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="p01-09-seaborn.html">9. Trực quan hóa với Seaborn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-10-matplotlib.html">10. Trực quan hóa với Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-19-so-sanh-python-r.html">11. So sánh R với Python cơ bản</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-99-tricks-python.html">12. Các mẹo trong Python</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Machine learning với sklearn</span></p>
 <ul>
@@ -117,9 +118,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">4. </span>Numpy</li>
+      <li class="breadcrumb-item active"><span class="section-number">8. </span>Numpy</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/p01-03-numpy.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/p01-08-numpy.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -128,28 +129,25 @@
            <div itemprop="articleBody">
              
   <section id="Numpy">
-<h1><span class="section-number">4. </span>Numpy<a class="headerlink" href="#Numpy" title="Link to this heading"></a></h1>
+<h1><span class="section-number">8. </span>Numpy<a class="headerlink" href="#Numpy" title="Link to this heading"></a></h1>
 <section id="Cơ-bản-về-numpy">
-<h2><span class="section-number">4.1. </span>Cơ bản về numpy<a class="headerlink" href="#Cơ-bản-về-numpy" title="Link to this heading"></a></h2>
-<p>Numpy là viết tắt của <code class="docutils literal notranslate"><span class="pre">Numerical</span> <span class="pre">Python</span></code>, là một thư viện hỗ trợ tính toán trong Python</p>
-<div class="nbinput nblast docutils container">
+<h2><span class="section-number">8.1. </span>Cơ bản về numpy<a class="headerlink" href="#Cơ-bản-về-numpy" title="Link to this heading"></a></h2>
+<p>Numpy là viết tắt của <code class="docutils literal notranslate"><span class="pre">Numerical</span> <span class="pre">Python</span></code>, là một thư viện hỗ trợ tính toán trong Python cho phép xây dựng và tính toán dữ liệu dạng ma trận (<code class="docutils literal notranslate"><span class="pre">array</span></code>) và các phép tính tính toán học.</p>
+<p>Array là một mảng dữ liệu có thể có 1 hoặc nhiều chiều như sau</p>
+<img alt="_images/np_array.png" src="_images/np_array.png" />
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="c1"># Mảng 1 chiều</span>
+<span class="n">one_array</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">one_array</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -158,15 +156,15 @@
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">L1</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">one_array</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -175,15 +173,15 @@ list
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">L1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">one_array</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -193,17 +191,16 @@ int
 </div>
 <p>Chuyển từ list của Python object thành array</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">L2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="n">L2</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">new_array</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -212,15 +209,15 @@ array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">L2</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">new_array</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -231,9 +228,9 @@ numpy.ndarray
 <p><strong>Lưu ý</strong>: Khi làm việc với các dữ liệu dạng <code class="docutils literal notranslate"><span class="pre">vector</span></code> như R, ta cần chuyển định dạng <code class="docutils literal notranslate"><span class="pre">list</span></code> thành dạng <code class="docutils literal notranslate"><span class="pre">np.array</span></code></p>
 </section>
 <section id="Tạo-array-cơ-bản">
-<h2><span class="section-number">4.2. </span>Tạo array cơ bản<a class="headerlink" href="#Tạo-array-cơ-bản" title="Link to this heading"></a></h2>
+<h2><span class="section-number">8.2. </span>Tạo array cơ bản<a class="headerlink" href="#Tạo-array-cơ-bản" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo array zero</span>
@@ -242,7 +239,7 @@ numpy.ndarray
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -251,7 +248,7 @@ array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo array 1</span>
@@ -260,7 +257,7 @@ array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -271,7 +268,7 @@ array([[1., 1., 1.],
 </div>
 <p><strong>Lưu ý</strong>: <code class="docutils literal notranslate"><span class="pre">dtype</span></code> là viết tắt của data type object - quy định kiểu cấu trúc dữ liệu trong array</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo array 2x3 có giá trị 3.14</span>
@@ -279,7 +276,7 @@ array([[1., 1., 1.],
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="mf">3.14</span><span class="p">)</span>
@@ -287,7 +284,7 @@ array([[1., 1., 1.],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -297,7 +294,7 @@ array([[3.14, 3.14, 3.14],
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chuỗi từ 2:20</span>
@@ -306,7 +303,7 @@ array([[3.14, 3.14, 3.14],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -314,62 +311,65 @@ array([[3.14, 3.14, 3.14],
 array([ 2,  4,  6,  8, 10, 12, 14, 16, 18])
 </pre></div></div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Array 3x3 giá trị random trong khoảng 0,1 (uniform distribution)</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([[0.57631712, 0.41768034, 0.67665236],
-       [0.05258287, 0.18273211, 0.43223421],
-       [0.30320747, 0.28066927, 0.37133616]])
+array([[0.55873045, 0.17101057, 0.864648  ],
+       [0.11256483, 0.59552714, 0.2146484 ],
+       [0.64488892, 0.70919041, 0.34403623]])
 </pre></div></div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Random theo phân phối chuẩn</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([[-0.22007124,  0.90094741, -0.04069485],
-       [ 1.22450006,  0.38860242, -0.46790895],
-       [-1.16381358, -1.18725223, -0.60643464]])
+array([ 0.76025825, -1.57825439, -1.38003726,  0.81866305,  0.30683283,
+        0.91609823, -0.28262441,  0.0831453 ,  0.07946278, -0.83933616,
+       -0.85323391,  1.38111961, -0.3100797 , -0.93036297,  1.01950134,
+        1.43045853, -0.94779552, -0.69448328, -1.44346081,  1.40828162,
+        0.5429329 ,  0.44732211,  1.00303219, -0.57363001, -0.09862848,
+       -0.67667372, -1.94827157, -0.7656969 ,  0.38564589,  1.29107981,
+        0.13908446,  2.00214063,  0.85992258,  0.14703325,  1.16544076,
+        0.36473788,  1.11848992, -2.58151903,  0.38248601,  1.52176957,
+        0.54143324, -1.51787563,  0.8095043 , -0.28132862, -1.20142799,
+       -0.96373088,  0.31622672, -0.510379  , -0.60201529, -0.16995291,
+       -0.10727428,  0.99455544,  1.43689838,  0.06690922, -0.61890555,
+        0.21505744,  0.85106305,  0.76291652,  1.43366877,  0.12512296,
+       -0.41927812, -2.2809709 ,  0.30413348,  0.93702947, -0.57308665,
+       -1.2016411 ,  0.15650302, -0.50422508,  1.53851802, -0.36468095,
+       -0.24456951,  0.49703849,  0.62333574, -1.39376727, -0.11425637,
+       -0.73034035,  1.18340278, -0.27851846, -0.05402435, -0.30502632,
+        0.74238418,  0.97476529,  0.28831737, -0.92192898,  0.54406568,
+        1.54547819, -0.29429902, -0.88713068,  1.22261824, -1.00247142,
+        0.73288417,  0.10953587, -0.5792053 ,  0.93041617, -0.72188136,
+       -0.52031037, -1.66368144,  1.77244174, -1.37504546,  0.94003123])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Random integer</span>
@@ -378,18 +378,18 @@ array([[-0.22007124,  0.90094741, -0.04069485],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([[8, 4, 2],
-       [5, 1, 5],
-       [6, 7, 9]])
+array([[1, 9, 8],
+       [5, 6, 2],
+       [8, 2, 2]])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chia vector từ 0-5 thành 50 phần bằng nhau</span>
@@ -398,7 +398,7 @@ array([[8, 4, 2],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -417,10 +417,10 @@ array([0.        , 0.10204082, 0.20408163, 0.30612245, 0.40816327,
 </div>
 </section>
 <section id="Các-thuộc-tính-của-array">
-<h2><span class="section-number">4.3. </span>Các thuộc tính của array<a class="headerlink" href="#Các-thuộc-tính-của-array" title="Link to this heading"></a></h2>
+<h2><span class="section-number">8.3. </span>Các thuộc tính của array<a class="headerlink" href="#Các-thuộc-tính-của-array" title="Link to this heading"></a></h2>
 <p>Array có 3 thuộc tính sau: - ndim: Số lượng chiều trong mảng - shape: Chi tiết chiều trong mảng - size: Số lượng phần tử trong mảng</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -434,22 +434,22 @@ array([0.        , 0.10204082, 0.20408163, 0.30612245, 0.40816327,
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([[[-0.12285773, -0.77931374,  0.17455533, -0.21175972],
-        [ 0.42706988,  0.10828687,  0.72438997,  0.17277964],
-        [ 0.29308257,  0.85646169, -0.08286228,  0.46052946]],
+array([[[ 0.06970451, -0.26288793, -0.01117305, -1.24629867],
+        [-0.55028247, -0.12324752,  2.20743936,  3.19588393],
+        [ 0.02587897, -1.44135126,  0.43530432,  1.89462402]],
 
-       [[-1.73434574,  0.43020879,  0.52509631, -0.75041061],
-        [-1.1062507 ,  0.52989115,  0.21571298, -2.23330962],
-        [ 0.42127505, -0.21586672,  1.4154433 ,  2.20955452]]])
+       [[-0.8051924 , -0.60224133,  0.6006951 ,  0.72837807],
+        [ 0.10179396,  1.47488236, -0.86162609, -1.31272577],
+        [ 1.08814531, -0.92716925,  0.54080284,  0.6210672 ]]])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span>
@@ -457,16 +457,16 @@ array([[[-0.12285773, -0.77931374,  0.17455533, -0.21175972],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([3, 5, 6, 4, 6, 7])
+array([6, 2, 7, 0, 1, 8])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span><span class="o">.</span><span class="n">ndim</span>
@@ -474,7 +474,7 @@ array([3, 5, 6, 4, 6, 7])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -483,7 +483,7 @@ array([3, 5, 6, 4, 6, 7])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L2</span><span class="o">.</span><span class="n">shape</span>
@@ -491,7 +491,7 @@ array([3, 5, 6, 4, 6, 7])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -500,7 +500,7 @@ array([3, 5, 6, 4, 6, 7])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L3</span><span class="o">.</span><span class="n">size</span>
@@ -508,7 +508,7 @@ array([3, 5, 6, 4, 6, 7])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -519,10 +519,10 @@ array([3, 5, 6, 4, 6, 7])
 <p><strong>Lưu ý</strong>: Trong Python, khi các thuộc tính của object, ta sử dụng không có dấu <code class="docutils literal notranslate"><span class="pre">()</span></code>, với hàm, ta sử dụng dấu <code class="docutils literal notranslate"><span class="pre">()</span></code></p>
 </section>
 <section id="Trích-xuất-dữ-liệu-trong-array">
-<h2><span class="section-number">4.4. </span>Trích xuất dữ liệu trong array<a class="headerlink" href="#Trích-xuất-dữ-liệu-trong-array" title="Link to this heading"></a></h2>
+<h2><span class="section-number">8.4. </span>Trích xuất dữ liệu trong array<a class="headerlink" href="#Trích-xuất-dữ-liệu-trong-array" title="Link to this heading"></a></h2>
 <p>Trong array của numpy, ta chiết xuất dữ liệu tương tự như R. Tuy nhiên, do Python đánh số index từ 0 nên cần lưu ý.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
@@ -530,7 +530,7 @@ array([3, 5, 6, 4, 6, 7])
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span>
@@ -538,18 +538,18 @@ array([3, 5, 6, 4, 6, 7])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([[1, 2, 9],
-       [6, 4, 7],
-       [2, 5, 1]])
+array([[8, 5, 0],
+       [9, 2, 7],
+       [2, 0, 6]])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
@@ -557,41 +557,7 @@ array([[1, 2, 9],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-2
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-6
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -599,10 +565,44 @@ array([[1, 2, 9],
 5
 </pre></div></div>
 </div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+9
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0
+</pre></div></div>
+</div>
 <section id="Chiết-xuất-array-theo-chuỗi">
-<h3><span class="section-number">4.4.1. </span>Chiết xuất array theo chuỗi<a class="headerlink" href="#Chiết-xuất-array-theo-chuỗi" title="Link to this heading"></a></h3>
+<h3><span class="section-number">8.4.1. </span>Chiết xuất array theo chuỗi<a class="headerlink" href="#Chiết-xuất-array-theo-chuỗi" title="Link to this heading"></a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
@@ -610,7 +610,7 @@ array([[1, 2, 9],
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
@@ -618,7 +618,7 @@ array([[1, 2, 9],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -628,7 +628,7 @@ array([1, 2, 3, 4, 5, 6, 7, 8, 9])
 </div>
 <p><strong>Lưu ý</strong>: Khi sử dụng <code class="docutils literal notranslate"><span class="pre">arange</span></code> trong numpy, chuỗi sẽ được thể hiện dạng <code class="docutils literal notranslate"><span class="pre">[a,</span> <span class="pre">b)</span></code></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span> <span class="c1">#5 thành phần đầu tiên</span>
@@ -636,7 +636,7 @@ array([1, 2, 3, 4, 5, 6, 7, 8, 9])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -645,7 +645,7 @@ array([1, 2, 3, 4, 5])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="c1"># Vị trí 3,4,5</span>
@@ -653,7 +653,7 @@ array([1, 2, 3, 4, 5])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -662,7 +662,7 @@ array([3, 4, 5])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">5</span><span class="p">:]</span> <span class="c1"># Tất cả các thành phần sau vị trí 5</span>
@@ -670,7 +670,7 @@ array([3, 4, 5])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -679,7 +679,7 @@ array([6, 7, 8, 9])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># Các thành phần ở vị trị lẻ</span>
@@ -687,7 +687,7 @@ array([6, 7, 8, 9])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -696,7 +696,7 @@ array([1, 3, 5, 7, 9])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[::</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># Các thành phần cách nhau 3 chỉ số</span>
@@ -704,7 +704,7 @@ array([1, 3, 5, 7, 9])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -713,7 +713,7 @@ array([1, 4, 7])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># Các thành phần ở vị trí lẻ, bắt đầu từ số 2</span>
@@ -721,7 +721,7 @@ array([1, 4, 7])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -732,10 +732,10 @@ array([2, 4, 6, 8])
 </section>
 </section>
 <section id="Thay-đổi-chiều-trong-array">
-<h2><span class="section-number">4.5. </span>Thay đổi chiều trong array<a class="headerlink" href="#Thay-đổi-chiều-trong-array" title="Link to this heading"></a></h2>
+<h2><span class="section-number">8.5. </span>Thay đổi chiều trong array<a class="headerlink" href="#Thay-đổi-chiều-trong-array" title="Link to this heading"></a></h2>
 <p>Sử dụng phương pháp <code class="docutils literal notranslate"><span class="pre">reshape()</span></code></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
@@ -743,7 +743,7 @@ array([2, 4, 6, 8])
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">]))</span>
@@ -751,7 +751,7 @@ array([2, 4, 6, 8])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -760,7 +760,7 @@ numpy.ndarray
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
@@ -768,7 +768,7 @@ numpy.ndarray
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -777,7 +777,7 @@ array([1, 2, 3, 4, 5, 6, 7, 8, 9])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
@@ -785,7 +785,7 @@ array([1, 2, 3, 4, 5, 6, 7, 8, 9])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -797,10 +797,10 @@ array([[1, 2, 3],
 </div>
 </section>
 <section id="Fancy-index">
-<h2><span class="section-number">4.6. </span>Fancy index<a class="headerlink" href="#Fancy-index" title="Link to this heading"></a></h2>
+<h2><span class="section-number">8.6. </span>Fancy index<a class="headerlink" href="#Fancy-index" title="Link to this heading"></a></h2>
 <p>Ý tưởng của <code class="docutils literal notranslate"><span class="pre">fancy</span> <span class="pre">index</span></code> là sử dụng các vị trí trong array cũ để tạo array mới, trong khi đó, chiều của array mới được tạo thành từ <code class="docutils literal notranslate"><span class="pre">fancy</span> <span class="pre">index</span></code></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
@@ -809,7 +809,7 @@ array([[1, 2, 3],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -818,7 +818,7 @@ array([1, 2, 3, 4, 5, 6, 7, 8, 9])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fancy_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
@@ -827,7 +827,7 @@ array([1, 2, 3, 4, 5, 6, 7, 8, 9])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -837,7 +837,7 @@ array([[0, 2],
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="n">fancy_index</span><span class="p">]</span>
@@ -845,7 +845,7 @@ array([[0, 2],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -856,9 +856,9 @@ array([[1, 3],
 </div>
 </section>
 <section id="Các-phép-toán-trong-array">
-<h2><span class="section-number">4.7. </span>Các phép toán trong array<a class="headerlink" href="#Các-phép-toán-trong-array" title="Link to this heading"></a></h2>
+<h2><span class="section-number">8.7. </span>Các phép toán trong array<a class="headerlink" href="#Các-phép-toán-trong-array" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sort</span>
@@ -867,7 +867,7 @@ array([[1, 3],
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -875,7 +875,7 @@ array([[1, 3],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -884,7 +884,7 @@ array([1, 2, 3, 6, 9])
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sort với mảng hai chiều</span>
@@ -893,7 +893,7 @@ array([1, 2, 3, 6, 9])
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span>
@@ -901,18 +901,18 @@ array([1, 2, 3, 6, 9])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([[7, 6, 7],
-       [2, 8, 1],
-       [6, 8, 4]])
+array([[9, 3, 9],
+       [2, 9, 1],
+       [1, 9, 6]])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># Sort theo cột</span>
@@ -920,18 +920,18 @@ array([[7, 6, 7],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([[2, 6, 1],
-       [6, 8, 4],
-       [7, 8, 7]])
+array([[1, 3, 1],
+       [2, 9, 6],
+       [9, 9, 9]])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># Sort theo dòng</span>
@@ -939,25 +939,125 @@ array([[2, 6, 1],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[3, 9, 9],
+       [1, 2, 9],
+       [1, 6, 9]])
+</pre></div></div>
+</div>
+</section>
+<section id="Các-phép-toán-cơ-bản-trong-numpy">
+<h2><span class="section-number">8.8. </span>Các phép toán cơ bản trong numpy<a class="headerlink" href="#Các-phép-toán-cơ-bản-trong-numpy" title="Link to this heading"></a></h2>
+<p>Numpy có chứa các hàm tính toán toán học mà các thư viện mặc định của python không có. Ta có thể sử dụng như sau</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([ 9.06661188,  6.62068848, 11.29608551,  5.61416346, 10.73621897,
+        9.81364447, 11.8802057 ,  9.76555625, 12.62739733, 10.74900392])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bình phương</span>
+<span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([ 82.20345102,  43.83351597, 127.60154784,  31.51883137,
+       115.26639783,  96.30761769, 141.13928748,  95.36608879,
+       159.45116344, 115.54108533])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Căn bậc 2</span>
+<span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([[6, 7, 7],
-       [1, 2, 8],
-       [4, 6, 8]])
+array([3.01108151, 2.57306986, 3.36096497, 2.3694226 , 3.276617  ,
+       3.13267369, 3.44676743, 3.124989  , 3.55350494, 3.27856736])
 </pre></div></div>
 </div>
-<p>Các phép toán trong array của Python tương tự như R</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># log</span>
+<span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([2.20459864, 1.89019936, 2.42445625, 1.72529259, 2.37362298,
+       2.28377371, 2.47487363, 2.27886153, 2.53586885, 2.37481309])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cộng thêm các giá trị</span>
+<span class="n">x</span> <span class="o">+</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([109.06661188, 106.62068848, 111.29608551, 105.61416346,
+       110.73621897, 109.81364447, 111.8802057 , 109.76555625,
+       112.62739733, 110.74900392])
+</pre></div></div>
+</div>
 </section>
 <section id="Biến-đổi-từ-dataframe-sang-array">
-<h2><span class="section-number">4.8. </span>Biến đổi từ dataframe sang array<a class="headerlink" href="#Biến-đổi-từ-dataframe-sang-array" title="Link to this heading"></a></h2>
+<h2><span class="section-number">8.9. </span>Biến đổi từ dataframe sang array<a class="headerlink" href="#Biến-đổi-từ-dataframe-sang-array" title="Link to this heading"></a></h2>
 <p>Các phép toán ứng dụng của machine learning chủ yếu làm việc với array. Trong khi đó, cấu trúc dữ liệu cơ bản khi làm việc về phân tích và khám phá dữ liệu lại là pd.DataFrame và pd.Series. Do đó, cần phải thành thạo việc biến đổi qua lại các kiểu dữ liệu trên</p>
 <section id="List-sang-array">
-<h3><span class="section-number">4.8.1. </span>List sang array<a class="headerlink" href="#List-sang-array" title="Link to this heading"></a></h3>
+<h3><span class="section-number">8.9.1. </span>List sang array<a class="headerlink" href="#List-sang-array" title="Link to this heading"></a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
@@ -965,7 +1065,7 @@ array([[6, 7, 7],
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
@@ -973,7 +1073,7 @@ array([[6, 7, 7],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -982,7 +1082,7 @@ list
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Biến đổi sang array</span>
@@ -991,7 +1091,7 @@ list
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1001,9 +1101,9 @@ array([1, 2, 3, 4])
 </div>
 </section>
 <section id="Series-&amp;-DataFrame-sang-array">
-<h3><span class="section-number">4.8.2. </span>Series &amp; DataFrame sang array<a class="headerlink" href="#Series-&-DataFrame-sang-array" title="Link to this heading"></a></h3>
+<h3><span class="section-number">8.9.2. </span>Series &amp; DataFrame sang array<a class="headerlink" href="#Series-&-DataFrame-sang-array" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -1016,7 +1116,7 @@ array([1, 2, 3, 4])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1063,7 +1163,7 @@ array([1, 2, 3, 4])
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DF sang array</span>
@@ -1072,7 +1172,7 @@ array([1, 2, 3, 4])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1083,7 +1183,7 @@ array([[1, &#39;a&#39;],
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">my_df</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
@@ -1091,7 +1191,7 @@ array([[1, &#39;a&#39;],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1100,7 +1200,7 @@ numpy.ndarray
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_array</span> <span class="o">=</span> <span class="n">my_df</span><span class="o">.</span><span class="n">values</span>
@@ -1109,7 +1209,7 @@ numpy.ndarray
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1118,7 +1218,7 @@ numpy.ndarray
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Series sang array</span>
@@ -1127,7 +1227,7 @@ numpy.ndarray
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">series_array</span><span class="o">.</span><span class="n">shape</span>
@@ -1135,7 +1235,7 @@ numpy.ndarray
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1145,7 +1245,7 @@ numpy.ndarray
 </div>
 <p><strong>Lưu ý</strong>: Khi chuyển từ dạng Series sang array sẽ tạo thành 1 array 1 chiều. Do đó, khi làm việc với các thuật toán trong sklearn cần biến đổi shape để trở thành array dạng (n, 1)</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">series_array</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
@@ -1153,7 +1253,7 @@ numpy.ndarray
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1163,20 +1263,26 @@ numpy.ndarray
 </div>
 </section>
 </section>
+<section id="Tài-liệu-tham-khảo">
+<h2><span class="section-number">8.10. </span>Tài liệu tham khảo<a class="headerlink" href="#Tài-liệu-tham-khảo" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://numpy.org/">https://numpy.org/</a></p></li>
+</ul>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="p01-03-cau-truc-du-lieu-python.html" class="btn btn-neutral float-left" title="3. Các cấu trúc cơ bản trong Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="p01-05-pandas.html" class="btn btn-neutral float-right" title="5. Pandas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="p01-07-lam-viec-voi-text.html" class="btn btn-neutral float-left" title="7. Biến đổi dữ liệu text trong python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="p01-09-seaborn.html" class="btn btn-neutral float-right" title="9. Trực quan hóa với Seaborn" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2019, Anh Hoang Duc.</p>
+    <p>&#169; Copyright 2022, Anh Hoang Duc.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
