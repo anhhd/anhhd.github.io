@@ -10,5 +10,6 @@ del /S "%destination%\*" /F /Q
 xcopy /s "%source%" "%destination%"
 
 REM -delete .ipynb
-del /S /Q "%destination%\*.ipynb"
-del /S /Q "%destination%\_sources\*.ipynb"
+REM del /S /Q "%destination%\*.ipynb"
+
+wsl touch ds-book-python\.nojekyll
