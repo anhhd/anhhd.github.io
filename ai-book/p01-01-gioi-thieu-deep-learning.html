@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="vn" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. Giới thiệu về học sâu &mdash; AI book 2024 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/nbsphinx-code-cells.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=c86923ab"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=f281be69"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. Toán cơ bản với DL" href="p01-02-toan-co-ban.html" />
+    <link rel="prev" title="Cơ bản về Deep Learning" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            AI book
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Cơ bản về Deep Learning</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Giới thiệu về học sâu</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Giới-thiệu">1.1. Giới thiệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Mô-hình-cơ-bản">1.2. Mô hình cơ bản</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tài-liệu-tham-khảo">1.3. Tài liệu tham khảo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="p01-02-toan-co-ban.html">2. Toán cơ bản với DL</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AI book</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>Giới thiệu về học sâu</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/p01-01-gioi-thieu-deep-learning.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Giới-thiệu-về-học-sâu">
+<h1><span class="section-number">1. </span>Giới thiệu về học sâu<a class="headerlink" href="#Giới-thiệu-về-học-sâu" title="Link to this heading"></a></h1>
+<section id="Giới-thiệu">
+<h2><span class="section-number">1.1. </span>Giới thiệu<a class="headerlink" href="#Giới-thiệu" title="Link to this heading"></a></h2>
+<p>Thuật ngữ <code class="docutils literal notranslate"><span class="pre">Artificial</span> <span class="pre">Intelligence</span></code> được tạo ra từ những năm 1950s với mục tiêu tự động hóa các công việc mà con người phải thực hiện. Thời điểm đó, các kỹ sư viết ra các thuật toán dựa trên các quy tắc (<code class="docutils literal notranslate"><span class="pre">rule</span> <span class="pre">based</span></code>) để hướng dẫn máy tính chơi cờ với con người. Việc sử dụng <code class="docutils literal notranslate"><span class="pre">AI</span></code> với các rule cho trước như vậy được gọi là <code class="docutils literal notranslate"><span class="pre">symbolic</span> <span class="pre">AI</span></code></p>
+<p>Khác với <code class="docutils literal notranslate"><span class="pre">symbolic</span> <span class="pre">AI</span></code>, <code class="docutils literal notranslate"><span class="pre">Machine</span> <span class="pre">Learning</span></code> được đưa ra để trả lời câu hỏi: &quot;Liệu máy móc có thể tự đưa ra các quy tắc (rules) hay không?&quot;. Hai cách tiếp cận trên khác nhau cơ bản như hình dưới đây.</p>
+<img alt="_images/nn-00.png" src="_images/nn-00.png" />
+<p>Từ 1960s đến giờ, có rất nhiều các các thuận toán khác nhau như <code class="docutils literal notranslate"><span class="pre">SVM</span></code> với <code class="docutils literal notranslate"><span class="pre">kernel</span></code> hay các thuật toán họ cây như <code class="docutils literal notranslate"><span class="pre">Random</span> <span class="pre">Forest</span></code> hay <code class="docutils literal notranslate"><span class="pre">XGBoost</span></code>. Các nhóm thuật toán này đều thực hiện rất tốt với các loại dữ liệu biến thiên ít thuần nhất với đặc thù có nhiều kiểu dữ liệu và biên độ biến thiên dữ liệu lớn. Ví dụ - dữ liệu khách hàng có thể có:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">income</span></code> - thu nhập từ 100 đến 1M USD</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">transaction</span></code> - giao dịch có thể từ 1-10K USD</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">age</span></code> - độ tuổi trong khoảng 18-90</p></li>
+</ul>
+<p>Với các nhóm dữ liệu này, các thuật toán họ cây đem lại kết quả rất tốt.</p>
+<p>Tuy nhiên, bên cạnh các kiểu dữ liệu có cấu trúc, các nguồn dữ liệu phi cấu trúc như text, voice, image, video ngày càng phát triển càng nhiều. Với các nhóm dữ liệu này, sự phát triển của các thuật toán <code class="docutils literal notranslate"><span class="pre">deep</span> <span class="pre">learning</span></code> đem lại các kết quả vượt trội.</p>
+<hr class="docutils" />
+<p>Học sâu (<code class="docutils literal notranslate"><span class="pre">deep</span> <span class="pre">learning</span></code>) là một lĩnh vực con của học máy (<code class="docutils literal notranslate"><span class="pre">machine</span> <span class="pre">learning</span></code>), trong đó các mô hình mạng neuron nhiều lớp (deep neural networks) được sử dụng để học từ dữ liệu. Khác với các thuật toán machine learning truyền thống, deep learning có khả năng tự động trích xuất các đặc trưng từ dữ liệu mà không cần sự can thiệp của con người.</p>
+<p>Deep learning tạo sự khác biệt lớn so với các thuật toán ML thông thường bởi mô phỏng quá trình tương tác thông tin từ bộ não con người thông qua mạng neural. Dữ liệu đầu vào và đầu ra được gọi là input và output. Giữa 2 lớp này có nhiều lớp ẩn ở giữa (<code class="docutils literal notranslate"><span class="pre">hidden</span> <span class="pre">layer</span></code>) với nhiều node - đại diện cho 1 neural. Cấu trúc cơ bản của mạng neural như sau</p>
+<img alt="_images/p01-dl-01.png" src="_images/p01-dl-01.png" />
+<p>Thuật toán deelp learning có thể xử lý một lượng lớn dữ liệu và thực hiện tốt trong các nhiệm vụ phức tạp như nhận diện hình ảnh, xử lý ngôn ngữ tự nhiên… Chữ <code class="docutils literal notranslate"><span class="pre">deep</span></code> trong <code class="docutils literal notranslate"><span class="pre">deep</span> <span class="pre">learning</span></code> thể hiện nhiều lớp trong một mạng neural thần kinh. Nhờ vào cấu trúc mạng neuron sâu, deep learning có thể học được các biểu diễn dữ liệu rất phức tạp và trừu tượng, điều mà các thuật toán machine learning truyền thống khó đạt được như nhận diện ảnh, tạo ra phản hồi, … Dữ liệu đầu vào và đầu ra của một
+lớp hoặc một neural được gọi là <code class="docutils literal notranslate"><span class="pre">tensor</span></code> (mảng dữ liệu đa chiều dữ liệu)</p>
+<img alt="_images/p01-vi-du-dl.png" src="_images/p01-vi-du-dl.png" />
+<p>Từ deep learning, phát triển thêm nhóm thuật toán và mô hình với GenAI, cho phép thực hiện các tác vụ như tạo hình ảnh, âm thanh, text nhanh chóng và đạt chất lượng rất cao.</p>
+<p>Mối quan hệ giữa Data Analytics, AI, ML, DL và GenAI như sau:</p>
+<img alt="_images/p01-ai.png" src="_images/p01-ai.png" />
+<p>Một mạng neral network khi thực hiện sẽ qua các bước lớn:</p>
+<ul class="simple">
+<li><p>Input X: Dữ liệu đầu vào cho mạng nơ-ron.</p></li>
+<li><p>Layer (Data Transformation): Các tầng của mạng nơ-ron biến đổi dữ liệu qua các trọng số và hàm kích hoạt.</p></li>
+<li><p>Predictions Y': Đầu ra dự đoán của mạng nơ-ron sau khi dữ liệu đã qua các tầng.</p></li>
+<li><p>True Targets Y: Giá trị thực tế mà mạng nơ-ron cần dự đoán.</p></li>
+<li><p>Loss Function: Hàm tính toán sự khác biệt giữa dự đoán (Y') và giá trị thực tế (Y).</p></li>
+<li><p>Loss Score: Kết quả của hàm mất mát, thể hiện độ sai lệch của mô hình.</p></li>
+<li><p>Optimizer: Bộ tối ưu hóa điều chỉnh trọng số dựa trên điểm mất mát để giảm sai lệch.</p></li>
+<li><p>Weight Update: Quá trình cập nhật trọng số để cải thiện dự đoán của mô hình.</p></li>
+</ul>
+<img alt="_images/p01-dl-03.png" src="_images/p01-dl-03.png" />
+<p>Mô hình deep learning có các ưu điểm vượt trội sau:</p>
+<ul class="simple">
+<li><p>Cho phép động hóa <code class="docutils literal notranslate"><span class="pre">feature</span> <span class="pre">engineering</span></code>, tối ưu hóa cùng lúc nhiều lớp</p></li>
+<li><p>Cho phép kế thừa mô hình để sử dụng cho các bộ dữ liệu khác nhau (<code class="docutils literal notranslate"><span class="pre">transfered</span> <span class="pre">learning</span></code>)</p></li>
+</ul>
+</section>
+<section id="Mô-hình-cơ-bản">
+<h2><span class="section-number">1.2. </span>Mô hình cơ bản<a class="headerlink" href="#Mô-hình-cơ-bản" title="Link to this heading"></a></h2>
+<p>Ta xây dựng mô hình phân loại ảnh đơn giản với <code class="docutils literal notranslate"><span class="pre">keras</span></code> như sau.</p>
+<ul class="simple">
+<li><p>Bước 1: Xây dựng dữ liệu train &amp; test</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.keras.datasets</span> <span class="kn">import</span> <span class="n">mnist</span>
+<span class="p">(</span><span class="n">train_images</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">),</span> <span class="p">(</span><span class="n">test_images</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+
+<span class="n">train_images</span> <span class="o">=</span> <span class="n">train_images</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">60000</span><span class="p">,</span> <span class="mi">28</span> <span class="o">*</span> <span class="mi">28</span><span class="p">))</span>
+<span class="n">train_images</span> <span class="o">=</span> <span class="n">train_images</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span>
+<span class="n">test_images</span> <span class="o">=</span> <span class="n">test_images</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">28</span> <span class="o">*</span> <span class="mi">28</span><span class="p">))</span>
+<span class="n">test_images</span> <span class="o">=</span> <span class="n">test_images</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span>
+</pre></div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Bước 2.1: Xây dựng cấu trúc mạng neural đơn giản với 2 layers:</p>
+<ul>
+<li><p>Layer 1: 512 neural, và tất cả đều được liên kết vác node ở trước và sau</p></li>
+<li><p>Layer 2: 10 neural - tương ứng với 10 giá trị cần phân loại từ 0-9, với activate function là <code class="docutils literal notranslate"><span class="pre">softmax</span></code> có kết quả trong khoảng (0-1) để thể hiện xác suất.</p></li>
+</ul>
+</li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;softmax&quot;</span><span class="p">)</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Bước 2.2: Xác định thuật toán tối ưu hóa, hàm loss và chỉ số đánh giá mô hình.</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Xây dựng mô hình</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s2">&quot;rmsprop&quot;</span><span class="p">,</span>
+              <span class="n">loss</span><span class="o">=</span><span class="s2">&quot;sparse_categorical_crossentropy&quot;</span><span class="p">,</span>
+              <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;accuracy&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Bước 3: Xây dựng mô hình</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_images</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Epoch 1/5
+<span class="ansi-bold">469/469</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">2s</span> 4ms/step - accuracy: 0.8746 - loss: 0.4321
+Epoch 2/5
+<span class="ansi-bold">469/469</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">2s</span> 4ms/step - accuracy: 0.9664 - loss: 0.1149
+Epoch 3/5
+<span class="ansi-bold">469/469</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">2s</span> 4ms/step - accuracy: 0.9794 - loss: 0.0702
+Epoch 4/5
+<span class="ansi-bold">469/469</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">2s</span> 4ms/step - accuracy: 0.9860 - loss: 0.0483
+Epoch 5/5
+<span class="ansi-bold">469/469</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">3s</span> 6ms/step - accuracy: 0.9896 - loss: 0.0346
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;keras.src.callbacks.history.History at 0x225b2068290&gt;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_digits</span> <span class="o">=</span> <span class="n">test_images</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_digits</span><span class="p">)</span>
+<span class="n">predictions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-bold">1/1</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 49ms/step
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([6.1193788e-07, 5.5614486e-09, 5.2034125e-06, 1.6584936e-04,
+       1.2991679e-10, 1.2699923e-07, 5.4431576e-12, 9.9982339e-01,
+       2.0232154e-07, 4.6985779e-06], dtype=float32)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Kết quả</span>
+<span class="n">predictions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+7
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dộ chính xác của mô hình</span>
+<span class="n">test_loss</span><span class="p">,</span> <span class="n">test_acc</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">test_images</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;test_acc: </span><span class="si">{</span><span class="n">test_acc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-bold">313/313</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">1s</span> 4ms/step - accuracy: 0.9758 - loss: 0.0886
+test_acc: 0.9787999987602234
+</pre></div></div>
+</div>
+</section>
+<section id="Tài-liệu-tham-khảo">
+<h2><span class="section-number">1.3. </span>Tài liệu tham khảo<a class="headerlink" href="#Tài-liệu-tham-khảo" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Deep Learning with Python - chapter 1, 2</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Cơ bản về Deep Learning" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="p01-02-toan-co-ban.html" class="btn btn-neutral float-right" title="2. Toán cơ bản với DL" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Anh Hoang Duc.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

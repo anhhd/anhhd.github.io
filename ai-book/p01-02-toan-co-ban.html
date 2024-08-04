@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="vn" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. Toán cơ bản với DL &mdash; AI book 2024 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/nbsphinx-code-cells.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=c86923ab"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=f281be69"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="1. Giới thiệu về học sâu" href="p01-01-gioi-thieu-deep-learning.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            AI book
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Cơ bản về Deep Learning</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="p01-01-gioi-thieu-deep-learning.html">1. Giới thiệu về học sâu</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Toán cơ bản với DL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Tensor">2.1. Tensor</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AI book</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">2. </span>Toán cơ bản với DL</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/p01-02-toan-co-ban.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Toán-cơ-bản-với-DL">
+<h1><span class="section-number">2. </span>Toán cơ bản với DL<a class="headerlink" href="#Toán-cơ-bản-với-DL" title="Link to this heading"></a></h1>
+<section id="Tensor">
+<h2><span class="section-number">2.1. </span>Tensor<a class="headerlink" href="#Tensor" title="Link to this heading"></a></h2>
+<p>Dư liệu đầu vào của mạng neural thần kinh là dữ liệu định dạng mảng, chỉ chứa số và được gọi là <code class="docutils literal notranslate"><span class="pre">tensor</span></code>. Một tensor có thể có từ 0 đến nhiều chiều khác nhau và có cơ bản các thuộc tính sau:</p>
+<ul class="simple">
+<li><p>Số chiều (dimension, <code class="docutils literal notranslate"><span class="pre">axes</span></code>)</p></li>
+<li><p>Kích thước của mỗi tensor (<code class="docutils literal notranslate"><span class="pre">shape</span></code>) theo từng chiều</p></li>
+<li><p>Định dạng dữ liệu của mỗi tensor (<code class="docutils literal notranslate"><span class="pre">float64</span></code>, <code class="docutils literal notranslate"><span class="pre">float32</span></code>)</p></li>
+</ul>
+<p><strong>Tensor 0D - Scalars</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array(1)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Số chiều dimension</span>
+<span class="n">x</span><span class="o">.</span><span class="n">ndim</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0
+</pre></div></div>
+</div>
+<hr class="docutils" />
+<p><strong>Tensor 1D</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([1, 2, 3])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Số chiều</span>
+<span class="n">y</span><span class="o">.</span><span class="n">ndim</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1
+</pre></div></div>
+</div>
+<hr class="docutils" />
+<p><strong>Tensor 2D</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<span class="n">x</span><span class="o">.</span><span class="n">ndim</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2
+</pre></div></div>
+</div>
+<p>Trong ví dụ trên, giá trị <code class="docutils literal notranslate"><span class="pre">[5,</span> <span class="pre">78,</span> <span class="pre">2,</span> <span class="pre">35,</span> <span class="pre">0]</span></code> đại diện cho dòng (<code class="docutils literal notranslate"><span class="pre">x-axis</span></code>)</p>
+<hr class="docutils" />
+<p><strong>Tensor 3D</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+               <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+               <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">2</span><span class="p">]],</span>
+              <span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+               <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+               <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">2</span><span class="p">]],</span>
+              <span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+               <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+               <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]])</span>
+<span class="n">x</span><span class="o">.</span><span class="n">ndim</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+3
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[ 5, 78,  2, 34,  0],
+       [ 6, 79,  3, 35,  1],
+       [ 7, 80,  4, 36,  2]])
+</pre></div></div>
+</div>
+<p>Tương tự như các tensor 2D, ta có thể tạo ra các tensor 3D, 4D hoặc cao hơn nữa. Định dạng dữ liệu tensor có thể được sử dụng trong các tập dữ liệu khác nhau.</p>
+<ul class="simple">
+<li><p>Vector data—2D: (samples, features)</p></li>
+<li><p>Dữ liệu thời gian - tensor 3D: (samples, timesteps, features)</p></li>
+</ul>
+<img alt="_images/p01-02-tensor-3d.png" src="_images/p01-02-tensor-3d.png" />
+<ul class="simple">
+<li><p>Dữ liệu ảnh - tensor 4D: (samples, height, width, channels) hoặc (samples, channels, height, width)</p></li>
+</ul>
+<img alt="_images/p01-02-tensor-4d.png" src="_images/p01-02-tensor-4d.png" />
+<ul class="simple">
+<li><p>Dữ liệu Video — 5D tensors: (samples, frames, height, width, channels) hoặc (samples, frames, channels, height, width)</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="p01-01-gioi-thieu-deep-learning.html" class="btn btn-neutral float-left" title="1. Giới thiệu về học sâu" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Anh Hoang Duc.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
