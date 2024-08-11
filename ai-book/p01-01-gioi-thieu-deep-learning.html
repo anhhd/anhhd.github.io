@@ -58,6 +58,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="p01-02-toan-co-ban.html">2. Toán cơ bản với DL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-03-dl-co-ban.html">3. Tensorflow &amp; Keras</a></li>
 </ul>
 
         </div>
@@ -103,12 +104,16 @@
 <p>Học sâu (<code class="docutils literal notranslate"><span class="pre">deep</span> <span class="pre">learning</span></code>) là một lĩnh vực con của học máy (<code class="docutils literal notranslate"><span class="pre">machine</span> <span class="pre">learning</span></code>), trong đó các mô hình mạng neuron nhiều lớp (deep neural networks) được sử dụng để học từ dữ liệu. Khác với các thuật toán machine learning truyền thống, deep learning có khả năng tự động trích xuất các đặc trưng từ dữ liệu mà không cần sự can thiệp của con người.</p>
 <p>Deep learning tạo sự khác biệt lớn so với các thuật toán ML thông thường bởi mô phỏng quá trình tương tác thông tin từ bộ não con người thông qua mạng neural. Dữ liệu đầu vào và đầu ra được gọi là input và output. Giữa 2 lớp này có nhiều lớp ẩn ở giữa (<code class="docutils literal notranslate"><span class="pre">hidden</span> <span class="pre">layer</span></code>) với nhiều node - đại diện cho 1 neural. Cấu trúc cơ bản của mạng neural như sau</p>
 <img alt="_images/p01-dl-01.png" src="_images/p01-dl-01.png" />
+<p>Các input đầu vào tại mỗi neural sẽ tổng hợp và trả ra một kết quả làm đầu vào cho neural tiếp theo trong mạng thần kinh. Hàm tính toán tại mỗi neural gọi là hàm kích hoạt (<code class="docutils literal notranslate"><span class="pre">activation</span> <span class="pre">function</span></code>). So sánh giữa mạng neural của máy tính và con người có những khác biệt lớn như sau</p>
+<img alt="_images/p01-01-neural-bio.png" src="_images/p01-01-neural-bio.png" />
 <p>Thuật toán deelp learning có thể xử lý một lượng lớn dữ liệu và thực hiện tốt trong các nhiệm vụ phức tạp như nhận diện hình ảnh, xử lý ngôn ngữ tự nhiên… Chữ <code class="docutils literal notranslate"><span class="pre">deep</span></code> trong <code class="docutils literal notranslate"><span class="pre">deep</span> <span class="pre">learning</span></code> thể hiện nhiều lớp trong một mạng neural thần kinh. Nhờ vào cấu trúc mạng neuron sâu, deep learning có thể học được các biểu diễn dữ liệu rất phức tạp và trừu tượng, điều mà các thuật toán machine learning truyền thống khó đạt được như nhận diện ảnh, tạo ra phản hồi, … Dữ liệu đầu vào và đầu ra của một
 lớp hoặc một neural được gọi là <code class="docutils literal notranslate"><span class="pre">tensor</span></code> (mảng dữ liệu đa chiều dữ liệu)</p>
 <img alt="_images/p01-vi-du-dl.png" src="_images/p01-vi-du-dl.png" />
 <p>Từ deep learning, phát triển thêm nhóm thuật toán và mô hình với GenAI, cho phép thực hiện các tác vụ như tạo hình ảnh, âm thanh, text nhanh chóng và đạt chất lượng rất cao.</p>
 <p>Mối quan hệ giữa Data Analytics, AI, ML, DL và GenAI như sau:</p>
 <img alt="_images/p01-ai.png" src="_images/p01-ai.png" />
+<p>Deep Learning so sánh với các thuật toán ML khác</p>
+<img alt="_images/p01-01-dl-vs-ml.png" src="_images/p01-01-dl-vs-ml.png" />
 <p>Một mạng neral network khi thực hiện sẽ qua các bước lớn:</p>
 <ul class="simple">
 <li><p>Input X: Dữ liệu đầu vào cho mạng nơ-ron.</p></li>
@@ -134,7 +139,7 @@ lớp hoặc một neural được gọi là <code class="docutils literal notra
 <li><p>Bước 1: Xây dựng dữ liệu train &amp; test</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.keras.datasets</span> <span class="kn">import</span> <span class="n">mnist</span>
@@ -156,7 +161,7 @@ lớp hoặc một neural được gọi là <code class="docutils literal notra
 </li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
@@ -172,7 +177,7 @@ lớp hoặc một neural được gọi là <code class="docutils literal notra
 <li><p>Bước 2.2: Xác định thuật toán tối ưu hóa, hàm loss và chỉ số đánh giá mô hình.</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Xây dựng mô hình</span>
@@ -186,7 +191,7 @@ lớp hoặc một neural được gọi là <code class="docutils literal notra
 <li><p>Bước 3: Xây dựng mô hình</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_images</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
@@ -199,28 +204,28 @@ lớp hoặc một neural được gọi là <code class="docutils literal notra
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Epoch 1/5
-<span class="ansi-bold">469/469</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">2s</span> 4ms/step - accuracy: 0.8746 - loss: 0.4321
+<span class="ansi-bold">469/469</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">3s</span> 4ms/step - accuracy: 0.8705 - loss: 0.4426
 Epoch 2/5
-<span class="ansi-bold">469/469</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">2s</span> 4ms/step - accuracy: 0.9664 - loss: 0.1149
+<span class="ansi-bold">469/469</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">2s</span> 4ms/step - accuracy: 0.9669 - loss: 0.1154
 Epoch 3/5
-<span class="ansi-bold">469/469</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">2s</span> 4ms/step - accuracy: 0.9794 - loss: 0.0702
+<span class="ansi-bold">469/469</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">4s</span> 8ms/step - accuracy: 0.9785 - loss: 0.0730
 Epoch 4/5
-<span class="ansi-bold">469/469</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">2s</span> 4ms/step - accuracy: 0.9860 - loss: 0.0483
+<span class="ansi-bold">469/469</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">4s</span> 9ms/step - accuracy: 0.9857 - loss: 0.0507
 Epoch 5/5
-<span class="ansi-bold">469/469</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">3s</span> 6ms/step - accuracy: 0.9896 - loss: 0.0346
+<span class="ansi-bold">469/469</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">4s</span> 9ms/step - accuracy: 0.9894 - loss: 0.0355
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;keras.src.callbacks.history.History at 0x225b2068290&gt;
+&lt;keras.src.callbacks.history.History at 0x21e76541810&gt;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_digits</span> <span class="o">=</span> <span class="n">test_images</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
@@ -234,22 +239,22 @@ Epoch 5/5
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-bold">1/1</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 49ms/step
+<span class="ansi-bold">1/1</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 123ms/step
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([6.1193788e-07, 5.5614486e-09, 5.2034125e-06, 1.6584936e-04,
-       1.2991679e-10, 1.2699923e-07, 5.4431576e-12, 9.9982339e-01,
-       2.0232154e-07, 4.6985779e-06], dtype=float32)
+array([8.7756593e-09, 8.7886881e-10, 1.6251083e-06, 8.2889019e-06,
+       8.9369449e-12, 7.9078106e-08, 8.2524292e-14, 9.9998951e-01,
+       1.9572791e-08, 3.5411122e-07], dtype=float32)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Kết quả</span>
@@ -258,7 +263,7 @@ array([6.1193788e-07, 5.5614486e-09, 5.2034125e-06, 1.6584936e-04,
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -267,7 +272,7 @@ array([6.1193788e-07, 5.5614486e-09, 5.2034125e-06, 1.6584936e-04,
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dộ chính xác của mô hình</span>
@@ -281,8 +286,8 @@ array([6.1193788e-07, 5.5614486e-09, 5.2034125e-06, 1.6584936e-04,
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-bold">313/313</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">1s</span> 4ms/step - accuracy: 0.9758 - loss: 0.0886
-test_acc: 0.9787999987602234
+<span class="ansi-bold">313/313</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">2s</span> 4ms/step - accuracy: 0.9768 - loss: 0.0763
+test_acc: 0.9793999791145325
 </pre></div></div>
 </div>
 </section>
@@ -290,6 +295,7 @@ test_acc: 0.9787999987602234
 <h2><span class="section-number">1.3. </span>Tài liệu tham khảo<a class="headerlink" href="#Tài-liệu-tham-khảo" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Deep Learning with Python - chapter 1, 2</p></li>
+<li><p><a class="reference external" href="https://deeplearning.mit.edu/">https://deeplearning.mit.edu/</a></p></li>
 </ul>
 </section>
 </section>

@@ -29,8 +29,6 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "\n",
-    "\n",
     "Từ 1960s đến giờ, có rất nhiều các các thuận toán khác nhau như `SVM` với `kernel` hay các thuật toán họ cây như `Random Forest` hay `XGBoost`. Các nhóm thuật toán này đều thực hiện rất tốt với các loại dữ liệu biến thiên ít thuần nhất với đặc thù có nhiều kiểu dữ liệu và biên độ biến thiên dữ liệu lớn. Ví dụ - dữ liệu khách hàng có thể có:\n",
     "\n",
     "- `income` - thu nhập từ 100 đến 1M USD\n",
@@ -45,9 +43,28 @@
     "\n",
     "Học sâu (`deep learning`) là một lĩnh vực con của học máy (`machine learning`), trong đó các mô hình mạng neuron nhiều lớp (deep neural networks) được sử dụng để học từ dữ liệu. Khác với các thuật toán machine learning truyền thống, deep learning có khả năng tự động trích xuất các đặc trưng từ dữ liệu mà không cần sự can thiệp của con người.\n",
     "\n",
-    "Deep learning tạo sự khác biệt lớn so với các thuật toán ML thông thường bởi mô phỏng quá trình tương tác thông tin từ bộ não con người thông qua mạng neural. Dữ liệu đầu vào và đầu ra được gọi là input và output. Giữa 2 lớp này có nhiều lớp ẩn ở giữa (`hidden layer`) với nhiều node - đại diện cho 1 neural. Cấu trúc cơ bản của mạng neural như sau\n",
-    "\n",
+    "Deep learning tạo sự khác biệt lớn so với các thuật toán ML thông thường bởi mô phỏng quá trình tương tác thông tin từ bộ não con người thông qua mạng neural. Dữ liệu đầu vào và đầu ra được gọi là input và output. Giữa 2 lớp này có nhiều lớp ẩn ở giữa (`hidden layer`) với nhiều node - đại diện cho 1 neural. Cấu trúc cơ bản của mạng neural như sau"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
     "![](image/p01-dl-01.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Các input đầu vào tại mỗi neural sẽ tổng hợp và trả ra một kết quả làm đầu vào cho neural tiếp theo trong mạng thần kinh. Hàm tính toán tại mỗi neural gọi là hàm kích hoạt (`activation function`). So sánh giữa mạng neural của máy tính và con người có những khác biệt lớn như sau"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![](image/p01-01-neural-bio.png)"
    ]
   },
   {
@@ -73,6 +90,20 @@
     "Mối quan hệ giữa Data Analytics, AI, ML, DL và GenAI như sau:\n",
     "\n",
     "![](image/p01-ai.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Deep Learning so sánh với các thuật toán ML khác"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![](image/p01-01-dl-vs-ml.png)"
    ]
   },
   {
@@ -131,7 +162,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 9,
+   "execution_count": 1,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -155,7 +186,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
+   "execution_count": 2,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -176,7 +207,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 12,
+   "execution_count": 3,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -195,7 +226,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 13,
+   "execution_count": 4,
    "metadata": {},
    "outputs": [
     {
@@ -203,24 +234,24 @@
      "output_type": "stream",
      "text": [
       "Epoch 1/5\n",
-      "\u001b[1m469/469\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m2s\u001b[0m 4ms/step - accuracy: 0.8746 - loss: 0.4321\n",
+      "\u001b[1m469/469\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m3s\u001b[0m 4ms/step - accuracy: 0.8705 - loss: 0.4426\n",
       "Epoch 2/5\n",
-      "\u001b[1m469/469\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m2s\u001b[0m 4ms/step - accuracy: 0.9664 - loss: 0.1149\n",
+      "\u001b[1m469/469\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m2s\u001b[0m 4ms/step - accuracy: 0.9669 - loss: 0.1154\n",
       "Epoch 3/5\n",
-      "\u001b[1m469/469\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m2s\u001b[0m 4ms/step - accuracy: 0.9794 - loss: 0.0702\n",
+      "\u001b[1m469/469\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m4s\u001b[0m 8ms/step - accuracy: 0.9785 - loss: 0.0730\n",
       "Epoch 4/5\n",
-      "\u001b[1m469/469\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m2s\u001b[0m 4ms/step - accuracy: 0.9860 - loss: 0.0483\n",
+      "\u001b[1m469/469\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m4s\u001b[0m 9ms/step - accuracy: 0.9857 - loss: 0.0507\n",
       "Epoch 5/5\n",
-      "\u001b[1m469/469\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m3s\u001b[0m 6ms/step - accuracy: 0.9896 - loss: 0.0346\n"
+      "\u001b[1m469/469\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m4s\u001b[0m 9ms/step - accuracy: 0.9894 - loss: 0.0355\n"
      ]
     },
     {
      "data": {
       "text/plain": [
-       "<keras.src.callbacks.history.History at 0x225b2068290>"
+       "<keras.src.callbacks.history.History at 0x21e76541810>"
       ]
      },
-     "execution_count": 13,
+     "execution_count": 4,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -231,25 +262,25 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 15,
+   "execution_count": 5,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 49ms/step\n"
+      "\u001b[1m1/1\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 123ms/step\n"
      ]
     },
     {
      "data": {
       "text/plain": [
-       "array([6.1193788e-07, 5.5614486e-09, 5.2034125e-06, 1.6584936e-04,\n",
-       "       1.2991679e-10, 1.2699923e-07, 5.4431576e-12, 9.9982339e-01,\n",
-       "       2.0232154e-07, 4.6985779e-06], dtype=float32)"
+       "array([8.7756593e-09, 8.7886881e-10, 1.6251083e-06, 8.2889019e-06,\n",
+       "       8.9369449e-12, 7.9078106e-08, 8.2524292e-14, 9.9998951e-01,\n",
+       "       1.9572791e-08, 3.5411122e-07], dtype=float32)"
       ]
      },
-     "execution_count": 15,
+     "execution_count": 5,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -262,7 +293,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 17,
+   "execution_count": 6,
    "metadata": {},
    "outputs": [
     {
@@ -271,7 +302,7 @@
        "7"
       ]
      },
-     "execution_count": 17,
+     "execution_count": 6,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -283,15 +314,15 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 20,
+   "execution_count": 7,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "\u001b[1m313/313\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m1s\u001b[0m 4ms/step - accuracy: 0.9758 - loss: 0.0886\n",
-      "test_acc: 0.9787999987602234\n"
+      "\u001b[1m313/313\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m2s\u001b[0m 4ms/step - accuracy: 0.9768 - loss: 0.0763\n",
+      "test_acc: 0.9793999791145325\n"
      ]
     }
    ],
@@ -312,7 +343,8 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "- Deep Learning with Python - chapter 1, 2"
+    "- Deep Learning with Python - chapter 1, 2\n",
+    "- [https://deeplearning.mit.edu/](https://deeplearning.mit.edu/)"
    ]
   }
  ],

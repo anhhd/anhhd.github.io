@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="vn" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Index &mdash; AI book 2024 documentation</title>
+  <title>3. Tensorflow &amp; Keras &mdash; AI book 2024 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
@@ -19,9 +20,12 @@
         <script src="_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="_static/copybutton.js?v=f281be69"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
-    <link rel="index" title="Index" href="#" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="2. Toán cơ bản với DL" href="p01-02-toan-co-ban.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,10 +48,10 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Cơ bản về Deep Learning</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="p01-01-gioi-thieu-deep-learning.html">1. Giới thiệu về học sâu</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-02-toan-co-ban.html">2. Toán cơ bản với DL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-03-dl-co-ban.html">3. Tensorflow &amp; Keras</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Tensorflow &amp; Keras</a></li>
 </ul>
 
         </div>
@@ -64,8 +68,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Index</li>
+      <li class="breadcrumb-item active"><span class="section-number">3. </span>Tensorflow &amp; Keras</li>
       <li class="wy-breadcrumbs-aside">
+            <a href="_sources/p01-03-dl-co-ban.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -73,17 +78,19 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
-</div>
+  <section id="Tensorflow-&amp;-Keras">
+<h1><span class="section-number">3. </span>Tensorflow &amp; Keras<a class="headerlink" href="#Tensorflow-&-Keras" title="Link to this heading"></a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">Tensorflow</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">Keras</span></code> là framework được sử dụng rộng rãi trong deep learning - keras là tầng interface giúp cho quá trình làm việc và training model với deep learning sử dụng tensorflow được dễ dàng hơn.</p>
+<p>Keras ra đời từ 3/2015 và thiết kế trên nền của <code class="docutils literal notranslate"><span class="pre">theano</span></code> trong khi <code class="docutils literal notranslate"><span class="pre">tensorflow</span></code> đến 11/2015 mới bắt đầu ra đời. Sự phát triển nhanh chóng của <code class="docutils literal notranslate"><span class="pre">tensorflow</span></code> dần thay thế <code class="docutils literal notranslate"><span class="pre">theano</span></code>, và dần dần, keras chỉ sử dụng <code class="docutils literal notranslate"><span class="pre">tensorlow</span></code> là backend. Thông qua <code class="docutils literal notranslate"><span class="pre">tensorflow</span></code>, keras có thể tương tác với cả GPU/TPU hoặc CPU truyền thống trong các mô hình <code class="docutils literal notranslate"><span class="pre">deep</span> <span class="pre">learning</span></code> để tăng tốc độ xây dựng mô hình.</p>
+<img alt="_images/p03-01-keras-tf.png" src="_images/p03-01-keras-tf.png" />
+</section>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="p01-02-toan-co-ban.html" class="btn btn-neutral float-left" title="2. Toán cơ bản với DL" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
 
   <hr/>
 

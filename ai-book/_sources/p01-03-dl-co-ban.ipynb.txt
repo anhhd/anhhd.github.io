@@ -1,0 +1,53 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Tensorflow & Keras"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "`Tensorflow` & `Keras` là framework được sử dụng rộng rãi trong deep learning - keras là tầng interface giúp cho quá trình làm việc và training model với deep learning sử dụng tensorflow được dễ dàng hơn.\n",
+    "\n",
+    "Keras ra đời từ 3/2015 và thiết kế trên nền của `theano` trong khi `tensorflow` đến 11/2015 mới bắt đầu ra đời. Sự phát triển nhanh chóng của `tensorflow` dần thay thế `theano`, và dần dần, keras chỉ sử dụng `tensorlow` là backend. Thông qua `tensorflow`, keras có thể tương tác với cả GPU/TPU hoặc CPU truyền thống trong các mô hình `deep learning` để tăng tốc độ xây dựng mô hình."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![](image/p03-01-keras-tf.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
