@@ -103,8 +103,9 @@
 <hr class="docutils" />
 <p>Học sâu (<code class="docutils literal notranslate"><span class="pre">deep</span> <span class="pre">learning</span></code>) là một lĩnh vực con của học máy (<code class="docutils literal notranslate"><span class="pre">machine</span> <span class="pre">learning</span></code>), trong đó các mô hình mạng neuron nhiều lớp (deep neural networks) được sử dụng để học từ dữ liệu. Khác với các thuật toán machine learning truyền thống, deep learning có khả năng tự động trích xuất các đặc trưng từ dữ liệu mà không cần sự can thiệp của con người.</p>
 <p>Deep learning tạo sự khác biệt lớn so với các thuật toán ML thông thường bởi mô phỏng quá trình tương tác thông tin từ bộ não con người thông qua mạng neural. Dữ liệu đầu vào và đầu ra được gọi là input và output. Giữa 2 lớp này có nhiều lớp ẩn ở giữa (<code class="docutils literal notranslate"><span class="pre">hidden</span> <span class="pre">layer</span></code>) với nhiều node - đại diện cho 1 neural. Cấu trúc cơ bản của mạng neural như sau</p>
-<img alt="_images/p01-dl-01.png" src="_images/p01-dl-01.png" />
-<p>Các input đầu vào tại mỗi neural sẽ tổng hợp và trả ra một kết quả làm đầu vào cho neural tiếp theo trong mạng thần kinh. Hàm tính toán tại mỗi neural gọi là hàm kích hoạt (<code class="docutils literal notranslate"><span class="pre">activation</span> <span class="pre">function</span></code>). So sánh giữa mạng neural của máy tính và con người có những khác biệt lớn như sau</p>
+<img alt="_images/p01-neural-architecture.png" src="_images/p01-neural-architecture.png" />
+<p>Các input đầu vào tại mỗi neural sẽ tổng hợp và trả ra một kết quả làm đầu vào cho neural tiếp theo trong mạng thần kinh. Hàm tính toán tại mỗi neural gọi là hàm kích hoạt (<code class="docutils literal notranslate"><span class="pre">activation</span> <span class="pre">function</span></code>). Ở lớp cuối cùng, tùy theo bài toán cần thực hiện sẽ có số lượng neural khác nhau - ví dụ, bài toán phân loại đơn giản sẽ có 2 neural, bài toán phân loại nhiều nhóm - số neural chính là số nhóm, …</p>
+<p>So sánh giữa mạng neural của máy tính và con người có những khác biệt lớn như sau</p>
 <img alt="_images/p01-01-neural-bio.png" src="_images/p01-01-neural-bio.png" />
 <p>Thuật toán deelp learning có thể xử lý một lượng lớn dữ liệu và thực hiện tốt trong các nhiệm vụ phức tạp như nhận diện hình ảnh, xử lý ngôn ngữ tự nhiên… Chữ <code class="docutils literal notranslate"><span class="pre">deep</span></code> trong <code class="docutils literal notranslate"><span class="pre">deep</span> <span class="pre">learning</span></code> thể hiện nhiều lớp trong một mạng neural thần kinh. Nhờ vào cấu trúc mạng neuron sâu, deep learning có thể học được các biểu diễn dữ liệu rất phức tạp và trừu tượng, điều mà các thuật toán machine learning truyền thống khó đạt được như nhận diện ảnh, tạo ra phản hồi, … Dữ liệu đầu vào và đầu ra của một
 lớp hoặc một neural được gọi là <code class="docutils literal notranslate"><span class="pre">tensor</span></code> (mảng dữ liệu đa chiều dữ liệu)</p>
@@ -136,7 +137,7 @@ lớp hoặc một neural được gọi là <code class="docutils literal notra
 <h2><span class="section-number">1.2. </span>Mô hình cơ bản<a class="headerlink" href="#Mô-hình-cơ-bản" title="Link to this heading"></a></h2>
 <p>Ta xây dựng mô hình phân loại ảnh đơn giản với <code class="docutils literal notranslate"><span class="pre">keras</span></code> như sau.</p>
 <ul class="simple">
-<li><p>Bước 1: Xây dựng dữ liệu train &amp; test</p></li>
+<li><p><strong>Bước 1</strong>: Xây dựng dữ liệu train &amp; test</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -153,7 +154,7 @@ lớp hoặc một neural được gọi là <code class="docutils literal notra
 </div>
 </div>
 <ul class="simple">
-<li><p>Bước 2.1: Xây dựng cấu trúc mạng neural đơn giản với 2 layers:</p>
+<li><p><strong>Bước 2.1</strong>: Xây dựng cấu trúc mạng neural đơn giản với 2 layers:</p>
 <ul>
 <li><p>Layer 1: 512 neural, và tất cả đều được liên kết vác node ở trước và sau</p></li>
 <li><p>Layer 2: 10 neural - tương ứng với 10 giá trị cần phân loại từ 0-9, với activate function là <code class="docutils literal notranslate"><span class="pre">softmax</span></code> có kết quả trong khoảng (0-1) để thể hiện xác suất.</p></li>
@@ -174,7 +175,7 @@ lớp hoặc một neural được gọi là <code class="docutils literal notra
 </div>
 </div>
 <ul class="simple">
-<li><p>Bước 2.2: Xác định thuật toán tối ưu hóa, hàm loss và chỉ số đánh giá mô hình.</p></li>
+<li><p><strong>Bước 2.2</strong>: Xác định thuật toán tối ưu hóa, hàm loss và chỉ số đánh giá mô hình.</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -188,7 +189,7 @@ lớp hoặc một neural được gọi là <code class="docutils literal notra
 </div>
 </div>
 <ul class="simple">
-<li><p>Bước 3: Xây dựng mô hình</p></li>
+<li><p><strong>Bước 3</strong>: Xây dựng mô hình</p></li>
 </ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:

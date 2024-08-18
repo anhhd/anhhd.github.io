@@ -8,6 +8,7 @@
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/nbsphinx-code-cells.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -51,7 +52,19 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="p01-01-gioi-thieu-deep-learning.html">1. Giới thiệu về học sâu</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-02-toan-co-ban.html">2. Toán cơ bản với DL</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Tensorflow &amp; Keras</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Tensorflow &amp; Keras</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Tensorflow">3.1. Tensorflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#TensorFlow-cơ-bản">3.1.1. TensorFlow cơ bản</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Xây-dựng-mô-hình-phân-loại-cơ-bản-với-tensorflow">3.1.2. Xây dựng mô hình phân loại cơ bản với tensorflow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Keras">3.2. Keras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Các-mô-hình-cơ-bản">3.3. Các mô hình cơ bản</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Phân-loại-nhị-phân">3.3.1. Phân loại nhị phân</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -83,6 +96,1132 @@
 <p><code class="docutils literal notranslate"><span class="pre">Tensorflow</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">Keras</span></code> là framework được sử dụng rộng rãi trong deep learning - keras là tầng interface giúp cho quá trình làm việc và training model với deep learning sử dụng tensorflow được dễ dàng hơn.</p>
 <p>Keras ra đời từ 3/2015 và thiết kế trên nền của <code class="docutils literal notranslate"><span class="pre">theano</span></code> trong khi <code class="docutils literal notranslate"><span class="pre">tensorflow</span></code> đến 11/2015 mới bắt đầu ra đời. Sự phát triển nhanh chóng của <code class="docutils literal notranslate"><span class="pre">tensorflow</span></code> dần thay thế <code class="docutils literal notranslate"><span class="pre">theano</span></code>, và dần dần, keras chỉ sử dụng <code class="docutils literal notranslate"><span class="pre">tensorlow</span></code> là backend. Thông qua <code class="docutils literal notranslate"><span class="pre">tensorflow</span></code>, keras có thể tương tác với cả GPU/TPU hoặc CPU truyền thống trong các mô hình <code class="docutils literal notranslate"><span class="pre">deep</span> <span class="pre">learning</span></code> để tăng tốc độ xây dựng mô hình.</p>
 <img alt="_images/p03-01-keras-tf.png" src="_images/p03-01-keras-tf.png" />
+<p>Với kiến trúc như trên, <code class="docutils literal notranslate"><span class="pre">keras</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">tensorflow</span></code> sẽ chia thành 2 lớp xử lý các vấn đề khác nhau.</p>
+<p><strong>Low-level tensor</strong>: Xử lý thông qua tensorflow</p>
+<ul class="simple">
+<li><p>Tensor</p></li>
+<li><p>Các phép toán với tensor như <code class="docutils literal notranslate"><span class="pre">relu</span></code>, <code class="docutils literal notranslate"><span class="pre">dot</span></code>, <code class="docutils literal notranslate"><span class="pre">matmul</span></code></p></li>
+<li><p>Tối ưu &amp; tính toán đạo hàm - <code class="docutils literal notranslate"><span class="pre">backpropagation</span></code></p></li>
+</ul>
+<p><strong>High level deep learning</strong>: Xử lý thông qua keras</p>
+<ul class="simple">
+<li><p>Xác định kiến trúc và layers trong mạng deep learning</p></li>
+<li><p>Xác định <code class="docutils literal notranslate"><span class="pre">loss</span> <span class="pre">function</span></code></p></li>
+<li><p>Xác định thuật toán tối ưu <code class="docutils literal notranslate"><span class="pre">optimizer</span></code></p></li>
+<li><p>Xác định chỉ số để đánh giá mô hình</p></li>
+<li><p>Xác định <code class="docutils literal notranslate"><span class="pre">training</span> <span class="pre">loop</span></code> để tối ưu hóa theo từng mini-batch</p></li>
+</ul>
+<section id="Tensorflow">
+<h2><span class="section-number">3.1. </span>Tensorflow<a class="headerlink" href="#Tensorflow" title="Link to this heading"></a></h2>
+<section id="TensorFlow-cơ-bản">
+<h3><span class="section-number">3.1.1. </span>TensorFlow cơ bản<a class="headerlink" href="#TensorFlow-cơ-bản" title="Link to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo tensor 1</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+tf.Tensor(
+[[1.]
+ [1.]], shape=(2, 1), dtype=float32)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo tensor random</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">mean</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">stddev</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+tf.Tensor(
+[[1.3243942 2.5074534]
+ [3.0319946 2.2464826]
+ [2.031513  2.4088607]], shape=(3, 2), dtype=float32)
+</pre></div></div>
+</div>
+<p>Cấu trúc tạo tensor rất giống với numpy, khác biệt lớn nhất là trong tensor ta không thể thực hiện phép <code class="docutils literal notranslate"><span class="pre">assign</span></code>. Kết quả sau sẽ báo lỗi</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># error</span>
+<span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-intense-fg ansi-bold">In[3], line 2</span>
+<span class="ansi-green-fg">      1</span> <span style="color: rgb(95,135,135)"># error</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 2</span> <span class="ansi-yellow-bg">y</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">1</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">1</span><span class="ansi-yellow-bg">]</span> <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(98,98,98)">0</span>
+
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: &#39;tensorflow.python.framework.ops.EagerTensor&#39; object does not support item assignment
+</pre></div></div>
+</div>
+<p>Để thực hiện tính toán với tensor, phải sử dụng class <code class="docutils literal notranslate"><span class="pre">Variable</span></code></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">initial_value</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">mean</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">stddev</span> <span class="o">=</span> <span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;tf.Variable &#39;Variable:0&#39; shape=(2, 2) dtype=float32, numpy=
+array([[-1.606645 ,  0.6143792],
+       [-0.1333074,  1.4048557]], dtype=float32)&gt;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assign x(0, 0)</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;tf.Variable &#39;Variable:0&#39; shape=(2, 2) dtype=float32, numpy=
+array([[ 1.       ,  0.6143792],
+       [-0.1333074,  1.4048557]], dtype=float32)&gt;
+</pre></div></div>
+</div>
+<p><strong>Các phép toán trong tensorflow</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+tf.Tensor(
+[[1. 1.]
+ [1. 1.]], shape=(2, 2), dtype=float32)
+tf.Tensor(
+[[2. 2.]
+ [2. 2.]], shape=(2, 2), dtype=float32)
+tf.Tensor(
+[[2. 2.]
+ [2. 2.]], shape=(2, 2), dtype=float32)
+</pre></div></div>
+</div>
+<p>Sư khác biệt cơ bản giữa <code class="docutils literal notranslate"><span class="pre">tensorflow</span></code> và <code class="docutils literal notranslate"><span class="pre">numpy</span></code> nằm ở khả năng tính toán đạo hàm với bất kỳ thông số đầu vào nào.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ví dụ 1: Hàm y = x^2</span>
+<span class="n">input_var</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">initial_value</span><span class="o">=</span><span class="mf">3.</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">input_var</span><span class="p">)</span>
+<span class="n">gradient</span> <span class="o">=</span> <span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">input_var</span><span class="p">)</span> <span class="c1"># grad_y = 2 * x</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gradient</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+tf.Tensor(6.0, shape=(), dtype=float32)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ví dụ 2: y = 3</span>
+<span class="n">input_const</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">3.</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span>
+    <span class="n">tape</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="n">input_const</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">input_const</span><span class="p">)</span>                 <span class="c1"># 9</span>
+<span class="n">gradient</span> <span class="o">=</span> <span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">input_const</span><span class="p">)</span>   <span class="c1"># 0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gradient</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+None
+</pre></div></div>
+</div>
+</section>
+<section id="Xây-dựng-mô-hình-phân-loại-cơ-bản-với-tensorflow">
+<h3><span class="section-number">3.1.2. </span>Xây dựng mô hình phân loại cơ bản với tensorflow<a class="headerlink" href="#Xây-dựng-mô-hình-phân-loại-cơ-bản-với-tensorflow" title="Link to this heading"></a></h3>
+<p>Trong phần này, ta sẽ xây dựng một mô hình đơn giản phân loại 2 nhóm sử dụng neural netwwork với mục tiêu tìm hàm <span class="math notranslate nohighlight">\(w_1 x_1 + x_2 x_2 + b\)</span> cho phép phân nhóm mô hình đơn giản</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">plotnine</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">num_samples_per_class</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">negative_samples</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span>
+    <span class="n">mean</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+    <span class="n">cov</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span>
+    <span class="n">size</span><span class="o">=</span><span class="n">num_samples_per_class</span><span class="p">)</span>
+<span class="n">positive_samples</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span>
+    <span class="n">mean</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="n">cov</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span>
+    <span class="n">size</span><span class="o">=</span><span class="n">num_samples_per_class</span><span class="p">)</span>
+
+<span class="c1"># Tạo biến input &amp; target</span>
+<span class="n">inputs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">negative_samples</span><span class="p">,</span> <span class="n">positive_samples</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">targets</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">num_samples_per_class</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">),</span>
+                     <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">num_samples_per_class</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float32&quot;</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">polars</span> <span class="k">as</span> <span class="nn">pl</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;x1&#39;</span><span class="p">:</span> <span class="n">inputs</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="s1">&#39;x2&#39;</span><span class="p">:</span> <span class="n">inputs</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">targets</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="p">})</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (5, 3)</small><table border="1" class="dataframe"><thead><tr><th>x1</th><th>x2</th><th>y</th></tr><tr><td>f32</td><td>f32</td><td>f32</td></tr></thead><tbody><tr><td>-1.113073</td><td>2.162198</td><td>0.0</td></tr><tr><td>1.411522</td><td>3.392993</td><td>0.0</td></tr><tr><td>-0.893578</td><td>2.322676</td><td>0.0</td></tr><tr><td>-0.684888</td><td>3.696964</td><td>0.0</td></tr><tr><td>1.780065</td><td>5.066143</td><td>0.0</td></tr></tbody></table></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><span></span><span class="p">(</span>
+    <span class="n">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s1">&#39;x1&#39;</span><span class="p">,</span> <span class="s1">&#39;x2&#39;</span><span class="p">))</span>
+        <span class="o">+</span> <span class="n">geom_point</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;factor(y)&#39;</span><span class="p">))</span>
+        <span class="o">+</span> <span class="n">theme_minimal</span><span class="p">()</span>
+        <span class="o">+</span> <span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Simple classification&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/p01-03-dl-co-ban_22_0.png" class="no-scaled-link" src="_images/p01-03-dl-co-ban_22_0.png" style="width: 640px; height: 480px;" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;Figure Size: (640 x 480)&gt;
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bước 1: Khai báo các tham số</span>
+<span class="n">input_dim</span> <span class="o">=</span> <span class="mi">2</span>       <span class="c1"># Số lượng biến - dim(x1, x2) = 2</span>
+<span class="n">output_dim</span> <span class="o">=</span> <span class="mi">1</span>      <span class="c1"># Số lượng output đầu ra - dim(y) = 1</span>
+<span class="c1"># Khai báo weights ban đầu</span>
+<span class="n">W</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">initial_value</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">input_dim</span><span class="p">,</span> <span class="n">output_dim</span><span class="p">)))</span>
+<span class="c1"># Khai báo trọng số b ban đầu - default = 0</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">initial_value</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">output_dim</span><span class="p">,)))</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hàm tính kết quả dự báo prediction</span>
+<span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="n">inputs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Trả ra kết quả tính loss function</span>
+<span class="k">def</span> <span class="nf">square_loss</span><span class="p">(</span><span class="n">targets</span><span class="p">,</span> <span class="n">predictions</span><span class="p">):</span>
+    <span class="n">per_sample_losses</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">targets</span> <span class="o">-</span> <span class="n">predictions</span><span class="p">)</span>
+    <span class="c1"># Trả ra kết quả average của per_sample_losses</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">per_sample_losses</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tốc độ máy học</span>
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="k">def</span> <span class="nf">training_step</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">targets</span><span class="p">):</span>
+    <span class="c1"># Tính loss function với từng giá trị của W &amp; b</span>
+    <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span>
+        <span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">square_loss</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">targets</span><span class="p">)</span>
+    <span class="c1"># Tính đạo hàm với W &amp; b tại giá trị của X</span>
+    <span class="n">grad_loss_wrt_W</span><span class="p">,</span> <span class="n">grad_loss_wrt_b</span> <span class="o">=</span> <span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="p">[</span><span class="n">W</span><span class="p">,</span> <span class="n">b</span><span class="p">])</span>
+    <span class="c1"># Update W,b theo giá trị mới</span>
+    <span class="n">W</span><span class="o">.</span><span class="n">assign_sub</span><span class="p">(</span><span class="n">grad_loss_wrt_W</span> <span class="o">*</span> <span class="n">learning_rate</span><span class="p">)</span>
+    <span class="n">b</span><span class="o">.</span><span class="n">assign_sub</span><span class="p">(</span><span class="n">grad_loss_wrt_b</span> <span class="o">*</span> <span class="n">learning_rate</span><span class="p">)</span>
+    <span class="c1"># Trả ra giá trị loss mới</span>
+    <span class="k">return</span> <span class="n">loss</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Training với 40 step</span>
+<span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">):</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">training_step</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">targets</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loss at step </span><span class="si">{</span><span class="n">step</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">loss</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Loss at step 0: 1.6380
+Loss at step 1: 0.2430
+Loss at step 2: 0.1237
+Loss at step 3: 0.1032
+Loss at step 4: 0.0951
+Loss at step 5: 0.0891
+Loss at step 6: 0.0837
+Loss at step 7: 0.0787
+Loss at step 8: 0.0742
+Loss at step 9: 0.0701
+Loss at step 10: 0.0663
+Loss at step 11: 0.0628
+Loss at step 12: 0.0596
+Loss at step 13: 0.0566
+Loss at step 14: 0.0539
+Loss at step 15: 0.0515
+Loss at step 16: 0.0492
+Loss at step 17: 0.0471
+Loss at step 18: 0.0452
+Loss at step 19: 0.0435
+Loss at step 20: 0.0419
+Loss at step 21: 0.0404
+Loss at step 22: 0.0390
+Loss at step 23: 0.0378
+Loss at step 24: 0.0367
+Loss at step 25: 0.0356
+Loss at step 26: 0.0347
+Loss at step 27: 0.0338
+Loss at step 28: 0.0330
+Loss at step 29: 0.0322
+Loss at step 30: 0.0316
+Loss at step 31: 0.0309
+Loss at step 32: 0.0304
+Loss at step 33: 0.0299
+Loss at step 34: 0.0294
+Loss at step 35: 0.0289
+Loss at step 36: 0.0285
+Loss at step 37: 0.0282
+Loss at step 38: 0.0278
+Loss at step 39: 0.0275
+</pre></div></div>
+</div>
+<p>Như vậy, ta đã hoàn thành việc xây dựng mô hình đơn giản neural network.</p>
+</section>
+</section>
+<section id="Keras">
+<h2><span class="section-number">3.2. </span>Keras<a class="headerlink" href="#Keras" title="Link to this heading"></a></h2>
+<p>Keras cho phép xây dựng mô hình DL nhanh chóng, thành phần của keras có các bước chính sau</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Layers</span></code>: Khai báo kiến trúc của mạng neural. Bao gồm:</p>
+<ul>
+<li><p>Dữ liệu đầu vào</p></li>
+<li><p>Dữ liệu đầu ra</p></li>
+<li><p>Hàm activation</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">NaiveSequential</span><span class="p">([</span>
+    <span class="n">NaiveDense</span><span class="p">(</span><span class="n">input_size</span><span class="o">=</span><span class="mi">784</span><span class="p">,</span> <span class="n">output_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">),</span>
+    <span class="n">NaiveDense</span><span class="p">(</span><span class="n">input_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">output_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">),</span>
+    <span class="n">NaiveDense</span><span class="p">(</span><span class="n">input_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">output_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">),</span>
+    <span class="n">NaiveDense</span><span class="p">(</span><span class="n">input_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">output_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;softmax&quot;</span><span class="p">)</span>
+    <span class="p">])</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Compile</span></code>: Bước khai báo các tham số phục vụ việc tính toán các tham số tối ưu cho mô hình:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Loss</span> <span class="pre">functions</span></code>: Hàm mất mát - là giá trị sẽ được tối ưu trong quá trình training - ví dụ: <code class="docutils literal notranslate"><span class="pre">mean</span> <span class="pre">square</span> <span class="pre">error</span></code>, <code class="docutils literal notranslate"><span class="pre">CategoricalCrossentropy</span></code>,…</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Optimizer</span></code>: Thuật toán cho phép tối ưu, là các biến thể khác nhau của Stochastic Gradient Descent (SGD) như <code class="docutils literal notranslate"><span class="pre">Adam</span></code>, <code class="docutils literal notranslate"><span class="pre">SGD</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Metrics</span></code>: Chỉ số dùng để đo lường sự thành công của mô hình. Không giống như <code class="docutils literal notranslate"><span class="pre">loss</span> <span class="pre">function</span></code>, chỉ số này không được đo lường trực tiếp thông qua quá trình xây dựng mô hình như <code class="docutils literal notranslate"><span class="pre">AUC</span></code>, <code class="docutils literal notranslate"><span class="pre">CategoricalAccuracy</span></code></p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)])</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s2">&quot;rmsprop&quot;</span><span class="p">,</span>
+              <span class="n">loss</span><span class="o">=</span><span class="s2">&quot;mean_squared_error&quot;</span><span class="p">,</span>
+              <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;accuracy&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p><strong>Lưu ý</strong>: Metrics là chỉ số ta muốn sử dụng để đo lường sự thành công của mô hình - đặc tính của chỉ số này thường là càng cao càng tốt. Tuy nhiên, chỉ số này không dễ dàng để có thể tối ưu mà phải sử dụng thông qua một chỉ số khác là <code class="docutils literal notranslate"><span class="pre">loss</span> <span class="pre">function</span></code></p>
+<p>Ví dụ: Mục tiêu cần tối ưu là mục tiêu trừu tượng <em>gia tăng sự giàu có cho mỗi người dân</em> - nếu không có loss function, rất có thể sẽ đưa ra phương án tiêu diệt một số lượng lớn người dân!</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fit</span></code>: Bước trực tiếp xây dựng và tối ưu hóa mô hình</p>
+<ul>
+<li><p>data: input &amp; output</p></li>
+<li><p>epoch: là số lần toàn bộ dữ liệu được huấn luyện (theo chiều dọc) - epoch lớn sẽ cho mô hình học đi học lại dữ liệu nhiều lần, dễ bị overfitting</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">batchsize</span></code>: Batch size là số lượng mẫu dữ liệu được đưa vào mô hình để huấn luyện trong một lần truyền tiến (forward pass) và truyền ngược (backward pass). Một batch là một tập hợp con của tập dữ liệu huấn luyện.</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    <span class="n">inputs</span><span class="p">,</span>
+    <span class="n">targets</span><span class="p">,</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/p03-01-batch-epoch.ppm" src="_images/p03-01-batch-epoch.ppm" />
+</section>
+<section id="Các-mô-hình-cơ-bản">
+<h2><span class="section-number">3.3. </span>Các mô hình cơ bản<a class="headerlink" href="#Các-mô-hình-cơ-bản" title="Link to this heading"></a></h2>
+<p>Trong nội dung tiếp theo, ta sẽ thực hiện 3 mô hình cơ bản của học máy:</p>
+<ul class="simple">
+<li><p>Phân loại nhị phân - binary classification</p></li>
+<li><p>Phân loại nhiều nhóm</p></li>
+<li><p>Bài toán hồi quy - regression</p></li>
+</ul>
+<section id="Phân-loại-nhị-phân">
+<h3><span class="section-number">3.3.1. </span>Phân loại nhị phân<a class="headerlink" href="#Phân-loại-nhị-phân" title="Link to this heading"></a></h3>
+<p>Trong ví dụ này, ta sử dụng dữ liệu <code class="docutils literal notranslate"><span class="pre">IMDB</span></code> review, chứa các nội dung đánh giá phim với 50% <code class="docutils literal notranslate"><span class="pre">positive</span></code> &amp; 50% <code class="docutils literal notranslate"><span class="pre">negative</span></code>. Dữ liệu review đã được chuyển đổi thành dạng số với mỗi số đại diện cho 1 từ trong từ điển.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.keras.datasets</span> <span class="kn">import</span> <span class="n">imdb</span>
+<span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">),</span> <span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span> <span class="o">=</span> <span class="n">imdb</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">num_words</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/imdb.npz
+<span class="ansi-bold">17464789/17464789</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">2s</span> 0us/step
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_data</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(25000,)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Review đầu tiên</span>
+<span class="n">train_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[1,
+ 14,
+ 22,
+ 16,
+ 43,
+ 530,
+ 973,
+ 1622,
+ 1385,
+ 65,
+ 458,
+ 4468,
+ 66,
+ 3941,
+ 4,
+ 173,
+ 36,
+ 256,
+ 5,
+ 25,
+ 100,
+ 43,
+ 838,
+ 112,
+ 50,
+ 670,
+ 2,
+ 9,
+ 35,
+ 480,
+ 284,
+ 5,
+ 150,
+ 4,
+ 172,
+ 112,
+ 167,
+ 2,
+ 336,
+ 385,
+ 39,
+ 4,
+ 172,
+ 4536,
+ 1111,
+ 17,
+ 546,
+ 38,
+ 13,
+ 447,
+ 4,
+ 192,
+ 50,
+ 16,
+ 6,
+ 147,
+ 2025,
+ 19,
+ 14,
+ 22,
+ 4,
+ 1920,
+ 4613,
+ 469,
+ 4,
+ 22,
+ 71,
+ 87,
+ 12,
+ 16,
+ 43,
+ 530,
+ 38,
+ 76,
+ 15,
+ 13,
+ 1247,
+ 4,
+ 22,
+ 17,
+ 515,
+ 17,
+ 12,
+ 16,
+ 626,
+ 18,
+ 2,
+ 5,
+ 62,
+ 386,
+ 12,
+ 8,
+ 316,
+ 8,
+ 106,
+ 5,
+ 4,
+ 2223,
+ 5244,
+ 16,
+ 480,
+ 66,
+ 3785,
+ 33,
+ 4,
+ 130,
+ 12,
+ 16,
+ 38,
+ 619,
+ 5,
+ 25,
+ 124,
+ 51,
+ 36,
+ 135,
+ 48,
+ 25,
+ 1415,
+ 33,
+ 6,
+ 22,
+ 12,
+ 215,
+ 28,
+ 77,
+ 52,
+ 5,
+ 14,
+ 407,
+ 16,
+ 82,
+ 2,
+ 8,
+ 4,
+ 107,
+ 117,
+ 5952,
+ 15,
+ 256,
+ 4,
+ 2,
+ 7,
+ 3766,
+ 5,
+ 723,
+ 36,
+ 71,
+ 43,
+ 530,
+ 476,
+ 26,
+ 400,
+ 317,
+ 46,
+ 7,
+ 4,
+ 2,
+ 1029,
+ 13,
+ 104,
+ 88,
+ 4,
+ 381,
+ 15,
+ 297,
+ 98,
+ 32,
+ 2071,
+ 56,
+ 26,
+ 141,
+ 6,
+ 194,
+ 7486,
+ 18,
+ 4,
+ 226,
+ 22,
+ 21,
+ 134,
+ 476,
+ 26,
+ 480,
+ 5,
+ 144,
+ 30,
+ 5535,
+ 18,
+ 51,
+ 36,
+ 28,
+ 224,
+ 92,
+ 25,
+ 104,
+ 4,
+ 226,
+ 65,
+ 16,
+ 38,
+ 1334,
+ 88,
+ 12,
+ 16,
+ 283,
+ 5,
+ 16,
+ 4472,
+ 113,
+ 103,
+ 32,
+ 15,
+ 16,
+ 5345,
+ 19,
+ 178,
+ 32]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word_index</span> <span class="o">=</span> <span class="n">imdb</span><span class="o">.</span><span class="n">get_word_index</span><span class="p">()</span>
+<span class="n">reverse_word_index</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="p">[(</span><span class="n">value</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="n">word_index</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span>
+<span class="c1"># Review đầu tiên</span>
+<span class="n">decoded_review</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">reverse_word_index</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;?&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">train_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nội dung review</span>
+<span class="n">decoded_review</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#34;? this film was just brilliant casting location scenery story direction everyone&#39;s really suited the part they played and you could just imagine being there robert ? is an amazing actor and now the same being director ? father came from the same scottish island as myself so i loved the fact there was a real connection with this film the witty remarks throughout the film were great it was just brilliant so much that i bought the film as soon as it was released for ? and would recommend it to everyone to watch and the fly fishing was amazing really cried at the end it was so sad and you know what they say if you cry at a film it must have been good and this definitely was also ? to the two little boy&#39;s that played the ? of norman and paul they were just brilliant children are often left out of the ? list i think because the stars that play them all grown up are such a big profile for the whole film but these children are amazing and should be praised for what they have done don&#39;t you think the whole story was so lovely because it was true and was someone&#39;s life after all that was shared with us all&#34;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Review thứ 2</span>
+<span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">reverse_word_index</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;?&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">train_data</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#34;? big hair big boobs bad music and a giant safety pin these are the words to best describe this terrible movie i love cheesy horror movies and i&#39;ve seen hundreds but this had got to be on of the worst ever made the plot is paper thin and ridiculous the acting is an abomination the script is completely laughable the best is the end showdown with the cop and how he worked out who the killer is it&#39;s just so damn terribly written the clothes are sickening and funny in equal ? the hair is big lots of boobs ? men wear those cut ? shirts that show off their ? sickening that men actually wore them and the music is just ? trash that plays over and over again in almost every scene there is trashy music boobs and ? taking away bodies and the gym still doesn&#39;t close for ? all joking aside this is a truly bad film whose only charm is to look back on the disaster that was the 80&#39;s and have a good old laugh at how bad everything was back then&#34;
+</pre></div></div>
+</div>
+<p>Ta chưa thể xây dựng mô hình trực tiếp mà phải chuyển đổi đổi thành định dạng dữ liệu có cùng kích thước dưới dạng ma trận 0-1 có kích thước 25000 x 10000 (25000 lượt review x 10000 các từ có trong 25000 lượt review này)</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="k">def</span> <span class="nf">vectorize_sequences</span><span class="p">(</span><span class="n">sequences</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="mi">10000</span><span class="p">):</span>
+    <span class="c1"># Tạo ma trận 0</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">sequences</span><span class="p">),</span> <span class="n">dimension</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">sequence</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sequences</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
+            <span class="c1"># Xác định vị trí tồn tại word để đặt bằng 1</span>
+            <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">results</span>
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">vectorize_sequences</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">vectorize_sequences</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_train</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[0., 1., 1., ..., 0., 0., 0.],
+       [0., 1., 1., ..., 0., 0., 0.],
+       [0., 1., 1., ..., 0., 0., 0.],
+       ...,
+       [0., 1., 1., ..., 0., 0., 0.],
+       [0., 1., 1., ..., 0., 0., 0.],
+       [0., 1., 1., ..., 0., 0., 0.]])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">train_labels</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">test_labels</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span>
+<span class="n">y_train</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([1., 0., 0., ..., 0., 1., 0.], dtype=float32)
+</pre></div></div>
+</div>
+<p>Ta có thể xây dựng mô hình đơn giản với kiến trúc như sau:</p>
+<img alt="_images/p01-03-binary-classification.png" src="_images/p01-03-binary-classification.png" />
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">),</span>
+    <span class="c1"># Output định dạng xác suất với hàn sigmoid</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;sigmoid&quot;</span><span class="p">)</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s2">&quot;rmsprop&quot;</span><span class="p">,</span>
+              <span class="n">loss</span><span class="o">=</span><span class="s2">&quot;binary_crossentropy&quot;</span><span class="p">,</span>
+              <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;accuracy&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_val</span> <span class="o">=</span> <span class="n">x_train</span><span class="p">[:</span><span class="mi">10000</span><span class="p">]</span>
+<span class="n">partial_x_train</span> <span class="o">=</span> <span class="n">x_train</span><span class="p">[</span><span class="mi">10000</span><span class="p">:]</span>
+<span class="n">y_val</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">[:</span><span class="mi">10000</span><span class="p">]</span>
+<span class="n">partial_y_train</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">[</span><span class="mi">10000</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Xây dựng mô hình</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">partial_x_train</span><span class="p">,</span>
+                    <span class="n">partial_y_train</span><span class="p">,</span>
+                    <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+                    <span class="n">batch_size</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
+                    <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">x_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Epoch 1/20
+<span class="ansi-bold">30/30</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">2s</span> 27ms/step - accuracy: 0.6946 - loss: 0.6043 - val_accuracy: 0.8548 - val_loss: 0.4212
+Epoch 2/20
+<span class="ansi-bold">30/30</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 7ms/step - accuracy: 0.8906 - loss: 0.3597 - val_accuracy: 0.8463 - val_loss: 0.3722
+Epoch 3/20
+<span class="ansi-bold">30/30</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 7ms/step - accuracy: 0.9147 - loss: 0.2671 - val_accuracy: 0.8767 - val_loss: 0.3146
+Epoch 4/20
+<span class="ansi-bold">30/30</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 6ms/step - accuracy: 0.9309 - loss: 0.2142 - val_accuracy: 0.8779 - val_loss: 0.2996
+Epoch 5/20
+<span class="ansi-bold">30/30</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 6ms/step - accuracy: 0.9431 - loss: 0.1779 - val_accuracy: 0.8876 - val_loss: 0.2767
+Epoch 6/20
+<span class="ansi-bold">30/30</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 6ms/step - accuracy: 0.9484 - loss: 0.1570 - val_accuracy: 0.8854 - val_loss: 0.2884
+Epoch 7/20
+<span class="ansi-bold">30/30</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 6ms/step - accuracy: 0.9604 - loss: 0.1280 - val_accuracy: 0.8783 - val_loss: 0.3057
+Epoch 8/20
+<span class="ansi-bold">30/30</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 7ms/step - accuracy: 0.9659 - loss: 0.1158 - val_accuracy: 0.8842 - val_loss: 0.2976
+Epoch 9/20
+<span class="ansi-bold">30/30</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 6ms/step - accuracy: 0.9721 - loss: 0.0977 - val_accuracy: 0.8777 - val_loss: 0.3225
+Epoch 10/20
+<span class="ansi-bold">30/30</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 6ms/step - accuracy: 0.9771 - loss: 0.0870 - val_accuracy: 0.8800 - val_loss: 0.3276
+Epoch 11/20
+<span class="ansi-bold">30/30</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 6ms/step - accuracy: 0.9820 - loss: 0.0718 - val_accuracy: 0.8789 - val_loss: 0.3409
+Epoch 12/20
+<span class="ansi-bold">30/30</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 6ms/step - accuracy: 0.9881 - loss: 0.0597 - val_accuracy: 0.8796 - val_loss: 0.3657
+Epoch 13/20
+<span class="ansi-bold">30/30</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 6ms/step - accuracy: 0.9890 - loss: 0.0546 - val_accuracy: 0.8771 - val_loss: 0.3784
+Epoch 14/20
+<span class="ansi-bold">30/30</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 8ms/step - accuracy: 0.9917 - loss: 0.0441 - val_accuracy: 0.8754 - val_loss: 0.4116
+Epoch 15/20
+<span class="ansi-bold">30/30</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 6ms/step - accuracy: 0.9935 - loss: 0.0379 - val_accuracy: 0.8754 - val_loss: 0.4204
+Epoch 16/20
+<span class="ansi-bold">30/30</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 6ms/step - accuracy: 0.9927 - loss: 0.0355 - val_accuracy: 0.8731 - val_loss: 0.4404
+Epoch 17/20
+<span class="ansi-bold">30/30</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 6ms/step - accuracy: 0.9966 - loss: 0.0272 - val_accuracy: 0.8723 - val_loss: 0.4671
+Epoch 18/20
+<span class="ansi-bold">30/30</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 7ms/step - accuracy: 0.9960 - loss: 0.0267 - val_accuracy: 0.8646 - val_loss: 0.5104
+Epoch 19/20
+<span class="ansi-bold">30/30</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 6ms/step - accuracy: 0.9979 - loss: 0.0202 - val_accuracy: 0.8721 - val_loss: 0.5155
+Epoch 20/20
+<span class="ansi-bold">30/30</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 6ms/step - accuracy: 0.9992 - loss: 0.0148 - val_accuracy: 0.8646 - val_loss: 0.5809
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">history_dict</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span>
+<span class="n">loss_values</span> <span class="o">=</span> <span class="n">history_dict</span><span class="p">[</span><span class="s2">&quot;loss&quot;</span><span class="p">]</span>
+<span class="n">val_loss_values</span> <span class="o">=</span> <span class="n">history_dict</span><span class="p">[</span><span class="s2">&quot;val_loss&quot;</span><span class="p">]</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">loss_values</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">loss_values</span><span class="p">,</span> <span class="s2">&quot;bo&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Training loss&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">val_loss_values</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Validation loss&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Training and validation loss&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Epochs&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Loss&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/p01-03-dl-co-ban_58_0.png" class="no-scaled-link" src="_images/p01-03-dl-co-ban_58_0.png" style="width: 640px; height: 480px;" />
+</div>
+</div>
+<p>Với kết quả như trên, ta có thể thấy hàm <code class="docutils literal notranslate"><span class="pre">loss</span> <span class="pre">function</span></code> giảm liên tục trên tập train nhưng tăng dần ở validation với mức epoch = 5. Ta có thể xây dựng lại mô hình như sau</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+                <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">),</span>
+                <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">),</span>
+                <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;sigmoid&quot;</span><span class="p">)</span>
+<span class="p">])</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s2">&quot;rmsprop&quot;</span><span class="p">,</span>
+            <span class="n">loss</span><span class="o">=</span><span class="s2">&quot;binary_crossentropy&quot;</span><span class="p">,</span>
+            <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;accuracy&quot;</span><span class="p">])</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="n">results</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Epoch 1/4
+<span class="ansi-bold">49/49</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">1s</span> 4ms/step - accuracy: 0.7274 - loss: 0.5762
+Epoch 2/4
+<span class="ansi-bold">49/49</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 4ms/step - accuracy: 0.8986 - loss: 0.3038
+Epoch 3/4
+<span class="ansi-bold">49/49</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 4ms/step - accuracy: 0.9175 - loss: 0.2295
+Epoch 4/4
+<span class="ansi-bold">49/49</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 4ms/step - accuracy: 0.9315 - loss: 0.1900
+<span class="ansi-bold">782/782</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">1s</span> 1ms/step - accuracy: 0.8840 - loss: 0.2837
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[0.28319352865219116, 0.8858399987220764]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">Model: "sequential_4"</span>
+</pre></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃<span style="font-weight: bold"> Layer (type)                    </span>┃<span style="font-weight: bold"> Output Shape           </span>┃<span style="font-weight: bold">       Param # </span>┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ dense_12 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">16</span>)             │       <span style="color: #00af00; text-decoration-color: #00af00">160,016</span> │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_13 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">16</span>)             │           <span style="color: #00af00; text-decoration-color: #00af00">272</span> │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_14 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">1</span>)              │            <span style="color: #00af00; text-decoration-color: #00af00">17</span> │
+└─────────────────────────────────┴────────────────────────┴───────────────┘
+</pre></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold"> Total params: </span><span style="color: #00af00; text-decoration-color: #00af00">320,612</span> (1.22 MB)
+</pre></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold"> Trainable params: </span><span style="color: #00af00; text-decoration-color: #00af00">160,305</span> (626.19 KB)
+</pre></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold"> Non-trainable params: </span><span style="color: #00af00; text-decoration-color: #00af00">0</span> (0.00 B)
+</pre></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold"> Optimizer params: </span><span style="color: #00af00; text-decoration-color: #00af00">160,307</span> (626.20 KB)
+</pre></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dự báo trên tập dữ liệu mới</span>
+<span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-bold">782/782</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">1s</span> 1ms/step
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[0.25915012],
+       [0.9997451 ],
+       [0.8726964 ],
+       ...,
+       [0.13297063],
+       [0.07732651],
+       [0.64449096]], dtype=float32)
+</pre></div></div>
+</div>
+</section>
+</section>
 </section>
 
 
