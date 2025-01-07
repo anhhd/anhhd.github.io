@@ -1012,7 +1012,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 40,
+   "execution_count": 8,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -1410,6 +1410,1217 @@
    "source": [
     "# Dự báo trên tập dữ liệu mới\n",
     "model.predict(x_test)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Mô hình phân loại nhiều nhóm"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from tensorflow.keras.datasets import reuters\n",
+    "(train_data, train_labels), (test_data, test_labels) = reuters.load_data(\n",
+    "num_words=10000)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([list([1, 2, 2, 8, 43, 10, 447, 5, 25, 207, 270, 5, 3095, 111, 16, 369, 186, 90, 67, 7, 89, 5, 19, 102, 6, 19, 124, 15, 90, 67, 84, 22, 482, 26, 7, 48, 4, 49, 8, 864, 39, 209, 154, 6, 151, 6, 83, 11, 15, 22, 155, 11, 15, 7, 48, 9, 4579, 1005, 504, 6, 258, 6, 272, 11, 15, 22, 134, 44, 11, 15, 16, 8, 197, 1245, 90, 67, 52, 29, 209, 30, 32, 132, 6, 109, 15, 17, 12]),\n",
+       "       list([1, 3267, 699, 3434, 2295, 56, 2, 7511, 9, 56, 3906, 1073, 81, 5, 1198, 57, 366, 737, 132, 20, 4093, 7, 2, 49, 2295, 2, 1037, 3267, 699, 3434, 8, 7, 10, 241, 16, 855, 129, 231, 783, 5, 4, 587, 2295, 2, 2, 775, 7, 48, 34, 191, 44, 35, 1795, 505, 17, 12]),\n",
+       "       list([1, 53, 12, 284, 15, 14, 272, 26, 53, 959, 32, 818, 15, 14, 272, 26, 39, 684, 70, 11, 14, 12, 3886, 18, 180, 183, 187, 70, 11, 14, 102, 32, 11, 29, 53, 44, 704, 15, 14, 19, 758, 15, 53, 959, 47, 1013, 15, 14, 19, 132, 15, 39, 965, 32, 11, 14, 147, 72, 11, 180, 183, 187, 44, 11, 14, 102, 19, 11, 123, 186, 90, 67, 960, 4, 78, 13, 68, 467, 511, 110, 59, 89, 90, 67, 1390, 55, 2678, 92, 617, 80, 1274, 46, 905, 220, 13, 4, 346, 48, 235, 629, 5, 211, 5, 1118, 7, 2, 81, 5, 187, 11, 15, 9, 1709, 201, 5, 47, 3615, 18, 478, 4514, 5, 1118, 7, 232, 2, 71, 5, 160, 63, 11, 9, 2, 81, 5, 102, 59, 11, 17, 12])],\n",
+       "      dtype=object)"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# 3 dòng đầu tiên\n",
+    "train_data[:3]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([3, 4, 3], dtype=int64)"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "train_labels[:3]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Value: 0, Count: 55\n",
+      "Value: 1, Count: 432\n",
+      "Value: 2, Count: 74\n",
+      "Value: 3, Count: 3159\n",
+      "Value: 4, Count: 1949\n",
+      "Value: 5, Count: 17\n",
+      "Value: 6, Count: 48\n",
+      "Value: 7, Count: 16\n",
+      "Value: 8, Count: 139\n",
+      "Value: 9, Count: 101\n",
+      "Value: 10, Count: 124\n",
+      "Value: 11, Count: 390\n",
+      "Value: 12, Count: 49\n",
+      "Value: 13, Count: 172\n",
+      "Value: 14, Count: 26\n",
+      "Value: 15, Count: 20\n",
+      "Value: 16, Count: 444\n",
+      "Value: 17, Count: 39\n",
+      "Value: 18, Count: 66\n",
+      "Value: 19, Count: 549\n",
+      "Value: 20, Count: 269\n",
+      "Value: 21, Count: 100\n",
+      "Value: 22, Count: 15\n",
+      "Value: 23, Count: 41\n",
+      "Value: 24, Count: 62\n",
+      "Value: 25, Count: 92\n",
+      "Value: 26, Count: 24\n",
+      "Value: 27, Count: 15\n",
+      "Value: 28, Count: 48\n",
+      "Value: 29, Count: 19\n",
+      "Value: 30, Count: 45\n",
+      "Value: 31, Count: 39\n",
+      "Value: 32, Count: 32\n",
+      "Value: 33, Count: 11\n",
+      "Value: 34, Count: 50\n",
+      "Value: 35, Count: 10\n",
+      "Value: 36, Count: 49\n",
+      "Value: 37, Count: 19\n",
+      "Value: 38, Count: 19\n",
+      "Value: 39, Count: 24\n",
+      "Value: 40, Count: 36\n",
+      "Value: 41, Count: 30\n",
+      "Value: 42, Count: 13\n",
+      "Value: 43, Count: 21\n",
+      "Value: 44, Count: 12\n",
+      "Value: 45, Count: 18\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Giá trị của labels\n",
+    "import numpy as np\n",
+    "unique_value, counts = np.unique(train_labels, return_counts=True)\n",
+    "\n",
+    "for value, count in zip(unique_value, counts):\n",
+    "    print(f\"Value: {value}, Count: {count}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/reuters_word_index.json\n",
+      "\u001b[1m550378/550378\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m22s\u001b[0m 40us/step\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Map lại nội dung đánh giá\n",
+    "word_index = reuters.get_word_index()\n",
+    "reverse_word_index = dict([(value, key) for (key, value) in word_index.items()])\n",
+    "decoded_newswire = \" \".join([reverse_word_index.get(i - 3, \"?\") for i in train_data[0]])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([list([1, 2, 2, 8, 43, 10, 447, 5, 25, 207, 270, 5, 3095, 111, 16, 369, 186, 90, 67, 7, 89, 5, 19, 102, 6, 19, 124, 15, 90, 67, 84, 22, 482, 26, 7, 48, 4, 49, 8, 864, 39, 209, 154, 6, 151, 6, 83, 11, 15, 22, 155, 11, 15, 7, 48, 9, 4579, 1005, 504, 6, 258, 6, 272, 11, 15, 22, 134, 44, 11, 15, 16, 8, 197, 1245, 90, 67, 52, 29, 209, 30, 32, 132, 6, 109, 15, 17, 12]),\n",
+       "       list([1, 3267, 699, 3434, 2295, 56, 2, 7511, 9, 56, 3906, 1073, 81, 5, 1198, 57, 366, 737, 132, 20, 4093, 7, 2, 49, 2295, 2, 1037, 3267, 699, 3434, 8, 7, 10, 241, 16, 855, 129, 231, 783, 5, 4, 587, 2295, 2, 2, 775, 7, 48, 34, 191, 44, 35, 1795, 505, 17, 12]),\n",
+       "       list([1, 53, 12, 284, 15, 14, 272, 26, 53, 959, 32, 818, 15, 14, 272, 26, 39, 684, 70, 11, 14, 12, 3886, 18, 180, 183, 187, 70, 11, 14, 102, 32, 11, 29, 53, 44, 704, 15, 14, 19, 758, 15, 53, 959, 47, 1013, 15, 14, 19, 132, 15, 39, 965, 32, 11, 14, 147, 72, 11, 180, 183, 187, 44, 11, 14, 102, 19, 11, 123, 186, 90, 67, 960, 4, 78, 13, 68, 467, 511, 110, 59, 89, 90, 67, 1390, 55, 2678, 92, 617, 80, 1274, 46, 905, 220, 13, 4, 346, 48, 235, 629, 5, 211, 5, 1118, 7, 2, 81, 5, 187, 11, 15, 9, 1709, 201, 5, 47, 3615, 18, 478, 4514, 5, 1118, 7, 232, 2, 71, 5, 160, 63, 11, 9, 2, 81, 5, 102, 59, 11, 17, 12]),\n",
+       "       ...,\n",
+       "       list([1, 141, 3890, 387, 81, 8, 16, 1629, 10, 340, 1241, 850, 31, 56, 3890, 691, 9, 1241, 71, 9, 5985, 2, 2, 699, 2, 2, 2, 699, 244, 5945, 4, 49, 8, 4, 656, 850, 33, 2993, 9, 2139, 340, 3371, 1493, 9, 2, 22, 2, 1094, 687, 83, 35, 15, 257, 6, 57, 9190, 7, 4, 5956, 654, 5, 2, 6191, 1371, 4, 49, 8, 16, 369, 646, 6, 1076, 7, 124, 407, 17, 12]),\n",
+       "       list([1, 53, 46, 957, 26, 14, 74, 132, 26, 39, 46, 258, 3614, 18, 14, 74, 134, 5131, 18, 88, 2321, 72, 11, 14, 1842, 32, 11, 123, 383, 89, 39, 46, 235, 10, 864, 728, 5, 258, 44, 11, 15, 22, 753, 9, 42, 92, 131, 728, 5, 69, 312, 11, 15, 22, 222, 2, 3237, 383, 48, 39, 74, 235, 10, 864, 276, 5, 61, 32, 11, 15, 21, 4, 211, 5, 126, 1072, 42, 92, 131, 46, 19, 352, 11, 15, 22, 710, 220, 9, 42, 92, 131, 276, 5, 59, 61, 11, 15, 22, 10, 455, 7, 1172, 137, 336, 1325, 6, 1532, 142, 971, 6463, 43, 359, 5, 4, 326, 753, 364, 17, 12]),\n",
+       "       list([1, 227, 2406, 91, 2, 125, 2855, 21, 4, 3976, 76, 7, 4, 757, 481, 3976, 790, 5259, 5654, 9, 111, 149, 8, 7, 10, 76, 223, 51, 4, 417, 8, 1047, 91, 6917, 1688, 340, 7, 194, 9411, 6, 1894, 21, 127, 2151, 2394, 1456, 6, 3034, 4, 329, 433, 7, 65, 87, 1127, 10, 8219, 1475, 290, 9, 21, 567, 16, 1926, 24, 4, 76, 209, 30, 4033, 6655, 5654, 8, 4, 60, 8, 4, 966, 308, 40, 2575, 129, 2, 295, 277, 1071, 9, 24, 286, 2114, 234, 222, 9, 4, 906, 3994, 8519, 114, 5758, 1752, 7, 4, 113, 17, 12])],\n",
+       "      dtype=object)"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "train_data"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "x_train = vectorize_sequences(train_data)\n",
+    "x_test = vectorize_sequences(test_data)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from tensorflow.keras.utils import to_categorical\n",
+    "y_train = to_categorical(train_labels)\n",
+    "y_test = to_categorical(test_labels)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(8982, 46)"
+      ]
+     },
+     "execution_count": 29,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Shape y_train\n",
+    "y_train.shape"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Khác với các mô hình họ cây thông thường, nhóm neural network sẽ convert định dạng `train_labels` (n, 1) thành định dạng bảng (n, 46) với mỗi cột là một labels mới định dạng 0-1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[0., 1., 1., ..., 0., 0., 0.],\n",
+       "       [0., 1., 1., ..., 0., 0., 0.],\n",
+       "       [0., 1., 1., ..., 0., 0., 0.],\n",
+       "       ...,\n",
+       "       [0., 1., 1., ..., 0., 0., 0.],\n",
+       "       [0., 1., 1., ..., 0., 0., 0.],\n",
+       "       [0., 1., 1., ..., 0., 0., 0.]])"
+      ]
+     },
+     "execution_count": 12,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Kết quả sau khi vectorize\n",
+    "x_train"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(8982, 10000)"
+      ]
+     },
+     "execution_count": 30,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x_train.shape"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([[0., 0., 0., ..., 0., 0., 0.],\n",
+       "       [0., 0., 0., ..., 0., 0., 0.],\n",
+       "       [0., 0., 0., ..., 0., 0., 0.],\n",
+       "       ...,\n",
+       "       [0., 0., 0., ..., 0., 0., 0.],\n",
+       "       [0., 0., 0., ..., 0., 0., 0.],\n",
+       "       [0., 0., 0., ..., 0., 0., 0.]])"
+      ]
+     },
+     "execution_count": 31,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "y_train"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Khi xây dựng mô hình `multi-classification`, kiến trúc tương tự như mô hình binary classification. Tuy nhiên, với việc gia tăng số lượng nhãn (`labels`), ở layer cuối, ta có thể dùng softmax với 46 neural"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from tensorflow import keras\n",
+    "from tensorflow.keras import layers\n",
+    "\n",
+    "model = keras.Sequential([\n",
+    "    layers.Dense(64, activation=\"relu\"),\n",
+    "    layers.Dense(64, activation=\"relu\"),\n",
+    "    layers.Dense(46, activation=\"softmax\")\n",
+    "    ])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Xây dựng mô hình\n",
+    "model.compile(optimizer=\"rmsprop\",\n",
+    "              loss=\"binary_crossentropy\",\n",
+    "              metrics=[\"accuracy\"])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<pre style=\"white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace\"><span style=\"font-weight: bold\">Model: \"sequential\"</span>\n",
+       "</pre>\n"
+      ],
+      "text/plain": [
+       "\u001b[1mModel: \"sequential\"\u001b[0m\n"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/html": [
+       "<pre style=\"white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace\">┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓\n",
+       "┃<span style=\"font-weight: bold\"> Layer (type)                    </span>┃<span style=\"font-weight: bold\"> Output Shape           </span>┃<span style=\"font-weight: bold\">       Param # </span>┃\n",
+       "┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩\n",
+       "│ dense (<span style=\"color: #0087ff; text-decoration-color: #0087ff\">Dense</span>)                   │ (<span style=\"color: #00d7ff; text-decoration-color: #00d7ff\">None</span>, <span style=\"color: #00af00; text-decoration-color: #00af00\">64</span>)             │       <span style=\"color: #00af00; text-decoration-color: #00af00\">640,064</span> │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ dense_1 (<span style=\"color: #0087ff; text-decoration-color: #0087ff\">Dense</span>)                 │ (<span style=\"color: #00d7ff; text-decoration-color: #00d7ff\">None</span>, <span style=\"color: #00af00; text-decoration-color: #00af00\">64</span>)             │         <span style=\"color: #00af00; text-decoration-color: #00af00\">4,160</span> │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ dense_2 (<span style=\"color: #0087ff; text-decoration-color: #0087ff\">Dense</span>)                 │ (<span style=\"color: #00d7ff; text-decoration-color: #00d7ff\">None</span>, <span style=\"color: #00af00; text-decoration-color: #00af00\">46</span>)             │         <span style=\"color: #00af00; text-decoration-color: #00af00\">2,990</span> │\n",
+       "└─────────────────────────────────┴────────────────────────┴───────────────┘\n",
+       "</pre>\n"
+      ],
+      "text/plain": [
+       "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓\n",
+       "┃\u001b[1m \u001b[0m\u001b[1mLayer (type)                   \u001b[0m\u001b[1m \u001b[0m┃\u001b[1m \u001b[0m\u001b[1mOutput Shape          \u001b[0m\u001b[1m \u001b[0m┃\u001b[1m \u001b[0m\u001b[1m      Param #\u001b[0m\u001b[1m \u001b[0m┃\n",
+       "┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩\n",
+       "│ dense (\u001b[38;5;33mDense\u001b[0m)                   │ (\u001b[38;5;45mNone\u001b[0m, \u001b[38;5;34m64\u001b[0m)             │       \u001b[38;5;34m640,064\u001b[0m │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ dense_1 (\u001b[38;5;33mDense\u001b[0m)                 │ (\u001b[38;5;45mNone\u001b[0m, \u001b[38;5;34m64\u001b[0m)             │         \u001b[38;5;34m4,160\u001b[0m │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ dense_2 (\u001b[38;5;33mDense\u001b[0m)                 │ (\u001b[38;5;45mNone\u001b[0m, \u001b[38;5;34m46\u001b[0m)             │         \u001b[38;5;34m2,990\u001b[0m │\n",
+       "└─────────────────────────────────┴────────────────────────┴───────────────┘\n"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/html": [
+       "<pre style=\"white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace\"><span style=\"font-weight: bold\"> Total params: </span><span style=\"color: #00af00; text-decoration-color: #00af00\">647,214</span> (2.47 MB)\n",
+       "</pre>\n"
+      ],
+      "text/plain": [
+       "\u001b[1m Total params: \u001b[0m\u001b[38;5;34m647,214\u001b[0m (2.47 MB)\n"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/html": [
+       "<pre style=\"white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace\"><span style=\"font-weight: bold\"> Trainable params: </span><span style=\"color: #00af00; text-decoration-color: #00af00\">647,214</span> (2.47 MB)\n",
+       "</pre>\n"
+      ],
+      "text/plain": [
+       "\u001b[1m Trainable params: \u001b[0m\u001b[38;5;34m647,214\u001b[0m (2.47 MB)\n"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/html": [
+       "<pre style=\"white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace\"><span style=\"font-weight: bold\"> Non-trainable params: </span><span style=\"color: #00af00; text-decoration-color: #00af00\">0</span> (0.00 B)\n",
+       "</pre>\n"
+      ],
+      "text/plain": [
+       "\u001b[1m Non-trainable params: \u001b[0m\u001b[38;5;34m0\u001b[0m (0.00 B)\n"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "model.summary()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 1/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 27ms/step - accuracy: 0.8248 - loss: 0.0256 - val_accuracy: 0.7533 - val_loss: 0.0344\n",
+      "Epoch 2/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 13ms/step - accuracy: 0.8300 - loss: 0.0246 - val_accuracy: 0.7538 - val_loss: 0.0344\n",
+      "Epoch 3/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 11ms/step - accuracy: 0.8211 - loss: 0.0259 - val_accuracy: 0.7565 - val_loss: 0.0340\n",
+      "Epoch 4/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 13ms/step - accuracy: 0.8297 - loss: 0.0247 - val_accuracy: 0.7578 - val_loss: 0.0338\n",
+      "Epoch 5/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 12ms/step - accuracy: 0.8337 - loss: 0.0243 - val_accuracy: 0.7569 - val_loss: 0.0337\n",
+      "Epoch 6/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 15ms/step - accuracy: 0.8323 - loss: 0.0241 - val_accuracy: 0.7578 - val_loss: 0.0337\n",
+      "Epoch 7/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 12ms/step - accuracy: 0.8439 - loss: 0.0231 - val_accuracy: 0.7622 - val_loss: 0.0336\n",
+      "Epoch 8/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 11ms/step - accuracy: 0.8412 - loss: 0.0234 - val_accuracy: 0.7609 - val_loss: 0.0333\n",
+      "Epoch 9/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 12ms/step - accuracy: 0.8445 - loss: 0.0227 - val_accuracy: 0.7618 - val_loss: 0.0335\n",
+      "Epoch 10/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 13ms/step - accuracy: 0.8421 - loss: 0.0231 - val_accuracy: 0.7609 - val_loss: 0.0331\n",
+      "Epoch 11/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 13ms/step - accuracy: 0.8463 - loss: 0.0223 - val_accuracy: 0.7640 - val_loss: 0.0331\n",
+      "Epoch 12/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 14ms/step - accuracy: 0.8534 - loss: 0.0215 - val_accuracy: 0.7609 - val_loss: 0.0331\n",
+      "Epoch 13/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 11ms/step - accuracy: 0.8529 - loss: 0.0215 - val_accuracy: 0.7636 - val_loss: 0.0330\n",
+      "Epoch 14/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 13ms/step - accuracy: 0.8596 - loss: 0.0207 - val_accuracy: 0.7631 - val_loss: 0.0331\n",
+      "Epoch 15/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 13ms/step - accuracy: 0.8660 - loss: 0.0206 - val_accuracy: 0.7622 - val_loss: 0.0329\n",
+      "Epoch 16/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 18ms/step - accuracy: 0.8643 - loss: 0.0203 - val_accuracy: 0.7640 - val_loss: 0.0328\n",
+      "Epoch 17/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 17ms/step - accuracy: 0.8670 - loss: 0.0201 - val_accuracy: 0.7671 - val_loss: 0.0328\n",
+      "Epoch 18/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 16ms/step - accuracy: 0.8716 - loss: 0.0196 - val_accuracy: 0.7689 - val_loss: 0.0328\n",
+      "Epoch 19/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 19ms/step - accuracy: 0.8692 - loss: 0.0195 - val_accuracy: 0.7694 - val_loss: 0.0326\n",
+      "Epoch 20/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 19ms/step - accuracy: 0.8761 - loss: 0.0189 - val_accuracy: 0.7671 - val_loss: 0.0327\n"
+     ]
+    }
+   ],
+   "source": [
+    "history = model.fit(x_train,\n",
+    "                    y_train,\n",
+    "                    epochs=20,\n",
+    "                    batch_size=512,\n",
+    "                    validation_data=(x_test, y_test))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 42,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\u001b[1m71/71\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 2ms/step - accuracy: 0.7709 - loss: 0.0322\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "[0.032673172652721405, 0.767141580581665]"
+      ]
+     },
+     "execution_count": 42,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Dự báo tập mới\n",
+    "model.evaluate(x_test, y_test)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Như vậy, với mô hình trên, ta chỉ đạt được độ chính xác 77% khi dự báo trên tập mới"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "---"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Ta có thể tăng thêm 1 layers cho mô hình và đánh giá độ chính xác"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 58,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "model_2 = keras.Sequential([\n",
+    "    layers.Dense(64, activation=\"relu\"),\n",
+    "    layers.Dense(64, activation=\"relu\"),\n",
+    "    layers.Dense(64, activation=\"relu\"),\n",
+    "    layers.Dense(46, activation=\"softmax\")\n",
+    "    ])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 59,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<pre style=\"white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace\"><span style=\"font-weight: bold\">Model: \"sequential_6\"</span>\n",
+       "</pre>\n"
+      ],
+      "text/plain": [
+       "\u001b[1mModel: \"sequential_6\"\u001b[0m\n"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/html": [
+       "<pre style=\"white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace\">┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓\n",
+       "┃<span style=\"font-weight: bold\"> Layer (type)                    </span>┃<span style=\"font-weight: bold\"> Output Shape           </span>┃<span style=\"font-weight: bold\">       Param # </span>┃\n",
+       "┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩\n",
+       "│ dense_22 (<span style=\"color: #0087ff; text-decoration-color: #0087ff\">Dense</span>)                │ ?                      │   <span style=\"color: #00af00; text-decoration-color: #00af00\">0</span> (unbuilt) │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ dense_23 (<span style=\"color: #0087ff; text-decoration-color: #0087ff\">Dense</span>)                │ ?                      │   <span style=\"color: #00af00; text-decoration-color: #00af00\">0</span> (unbuilt) │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ dense_24 (<span style=\"color: #0087ff; text-decoration-color: #0087ff\">Dense</span>)                │ ?                      │   <span style=\"color: #00af00; text-decoration-color: #00af00\">0</span> (unbuilt) │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ dense_25 (<span style=\"color: #0087ff; text-decoration-color: #0087ff\">Dense</span>)                │ ?                      │   <span style=\"color: #00af00; text-decoration-color: #00af00\">0</span> (unbuilt) │\n",
+       "└─────────────────────────────────┴────────────────────────┴───────────────┘\n",
+       "</pre>\n"
+      ],
+      "text/plain": [
+       "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓\n",
+       "┃\u001b[1m \u001b[0m\u001b[1mLayer (type)                   \u001b[0m\u001b[1m \u001b[0m┃\u001b[1m \u001b[0m\u001b[1mOutput Shape          \u001b[0m\u001b[1m \u001b[0m┃\u001b[1m \u001b[0m\u001b[1m      Param #\u001b[0m\u001b[1m \u001b[0m┃\n",
+       "┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩\n",
+       "│ dense_22 (\u001b[38;5;33mDense\u001b[0m)                │ ?                      │   \u001b[38;5;34m0\u001b[0m (unbuilt) │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ dense_23 (\u001b[38;5;33mDense\u001b[0m)                │ ?                      │   \u001b[38;5;34m0\u001b[0m (unbuilt) │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ dense_24 (\u001b[38;5;33mDense\u001b[0m)                │ ?                      │   \u001b[38;5;34m0\u001b[0m (unbuilt) │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ dense_25 (\u001b[38;5;33mDense\u001b[0m)                │ ?                      │   \u001b[38;5;34m0\u001b[0m (unbuilt) │\n",
+       "└─────────────────────────────────┴────────────────────────┴───────────────┘\n"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/html": [
+       "<pre style=\"white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace\"><span style=\"font-weight: bold\"> Total params: </span><span style=\"color: #00af00; text-decoration-color: #00af00\">0</span> (0.00 B)\n",
+       "</pre>\n"
+      ],
+      "text/plain": [
+       "\u001b[1m Total params: \u001b[0m\u001b[38;5;34m0\u001b[0m (0.00 B)\n"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/html": [
+       "<pre style=\"white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace\"><span style=\"font-weight: bold\"> Trainable params: </span><span style=\"color: #00af00; text-decoration-color: #00af00\">0</span> (0.00 B)\n",
+       "</pre>\n"
+      ],
+      "text/plain": [
+       "\u001b[1m Trainable params: \u001b[0m\u001b[38;5;34m0\u001b[0m (0.00 B)\n"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/html": [
+       "<pre style=\"white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace\"><span style=\"font-weight: bold\"> Non-trainable params: </span><span style=\"color: #00af00; text-decoration-color: #00af00\">0</span> (0.00 B)\n",
+       "</pre>\n"
+      ],
+      "text/plain": [
+       "\u001b[1m Non-trainable params: \u001b[0m\u001b[38;5;34m0\u001b[0m (0.00 B)\n"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "model_2.summary()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 60,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Xây dựng mô hình\n",
+    "model_2.compile(optimizer=\"rmsprop\",\n",
+    "              loss=\"binary_crossentropy\",\n",
+    "              metrics=[\"accuracy\"])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 61,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 1/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m2s\u001b[0m 24ms/step - accuracy: 0.0442 - loss: 0.5814 - val_accuracy: 0.0467 - val_loss: 0.1905\n",
+      "Epoch 2/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 13ms/step - accuracy: 0.0995 - loss: 0.1484 - val_accuracy: 0.4550 - val_loss: 0.0926\n",
+      "Epoch 3/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 12ms/step - accuracy: 0.3901 - loss: 0.0876 - val_accuracy: 0.5013 - val_loss: 0.0770\n",
+      "Epoch 4/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 12ms/step - accuracy: 0.4745 - loss: 0.0731 - val_accuracy: 0.5147 - val_loss: 0.0665\n",
+      "Epoch 5/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 12ms/step - accuracy: 0.5184 - loss: 0.0637 - val_accuracy: 0.5258 - val_loss: 0.0608\n",
+      "Epoch 6/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 13ms/step - accuracy: 0.5314 - loss: 0.0586 - val_accuracy: 0.5632 - val_loss: 0.0569\n",
+      "Epoch 7/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 11ms/step - accuracy: 0.5504 - loss: 0.0558 - val_accuracy: 0.5579 - val_loss: 0.0546\n",
+      "Epoch 8/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 12ms/step - accuracy: 0.5735 - loss: 0.0526 - val_accuracy: 0.5904 - val_loss: 0.0521\n",
+      "Epoch 9/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 12ms/step - accuracy: 0.5969 - loss: 0.0506 - val_accuracy: 0.6282 - val_loss: 0.0504\n",
+      "Epoch 10/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 13ms/step - accuracy: 0.6261 - loss: 0.0486 - val_accuracy: 0.6416 - val_loss: 0.0491\n",
+      "Epoch 11/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 13ms/step - accuracy: 0.6434 - loss: 0.0476 - val_accuracy: 0.6483 - val_loss: 0.0484\n",
+      "Epoch 12/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 14ms/step - accuracy: 0.6685 - loss: 0.0451 - val_accuracy: 0.6652 - val_loss: 0.0471\n",
+      "Epoch 13/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 15ms/step - accuracy: 0.6786 - loss: 0.0448 - val_accuracy: 0.6674 - val_loss: 0.0462\n",
+      "Epoch 14/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 13ms/step - accuracy: 0.6823 - loss: 0.0432 - val_accuracy: 0.6772 - val_loss: 0.0453\n",
+      "Epoch 15/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 13ms/step - accuracy: 0.6915 - loss: 0.0425 - val_accuracy: 0.6803 - val_loss: 0.0443\n",
+      "Epoch 16/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 12ms/step - accuracy: 0.6972 - loss: 0.0415 - val_accuracy: 0.6852 - val_loss: 0.0434\n",
+      "Epoch 17/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 12ms/step - accuracy: 0.7024 - loss: 0.0404 - val_accuracy: 0.6817 - val_loss: 0.0429\n",
+      "Epoch 18/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 12ms/step - accuracy: 0.7029 - loss: 0.0393 - val_accuracy: 0.6870 - val_loss: 0.0421\n",
+      "Epoch 19/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 13ms/step - accuracy: 0.7113 - loss: 0.0385 - val_accuracy: 0.6923 - val_loss: 0.0416\n",
+      "Epoch 20/20\n",
+      "\u001b[1m18/18\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 15ms/step - accuracy: 0.7202 - loss: 0.0371 - val_accuracy: 0.6901 - val_loss: 0.0408\n"
+     ]
+    }
+   ],
+   "source": [
+    "history = model_2.fit(x_train,\n",
+    "                    y_train,\n",
+    "                    epochs=20,\n",
+    "                    batch_size=512,\n",
+    "                    validation_data=(x_test, y_test))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 62,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\u001b[1m71/71\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 3ms/step - accuracy: 0.7042 - loss: 0.0401\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "[0.04083269461989403, 0.690115749835968]"
+      ]
+     },
+     "execution_count": 62,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "model_2.evaluate(x_test, y_test)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Như vậy, khi gia tăng thêm một layers nữa trong kiến trúc mạng neural, chưa chắc đã làm gia tăng chất lượng mô hình"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Mô hình hồi quy"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 63,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/boston_housing.npz\n",
+      "\u001b[1m57026/57026\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 2us/step\n"
+     ]
+    }
+   ],
+   "source": [
+    "from tensorflow.keras.datasets import boston_housing\n",
+    "(train_data, train_targets), (test_data, test_targets) = (boston_housing.load_data())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 66,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(404, 13)"
+      ]
+     },
+     "execution_count": 66,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "train_data.shape"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 68,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([15.2, 42.3, 50. , 21.1, 17.7, 18.5, 11.3, 15.6, 15.6, 14.4, 12.1,\n",
+       "       17.9, 23.1, 19.9, 15.7,  8.8, 50. , 22.5, 24.1, 27.5, 10.9, 30.8,\n",
+       "       32.9, 24. , 18.5, 13.3, 22.9, 34.7, 16.6, 17.5, 22.3, 16.1, 14.9,\n",
+       "       23.1, 34.9, 25. , 13.9, 13.1, 20.4, 20. , 15.2, 24.7, 22.2, 16.7,\n",
+       "       12.7, 15.6, 18.4, 21. , 30.1, 15.1, 18.7,  9.6, 31.5, 24.8, 19.1,\n",
+       "       22. , 14.5, 11. , 32. , 29.4, 20.3, 24.4, 14.6, 19.5, 14.1, 14.3,\n",
+       "       15.6, 10.5,  6.3, 19.3, 19.3, 13.4, 36.4, 17.8, 13.5, 16.5,  8.3,\n",
+       "       14.3, 16. , 13.4, 28.6, 43.5, 20.2, 22. , 23. , 20.7, 12.5, 48.5,\n",
+       "       14.6, 13.4, 23.7, 50. , 21.7, 39.8, 38.7, 22.2, 34.9, 22.5, 31.1,\n",
+       "       28.7, 46. , 41.7, 21. , 26.6, 15. , 24.4, 13.3, 21.2, 11.7, 21.7,\n",
+       "       19.4, 50. , 22.8, 19.7, 24.7, 36.2, 14.2, 18.9, 18.3, 20.6, 24.6,\n",
+       "       18.2,  8.7, 44. , 10.4, 13.2, 21.2, 37. , 30.7, 22.9, 20. , 19.3,\n",
+       "       31.7, 32. , 23.1, 18.8, 10.9, 50. , 19.6,  5. , 14.4, 19.8, 13.8,\n",
+       "       19.6, 23.9, 24.5, 25. , 19.9, 17.2, 24.6, 13.5, 26.6, 21.4, 11.9,\n",
+       "       22.6, 19.6,  8.5, 23.7, 23.1, 22.4, 20.5, 23.6, 18.4, 35.2, 23.1,\n",
+       "       27.9, 20.6, 23.7, 28. , 13.6, 27.1, 23.6, 20.6, 18.2, 21.7, 17.1,\n",
+       "        8.4, 25.3, 13.8, 22.2, 18.4, 20.7, 31.6, 30.5, 20.3,  8.8, 19.2,\n",
+       "       19.4, 23.1, 23. , 14.8, 48.8, 22.6, 33.4, 21.1, 13.6, 32.2, 13.1,\n",
+       "       23.4, 18.9, 23.9, 11.8, 23.3, 22.8, 19.6, 16.7, 13.4, 22.2, 20.4,\n",
+       "       21.8, 26.4, 14.9, 24.1, 23.8, 12.3, 29.1, 21. , 19.5, 23.3, 23.8,\n",
+       "       17.8, 11.5, 21.7, 19.9, 25. , 33.4, 28.5, 21.4, 24.3, 27.5, 33.1,\n",
+       "       16.2, 23.3, 48.3, 22.9, 22.8, 13.1, 12.7, 22.6, 15. , 15.3, 10.5,\n",
+       "       24. , 18.5, 21.7, 19.5, 33.2, 23.2,  5. , 19.1, 12.7, 22.3, 10.2,\n",
+       "       13.9, 16.3, 17. , 20.1, 29.9, 17.2, 37.3, 45.4, 17.8, 23.2, 29. ,\n",
+       "       22. , 18. , 17.4, 34.6, 20.1, 25. , 15.6, 24.8, 28.2, 21.2, 21.4,\n",
+       "       23.8, 31. , 26.2, 17.4, 37.9, 17.5, 20. ,  8.3, 23.9,  8.4, 13.8,\n",
+       "        7.2, 11.7, 17.1, 21.6, 50. , 16.1, 20.4, 20.6, 21.4, 20.6, 36.5,\n",
+       "        8.5, 24.8, 10.8, 21.9, 17.3, 18.9, 36.2, 14.9, 18.2, 33.3, 21.8,\n",
+       "       19.7, 31.6, 24.8, 19.4, 22.8,  7.5, 44.8, 16.8, 18.7, 50. , 50. ,\n",
+       "       19.5, 20.1, 50. , 17.2, 20.8, 19.3, 41.3, 20.4, 20.5, 13.8, 16.5,\n",
+       "       23.9, 20.6, 31.5, 23.3, 16.8, 14. , 33.8, 36.1, 12.8, 18.3, 18.7,\n",
+       "       19.1, 29. , 30.1, 50. , 50. , 22. , 11.9, 37.6, 50. , 22.7, 20.8,\n",
+       "       23.5, 27.9, 50. , 19.3, 23.9, 22.6, 15.2, 21.7, 19.2, 43.8, 20.3,\n",
+       "       33.2, 19.9, 22.5, 32.7, 22. , 17.1, 19. , 15. , 16.1, 25.1, 23.7,\n",
+       "       28.7, 37.2, 22.6, 16.4, 25. , 29.8, 22.1, 17.4, 18.1, 30.3, 17.5,\n",
+       "       24.7, 12.6, 26.5, 28.7, 13.3, 10.4, 24.4, 23. , 20. , 17.8,  7. ,\n",
+       "       11.8, 24.4, 13.8, 19.4, 25.2, 19.4, 19.4, 29.1])"
+      ]
+     },
+     "execution_count": 68,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "train_targets"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 69,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import polars as pl"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 71,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "train_df = pl.DataFrame(train_data)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 73,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div><style>\n",
+       ".dataframe > thead > tr,\n",
+       ".dataframe > tbody > tr {\n",
+       "  text-align: right;\n",
+       "  white-space: pre-wrap;\n",
+       "}\n",
+       "</style>\n",
+       "<small>shape: (5, 13)</small><table border=\"1\" class=\"dataframe\"><thead><tr><th>column_0</th><th>column_1</th><th>column_2</th><th>column_3</th><th>column_4</th><th>column_5</th><th>column_6</th><th>column_7</th><th>column_8</th><th>column_9</th><th>column_10</th><th>column_11</th><th>column_12</th></tr><tr><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>1.23247</td><td>0.0</td><td>8.14</td><td>0.0</td><td>0.538</td><td>6.142</td><td>91.7</td><td>3.9769</td><td>4.0</td><td>307.0</td><td>21.0</td><td>396.9</td><td>18.72</td></tr><tr><td>0.02177</td><td>82.5</td><td>2.03</td><td>0.0</td><td>0.415</td><td>7.61</td><td>15.7</td><td>6.27</td><td>2.0</td><td>348.0</td><td>14.7</td><td>395.38</td><td>3.11</td></tr><tr><td>4.89822</td><td>0.0</td><td>18.1</td><td>0.0</td><td>0.631</td><td>4.97</td><td>100.0</td><td>1.3325</td><td>24.0</td><td>666.0</td><td>20.2</td><td>375.52</td><td>3.26</td></tr><tr><td>0.03961</td><td>0.0</td><td>5.19</td><td>0.0</td><td>0.515</td><td>6.037</td><td>34.5</td><td>5.9853</td><td>5.0</td><td>224.0</td><td>20.2</td><td>396.9</td><td>8.01</td></tr><tr><td>3.69311</td><td>0.0</td><td>18.1</td><td>0.0</td><td>0.713</td><td>6.376</td><td>88.4</td><td>2.5671</td><td>24.0</td><td>666.0</td><td>20.2</td><td>391.43</td><td>14.65</td></tr></tbody></table></div>"
+      ],
+      "text/plain": [
+       "shape: (5, 13)\n",
+       "┌──────────┬──────────┬──────────┬──────────┬───┬──────────┬───────────┬───────────┬───────────┐\n",
+       "│ column_0 ┆ column_1 ┆ column_2 ┆ column_3 ┆ … ┆ column_9 ┆ column_10 ┆ column_11 ┆ column_12 │\n",
+       "│ ---      ┆ ---      ┆ ---      ┆ ---      ┆   ┆ ---      ┆ ---       ┆ ---       ┆ ---       │\n",
+       "│ f64      ┆ f64      ┆ f64      ┆ f64      ┆   ┆ f64      ┆ f64       ┆ f64       ┆ f64       │\n",
+       "╞══════════╪══════════╪══════════╪══════════╪═══╪══════════╪═══════════╪═══════════╪═══════════╡\n",
+       "│ 1.23247  ┆ 0.0      ┆ 8.14     ┆ 0.0      ┆ … ┆ 307.0    ┆ 21.0      ┆ 396.9     ┆ 18.72     │\n",
+       "│ 0.02177  ┆ 82.5     ┆ 2.03     ┆ 0.0      ┆ … ┆ 348.0    ┆ 14.7      ┆ 395.38    ┆ 3.11      │\n",
+       "│ 4.89822  ┆ 0.0      ┆ 18.1     ┆ 0.0      ┆ … ┆ 666.0    ┆ 20.2      ┆ 375.52    ┆ 3.26      │\n",
+       "│ 0.03961  ┆ 0.0      ┆ 5.19     ┆ 0.0      ┆ … ┆ 224.0    ┆ 20.2      ┆ 396.9     ┆ 8.01      │\n",
+       "│ 3.69311  ┆ 0.0      ┆ 18.1     ┆ 0.0      ┆ … ┆ 666.0    ┆ 20.2      ┆ 391.43    ┆ 14.65     │\n",
+       "└──────────┴──────────┴──────────┴──────────┴───┴──────────┴───────────┴───────────┴───────────┘"
+      ]
+     },
+     "execution_count": 73,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "train_df.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 74,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div><style>\n",
+       ".dataframe > thead > tr,\n",
+       ".dataframe > tbody > tr {\n",
+       "  text-align: right;\n",
+       "  white-space: pre-wrap;\n",
+       "}\n",
+       "</style>\n",
+       "<small>shape: (9, 14)</small><table border=\"1\" class=\"dataframe\"><thead><tr><th>statistic</th><th>column_0</th><th>column_1</th><th>column_2</th><th>column_3</th><th>column_4</th><th>column_5</th><th>column_6</th><th>column_7</th><th>column_8</th><th>column_9</th><th>column_10</th><th>column_11</th><th>column_12</th></tr><tr><td>str</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>&quot;count&quot;</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td></tr><tr><td>&quot;null_count&quot;</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td></tr><tr><td>&quot;mean&quot;</td><td>3.745111</td><td>11.480198</td><td>11.104431</td><td>0.061881</td><td>0.557356</td><td>6.267082</td><td>69.010644</td><td>3.740271</td><td>9.440594</td><td>405.898515</td><td>18.47599</td><td>354.783168</td><td>12.740817</td></tr><tr><td>&quot;std&quot;</td><td>9.240734</td><td>23.767711</td><td>6.811308</td><td>0.241238</td><td>0.117293</td><td>0.709788</td><td>27.940665</td><td>2.030215</td><td>8.69836</td><td>166.374543</td><td>2.200382</td><td>94.111148</td><td>7.254545</td></tr><tr><td>&quot;min&quot;</td><td>0.00632</td><td>0.0</td><td>0.46</td><td>0.0</td><td>0.385</td><td>3.561</td><td>2.9</td><td>1.1296</td><td>1.0</td><td>188.0</td><td>12.6</td><td>0.32</td><td>1.73</td></tr><tr><td>&quot;25%&quot;</td><td>0.08187</td><td>0.0</td><td>5.13</td><td>0.0</td><td>0.453</td><td>5.875</td><td>45.6</td><td>2.0788</td><td>4.0</td><td>279.0</td><td>17.3</td><td>374.71</td><td>6.9</td></tr><tr><td>&quot;50%&quot;</td><td>0.26938</td><td>0.0</td><td>9.69</td><td>0.0</td><td>0.538</td><td>6.202</td><td>78.7</td><td>3.1523</td><td>5.0</td><td>330.0</td><td>19.1</td><td>391.27</td><td>11.45</td></tr><tr><td>&quot;75%&quot;</td><td>3.67367</td><td>12.5</td><td>18.1</td><td>0.0</td><td>0.631</td><td>6.606</td><td>94.1</td><td>5.118</td><td>24.0</td><td>666.0</td><td>20.2</td><td>396.14</td><td>17.09</td></tr><tr><td>&quot;max&quot;</td><td>88.9762</td><td>100.0</td><td>27.74</td><td>1.0</td><td>0.871</td><td>8.725</td><td>100.0</td><td>10.7103</td><td>24.0</td><td>711.0</td><td>22.0</td><td>396.9</td><td>37.97</td></tr></tbody></table></div>"
+      ],
+      "text/plain": [
+       "shape: (9, 14)\n",
+       "┌───────────┬──────────┬───────────┬───────────┬───┬───────────┬───────────┬───────────┬───────────┐\n",
+       "│ statistic ┆ column_0 ┆ column_1  ┆ column_2  ┆ … ┆ column_9  ┆ column_10 ┆ column_11 ┆ column_12 │\n",
+       "│ ---       ┆ ---      ┆ ---       ┆ ---       ┆   ┆ ---       ┆ ---       ┆ ---       ┆ ---       │\n",
+       "│ str       ┆ f64      ┆ f64       ┆ f64       ┆   ┆ f64       ┆ f64       ┆ f64       ┆ f64       │\n",
+       "╞═══════════╪══════════╪═══════════╪═══════════╪═══╪═══════════╪═══════════╪═══════════╪═══════════╡\n",
+       "│ count     ┆ 404.0    ┆ 404.0     ┆ 404.0     ┆ … ┆ 404.0     ┆ 404.0     ┆ 404.0     ┆ 404.0     │\n",
+       "│ null_coun ┆ 0.0      ┆ 0.0       ┆ 0.0       ┆ … ┆ 0.0       ┆ 0.0       ┆ 0.0       ┆ 0.0       │\n",
+       "│ t         ┆          ┆           ┆           ┆   ┆           ┆           ┆           ┆           │\n",
+       "│ mean      ┆ 3.745111 ┆ 11.480198 ┆ 11.104431 ┆ … ┆ 405.89851 ┆ 18.47599  ┆ 354.78316 ┆ 12.740817 │\n",
+       "│           ┆          ┆           ┆           ┆   ┆ 5         ┆           ┆ 8         ┆           │\n",
+       "│ std       ┆ 9.240734 ┆ 23.767711 ┆ 6.811308  ┆ … ┆ 166.37454 ┆ 2.200382  ┆ 94.111148 ┆ 7.254545  │\n",
+       "│           ┆          ┆           ┆           ┆   ┆ 3         ┆           ┆           ┆           │\n",
+       "│ min       ┆ 0.00632  ┆ 0.0       ┆ 0.46      ┆ … ┆ 188.0     ┆ 12.6      ┆ 0.32      ┆ 1.73      │\n",
+       "│ 25%       ┆ 0.08187  ┆ 0.0       ┆ 5.13      ┆ … ┆ 279.0     ┆ 17.3      ┆ 374.71    ┆ 6.9       │\n",
+       "│ 50%       ┆ 0.26938  ┆ 0.0       ┆ 9.69      ┆ … ┆ 330.0     ┆ 19.1      ┆ 391.27    ┆ 11.45     │\n",
+       "│ 75%       ┆ 3.67367  ┆ 12.5      ┆ 18.1      ┆ … ┆ 666.0     ┆ 20.2      ┆ 396.14    ┆ 17.09     │\n",
+       "│ max       ┆ 88.9762  ┆ 100.0     ┆ 27.74     ┆ … ┆ 711.0     ┆ 22.0      ┆ 396.9     ┆ 37.97     │\n",
+       "└───────────┴──────────┴───────────┴───────────┴───┴───────────┴───────────┴───────────┴───────────┘"
+      ]
+     },
+     "execution_count": 74,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "train_df.describe()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Khi xây dựng mô hình `deep learning`, ta cần đưa các biến về cùng một khoảng giá trị. Cách làm cơ bản nhất là chuẩn hóa dữ liệu về cùng scale.\n",
+    "\n",
+    "$$y = \\frac{y - \\mu}{\\sigma}$$"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 75,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([3.74511057e+00, 1.14801980e+01, 1.11044307e+01, 6.18811881e-02,\n",
+       "       5.57355941e-01, 6.26708168e+00, 6.90106436e+01, 3.74027079e+00,\n",
+       "       9.44059406e+00, 4.05898515e+02, 1.84759901e+01, 3.54783168e+02,\n",
+       "       1.27408168e+01])"
+      ]
+     },
+     "execution_count": 75,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "mean = train_data.mean(axis=0)\n",
+    "mean"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 76,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "train_data -= mean\n",
+    "std = train_data.std(axis=0)\n",
+    "train_data /= std\n",
+    "test_data -= mean\n",
+    "test_data /= std"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 77,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div><style>\n",
+       ".dataframe > thead > tr,\n",
+       ".dataframe > tbody > tr {\n",
+       "  text-align: right;\n",
+       "  white-space: pre-wrap;\n",
+       "}\n",
+       "</style>\n",
+       "<small>shape: (9, 14)</small><table border=\"1\" class=\"dataframe\"><thead><tr><th>statistic</th><th>column_0</th><th>column_1</th><th>column_2</th><th>column_3</th><th>column_4</th><th>column_5</th><th>column_6</th><th>column_7</th><th>column_8</th><th>column_9</th><th>column_10</th><th>column_11</th><th>column_12</th></tr><tr><td>str</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>&quot;count&quot;</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td></tr><tr><td>&quot;null_count&quot;</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td></tr><tr><td>&quot;mean&quot;</td><td>-1.0553e-16</td><td>-7.4748e-17</td><td>1.8291e-15</td><td>-6.8152e-17</td><td>-5.1796e-15</td><td>6.3667e-15</td><td>2.4623e-16</td><td>5.1884e-16</td><td>-5.2763e-17</td><td>-6.1557e-17</td><td>2.3603e-14</td><td>6.0502e-15</td><td>6.3316e-16</td></tr><tr><td>&quot;std&quot;</td><td>1.00124</td><td>1.00124</td><td>1.00124</td><td>1.00124</td><td>1.00124</td><td>1.00124</td><td>1.00124</td><td>1.00124</td><td>1.00124</td><td>1.00124</td><td>1.00124</td><td>1.00124</td><td>1.00124</td></tr><tr><td>&quot;min&quot;</td><td>-0.405101</td><td>-0.483615</td><td>-1.564696</td><td>-0.256833</td><td>-1.471269</td><td>-3.81725</td><td>-2.369042</td><td>-1.287503</td><td>-0.971569</td><td>-1.311311</td><td>-2.673752</td><td>-3.771101</td><td>-1.519664</td></tr><tr><td>&quot;25%&quot;</td><td>-0.396915</td><td>-0.483615</td><td>-0.878222</td><td>-0.256833</td><td>-0.890805</td><td>-0.553078</td><td>-0.838909</td><td>-0.819387</td><td>-0.626249</td><td>-0.763674</td><td>-0.535111</td><td>0.212</td><td>-0.806123</td></tr><tr><td>&quot;50%&quot;</td><td>-0.376598</td><td>-0.483615</td><td>-0.207917</td><td>-0.256833</td><td>-0.165227</td><td>-0.091805</td><td>0.347213</td><td>-0.289969</td><td>-0.511142</td><td>-0.456756</td><td>0.283943</td><td>0.38818</td><td>-0.178153</td></tr><tr><td>&quot;75%&quot;</td><td>-0.007741</td><td>0.04296</td><td>1.028326</td><td>-0.256833</td><td>0.628642</td><td>0.478085</td><td>0.899065</td><td>0.679454</td><td>1.675886</td><td>1.565287</td><td>0.784476</td><td>0.439992</td><td>0.600255</td></tr><tr><td>&quot;max&quot;</td><td>9.234847</td><td>3.72899</td><td>2.445374</td><td>3.893584</td><td>2.677335</td><td>3.467186</td><td>1.110488</td><td>3.437406</td><td>1.675886</td><td>1.836097</td><td>1.603531</td><td>0.448077</td><td>3.482019</td></tr></tbody></table></div>"
+      ],
+      "text/plain": [
+       "shape: (9, 14)\n",
+       "┌───────────┬───────────┬───────────┬───────────┬───┬───────────┬───────────┬───────────┬──────────┐\n",
+       "│ statistic ┆ column_0  ┆ column_1  ┆ column_2  ┆ … ┆ column_9  ┆ column_10 ┆ column_11 ┆ column_1 │\n",
+       "│ ---       ┆ ---       ┆ ---       ┆ ---       ┆   ┆ ---       ┆ ---       ┆ ---       ┆ 2        │\n",
+       "│ str       ┆ f64       ┆ f64       ┆ f64       ┆   ┆ f64       ┆ f64       ┆ f64       ┆ ---      │\n",
+       "│           ┆           ┆           ┆           ┆   ┆           ┆           ┆           ┆ f64      │\n",
+       "╞═══════════╪═══════════╪═══════════╪═══════════╪═══╪═══════════╪═══════════╪═══════════╪══════════╡\n",
+       "│ count     ┆ 404.0     ┆ 404.0     ┆ 404.0     ┆ … ┆ 404.0     ┆ 404.0     ┆ 404.0     ┆ 404.0    │\n",
+       "│ null_coun ┆ 0.0       ┆ 0.0       ┆ 0.0       ┆ … ┆ 0.0       ┆ 0.0       ┆ 0.0       ┆ 0.0      │\n",
+       "│ t         ┆           ┆           ┆           ┆   ┆           ┆           ┆           ┆          │\n",
+       "│ mean      ┆ -1.0553e- ┆ -7.4748e- ┆ 1.8291e-1 ┆ … ┆ -6.1557e- ┆ 2.3603e-1 ┆ 6.0502e-1 ┆ 6.3316e- │\n",
+       "│           ┆ 16        ┆ 17        ┆ 5         ┆   ┆ 17        ┆ 4         ┆ 5         ┆ 16       │\n",
+       "│ std       ┆ 1.00124   ┆ 1.00124   ┆ 1.00124   ┆ … ┆ 1.00124   ┆ 1.00124   ┆ 1.00124   ┆ 1.00124  │\n",
+       "│ min       ┆ -0.405101 ┆ -0.483615 ┆ -1.564696 ┆ … ┆ -1.311311 ┆ -2.673752 ┆ -3.771101 ┆ -1.51966 │\n",
+       "│           ┆           ┆           ┆           ┆   ┆           ┆           ┆           ┆ 4        │\n",
+       "│ 25%       ┆ -0.396915 ┆ -0.483615 ┆ -0.878222 ┆ … ┆ -0.763674 ┆ -0.535111 ┆ 0.212     ┆ -0.80612 │\n",
+       "│           ┆           ┆           ┆           ┆   ┆           ┆           ┆           ┆ 3        │\n",
+       "│ 50%       ┆ -0.376598 ┆ -0.483615 ┆ -0.207917 ┆ … ┆ -0.456756 ┆ 0.283943  ┆ 0.38818   ┆ -0.17815 │\n",
+       "│           ┆           ┆           ┆           ┆   ┆           ┆           ┆           ┆ 3        │\n",
+       "│ 75%       ┆ -0.007741 ┆ 0.04296   ┆ 1.028326  ┆ … ┆ 1.565287  ┆ 0.784476  ┆ 0.439992  ┆ 0.600255 │\n",
+       "│ max       ┆ 9.234847  ┆ 3.72899   ┆ 2.445374  ┆ … ┆ 1.836097  ┆ 1.603531  ┆ 0.448077  ┆ 3.482019 │\n",
+       "└───────────┴───────────┴───────────┴───────────┴───┴───────────┴───────────┴───────────┴──────────┘"
+      ]
+     },
+     "execution_count": 77,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "pl.DataFrame(train_data).describe()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 78,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def build_model():\n",
+    "    model = keras.Sequential([\n",
+    "        layers.Dense(64, activation=\"relu\"),\n",
+    "        layers.Dense(64, activation=\"relu\"),\n",
+    "        layers.Dense(1)\n",
+    "    ])\n",
+    "    model.compile(optimizer=\"rmsprop\", loss=\"mse\", metrics=[\"mae\"])\n",
+    "    return model"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Với các mô hình hồi quy thường, layers thông thường các node đều để activation với `relu` và layer cuối sẽ để dạng `Dense` thường"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 81,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 1/20\n",
+      "\u001b[1m26/26\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m1s\u001b[0m 17ms/step - loss: 549.4073 - mae: 21.6143 - val_loss: 455.6754 - val_mae: 19.4348\n",
+      "Epoch 2/20\n",
+      "\u001b[1m26/26\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 3ms/step - loss: 369.8725 - mae: 17.1327 - val_loss: 265.4864 - val_mae: 14.1890\n",
+      "Epoch 3/20\n",
+      "\u001b[1m26/26\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 2ms/step - loss: 182.3016 - mae: 11.3490 - val_loss: 110.8033 - val_mae: 8.6260\n",
+      "Epoch 4/20\n",
+      "\u001b[1m26/26\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 2ms/step - loss: 94.0896 - mae: 7.1955 - val_loss: 55.2951 - val_mae: 5.7615\n",
+      "Epoch 5/20\n",
+      "\u001b[1m26/26\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 2ms/step - loss: 41.4643 - mae: 4.8586 - val_loss: 34.2481 - val_mae: 4.6553\n",
+      "Epoch 6/20\n",
+      "\u001b[1m26/26\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 3ms/step - loss: 26.4465 - mae: 3.7233 - val_loss: 28.2051 - val_mae: 4.0434\n",
+      "Epoch 7/20\n",
+      "\u001b[1m26/26\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 3ms/step - loss: 19.0946 - mae: 3.0245 - val_loss: 25.2276 - val_mae: 3.9039\n",
+      "Epoch 8/20\n",
+      "\u001b[1m26/26\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 3ms/step - loss: 19.4162 - mae: 3.0383 - val_loss: 23.5146 - val_mae: 3.7701\n",
+      "Epoch 9/20\n",
+      "\u001b[1m26/26\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 3ms/step - loss: 18.7952 - mae: 3.0400 - val_loss: 23.7454 - val_mae: 3.5233\n",
+      "Epoch 10/20\n",
+      "\u001b[1m26/26\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 3ms/step - loss: 15.6425 - mae: 2.7457 - val_loss: 23.4933 - val_mae: 3.7467\n",
+      "Epoch 11/20\n",
+      "\u001b[1m26/26\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 3ms/step - loss: 13.3399 - mae: 2.6416 - val_loss: 22.9354 - val_mae: 3.4043\n",
+      "Epoch 12/20\n",
+      "\u001b[1m26/26\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 2ms/step - loss: 17.8934 - mae: 2.8449 - val_loss: 21.8035 - val_mae: 3.4046\n",
+      "Epoch 13/20\n",
+      "\u001b[1m26/26\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 3ms/step - loss: 12.0992 - mae: 2.5918 - val_loss: 22.0687 - val_mae: 3.3906\n",
+      "Epoch 14/20\n",
+      "\u001b[1m26/26\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 3ms/step - loss: 12.1251 - mae: 2.4147 - val_loss: 20.4666 - val_mae: 3.2531\n",
+      "Epoch 15/20\n",
+      "\u001b[1m26/26\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 3ms/step - loss: 11.5550 - mae: 2.4326 - val_loss: 21.0517 - val_mae: 3.2044\n",
+      "Epoch 16/20\n",
+      "\u001b[1m26/26\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 3ms/step - loss: 9.5704 - mae: 2.3619 - val_loss: 21.7144 - val_mae: 3.2810\n",
+      "Epoch 17/20\n",
+      "\u001b[1m26/26\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 4ms/step - loss: 9.7338 - mae: 2.2827 - val_loss: 22.7866 - val_mae: 3.3011\n",
+      "Epoch 18/20\n",
+      "\u001b[1m26/26\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 3ms/step - loss: 10.9459 - mae: 2.3327 - val_loss: 20.7104 - val_mae: 3.2569\n",
+      "Epoch 19/20\n",
+      "\u001b[1m26/26\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 3ms/step - loss: 10.8424 - mae: 2.3016 - val_loss: 22.1775 - val_mae: 3.2962\n",
+      "Epoch 20/20\n",
+      "\u001b[1m26/26\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 2ms/step - loss: 10.6309 - mae: 2.3402 - val_loss: 20.6627 - val_mae: 3.1362\n"
+     ]
+    }
+   ],
+   "source": [
+    "model = build_model()\n",
+    "history = model.fit(train_data, train_targets,\n",
+    "                    validation_data=(test_data, test_targets),\n",
+    "                    epochs=20, \n",
+    "                    batch_size=16, verbose=1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 84,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\u001b[1m4/4\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 3ms/step - loss: 16.3894 - mae: 2.9383 \n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "[20.662721633911133, 3.1361870765686035]"
+      ]
+     },
+     "execution_count": 84,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "model.evaluate(test_data, test_targets)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Lưu ý xây dựng mô hình"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Tương tự như các mô hình học máy khác, nhóm thuật toán học sâu cũng gặp các vấn đề như overfitting hay chất lượng mô hình và cũng có các yêu cầu về dữ liệu.\n",
+    "\n",
+    "- Yêu cầu dữ liệu\n",
+    "    - Giá trị nhỏ (thường trong khoảng 0-1)\n",
+    "    - Có giá trị trong cùng khỏng (homogenous)\n",
+    "    - Xử lý missing value\n",
+    "\n",
+    "Với yêu cầu về mặt dữ liệu trên, thông thường sẽ scale và chuẩn hóa dữ liệu\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "```python\n",
+    "x -= x.mean(axis=0)\n",
+    "x /= x.std(axis=0)\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Các kỹ thuật xử lý `overfitting`:\n",
+    "\n",
+    "- Thay đổi kiến trúc - loại bỏ bớt các lớp\n",
+    "- Giảm số lượng neural trong một layer\n",
+    "- Thêm dropout - để các neural trong mỗi lớp không hoàn toàn liên kết với nhau\n",
+    "- Thêm regularization - $L_1$ & $L_2$:\n",
+    "    - $L_1$: Thêm $\\sum |\\alpha|$ vào penalty\n",
+    "    - $L_2$: Thêm $\\sum \\alpha^2$ vào penalty"
    ]
   }
  ],

@@ -1,0 +1,225 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="vi" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. IBM Banking Data Model &mdash; Tài liệu Khai thác dữ liệu với SQL 2019</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=33847982"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/translations.js?v=4c1d55b0"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="search.html" />
+    <link rel="next" title="Tài liệu tham khảo" href="p09-79-tai-lieu-tham-khao.html" />
+    <link rel="prev" title="2. Xây dựng Data warehouse &amp; Data Mart" href="p04-11-xay-dung-database.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Khai thác dữ liệu với SQL
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SQL cơ bản</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html">1. Giới thiệu về SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html#Các-nhóm-câu-lệnh-truy-vấn,-tổng-hợp">2. Các nhóm câu lệnh truy vấn, tổng hợp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html#Các-nhóm-câu-lệnh-thay-đổi-dữ-liệu-trong-CSDL">3. Các nhóm câu lệnh thay đổi dữ liệu trong CSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html#Sub-Query">4. Sub Query</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html#Các-nhóm-câu-lệnh-cơ-bản-khác">5. Các nhóm câu lệnh cơ bản khác</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html#SQL-động-với-Exec">6. SQL động với Exec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html#Hàm-và-thủ-tục">7. Hàm và thủ tục</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html#Các-nhóm-câu-lệnh-nâng-cao">8. Các nhóm câu lệnh nâng cao</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html#Đặt-job-trong-SQL">9. Đặt job trong SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html#Các-nhóm-câu-lệnh-quản-trị">10. Các nhóm câu lệnh quản trị</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-02-tricks-sql.html">11. Mẹo với SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-03-sql-tuning.html">12. SQL tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-sql-style.html">13. SQL style guide</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SQL nâng cao</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="p02-03-sql-nang-cao.html">1. Pivot - Unpivot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p02-03-sql-nang-cao.html#Chia-một-cột-thành-nhiều-cột">2. Chia một cột thành nhiều cột</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p02-04-sqlcmd.html">3. SQLCMD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p02-05-sql-project.html">4. SQL prọject</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SQL &amp; Analytics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="p03-06-sql-va-excel.html">1. Kết nối SQL với Excel phục vụ báo cáo tự động</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Xây dựng DataMart</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="p04-01-dwh.html">1. Data Warehouse Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p04-11-xay-dung-database.html">2. Xây dựng Data warehouse &amp; Data Mart</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. IBM Banking Data Model</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tài liệu tham khảo:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="p09-79-tai-lieu-tham-khao.html">Tài liệu tham khảo</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Khai thác dữ liệu với SQL</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">3. </span>IBM Banking Data Model</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/p04-13-ibm-dwh.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="IBM-Banking-Data-Model">
+<h1><span class="section-number">3. </span>IBM Banking Data Model<a class="headerlink" href="#IBM-Banking-Data-Model" title="Link to this heading"></a></h1>
+<p>Trong mô hình DWH trong ngân hàng, việc khai thác và sử dụng dữ liệu sẽ được chia làm các tầng như sau:</p>
+<blockquote>
+<div><p>Data Source &gt;&gt; Staging &gt;&gt; SOR &gt;&gt; Data Mart &gt;&gt; Data Cube (FrameWork) &gt;&gt; BI tools</p>
+</div></blockquote>
+<p>Trong đó, 3 lớp đầu tiên tập trung vào việc chuẩn hóa dữ liệu như sau:</p>
+<ul class="simple">
+<li><p><strong>Staging</strong>: Kéo dữ liệu 1-1 từ nguồn về vùng trung gian</p></li>
+<li><p><strong>SOR</strong>: System of Record, phân rã toàn bộ dữ liệu ở tầng Staging theo 9 Data Concept của DWH</p></li>
+<li><p><strong>Data Mart</strong>: Tổng hợp ngược lại dữ liệu từ tầng SOR, chia theo mô hình Dimensional Model</p></li>
+</ul>
+<p>Sau khi dữ liệu được chuẩn hóa ở tầng DataMart, các công cụ BI có thể được sử dụng để khai thác. Với IBM Cognos, có 2 cách để chuyển dữ liệu từ tầng mart lên báo cáo:</p>
+<ul class="simple">
+<li><p><strong>Data Module</strong>: Sử dụng trực tiếp trên IBM Cognos, cho phép xây dựng quan hệ giữa các bảng nhanh chóng. Tuy nhiên, khi nhiều người cùng sử dụng 1 nhóm dữ liệu, sẽ khiến dữ liệu bị trùng lặp</p></li>
+<li><p><strong>Cognos FrameWork</strong>: Data Cube, cho phép xây dựng tập trung toàn bộ các thuật ngữ kinh doanh từ dữ liệu.</p></li>
+</ul>
+<p><strong>9 Data Concepts</strong>: Tất cả các kiểu dữ liệu được chia thành 9 nhóm cơ bản như sau</p>
+<ol class="arabic simple">
+<li><p>Involved Party - IP - Đối tượng tham gia</p></li>
+<li><p>Classification - CL - Nhóm của 1 trong 9 Data Concept, không nhất thiết chỉ của IP</p></li>
+<li><p>Arrangement - AR - Một giao kết được hai hay nhiều bên đồng ý</p></li>
+<li><p>Product - PD - Sản phẩm, dịch vụ được ngân hàng cung cấp</p></li>
+<li><p>Location - LO - Địa điểm</p></li>
+<li><p>Condition - CD - Các yêu cầu của hợp đồng/giao kết giữa các bên</p></li>
+<li><p>Event - EV - Bất kỳ sự kiện xảy ra thực tế của khách hàng</p></li>
+<li><p>Resource Item - RI - Bất kỳ sản phẩm nào được sử dụng đi kèm trong Arrangement</p></li>
+<li><p>Business Direction Item - BD - Cách thức, định hướng kinh doanh.</p></li>
+</ol>
+<p>Ví dụ: Một khách hàng A ưu tiên tại chi nhanh 89 Láng Hạ muốn vay UPL cầm cố sổ tiết kiệm giá trị 200 triệu đồng với lãi suất 8%/năm. Khách hàng sau khi được giải ngân, sau 2 tháng đã trả cả gốc lẫn lãi và tất toán sổ tiết kiệm.</p>
+<p>9 Data Concept được thể hiện như sau.</p>
+<ol class="arabic simple">
+<li><p>Involved Party - khách hàng A</p></li>
+<li><p>Classification - khách hàng ưu tiên</p></li>
+<li><p>Arrangement - Hợp đồng vay thế chấp mua nhà</p></li>
+<li><p>Product - Sản phẩm nhà dự án</p></li>
+<li><p>Location - chi nhánh 89 Láng Hạ</p></li>
+<li><p>Condition - lãi suất 8%/năm</p></li>
+<li><p>Event - Giao dịch giải ngân và giao dịch trả nợ định kỳ</p></li>
+<li><p>Resource Item - Nhà khách hàng mua được dùng làm tài sản đảm bảo</p></li>
+<li><p>Business Direction Item - Chiến lược phát triển vay tiêu dùng tín chấp chấp</p></li>
+</ol>
+<hr class="docutils" />
+<p>9 concept trên tương ứng với các chiều (<code class="docutils literal notranslate"><span class="pre">dimension</span></code>) trong dữ liệu khác nhau</p>
+<center><p>§</p>
+</center><p>Khi phân tích nhu cầu theo các chiều và chỉ tiêu khác nhau, nên chia theo các cách như sau:</p>
+<ul class="simple">
+<li><p>Theo dimension: Có 2 nhóm lớn</p>
+<ul>
+<li><p>Các dimension dùng chung giữa tất cả sản phẩm như demographics, kênh bán, chi nhánh, …</p></li>
+<li><p>Các dimension đặc thù theo sản phẩm. VD: Với vay có nhóm nợ, với giao dịch internet banking có loại giao dịch.</p></li>
+</ul>
+</li>
+<li><p>Theo measure:</p>
+<ul>
+<li><p>Theo nhóm chỉ tiêu: Cơ bản chỉ có 4 loại thông dụng - các loại khác cần đưa vào phân tích khám phá</p>
+<ul>
+<li><p>Số lượng</p></li>
+<li><p>Giá trị (EOP, ADB, lũy kế)</p></li>
+<li><p>Tỷ lệ</p></li>
+<li><p>Ticket size (giá trị trung bình)</p></li>
+</ul>
+</li>
+<li><p>Chia theo vòng đời của khách hàng, bao gồm 6 giai đoạn:</p>
+<ul>
+<li><p>Thu hút khách hàng</p></li>
+<li><p>Kích hoạt khách hàng</p></li>
+<li><p>Khai thác khách hàng</p></li>
+<li><p>Giữ chân khách hàng</p></li>
+<li><p>Thu hồi nợ (chỉ có với ngân hàng)</p></li>
+<li><p>Các vấn đề khác: gọi điện 247 …</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Do đó, với measure chỉ cần liệt kê nhóm chỉ tiêu. VD: &quot;EOP khoản vay&quot; hay &quot;ADB số dư CASA&quot;</p>
+<p>Vấn đề phức tạp và phát sinh nhiều nhất trong quá trình phân tích sẽ nằm ở sự tổ hợp và phát sinh <code class="docutils literal notranslate"><span class="pre">dimension</span></code></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="p04-11-xay-dung-database.html" class="btn btn-neutral float-left" title="2. Xây dựng Data warehouse &amp; Data Mart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="p09-79-tai-lieu-tham-khao.html" class="btn btn-neutral float-right" title="Tài liệu tham khảo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019, Anh Hoang Duc.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

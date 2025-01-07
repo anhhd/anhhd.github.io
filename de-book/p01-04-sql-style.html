@@ -1,0 +1,465 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="vi" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>13. SQL style guide &mdash; Tài liệu Khai thác dữ liệu với SQL 2019</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=33847982"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/translations.js?v=4c1d55b0"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="search.html" />
+    <link rel="next" title="1. Pivot - Unpivot" href="p02-03-sql-nang-cao.html" />
+    <link rel="prev" title="12. SQL tuning" href="p01-03-sql-tuning.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Khai thác dữ liệu với SQL
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SQL cơ bản</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html">1. Giới thiệu về SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html#Các-nhóm-câu-lệnh-truy-vấn,-tổng-hợp">2. Các nhóm câu lệnh truy vấn, tổng hợp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html#Các-nhóm-câu-lệnh-thay-đổi-dữ-liệu-trong-CSDL">3. Các nhóm câu lệnh thay đổi dữ liệu trong CSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html#Sub-Query">4. Sub Query</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html#Các-nhóm-câu-lệnh-cơ-bản-khác">5. Các nhóm câu lệnh cơ bản khác</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html#SQL-động-với-Exec">6. SQL động với Exec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html#Hàm-và-thủ-tục">7. Hàm và thủ tục</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html#Các-nhóm-câu-lệnh-nâng-cao">8. Các nhóm câu lệnh nâng cao</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html#Đặt-job-trong-SQL">9. Đặt job trong SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html#Các-nhóm-câu-lệnh-quản-trị">10. Các nhóm câu lệnh quản trị</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-02-tricks-sql.html">11. Mẹo với SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-03-sql-tuning.html">12. SQL tuning</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">13. SQL style guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Viết-thường-câu-lệnh">13.1. Viết thường câu lệnh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Mỗi-cột-cần-được-tách-thành-các-dòng-khác-nhau-trong-select">13.2. Mỗi cột cần được tách thành các dòng khác nhau trong select</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Các-điều-kiện-trong-where-cần-viết-lùi-vào-trong">13.3. Các điều kiện trong where cần viết lùi vào trong</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Căn-trái-các-keyword-chính">13.4. Căn trái các keyword chính</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Khoảng-trắng-trong-dấu-ngoặc">13.5. Khoảng trắng trong dấu ngoặc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tách-dòng-trong-điều-kiện-in-nhiều-giá-trị">13.6. Tách dòng trong điều kiện in nhiều giá trị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tên-các-bảng-và-cột">13.7. Tên các bảng và cột</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Các-lưu-ý-format-khi-join">13.8. Các lưu ý format khi join</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Các-cột-được-group-được-đẩy-lên-trước">13.9. Các cột được group được đẩy lên trước</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Case-when">13.10. Case when</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Dùng-bảng-ảo-CTE">13.11. Dùng bảng ảo CTE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tài-liệu-tham-khảo">13.12. Tài liệu tham khảo</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SQL nâng cao</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="p02-03-sql-nang-cao.html">1. Pivot - Unpivot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p02-03-sql-nang-cao.html#Chia-một-cột-thành-nhiều-cột">2. Chia một cột thành nhiều cột</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p02-04-sqlcmd.html">3. SQLCMD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p02-05-sql-project.html">4. SQL prọject</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">SQL &amp; Analytics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="p03-06-sql-va-excel.html">1. Kết nối SQL với Excel phục vụ báo cáo tự động</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Xây dựng DataMart</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="p04-01-dwh.html">1. Data Warehouse Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p04-11-xay-dung-database.html">2. Xây dựng Data warehouse &amp; Data Mart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p04-13-ibm-dwh.html">3. IBM Banking Data Model</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tài liệu tham khảo:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="p09-79-tai-lieu-tham-khao.html">Tài liệu tham khảo</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Khai thác dữ liệu với SQL</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">13. </span>SQL style guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/p01-04-sql-style.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="SQL-style-guide">
+<h1><span class="section-number">13. </span>SQL style guide<a class="headerlink" href="#SQL-style-guide" title="Link to this heading"></a></h1>
+<p>Việc viết chuẩn format code của bất kỳ ngôn ngữ nào đều rất quan trọng, sẽ giúp cho việc theo dõi và đọc code thuận tiện hơn rất nhiều. Các lưu ý khi viết format code SQL</p>
+<section id="Viết-thường-câu-lệnh">
+<h2><span class="section-number">13.1. </span>Viết thường câu lệnh<a class="headerlink" href="#Viết-thường-câu-lệnh" title="Link to this heading"></a></h2>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Good</span>
+<span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">users</span>
+
+<span class="c1">-- Bad</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span>
+
+<span class="c1">-- Bad</span>
+<span class="k">Select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">From</span><span class="w"> </span><span class="n">users</span>
+</pre></div>
+</div>
+</section>
+<section id="Mỗi-cột-cần-được-tách-thành-các-dòng-khác-nhau-trong-select">
+<h2><span class="section-number">13.2. </span>Mỗi cột cần được tách thành các dòng khác nhau trong select<a class="headerlink" href="#Mỗi-cột-cần-được-tách-thành-các-dòng-khác-nhau-trong-select" title="Link to this heading"></a></h2>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Good</span>
+<span class="k">select</span>
+<span class="w">    </span><span class="n">id</span>
+<span class="k">from</span><span class="w"> </span><span class="n">users</span>
+
+<span class="c1">-- Good</span>
+<span class="k">select</span>
+<span class="w">    </span><span class="n">id</span><span class="p">,</span>
+<span class="w">    </span><span class="n">email</span>
+<span class="k">from</span><span class="w"> </span><span class="n">users</span>
+
+<span class="c1">-- Good</span>
+<span class="k">select</span>
+<span class="w">    </span><span class="n">id</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">email</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">name</span>
+<span class="k">from</span><span class="w"> </span><span class="n">users</span>
+
+<span class="c1">-- Bad</span>
+<span class="k">select</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span>
+<span class="k">from</span><span class="w"> </span><span class="n">users</span>
+</pre></div>
+</div>
+</section>
+<section id="Các-điều-kiện-trong-where-cần-viết-lùi-vào-trong">
+<h2><span class="section-number">13.3. </span>Các điều kiện trong where cần viết lùi vào trong<a class="headerlink" href="#Các-điều-kiện-trong-where-cần-viết-lùi-vào-trong" title="Link to this heading"></a></h2>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Good</span>
+<span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">from</span><span class="w"> </span><span class="n">users</span>
+<span class="k">where</span>
+<span class="w">    </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;example@domain.com&#39;</span>
+
+<span class="c1">-- Good</span>
+<span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">from</span><span class="w"> </span><span class="n">users</span>
+<span class="k">where</span>
+<span class="w">    </span><span class="n">email</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%@domain.com&#39;</span><span class="w"> </span><span class="k">and</span>
+<span class="w">    </span><span class="n">created_at</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="s1">&#39;2021-10-08&#39;</span>
+
+<span class="c1">-- Bad</span>
+<span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">from</span><span class="w"> </span><span class="n">users</span>
+<span class="k">where</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;example@domain.com&#39;</span>
+
+<span class="c1">-- Bad</span>
+<span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">from</span><span class="w"> </span><span class="n">users</span>
+<span class="k">where</span>
+<span class="w">    </span><span class="n">email</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%@domain.com&#39;</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="s1">&#39;2021-10-08&#39;</span>
+
+<span class="c1">-- Bad</span>
+<span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">from</span><span class="w"> </span><span class="n">users</span>
+<span class="k">where</span>
+<span class="w">    </span><span class="n">email</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%@domain.com&#39;</span>
+<span class="w">    </span><span class="k">and</span><span class="w"> </span><span class="n">created_at</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="s1">&#39;2021-10-08&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="Căn-trái-các-keyword-chính">
+<h2><span class="section-number">13.4. </span>Căn trái các keyword chính<a class="headerlink" href="#Căn-trái-các-keyword-chính" title="Link to this heading"></a></h2>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Good</span>
+<span class="k">select</span>
+<span class="w">  </span><span class="n">column_name1</span><span class="p">,</span>
+<span class="w">  </span><span class="n">column_name2</span><span class="p">,</span>
+<span class="w">  </span><span class="n">column_name3</span>
+<span class="k">from</span><span class="w"> </span><span class="n">table_1</span>
+<span class="k">join</span><span class="w"> </span><span class="n">table_2</span>
+<span class="w">  </span><span class="k">on</span><span class="w"> </span><span class="n">table_1</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">table_2</span><span class="p">.</span><span class="n">id</span>
+<span class="k">where</span><span class="w"> </span><span class="n">clouds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span>
+<span class="w">  </span><span class="k">and</span><span class="w"> </span><span class="n">gem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span>
+<span class="k">having</span><span class="w"> </span><span class="n">column_name1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">  </span><span class="k">and</span><span class="w"> </span><span class="n">column_name2</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
+</pre></div>
+</div>
+</section>
+<section id="Khoảng-trắng-trong-dấu-ngoặc">
+<h2><span class="section-number">13.5. </span>Khoảng trắng trong dấu ngoặc<a class="headerlink" href="#Khoảng-trắng-trong-dấu-ngoặc" title="Link to this heading"></a></h2>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Good</span>
+<span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">from</span><span class="w"> </span><span class="n">users</span>
+<span class="k">where</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1">-- Bad</span>
+<span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">from</span><span class="w"> </span><span class="n">users</span>
+<span class="k">where</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="Tách-dòng-trong-điều-kiện-in-nhiều-giá-trị">
+<h2><span class="section-number">13.6. </span>Tách dòng trong điều kiện in nhiều giá trị<a class="headerlink" href="#Tách-dòng-trong-điều-kiện-in-nhiều-giá-trị" title="Link to this heading"></a></h2>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Good</span>
+<span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">from</span><span class="w"> </span><span class="n">users</span>
+<span class="k">where</span>
+<span class="w">    </span><span class="n">email</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="s1">&#39;user-1@example.com&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;user-2@example.com&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;user-3@example.com&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="s1">&#39;user-4@example.com&#39;</span>
+<span class="w">    </span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="Tên-các-bảng-và-cột">
+<h2><span class="section-number">13.7. </span>Tên các bảng và cột<a class="headerlink" href="#Tên-các-bảng-và-cột" title="Link to this heading"></a></h2>
+<p>Vì các bảng và cột thường đặt tên tiếng anh nên với các tên bảng/cột đặt tiếng anh nên các lưu ý như sau:</p>
+<ul class="simple">
+<li><p>viêt thường</p></li>
+<li><p>Bảng đặt tên có dấu</p></li>
+<li><p>Cột đặt tên không dấu</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Good</span>
+<span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">from</span><span class="w"> </span><span class="n">users</span>
+
+<span class="c1">-- Good</span>
+<span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">from</span><span class="w"> </span><span class="n">visit_logs</span>
+
+<span class="c1">-- Bad</span>
+<span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">from</span><span class="w"> </span><span class="k">user</span>
+
+<span class="c1">-- Bad</span>
+<span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">from</span><span class="w"> </span><span class="n">visitLog</span>
+</pre></div>
+</div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Good</span>
+<span class="k">select</span>
+<span class="w">    </span><span class="n">id</span><span class="p">,</span>
+<span class="w">    </span><span class="n">email</span><span class="p">,</span>
+<span class="w">    </span><span class="n">timestamp_trunc</span><span class="p">(</span><span class="n">created_at</span><span class="p">,</span><span class="w"> </span><span class="k">month</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">signup_month</span>
+<span class="k">from</span><span class="w"> </span><span class="n">users</span>
+
+<span class="c1">-- Bad</span>
+<span class="k">select</span>
+<span class="w">    </span><span class="n">id</span><span class="p">,</span>
+<span class="w">    </span><span class="n">email</span><span class="p">,</span>
+<span class="w">    </span><span class="n">timestamp_trunc</span><span class="p">(</span><span class="n">created_at</span><span class="p">,</span><span class="w"> </span><span class="k">month</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">SignupMonth</span>
+<span class="k">from</span><span class="w"> </span><span class="n">users</span>
+</pre></div>
+</div>
+</section>
+<section id="Các-lưu-ý-format-khi-join">
+<h2><span class="section-number">13.8. </span>Các lưu ý format khi join<a class="headerlink" href="#Các-lưu-ý-format-khi-join" title="Link to this heading"></a></h2>
+<p>Đặt điều kiện join theo thứ tự bảng</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Good</span>
+<span class="k">select</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="k">from</span><span class="w"> </span><span class="n">users</span>
+<span class="k">left</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">charges</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">users</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">charges</span><span class="p">.</span><span class="n">user_id</span>
+<span class="c1">-- primary_key = foreign_key --&gt; one-to-many --&gt; fanout</span>
+
+<span class="k">select</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="k">from</span><span class="w"> </span><span class="n">charges</span>
+<span class="k">left</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">charges</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">users</span><span class="p">.</span><span class="n">id</span>
+<span class="c1">-- foreign_key = primary_key --&gt; many-to-one --&gt; no fanout</span>
+
+<span class="c1">-- Bad</span>
+<span class="k">select</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="k">from</span><span class="w"> </span><span class="n">users</span>
+<span class="k">left</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">charges</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">charges</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">users</span><span class="p">.</span><span class="n">id</span>
+</pre></div>
+</div>
+<center><p>§</p>
+</center><p>Khi join nhiều điều kiện, cần phân tách điều kiện theo các dòng khác nhau</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Good</span>
+<span class="k">select</span>
+<span class="w">    </span><span class="n">users</span><span class="p">.</span><span class="n">email</span><span class="p">,</span>
+<span class="w">    </span><span class="k">sum</span><span class="p">(</span><span class="n">charges</span><span class="p">.</span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">total_revenue</span>
+<span class="k">from</span><span class="w"> </span><span class="n">users</span>
+<span class="k">inner</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">charges</span><span class="w"> </span><span class="k">on</span>
+<span class="w">    </span><span class="n">users</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">charges</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="k">and</span>
+<span class="w">    </span><span class="n">users</span><span class="p">.</span><span class="n">account</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">charges</span><span class="p">.</span><span class="n">account</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">email</span>
+</pre></div>
+</div>
+<center><p>§</p>
+</center><p>Khi join chỉ có 1 điều kiện, các thể để điều kiện cùng dòng với join</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Good</span>
+<span class="k">select</span>
+<span class="w">    </span><span class="n">users</span><span class="p">.</span><span class="n">email</span><span class="p">,</span>
+<span class="w">    </span><span class="k">sum</span><span class="p">(</span><span class="n">charges</span><span class="p">.</span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">total_revenue</span>
+<span class="k">from</span><span class="w"> </span><span class="n">users</span>
+<span class="k">inner</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">charges</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">users</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">charges</span><span class="p">.</span><span class="n">user_id</span>
+</pre></div>
+</div>
+</section>
+<section id="Các-cột-được-group-được-đẩy-lên-trước">
+<h2><span class="section-number">13.9. </span>Các cột được group được đẩy lên trước<a class="headerlink" href="#Các-cột-được-group-được-đẩy-lên-trước" title="Link to this heading"></a></h2>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Good</span>
+<span class="k">select</span>
+<span class="w">  </span><span class="n">timestamp_trunc</span><span class="p">(</span><span class="n">com_created_at</span><span class="p">,</span><span class="w"> </span><span class="k">year</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">signup_year</span><span class="p">,</span>
+<span class="w">  </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">total_companies</span>
+<span class="k">from</span><span class="w"> </span><span class="n">companies</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">signup_year</span>
+
+<span class="c1">-- Bad</span>
+<span class="k">select</span>
+<span class="w">  </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">total_companies</span><span class="p">,</span>
+<span class="w">  </span><span class="n">timestamp_trunc</span><span class="p">(</span><span class="n">com_created_at</span><span class="p">,</span><span class="w"> </span><span class="k">year</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">signup_year</span>
+<span class="k">from</span><span class="w"> </span><span class="n">mysql_helpscout</span><span class="p">.</span><span class="n">helpscout_companies</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">signup_year</span>
+</pre></div>
+</div>
+</section>
+<section id="Case-when">
+<h2><span class="section-number">13.10. </span>Case when<a class="headerlink" href="#Case-when" title="Link to this heading"></a></h2>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Good</span>
+<span class="k">select</span>
+<span class="w">    </span><span class="k">case</span>
+<span class="w">        </span><span class="k">when</span><span class="w"> </span><span class="n">event_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;viewed_homepage&#39;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;Homepage&#39;</span>
+<span class="w">        </span><span class="k">when</span><span class="w"> </span><span class="n">event_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;viewed_editor&#39;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;Editor&#39;</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;Other&#39;</span>
+<span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">page_name</span>
+<span class="k">from</span><span class="w"> </span><span class="n">events</span>
+
+<span class="c1">-- Good too</span>
+<span class="k">select</span>
+<span class="w">    </span><span class="k">case</span>
+<span class="w">        </span><span class="k">when</span><span class="w"> </span><span class="n">event_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;viewed_homepage&#39;</span>
+<span class="w">            </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;Homepage&#39;</span>
+<span class="w">        </span><span class="k">when</span><span class="w"> </span><span class="n">event_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;viewed_editor&#39;</span>
+<span class="w">            </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;Editor&#39;</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;Other&#39;</span>
+<span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">page_name</span>
+<span class="k">from</span><span class="w"> </span><span class="n">events</span>
+
+<span class="c1">-- Bad</span>
+<span class="k">select</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">event_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;viewed_homepage&#39;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;Homepage&#39;</span>
+<span class="w">        </span><span class="k">when</span><span class="w"> </span><span class="n">event_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;viewed_editor&#39;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;Editor&#39;</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;Other&#39;</span>
+<span class="w">    </span><span class="k">end</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">page_name</span>
+<span class="k">from</span><span class="w"> </span><span class="n">events</span>
+</pre></div>
+</div>
+</section>
+<section id="Dùng-bảng-ảo-CTE">
+<h2><span class="section-number">13.11. </span>Dùng bảng ảo CTE<a class="headerlink" href="#Dùng-bảng-ảo-CTE" title="Link to this heading"></a></h2>
+<p>Khi dùng bảng áo, có các lưu ý format như sau:</p>
+<ul class="simple">
+<li><p>Đẩy nội dung câu lệnh tạo bảng ảo vào trong (1 tab)</p></li>
+<li><p>Đặt tên bảng ảo có ý nghĩa</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Good</span>
+<span class="k">with</span><span class="w"> </span><span class="n">ordered_details</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">(</span>
+
+<span class="w">    </span><span class="k">select</span>
+<span class="w">        </span><span class="n">user_id</span><span class="p">,</span>
+<span class="w">        </span><span class="n">name</span><span class="p">,</span>
+<span class="w">        </span><span class="n">row_number</span><span class="p">()</span><span class="w"> </span><span class="n">over</span><span class="w"> </span><span class="p">(</span><span class="n">partition</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">user_id</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">date_updated</span><span class="w"> </span><span class="k">desc</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">details_rank</span>
+<span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">billingdaddy</span><span class="p">.</span><span class="n">billing_stored_details</span>
+
+<span class="p">),</span>
+
+<span class="n">first_updates</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">(</span>
+
+<span class="w">    </span><span class="k">select</span>
+<span class="w">        </span><span class="n">user_id</span><span class="p">,</span>
+<span class="w">        </span><span class="n">name</span>
+<span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">ordered_details</span>
+<span class="w">    </span><span class="k">where</span>
+<span class="w">        </span><span class="n">details_rank</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+
+<span class="p">)</span>
+
+<span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">first_updates</span>
+</pre></div>
+</div>
+</section>
+<section id="Tài-liệu-tham-khảo">
+<h2><span class="section-number">13.12. </span>Tài liệu tham khảo<a class="headerlink" href="#Tài-liệu-tham-khảo" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/mattm/sql-style-guide">https://github.com/mattm/sql-style-guide</a></p></li>
+<li><p><a class="reference external" href="https://about.gitlab.com/handbook/business-technology/data-team/platform/sql-style-guide/">https://about.gitlab.com/handbook/business-technology/data-team/platform/sql-style-guide/</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="p01-03-sql-tuning.html" class="btn btn-neutral float-left" title="12. SQL tuning" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="p02-03-sql-nang-cao.html" class="btn btn-neutral float-right" title="1. Pivot - Unpivot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019, Anh Hoang Duc.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

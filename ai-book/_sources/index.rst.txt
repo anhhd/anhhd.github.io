@@ -24,7 +24,7 @@ DL với dữ liệu text
    :caption: Deep Learning với text
    :glob:
    
-   p02*
+   p03*
 
 DL với dữ liệu ảnh
 ===================================================
@@ -35,7 +35,7 @@ DL với dữ liệu ảnh
    :caption: DL với dữ liệu ảnh
    :glob:
    
-   p03*
+   p04*
 
 LLM & GenAI
 ===================================================
@@ -46,7 +46,7 @@ LLM & GenAI
    :caption: LLM & GenAI
    :glob:
    
-   p04*
+   p02*
 
 Indices and tables
 ==================

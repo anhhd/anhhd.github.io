@@ -1,0 +1,2698 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Giới thiệu về SQL\n",
+    "\n",
+    "SQL là viết tắt của *Structured Language Query*, là một ngôn ngữ truy vấn, xử lý và làm việc với database.\n",
+    "\n",
+    "SQL được cấu thành từ 3 nhóm câu lệnh lớn:\n",
+    "\n",
+    "- Data Manipulation Language (DML): Select, Insert, Update, Delete \n",
+    "- Data Definition Language (DDL): Create, Alter, Drop\n",
+    "- Data Control Language (DCL): Grant, Revoke & Deny\n",
+    "\n",
+    "Tuy nhiên, nếu chia theo các câu lệnh để ứng dụng trong phân tích dữ liệu, có 3 nhóm sau.\n",
+    "\n",
+    "- Nhóm câu lệnh truy vấn, tổng hợp dữ liệu: Cho phép truy vấn, tổng hợp dữ liệu nhưng không làm thay đổi dữ liệu đang có trong database. Các nhóm này gồm:\n",
+    "    - Nhóm truy vấn: Select, Where, Join\n",
+    "    - Nhóm tổng hợp: Yêu cầu cần có hàm tổng hợp dữ liệu (aggregate functions) và nhóm hàm `group by`\n",
+    "- Nhóm câu lệnh làm thay đổi cơ sở dữ liệu: Cho phép thay đổi, điều chỉnh dữ liệu đang có trong database.\n",
+    "    - Alter\n",
+    "    - Update\n",
+    "    - Insert\n",
+    "    - Delete\n",
+    "- Các nhóm câu lệnh kiểm tra, phân quyền người dùng: Grant, Revoke, Deny\n",
+    "\n",
+    "Ngoài ra, SQL còn rất mạnh trong việc đặt `job`, xây dựng các câu lệnh tự động với `exec`, xây dựng các hàm (functions) và thủ tục (procedure) trong hệ thống.\n",
+    "\n",
+    "Để học và ứng dụng tốt SQL, nên đi theo lộ trình sau.\n",
+    "\n",
+    "- Các nhóm câu lệnh truy vấn: Select, Join, Where, Group By, Pivot, Unpivot, \n",
+    "- Sub Query\n",
+    "- Nhóm câu lệnh biến đồi: Alter, Update, Insert, Delete\n",
+    "- Các nhóm câu lệnh làm việc với chuỗi (string), thời gian (date)\n",
+    "- SQL động\n",
+    "- Vòng lặp\n",
+    "- Đặt job\n",
+    "\n",
+    "Ngoài ra, khi làm việc với các ngôn ngữ phân tích dữ liệu như R hoặc Python, cần nắm vững cách thức truy vấn dữ liệu từ SQL sang các công cụ phân tích.\n",
+    "\n",
+    "# Các nhóm câu lệnh truy vấn, tổng hợp\n",
+    "\n",
+    "## Cách viêt comment\n",
+    "\n",
+    "Sử dụng  dấu `--` hoặc trong block `/*.....*/`\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "/*\n",
+    "Cách 1: This is \n",
+    "my block of comment\n",
+    "*/\n",
+    "\n",
+    "--Cách 2\n",
+    "--Khó dùng hơn\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Khái quát các câu lệnh truy vấn trong SQL\n",
+    "\n",
+    "Các câu lệnh SQL diễn ra theo thứ tự sau:\n",
+    "\n",
+    "SELECT >> FROM >> WHERE >> GROUP BY >> HAVING >> ORDER BY\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "SELECT\n",
+    "[DISTINCT][TOP (n)] *, columns, or expressions\n",
+    "[FROM data source(s)]\n",
+    "[JOIN data source\n",
+    "ON condition](may include multiple joins)\n",
+    "[WHERE conditions]\n",
+    "[GROUP BY columns]\n",
+    "[HAVING conditions]\n",
+    "[ORDER BY Columns];\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Hàm SELECT\n",
+    "\n",
+    "**Lưu ý**: Các bảng thường bắt đầu bằng **.dbo**, gọi là *schema*. Thông thường, schema này là default. Tuy nhiên, nếu DB admin đổi schema, ta cần phải đổi câu lệnh\n",
+    "\n",
+    "- Lấy tất cả các biến\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "---Cách 1\n",
+    "select * from AdventureWorksDW2012.dbo.DimCustomer\n",
+    "\n",
+    "---Cách 2\n",
+    "select * from AdventureWorksDW2012..DimCustomer\n",
+    "\n",
+    "---Cách 3: Khai báo DB với use\n",
+    "use AdventureWorksDW2012\n",
+    "select * from DimCustomer\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- Lấy top n dòng đầu tiên hoặc n phần trăm đầu tiên\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    " select top 5 * from learnsql.dbo.product\n",
+    " select top 50 percent * from learnsql.dbo.product\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- Lấy một vài biến\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "--Cách 1\n",
+    "select Product_CD, Date_offered from learnsql.dbo.product\n",
+    "\n",
+    "-- Cách 2\n",
+    "select A.Product_CD, A.Date_offered \n",
+    "        from learnsql.dbo.product A\n",
+    "        \n",
+    "-- Cách 3: Dùng Aliases\n",
+    "select Product_CD as [Product new CD] from learnsql.dbo.product\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Lưu ý**: Đặt tên bảng là A trong cách thứ 2 giúp ích khi lấy dữ liệu và nhóm các giá trị từ nhiều bảng\n",
+    "\n",
+    "- Ghép kết quả \n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "--- TH1: Cùng kiểu dữ liệu nvarchar\n",
+    "select firstname + ',' + lastname as [FULL_NAME] from dimcustomer\n",
+    "\n",
+    "--- TH2: nvarchar với numeric\n",
+    "--- Dùng cast\n",
+    "\n",
+    "select lastname + ' ' + cast(customerkey as nvarchar) as [Name ID]\n",
+    "from dimcustomer\n",
+    "\n",
+    "--- Dùng convert\n",
+    "select lastname + ' ' + convert(nvarchar, customerkey) as [Name ID]\n",
+    "from DimCustomer\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- Lấy các giá trị không trùng lặp: dùng hàm distinct\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "select distinct Pro.Product_Type_Cd from db.Product Pro;\n",
+    "\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Câu lệnh where\n",
+    "\n",
+    "- **Where**: Tìm điều kiện theo dòng\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "Select * From \n",
+    "      learnsql.dbo.Product Pro \n",
+    "      Where Pro.Product_Type_Cd = 'LOAN'  \n",
+    "\n",
+    "--- Dấu khác      \n",
+    "Select * From \n",
+    "      learnsql.dbo.Product Pro \n",
+    "      Where Pro.Product_Type_Cd <> 'LOAN'        \n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- IN\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "--Lựa chọn nhiều điều kiện\n",
+    "Select Emp.Emp_Id\n",
+    "     ,Emp.First_Name\n",
+    "     ,Emp.Last_Name\n",
+    "     ,Emp.Dept_Id\n",
+    "    From  learnsql.dbo.Employee Emp\n",
+    "    Where  Emp.First_Name In ('Susan','Paula') OR\n",
+    "           (Emp.Last_Name not In ('Fleming', 'Roberts') AND \n",
+    "           Emp.Emp_Id = '6')\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Lưu ý**: Toán tử IN trong SQL tương tự như %in% trong R\n",
+    "\n",
+    "- Kết hợp toán tử AND, OR\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "Select * From \n",
+    "      learnsql.dbo.Product Pro \n",
+    "      Where (Pro.Product_Type_Cd = 'LOAN' AND \n",
+    "      Pro.Product_CD = 'AUT') OR\n",
+    "      (Pro.NAME like '%dep%')\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- Truy vấn đồng thời tính toán trong SQL\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "--Lưu ý: Để phép toán cần tính trong dấu ngoặc đơn\n",
+    "--DUC_ANH là tên biến mới sau khi biến đổi\n",
+    "SELECT top 10 [BUSINESS_DATE]\n",
+    "      ,[ACNT_CONTRACT_ID]\n",
+    "      ,[CARD_STATUS]\n",
+    "      ,([CARD_LIMIT] + 10000)/30 as DUC_ANH\n",
+    "      ,[BALANCE]\n",
+    "      ,[T24_CIF]\n",
+    "      ,[CUSTOMER_NAME]\n",
+    "  FROM [SERVER74].[BICDATA].[dbo].[CARD_HIS]\n",
+    "  where customer_name like '%ANH'\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Lưu ý**: \n",
+    "\n",
+    "- Để phân biệt tên của các cột trong bảng với các điều kiện có thể bị trùng. VD: Tên bảng là **OR** dễ bị trùng với điều kiện OR, ta đặt tên bảng, tên DB trong dấu ngoặc vuông\n",
+    "- Các phép toán thường gặp =,<, >, >=, <=, IN, <>, is not null\n",
+    "- Các toán tử với **Wild Card**: LIKE, NOT LIKE\n",
+    "    - Ký tự **%ANH**: tìm các character bắt đầu bằng bất cứ thứ gì nhưng sau đó đi kèm chuỗi ký tự ANH\n",
+    "    - Ký tự **_** (underscore): tìm các ký tự đơn.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "SELECT top 10 [BUSINESS_DATE]\n",
+    "      ,[CUSTOMER_NAME]\n",
+    "  FROM [SERVER74].[BICDATA].[dbo].[CARD_HIS]\n",
+    "  where customer_name like '%ANH' OR\n",
+    "  customer_name like 'A_H' and\n",
+    "  card_status is not null\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Xử lý null\n",
+    "\n",
+    "- Khi ghép 2 string, 1 string là NULL, SQL sẽ trả ra kết quả NULL (không như R, tự động loại NA)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "--- Dữ liệu gốc\n",
+    "select firstname, middlename, lastname from DimCustomer\n",
+    "\n",
+    "--- Giá trị NULL\n",
+    "select firstname + ' ' + middlename + ' ' + lastname as [Full Name]\n",
+    "from dimcustomer\n",
+    "\n",
+    "--- Xử lý cách 1: Dùng ISNULL\n",
+    "select firstname + ' ' + isnull(middlename,'') + ' ' + lastname\n",
+    "as [Full Name] from dimcustomer\n",
+    "\n",
+    "--- Xử lý cách 2: Dùng CASE WHEN\n",
+    "select firstname + ' ' +\n",
+    "case\n",
+    "when middlename is null then ''\n",
+    "else middlename + ' '\n",
+    "end\n",
+    "+ lastname as [Full Name] from dimcustomer\n",
+    "\n",
+    "-- Xử lý cách 3: Dùng Coalesce\n",
+    "select coalesce(firstname + ' ' + middlename + ' ' +lastname,\n",
+    "firstname + ' ' +lastname) as [Full Name] from dimcustomer\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## CASE WHEN\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "select AVAIL_BALANCE,\n",
+    "(CASE  when AVAIL_BALANCE < 5000 then N'small'\n",
+    "\t  when AVAIL_BALANCE >= 5000 AND AVAIL_BALANCE <= 10000 then N'medium'\n",
+    "\t  else N'high'\n",
+    "\t  END) as category\t\n",
+    "from account\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Lưu ý**: \n",
+    "\n",
+    "- N trong câu lệnh trên viết tắt của NVARCHAR để khai báo dạng lệnh\n",
+    "\n",
+    "## Having\n",
+    "\n",
+    "- **Having**: Tìm điều kiện sau khi có kết quả. Lưu ý: Câu lệnh Having không hoạt động với ALIAS, phải hiển thị điều kiện từ bảng gốc\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "select \n",
+    " OPEN_BRANCH_ID\n",
+    ",sum(AVAIL_BALANCE) as new\n",
+    "from account\n",
+    "group by OPEN_BRANCH_ID \n",
+    "having sum(AVAIL_BALANCE) >= 500000\n",
+    "\n",
+    "-- Câu lệnh sau sẽ không chạy với where\n",
+    "\n",
+    "select \n",
+    " OPEN_BRANCH_ID\n",
+    ",sum(AVAIL_BALANCE) as new\n",
+    "where sum(AVAIL_BALANCE) >= 500000\n",
+    "from account\n",
+    "group by OPEN_BRANCH_ID \n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Lưu ý**: Ký tự trong SQL cần đặt trong 1 dấu nháy đơn ''\n",
+    "\n",
+    "- Có thể sử dụng các phép toán đơn giản trong WHERE\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "select * from ACCOUNT\n",
+    "where AVAIL_BALANCE + 30 <= 6000\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Union\n",
+    "\n",
+    "Nhóm câu lệnh Union có 2 câu lệnh chính:\n",
+    "\n",
+    "- UNION: Loại bỏ các giá trị trùng của các dòng\n",
+    "- UNION ALL: Hiển thị tất cả các giá trị\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "  (SELECT top 10 \n",
+    "  [CUSTOMER_NAME]\n",
+    "  FROM [SERVER74].[BICDATA].[dbo].[CARD_HIS]\n",
+    "  where [CUSTOMER_NAME] like '%HƯƠNG')\n",
+    "  UNION ALL\n",
+    "  SELECT top 10 \n",
+    "  [CUSTOMER_NAME]\n",
+    "  FROM [SERVER74].[BICDATA].[dbo].[BALANCE_HIS]\n",
+    "  where [CUSTOMER_NAME] like '%HƯƠNG'\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Window function\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "select CUST_ID, \n",
+    "\t\tAVAIL_BALANCE,\n",
+    "\t\tROW_NUMBER() over(partition by cust_id order by AVAIL_BALANCE) as [ORDER],\n",
+    "\t\tavg(AVAIL_BALANCE) over(partition by cust_id) as AVG_BALANCE_ID\n",
+    "from ACCOUNT\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Giải thich**:\n",
+    "\n",
+    "- Nhóm cust_id\n",
+    "- Tính giá trị trung bình, row_number, trả ra kết quả\n",
+    "- Hàm `OVER PARTITION BY` ứng với `group_by %>% mutate` trong R\n",
+    "\n",
+    "**Ứng dụng nâng cao**: Ngoài ra, window function có thể partition theo dòng\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "-- Trường hợp 1: Mặc định\n",
+    "select max(start_time) over (partition by cusid order by start_t\n",
+    "          rows unbounded preceding) -- Tìm max start_time đến dòng hiện tại theo cusid\n",
+    "-- Trường hợp 2: Nâng cao\n",
+    "select max(start_time) over (partition by cusid order by start_t\n",
+    "          rows between unbounded preceding 1 preceding) -- Tìm max start_time đến dòng phía trên dòng hiện tại theo cusid\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Ứng dụng**: Khách hàng đi grab không cho phép booking khi chưa hết chuyến. Grab thí điểm sử dụng multiple booking. Xác định các chuyến nào là multiple booking\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "drop table if exists gap\n",
+    "GO\n",
+    "\n",
+    "create table gap \n",
+    "(cusid int, booking_id int, start_time int, end_time int)\n",
+    "\n",
+    "\n",
+    "insert into gap (cusid, booking_id, start_time, end_time)\n",
+    "values\n",
+    "(1,1,5,8),\n",
+    "(1,2, 9, 13),\n",
+    "(1,3, 10, 12),\n",
+    "(1,4, 11, 12),\n",
+    "(1, 5, 10, 13),\n",
+    "(1,9,9,10),\n",
+    "(1, 6, 20, 23),\n",
+    "(2, 8, 10, 12),\n",
+    "(2, 9, 9, 11),\n",
+    "(2, 10, 9, 10),\n",
+    "(2, 11, 14, 16),\n",
+    "(2, 13, 17, 19),\n",
+    "(2, 14, 18, 20),\n",
+    "(2, 15, 19, 21),\n",
+    "(2, 15, 20, 23)\n",
+    "\n",
+    "\n",
+    "drop table if exists #final_results, #t1, #t2 \n",
+    "\n",
+    "SELECT \t*,\n",
+    "\tMAX(end_time) OVER(PARTITION BY cusid ORDER BY start_time, end_time\n",
+    "\tROWS BETWEEN UNBOUNDED PRECEDING AND 1 PRECEDING) AS prev_end\n",
+    "into #t1 \n",
+    "FROM GAP\n",
+    "\n",
+    "\n",
+    "select \n",
+    "\t*, sum(is_start) over(partition by cusid order by start_time, end_time) as [group]\n",
+    "into #t2 \n",
+    "from \n",
+    "\t(select *, \n",
+    "\t\tcase when Start_time <= prev_end then null else 1 end as is_start\n",
+    "\tfrom #t1\n",
+    "\t) a ;\n",
+    "\n",
+    "with T3 AS \n",
+    "\t(selecT CUSID, [group]\n",
+    "\tfrom #t2 A \n",
+    "\tGROUP BY Cusid, [group] \n",
+    "\tHAVING COUNT(1) > 1 \n",
+    "\t) \n",
+    "SELECT #t2.* , \n",
+    "\tCASE WHEN T3.[group] IS NOT NULL THEN 'Multi booking' ELSE 'Single Booking' END AS BOOKING_TYPE\n",
+    "INTO #final_results\n",
+    "FROM #t2 \n",
+    "\tLEFT JOIN T3 \n",
+    "\t\tON #t2.CUSID = T3.CUSID AND #t2.[group] = T3.[group]\n",
+    "\n",
+    "select * \n",
+    "from #final_results\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Các nhóm câu lệnh tính toán\n",
+    "\n",
+    "- Các phép tính toán cơ bản: COUNT, AGV, MIN, MAX, VARIANCE, STDDEV\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    " select count(AMOUNT) as n\n",
+    " , max(amount) as max\n",
+    " , min(amount) as min\n",
+    " , sum(amount) as sum\n",
+    " , var(amount) as var\n",
+    " , STDEV(amount) as std_dev\n",
+    " from [learnsql].[dbo].[ACC_TRANSACTION]\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Các phép tính hay dùng khác**:\n",
+    "\n",
+    "- FLOOR: Trả số nguyên lớn nhất nhỏ hơn số đã có\n",
+    "- CEILING: trả số nguyên nhỏ nhất lớn hơn số đã có\n",
+    "- ABS: Trả giá trị tuyệt đối\n",
+    "- Các hàm khác: LN, LOG, EXP, POWER\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "select CEILING(5.3)\n",
+    "select floor(5.3)\n",
+    "select abs(-5.3)\n",
+    "select power(4,2)\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Join các bảng\n",
+    "\n",
+    "- **Trường hợp 1 - Select tất cả các dòng không theo điều kiện**: SQL sẽ nối mỗi dòng ở bảng 1 với mỗi dòng ở bảng 2. Tổng số dòng trong bảng mới sẽ là m*n dòng (m dòng ở bảng 1 và n dòng ở bảng 2)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "--Trường hợp 1: Không có where\n",
+    "select \n",
+    "A.ACCOUNT_ID, A.AVAIL_BALANCE,\n",
+    "B.ADDRESS, B.CITY \n",
+    "from\n",
+    "[learnsql].[dbo].[ACCOUNT] A, [learnsql].[dbo].[CUSTOMER] B\n",
+    "order by B.CITY\n",
+    "\n",
+    "--Trường hợp 2: Sử dụng where\n",
+    "select \n",
+    "A.ACCOUNT_ID, A.AVAIL_BALANCE,\n",
+    "B.ADDRESS, B.CITY \n",
+    "from\n",
+    "[learnsql].[dbo].[ACCOUNT] A, [learnsql].[dbo].[CUSTOMER] B\n",
+    "where A.ACCOUNT_ID > B.CUST_ID and city = 'Woburn'\n",
+    "order by AVAIL_BALANCE\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- **Trường hợp 2 - Left join, right join**: Các cột từ các bảng khác nhau thì cần phải xác định alias\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "  select \n",
+    "  B.BRANCH_ID, B.ADDRESS, B.CITY, B.NAME,\n",
+    "  A.ACCOUNT_ID, A.AVAIL_BALANCE\n",
+    "  from branch B\n",
+    "  left outer join account A\n",
+    "  on B.BRANCH_ID = A.OPEN_BRANCH_ID\n",
+    "  where BRANCH_ID = '2'\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- Lưu ý: Khi câu lệnh bị lỗi Ambiguity, nguyên nhân có thể là do key nối các bảng lại bị trùng với cột khi truy vấn\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "---Trường hợp 1: Không hoạt động\n",
+    "select EnglishProductName, EnglishProductSubcategoryName,\n",
+    "ProductSubcategoryKey from DimProduct as P inner join\n",
+    "DimProductSubcategory as S\n",
+    "on P.ProductSubcategoryKey = S.ProductSubcategoryKey\n",
+    "\n",
+    "---Trường hợp 2: Hoạt động, sau khi đưa alias\n",
+    "select EnglishProductName, EnglishProductSubcategoryName,\n",
+    "S.ProductSubcategoryKey from DimProduct as P inner join\n",
+    "DimProductSubcategory as S\n",
+    "on P.ProductSubcategoryKey = S.ProductSubcategoryKey\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- **Trường hợp 3: Inner join**\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "select EnglishProductName, \n",
+    "  EnglishProductSubcategoryName\n",
+    "  ,EnglishProductCategoryName \n",
+    "from DimProduct as P inner join\n",
+    "  DimProductSubcategory as S\n",
+    "  on P.ProductSubcategoryKey = S.ProductSubcategoryKey\n",
+    "inner join DimProductCategory as C\n",
+    "  on S.ProductCategoryKey = C.ProductCategoryKey\n",
+    "where EnglishProductName like '%HL%'\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "drop table if exists ##Cus\n",
+    "GO\n",
+    "create table ##Cus (id int, name nvarchar(10))\n",
+    "GO\n",
+    "insert into ##Cus (id, name)\n",
+    "values (1, 'Anh')\n",
+    "      , (2, 'B')\n",
+    "\t  , (4, 'C')\n",
+    "\t  , (NULL, 'D')\n",
+    "\n",
+    "drop table if exists ##grade\n",
+    "create table ##grade (id int, mon_hoc varchar(10))\n",
+    "GO\n",
+    "insert into ##grade (id, mon_hoc)\n",
+    "values (1, 'toan')\n",
+    "\t\t, (1, 'van')\n",
+    "\t\t, (2, 'toan')\n",
+    "\t\t, (3, 'anh')\n",
+    "\t\t, (NULL, 'hoa')\n",
+    "\n",
+    "select * from ##Cus\n",
+    "select * from ##grade\n",
+    "\n",
+    "\n",
+    "-- Inner Join\n",
+    "select A.*\n",
+    "\t, B.*\n",
+    "from ##Cus A, ##grade B\n",
+    "where A.id = B.id\n",
+    "\n",
+    "-- Inner Join (2)\n",
+    "select A.*\n",
+    "\t, B.*\n",
+    "from ##Cus A\n",
+    "inner join ##grade B\n",
+    "on A.id = B.id\n",
+    "\n",
+    "-- Left Join\n",
+    "select A.*\n",
+    "\t, B.*\n",
+    "from ##Cus A\n",
+    "left join ##grade B\n",
+    "on A.id = B.id\n",
+    "\n",
+    "-- Right Join \n",
+    "\n",
+    "select A.*\n",
+    "\t, B.*\n",
+    "from ##Cus A\n",
+    "right join ##grade B\n",
+    "on A.id = B.id\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Làm việc với string\n",
+    "\n",
+    "- CONCAT: Nối các string, tương tự như **paste0** trong R\n",
+    "- LOWER, UPPER: Viết hoa, viết thường các biến\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "  SELECT top 10 \n",
+    "\t\t[ID]\n",
+    "   ,[BUSINESS_DATE]\n",
+    "   ,LOWER([CUSTOMER_NAME])\n",
+    "\t , CONCAT(CUSTOMER_NAME, '_', ID) as new_var\n",
+    "  FROM [SERVER74].[BICDATA].[dbo].[BALANCE_HIS]\n",
+    "  where customer_name is not null\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- REPLACE: Thay thế các ký tự trong biến\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "SELECT top 10 \n",
+    "\t [ID]\n",
+    "  ,[CUSTOMER_NAME] \n",
+    "\t,REPLACE(CUSTOMER_NAME, 'THI', '***') as new_name\n",
+    "FROM [SERVER74].[BICDATA].[dbo].[BALANCE_HIS]\n",
+    "where customer_name is not null\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- SUBSTRING(var, a, b): Hiển thị b ký tự từ ký tự thứ a của var\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    " SELECT top 10 \n",
+    "\tCUSTOMER_NAME\n",
+    "    ,substring(CUSTOMER_NAME, 2,3)\n",
+    "FROM [SERVER74].[BICDATA].[dbo].[BALANCE_HIS]\n",
+    "  where customer_name is not null\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Làm việc với date\n",
+    "\n",
+    "Dữ liệu date là dữ liệu rất quan trọng cần nắm vững khi làm việc với dữ liệu. Dữ liệu thời gian có các định dạng thường dùng:\n",
+    "\n",
+    "- 101 (mm/dd/yyyy)\n",
+    "- 102 (mm/dd/yy)\n",
+    "- 103 (dd/mm/yyyy)\n",
+    "- 112 (yyyymmdd): Đây là định dạng hay dùng nhất\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "-- Lấy ngày hiện tại\n",
+    "\n",
+    "select convert(varchar,birthdate,101) as Date1,\n",
+    "\t   convert(varchar, BirthDate, 102) as Date2,\n",
+    "\t   convert(varchar, birthdate, 103) as Date3\n",
+    "\n",
+    "\n",
+    "select convert(varchar(8), getdate(),101) as Date1,\n",
+    "       convert(varchar(8), getdate(), 102) as Date2,\n",
+    "       convert(varchar(8), getdate(), 103) as Date3,\n",
+    "\t   convert(varchar(8), getdate(), 112) as Date4\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Datediff\n",
+    "\n",
+    "Dùng để tính toán khoảng thời gian giữa hai điểm\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "DATEDIFF(interval, date1, date2)\n",
+    "\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "`interval` có các giá trị sau:\n",
+    "\n",
+    "- year, yyyy, yy = Year\n",
+    "- quarter, qq, q = Quarter\n",
+    "- month, mm, m = month\n",
+    "- dayofyear = Day of the year\n",
+    "- day, dy, y = Day\n",
+    "- week, ww, wk = Week\n",
+    "- weekday, dw, w = Weekday\n",
+    "- hour, hh = hour\n",
+    "- minute, mi, n = Minute\n",
+    "- second, ss, s = Second\n",
+    "- millisecond, ms = Millisecond\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "select datediff(d, getdate(), '20200101') as day,\n",
+    "\t\tdatediff(m, getdate(), '20160101') as month,\n",
+    "\t\tdatediff(yy, getdate(), '20160101') as year\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Dateadd\n",
+    "\n",
+    "Dùng để cộng ngày\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "DATEADD(interval, number_to_add, start_date)\n",
+    "\n",
+    "select dateadd(yy, 3, getdate())\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Tricks với dữ liệu thời gian\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "-- Ngày đầu trong thaáng\n",
+    "select convert(varchar(8), dateadd(m, datediff(m, 0, getdate()), 0), 112)\n",
+    "\n",
+    "-- Ngày đầu tháng này\n",
+    "select convert(varchar(8), \n",
+    "dateadd(m, datediff(m, 0, getdate()), 0), 112)\n",
+    "\n",
+    "-- Ngày đầu tháng trước\n",
+    "select convert(varchar(8), \n",
+    "dateadd(m, datediff(m, 0, getdate()) - 1, 0), 112)\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Các nhóm câu lệnh thay đổi dữ liệu trong CSDL\n",
+    "\n",
+    "## Tạo bảng mới\n",
+    "\n",
+    "- **Create table**: Tạo bảng mới\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "Create table [TABLE_NAME](\n",
+    "VAR_1 TYPE CONDITION,\n",
+    "VAR_2 TYPE CONDITION,\n",
+    "...\n",
+    "VAR_N TYPE CONDITION,\n",
+    ")\n",
+    "--Ví dụ\n",
+    "CREATE TABLE BILLS (\n",
+    "NAME CHAR(30) NOT NULL,\n",
+    "AMOUNT int,\n",
+    "ACCOUNT_ID int NOT NULL)\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Xóa bảng Drop Table\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "drop table TABLE_NAME\n",
+    "\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- Kiểm tra điều kiện giá trị\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "-- Tạo Bảng\n",
+    "create table test2\n",
+    "(id int Not Null,\n",
+    " gender nvarchar(5) check (gender in ('M', 'F')))\n",
+    "\n",
+    "-- Kiểm tra điều kiện khi insert\n",
+    "insert into test2 values\n",
+    " (4, 'M') \n",
+    " (3, 'F')\n",
+    "\n",
+    "-- Alter điều kiện check\n",
+    "alter table test2 \n",
+    "add check (gender in ('M', 'F', 'MF', 'MF2'))\n",
+    "\n",
+    "-- Drop điều kiện check\n",
+    "alter table test2\n",
+    "drop constraint CK__test2__gender__078C1F06\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## INSERT INTO\n",
+    "\n",
+    "**Chức năng**: Chèn dòng vào dữ liệu\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "insert into [table]\n",
+    "(Column_1, Column_2,..., Column_n)\n",
+    "values(Value_1,..., Value_n)\n",
+    "\n",
+    "-- Ví dụ\n",
+    "insert into BILLS\n",
+    "(NAME, AMOUNT, ACCOUNT_ID, comment)\n",
+    "values ('ANH', 100, 1, 'OLA')\n",
+    "\n",
+    "--Thêm tất cả các giá trị 1 bảng vào 1 bảng khác\n",
+    "insert into new_2 (name of all columns) select * from bills\n",
+    "\n",
+    "--Thêm một số giá trị của 1 bảng vào một bảng khác\n",
+    "insert into new_2 (NAME, comment) \n",
+    "select comment, comment from bills\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Lưu ý**: \n",
+    "\n",
+    "- Khi insert into, để copy nhanh tên các bảng, ta có thể copy ra notepad\n",
+    "- Khi viết tiếng Việt hoặc chèn ký tự tiếng Việt của Database cần có N ở phía trước. `N` cho phép SQL hiểu là `NVARCHAR`, cho phép nhóm ký tự UTF8 \n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "CREATE TABLE r2test ( [mychar] [NVARCHAR](16), [mynum] [FLOAT])\n",
+    "INSERT INTO r2test (mychar,mynum) VALUES \n",
+    "  (N'Đức Việt',3.141593) --Không lỗi\n",
+    "  ,('Đức Việt',6.283185) --Lỗi font\n",
+    "  \n",
+    "  Hải Hoàng\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Update\n",
+    "\n",
+    "**Chức năng**: Thay đổi giá trị trong bảng\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "update TABLE \n",
+    "set CONDITION_1\n",
+    "where CONDTION_2\n",
+    "\n",
+    "--Ví dụ\n",
+    "  update [learnsql].[dbo].[ACC_TRANSACTION]\n",
+    "  set amount = 9999 where TXN_ID = 4\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Delete from\n",
+    "\n",
+    "**Chức năng**: Xóa giá trị\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "DELETE from TABLE\n",
+    "where CONDITION\n",
+    "\n",
+    "--Ví dụ\n",
+    "  delete from [learnsql].[dbo].[ACC_TRANSACTION]\n",
+    "  where  amount = 9999\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Alter table\n",
+    "\n",
+    "**Chức năng**: Thêm xóa thêm cột mới\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "alter table BILLS \n",
+    "add/drop NEW_VAR TYPE\n",
+    "\n",
+    "-- Thêm cột\n",
+    "alter table BILLS \n",
+    "add comment char(30)\n",
+    "\n",
+    "-- Xóa cột\n",
+    "alter table BILLS\n",
+    "drop column COLUMN_NAME\n",
+    "\n",
+    "-- ALTER nhiều điều kiện\n",
+    "UPDATE TABLE1\n",
+    "set column_in_TABLE1 = B.column\n",
+    "from table1 A \n",
+    "  inner join table2 B\n",
+    "  on A.id = B.id\n",
+    "\n",
+    "-- Ví dụ\n",
+    "\n",
+    "UPDATE AVG_CASA_BAL_BY_CIF_2018_201902\n",
+    "set BI_CHANNEL = B.BI_CHANNEL\n",
+    "\tfrom AVG_CASA_BAL_BY_CIF_2018_201902 A INNER JOIN ##B B\n",
+    "\tON A.CIF = B.RECID\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Đổi tên bảng, tên cột\n",
+    "\n",
+    "SQL không hỗ trợ trực tiếp rename bằng các hàm thông thường, phải dùng sp_rename\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "-- Rename tên bảng\n",
+    "sp_rename 'old_table', 'new_table'\n",
+    "\n",
+    "-- Rename tên cột trong bảng\n",
+    "sp_rename 'table.old_column', 'new_column', 'column'\n",
+    "sp_rename 'my_table.var1', 'variable1', 'column'\n",
+    "\n",
+    "-- Rename tên cột trong bảng tạm\n",
+    "tempdb.sys.sp_rename '##a.var2', 'variable2', 'column'\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Truncate\n",
+    "\n",
+    "**Chức năng**: Xóa toàn bộ dữ liệu trong bảng, dữ nguyên bảng\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "TRUNCATE table ##A\n",
+    "\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## ALTER - Thay đổi định dạng dữ liệu của cột\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "ALTER TABLE CARD_LIVE_NEW\n",
+    "ALTER COLUMN BUSINESS_DATE VARCHAR(8)\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Sub Query\n",
+    "\n",
+    "## Sub Query cơ bản\n",
+    "\n",
+    "Sub query thường được sử dụng sau điều kiện WHERE khi lọc điều kiện giữa nhiều bảng. Phần sub-queries được gọi là inner query. Xem lưu đồ dưới đây:\n",
+    "\n",
+    "![](Images/Plot1.gif)\n",
+    "\n",
+    "- **Trưởng hợp 1**: Subquery sau WHERE\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "--Biến thể 1\n",
+    "  select a.TXN_ID, a.AMOUNT , b.AVAIL_BALANCE\n",
+    "  from [learnsql].[dbo].[ACC_TRANSACTION] a,\n",
+    "\t\t[learnsql].[dbo].[ACCOUNT] b\n",
+    "  where a.TXN_ID >= \n",
+    "  (select (max(ACCOUNT_ID)-3)/5 from [learnsql].[dbo].[ACCOUNT])\n",
+    "  \n",
+    "--Biến thể 2\n",
+    "  select a.TXN_ID, a.AMOUNT , b.AVAIL_BALANCE\n",
+    "  from [learnsql].[dbo].[ACC_TRANSACTION] a,\n",
+    "\t\t[learnsql].[dbo].[ACCOUNT] b\n",
+    "  where a.TXN_ID in \n",
+    " (select ACCOUNT_ID from [learnsql].[dbo].[ACCOUNT])\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    " \n",
+    "- **Trường hợp 2**: Subquery sau from\n",
+    " \n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "select min(a.amount) as min\n",
+    "\t, max(a.amount) as max\n",
+    "from (select top 10 * from acc_transaction) a\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- **Trường hợp 3**: Subquery trong select\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "Select Cus.Cust_Id\n",
+    "     ,Cus.Address\n",
+    "     ,Cus.Fed_Id\n",
+    "     ,(Select Sum(Acc.Avail_Balance)\n",
+    "       From   Account Acc\n",
+    "       Where  Acc.Cust_Id = Cus.Cust_Id) As Sum_Avail_Balance\n",
+    "From Customer Cus;\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Lưu ý**: Trong inner query/sub query, có 2 lưu ý sau:\n",
+    "\n",
+    "- Phải liệt kê tất cả các bảng nếu các câu truy vấn có chứa biến từ bảng đó.\n",
+    "- Các vị trí thường có trong subquery\n",
+    "    - Subquery sau FROM: Kết quả của subquery cần được đặt tên\n",
+    "    - Subquery sau WHERE: Kết quả có thể không cần đặt tên\n",
+    "\n",
+    "## Sử dụng WITH thay thế subquery\n",
+    "\n",
+    "Ta có thể dùng with để thay thế cho việc tạo bảng tạm sub query\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "-- Khi dùng subquery\n",
+    "select #t2.*,\n",
+    "\tcase when t3.[group] is not null then 'Multi Booking' else 'Single Booking' end as booking_type\n",
+    "from #t2\n",
+    "\tleft join (select cusid, [group] \n",
+    "\t\t\t\tfrom #t2 A \n",
+    "\t\t\t\tgroup by cusid, [group]\n",
+    "\t\t\t\thaving count(1) > 1) t3\n",
+    "\t\ton #t2.cusid = T3.cusid and #t2.[group] = t3.[group]\n",
+    "\t\t\n",
+    "-- Khi dùng with\n",
+    "with T3 AS \n",
+    "\t(selecT CUSID, [group]\n",
+    "\tfrom #t2 A \n",
+    "\tGROUP BY Cusid, [group] \n",
+    "\tHAVING COUNT(1) > 1 \n",
+    "\t) \n",
+    "SELECT #t2.* , \n",
+    "\tCASE WHEN T3.[group] IS NOT NULL THEN 'Multi booking' ELSE 'Single Booking' END AS BOOKING_TYPE\n",
+    "--INTO #final_results\n",
+    "FROM #t2 \n",
+    "\tLEFT JOIN T3 \n",
+    "\t\tON #t2.CUSID = T3.CUSID AND #t2.[group] = T3.[group]\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Các nhóm câu lệnh cơ bản khác\n",
+    "\n",
+    "## Exists\n",
+    "\n",
+    "**Chức năng**: Kiểm tra điều kiện tồn tại \n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "---Exist\n",
+    "select FirstName, \n",
+    "\t\t   LastName \n",
+    "from DimEmployee\n",
+    "where exists (select LastName from DimCustomer where LastName =\n",
+    "'Zimmerman')\n",
+    "\n",
+    "---Not exist\n",
+    "select FirstName, \n",
+    "\t\tLastName \n",
+    "from DimEmployee\n",
+    "where not exists (select LastName from DimCustomer where LastName =\n",
+    "'Anh')\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Any vs. All\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "---TH1: ANY\n",
+    "select EnglishProductName, ListPrice from DimProduct\n",
+    "where ListPrice > all(select any(ListPrice) from DimProduct\n",
+    "group by ProductSubcategoryKey)\n",
+    "order by ListPrice asc\n",
+    "\n",
+    "--TH2: ALL without having\n",
+    "select EnglishProductName, ListPrice from DimProduct\n",
+    "where ListPrice > all(select avg(ListPrice) from DimProduct\n",
+    "group by ProductSubcategoryKey)\n",
+    "order by ListPrice asc\n",
+    "\n",
+    "--TH3: ALL with having\n",
+    "select EnglishProductName, ListPrice from DimProduct\n",
+    "where ListPrice > all(select avg(ListPrice) from DimProduct\n",
+    "group by ProductSubcategoryKey\n",
+    "having avg(ListPrice) is not null)\n",
+    "order by ListPrice asc\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Lưu ý**:\n",
+    "\n",
+    "- Với TH1, truy vấn sẽ tìm tất cả các giá trị lớn hơn min của avg(ListPrice)\n",
+    "- Với TH2, vì có 1 dòng trong inner query bị NULL, do đó toàn bộ câu lệnh sẽ không ra kết quả do KHÔNG CHẮC CHẮN điều kiện lọc lớn hơn TẤT CẢ các giá trị trong inner query\n",
+    "- Với TH3, sử dụng having giúp loại đi điều kiện NULL\n",
+    "\n",
+    "## View\n",
+    "\n",
+    "View là hình thức tạo một bảng cho phép hiển thị, không tốn bộ nhớ thật của máy tính\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "Create View (COL_1, COL_2...) as\n",
+    "select COL_1,COL_2... from TABLE\n",
+    "\n",
+    "--Ví dụ\n",
+    "create view ducanh4 (CUS_ID, MAIL) as \n",
+    "select CUST_ID, ADDRESS + ' ,' + CITY from customer\n",
+    "\n",
+    "--Lưu ý: Khi update trong View, ta sẽ update luôn thông tin từ bảng gốc\n",
+    "create view ducanh5 as select * from account\n",
+    "update ducanh5\n",
+    "set AVAIL_BALANCE = AVAIL_BALANCE * 10\n",
+    "select * from account\n",
+    "\n",
+    "--DROP VIEW TABLE\n",
+    "drop view ducanh5\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Index\n",
+    "\n",
+    "- Để tăng performance của query, ta có thể sử dụng Index. Index áp dụng B-Tree để tìm kiếm dữ liệu. Khi được đánh index, bảng sẽ là một bảng có cấu trúc, VD - theo thứ tự ABC. Nếu không đánh index, bảng sẽ được gọi là HEAP (nonsequential).\n",
+    "- Khi đặt điều kiện unique key hoặc primary key, bảng sẽ tự động tạo index.\n",
+    "- Khi tạo index, tốc độ truy vấn sẽ nhanh hơn tuy nhiên sẽ tốn dung lượng của ổ cứng lưu trữ\n",
+    "\n",
+    "![](Images/btree.png)\n",
+    "\n",
+    "\n",
+    "**Cơ chế hoạt động**:\n",
+    "\n",
+    "- Nếu cột customer_name được sử dụng làm index, sẽ chia làm 3 nhóm A, Q, T. Nếu tên khách hàng bắt đầu là R, sẽ nhảy luôn đến nhóm index Q >> R >> Tìm tên\n",
+    "- Nếu không có index, sẽ phải scan từng dòng trong cả bảng để tìm\n",
+    "\n",
+    "- Trong SQL có 2 loại index: Clustered Index và Non-cluster index. Với cluster index, leaf - node cuối trong Btree, chứa toàn bộ thông tin của dòng dữ liệu. Với Non-cluster index, leaf trong Btree chỉ chứa index.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "-- Clustered index\n",
+    "create index new_2 on test2(id, gender)\n",
+    "\n",
+    "--Non clustered index\n",
+    "create nonclustered index test_id\n",
+    "on test(id)\n",
+    "\n",
+    "-- Drop index\n",
+    "drop index new_2 on test2\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- Bảng có index sẽ hoạt động nhanh hơn bảng thường do cơ chế sau:\n",
+    "    - Không có index: Scan từng dòng trong bảng và tìm điều kiện\n",
+    "    - Có index: Tìm theo khu vực index. VD: ID = 5 \n",
+    "        - Nếu không có index, sẽ tìm từng dòng và trả về kết quả với ID = 5.\n",
+    "        - Nếu có index, sẽ tìm với thuật toán chia đôi\n",
+    "- Các loại index:\n",
+    "    - Clustered: Sắp xếp lại cách lưu trữ dữ liệu trong DB\n",
+    "    - Nonclustered: Không sắp xếp\n",
+    "    \n",
+    "## Bảng tạm\n",
+    "\n",
+    "- Bảng tạm là bảng chỉ tồn tại trong 1 session của SQL. Sau khi log out hoặc khởi động lại, bảng này sẽ tự động biến mấ.\n",
+    "- Bảng tạm bắt đầu bằng dấu #\n",
+    "- Bảng tạm với 1 dấu # gọi là bảng tạm local - sẽ tự xóa khi đóng query editor. Bạng tạm với ## gọi là bảng tạm global - chỉ xóa khi thoát khỏi SQL\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "--Chỉ tạo bảng\n",
+    "create table #da (VAr1 int, var2 char(30))\n",
+    "\n",
+    "--Vừa tạo bảng vừa insert\n",
+    "select * \n",
+    "into #ducanh\n",
+    "from account\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Kiểm tra kiểu dữ liệu trong bảng\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "SELECT COLUMN_NAME, DATA_TYPE \n",
+    "FROM INFORMATION_SCHEMA.COLUMNS \n",
+    "WHERE TABLE_NAME = 'ACCOUNT' -- Điền tên bảng\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# SQL động với Exec\n",
+    "\n",
+    "SQL động là nhóm sử dụng nâng cao của SQL, cho phép người dùng tự động hóa các script. Sử dụng SQL động cho phép tùy biến các câu lệnh khi truy vấn và xử lý dữ liệu. Khi sử dụng SQL động, ta cần dùng `EXEC`\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "-- Cách 1\n",
+    "declare @id int\n",
+    "set @id = '4'\n",
+    "exec('select * from ACCOUNT where ACCOUNT_ID = ' + @id)\n",
+    "\n",
+    "-- Cách 2\n",
+    "declare @id varchar(100)\n",
+    "set @id = '4'\n",
+    "declare @sql varchar(1000)\n",
+    "set @sql = 'select * from ACCOUNT where account_id = ' + @id\n",
+    "print @sql -- Đảm bảo câu lệnh thực hiện đúng\n",
+    "exec(@sql)\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Lưu ý khi sử dụng SQL động**\n",
+    "\n",
+    "- Lưu ý dấu cách \n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "EXEC(' SELECT col1, col2, col3 ' +\n",
+    "     ' FROM ' + @tblname +\n",
+    "     ' WHERE keycol = ''' + @key + '''')\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- Luôn dùng print để đảm bảo viết đúng câu lệnh trước khi sử dụng exec\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "declare @month varchar(8) = (select max(date) from ##A)\n",
+    "print('select * from ##B where month = ' + @month)\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Hàm và thủ tục \n",
+    "\n",
+    "## Procedure\n",
+    "\n",
+    "### Hiển thị tất cả các procedure đang lưu trong hệ thống\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "-- Tất cả các procedure\n",
+    "SELECT name, \n",
+    "       type\n",
+    "FROM dbo.sysobjects\n",
+    "WHERE (type = 'P')\n",
+    " \n",
+    "-- Các procedure do người dùng tạo \n",
+    "  select * \n",
+    "  from master.information_schema.routines \n",
+    "  where routine_type = 'PROCEDURE' \n",
+    "        and Left(Routine_Name, 3) NOT IN ('sp_', 'xp_', 'ms_')\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- **Xóa procedure**\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "drop procedure cast_data\n",
+    "\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Tạo procedure\n",
+    "\n",
+    "- Procedure không có biến\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "-- Tạo procedure\n",
+    "create procedure getID_normal \n",
+    "as\n",
+    "select * from ACCOUNT\n",
+    "-- Chạy procedure\n",
+    "execute getID_normal\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- Procedure nhiều biến\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "--Tạo procedure\n",
+    "create procedure PROD_CD \n",
+    "  @prod nvarchar(30) = NULL,\n",
+    "  @AVAIL_BALANCE float\n",
+    "as\n",
+    "  select * from ACCOUNT\n",
+    "  where PRODUCT_CD = @prod and\n",
+    "  AVAIL_BALANCE >= @AVAIL_BALANCE\n",
+    "GO\n",
+    "\n",
+    "--Chạy procedure\n",
+    "PROD_CD @prod = 'CHK', @AVAIL_BALANCE = 10000\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Lưu ý**: Trong SQL có 2 loại biến: \n",
+    "\n",
+    "- User defined variable: Bắt đầu bằng dấu **@**\n",
+    "- System variable: Bắt đầu bằng dấu **@@** - loại này chỉ xuất hiện sau khi đã thực hiện xong 1 số câu lệnh\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "select * from [DimCustomer]\n",
+    "select @@ROWCOUNT\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Gán kết quả 1 procedure vào biến\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "drop procedure if exists return_date\n",
+    "create procedure [dbo].[return_date] (@no_date int = 0, @no_date2 int = 2,  @result varchar(8) output)\n",
+    "as\n",
+    "begin \n",
+    "set @result = (select convert(varchar(8), getdate() - @no_date + @no_date2, 112))\n",
+    "end\n",
+    "\n",
+    "declare @result varchar(8)\n",
+    "execute return_date 5, 1, @result output\n",
+    "print @result\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Hàm (function)\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "DROP FUNCTION IF EXISTS fn_return_date\n",
+    "\n",
+    "CREATE FUNCTION [dbo].[fn_return_date] (@no_date INT = 0)\n",
+    "RETURNS INT\n",
+    "AS\n",
+    "BEGIN\n",
+    "\tRETURN (\n",
+    "\t\t\tSELECT cast(convert(VARCHAR(8), getdate() - @no_date, 112) AS INT)\n",
+    "\t\t\t)\n",
+    "END;\n",
+    "\n",
+    "-- Cách 1\n",
+    "declare @result int\n",
+    "select @result = [dbo].[fn_return_date](4)\n",
+    "print @result\n",
+    "\n",
+    "-- Cách 2\n",
+    "declare @result int\n",
+    "set @result = ([dbo].[fn_return_date](4))\n",
+    "print @result\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Các nhóm câu lệnh nâng cao\n",
+    "\n",
+    "## If...Else\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "if 1 = 1\n",
+    "begin\n",
+    "print 'wrong'\n",
+    "print 'not sure'\n",
+    "end\n",
+    "else\n",
+    "begin\n",
+    "print 'right'\n",
+    "print 'absolutely right'\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Lưu ý**: Sau mệnh đề else, if, nếu có nhiều câu lệnh cùng thực hiện, cần khai báo begin...end\n",
+    "\n",
+    "## Check điều kiện để thực thi tiếp\n",
+    "\n",
+    "- Kiểm tra điều kiện tồn tại của bảng\n",
+    "- Nếu tồn tại, chạy tiếp\n",
+    "- Nếu không tồn tại, skip các câu lệnh tiếp theo\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "--SQL CMD\n",
+    ":on error exit\n",
+    "\n",
+    "declare @tbl sysname\n",
+    "set @tbl = 'TBL_I2B_USERS_F0_20180502'\n",
+    "\n",
+    "IF NOT EXISTS (SELECT * FROM ANHNT67.DBS_DAILY.DBO.SYSOBJECTS \n",
+    "\t\t\t\tWHERE NAME = @tbl)\n",
+    "BEGIN\n",
+    "raiserror('Table does not exist', 15, 10)\n",
+    "print(@tbl)\n",
+    "return\n",
+    "END\n",
+    "\n",
+    "EXEC('select top 10 * FROM ANHNT67.DBS_DAILY.DBO.' + @tbl)\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Vòng lặp với bảng\n",
+    "\n",
+    "SQL chỉ chạy được vòng lặp `WHILE`\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "DROP FUNCTION IF EXISTS fn_return_date\n",
+    "\n",
+    "CREATE FUNCTION [dbo].[fn_return_date] (@no_date INT = 0)\n",
+    "RETURNS INT\n",
+    "AS\n",
+    "BEGIN\n",
+    "\tRETURN (\n",
+    "\t\t\tSELECT cast(convert(VARCHAR(8), getdate() - @no_date, 112) AS INT)\n",
+    "\t\t\t)\n",
+    "END;\n",
+    "\n",
+    "declare @result int\n",
+    "select @result = [dbo].[fn_return_date](4)\n",
+    "print @result\n",
+    "\n",
+    "drop table if exists #temp\n",
+    "create table #temp (date int)\n",
+    "select * from #temp\n",
+    "\n",
+    "insert into #temp (date)\n",
+    "select [dbo].[fn_return_date](1) as date\n",
+    "insert into #temp (date)\n",
+    "select [dbo].[fn_return_date](2) as date\n",
+    "insert into #temp (date)\n",
+    "select [dbo].[fn_return_date](3) as date\n",
+    "\n",
+    "drop table if exists #temp2\n",
+    "select * \n",
+    "into #temp2\n",
+    "from #temp\n",
+    "\n",
+    "alter table #temp2\n",
+    "add new varchar(20)\n",
+    "\n",
+    "select * from #temp2\n",
+    "\n",
+    "update #temp2 \n",
+    "set new = cast(date as varchar(20)) + 'abc'\n",
+    "\n",
+    "\n",
+    "--Reference\n",
+    "drop table if exists #ref\n",
+    "\n",
+    "create table #ref (\n",
+    "[index] int identity(1,1) not null,\n",
+    "[date] int\n",
+    ")\n",
+    "\n",
+    "insert into #ref (date)\n",
+    "select [date] from #temp order by [date]\n",
+    "\n",
+    "select * from #ref\n",
+    "\n",
+    "-- VERSION 1: DOES NOT WORK\n",
+    "\n",
+    "declare @loopcounter int, @maxcounter int \n",
+    "set @loopcounter = (select min(date) from #temp2)\n",
+    "set @maxcounter = (select max(date) from #temp2)\n",
+    "\n",
+    "while (@loopcounter <= @maxcounter)\n",
+    "begin\n",
+    "\tselect * from #temp2 where\n",
+    "\tdate = @loopcounter\n",
+    "\tset @loopcounter = @loopcounter + 1\n",
+    "end\n",
+    "\n",
+    "\n",
+    "-- VERSION 2: WORK WELL\n",
+    "drop table if exists #result\n",
+    "create table #result (date int, new varchar(20))\n",
+    "select * from #result\n",
+    "\n",
+    "declare @loopcounter int, @maxcounter int \n",
+    "set @loopcounter = (select min([index]) from #ref)\n",
+    "set @maxcounter = (select max([index]) from #ref)\n",
+    "\n",
+    "while (@loopcounter <= @maxcounter)\n",
+    "begin\n",
+    "\tdeclare @date int \n",
+    "\tset @date = (select [date] from #ref where [index] = @loopcounter)\n",
+    "\t\n",
+    "\tinsert into #result ([date], new)\n",
+    "\tselect * from #temp2 where\n",
+    "\t[date] = @date\n",
+    "\tset @loopcounter = @loopcounter + 1\n",
+    "end\n",
+    "\n",
+    "select * from #result\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Đặt job trong SQL"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "\n",
+    "Khi làm việc với SQL, một trong những yêu cầu rất quan trọng là phải tự động hóa code SQL theo thơi gian. Yêu cầu này có thể được xử lý bằng cách đặt job thông qua các bước lớn sau.\n",
+    "\n",
+    "- Active email tự động\n",
+    "- Đăng ký email\n",
+    "- Active SQL Server Agent\n",
+    "- Đặt job\n",
+    "\n",
+    "## Bước 1: Active email tự động\n",
+    "\n",
+    "- Thực hiện câu lệnh  sau trên SQL để active gửi Database Mail. Do khi cài SQL, mặc định Database mail chưa được active nên khi sử dụng ta cần active database này\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "sp_configure 'show advanced options', 1;\n",
+    "GO\n",
+    "RECONFIGURE;\n",
+    "GO\n",
+    "sp_configure 'Database Mail XPs', 1;\n",
+    "GO\n",
+    "RECONFIGURE\n",
+    "GO\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Bước 2: Đăng kí email trong Database mail\n",
+    "\n",
+    "- Tại màn hình SQL >> Object Explore >> Management >> Database Mail >> Tick vào Set up database Mail by performing the following tasks >> Next >> Profile name điền tên id của mình muốn >> Add >> Điền đẩy đủ thông tin như hình bên dưới với thông tin email >> Next\n",
+    "  \n",
+    "- Mục đích của bước này là sau khi hoàn thành Job ta sẽ có 1 email thông báo Job đã thành công hoặc gửi thẳng cho client là dữ liệu đã sẵn sàng để có thể sử dụng\n",
+    "  \n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "ID: email\n",
+    "Pass: pwd\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "  \n",
+    "![Template](Images/job_1.png) \n",
+    "\n",
+    "---\n",
+    "\n",
+    "![Template](Images/job_2.png)\n",
+    "\n",
+    "---\n",
+    "\n",
+    "## Bước 3: Active SQL Server Agent\n",
+    "\n",
+    "- Tại Object Explore >> Click chuột phải vào SQL Server Agent >> Start\n",
+    "  \n",
+    "## Bước 4: Đặt Job\n",
+    "\n",
+    "- Chuột phải vào SQL Server Agent >> New >> Điền Name vào mục General >> Qua mục Steps >> Tạo các bước của Job tại New >> Điền Step Name >> Paste code automate vào phần Command. Ví dụ có thể sử dụng tại code bên dưới \n",
+    "\n",
+    "<center>![Template](Images/job_3.png)</center>  \n",
+    "\n",
+    "---\n",
+    "\n",
+    "<center>![Template](Images/job_4.png)</center> \n",
+    "\n",
+    "---\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "IF EXISTS (SELECT * FROM [BA].[INFORMATION_SCHEMA].[TABLES] WHERE [TABLE_NAME] = 'CREDIT_CARD_TRANSACTION_SUCCESSFUL_MASTER')\n",
+    "DROP TABLE [BA].[dbo].[CREDIT_CARD_TRANSACTION_SUCCESSFUL_MASTER]\n",
+    "\n",
+    "EXEC('\n",
+    "SELECT  ID,\n",
+    "\t\tYEARMONTH,\n",
+    "\t\tTARGET_ID,\n",
+    "\t\tTRANS_DATE,\n",
+    "\t\tTRANS_CURR,\n",
+    "\t\tTRANS_AMOUNT_QD,\n",
+    "\t\tTRANS_DETAILS,\n",
+    "\t\tMERCHANT_ID,\n",
+    "\t\tTRANS_CITY,\n",
+    "\t\tTRANS_COUNTRY,\n",
+    "\t\tBI_TRANS_TYPE,\n",
+    "\t\tSIC_CODE,\n",
+    "\t\tCIF,\n",
+    "\t\tPRODUCT_DETAIL\n",
+    "INTO [BA].[dbo].[CREDIT_CARD_TRANSACTION_SUCCESSFUL_MASTER]\n",
+    "FROM [BA].[dbo].[CREDIT_CARD_TRANSACTION_SUCCESSFUL_2018]\n",
+    "UNION ALL\n",
+    "SELECT  ID,\n",
+    "\t\tYEARMONTH,\n",
+    "\t\tTARGET_ID,\n",
+    "\t\tTRANS_DATE,\n",
+    "\t\tTRANS_CURR,\n",
+    "\t\tTRANS_AMOUNT_QD,\n",
+    "\t\tTRANS_DETAILS,\n",
+    "\t\tMERCHANT_ID,\n",
+    "\t\tTRANS_CITY,\n",
+    "\t\tTRANS_COUNTRY,\n",
+    "\t\tBI_TRANS_TYPE,\n",
+    "\t\tSIC_CODE,\n",
+    "\t\tCIF,\n",
+    "\t\tPRODUCT_DETAIL\n",
+    "FROM [BA].[dbo].[CREDIT_CARD_TRANSACTION_SUCCESSFUL_2017]\n",
+    "')\n",
+    "\n",
+    "EXEC('\n",
+    "ALTER TABLE [BA].[dbo].[CREDIT_CARD_TRANSACTION_SUCCESSFUL_MASTER]\n",
+    "ADD SIC_ID VARCHAR(MAX), MCC_CATEGORY VARCHAR(MAX), MCC_CATEGORY_AIA VARCHAR(MAX)\n",
+    "')\n",
+    "\n",
+    "EXEC('\n",
+    "UPDATE [BA].[dbo].[CREDIT_CARD_TRANSACTION_SUCCESSFUL_MASTER]\n",
+    "SET SIC_ID = A.SIC_CODE collate database_default,\n",
+    "\tMCC_CATEGORY = A.CATEGORIES\n",
+    "FROM [BA].[dbo].[MCC_CATEGORY_20170808] A\n",
+    "WHERE [BA].[dbo].[CREDIT_CARD_TRANSACTION_SUCCESSFUL_MASTER].SIC_CODE = A.SIC_ID\t\t\n",
+    "\n",
+    "UPDATE [BA].[dbo].[CREDIT_CARD_TRANSACTION_SUCCESSFUL_MASTER]\n",
+    "SET MCC_CATEGORY_AIA = A.MCC_CATEGORY\n",
+    "FROM [BA].[dbo].[MCC_CATEGORY_AIA_20180307] A\n",
+    "WHERE [BA].[dbo].[CREDIT_CARD_TRANSACTION_SUCCESSFUL_MASTER].SIC_CODE = A.SIC_ID\n",
+    "')\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "  \n",
+    "  - Tạo bước gửi email đến Client >> Đặt tên là SUCCESSFUL JOB >> ta làm tương tự các bước như trên với code trong mục command như sau. \n",
+    "  \n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "USE [msdb]\n",
+    "DECLARE @REPORT_DATE DATE = (select MAX(TRANS_DATE) from  BA..CREDIT_CARD_TRANSACTION_SUCCESSFUL_MASTER);\n",
+    "DECLARE @SUBJECT VARCHAR(250) = '[JOB DONE] - CREDIT CARD TRANSACTION - '+convert(varchar(8),@REPORT_DATE,112);\n",
+    "EXEC\n",
+    "sp_send_dbmail\n",
+    "@profile_name ='thanh',\n",
+    "@recipients ='thanhnm3@vpbank.com.vn; truongnh3@vpbank.com.vn; lambt1@vpbank.com.vn',\n",
+    "@subject = @SUBJECT,\n",
+    "@body =N'CREDIT CARD TRANSACTION IS AVAILABLE',\n",
+    "@execute_query_database ='msdb'\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "  \n",
+    "- Tạo bước gửi email đến chính mình khi JOB bị failed >> Đặt tên là FAILED JOB >> ta làm tương tự các bước như trên với code trong mục command như sau.\n",
+    "  \n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "USE [msdb]\n",
+    "DECLARE @REPORT_DATE DATE = (select MAX(TRANS_DATE) from  BA..CREDIT_CARD_TRANSACTION_SUCCESSFUL_MASTER);\n",
+    "DECLARE @SUBJECT VARCHAR(250) = '[JOB DONE] - CREDIT CARD TRANSACTION - '+convert(varchar(8),@REPORT_DATE,112);\n",
+    "EXEC\n",
+    "sp_send_dbmail\n",
+    "@profile_name ='thanh',\n",
+    "@recipients ='thanhnm3@vpbank.com.vn',\n",
+    "@subject = @SUBJECT,\n",
+    "@body =N'CREDIT CARD TRANSACTION HAS BEEN FAILED',\n",
+    "@execute_query_database ='msdb'\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "  \n",
+    "- Sửa lại cách thức chạy code của các bước >> Double Click vào step 1 >> Chọn Advanced >> Tại On failure action >> Chọn go to FAILED JOB (step đặt mail báo failed)\n",
+    "\n",
+    "<center>![Template](Images/job_5.png)</center> \n",
+    "\n",
+    "---\n",
+    "\n",
+    "**Lưu ý**\n",
+    "\n",
+    "- Code SQL được đưa vào trong JOB cần là code tự động \n",
+    "\n",
+    "# Các nhóm câu lệnh quản trị\n",
+    "\n",
+    "## Tìm kiếm các query đang chạy\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "vscode": {
+     "languageId": "r"
+    }
+   },
+   "source": [
+    "```sql\n",
+    "-- Cách 1\n",
+    "SELECT * FROM sys.dm_exec_requests\n",
+    "where status = 'running'\n",
+    "\n",
+    "-- Cách 2\n",
+    "exec sp_who\n",
+    "exec sp_who2\n",
+    "exec sp_who3\n",
+    "\n",
+    "-- Cách 3\n",
+    "SELECT sqltext.TEXT,\n",
+    "req.session_id,\n",
+    "req.status,\n",
+    "req.start_time,\n",
+    "req.command,\n",
+    "req.cpu_time,\n",
+    "req.total_elapsed_time\n",
+    "FROM sys.dm_exec_requests req\n",
+    "CROSS APPLY sys.dm_exec_sql_text(sql_handle) AS sqltext \n",
+    "\n",
+    "```"
+   ]
+  }
+ ],
+ "metadata": {
+  "anaconda-cloud": "",
+  "kernelspec": {
+   "display_name": "R",
+   "langauge": "R",
+   "name": "ir"
+  },
+  "language_info": {
+   "codemirror_mode": "r",
+   "file_extension": ".r",
+   "mimetype": "text/x-r-source",
+   "name": "R",
+   "pygments_lexer": "r",
+   "version": "3.4.1"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 1
+}

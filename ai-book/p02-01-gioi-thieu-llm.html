@@ -1,0 +1,152 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="vn" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. Giới thiệu về mô hình ngôn ngữ lớn &mdash; AI book 2024 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c86923ab"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. Xử lý dữ liệu text" href="p02-02-xu-ly-text.html" />
+    <link rel="prev" title="4. Chuỗi thời gian" href="p01-04-dl-timeseries.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            AI book
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Cơ bản về Deep Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="p01-01-gioi-thieu-deep-learning.html">1. Giới thiệu về học sâu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-02-toan-co-ban.html">2. Toán cơ bản với DL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-03-dl-co-ban.html">3. Tensorflow &amp; Keras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html">4. Chuỗi thời gian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html#Giới-thiệu">5. Giới thiệu</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">LLM &amp; GenAI</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Giới thiệu về mô hình ngôn ngữ lớn</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Giới-thiệu">1.1. Giới thiệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Quy-trình-xây-dựng-LLM">1.2. Quy trình xây dựng LLM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="p02-02-xu-ly-text.html">2. Xử lý dữ liệu text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p02-03-co-che-tu-chu-y.html">3. Cơ chế tự chú ý</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AI book</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>Giới thiệu về mô hình ngôn ngữ lớn</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/p02-01-gioi-thieu-llm.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Giới-thiệu-về-mô-hình-ngôn-ngữ-lớn">
+<h1><span class="section-number">1. </span>Giới thiệu về mô hình ngôn ngữ lớn<a class="headerlink" href="#Giới-thiệu-về-mô-hình-ngôn-ngữ-lớn" title="Link to this heading"></a></h1>
+<section id="Giới-thiệu">
+<h2><span class="section-number">1.1. </span>Giới thiệu<a class="headerlink" href="#Giới-thiệu" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>LLM là mạng thần kinh được thiết kế để hiểu, tạo và phản hồi văn bản giống con người. Những mô hình này là các mạng lưới thần kinh sâu được đào tạo dựa trên lượng dữ liệu văn bản khổng lồ, đôi khi bao gồm các phần lớn của toàn bộ văn bản có sẵn công khai trên internet</p>
+</div></blockquote>
+<p>&quot;Lớn&quot; trong &quot;mô hình ngôn ngữ lớn&quot; đề cập đến cả kích thước của mô hình về mặt tham số và tập dữ liệu khổng lồ mà nó được đào tạo.</p>
+<p><img alt="image1" src="_images/p02-01-train-llm.png" /></p>
+<p>Các mô hình LLM thường có hàng chục, thậm chí hàng trăm tỷ tham số, là các trọng số có thể điều chỉnh trong mạng thần kinh được tối ưu hóa trong quá trình đào tạo để dự đoán từ tiếp theo trong chuỗi. Dự đoán từ tiếp theo rất hợp lý vì nó khai thác tính chất tuần tự vốn có của ngôn ngữ để đào tạo các mô hình về cách hiểu ngữ cảnh, cấu trúc và các mối quan hệ trong văn bản.</p>
+<p><img alt="image1" src="_images/p02-01-train-llm.png" /></p>
+<p>Khác so với các mô hình NLP truyền thống vốn được huấn luyện để thực hiện 1 tác vụ cụ thể, LLM được đào tạo với <code class="docutils literal notranslate"><span class="pre">unlabel</span> <span class="pre">data</span></code>. Để có thể thực hiện thêm các tác vụ khác, LLM cần được <code class="docutils literal notranslate"><span class="pre">tuning</span></code> thêm.</p>
+<p>Có 2 loại tinh chỉnh (<code class="docutils literal notranslate"><span class="pre">tuning</span></code>) cơ bản của LLM là tinh chỉnh hướng dẫn (<code class="docutils literal notranslate"><span class="pre">instruction</span> <span class="pre">fine-tuning</span></code>) và tinh chỉnh phân loại (<code class="docutils literal notranslate"><span class="pre">classification</span> <span class="pre">fine-tuning</span></code>)</p>
+<p><img alt="image1" src="_images/p02-01-train-llm.png" /></p>
+<hr class="docutils" />
+<p>Các mô hình LLM hiện đại đều dựa vào kiến trúc của <code class="docutils literal notranslate"><span class="pre">transformer</span></code> - là một mạng thần kinh hiện đại được giới thiệu vào năm 2017 (bài báo: <em>transformer is all you need</em>). Kiến trúc này giới thiệu mô hình học máy phục vụ công tác dịch thuật.</p>
+<p><img alt="image1" src="_images/p02-01-train-llm.png" /></p>
+<p>Kiến trúc này gồm 2 module - bộ mã hóa (<code class="docutils literal notranslate"><span class="pre">encoder</span></code>) và giải mã (<code class="docutils literal notranslate"><span class="pre">decoder</span></code>). Module encoder sẽ mã hóa văn bản đầu vào thành vector chuỗi số hoặc vector nắm bắt thông tin ngữ cảnh đầu vào. Sau đó bộ giải mã sẽ chuyển các vector này thành ngôn ngữ đích. Hai module này liên kết với nhau bằng cơ chế <code class="docutils literal notranslate"><span class="pre">tự</span> <span class="pre">chú</span> <span class="pre">ý</span></code> (self attention).</p>
+<p>Google sau đó đã phát triển kiến trúc BERT dựa trên nền tảng Transformers nhưng tập trung sâu vào khía cạnh dự đoán các từ bị ẩn. Điều này cho phép BERT phát triển tốt các mô hình đánh giá cảm xúc. Các mô hình GPT sẽ làm tốt hơn các tác vụ như tổng hợp văn bản, viết tiểu thuyết.m</p>
+<p><img alt="image1" src="_images/p02-01-train-llm.png" /></p>
+</section>
+<section id="Quy-trình-xây-dựng-LLM">
+<h2><span class="section-number">1.2. </span>Quy trình xây dựng LLM<a class="headerlink" href="#Quy-trình-xây-dựng-LLM" title="Link to this heading"></a></h2>
+<p><img alt="image1" src="_images/p02-01-train-llm.png" /></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="p01-04-dl-timeseries.html" class="btn btn-neutral float-left" title="4. Chuỗi thời gian" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="p02-02-xu-ly-text.html" class="btn btn-neutral float-right" title="2. Xử lý dữ liệu text" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Anh Hoang Duc.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,27 +1,27 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="vn" >
+<html class="writer-html5" lang="vn" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cơ bản về Deep Learning &mdash; AI book 2024 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=c86923ab"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-        <script src="_static/copybutton.js?v=f281be69"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c86923ab"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -52,6 +52,14 @@
 <li class="toctree-l1"><a class="reference internal" href="p01-01-gioi-thieu-deep-learning.html">1. Giới thiệu về học sâu</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-02-toan-co-ban.html">2. Toán cơ bản với DL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-03-dl-co-ban.html">3. Tensorflow &amp; Keras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html">4. Chuỗi thời gian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html#Giới-thiệu">5. Giới thiệu</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">LLM &amp; GenAI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="p02-01-gioi-thieu-llm.html">1. Giới thiệu về mô hình ngôn ngữ lớn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p02-02-xu-ly-text.html">2. Xử lý dữ liệu text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p02-03-co-che-tu-chu-y.html">3. Cơ chế tự chú ý</a></li>
 </ul>
 
         </div>
@@ -100,8 +108,11 @@
 <li class="toctree-l2"><a class="reference internal" href="p01-03-dl-co-ban.html#Tensorflow">3.1. Tensorflow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="p01-03-dl-co-ban.html#Keras">3.2. Keras</a></li>
 <li class="toctree-l2"><a class="reference internal" href="p01-03-dl-co-ban.html#Các-mô-hình-cơ-bản">3.3. Các mô hình cơ bản</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-03-dl-co-ban.html#Lưu-ý-xây-dựng-mô-hình">3.4. Lưu ý xây dựng mô hình</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html">4. Chuỗi thời gian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html#Giới-thiệu">5. Giới thiệu</a></li>
 </ul>
 </div>
 </section>
@@ -118,6 +129,26 @@
 <section id="llm-genai">
 <h1>LLM &amp; GenAI<a class="headerlink" href="#llm-genai" title="Link to this heading"></a></h1>
 <div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">LLM &amp; GenAI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="p02-01-gioi-thieu-llm.html">1. Giới thiệu về mô hình ngôn ngữ lớn</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="p02-01-gioi-thieu-llm.html#Giới-thiệu">1.1. Giới thiệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p02-01-gioi-thieu-llm.html#Quy-trình-xây-dựng-LLM">1.2. Quy trình xây dựng LLM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="p02-02-xu-ly-text.html">2. Xử lý dữ liệu text</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="p02-02-xu-ly-text.html#Word-embedding">2.1. Word embedding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p02-02-xu-ly-text.html#Tokenization-text">2.2. Tokenization text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p02-02-xu-ly-text.html#Chuyển-đổi-text-sang-token-ID">2.3. Chuyển đổi text sang token ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p02-02-xu-ly-text.html#Các-context-tokens-đặc-biệt">2.4. Các context tokens đặc biệt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p02-02-xu-ly-text.html#Byte-Pair-Encoding">2.5. Byte Pair Encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p02-02-xu-ly-text.html#Data-sampling">2.6. Data sampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p02-02-xu-ly-text.html#Token-embedding">2.7. Token embedding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p02-02-xu-ly-text.html#Mã-hóa-vị-trí-từ">2.8. Mã hóa vị trí từ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="p02-03-co-che-tu-chu-y.html">3. Cơ chế tự chú ý</a></li>
+</ul>
 </div>
 </section>
 <section id="indices-and-tables">

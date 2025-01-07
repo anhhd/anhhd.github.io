@@ -1,31 +1,32 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="vn" >
+<html class="writer-html5" lang="vn" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>3. Tensorflow &amp; Keras &mdash; AI book 2024 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="_static/nbsphinx-code-cells.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/nbsphinx-code-cells.css?v=2aa19091" />
+
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=c86923ab"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-        <script src="_static/copybutton.js?v=f281be69"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c86923ab"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. Chuỗi thời gian" href="p01-04-dl-timeseries.html" />
     <link rel="prev" title="2. Toán cơ bản với DL" href="p01-02-toan-co-ban.html" /> 
 </head>
 
@@ -61,10 +62,21 @@
 <li class="toctree-l2"><a class="reference internal" href="#Keras">3.2. Keras</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Các-mô-hình-cơ-bản">3.3. Các mô hình cơ bản</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Phân-loại-nhị-phân">3.3.1. Phân loại nhị phân</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Mô-hình-phân-loại-nhiều-nhóm">3.3.2. Mô hình phân loại nhiều nhóm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Mô-hình-hồi-quy">3.3.3. Mô hình hồi quy</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#Lưu-ý-xây-dựng-mô-hình">3.4. Lưu ý xây dựng mô hình</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html">4. Chuỗi thời gian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html#Giới-thiệu">5. Giới thiệu</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">LLM &amp; GenAI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="p02-01-gioi-thieu-llm.html">1. Giới thiệu về mô hình ngôn ngữ lớn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p02-02-xu-ly-text.html">2. Xử lý dữ liệu text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p02-03-co-che-tu-chu-y.html">3. Cơ chế tự chú ý</a></li>
 </ul>
 
         </div>
@@ -95,7 +107,7 @@
 <h1><span class="section-number">3. </span>Tensorflow &amp; Keras<a class="headerlink" href="#Tensorflow-&-Keras" title="Link to this heading"></a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">Tensorflow</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">Keras</span></code> là framework được sử dụng rộng rãi trong deep learning - keras là tầng interface giúp cho quá trình làm việc và training model với deep learning sử dụng tensorflow được dễ dàng hơn.</p>
 <p>Keras ra đời từ 3/2015 và thiết kế trên nền của <code class="docutils literal notranslate"><span class="pre">theano</span></code> trong khi <code class="docutils literal notranslate"><span class="pre">tensorflow</span></code> đến 11/2015 mới bắt đầu ra đời. Sự phát triển nhanh chóng của <code class="docutils literal notranslate"><span class="pre">tensorflow</span></code> dần thay thế <code class="docutils literal notranslate"><span class="pre">theano</span></code>, và dần dần, keras chỉ sử dụng <code class="docutils literal notranslate"><span class="pre">tensorlow</span></code> là backend. Thông qua <code class="docutils literal notranslate"><span class="pre">tensorflow</span></code>, keras có thể tương tác với cả GPU/TPU hoặc CPU truyền thống trong các mô hình <code class="docutils literal notranslate"><span class="pre">deep</span> <span class="pre">learning</span></code> để tăng tốc độ xây dựng mô hình.</p>
-<img alt="_images/p03-01-keras-tf.png" src="_images/p03-01-keras-tf.png" />
+<p><img alt="image1" src="_images/p01-03-binary-classification.png" /></p>
 <p>Với kiến trúc như trên, <code class="docutils literal notranslate"><span class="pre">keras</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">tensorflow</span></code> sẽ chia thành 2 lớp xử lý các vấn đề khác nhau.</p>
 <p><strong>Low-level tensor</strong>: Xử lý thông qua tensorflow</p>
 <ul class="simple">
@@ -551,7 +563,7 @@ Loss at step 39: 0.0275
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="_images/p03-01-batch-epoch.ppm" src="_images/p03-01-batch-epoch.ppm" />
+<p><img alt="image1" src="_images/p01-03-binary-classification.png" /></p>
 </section>
 <section id="Các-mô-hình-cơ-bản">
 <h2><span class="section-number">3.3. </span>Các mô hình cơ bản<a class="headerlink" href="#Các-mô-hình-cơ-bản" title="Link to this heading"></a></h2>
@@ -903,7 +915,7 @@ Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-dataset
 </div>
 <p>Ta chưa thể xây dựng mô hình trực tiếp mà phải chuyển đổi đổi thành định dạng dữ liệu có cùng kích thước dưới dạng ma trận 0-1 có kích thước 25000 x 10000 (25000 lượt review x 10000 các từ có trong 25000 lượt review này)</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -963,7 +975,7 @@ array([1., 0., 0., ..., 0., 1., 0.], dtype=float32)
 </pre></div></div>
 </div>
 <p>Ta có thể xây dựng mô hình đơn giản với kiến trúc như sau:</p>
-<img alt="_images/p01-03-binary-classification.png" src="_images/p01-03-binary-classification.png" />
+<p><img alt="image1" src="_images/p01-03-binary-classification.png" /></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
@@ -1221,6 +1233,936 @@ array([[0.25915012],
 </pre></div></div>
 </div>
 </section>
+<section id="Mô-hình-phân-loại-nhiều-nhóm">
+<h3><span class="section-number">3.3.2. </span>Mô hình phân loại nhiều nhóm<a class="headerlink" href="#Mô-hình-phân-loại-nhiều-nhóm" title="Link to this heading"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.keras.datasets</span> <span class="kn">import</span> <span class="n">reuters</span>
+<span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">),</span> <span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span> <span class="o">=</span> <span class="n">reuters</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span>
+<span class="n">num_words</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3 dòng đầu tiên</span>
+<span class="n">train_data</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([list([1, 2, 2, 8, 43, 10, 447, 5, 25, 207, 270, 5, 3095, 111, 16, 369, 186, 90, 67, 7, 89, 5, 19, 102, 6, 19, 124, 15, 90, 67, 84, 22, 482, 26, 7, 48, 4, 49, 8, 864, 39, 209, 154, 6, 151, 6, 83, 11, 15, 22, 155, 11, 15, 7, 48, 9, 4579, 1005, 504, 6, 258, 6, 272, 11, 15, 22, 134, 44, 11, 15, 16, 8, 197, 1245, 90, 67, 52, 29, 209, 30, 32, 132, 6, 109, 15, 17, 12]),
+       list([1, 3267, 699, 3434, 2295, 56, 2, 7511, 9, 56, 3906, 1073, 81, 5, 1198, 57, 366, 737, 132, 20, 4093, 7, 2, 49, 2295, 2, 1037, 3267, 699, 3434, 8, 7, 10, 241, 16, 855, 129, 231, 783, 5, 4, 587, 2295, 2, 2, 775, 7, 48, 34, 191, 44, 35, 1795, 505, 17, 12]),
+       list([1, 53, 12, 284, 15, 14, 272, 26, 53, 959, 32, 818, 15, 14, 272, 26, 39, 684, 70, 11, 14, 12, 3886, 18, 180, 183, 187, 70, 11, 14, 102, 32, 11, 29, 53, 44, 704, 15, 14, 19, 758, 15, 53, 959, 47, 1013, 15, 14, 19, 132, 15, 39, 965, 32, 11, 14, 147, 72, 11, 180, 183, 187, 44, 11, 14, 102, 19, 11, 123, 186, 90, 67, 960, 4, 78, 13, 68, 467, 511, 110, 59, 89, 90, 67, 1390, 55, 2678, 92, 617, 80, 1274, 46, 905, 220, 13, 4, 346, 48, 235, 629, 5, 211, 5, 1118, 7, 2, 81, 5, 187, 11, 15, 9, 1709, 201, 5, 47, 3615, 18, 478, 4514, 5, 1118, 7, 232, 2, 71, 5, 160, 63, 11, 9, 2, 81, 5, 102, 59, 11, 17, 12])],
+      dtype=object)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_labels</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([3, 4, 3], dtype=int64)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Giá trị của labels</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">unique_value</span><span class="p">,</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">train_labels</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">value</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">unique_value</span><span class="p">,</span> <span class="n">counts</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Value: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">, Count: </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Value: 0, Count: 55
+Value: 1, Count: 432
+Value: 2, Count: 74
+Value: 3, Count: 3159
+Value: 4, Count: 1949
+Value: 5, Count: 17
+Value: 6, Count: 48
+Value: 7, Count: 16
+Value: 8, Count: 139
+Value: 9, Count: 101
+Value: 10, Count: 124
+Value: 11, Count: 390
+Value: 12, Count: 49
+Value: 13, Count: 172
+Value: 14, Count: 26
+Value: 15, Count: 20
+Value: 16, Count: 444
+Value: 17, Count: 39
+Value: 18, Count: 66
+Value: 19, Count: 549
+Value: 20, Count: 269
+Value: 21, Count: 100
+Value: 22, Count: 15
+Value: 23, Count: 41
+Value: 24, Count: 62
+Value: 25, Count: 92
+Value: 26, Count: 24
+Value: 27, Count: 15
+Value: 28, Count: 48
+Value: 29, Count: 19
+Value: 30, Count: 45
+Value: 31, Count: 39
+Value: 32, Count: 32
+Value: 33, Count: 11
+Value: 34, Count: 50
+Value: 35, Count: 10
+Value: 36, Count: 49
+Value: 37, Count: 19
+Value: 38, Count: 19
+Value: 39, Count: 24
+Value: 40, Count: 36
+Value: 41, Count: 30
+Value: 42, Count: 13
+Value: 43, Count: 21
+Value: 44, Count: 12
+Value: 45, Count: 18
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Map lại nội dung đánh giá</span>
+<span class="n">word_index</span> <span class="o">=</span> <span class="n">reuters</span><span class="o">.</span><span class="n">get_word_index</span><span class="p">()</span>
+<span class="n">reverse_word_index</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="n">value</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="n">word_index</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span>
+<span class="n">decoded_newswire</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">reverse_word_index</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;?&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">train_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/reuters_word_index.json
+<span class="ansi-bold">550378/550378</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">22s</span> 40us/step
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_data</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([list([1, 2, 2, 8, 43, 10, 447, 5, 25, 207, 270, 5, 3095, 111, 16, 369, 186, 90, 67, 7, 89, 5, 19, 102, 6, 19, 124, 15, 90, 67, 84, 22, 482, 26, 7, 48, 4, 49, 8, 864, 39, 209, 154, 6, 151, 6, 83, 11, 15, 22, 155, 11, 15, 7, 48, 9, 4579, 1005, 504, 6, 258, 6, 272, 11, 15, 22, 134, 44, 11, 15, 16, 8, 197, 1245, 90, 67, 52, 29, 209, 30, 32, 132, 6, 109, 15, 17, 12]),
+       list([1, 3267, 699, 3434, 2295, 56, 2, 7511, 9, 56, 3906, 1073, 81, 5, 1198, 57, 366, 737, 132, 20, 4093, 7, 2, 49, 2295, 2, 1037, 3267, 699, 3434, 8, 7, 10, 241, 16, 855, 129, 231, 783, 5, 4, 587, 2295, 2, 2, 775, 7, 48, 34, 191, 44, 35, 1795, 505, 17, 12]),
+       list([1, 53, 12, 284, 15, 14, 272, 26, 53, 959, 32, 818, 15, 14, 272, 26, 39, 684, 70, 11, 14, 12, 3886, 18, 180, 183, 187, 70, 11, 14, 102, 32, 11, 29, 53, 44, 704, 15, 14, 19, 758, 15, 53, 959, 47, 1013, 15, 14, 19, 132, 15, 39, 965, 32, 11, 14, 147, 72, 11, 180, 183, 187, 44, 11, 14, 102, 19, 11, 123, 186, 90, 67, 960, 4, 78, 13, 68, 467, 511, 110, 59, 89, 90, 67, 1390, 55, 2678, 92, 617, 80, 1274, 46, 905, 220, 13, 4, 346, 48, 235, 629, 5, 211, 5, 1118, 7, 2, 81, 5, 187, 11, 15, 9, 1709, 201, 5, 47, 3615, 18, 478, 4514, 5, 1118, 7, 232, 2, 71, 5, 160, 63, 11, 9, 2, 81, 5, 102, 59, 11, 17, 12]),
+       ...,
+       list([1, 141, 3890, 387, 81, 8, 16, 1629, 10, 340, 1241, 850, 31, 56, 3890, 691, 9, 1241, 71, 9, 5985, 2, 2, 699, 2, 2, 2, 699, 244, 5945, 4, 49, 8, 4, 656, 850, 33, 2993, 9, 2139, 340, 3371, 1493, 9, 2, 22, 2, 1094, 687, 83, 35, 15, 257, 6, 57, 9190, 7, 4, 5956, 654, 5, 2, 6191, 1371, 4, 49, 8, 16, 369, 646, 6, 1076, 7, 124, 407, 17, 12]),
+       list([1, 53, 46, 957, 26, 14, 74, 132, 26, 39, 46, 258, 3614, 18, 14, 74, 134, 5131, 18, 88, 2321, 72, 11, 14, 1842, 32, 11, 123, 383, 89, 39, 46, 235, 10, 864, 728, 5, 258, 44, 11, 15, 22, 753, 9, 42, 92, 131, 728, 5, 69, 312, 11, 15, 22, 222, 2, 3237, 383, 48, 39, 74, 235, 10, 864, 276, 5, 61, 32, 11, 15, 21, 4, 211, 5, 126, 1072, 42, 92, 131, 46, 19, 352, 11, 15, 22, 710, 220, 9, 42, 92, 131, 276, 5, 59, 61, 11, 15, 22, 10, 455, 7, 1172, 137, 336, 1325, 6, 1532, 142, 971, 6463, 43, 359, 5, 4, 326, 753, 364, 17, 12]),
+       list([1, 227, 2406, 91, 2, 125, 2855, 21, 4, 3976, 76, 7, 4, 757, 481, 3976, 790, 5259, 5654, 9, 111, 149, 8, 7, 10, 76, 223, 51, 4, 417, 8, 1047, 91, 6917, 1688, 340, 7, 194, 9411, 6, 1894, 21, 127, 2151, 2394, 1456, 6, 3034, 4, 329, 433, 7, 65, 87, 1127, 10, 8219, 1475, 290, 9, 21, 567, 16, 1926, 24, 4, 76, 209, 30, 4033, 6655, 5654, 8, 4, 60, 8, 4, 966, 308, 40, 2575, 129, 2, 295, 277, 1071, 9, 24, 286, 2114, 234, 222, 9, 4, 906, 3994, 8519, 114, 5758, 1752, 7, 4, 113, 17, 12])],
+      dtype=object)
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_train</span> <span class="o">=</span> <span class="n">vectorize_sequences</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">vectorize_sequences</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.keras.utils</span> <span class="kn">import</span> <span class="n">to_categorical</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">to_categorical</span><span class="p">(</span><span class="n">train_labels</span><span class="p">)</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">to_categorical</span><span class="p">(</span><span class="n">test_labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shape y_train</span>
+<span class="n">y_train</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(8982, 46)
+</pre></div></div>
+</div>
+<p>Khác với các mô hình họ cây thông thường, nhóm neural network sẽ convert định dạng <code class="docutils literal notranslate"><span class="pre">train_labels</span></code> (n, 1) thành định dạng bảng (n, 46) với mỗi cột là một labels mới định dạng 0-1</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Kết quả sau khi vectorize</span>
+<span class="n">x_train</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[0., 1., 1., ..., 0., 0., 0.],
+       [0., 1., 1., ..., 0., 0., 0.],
+       [0., 1., 1., ..., 0., 0., 0.],
+       ...,
+       [0., 1., 1., ..., 0., 0., 0.],
+       [0., 1., 1., ..., 0., 0., 0.],
+       [0., 1., 1., ..., 0., 0., 0.]])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_train</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(8982, 10000)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_train</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.],
+       ...,
+       [0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.]])
+</pre></div></div>
+</div>
+<p>Khi xây dựng mô hình <code class="docutils literal notranslate"><span class="pre">multi-classification</span></code>, kiến trúc tương tự như mô hình binary classification. Tuy nhiên, với việc gia tăng số lượng nhãn (<code class="docutils literal notranslate"><span class="pre">labels</span></code>), ở layer cuối, ta có thể dùng softmax với 46 neural</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">46</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;softmax&quot;</span><span class="p">)</span>
+    <span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Xây dựng mô hình</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s2">&quot;rmsprop&quot;</span><span class="p">,</span>
+              <span class="n">loss</span><span class="o">=</span><span class="s2">&quot;binary_crossentropy&quot;</span><span class="p">,</span>
+              <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;accuracy&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">Model: "sequential"</span>
+</pre></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃<span style="font-weight: bold"> Layer (type)                    </span>┃<span style="font-weight: bold"> Output Shape           </span>┃<span style="font-weight: bold">       Param # </span>┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ dense (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                   │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">64</span>)             │       <span style="color: #00af00; text-decoration-color: #00af00">640,064</span> │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_1 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                 │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">64</span>)             │         <span style="color: #00af00; text-decoration-color: #00af00">4,160</span> │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_2 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                 │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">46</span>)             │         <span style="color: #00af00; text-decoration-color: #00af00">2,990</span> │
+└─────────────────────────────────┴────────────────────────┴───────────────┘
+</pre></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold"> Total params: </span><span style="color: #00af00; text-decoration-color: #00af00">647,214</span> (2.47 MB)
+</pre></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold"> Trainable params: </span><span style="color: #00af00; text-decoration-color: #00af00">647,214</span> (2.47 MB)
+</pre></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold"> Non-trainable params: </span><span style="color: #00af00; text-decoration-color: #00af00">0</span> (0.00 B)
+</pre></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span>
+                    <span class="n">y_train</span><span class="p">,</span>
+                    <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+                    <span class="n">batch_size</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
+                    <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Epoch 1/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 27ms/step - accuracy: 0.8248 - loss: 0.0256 - val_accuracy: 0.7533 - val_loss: 0.0344
+Epoch 2/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 13ms/step - accuracy: 0.8300 - loss: 0.0246 - val_accuracy: 0.7538 - val_loss: 0.0344
+Epoch 3/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 11ms/step - accuracy: 0.8211 - loss: 0.0259 - val_accuracy: 0.7565 - val_loss: 0.0340
+Epoch 4/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 13ms/step - accuracy: 0.8297 - loss: 0.0247 - val_accuracy: 0.7578 - val_loss: 0.0338
+Epoch 5/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 12ms/step - accuracy: 0.8337 - loss: 0.0243 - val_accuracy: 0.7569 - val_loss: 0.0337
+Epoch 6/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 15ms/step - accuracy: 0.8323 - loss: 0.0241 - val_accuracy: 0.7578 - val_loss: 0.0337
+Epoch 7/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 12ms/step - accuracy: 0.8439 - loss: 0.0231 - val_accuracy: 0.7622 - val_loss: 0.0336
+Epoch 8/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 11ms/step - accuracy: 0.8412 - loss: 0.0234 - val_accuracy: 0.7609 - val_loss: 0.0333
+Epoch 9/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 12ms/step - accuracy: 0.8445 - loss: 0.0227 - val_accuracy: 0.7618 - val_loss: 0.0335
+Epoch 10/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 13ms/step - accuracy: 0.8421 - loss: 0.0231 - val_accuracy: 0.7609 - val_loss: 0.0331
+Epoch 11/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 13ms/step - accuracy: 0.8463 - loss: 0.0223 - val_accuracy: 0.7640 - val_loss: 0.0331
+Epoch 12/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 14ms/step - accuracy: 0.8534 - loss: 0.0215 - val_accuracy: 0.7609 - val_loss: 0.0331
+Epoch 13/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 11ms/step - accuracy: 0.8529 - loss: 0.0215 - val_accuracy: 0.7636 - val_loss: 0.0330
+Epoch 14/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 13ms/step - accuracy: 0.8596 - loss: 0.0207 - val_accuracy: 0.7631 - val_loss: 0.0331
+Epoch 15/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 13ms/step - accuracy: 0.8660 - loss: 0.0206 - val_accuracy: 0.7622 - val_loss: 0.0329
+Epoch 16/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 18ms/step - accuracy: 0.8643 - loss: 0.0203 - val_accuracy: 0.7640 - val_loss: 0.0328
+Epoch 17/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 17ms/step - accuracy: 0.8670 - loss: 0.0201 - val_accuracy: 0.7671 - val_loss: 0.0328
+Epoch 18/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 16ms/step - accuracy: 0.8716 - loss: 0.0196 - val_accuracy: 0.7689 - val_loss: 0.0328
+Epoch 19/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 19ms/step - accuracy: 0.8692 - loss: 0.0195 - val_accuracy: 0.7694 - val_loss: 0.0326
+Epoch 20/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 19ms/step - accuracy: 0.8761 - loss: 0.0189 - val_accuracy: 0.7671 - val_loss: 0.0327
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dự báo tập mới</span>
+<span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-bold">71/71</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 2ms/step - accuracy: 0.7709 - loss: 0.0322
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[0.032673172652721405, 0.767141580581665]
+</pre></div></div>
+</div>
+<p>Như vậy, với mô hình trên, ta chỉ đạt được độ chính xác 77% khi dự báo trên tập mới</p>
+<hr class="docutils" />
+<p>Ta có thể tăng thêm 1 layers cho mô hình và đánh giá độ chính xác</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_2</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">46</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;softmax&quot;</span><span class="p">)</span>
+    <span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_2</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">Model: "sequential_6"</span>
+</pre></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃<span style="font-weight: bold"> Layer (type)                    </span>┃<span style="font-weight: bold"> Output Shape           </span>┃<span style="font-weight: bold">       Param # </span>┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ dense_22 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                │ ?                      │   <span style="color: #00af00; text-decoration-color: #00af00">0</span> (unbuilt) │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_23 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                │ ?                      │   <span style="color: #00af00; text-decoration-color: #00af00">0</span> (unbuilt) │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_24 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                │ ?                      │   <span style="color: #00af00; text-decoration-color: #00af00">0</span> (unbuilt) │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_25 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                │ ?                      │   <span style="color: #00af00; text-decoration-color: #00af00">0</span> (unbuilt) │
+└─────────────────────────────────┴────────────────────────┴───────────────┘
+</pre></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold"> Total params: </span><span style="color: #00af00; text-decoration-color: #00af00">0</span> (0.00 B)
+</pre></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold"> Trainable params: </span><span style="color: #00af00; text-decoration-color: #00af00">0</span> (0.00 B)
+</pre></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold"> Non-trainable params: </span><span style="color: #00af00; text-decoration-color: #00af00">0</span> (0.00 B)
+</pre></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Xây dựng mô hình</span>
+<span class="n">model_2</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s2">&quot;rmsprop&quot;</span><span class="p">,</span>
+              <span class="n">loss</span><span class="o">=</span><span class="s2">&quot;binary_crossentropy&quot;</span><span class="p">,</span>
+              <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;accuracy&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model_2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span>
+                    <span class="n">y_train</span><span class="p">,</span>
+                    <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+                    <span class="n">batch_size</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
+                    <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Epoch 1/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">2s</span> 24ms/step - accuracy: 0.0442 - loss: 0.5814 - val_accuracy: 0.0467 - val_loss: 0.1905
+Epoch 2/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 13ms/step - accuracy: 0.0995 - loss: 0.1484 - val_accuracy: 0.4550 - val_loss: 0.0926
+Epoch 3/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 12ms/step - accuracy: 0.3901 - loss: 0.0876 - val_accuracy: 0.5013 - val_loss: 0.0770
+Epoch 4/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 12ms/step - accuracy: 0.4745 - loss: 0.0731 - val_accuracy: 0.5147 - val_loss: 0.0665
+Epoch 5/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 12ms/step - accuracy: 0.5184 - loss: 0.0637 - val_accuracy: 0.5258 - val_loss: 0.0608
+Epoch 6/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 13ms/step - accuracy: 0.5314 - loss: 0.0586 - val_accuracy: 0.5632 - val_loss: 0.0569
+Epoch 7/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 11ms/step - accuracy: 0.5504 - loss: 0.0558 - val_accuracy: 0.5579 - val_loss: 0.0546
+Epoch 8/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 12ms/step - accuracy: 0.5735 - loss: 0.0526 - val_accuracy: 0.5904 - val_loss: 0.0521
+Epoch 9/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 12ms/step - accuracy: 0.5969 - loss: 0.0506 - val_accuracy: 0.6282 - val_loss: 0.0504
+Epoch 10/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 13ms/step - accuracy: 0.6261 - loss: 0.0486 - val_accuracy: 0.6416 - val_loss: 0.0491
+Epoch 11/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 13ms/step - accuracy: 0.6434 - loss: 0.0476 - val_accuracy: 0.6483 - val_loss: 0.0484
+Epoch 12/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 14ms/step - accuracy: 0.6685 - loss: 0.0451 - val_accuracy: 0.6652 - val_loss: 0.0471
+Epoch 13/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 15ms/step - accuracy: 0.6786 - loss: 0.0448 - val_accuracy: 0.6674 - val_loss: 0.0462
+Epoch 14/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 13ms/step - accuracy: 0.6823 - loss: 0.0432 - val_accuracy: 0.6772 - val_loss: 0.0453
+Epoch 15/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 13ms/step - accuracy: 0.6915 - loss: 0.0425 - val_accuracy: 0.6803 - val_loss: 0.0443
+Epoch 16/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 12ms/step - accuracy: 0.6972 - loss: 0.0415 - val_accuracy: 0.6852 - val_loss: 0.0434
+Epoch 17/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 12ms/step - accuracy: 0.7024 - loss: 0.0404 - val_accuracy: 0.6817 - val_loss: 0.0429
+Epoch 18/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 12ms/step - accuracy: 0.7029 - loss: 0.0393 - val_accuracy: 0.6870 - val_loss: 0.0421
+Epoch 19/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 13ms/step - accuracy: 0.7113 - loss: 0.0385 - val_accuracy: 0.6923 - val_loss: 0.0416
+Epoch 20/20
+<span class="ansi-bold">18/18</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 15ms/step - accuracy: 0.7202 - loss: 0.0371 - val_accuracy: 0.6901 - val_loss: 0.0408
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_2</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-bold">71/71</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 3ms/step - accuracy: 0.7042 - loss: 0.0401
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[0.04083269461989403, 0.690115749835968]
+</pre></div></div>
+</div>
+<p>Như vậy, khi gia tăng thêm một layers nữa trong kiến trúc mạng neural, chưa chắc đã làm gia tăng chất lượng mô hình</p>
+</section>
+<section id="Mô-hình-hồi-quy">
+<h3><span class="section-number">3.3.3. </span>Mô hình hồi quy<a class="headerlink" href="#Mô-hình-hồi-quy" title="Link to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.keras.datasets</span> <span class="kn">import</span> <span class="n">boston_housing</span>
+<span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">train_targets</span><span class="p">),</span> <span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">test_targets</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">boston_housing</span><span class="o">.</span><span class="n">load_data</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/boston_housing.npz
+<span class="ansi-bold">57026/57026</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 2us/step
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_data</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(404, 13)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_targets</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([15.2, 42.3, 50. , 21.1, 17.7, 18.5, 11.3, 15.6, 15.6, 14.4, 12.1,
+       17.9, 23.1, 19.9, 15.7,  8.8, 50. , 22.5, 24.1, 27.5, 10.9, 30.8,
+       32.9, 24. , 18.5, 13.3, 22.9, 34.7, 16.6, 17.5, 22.3, 16.1, 14.9,
+       23.1, 34.9, 25. , 13.9, 13.1, 20.4, 20. , 15.2, 24.7, 22.2, 16.7,
+       12.7, 15.6, 18.4, 21. , 30.1, 15.1, 18.7,  9.6, 31.5, 24.8, 19.1,
+       22. , 14.5, 11. , 32. , 29.4, 20.3, 24.4, 14.6, 19.5, 14.1, 14.3,
+       15.6, 10.5,  6.3, 19.3, 19.3, 13.4, 36.4, 17.8, 13.5, 16.5,  8.3,
+       14.3, 16. , 13.4, 28.6, 43.5, 20.2, 22. , 23. , 20.7, 12.5, 48.5,
+       14.6, 13.4, 23.7, 50. , 21.7, 39.8, 38.7, 22.2, 34.9, 22.5, 31.1,
+       28.7, 46. , 41.7, 21. , 26.6, 15. , 24.4, 13.3, 21.2, 11.7, 21.7,
+       19.4, 50. , 22.8, 19.7, 24.7, 36.2, 14.2, 18.9, 18.3, 20.6, 24.6,
+       18.2,  8.7, 44. , 10.4, 13.2, 21.2, 37. , 30.7, 22.9, 20. , 19.3,
+       31.7, 32. , 23.1, 18.8, 10.9, 50. , 19.6,  5. , 14.4, 19.8, 13.8,
+       19.6, 23.9, 24.5, 25. , 19.9, 17.2, 24.6, 13.5, 26.6, 21.4, 11.9,
+       22.6, 19.6,  8.5, 23.7, 23.1, 22.4, 20.5, 23.6, 18.4, 35.2, 23.1,
+       27.9, 20.6, 23.7, 28. , 13.6, 27.1, 23.6, 20.6, 18.2, 21.7, 17.1,
+        8.4, 25.3, 13.8, 22.2, 18.4, 20.7, 31.6, 30.5, 20.3,  8.8, 19.2,
+       19.4, 23.1, 23. , 14.8, 48.8, 22.6, 33.4, 21.1, 13.6, 32.2, 13.1,
+       23.4, 18.9, 23.9, 11.8, 23.3, 22.8, 19.6, 16.7, 13.4, 22.2, 20.4,
+       21.8, 26.4, 14.9, 24.1, 23.8, 12.3, 29.1, 21. , 19.5, 23.3, 23.8,
+       17.8, 11.5, 21.7, 19.9, 25. , 33.4, 28.5, 21.4, 24.3, 27.5, 33.1,
+       16.2, 23.3, 48.3, 22.9, 22.8, 13.1, 12.7, 22.6, 15. , 15.3, 10.5,
+       24. , 18.5, 21.7, 19.5, 33.2, 23.2,  5. , 19.1, 12.7, 22.3, 10.2,
+       13.9, 16.3, 17. , 20.1, 29.9, 17.2, 37.3, 45.4, 17.8, 23.2, 29. ,
+       22. , 18. , 17.4, 34.6, 20.1, 25. , 15.6, 24.8, 28.2, 21.2, 21.4,
+       23.8, 31. , 26.2, 17.4, 37.9, 17.5, 20. ,  8.3, 23.9,  8.4, 13.8,
+        7.2, 11.7, 17.1, 21.6, 50. , 16.1, 20.4, 20.6, 21.4, 20.6, 36.5,
+        8.5, 24.8, 10.8, 21.9, 17.3, 18.9, 36.2, 14.9, 18.2, 33.3, 21.8,
+       19.7, 31.6, 24.8, 19.4, 22.8,  7.5, 44.8, 16.8, 18.7, 50. , 50. ,
+       19.5, 20.1, 50. , 17.2, 20.8, 19.3, 41.3, 20.4, 20.5, 13.8, 16.5,
+       23.9, 20.6, 31.5, 23.3, 16.8, 14. , 33.8, 36.1, 12.8, 18.3, 18.7,
+       19.1, 29. , 30.1, 50. , 50. , 22. , 11.9, 37.6, 50. , 22.7, 20.8,
+       23.5, 27.9, 50. , 19.3, 23.9, 22.6, 15.2, 21.7, 19.2, 43.8, 20.3,
+       33.2, 19.9, 22.5, 32.7, 22. , 17.1, 19. , 15. , 16.1, 25.1, 23.7,
+       28.7, 37.2, 22.6, 16.4, 25. , 29.8, 22.1, 17.4, 18.1, 30.3, 17.5,
+       24.7, 12.6, 26.5, 28.7, 13.3, 10.4, 24.4, 23. , 20. , 17.8,  7. ,
+       11.8, 24.4, 13.8, 19.4, 25.2, 19.4, 19.4, 29.1])
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">polars</span> <span class="k">as</span> <span class="nn">pl</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (5, 13)</small><table border="1" class="dataframe"><thead><tr><th>column_0</th><th>column_1</th><th>column_2</th><th>column_3</th><th>column_4</th><th>column_5</th><th>column_6</th><th>column_7</th><th>column_8</th><th>column_9</th><th>column_10</th><th>column_11</th><th>column_12</th></tr><tr><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>1.23247</td><td>0.0</td><td>8.14</td><td>0.0</td><td>0.538</td><td>6.142</td><td>91.7</td><td>3.9769</td><td>4.0</td><td>307.0</td><td>21.0</td><td>396.9</td><td>18.72</td></tr><tr><td>0.02177</td><td>82.5</td><td>2.03</td><td>0.0</td><td>0.415</td><td>7.61</td><td>15.7</td><td>6.27</td><td>2.0</td><td>348.0</td><td>14.7</td><td>395.38</td><td>3.11</td></tr><tr><td>4.89822</td><td>0.0</td><td>18.1</td><td>0.0</td><td>0.631</td><td>4.97</td><td>100.0</td><td>1.3325</td><td>24.0</td><td>666.0</td><td>20.2</td><td>375.52</td><td>3.26</td></tr><tr><td>0.03961</td><td>0.0</td><td>5.19</td><td>0.0</td><td>0.515</td><td>6.037</td><td>34.5</td><td>5.9853</td><td>5.0</td><td>224.0</td><td>20.2</td><td>396.9</td><td>8.01</td></tr><tr><td>3.69311</td><td>0.0</td><td>18.1</td><td>0.0</td><td>0.713</td><td>6.376</td><td>88.4</td><td>2.5671</td><td>24.0</td><td>666.0</td><td>20.2</td><td>391.43</td><td>14.65</td></tr></tbody></table></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (9, 14)</small><table border="1" class="dataframe"><thead><tr><th>statistic</th><th>column_0</th><th>column_1</th><th>column_2</th><th>column_3</th><th>column_4</th><th>column_5</th><th>column_6</th><th>column_7</th><th>column_8</th><th>column_9</th><th>column_10</th><th>column_11</th><th>column_12</th></tr><tr><td>str</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>&quot;count&quot;</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td></tr><tr><td>&quot;null_count&quot;</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td></tr><tr><td>&quot;mean&quot;</td><td>3.745111</td><td>11.480198</td><td>11.104431</td><td>0.061881</td><td>0.557356</td><td>6.267082</td><td>69.010644</td><td>3.740271</td><td>9.440594</td><td>405.898515</td><td>18.47599</td><td>354.783168</td><td>12.740817</td></tr><tr><td>&quot;std&quot;</td><td>9.240734</td><td>23.767711</td><td>6.811308</td><td>0.241238</td><td>0.117293</td><td>0.709788</td><td>27.940665</td><td>2.030215</td><td>8.69836</td><td>166.374543</td><td>2.200382</td><td>94.111148</td><td>7.254545</td></tr><tr><td>&quot;min&quot;</td><td>0.00632</td><td>0.0</td><td>0.46</td><td>0.0</td><td>0.385</td><td>3.561</td><td>2.9</td><td>1.1296</td><td>1.0</td><td>188.0</td><td>12.6</td><td>0.32</td><td>1.73</td></tr><tr><td>&quot;25%&quot;</td><td>0.08187</td><td>0.0</td><td>5.13</td><td>0.0</td><td>0.453</td><td>5.875</td><td>45.6</td><td>2.0788</td><td>4.0</td><td>279.0</td><td>17.3</td><td>374.71</td><td>6.9</td></tr><tr><td>&quot;50%&quot;</td><td>0.26938</td><td>0.0</td><td>9.69</td><td>0.0</td><td>0.538</td><td>6.202</td><td>78.7</td><td>3.1523</td><td>5.0</td><td>330.0</td><td>19.1</td><td>391.27</td><td>11.45</td></tr><tr><td>&quot;75%&quot;</td><td>3.67367</td><td>12.5</td><td>18.1</td><td>0.0</td><td>0.631</td><td>6.606</td><td>94.1</td><td>5.118</td><td>24.0</td><td>666.0</td><td>20.2</td><td>396.14</td><td>17.09</td></tr><tr><td>&quot;max&quot;</td><td>88.9762</td><td>100.0</td><td>27.74</td><td>1.0</td><td>0.871</td><td>8.725</td><td>100.0</td><td>10.7103</td><td>24.0</td><td>711.0</td><td>22.0</td><td>396.9</td><td>37.97</td></tr></tbody></table></div></div>
+</div>
+<p>Khi xây dựng mô hình <code class="docutils literal notranslate"><span class="pre">deep</span> <span class="pre">learning</span></code>, ta cần đưa các biến về cùng một khoảng giá trị. Cách làm cơ bản nhất là chuẩn hóa dữ liệu về cùng scale.</p>
+<div class="math notranslate nohighlight">
+\[y = \frac{y - \mu}{\sigma}\]</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[75]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean</span> <span class="o">=</span> <span class="n">train_data</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">mean</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[75]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([3.74511057e+00, 1.14801980e+01, 1.11044307e+01, 6.18811881e-02,
+       5.57355941e-01, 6.26708168e+00, 6.90106436e+01, 3.74027079e+00,
+       9.44059406e+00, 4.05898515e+02, 1.84759901e+01, 3.54783168e+02,
+       1.27408168e+01])
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[76]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_data</span> <span class="o">-=</span> <span class="n">mean</span>
+<span class="n">std</span> <span class="o">=</span> <span class="n">train_data</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">train_data</span> <span class="o">/=</span> <span class="n">std</span>
+<span class="n">test_data</span> <span class="o">-=</span> <span class="n">mean</span>
+<span class="n">test_data</span> <span class="o">/=</span> <span class="n">std</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (9, 14)</small><table border="1" class="dataframe"><thead><tr><th>statistic</th><th>column_0</th><th>column_1</th><th>column_2</th><th>column_3</th><th>column_4</th><th>column_5</th><th>column_6</th><th>column_7</th><th>column_8</th><th>column_9</th><th>column_10</th><th>column_11</th><th>column_12</th></tr><tr><td>str</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>&quot;count&quot;</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td><td>404.0</td></tr><tr><td>&quot;null_count&quot;</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td></tr><tr><td>&quot;mean&quot;</td><td>-1.0553e-16</td><td>-7.4748e-17</td><td>1.8291e-15</td><td>-6.8152e-17</td><td>-5.1796e-15</td><td>6.3667e-15</td><td>2.4623e-16</td><td>5.1884e-16</td><td>-5.2763e-17</td><td>-6.1557e-17</td><td>2.3603e-14</td><td>6.0502e-15</td><td>6.3316e-16</td></tr><tr><td>&quot;std&quot;</td><td>1.00124</td><td>1.00124</td><td>1.00124</td><td>1.00124</td><td>1.00124</td><td>1.00124</td><td>1.00124</td><td>1.00124</td><td>1.00124</td><td>1.00124</td><td>1.00124</td><td>1.00124</td><td>1.00124</td></tr><tr><td>&quot;min&quot;</td><td>-0.405101</td><td>-0.483615</td><td>-1.564696</td><td>-0.256833</td><td>-1.471269</td><td>-3.81725</td><td>-2.369042</td><td>-1.287503</td><td>-0.971569</td><td>-1.311311</td><td>-2.673752</td><td>-3.771101</td><td>-1.519664</td></tr><tr><td>&quot;25%&quot;</td><td>-0.396915</td><td>-0.483615</td><td>-0.878222</td><td>-0.256833</td><td>-0.890805</td><td>-0.553078</td><td>-0.838909</td><td>-0.819387</td><td>-0.626249</td><td>-0.763674</td><td>-0.535111</td><td>0.212</td><td>-0.806123</td></tr><tr><td>&quot;50%&quot;</td><td>-0.376598</td><td>-0.483615</td><td>-0.207917</td><td>-0.256833</td><td>-0.165227</td><td>-0.091805</td><td>0.347213</td><td>-0.289969</td><td>-0.511142</td><td>-0.456756</td><td>0.283943</td><td>0.38818</td><td>-0.178153</td></tr><tr><td>&quot;75%&quot;</td><td>-0.007741</td><td>0.04296</td><td>1.028326</td><td>-0.256833</td><td>0.628642</td><td>0.478085</td><td>0.899065</td><td>0.679454</td><td>1.675886</td><td>1.565287</td><td>0.784476</td><td>0.439992</td><td>0.600255</td></tr><tr><td>&quot;max&quot;</td><td>9.234847</td><td>3.72899</td><td>2.445374</td><td>3.893584</td><td>2.677335</td><td>3.467186</td><td>1.110488</td><td>3.437406</td><td>1.675886</td><td>1.836097</td><td>1.603531</td><td>0.448077</td><td>3.482019</td></tr></tbody></table></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build_model</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">),</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">),</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">])</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s2">&quot;rmsprop&quot;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s2">&quot;mse&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;mae&quot;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">model</span>
+</pre></div>
+</div>
+</div>
+<p>Với các mô hình hồi quy thường, layers thông thường các node đều để activation với <code class="docutils literal notranslate"><span class="pre">relu</span></code> và layer cuối sẽ để dạng <code class="docutils literal notranslate"><span class="pre">Dense</span></code> thường</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[81]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">build_model</span><span class="p">()</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">train_targets</span><span class="p">,</span>
+                    <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">test_targets</span><span class="p">),</span>
+                    <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+                    <span class="n">batch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Epoch 1/20
+<span class="ansi-bold">26/26</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">1s</span> 17ms/step - loss: 549.4073 - mae: 21.6143 - val_loss: 455.6754 - val_mae: 19.4348
+Epoch 2/20
+<span class="ansi-bold">26/26</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 3ms/step - loss: 369.8725 - mae: 17.1327 - val_loss: 265.4864 - val_mae: 14.1890
+Epoch 3/20
+<span class="ansi-bold">26/26</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 2ms/step - loss: 182.3016 - mae: 11.3490 - val_loss: 110.8033 - val_mae: 8.6260
+Epoch 4/20
+<span class="ansi-bold">26/26</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 2ms/step - loss: 94.0896 - mae: 7.1955 - val_loss: 55.2951 - val_mae: 5.7615
+Epoch 5/20
+<span class="ansi-bold">26/26</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 2ms/step - loss: 41.4643 - mae: 4.8586 - val_loss: 34.2481 - val_mae: 4.6553
+Epoch 6/20
+<span class="ansi-bold">26/26</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 3ms/step - loss: 26.4465 - mae: 3.7233 - val_loss: 28.2051 - val_mae: 4.0434
+Epoch 7/20
+<span class="ansi-bold">26/26</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 3ms/step - loss: 19.0946 - mae: 3.0245 - val_loss: 25.2276 - val_mae: 3.9039
+Epoch 8/20
+<span class="ansi-bold">26/26</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 3ms/step - loss: 19.4162 - mae: 3.0383 - val_loss: 23.5146 - val_mae: 3.7701
+Epoch 9/20
+<span class="ansi-bold">26/26</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 3ms/step - loss: 18.7952 - mae: 3.0400 - val_loss: 23.7454 - val_mae: 3.5233
+Epoch 10/20
+<span class="ansi-bold">26/26</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 3ms/step - loss: 15.6425 - mae: 2.7457 - val_loss: 23.4933 - val_mae: 3.7467
+Epoch 11/20
+<span class="ansi-bold">26/26</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 3ms/step - loss: 13.3399 - mae: 2.6416 - val_loss: 22.9354 - val_mae: 3.4043
+Epoch 12/20
+<span class="ansi-bold">26/26</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 2ms/step - loss: 17.8934 - mae: 2.8449 - val_loss: 21.8035 - val_mae: 3.4046
+Epoch 13/20
+<span class="ansi-bold">26/26</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 3ms/step - loss: 12.0992 - mae: 2.5918 - val_loss: 22.0687 - val_mae: 3.3906
+Epoch 14/20
+<span class="ansi-bold">26/26</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 3ms/step - loss: 12.1251 - mae: 2.4147 - val_loss: 20.4666 - val_mae: 3.2531
+Epoch 15/20
+<span class="ansi-bold">26/26</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 3ms/step - loss: 11.5550 - mae: 2.4326 - val_loss: 21.0517 - val_mae: 3.2044
+Epoch 16/20
+<span class="ansi-bold">26/26</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 3ms/step - loss: 9.5704 - mae: 2.3619 - val_loss: 21.7144 - val_mae: 3.2810
+Epoch 17/20
+<span class="ansi-bold">26/26</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 4ms/step - loss: 9.7338 - mae: 2.2827 - val_loss: 22.7866 - val_mae: 3.3011
+Epoch 18/20
+<span class="ansi-bold">26/26</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 3ms/step - loss: 10.9459 - mae: 2.3327 - val_loss: 20.7104 - val_mae: 3.2569
+Epoch 19/20
+<span class="ansi-bold">26/26</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 3ms/step - loss: 10.8424 - mae: 2.3016 - val_loss: 22.1775 - val_mae: 3.2962
+Epoch 20/20
+<span class="ansi-bold">26/26</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 2ms/step - loss: 10.6309 - mae: 2.3402 - val_loss: 20.6627 - val_mae: 3.1362
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[84]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">test_targets</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-bold">4/4</span> <span class="ansi-green-fg">━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-bold">0s</span> 3ms/step - loss: 16.3894 - mae: 2.9383
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[84]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[20.662721633911133, 3.1361870765686035]
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="Lưu-ý-xây-dựng-mô-hình">
+<h2><span class="section-number">3.4. </span>Lưu ý xây dựng mô hình<a class="headerlink" href="#Lưu-ý-xây-dựng-mô-hình" title="Link to this heading"></a></h2>
+<p>Tương tự như các mô hình học máy khác, nhóm thuật toán học sâu cũng gặp các vấn đề như overfitting hay chất lượng mô hình và cũng có các yêu cầu về dữ liệu.</p>
+<ul class="simple">
+<li><p>Yêu cầu dữ liệu</p>
+<ul>
+<li><p>Giá trị nhỏ (thường trong khoảng 0-1)</p></li>
+<li><p>Có giá trị trong cùng khỏng (homogenous)</p></li>
+<li><p>Xử lý missing value</p></li>
+</ul>
+</li>
+</ul>
+<p>Với yêu cầu về mặt dữ liệu trên, thông thường sẽ scale và chuẩn hóa dữ liệu</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">-=</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">/=</span> <span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Các kỹ thuật xử lý <code class="docutils literal notranslate"><span class="pre">overfitting</span></code>:</p>
+<ul class="simple">
+<li><p>Thay đổi kiến trúc - loại bỏ bớt các lớp</p></li>
+<li><p>Giảm số lượng neural trong một layer</p></li>
+<li><p>Thêm dropout - để các neural trong mỗi lớp không hoàn toàn liên kết với nhau</p></li>
+<li><p>Thêm regularization - <span class="math notranslate nohighlight">\(L_1\)</span> &amp; <span class="math notranslate nohighlight">\(L_2\)</span>:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(L_1\)</span>: Thêm <span class="math notranslate nohighlight">\(\sum |\alpha|\)</span> vào penalty</p></li>
+<li><p><span class="math notranslate nohighlight">\(L_2\)</span>: Thêm <span class="math notranslate nohighlight">\(\sum \alpha^2\)</span> vào penalty</p></li>
+</ul>
+</li>
+</ul>
 </section>
 </section>
 
@@ -1229,6 +2171,7 @@ array([[0.25915012],
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="p01-02-toan-co-ban.html" class="btn btn-neutral float-left" title="2. Toán cơ bản với DL" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="p01-04-dl-timeseries.html" class="btn btn-neutral float-right" title="4. Chuỗi thời gian" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

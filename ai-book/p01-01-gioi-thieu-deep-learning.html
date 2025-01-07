@@ -1,28 +1,28 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="vn" >
+<html class="writer-html5" lang="vn" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>1. Giới thiệu về học sâu &mdash; AI book 2024 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="_static/nbsphinx-code-cells.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/nbsphinx-code-cells.css?v=2aa19091" />
+
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=c86923ab"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-        <script src="_static/copybutton.js?v=f281be69"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c86923ab"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -59,6 +59,14 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="p01-02-toan-co-ban.html">2. Toán cơ bản với DL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-03-dl-co-ban.html">3. Tensorflow &amp; Keras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html">4. Chuỗi thời gian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html#Giới-thiệu">5. Giới thiệu</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">LLM &amp; GenAI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="p02-01-gioi-thieu-llm.html">1. Giới thiệu về mô hình ngôn ngữ lớn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p02-02-xu-ly-text.html">2. Xử lý dữ liệu text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p02-03-co-che-tu-chu-y.html">3. Cơ chế tự chú ý</a></li>
 </ul>
 
         </div>
@@ -91,7 +99,7 @@
 <h2><span class="section-number">1.1. </span>Giới thiệu<a class="headerlink" href="#Giới-thiệu" title="Link to this heading"></a></h2>
 <p>Thuật ngữ <code class="docutils literal notranslate"><span class="pre">Artificial</span> <span class="pre">Intelligence</span></code> được tạo ra từ những năm 1950s với mục tiêu tự động hóa các công việc mà con người phải thực hiện. Thời điểm đó, các kỹ sư viết ra các thuật toán dựa trên các quy tắc (<code class="docutils literal notranslate"><span class="pre">rule</span> <span class="pre">based</span></code>) để hướng dẫn máy tính chơi cờ với con người. Việc sử dụng <code class="docutils literal notranslate"><span class="pre">AI</span></code> với các rule cho trước như vậy được gọi là <code class="docutils literal notranslate"><span class="pre">symbolic</span> <span class="pre">AI</span></code></p>
 <p>Khác với <code class="docutils literal notranslate"><span class="pre">symbolic</span> <span class="pre">AI</span></code>, <code class="docutils literal notranslate"><span class="pre">Machine</span> <span class="pre">Learning</span></code> được đưa ra để trả lời câu hỏi: &quot;Liệu máy móc có thể tự đưa ra các quy tắc (rules) hay không?&quot;. Hai cách tiếp cận trên khác nhau cơ bản như hình dưới đây.</p>
-<img alt="_images/nn-00.png" src="_images/nn-00.png" />
+<p><img alt="image1" src="_images/p01-dl-03.png" /></p>
 <p>Từ 1960s đến giờ, có rất nhiều các các thuận toán khác nhau như <code class="docutils literal notranslate"><span class="pre">SVM</span></code> với <code class="docutils literal notranslate"><span class="pre">kernel</span></code> hay các thuật toán họ cây như <code class="docutils literal notranslate"><span class="pre">Random</span> <span class="pre">Forest</span></code> hay <code class="docutils literal notranslate"><span class="pre">XGBoost</span></code>. Các nhóm thuật toán này đều thực hiện rất tốt với các loại dữ liệu biến thiên ít thuần nhất với đặc thù có nhiều kiểu dữ liệu và biên độ biến thiên dữ liệu lớn. Ví dụ - dữ liệu khách hàng có thể có:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">income</span></code> - thu nhập từ 100 đến 1M USD</p></li>
@@ -103,18 +111,18 @@
 <hr class="docutils" />
 <p>Học sâu (<code class="docutils literal notranslate"><span class="pre">deep</span> <span class="pre">learning</span></code>) là một lĩnh vực con của học máy (<code class="docutils literal notranslate"><span class="pre">machine</span> <span class="pre">learning</span></code>), trong đó các mô hình mạng neuron nhiều lớp (deep neural networks) được sử dụng để học từ dữ liệu. Khác với các thuật toán machine learning truyền thống, deep learning có khả năng tự động trích xuất các đặc trưng từ dữ liệu mà không cần sự can thiệp của con người.</p>
 <p>Deep learning tạo sự khác biệt lớn so với các thuật toán ML thông thường bởi mô phỏng quá trình tương tác thông tin từ bộ não con người thông qua mạng neural. Dữ liệu đầu vào và đầu ra được gọi là input và output. Giữa 2 lớp này có nhiều lớp ẩn ở giữa (<code class="docutils literal notranslate"><span class="pre">hidden</span> <span class="pre">layer</span></code>) với nhiều node - đại diện cho 1 neural. Cấu trúc cơ bản của mạng neural như sau</p>
-<img alt="_images/p01-neural-architecture.png" src="_images/p01-neural-architecture.png" />
+<p><img alt="image1" src="_images/p01-dl-03.png" /></p>
 <p>Các input đầu vào tại mỗi neural sẽ tổng hợp và trả ra một kết quả làm đầu vào cho neural tiếp theo trong mạng thần kinh. Hàm tính toán tại mỗi neural gọi là hàm kích hoạt (<code class="docutils literal notranslate"><span class="pre">activation</span> <span class="pre">function</span></code>). Ở lớp cuối cùng, tùy theo bài toán cần thực hiện sẽ có số lượng neural khác nhau - ví dụ, bài toán phân loại đơn giản sẽ có 2 neural, bài toán phân loại nhiều nhóm - số neural chính là số nhóm, …</p>
 <p>So sánh giữa mạng neural của máy tính và con người có những khác biệt lớn như sau</p>
-<img alt="_images/p01-01-neural-bio.png" src="_images/p01-01-neural-bio.png" />
+<p><img alt="image1" src="_images/p01-dl-03.png" /></p>
 <p>Thuật toán deelp learning có thể xử lý một lượng lớn dữ liệu và thực hiện tốt trong các nhiệm vụ phức tạp như nhận diện hình ảnh, xử lý ngôn ngữ tự nhiên… Chữ <code class="docutils literal notranslate"><span class="pre">deep</span></code> trong <code class="docutils literal notranslate"><span class="pre">deep</span> <span class="pre">learning</span></code> thể hiện nhiều lớp trong một mạng neural thần kinh. Nhờ vào cấu trúc mạng neuron sâu, deep learning có thể học được các biểu diễn dữ liệu rất phức tạp và trừu tượng, điều mà các thuật toán machine learning truyền thống khó đạt được như nhận diện ảnh, tạo ra phản hồi, … Dữ liệu đầu vào và đầu ra của một
 lớp hoặc một neural được gọi là <code class="docutils literal notranslate"><span class="pre">tensor</span></code> (mảng dữ liệu đa chiều dữ liệu)</p>
-<img alt="_images/p01-vi-du-dl.png" src="_images/p01-vi-du-dl.png" />
+<p><img alt="image1" src="_images/p01-dl-03.png" /></p>
 <p>Từ deep learning, phát triển thêm nhóm thuật toán và mô hình với GenAI, cho phép thực hiện các tác vụ như tạo hình ảnh, âm thanh, text nhanh chóng và đạt chất lượng rất cao.</p>
 <p>Mối quan hệ giữa Data Analytics, AI, ML, DL và GenAI như sau:</p>
-<img alt="_images/p01-ai.png" src="_images/p01-ai.png" />
+<p><img alt="image1" src="_images/p01-dl-03.png" /></p>
 <p>Deep Learning so sánh với các thuật toán ML khác</p>
-<img alt="_images/p01-01-dl-vs-ml.png" src="_images/p01-01-dl-vs-ml.png" />
+<p><img alt="image1" src="_images/p01-dl-03.png" /></p>
 <p>Một mạng neral network khi thực hiện sẽ qua các bước lớn:</p>
 <ul class="simple">
 <li><p>Input X: Dữ liệu đầu vào cho mạng nơ-ron.</p></li>
@@ -126,7 +134,7 @@ lớp hoặc một neural được gọi là <code class="docutils literal notra
 <li><p>Optimizer: Bộ tối ưu hóa điều chỉnh trọng số dựa trên điểm mất mát để giảm sai lệch.</p></li>
 <li><p>Weight Update: Quá trình cập nhật trọng số để cải thiện dự đoán của mô hình.</p></li>
 </ul>
-<img alt="_images/p01-dl-03.png" src="_images/p01-dl-03.png" />
+<p><img alt="image1" src="_images/p01-dl-03.png" /></p>
 <p>Mô hình deep learning có các ưu điểm vượt trội sau:</p>
 <ul class="simple">
 <li><p>Cho phép động hóa <code class="docutils literal notranslate"><span class="pre">feature</span> <span class="pre">engineering</span></code>, tối ưu hóa cùng lúc nhiều lớp</p></li>

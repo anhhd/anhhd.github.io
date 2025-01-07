@@ -12,4 +12,4 @@ xcopy /s "%source%" "%destination%"
 REM -delete .ipynb
 REM del /S /Q "%destination%\*.ipynb"
 
-wsl touch ds-book-python\.nojekyll
+REM wsl touch ds-book-python\.nojekyll
