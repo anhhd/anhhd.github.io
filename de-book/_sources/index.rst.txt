@@ -1,4 +1,4 @@
-.. e: Khai thác dữ liệu với SQL, created by
+.. e: Data Engineer book, created by
    Anh Hoang Duc
 
 SQL cơ bản
@@ -12,49 +12,27 @@ SQL cơ bản
    
    p01*
 
-SQL nâng cao
+DBT & Airflow
 ===================================================
 
 .. toctree::
    :maxdepth: 2
    :numbered:
-   :caption: SQL nâng cao
+   :caption: DBT & Airflow
    :glob:
    
    p02*
-   
-SQL & Analytics
+
+Các công nghệ khác
 ===================================================
 
 .. toctree::
    :maxdepth: 2
    :numbered:
-   :caption: SQL & Analytics
+   :caption: Các công nghệ khác
    :glob:
    
    p03*
-
-Xây dựng DataMart
-===================================================
-
-.. toctree::
-   :maxdepth: 2
-   :numbered:
-   :caption: Xây dựng DataMart
-   :glob:
-   
-   p04* 
-
-Tài liệu tham khảo
-===================================================
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Tài liệu tham khảo:
-   :glob:
-   
-   p09*    
-	
 
 Indices and tables
 ==================

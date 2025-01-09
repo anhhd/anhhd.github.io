@@ -1,0 +1,314 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="vi" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Warehouse Modelling &mdash; Tài liệu Khai thác dữ liệu với SQL 2019</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=33847982"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/translations.js?v=4c1d55b0"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Khai thác dữ liệu với SQL
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SQL cơ bản</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html">1. SQL cơ bản</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-02-sql-nang-cao.html">2. SQL nâng cao</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-03-sql-tuning.html">3. SQL tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-sql-style.html">4. SQL style guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-05-tricks-sql.html">5. Mẹo với SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-06-sqlcmd.html">6. SQLCMD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-07-sql-project.html">7. SQL prọject</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-08-sql-va-excel.html">8. Kết nối SQL với Excel phục vụ báo cáo tự động</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Khai thác dữ liệu với SQL</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Data Warehouse Modelling</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/p09-01-dwh.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Data-Warehouse-Modelling">
+<h1>Data Warehouse Modelling<a class="headerlink" href="#Data-Warehouse-Modelling" title="Link to this heading"></a></h1>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">knitr</span><span class="p">::</span><span class="n">opts_chunk$set</span><span class="p">(</span><span class="n">echo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="Giới-thiệu">
+<h2>Giới thiệu<a class="headerlink" href="#Giới-thiệu" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Kho dữ liệu tập trung (DWH) là một hệ thống thu thập, tổng hợp và làm sạch dữ liệu định kỳ từ các hệ thống nguồn (source system) thành dữ liệu có cấu trúc được chuẩn hoá (normalized) nhiều chiều. Dữ liệu trong DWH thường được xử lý theo nhóm (batches)</p>
+</div></blockquote>
+<p>Data Warehouse (<code class="docutils literal notranslate"><span class="pre">DWH</span></code>) cần phải đảm bảo các mục tiêu sau:</p>
+<ul class="simple">
+<li><p>Dễ dàng truy cập nhanh chóng</p></li>
+<li><p>Đồng nhất dữ liệu</p></li>
+<li><p>Có khả năng thay đổi theo nhu cầu nghiệp vụ</p></li>
+</ul>
+<hr class="docutils" />
+<p>Sơ đồ tổng quan luồng dữ liệu</p>
+<p><img alt="image1" src="_images/dwh-overview.png" /></p>
+<p>Các cấu phần quan trọng nhất của DWH bao gồm:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Source</span> <span class="pre">system</span></code>: Các hệ thống nguồn, còn được gọi là OLTP (<code class="docutils literal notranslate"><span class="pre">Online</span> <span class="pre">Transaction</span> <span class="pre">Processing</span></code>), dùng để lưu trữ các giao dịch của khách hàng theo từng hệ thống</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">Profiler</span></code>: Công cụ để đánh giá dữ liệu của hệ thống nguồn, ví dụ: Có bao nhiêu giá trị NULL, số lượng dòng/cột trong mỗi bảng từ nguồn</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ETL</span></code>: Quá trình <code class="docutils literal notranslate"><span class="pre">Extract</span> <span class="pre">-</span> <span class="pre">Transform</span> <span class="pre">-</span> <span class="pre">Load</span></code> dữ liệu</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DDS</span></code>: Dimensional Data Store - nguồn dữ liệu đã được chuẩn hoá và lưu trữ tập trung. Nguồn dữ liệu có cấu trúc khác so với hệ thống nguồn (OLTP)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DQ</span></code>: Data Quality, kiểm soát chất lượng dữ liệu sau khi đi vào DWH. Nếu chất lượng dữ liệu đảm bảo, sẽ được sử dụng tiếp trong các hoạt động khai thác tiếp theo.</p></li>
+</ul>
+<center><p>§</p>
+</center><p><strong>Data consolidation</strong></p>
+<p>Khi tổng hợp lại dữ liệu từ các nguồn khác nhau, có các vấn đề sau cần phải tính toán:</p>
+<ul class="simple">
+<li><p><strong>Data availability</strong>: Mỗi hệ thống có những nhóm dữ liệu khác nhau. VD: Hệ thống T24 có thể có address1, address2,… nhưng trong hệ thống Online Banking chỉ có 1 giá trị address</p></li>
+<li><p><strong>Time ranges</strong>: Khi tổng hơp dữ liệu, cần phải xét cùng trong 1 khoảng thời gian.</p></li>
+<li><p><strong>Definition</strong>: Cùng tên 1 trường thông tin nhưng trong mỗi hệ thống khác nhau lại có ý nghĩa khác nhau.</p></li>
+<li><p><strong>Conversion</strong>: Khác nhau về các đơn vị, múi giờ và thời gian trong từng hệ thống… VD: Dữ liệu quẹt thẻ tín dụng đưa về Master Card theo GMT+0, trong khi lưu trữ của W4 tại ngân hàng trong nước là GMT+7</p></li>
+<li><p><strong>Matching</strong>: Quá trình xác định các đối tượng duy nhất giữa các hệ thống. VD: CustomerID trong T24 cần phải khớp với UserID trong hệ thống Internet Banking</p></li>
+</ul>
+<p>Dữ liệu trong DWH được update theo batch (chốt ngày hoặc chốt thời gian dữ liệu), mục tiêu để giữ nguồn dữ liệu phân tích đảm bảo tính ổn định tương đối khi phân tích</p>
+<center><p>§</p>
+</center><p><strong>ODS</strong> - Operational Data Store: Là nguồn dữ liệu được update theo thời gian thực (real/near real time) từ hệ thống nguồn. Khi dữ liệu từ Source System thay đổi, dữ liệu ODS sẽ thay đổi ngay lập tức tương ứng.</p>
+<center><p>§</p>
+</center><p><strong>Master Data Management</strong></p>
+<p>Trong hệ thống nguồn OLTP, có 2 loại dữ liệu chính:</p>
+<ul class="simple">
+<li><p><strong>Transaction</strong>: Là dữ liệu giao dịch hoặc business event</p></li>
+<li><p><strong>Master</strong>: Đối tượng tham gia trong transaction</p></li>
+</ul>
+<p>Ví dụ: Công ty vận tải có 10 tài xế với 8 chiếc xe, di chuyển 1 ngày được 1000 tuyến.</p>
+<ul class="simple">
+<li><p>Mỗi chuyến xe bus từ điểm A đến điểm B là 1 giao dịch</p></li>
+<li><p>Đối tượng tham gia trực tiếp vào giao dịch (tài xế, xe bus, khách hàng) là master data</p></li>
+</ul>
+<center><p>§</p>
+</center><p>Trách nhiệm của vị trí quản lý dữ liệu rất đa dạng:</p>
+<ul class="simple">
+<li><p>Hiểu nhu cầu người dùng</p></li>
+<li><p>Đảm bảo sự chính xác và đồng nhất của dữ liệu giữa các mảng nghiệp vụ lớn</p></li>
+<li><p>Duy trì được sự tin tưởng của người dùng với kho dữ liệu tập trung</p></li>
+</ul>
+<p>Modelling phải trải qua 4 bước:</p>
+<ul class="simple">
+<li><p>Xác định chính xác business process:</p></li>
+<li><p>Xác định <code class="docutils literal notranslate"><span class="pre">grain</span></code> trong fact table: Trả lời câu hỏi, một dòng trong fact table có ý nghĩa là gì?</p></li>
+<li><p>Xác định dimension</p></li>
+<li><p>Xác định facts</p></li>
+</ul>
+<center><p>§</p>
+</center><p>Khi xây dựng Data Model, có 2 loại bảng chính: Dim &amp; Fact</p>
+<p>Measure (Facts): Là các chỉ số được sử dụng tổng hợp, tính toán như doanh số bán hàng, số lượng hàng tồn kho,…</p>
+<p>Dimension là các chiều để đánh giá chính xác context (bối cảnh) quanh chỉ số cần phan tích</p>
+<section id="Facts">
+<h3>Facts<a class="headerlink" href="#Facts" title="Link to this heading"></a></h3>
+<p>Nếu chia theo thuộc tính cộng, measure có 3 nhóm sau: - Additive - như số lượng đơn hàng. Tổng số hàng cả nước là tổng số hàng mỗi đơn vị - Semi-additive - Số lượng khách hàng trong cả nước ko hẳn là tổng số khách hàng mỗi đơn vị do 1 khách hàng có thể thuộc nhiều đơn vị - Non-additive: Không thể cộng tổng lại. VD: Tỷ lệ phần trăm lợi nhuận của toàn hàng không phải là tổng tỷ lệ phần trăm lợi nhuận mỗi đơn vị</p>
+<p>Ngoài ra, facts còn có thể có các nhóm sau:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Transaction</span> <span class="pre">Fact</span></code>: đo lường chỉ tiêu tại 1 điểm thời gian, không gian cụ thể. VD: Bảng giá trị giao dịch theo thời gian giao dịch</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Periodic</span> <span class="pre">Snapshot</span> <span class="pre">Fact</span></code>: Đo lường các chỉ tiêu tại 1 khoảng thời gian cụ thể VD: Tổng giá trị giải ngân/ADB giải ngân trong tháng</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Accumulating</span> <span class="pre">Snapshot</span> <span class="pre">Fact</span></code>: Đo lường chỉ tiêu luỹ kế tại 1 thời điểm. VD:</p>
+<ul>
+<li><p>Số lượng khách hàng active luỹ kế tại thời điểm, tổng số tiền giải ngân luỹ kế</p></li>
+<li><p>Số điểm loyalty hiện hữu tại 1 thời điểm của 1 khách hàng</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Factless</span> <span class="pre">fact</span></code>: Trường hợp tìm kiếm và tổng hợp measure không xuất hiện thực tế. VD: Tìm số lượng khách hàng không giao dịch trong 1 khoảng thời gian.</p></li>
+</ul>
+<p>Các thuộc tính của facts thường không khác biệt giữa các nhóm ngành khác sau.</p>
+<p>So sánh các kiểu bảng facts như sau:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tiêu chí</p></th>
+<th class="head"><p>Transaction</p></th>
+<th class="head"><p>Periodic Snapshot</p></th>
+<th class="head"><p>Accumulating Snapshot</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Chu kỳ</p></td>
+<td><p>Mang tính thời điểm, thời gian xảy ra event.</p></td>
+<td><p>Mang tính chu kỳ xác định trước, lặp lại định kỳ.</p>
+<p>VD: Tổng số giao dịch hàng tháng sẽ được lấy trong khoảng thời gian từ đầu đến hết tháng</p>
+</td>
+<td><p>Không xác định cụ thể</p></td>
+</tr>
+<tr class="row-odd"><td><p>Grain (Độ mịn)</p></td>
+<td><p>Mỗi dòng thể hiện 1 giao dịch (event)</p></td>
+<td><p>Mỗi dòng thể hiện snapshot của chỉ tiêu trong khoảng thời gian xác đinh</p></td>
+<td><p>Mỗi dòng thể hiện số luỹ kế trong khoảng thời gian chưa xác định trước</p></td>
+</tr>
+<tr class="row-even"><td><p>Thời gian</p></td>
+<td><p>Điểm thời gian</p></td>
+<td><p>Khoảng thời gian</p></td>
+<td><p>NA</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p><strong>Lưu ý</strong>: Nên tránh xây báo cáo lẫn lộn cả nhóm fact transaction lẫn nhóm chu kỳ</p>
+</div></blockquote>
+<center><p>§</p>
+</center><p>Thông thường, mỗi fact cần được tách theo từng business process riêng. Tuy nhiên, khi tổng hợp cùng lúc nhiều facts thuộc nhiều process và cùng một granularity, facts đó được gọi là <code class="docutils literal notranslate"><span class="pre">consolidated</span> <span class="pre">fact</span> <span class="pre">tables</span></code>.</p>
+<p>Các trường hợp tổng hợp lại sẽ hỗ trợ tốt nhóm báo cáo nhiều chỉ tiêu, nhưng do mỗi facts có các đặc thù về độ mịn (granularity) khác nhau, nên khi cần <code class="docutils literal notranslate"><span class="pre">drill</span> <span class="pre">down</span></code>, sẽ gặp khó khăn.</p>
+</section>
+<section id="Dimension">
+<h3>Dimension<a class="headerlink" href="#Dimension" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Dimension: Là chiều để tổng hợp các chỉ số. Dimension dùng để trả lời các câu hỏi &quot;who, what, where, when, how&quot; quanh một chỉ số nhất định. Dimension có các nhóm sau - Hieararchy: Là độ chi tiết và phân tầng thứ tự của dimension, thuộc tính này còn được gọi là <code class="docutils literal notranslate"><span class="pre">granularity</span></code>. VD: <code class="docutils literal notranslate"><span class="pre">Chi</span> <span class="pre">nhánh</span> <span class="pre">&lt;</span> <span class="pre">Thành</span> <span class="pre">phố</span> <span class="pre">&lt;</span> <span class="pre">Vùng</span></code> - Slow changing dimension: Các dimension có thể thay đổi theo thời gian. VD: Khi mở thêm chi nhánh, sẽ có thêm dimension Branch_name. Đối với loại này, cần có thểm thông tin effective
+date - Time dimension: Loại dimension rất đặc biệt, có thể có các dạng sau: - Theo lịch:<code class="docutils literal notranslate"><span class="pre">Year</span> <span class="pre">&gt;</span> <span class="pre">Month</span> <span class="pre">&gt;</span> <span class="pre">Date</span> <span class="pre">hoặc</span> <span class="pre">Year</span> <span class="pre">&gt;</span> <span class="pre">Month</span> <span class="pre">&gt;</span> <span class="pre">Week</span> <span class="pre">&gt;</span> <span class="pre">Weekday</span> <span class="pre">&gt;</span> <span class="pre">Date</span></code> - Theo năm tài chính: Fiscal year</p></li>
+</ul>
+<blockquote>
+<div><p><strong>Lưu ý</strong>: Số liệu định dạng số liên tục thường là measure, số liệu định dạng số rời rạc thường là dim. Ta có thể biến measure thành dimension bằng cách biến đổi dữ liệu numeric về thành dạng group.</p>
+</div></blockquote>
+<p>Các kiểu dimension như sau:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Dimension</span> <span class="pre">Surrogate</span> <span class="pre">Keys</span></code>: Một cột làm key duy nhất</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Natural/Durable</span> <span class="pre">&amp;</span> <span class="pre">Supernatural</span> <span class="pre">Keys</span></code>: Khoá tự nhiên (natural) do hệ thống tự sinh. Durable (còn gọi là supernatural key) là key được điều chỉnh để đảm bảo tính đồng nhất của 1 đối tượng. Ví dụ, nhân sự nghỉ việc, khi quay lại vẫn giữ cùng 1 mã ID duy nhất</p></li>
+</ul>
+<center><p>§</p>
+</center><p><code class="docutils literal notranslate"><span class="pre">Enterprise</span> <span class="pre">DWH</span> <span class="pre">Bus</span> <span class="pre">Architecture</span></code> là kỹ thuật chia nhỏ DWH/BI process thành các đơn vị nhỏ để quản lý và tái sử dụng.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Enterprise</span> <span class="pre">DWH</span> <span class="pre">Bus</span> <span class="pre">Matrix</span></code> là ma trận phân tích các chiều (dimension) theo từng business process.</p>
+<p><img alt="image2" src="_images/dwh-01-bus-matrix.png" /></p>
+<center><p>§</p>
+</center><p>Một số kiểu của <code class="docutils literal notranslate"><span class="pre">SCD</span></code> (Slowly Changing Dimension) thường dùng:</p>
+<ul class="simple">
+<li><p>Type 0: Giữ nguyên giá trị, thường dùng với date dimension</p></li>
+<li><p>Type 1: Ghi đè giá trị cũ</p></li>
+<li><p>Type 2: Thêm dòng mới, có thêm ngày hiệu lực và kết thúc hiệu lực</p></li>
+</ul>
+<p><img alt="image3" src="_images/dwh-02-scd-type2.png" /></p>
+<ul class="simple">
+<li><p>Type 3: Chỉ ghi giá trị mới nhất nhưng thêm thông tin giá trị gần nhất trong cùng 1 dòng. Type 3 có thể mở rộng có thêm nhiều giá trị khác ở thời điểm trước trong cùng 1 dòng.</p></li>
+</ul>
+<p><img alt="image4" src="_images/dwh-02-scd-type3.png" /></p>
+</section>
+</section>
+<section id="Kiến-trúc-DWH">
+<h2>Kiến trúc DWH<a class="headerlink" href="#Kiến-trúc-DWH" title="Link to this heading"></a></h2>
+<p>Trong DWH có 3 cấu phần:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">System</span> <span class="pre">architecture</span></code>: Kiến trúc về phần cứng vật lý của hệ thống</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">architecture</span></code>: Kiến trúc quy hoạch các phân vùng dữ liệu để phục vụ từng mảng nghiệp vụ khác nhau. Việc quy hoạch các phân vùng cụ thể theo từng bảng, từng trường là nghiệp vụ của <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">modelling</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">flow</span> <span class="pre">architecture</span></code>: Kiến trúc về luồng đi của dữ liệu từ các hệ thống khác nhau sao cho tối ưu nhất</p></li>
+</ul>
+<section id="Data-flow-architecture">
+<h3>Data flow architecture<a class="headerlink" href="#Data-flow-architecture" title="Link to this heading"></a></h3>
+<p>Nếu phân loại theo tầng người dùng cuối sử dụng, phần dữ liệu có thể được chia làm 3 nhóm:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">User</span> <span class="pre">facing</span> <span class="pre">data</span></code>: Dữ liệu được người dùng cuối truy cập và query</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Internal</span> <span class="pre">data</span></code>: Dữ liệu chỉ sử dụng nội bộ trong DWH, người dùng cuối không được quyền truy cập</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Hybrid</span> <span class="pre">data</span></code>: Hybrid cả user-facing data và internal data</p></li>
+</ul>
+<center><p>§</p>
+</center><p>Nếu phân loại theo các phân tầng (các lớp) thì có thể phân loại 4 loại như sau:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Stage</span></code>: Dữ liệu 1-1 từ nguồn, đây là tầng raw data trong DWH</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Normalized</span> <span class="pre">Data</span> <span class="pre">Store</span></code> (NDS): Tầng dữ liệu được chuẩn hóa, được tích hợp từ nhiều nguồn, loại bỏ các dữ liệu thừa trước khi được đưa vào tầng user-facing</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Operational</span> <span class="pre">Data</span> <span class="pre">Store</span></code> (ODS): Là nhóm thuộc dạng &quot;Hybrid Data Store&quot;, lưu trữ phiên bản mới nhất của master data khi có sự thay đổi</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Dimensional</span> <span class="pre">Data</span> <span class="pre">Store</span></code> (DDS): Là tầng user-facing data, dữ liệu đã được sắp xếp theo nhiều chiều để hỗ trợ phân tích và tổng hợp</p></li>
+</ul>
+<p>Kiến trúc của DWH có thể có từ 2 đến 4 tầng, chia làm 3 loại như sau:</p>
+<ul class="simple">
+<li><p>Stage + DDS</p></li>
+<li><p>Stage + NDS + DDS</p></li>
+<li><p>Stage + NDS + ODS + DDS</p></li>
+</ul>
+<p>Các kiến trúc tương ứng</p>
+<p><img alt="image5" src="_images/dwh-05.png" /></p>
+<hr class="docutils" />
+<p>Kiến trúc 3 tầng Stage + NDS + DDS</p>
+<p><img alt="image6" src="_images/dwh-06.png" /></p>
+<hr class="docutils" />
+<p>Kiến trúc Stage + NDS/ODS + DDS</p>
+<p><img alt="image7" src="_images/dwh-07.png" /></p>
+</section>
+<section id="System-architecture">
+<h3>System architecture<a class="headerlink" href="#System-architecture" title="Link to this heading"></a></h3>
+<p><img alt="image8" src="_images/dwh-08.png" /></p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019, Anh Hoang Duc.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

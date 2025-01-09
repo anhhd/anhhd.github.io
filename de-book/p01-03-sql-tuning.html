@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>12. SQL tuning &mdash; Tài liệu Khai thác dữ liệu với SQL 2019</title>
+  <title>3. SQL tuning &mdash; Tài liệu Khai thác dữ liệu với SQL 2019</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -26,8 +26,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Tìm Kiếm" href="search.html" />
-    <link rel="next" title="13. SQL style guide" href="p01-04-sql-style.html" />
-    <link rel="prev" title="11. Mẹo với SQL" href="p01-02-tricks-sql.html" /> 
+    <link rel="next" title="4. SQL style guide" href="p01-04-sql-style.html" />
+    <link rel="prev" title="2. SQL nâng cao" href="p01-02-sql-nang-cao.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,40 +51,14 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">SQL cơ bản</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html">1. Giới thiệu về SQL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html#Các-nhóm-câu-lệnh-truy-vấn,-tổng-hợp">2. Các nhóm câu lệnh truy vấn, tổng hợp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html#Các-nhóm-câu-lệnh-thay-đổi-dữ-liệu-trong-CSDL">3. Các nhóm câu lệnh thay đổi dữ liệu trong CSDL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html#Sub-Query">4. Sub Query</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html#Các-nhóm-câu-lệnh-cơ-bản-khác">5. Các nhóm câu lệnh cơ bản khác</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html#SQL-động-với-Exec">6. SQL động với Exec</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html#Hàm-và-thủ-tục">7. Hàm và thủ tục</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html#Các-nhóm-câu-lệnh-nâng-cao">8. Các nhóm câu lệnh nâng cao</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html#Đặt-job-trong-SQL">9. Đặt job trong SQL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html#Các-nhóm-câu-lệnh-quản-trị">10. Các nhóm câu lệnh quản trị</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-02-tricks-sql.html">11. Mẹo với SQL</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">12. SQL tuning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-04-sql-style.html">13. SQL style guide</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">SQL nâng cao</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="p02-03-sql-nang-cao.html">1. Pivot - Unpivot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p02-03-sql-nang-cao.html#Chia-một-cột-thành-nhiều-cột">2. Chia một cột thành nhiều cột</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p02-04-sqlcmd.html">3. SQLCMD</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p02-05-sql-project.html">4. SQL prọject</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">SQL &amp; Analytics</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="p03-06-sql-va-excel.html">1. Kết nối SQL với Excel phục vụ báo cáo tự động</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Xây dựng DataMart</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="p04-01-dwh.html">1. Data Warehouse Modelling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p04-11-xay-dung-database.html">2. Xây dựng Data warehouse &amp; Data Mart</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p04-13-ibm-dwh.html">3. IBM Banking Data Model</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Tài liệu tham khảo:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="p09-79-tai-lieu-tham-khao.html">Tài liệu tham khảo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html">1. SQL cơ bản</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-02-sql-nang-cao.html">2. SQL nâng cao</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. SQL tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-sql-style.html">4. SQL style guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-05-tricks-sql.html">5. Mẹo với SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-06-sqlcmd.html">6. SQLCMD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-07-sql-project.html">7. SQL prọject</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-08-sql-va-excel.html">8. Kết nối SQL với Excel phục vụ báo cáo tự động</a></li>
 </ul>
 
         </div>
@@ -101,7 +75,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">12. </span>SQL tuning</li>
+      <li class="breadcrumb-item active"><span class="section-number">3. </span>SQL tuning</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/p01-03-sql-tuning.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -112,10 +86,10 @@
            <div itemprop="articleBody">
              
   <section id="SQL-tuning">
-<h1><span class="section-number">12. </span>SQL tuning<a class="headerlink" href="#SQL-tuning" title="Link to this heading"></a></h1>
-<blockquote>
-<div><p>Ưu tiên sử dụng <code class="docutils literal notranslate"><span class="pre">JOIN</span></code> trước khi sử dụng các nhóm câu lệnh khác</p>
-</div></blockquote>
+<h1><span class="section-number">3. </span>SQL tuning<a class="headerlink" href="#SQL-tuning" title="Link to this heading"></a></h1>
+<p>Khi thực hiện các câu lệnh SQL ta cần lưu ý cách thức thực hiện các câu lệnh để đảm bảo tối ưu hóa về mặt hiệu năng &amp; gia tăng tốc độ truy vấn. Chương này tổng hợp các mẹo giúp tăng tốc độ truy vấn SQL.</p>
+<center><p>§</p>
+</center><p>Ưu tiên sử dụng <code class="docutils literal notranslate"><span class="pre">JOIN</span></code> trước khi sử dụng các nhóm câu lệnh khác</p>
 <center><p>§</p>
 </center><p>Không nên dùng <code class="docutils literal notranslate"><span class="pre">select</span> <span class="pre">*</span></code>, sẽ tốn tài nguyên, dùng cột nào nên select ra cột đó</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Dont</span>
@@ -444,8 +418,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="p01-02-tricks-sql.html" class="btn btn-neutral float-left" title="11. Mẹo với SQL" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="p01-04-sql-style.html" class="btn btn-neutral float-right" title="13. SQL style guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="p01-02-sql-nang-cao.html" class="btn btn-neutral float-left" title="2. SQL nâng cao" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="p01-04-sql-style.html" class="btn btn-neutral float-right" title="4. SQL style guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
