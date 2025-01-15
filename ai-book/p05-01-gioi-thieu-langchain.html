@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Giới thiệu langchain &mdash; AI book 2024 documentation</title>
+  <title>1. Giới thiệu langchain &mdash; AI book 2024 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -25,7 +25,9 @@
       <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. Use case - truy vấn &amp; phân tích dữ liệu" href="p05-04-phan-tich-du-lieu.html" />
+    <link rel="prev" title="3. Cơ chế tự chú ý" href="p02-03-co-che-tu-chu-y.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -61,6 +63,22 @@
 <li class="toctree-l1"><a class="reference internal" href="p02-02-xu-ly-text.html">2. Xử lý dữ liệu text</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p02-03-co-che-tu-chu-y.html">3. Cơ chế tự chú ý</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">LLM &amp; GenAI</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Giới thiệu langchain</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Documents">1.1. Documents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Wrappers-LLM">1.2. Wrappers LLM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Chat-model">1.3. Chat model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Memory">1.4. Memory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Prompts-&amp;-Prompts-template">1.5. Prompts &amp; Prompts template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Chains">1.6. Chains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Vector-Store">1.7. Vector Store</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Agent">1.8. Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tài-liệu-tham-khảo">1.9. Tài liệu tham khảo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="p05-04-phan-tich-du-lieu.html">2. Use case - truy vấn &amp; phân tích dữ liệu</a></li>
+</ul>
 
         </div>
       </div>
@@ -76,7 +94,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Giới thiệu langchain</li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>Giới thiệu langchain</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/p05-01-gioi-thieu-langchain.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -87,7 +105,7 @@
            <div itemprop="articleBody">
              
   <section id="Giới-thiệu-langchain">
-<h1>Giới thiệu langchain<a class="headerlink" href="#Giới-thiệu-langchain" title="Link to this heading"></a></h1>
+<h1><span class="section-number">1. </span>Giới thiệu langchain<a class="headerlink" href="#Giới-thiệu-langchain" title="Link to this heading"></a></h1>
 <p>Với sự phát triển mạnh mẽ của GenAI, các mô hình ngôn ngữ lớn LLM được sử dụng ngày càng rộng rãi với nhiều ứng dụng khác nhau. Tuy nhiên, các mô hình LLM này có các nhược điểm sau:</p>
 <ul class="simple">
 <li><p>Kiến thức lỗi thời</p></li>
@@ -157,7 +175,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">openai</span></code></p></li>
 </ul>
 <section id="Documents">
-<h2>Documents<a class="headerlink" href="#Documents" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.1. </span>Documents<a class="headerlink" href="#Documents" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Document</span></code> là một đối tượng có chứa text và các metadata veef tài liệu đó</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
@@ -209,7 +227,7 @@ Document(metadata={}, page_content=&#39;Thông tin &amp; hiểu biết về lang
 </div>
 </section>
 <section id="Wrappers-LLM">
-<h2>Wrappers LLM<a class="headerlink" href="#Wrappers-LLM" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.2. </span>Wrappers LLM<a class="headerlink" href="#Wrappers-LLM" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">langchain</span></code> cho phép sử dụng nhiều mô hình LLM khác nhau, bao gồm cả open-source &amp; enterprise. Để đơn giản, ta sẽ sử dụng mô hình LLM <code class="docutils literal notranslate"><span class="pre">enterprise</span></code> với OpenAI. Key của LLM được lưu trữ trong <code class="docutils literal notranslate"><span class="pre">environment</span></code> notebook.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
@@ -281,7 +299,7 @@ File <span class="ansi-green-fg">/opt/saturncloud/envs/saturn/lib/python3.11/sit
 </div>
 </section>
 <section id="Chat-model">
-<h2>Chat model<a class="headerlink" href="#Chat-model" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.3. </span>Chat model<a class="headerlink" href="#Chat-model" title="Link to this heading"></a></h2>
 <p>Khi tương tác với LLM thông qua chatbot, có 3 nhóm thông tin</p>
 <ul class="simple">
 <li><p><strong>System</strong>: Thông tin background cho phép AI biết cần phải làm gì</p></li>
@@ -409,7 +427,7 @@ AIMessage(content=&#39;Nếu bạn muốn tận hưởng biển xanh, cát trắ
 </div>
 </section>
 <section id="Memory">
-<h2>Memory<a class="headerlink" href="#Memory" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.4. </span>Memory<a class="headerlink" href="#Memory" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">memory</span></code> là nhóm kỹ thuật cho phép LLM ghi nhớ về các thông tin trong quá trình tương tác</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
@@ -492,7 +510,7 @@ AIMessage(content=&#39;Thủ đô của Pháp là Paris.&#39;, additional_kwargs
 </div>
 </section>
 <section id="Prompts-&amp;-Prompts-template">
-<h2>Prompts &amp; Prompts template<a class="headerlink" href="#Prompts-&-Prompts-template" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.5. </span>Prompts &amp; Prompts template<a class="headerlink" href="#Prompts-&-Prompts-template" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Prompt</span></code> là một đoạn văn bản hoặc yêu cầu mà người dùng nhập vào để hướng dẫn mô hình tạo ra kết quả. Prompt có thể là một câu hỏi, một chỉ dẫn cụ thể, hay một mô tả về hình ảnh, bài viết hoặc ý tưởng mà ta muốn mô hình phát triển hoặc phản hồi. Prompt giúp định hình nội dung và hướng đi cho mô hình AI để tạo ra kết quả phù hợp với yêu cầu của người sử dụng.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
@@ -581,7 +599,7 @@ AIMessage(content=&#39;An autoencoder is a type of neural network used for unsup
 </div>
 </section>
 <section id="Chains">
-<h2>Chains<a class="headerlink" href="#Chains" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.6. </span>Chains<a class="headerlink" href="#Chains" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Chain</span></code> là một chuỗi các bước được liên kết với nhau để thực hiện một tác vụ cụ thể với đầu ra của bước này là đầu vào của một bước khác. Chain cho phép ta tạo ra các quy trình phức tạp &amp; dễ quản lý khi làm việc với mô hình ngôn ngữ lớn</p>
 <p>Ta có thể tạo chain với 2 bước như sau:</p>
 <ul class="simple">
@@ -683,7 +701,7 @@ So, just like your magic toy organizer that helps turn a big mess into a neat li
 </div>
 </section>
 <section id="Vector-Store">
-<h2>Vector Store<a class="headerlink" href="#Vector-Store" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.7. </span>Vector Store<a class="headerlink" href="#Vector-Store" title="Link to this heading"></a></h2>
 <p>Với 1 đoạn văn bản, ta cần chia nhỏ thành các đoạn được gọi là <code class="docutils literal notranslate"><span class="pre">chunk</span></code>. Với langchain, có cấu phần chia nhỏ text thành các chunk với 2 thuộc tính chính:</p>
 <ul class="simple">
 <li><p>chunk_size: Số lượng ký tự tối đa cho 1 chunk</p></li>
@@ -881,7 +899,7 @@ OpenAIEmbeddings(client=&lt;openai.resources.embeddings.Embeddings object at 0x7
 </div>
 </section>
 <section id="Agent">
-<h2>Agent<a class="headerlink" href="#Agent" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.8. </span>Agent<a class="headerlink" href="#Agent" title="Link to this heading"></a></h2>
 <p>Một trong các hạn chế rõ rệt của LLM là khả năng thực hiện các công cụ ở ngoài LLM như Python</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
@@ -971,7 +989,7 @@ OpenAIEmbeddings(client=&lt;openai.resources.embeddings.Embeddings object at 0x7
 </div>
 </section>
 <section id="Tài-liệu-tham-khảo">
-<h2>Tài liệu tham khảo<a class="headerlink" href="#Tài-liệu-tham-khảo" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.9. </span>Tài liệu tham khảo<a class="headerlink" href="#Tài-liệu-tham-khảo" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=aywZrzNaKjs">Langchain in 13 minutes</a></p></li>
 <li><p><a class="reference external" href="https://github.com/anhhd/langchain-tutorials">Langchain tutorials</a></p></li>
@@ -982,7 +1000,10 @@ OpenAIEmbeddings(client=&lt;openai.resources.embeddings.Embeddings object at 0x7
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="p02-03-co-che-tu-chu-y.html" class="btn btn-neutral float-left" title="3. Cơ chế tự chú ý" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="p05-04-phan-tich-du-lieu.html" class="btn btn-neutral float-right" title="2. Use case - truy vấn &amp; phân tích dữ liệu" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

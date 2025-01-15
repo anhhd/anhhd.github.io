@@ -48,6 +48,17 @@ LLM & GenAI
    
    p02*
 
+Langchain
+===================================================
+
+.. toctree::
+   :maxdepth: 2
+   :numbered:
+   :caption: LLM & GenAI
+   :glob:
+   
+   p05*
+
 Indices and tables
 ==================
 
