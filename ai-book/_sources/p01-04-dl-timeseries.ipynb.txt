@@ -26,11 +26,11 @@
    "execution_count": 1,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-01-03T08:36:23.042151Z",
-     "iopub.status.busy": "2025-01-03T08:36:23.041850Z",
-     "iopub.status.idle": "2025-01-03T08:36:28.791717Z",
-     "shell.execute_reply": "2025-01-03T08:36:28.791022Z",
-     "shell.execute_reply.started": "2025-01-03T08:36:23.042129Z"
+     "iopub.execute_input": "2025-01-09T08:58:39.268256Z",
+     "iopub.status.busy": "2025-01-09T08:58:39.267944Z",
+     "iopub.status.idle": "2025-01-09T08:58:46.069054Z",
+     "shell.execute_reply": "2025-01-09T08:58:46.068381Z",
+     "shell.execute_reply.started": "2025-01-09T08:58:39.268233Z"
     }
    },
    "outputs": [
@@ -38,13 +38,11 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "2025-01-03 08:36:23.679723: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:32] Could not find cuda drivers on your machine, GPU will not be used.\n",
-      "2025-01-03 08:36:23.683757: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:32] Could not find cuda drivers on your machine, GPU will not be used.\n",
-      "2025-01-03 08:36:23.694230: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered\n",
+      "2025-01-09 08:58:39.914367: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered\n",
       "WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n",
-      "E0000 00:00:1735893383.711521     243 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered\n",
-      "E0000 00:00:1735893383.716288     243 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered\n",
-      "2025-01-03 08:36:23.734746: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.\n",
+      "E0000 00:00:1736413119.935517    6514 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered\n",
+      "E0000 00:00:1736413119.941639    6514 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered\n",
+      "2025-01-09 08:58:39.961974: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.\n",
       "To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.\n"
      ]
     },
@@ -63,8 +61,8 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "2025-01-03 08:36:28.636612: E external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:152] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)\n",
-      "2025-01-03 08:36:28.781746: I tensorflow/core/framework/local_rendezvous.cc:405] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence\n"
+      "2025-01-09 08:58:45.840487: E external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:152] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)\n",
+      "2025-01-09 08:58:46.060166: I tensorflow/core/framework/local_rendezvous.cc:405] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence\n"
      ]
     }
    ],
@@ -97,11 +95,11 @@
    "execution_count": 2,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-01-03T08:36:28.793688Z",
-     "iopub.status.busy": "2025-01-03T08:36:28.793158Z",
-     "iopub.status.idle": "2025-01-03T08:36:29.052205Z",
-     "shell.execute_reply": "2025-01-03T08:36:29.051585Z",
-     "shell.execute_reply.started": "2025-01-03T08:36:28.793665Z"
+     "iopub.execute_input": "2025-01-09T08:58:58.327539Z",
+     "iopub.status.busy": "2025-01-09T08:58:58.326994Z",
+     "iopub.status.idle": "2025-01-09T08:58:58.753341Z",
+     "shell.execute_reply": "2025-01-09T08:58:58.752710Z",
+     "shell.execute_reply.started": "2025-01-09T08:58:58.327511Z"
     }
    },
    "outputs": [],
@@ -114,12 +112,20 @@
   {
    "cell_type": "code",
    "execution_count": 3,
-   "metadata": {},
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2025-01-09T08:59:00.365829Z",
+     "iopub.status.busy": "2025-01-09T08:59:00.365345Z",
+     "iopub.status.idle": "2025-01-09T08:59:00.372906Z",
+     "shell.execute_reply": "2025-01-09T08:59:00.371983Z",
+     "shell.execute_reply.started": "2025-01-09T08:59:00.365803Z"
+    }
+   },
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "'d:\\\\01-github\\\\ai-book\\\\_source'"
+       "'/home/jovyan/workspace/ai-book/_source'"
       ]
      },
      "execution_count": 3,
@@ -133,14 +139,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": 4,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-01-03T08:36:31.220697Z",
-     "iopub.status.busy": "2025-01-03T08:36:31.220355Z",
-     "iopub.status.idle": "2025-01-03T08:36:31.637882Z",
-     "shell.execute_reply": "2025-01-03T08:36:31.637281Z",
-     "shell.execute_reply.started": "2025-01-03T08:36:31.220666Z"
+     "iopub.execute_input": "2025-01-09T08:59:06.825975Z",
+     "iopub.status.busy": "2025-01-09T08:59:06.825647Z",
+     "iopub.status.idle": "2025-01-09T08:59:07.139536Z",
+     "shell.execute_reply": "2025-01-09T08:59:07.138882Z",
+     "shell.execute_reply.started": "2025-01-09T08:59:06.825949Z"
     }
    },
    "outputs": [
@@ -177,7 +183,7 @@
        "└──────────────┴──────────┴──────────┴──────────┴───┴──────────────┴──────────┴─────────┴──────────┘"
       ]
      },
-     "execution_count": 3,
+     "execution_count": 4,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -189,14 +195,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": 5,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-01-03T08:36:34.057318Z",
-     "iopub.status.busy": "2025-01-03T08:36:34.056989Z",
-     "iopub.status.idle": "2025-01-03T08:36:34.062732Z",
-     "shell.execute_reply": "2025-01-03T08:36:34.061883Z",
-     "shell.execute_reply.started": "2025-01-03T08:36:34.057294Z"
+     "iopub.execute_input": "2025-01-09T08:59:08.415622Z",
+     "iopub.status.busy": "2025-01-09T08:59:08.415299Z",
+     "iopub.status.idle": "2025-01-09T08:59:08.420581Z",
+     "shell.execute_reply": "2025-01-09T08:59:08.419877Z",
+     "shell.execute_reply.started": "2025-01-09T08:59:08.415598Z"
     }
    },
    "outputs": [
@@ -220,7 +226,7 @@
        " 'wd (deg)']"
       ]
      },
-     "execution_count": 4,
+     "execution_count": 5,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -231,14 +237,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": 6,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-01-03T08:36:37.241448Z",
-     "iopub.status.busy": "2025-01-03T08:36:37.241090Z",
-     "iopub.status.idle": "2025-01-03T08:36:37.263637Z",
-     "shell.execute_reply": "2025-01-03T08:36:37.263028Z",
-     "shell.execute_reply.started": "2025-01-03T08:36:37.241423Z"
+     "iopub.execute_input": "2025-01-09T08:59:09.408062Z",
+     "iopub.status.busy": "2025-01-09T08:59:09.407707Z",
+     "iopub.status.idle": "2025-01-09T08:59:09.429826Z",
+     "shell.execute_reply": "2025-01-09T08:59:09.429109Z",
+     "shell.execute_reply.started": "2025-01-09T08:59:09.408039Z"
     }
    },
    "outputs": [
@@ -273,7 +279,7 @@
        "└────────────┴──────────┘"
       ]
      },
-     "execution_count": 5,
+     "execution_count": 6,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -285,14 +291,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
+   "execution_count": 7,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-01-03T08:36:38.530457Z",
-     "iopub.status.busy": "2025-01-03T08:36:38.529993Z",
-     "iopub.status.idle": "2025-01-03T08:36:38.533750Z",
-     "shell.execute_reply": "2025-01-03T08:36:38.532907Z",
-     "shell.execute_reply.started": "2025-01-03T08:36:38.530433Z"
+     "iopub.execute_input": "2025-01-09T08:59:10.307775Z",
+     "iopub.status.busy": "2025-01-09T08:59:10.307417Z",
+     "iopub.status.idle": "2025-01-09T08:59:10.311329Z",
+     "shell.execute_reply": "2025-01-09T08:59:10.310397Z",
+     "shell.execute_reply.started": "2025-01-09T08:59:10.307749Z"
     }
    },
    "outputs": [],
@@ -302,24 +308,24 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": 8,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-01-03T08:36:39.559647Z",
-     "iopub.status.busy": "2025-01-03T08:36:39.559179Z",
-     "iopub.status.idle": "2025-01-03T08:36:39.910952Z",
-     "shell.execute_reply": "2025-01-03T08:36:39.910286Z",
-     "shell.execute_reply.started": "2025-01-03T08:36:39.559624Z"
+     "iopub.execute_input": "2025-01-09T08:59:11.183404Z",
+     "iopub.status.busy": "2025-01-09T08:59:11.182928Z",
+     "iopub.status.idle": "2025-01-09T08:59:11.525303Z",
+     "shell.execute_reply": "2025-01-09T08:59:11.524362Z",
+     "shell.execute_reply.started": "2025-01-09T08:59:11.183378Z"
     }
    },
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "[<matplotlib.lines.Line2D at 0x7f1e9c456450>]"
+       "[<matplotlib.lines.Line2D at 0x7fb8c6b7b750>]"
       ]
      },
-     "execution_count": 7,
+     "execution_count": 8,
      "metadata": {},
      "output_type": "execute_result"
     },
@@ -347,14 +353,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 8,
+   "execution_count": 9,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-01-03T08:36:44.012561Z",
-     "iopub.status.busy": "2025-01-03T08:36:44.012222Z",
-     "iopub.status.idle": "2025-01-03T08:36:44.144503Z",
-     "shell.execute_reply": "2025-01-03T08:36:44.143633Z",
-     "shell.execute_reply.started": "2025-01-03T08:36:44.012536Z"
+     "iopub.execute_input": "2025-01-09T08:59:13.964800Z",
+     "iopub.status.busy": "2025-01-09T08:59:13.964481Z",
+     "iopub.status.idle": "2025-01-09T08:59:14.101836Z",
+     "shell.execute_reply": "2025-01-09T08:59:14.101076Z",
+     "shell.execute_reply.started": "2025-01-09T08:59:13.964776Z"
     }
    },
    "outputs": [
@@ -390,14 +396,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 9,
+   "execution_count": 10,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-01-03T08:36:45.420951Z",
-     "iopub.status.busy": "2025-01-03T08:36:45.420580Z",
-     "iopub.status.idle": "2025-01-03T08:36:47.186588Z",
-     "shell.execute_reply": "2025-01-03T08:36:47.185955Z",
-     "shell.execute_reply.started": "2025-01-03T08:36:45.420906Z"
+     "iopub.execute_input": "2025-01-09T08:59:17.301769Z",
+     "iopub.status.busy": "2025-01-09T08:59:17.301312Z",
+     "iopub.status.idle": "2025-01-09T08:59:18.920799Z",
+     "shell.execute_reply": "2025-01-09T08:59:18.920164Z",
+     "shell.execute_reply.started": "2025-01-09T08:59:17.301746Z"
     }
    },
    "outputs": [],
@@ -413,14 +419,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 10,
+   "execution_count": 11,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-01-03T08:36:47.188228Z",
-     "iopub.status.busy": "2025-01-03T08:36:47.187883Z",
-     "iopub.status.idle": "2025-01-03T08:36:47.193432Z",
-     "shell.execute_reply": "2025-01-03T08:36:47.192286Z",
-     "shell.execute_reply.started": "2025-01-03T08:36:47.188201Z"
+     "iopub.execute_input": "2025-01-09T08:59:19.491353Z",
+     "iopub.status.busy": "2025-01-09T08:59:19.490922Z",
+     "iopub.status.idle": "2025-01-09T08:59:19.500669Z",
+     "shell.execute_reply": "2025-01-09T08:59:19.499919Z",
+     "shell.execute_reply.started": "2025-01-09T08:59:19.491310Z"
     }
    },
    "outputs": [
@@ -430,7 +436,7 @@
        "array([-8.02, -8.41, -8.51, ..., -3.16, -4.23, -4.82])"
       ]
      },
-     "execution_count": 10,
+     "execution_count": 11,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -441,14 +447,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 11,
+   "execution_count": 12,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-01-03T08:36:47.195353Z",
-     "iopub.status.busy": "2025-01-03T08:36:47.194693Z",
-     "iopub.status.idle": "2025-01-03T08:36:47.201115Z",
-     "shell.execute_reply": "2025-01-03T08:36:47.200527Z",
-     "shell.execute_reply.started": "2025-01-03T08:36:47.195332Z"
+     "iopub.execute_input": "2025-01-09T08:59:20.438923Z",
+     "iopub.status.busy": "2025-01-09T08:59:20.438460Z",
+     "iopub.status.idle": "2025-01-09T08:59:20.445294Z",
+     "shell.execute_reply": "2025-01-09T08:59:20.444693Z",
+     "shell.execute_reply.started": "2025-01-09T08:59:20.438899Z"
     }
    },
    "outputs": [
@@ -470,7 +476,7 @@
        "         1.9600e+00,  1.8490e+02]])"
       ]
      },
-     "execution_count": 11,
+     "execution_count": 12,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -488,14 +494,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 12,
+   "execution_count": 13,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-01-03T08:36:48.027616Z",
-     "iopub.status.busy": "2025-01-03T08:36:48.027145Z",
-     "iopub.status.idle": "2025-01-03T08:36:48.031157Z",
-     "shell.execute_reply": "2025-01-03T08:36:48.030420Z",
-     "shell.execute_reply.started": "2025-01-03T08:36:48.027592Z"
+     "iopub.execute_input": "2025-01-09T08:59:21.673307Z",
+     "iopub.status.busy": "2025-01-09T08:59:21.672835Z",
+     "iopub.status.idle": "2025-01-09T08:59:21.676875Z",
+     "shell.execute_reply": "2025-01-09T08:59:21.676010Z",
+     "shell.execute_reply.started": "2025-01-09T08:59:21.673282Z"
     }
    },
    "outputs": [],
@@ -507,14 +513,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 13,
+   "execution_count": 14,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-01-03T08:36:48.524547Z",
-     "iopub.status.busy": "2025-01-03T08:36:48.524095Z",
-     "iopub.status.idle": "2025-01-03T08:36:48.572571Z",
-     "shell.execute_reply": "2025-01-03T08:36:48.571925Z",
-     "shell.execute_reply.started": "2025-01-03T08:36:48.524525Z"
+     "iopub.execute_input": "2025-01-09T08:59:22.110079Z",
+     "iopub.status.busy": "2025-01-09T08:59:22.109572Z",
+     "iopub.status.idle": "2025-01-09T08:59:22.168430Z",
+     "shell.execute_reply": "2025-01-09T08:59:22.167804Z",
+     "shell.execute_reply.started": "2025-01-09T08:59:22.110055Z"
     }
    },
    "outputs": [],
@@ -539,14 +545,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 14,
+   "execution_count": 15,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-01-03T08:36:49.871795Z",
-     "iopub.status.busy": "2025-01-03T08:36:49.871473Z",
-     "iopub.status.idle": "2025-01-03T08:36:49.875418Z",
-     "shell.execute_reply": "2025-01-03T08:36:49.874550Z",
-     "shell.execute_reply.started": "2025-01-03T08:36:49.871773Z"
+     "iopub.execute_input": "2025-01-09T08:59:23.359303Z",
+     "iopub.status.busy": "2025-01-09T08:59:23.358980Z",
+     "iopub.status.idle": "2025-01-09T08:59:23.362931Z",
+     "shell.execute_reply": "2025-01-09T08:59:23.362034Z",
+     "shell.execute_reply.started": "2025-01-09T08:59:23.359281Z"
     }
    },
    "outputs": [],
@@ -559,14 +565,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 15,
+   "execution_count": 16,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-01-03T08:36:51.217642Z",
-     "iopub.status.busy": "2025-01-03T08:36:51.217312Z",
-     "iopub.status.idle": "2025-01-03T08:36:51.474848Z",
-     "shell.execute_reply": "2025-01-03T08:36:51.474237Z",
-     "shell.execute_reply.started": "2025-01-03T08:36:51.217621Z"
+     "iopub.execute_input": "2025-01-09T08:59:24.243251Z",
+     "iopub.status.busy": "2025-01-09T08:59:24.242940Z",
+     "iopub.status.idle": "2025-01-09T08:59:24.480753Z",
+     "shell.execute_reply": "2025-01-09T08:59:24.480135Z",
+     "shell.execute_reply.started": "2025-01-09T08:59:24.243228Z"
     }
    },
    "outputs": [],
@@ -602,14 +608,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 16,
+   "execution_count": 17,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-01-03T08:36:53.692747Z",
-     "iopub.status.busy": "2025-01-03T08:36:53.692424Z",
-     "iopub.status.idle": "2025-01-03T08:36:53.697942Z",
-     "shell.execute_reply": "2025-01-03T08:36:53.696984Z",
-     "shell.execute_reply.started": "2025-01-03T08:36:53.692725Z"
+     "iopub.execute_input": "2025-01-09T08:59:27.058454Z",
+     "iopub.status.busy": "2025-01-09T08:59:27.057940Z",
+     "iopub.status.idle": "2025-01-09T08:59:27.063020Z",
+     "shell.execute_reply": "2025-01-09T08:59:27.062046Z",
+     "shell.execute_reply.started": "2025-01-09T08:59:27.058424Z"
     }
    },
    "outputs": [
@@ -619,7 +625,7 @@
        "<_BatchDataset element_spec=(TensorSpec(shape=(None, None, 14), dtype=tf.float64, name=None), TensorSpec(shape=(None,), dtype=tf.float64, name=None))>"
       ]
      },
-     "execution_count": 16,
+     "execution_count": 17,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -637,14 +643,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 17,
+   "execution_count": 18,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-01-03T08:36:56.220820Z",
-     "iopub.status.busy": "2025-01-03T08:36:56.220488Z",
-     "iopub.status.idle": "2025-01-03T08:36:56.251614Z",
-     "shell.execute_reply": "2025-01-03T08:36:56.250971Z",
-     "shell.execute_reply.started": "2025-01-03T08:36:56.220791Z"
+     "iopub.execute_input": "2025-01-09T08:59:29.504402Z",
+     "iopub.status.busy": "2025-01-09T08:59:29.504078Z",
+     "iopub.status.idle": "2025-01-09T08:59:29.535238Z",
+     "shell.execute_reply": "2025-01-09T08:59:29.534612Z",
+     "shell.execute_reply.started": "2025-01-09T08:59:29.504379Z"
     }
    },
    "outputs": [],
@@ -662,14 +668,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 18,
+   "execution_count": 19,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-01-03T08:36:58.059772Z",
-     "iopub.status.busy": "2025-01-03T08:36:58.059449Z",
-     "iopub.status.idle": "2025-01-03T08:36:58.071921Z",
-     "shell.execute_reply": "2025-01-03T08:36:58.071253Z",
-     "shell.execute_reply.started": "2025-01-03T08:36:58.059750Z"
+     "iopub.execute_input": "2025-01-09T08:59:31.282213Z",
+     "iopub.status.busy": "2025-01-09T08:59:31.281808Z",
+     "iopub.status.idle": "2025-01-09T08:59:31.306468Z",
+     "shell.execute_reply": "2025-01-09T08:59:31.305830Z",
+     "shell.execute_reply.started": "2025-01-09T08:59:31.282188Z"
     }
    },
    "outputs": [],
@@ -685,14 +691,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 19,
+   "execution_count": 20,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2025-01-03T08:36:59.217984Z",
-     "iopub.status.busy": "2025-01-03T08:36:59.217496Z",
-     "iopub.status.idle": "2025-01-03T08:37:00.840245Z",
-     "shell.execute_reply": "2025-01-03T08:37:00.838782Z",
-     "shell.execute_reply.started": "2025-01-03T08:36:59.217961Z"
+     "iopub.execute_input": "2025-01-09T08:59:33.289599Z",
+     "iopub.status.busy": "2025-01-09T08:59:33.288840Z",
+     "iopub.status.idle": "2025-01-09T08:59:34.537961Z",
+     "shell.execute_reply": "2025-01-09T08:59:34.536670Z",
+     "shell.execute_reply.started": "2025-01-09T08:59:33.289564Z"
     }
    },
    "outputs": [
@@ -707,22 +713,22 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "2025-01-03 08:37:00.050278: W tensorflow/core/framework/op_kernel.cc:1841] OP_REQUIRES failed at reshape_op.h:65 : INVALID_ARGUMENT: Only one input size may be -1, not both 0 and 1\n",
-      "2025-01-03 08:37:00.050357: I tensorflow/core/framework/local_rendezvous.cc:405] Local rendezvous is aborting with status: INVALID_ARGUMENT: Only one input size may be -1, not both 0 and 1\n",
-      "\t [[{{function_node __inference_one_step_on_data_1179}}{{node functional_1/flatten_1/Reshape}}]]\n"
+      "2025-01-09 08:59:34.091344: W tensorflow/core/framework/op_kernel.cc:1841] OP_REQUIRES failed at reshape_op.h:65 : INVALID_ARGUMENT: Only one input size may be -1, not both 0 and 1\n",
+      "2025-01-09 08:59:34.091423: I tensorflow/core/framework/local_rendezvous.cc:405] Local rendezvous is aborting with status: INVALID_ARGUMENT: Only one input size may be -1, not both 0 and 1\n",
+      "\t [[{{function_node __inference_one_step_on_data_1180}}{{node functional_1/flatten_1/Reshape}}]]\n"
      ]
     },
     {
      "ename": "InvalidArgumentError",
-     "evalue": "Graph execution error:\n\nDetected at node functional_1/flatten_1/Reshape defined at (most recent call last):\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/runpy.py\", line 198, in _run_module_as_main\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/runpy.py\", line 88, in _run_code\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel_launcher.py\", line 18, in <module>\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/traitlets/config/application.py\", line 1075, in launch_instance\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelapp.py\", line 739, in start\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/tornado/platform/asyncio.py\", line 205, in start\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/asyncio/base_events.py\", line 608, in run_forever\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/asyncio/base_events.py\", line 1936, in _run_once\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/asyncio/events.py\", line 84, in _run\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelbase.py\", line 545, in dispatch_queue\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelbase.py\", line 534, in process_one\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelbase.py\", line 437, in dispatch_shell\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/ipkernel.py\", line 362, in execute_request\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelbase.py\", line 778, in execute_request\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/ipkernel.py\", line 449, in do_execute\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/zmqshell.py\", line 549, in run_cell\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py\", line 3075, in run_cell\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py\", line 3130, in _run_cell\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/async_helpers.py\", line 128, in _pseudo_sync_runner\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py\", line 3334, in run_cell_async\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py\", line 3517, in run_ast_nodes\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py\", line 3577, in run_code\n\n  File \"/tmp/ipykernel_243/2161284880.py\", line 1, in <module>\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py\", line 117, in error_handler\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py\", line 368, in fit\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py\", line 216, in function\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py\", line 129, in multi_step_on_iterator\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py\", line 110, in one_step_on_data\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py\", line 56, in train_step\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py\", line 117, in error_handler\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/layers/layer.py\", line 899, in __call__\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py\", line 117, in error_handler\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/operation.py\", line 46, in __call__\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py\", line 156, in error_handler\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/models/functional.py\", line 182, in call\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/function.py\", line 171, in _run_through_graph\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/models/functional.py\", line 632, in call\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py\", line 117, in error_handler\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/layers/layer.py\", line 899, in __call__\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py\", line 117, in error_handler\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/operation.py\", line 46, in __call__\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py\", line 156, in error_handler\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/layers/reshaping/flatten.py\", line 54, in call\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/numpy.py\", line 4761, in reshape\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/numpy.py\", line 1885, in reshape\n\nOnly one input size may be -1, not both 0 and 1\n\t [[{{node functional_1/flatten_1/Reshape}}]] [Op:__inference_multi_step_on_iterator_1212]",
+     "evalue": "Graph execution error:\n\nDetected at node functional_1/flatten_1/Reshape defined at (most recent call last):\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/runpy.py\", line 198, in _run_module_as_main\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/runpy.py\", line 88, in _run_code\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel_launcher.py\", line 18, in <module>\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/traitlets/config/application.py\", line 1075, in launch_instance\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelapp.py\", line 739, in start\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/tornado/platform/asyncio.py\", line 205, in start\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/asyncio/base_events.py\", line 608, in run_forever\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/asyncio/base_events.py\", line 1936, in _run_once\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/asyncio/events.py\", line 84, in _run\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelbase.py\", line 545, in dispatch_queue\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelbase.py\", line 534, in process_one\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelbase.py\", line 437, in dispatch_shell\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/ipkernel.py\", line 362, in execute_request\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelbase.py\", line 778, in execute_request\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/ipkernel.py\", line 449, in do_execute\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/zmqshell.py\", line 549, in run_cell\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py\", line 3075, in run_cell\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py\", line 3130, in _run_cell\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/async_helpers.py\", line 128, in _pseudo_sync_runner\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py\", line 3334, in run_cell_async\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py\", line 3517, in run_ast_nodes\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py\", line 3577, in run_code\n\n  File \"/tmp/ipykernel_6514/2161284880.py\", line 1, in <module>\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py\", line 117, in error_handler\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py\", line 371, in fit\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py\", line 219, in function\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py\", line 132, in multi_step_on_iterator\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py\", line 113, in one_step_on_data\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py\", line 57, in train_step\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py\", line 117, in error_handler\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/layers/layer.py\", line 908, in __call__\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py\", line 117, in error_handler\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/operation.py\", line 46, in __call__\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py\", line 156, in error_handler\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/models/functional.py\", line 182, in call\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/function.py\", line 171, in _run_through_graph\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/models/functional.py\", line 637, in call\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py\", line 117, in error_handler\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/layers/layer.py\", line 908, in __call__\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py\", line 117, in error_handler\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/operation.py\", line 46, in __call__\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py\", line 156, in error_handler\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/layers/reshaping/flatten.py\", line 54, in call\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/numpy.py\", line 4868, in reshape\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/numpy.py\", line 1915, in reshape\n\nOnly one input size may be -1, not both 0 and 1\n\t [[{{node functional_1/flatten_1/Reshape}}]] [Op:__inference_multi_step_on_iterator_1213]",
      "output_type": "error",
      "traceback": [
       "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
       "\u001b[0;31mInvalidArgumentError\u001b[0m                      Traceback (most recent call last)",
-      "Cell \u001b[0;32mIn[19], line 1\u001b[0m\n\u001b[0;32m----> 1\u001b[0m history \u001b[38;5;241m=\u001b[39m \u001b[43mmodel\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mfit\u001b[49m\u001b[43m(\u001b[49m\u001b[43mtrain_dataset\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m      2\u001b[0m \u001b[43m    \u001b[49m\u001b[43mepochs\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[38;5;241;43m10\u001b[39;49m\u001b[43m,\u001b[49m\n\u001b[1;32m      3\u001b[0m \u001b[43m    \u001b[49m\u001b[43mvalidation_data\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[43mval_dataset\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m      4\u001b[0m \u001b[43m    \u001b[49m\u001b[43mcallbacks\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[43mcallbacks\u001b[49m\u001b[43m)\u001b[49m\n",
+      "Cell \u001b[0;32mIn[20], line 1\u001b[0m\n\u001b[0;32m----> 1\u001b[0m history \u001b[38;5;241m=\u001b[39m \u001b[43mmodel\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mfit\u001b[49m\u001b[43m(\u001b[49m\u001b[43mtrain_dataset\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m      2\u001b[0m \u001b[43m    \u001b[49m\u001b[43mepochs\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[38;5;241;43m10\u001b[39;49m\u001b[43m,\u001b[49m\n\u001b[1;32m      3\u001b[0m \u001b[43m    \u001b[49m\u001b[43mvalidation_data\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[43mval_dataset\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m      4\u001b[0m \u001b[43m    \u001b[49m\u001b[43mcallbacks\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[43mcallbacks\u001b[49m\u001b[43m)\u001b[49m\n",
       "File \u001b[0;32m/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py:122\u001b[0m, in \u001b[0;36mfilter_traceback.<locals>.error_handler\u001b[0;34m(*args, **kwargs)\u001b[0m\n\u001b[1;32m    119\u001b[0m     filtered_tb \u001b[38;5;241m=\u001b[39m _process_traceback_frames(e\u001b[38;5;241m.\u001b[39m__traceback__)\n\u001b[1;32m    120\u001b[0m     \u001b[38;5;66;03m# To get the full stack trace, call:\u001b[39;00m\n\u001b[1;32m    121\u001b[0m     \u001b[38;5;66;03m# `keras.config.disable_traceback_filtering()`\u001b[39;00m\n\u001b[0;32m--> 122\u001b[0m     \u001b[38;5;28;01mraise\u001b[39;00m e\u001b[38;5;241m.\u001b[39mwith_traceback(filtered_tb) \u001b[38;5;28;01mfrom\u001b[39;00m \u001b[38;5;28;01mNone\u001b[39;00m\n\u001b[1;32m    123\u001b[0m \u001b[38;5;28;01mfinally\u001b[39;00m:\n\u001b[1;32m    124\u001b[0m     \u001b[38;5;28;01mdel\u001b[39;00m filtered_tb\n",
       "File \u001b[0;32m/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/tensorflow/python/eager/execute.py:53\u001b[0m, in \u001b[0;36mquick_execute\u001b[0;34m(op_name, num_outputs, inputs, attrs, ctx, name)\u001b[0m\n\u001b[1;32m     51\u001b[0m \u001b[38;5;28;01mtry\u001b[39;00m:\n\u001b[1;32m     52\u001b[0m   ctx\u001b[38;5;241m.\u001b[39mensure_initialized()\n\u001b[0;32m---> 53\u001b[0m   tensors \u001b[38;5;241m=\u001b[39m pywrap_tfe\u001b[38;5;241m.\u001b[39mTFE_Py_Execute(ctx\u001b[38;5;241m.\u001b[39m_handle, device_name, op_name,\n\u001b[1;32m     54\u001b[0m                                       inputs, attrs, num_outputs)\n\u001b[1;32m     55\u001b[0m \u001b[38;5;28;01mexcept\u001b[39;00m core\u001b[38;5;241m.\u001b[39m_NotOkStatusException \u001b[38;5;28;01mas\u001b[39;00m e:\n\u001b[1;32m     56\u001b[0m   \u001b[38;5;28;01mif\u001b[39;00m name \u001b[38;5;129;01mis\u001b[39;00m \u001b[38;5;129;01mnot\u001b[39;00m \u001b[38;5;28;01mNone\u001b[39;00m:\n",
-      "\u001b[0;31mInvalidArgumentError\u001b[0m: Graph execution error:\n\nDetected at node functional_1/flatten_1/Reshape defined at (most recent call last):\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/runpy.py\", line 198, in _run_module_as_main\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/runpy.py\", line 88, in _run_code\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel_launcher.py\", line 18, in <module>\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/traitlets/config/application.py\", line 1075, in launch_instance\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelapp.py\", line 739, in start\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/tornado/platform/asyncio.py\", line 205, in start\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/asyncio/base_events.py\", line 608, in run_forever\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/asyncio/base_events.py\", line 1936, in _run_once\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/asyncio/events.py\", line 84, in _run\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelbase.py\", line 545, in dispatch_queue\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelbase.py\", line 534, in process_one\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelbase.py\", line 437, in dispatch_shell\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/ipkernel.py\", line 362, in execute_request\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelbase.py\", line 778, in execute_request\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/ipkernel.py\", line 449, in do_execute\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/zmqshell.py\", line 549, in run_cell\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py\", line 3075, in run_cell\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py\", line 3130, in _run_cell\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/async_helpers.py\", line 128, in _pseudo_sync_runner\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py\", line 3334, in run_cell_async\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py\", line 3517, in run_ast_nodes\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py\", line 3577, in run_code\n\n  File \"/tmp/ipykernel_243/2161284880.py\", line 1, in <module>\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py\", line 117, in error_handler\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py\", line 368, in fit\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py\", line 216, in function\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py\", line 129, in multi_step_on_iterator\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py\", line 110, in one_step_on_data\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py\", line 56, in train_step\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py\", line 117, in error_handler\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/layers/layer.py\", line 899, in __call__\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py\", line 117, in error_handler\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/operation.py\", line 46, in __call__\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py\", line 156, in error_handler\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/models/functional.py\", line 182, in call\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/function.py\", line 171, in _run_through_graph\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/models/functional.py\", line 632, in call\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py\", line 117, in error_handler\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/layers/layer.py\", line 899, in __call__\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py\", line 117, in error_handler\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/operation.py\", line 46, in __call__\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py\", line 156, in error_handler\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/layers/reshaping/flatten.py\", line 54, in call\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/numpy.py\", line 4761, in reshape\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/numpy.py\", line 1885, in reshape\n\nOnly one input size may be -1, not both 0 and 1\n\t [[{{node functional_1/flatten_1/Reshape}}]] [Op:__inference_multi_step_on_iterator_1212]"
+      "\u001b[0;31mInvalidArgumentError\u001b[0m: Graph execution error:\n\nDetected at node functional_1/flatten_1/Reshape defined at (most recent call last):\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/runpy.py\", line 198, in _run_module_as_main\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/runpy.py\", line 88, in _run_code\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel_launcher.py\", line 18, in <module>\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/traitlets/config/application.py\", line 1075, in launch_instance\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelapp.py\", line 739, in start\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/tornado/platform/asyncio.py\", line 205, in start\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/asyncio/base_events.py\", line 608, in run_forever\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/asyncio/base_events.py\", line 1936, in _run_once\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/asyncio/events.py\", line 84, in _run\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelbase.py\", line 545, in dispatch_queue\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelbase.py\", line 534, in process_one\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelbase.py\", line 437, in dispatch_shell\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/ipkernel.py\", line 362, in execute_request\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelbase.py\", line 778, in execute_request\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/ipkernel.py\", line 449, in do_execute\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/zmqshell.py\", line 549, in run_cell\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py\", line 3075, in run_cell\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py\", line 3130, in _run_cell\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/async_helpers.py\", line 128, in _pseudo_sync_runner\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py\", line 3334, in run_cell_async\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py\", line 3517, in run_ast_nodes\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py\", line 3577, in run_code\n\n  File \"/tmp/ipykernel_6514/2161284880.py\", line 1, in <module>\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py\", line 117, in error_handler\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py\", line 371, in fit\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py\", line 219, in function\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py\", line 132, in multi_step_on_iterator\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py\", line 113, in one_step_on_data\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py\", line 57, in train_step\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py\", line 117, in error_handler\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/layers/layer.py\", line 908, in __call__\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py\", line 117, in error_handler\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/operation.py\", line 46, in __call__\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py\", line 156, in error_handler\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/models/functional.py\", line 182, in call\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/function.py\", line 171, in _run_through_graph\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/models/functional.py\", line 637, in call\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py\", line 117, in error_handler\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/layers/layer.py\", line 908, in __call__\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py\", line 117, in error_handler\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/operation.py\", line 46, in __call__\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py\", line 156, in error_handler\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/layers/reshaping/flatten.py\", line 54, in call\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/numpy.py\", line 4868, in reshape\n\n  File \"/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/numpy.py\", line 1915, in reshape\n\nOnly one input size may be -1, not both 0 and 1\n\t [[{{node functional_1/flatten_1/Reshape}}]] [Op:__inference_multi_step_on_iterator_1213]"
      ]
     }
    ],

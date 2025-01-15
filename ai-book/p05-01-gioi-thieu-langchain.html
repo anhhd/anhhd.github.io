@@ -1,0 +1,1010 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="vn" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Giới thiệu langchain &mdash; AI book 2024 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c86923ab"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            AI book
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Cơ bản về Deep Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="p01-01-gioi-thieu-deep-learning.html">1. Giới thiệu về học sâu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-02-toan-co-ban.html">2. Toán cơ bản với DL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-03-dl-co-ban.html">3. Tensorflow &amp; Keras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html">4. Chuỗi thời gian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html#Giới-thiệu">5. Giới thiệu</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">LLM &amp; GenAI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="p02-01-gioi-thieu-llm.html">1. Giới thiệu về mô hình ngôn ngữ lớn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p02-02-xu-ly-text.html">2. Xử lý dữ liệu text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p02-03-co-che-tu-chu-y.html">3. Cơ chế tự chú ý</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AI book</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Giới thiệu langchain</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/p05-01-gioi-thieu-langchain.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Giới-thiệu-langchain">
+<h1>Giới thiệu langchain<a class="headerlink" href="#Giới-thiệu-langchain" title="Link to this heading"></a></h1>
+<p>Với sự phát triển mạnh mẽ của GenAI, các mô hình ngôn ngữ lớn LLM được sử dụng ngày càng rộng rãi với nhiều ứng dụng khác nhau. Tuy nhiên, các mô hình LLM này có các nhược điểm sau:</p>
+<ul class="simple">
+<li><p>Kiến thức lỗi thời</p></li>
+<li><p>Không thể thực hiện hành động, tương tác như tính toán, tra cứu</p></li>
+<li><p>Thiếu bối cảnh - gặp khó khăn trong việc kết hợp bối cảnh liên quan trước và sau đó để có các phản hồi hữu ích</p></li>
+<li><p>Ảo giác (<code class="docutils literal notranslate"><span class="pre">hallucination</span></code>) - LLM tự tạo ra các nội dung vô nghĩa hoặc không chính xác</p></li>
+<li><p>Thiếu minh bạch &amp; thiên lệch, phụ thuộc vào dữ liệu được huấn luyện</p></li>
+</ul>
+<p>Để giải quyết và hạn chế các nhược điểm trên, có các kỹ thuật sau:</p>
+<ul class="simple">
+<li><p>Tăng cường truy xuất (<code class="docutils literal notranslate"><span class="pre">retrieval</span> <span class="pre">augmentation</span></code>) - bổ sung kiến thức cho dữ liệu đào tạo đã lỗi thời của LLM, cung cấp các bối cảnh bên ngoài và giảm nguy cơ ảo giác</p></li>
+<li><p>Chuỗi (<code class="docutils literal notranslate"><span class="pre">chaining</span></code>) - tích hợp thêm các hành động bên ngoài</p></li>
+<li><p>Nhắc nhở (<code class="docutils literal notranslate"><span class="pre">prompt</span> <span class="pre">engineer</span></code>) - đưa ra các bối cảnh quan trọng để hướng dẫn các phản hồi</p></li>
+<li><p>Giám sát, lọc và đánh giá - đưa thêm đánh giá của con người trong luồng phản hồi của máy</p></li>
+<li><p>Tăng cường bộ nhớ (<code class="docutils literal notranslate"><span class="pre">memory</span></code>)</p></li>
+<li><p>Tinh chỉnh mô hình (<code class="docutils literal notranslate"><span class="pre">fine</span> <span class="pre">tuning</span></code>) - huấn luyện lại mô hình LLM cho 1 số tác vụ cụ thể</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">langchain</span></code> là một framework trên python, được ra đời vào năm 2022 để xây dựng các ứng dụng hỗ trợ LLM thông qua việc xây dựng các module có sẵn. <code class="docutils literal notranslate"><span class="pre">langchain</span></code> có các cấu phần sau:</p>
+<ul class="simple">
+<li><p>Chuỗi (<code class="docutils literal notranslate"><span class="pre">chain</span></code>): Chain là một tập hợp các bước hoặc mô-đun liên tiếp, nơi đầu ra của một bước có thể trở thành đầu vào cho bước tiếp theo, giúp tự động hóa quy trình và quản lý các tác vụ phức tạp mà yêu cầu nhiều bước xử lý.</p></li>
+<li><p>Bộ công cụ (<code class="docutils literal notranslate"><span class="pre">tools</span></code>) - là các chức năng, mỗi tool thực hiện 1 tác vụ cụ thể. Ví dụ - tính toán, tra cứu hoặc kiểm tra thời tiết.</p></li>
+<li><p>Agent - là bộ điều phối, xác định khi nào và cách thức sử dụng tool. Agent sử dụng LLM để hiểu như cầu từ người dùng, quyết định tool phù hợp, gọi các tool theo thứ tự thích hơn và tổng hợp kết quả.</p></li>
+<li><p>Bộ nhớ (<code class="docutils literal notranslate"><span class="pre">memory</span></code>) - là trạng thái tồn tại giữa các lần thực hiện chuỗi hoặc agent. Các bộ nhớ có thể lưu trữ ngắn hạn hoặc dài hạn hoặc toàn bộ lịch sử, phụ thuộc vào chi phí thực hiện và mục tiêu</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Khi nào dùng Agent hoặc Tool?</strong></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Kịch bản</strong></p></th>
+<th class="head"><p><strong>Sử dụng Agent</strong></p></th>
+<th class="head"><p><strong>Sử dụng Tools</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Cần quyết định khi nào và cách sử dụng công cụ</strong></p></td>
+<td><p>✅ Agent sẽ chọn tool dựa trên ngữ cảnh và yêu cầu.</p></td>
+<td><p>❌ Tools không tự quyết định mà phải được gọi thủ công.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Nhiệm vụ cụ thể</strong></p></td>
+<td><p>❌ Không cần agent, chỉ cần gọi tool phù hợp.</p></td>
+<td><p>✅ Tools xử lý nhanh gọn một nhiệm vụ độc lập.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Xử lý tác vụ phức tạp, nhiều bước</strong></p></td>
+<td><p>✅ Agent điều phối nhiều tool để giải quyết nhiệm vụ phức tạp.</p></td>
+<td><p>❌ Tools không đủ khả năng xử lý nhiệm vụ nhiều bước.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Trong chương này sẽ giới thiệu nhanh các khái niệm &amp; ứng dụng cơ bản của <code class="docutils literal notranslate"><span class="pre">langchain</span></code>:</p>
+<ul class="simple">
+<li><p>Document - Object lưu trữ dữ liệu text &amp; metadata</p></li>
+<li><p>Wrapper LLM - Mô hình LLM</p></li>
+<li><p>Embedding - Chuyển đổi text sang vector embedding</p></li>
+<li><p>Vector Store - Cơ sở dữ liệu cho phép lưu trữ vector embedding</p></li>
+<li><p>Retriver - Truy xuất dữ liệu từ vector stor</p></li>
+<li><p>Chat model - Mô hình chatbot sử dụng LLM</p></li>
+<li><p>Prompt template - Xây dựng template cho chatbot</p></li>
+<li><p>Memory - Cơ chế và cách thức lưu trữ lịch sử tương tác</p></li>
+<li><p>Chain - Cách thức tạo ra một chuỗi liên kết với nhau để thực hiện một nhiệm vụ</p></li>
+<li><p>Agent - Robot hay còn gọi là tác nhân, cho phép phân tích và thực hiện các tác vụ, bao gồm cả trong và ngoài LLM</p></li>
+</ul>
+<hr class="docutils" />
+<p>Các thư viện python sẽ sử dụng</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">langchain</span></code> &amp; hệ sinh thái langchain: Thực hiện các ứng dụng GenAI</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pinecone-client</span></code>: Thực hiện vector database với pinecone (cần API)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">openai</span></code></p></li>
+</ul>
+<section id="Documents">
+<h2>Documents<a class="headerlink" href="#Documents" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Document</span></code> là một đối tượng có chứa text và các metadata veef tài liệu đó</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain.schema</span> <span class="kn">import</span> <span class="n">Document</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Document</span><span class="p">(</span><span class="n">page_content</span><span class="o">=</span><span class="s2">&quot;This is my document. It is full of text that I&#39;ve gathered from other places&quot;</span><span class="p">,</span>
+         <span class="n">metadata</span><span class="o">=</span><span class="p">{</span>
+             <span class="s1">&#39;my_document_id&#39;</span> <span class="p">:</span> <span class="mi">234234</span><span class="p">,</span>
+             <span class="s1">&#39;my_document_source&#39;</span> <span class="p">:</span> <span class="s2">&quot;The LangChain Papers&quot;</span><span class="p">,</span>
+             <span class="s1">&#39;my_document_create_time&#39;</span> <span class="p">:</span> <span class="mi">1680013019</span>
+         <span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Document(metadata={&#39;my_document_id&#39;: 234234, &#39;my_document_source&#39;: &#39;The LangChain Papers&#39;, &#39;my_document_create_time&#39;: 1680013019}, page_content=&#34;This is my document. It is full of text that I&#39;ve gathered from other places&#34;)
+</pre></div></div>
+</div>
+<p>Các thông tin về document trong <code class="docutils literal notranslate"><span class="pre">langchain</span></code> là không bắt buộc, ta có thể tạo ra các document mà không cần metadata như sau</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Document</span><span class="p">(</span><span class="n">page_content</span> <span class="o">=</span> <span class="s2">&quot;Thông tin &amp; hiểu biết về langchain là các kiến thức hữu ích&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Document(metadata={}, page_content=&#39;Thông tin &amp; hiểu biết về langchain là các kiến thức hữu ích&#39;)
+</pre></div></div>
+</div>
+</section>
+<section id="Wrappers-LLM">
+<h2>Wrappers LLM<a class="headerlink" href="#Wrappers-LLM" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">langchain</span></code> cho phép sử dụng nhiều mô hình LLM khác nhau, bao gồm cả open-source &amp; enterprise. Để đơn giản, ta sẽ sử dụng mô hình LLM <code class="docutils literal notranslate"><span class="pre">enterprise</span></code> với OpenAI. Key của LLM được lưu trữ trong <code class="docutils literal notranslate"><span class="pre">environment</span></code> notebook.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load environment variables</span>
+<span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span><span class="p">,</span><span class="n">find_dotenv</span>
+<span class="n">load_dotenv</span><span class="p">(</span><span class="n">find_dotenv</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
+</div>
+<p>Ta có thể khởi tạo một mô hình LLM cơ bản như sau</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain_openai</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
+<span class="n">llm</span> <span class="o">=</span> <span class="n">ChatOpenAI</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">)</span>
+<span class="n">llm</span><span class="p">(</span><span class="s2">&quot;explain large language models in one sentence&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">OpenAIError</span>                               Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[1], line 2</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">langchain_openai</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> ChatOpenAI
+<span class="ansi-green-fg">----&gt; 2</span> llm <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">ChatOpenAI</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">model_name</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">gpt-4o-mini</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> llm(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">explain large language models in one sentence</span><span style="color: rgb(175,0,0)">&#34;</span>)
+
+File <span class="ansi-green-fg">/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/langchain_core/load/serializable.py:125</span>, in <span class="ansi-cyan-fg">Serializable.__init__</span><span class="ansi-blue-fg">(self, *args, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    123</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">__init__</span>(<span style="color: rgb(0,135,0)">self</span>, <span style="color: rgb(98,98,98)">*</span>args: Any, <span style="color: rgb(98,98,98)">*</span><span style="color: rgb(98,98,98)">*</span>kwargs: Any) <span style="color: rgb(98,98,98)">-</span><span style="color: rgb(98,98,98)">&gt;</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
+<span class="ansi-green-intense-fg ansi-bold">    124</span> <span style="color: rgb(188,188,188)">    </span><span style="color: rgb(175,0,0)">&#34;&#34;&#34;&#34;&#34;&#34;</span>
+<span class="ansi-green-fg">--&gt; 125</span>     <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">super</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg" style="color: rgb(0,0,255)">__init__</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">args</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span>
+
+    <span class="ansi-red-fg">[... skipping hidden 1 frame]</span>
+
+File <span class="ansi-green-fg">/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/langchain_openai/chat_models/base.py:613</span>, in <span class="ansi-cyan-fg">BaseChatOpenAI.validate_environment</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    611</span>         <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>http_client <span style="color: rgb(98,98,98)">=</span> httpx<span style="color: rgb(98,98,98)">.</span>Client(proxy<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>openai_proxy)
+<span class="ansi-green-intense-fg ansi-bold">    612</span>     sync_specific <span style="color: rgb(98,98,98)">=</span> {<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">http_client</span><span style="color: rgb(175,0,0)">&#34;</span>: <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>http_client}
+<span class="ansi-green-fg">--&gt; 613</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>root_client <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">openai</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">OpenAI</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">client_params</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">sync_specific</span><span class="ansi-yellow-bg">)</span>  <span style="color: rgb(95,135,135)"># type: ignore[arg-type]</span>
+<span class="ansi-green-intense-fg ansi-bold">    614</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>client <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>root_client<span style="color: rgb(98,98,98)">.</span>chat<span style="color: rgb(98,98,98)">.</span>completions
+<span class="ansi-green-intense-fg ansi-bold">    615</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>async_client:
+
+File <span class="ansi-green-fg">/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/openai/_client.py:110</span>, in <span class="ansi-cyan-fg">OpenAI.__init__</span><span class="ansi-blue-fg">(self, api_key, organization, project, base_url, websocket_base_url, timeout, max_retries, default_headers, default_query, http_client, _strict_response_validation)</span>
+<span class="ansi-green-intense-fg ansi-bold">    108</span>     api_key <span style="color: rgb(98,98,98)">=</span> os<span style="color: rgb(98,98,98)">.</span>environ<span style="color: rgb(98,98,98)">.</span>get(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">OPENAI_API_KEY</span><span style="color: rgb(175,0,0)">&#34;</span>)
+<span class="ansi-green-intense-fg ansi-bold">    109</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> api_key <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
+<span class="ansi-green-fg">--&gt; 110</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> OpenAIError(
+<span class="ansi-green-intense-fg ansi-bold">    111</span>         <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable</span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    112</span>     )
+<span class="ansi-green-intense-fg ansi-bold">    113</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>api_key <span style="color: rgb(98,98,98)">=</span> api_key
+<span class="ansi-green-intense-fg ansi-bold">    115</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> organization <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
+
+<span class="ansi-red-fg">OpenAIError</span>: The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable
+</pre></div></div>
+</div>
+</section>
+<section id="Chat-model">
+<h2>Chat model<a class="headerlink" href="#Chat-model" title="Link to this heading"></a></h2>
+<p>Khi tương tác với LLM thông qua chatbot, có 3 nhóm thông tin</p>
+<ul class="simple">
+<li><p><strong>System</strong>: Thông tin background cho phép AI biết cần phải làm gì</p></li>
+<li><p><strong>Human</strong>: Thông tin của người dùng</p></li>
+<li><p><strong>AI</strong>: Thông tin AI phản hồi người dùng</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import schema for chat messages and ChatOpenAI in order to query chatmodels GPT-3.5-turbo or GPT-4</span>
+
+<span class="kn">from</span> <span class="nn">langchain.schema</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">AIMessage</span><span class="p">,</span>
+    <span class="n">HumanMessage</span><span class="p">,</span>
+    <span class="n">SystemMessage</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">langchain.chat_models</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
+<span class="n">chat</span> <span class="o">=</span> <span class="n">ChatOpenAI</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo&quot;</span><span class="p">,</span><span class="n">temperature</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">messages</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">SystemMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;You are an expert data scientist&quot;</span><span class="p">),</span>
+    <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;Write a Python script that trains a neural network on simulated data &quot;</span><span class="p">)</span>
+<span class="p">]</span>
+<span class="n">response</span><span class="o">=</span><span class="n">chat</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sure! Here is an example Python script that trains a simple neural network on simulated data using the TensorFlow library:
+
+```python
+import numpy as np
+import tensorflow as tf
+
+# Generate simulated data
+np.random.seed(0)
+X = np.random.rand(1000, 2)
+y = np.array([1 if x1 + x2 &gt; 1 else 0 for x1, x2 in X])
+
+# Define the neural network architecture
+model = tf.keras.models.Sequential([
+    tf.keras.layers.Dense(64, activation=&#39;relu&#39;, input_shape=(2,)),
+    tf.keras.layers.Dense(1, activation=&#39;sigmoid&#39;)
+])
+
+# Compile the model
+model.compile(optimizer=&#39;adam&#39;, loss=&#39;binary_crossentropy&#39;, metrics=[&#39;accuracy&#39;])
+
+# Train the model
+model.fit(X, y, epochs=10, batch_size=32)
+
+# Evaluate the model
+loss, accuracy = model.evaluate(X, y)
+print(f&#39;Loss: {loss}, Accuracy: {accuracy}&#39;)
+```
+
+In this script:
+1. We generate a simulated dataset with 1000 samples and 2 features.
+2. We define a simple neural network with one hidden layer of 64 neurons and an output layer with a sigmoid activation function.
+3. We compile the model using the Adam optimizer and binary cross-entropy loss.
+4. We train the model on the simulated data for 10 epochs with a batch size of 32.
+5. We evaluate the model on the training data and print the loss and accuracy.
+
+You can run this script in a Python environment with TensorFlow installed to train a neural network on simulated data.
+</pre></div></div>
+</div>
+<hr class="docutils" />
+<p>Ta cũng có thể loại bỏ hoặc đưa đầy đủ cả hướng dẫn với <code class="docutils literal notranslate"><span class="pre">system</span> <span class="pre">message</span></code> như sau</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chat</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span> <span class="o">=</span> <span class="s2">&quot;Đi biển ở Việt Nam thì nên đi đâu&quot;</span><span class="p">)</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+AIMessage(content=&#39;1. Phú Quốc: Đảo ngọc Phú Quốc nằm ở phía Nam của Việt Nam, nổi tiếng với bãi biển đẹp và nước biển trong xanh. Du khách có thể tham gia các hoạt động như lặn biển, thăm các hòn đảo lân cận, thưởng thức hải sản tươi ngon.\n\n2. Nha Trang: Nha Trang là một trong những điểm du lịch biển phổ biến nhất ở Việt Nam, với bãi biển dài và nước biển trong xanh. Du khách có thể tham gia các hoạt động như lặn biển, thăm các đảo lân cận, thưởng thức ẩm thực địa phương.\n\n3. Đà Nẵng: Đà Nẵng có nhiều bãi biển đẹp như Bãi biển Mỹ Khê, Bãi biển Non Nước, Bãi biển Nam Ô. Du khách cũng có thể tham quan các điểm du lịch nổi tiếng như Ngũ Hành Sơn, Bà Nà Hills, Hội An.\n\n4. Mũi Né: Mũi Né nổi tiếng với cát trắng và gió biển mạnh, là điểm đến lý tưởng cho các hoạt động như lướt ván buồm, lướt sóng, thăm các địa điểm tham quan như Đồi Cát Trắng, Suối Tiên, Đồi Cát Bay.\n\n5. Cửa Lò: Cửa Lò là một bãi biển yên bình ở Nghệ An, nổi tiếng với cát trắng và nước biển trong xanh. Du khách có thể tham gia các hoạt động như tắm biển, thăm các địa điểm lân cận như đền Cửa Lò, đảo Cồn Cỏ.&#39;, additional_kwargs={}, response_metadata={&#39;token_usage&#39;: {&#39;completion_tokens&#39;: 543, &#39;prompt_tokens&#39;: 25, &#39;total_tokens&#39;: 568, &#39;completion_tokens_details&#39;: {&#39;accepted_prediction_tokens&#39;: 0, &#39;audio_tokens&#39;: 0, &#39;reasoning_tokens&#39;: 0, &#39;rejected_prediction_tokens&#39;: 0}, &#39;prompt_tokens_details&#39;: {&#39;audio_tokens&#39;: 0, &#39;cached_tokens&#39;: 0}}, &#39;model_name&#39;: &#39;gpt-3.5-turbo&#39;, &#39;system_fingerprint&#39;: None, &#39;finish_reason&#39;: &#39;stop&#39;, &#39;logprobs&#39;: None}, id=&#39;run-f9aa8b2c-e525-4c9c-8e67-64d279c847b0-0&#39;)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Có hướng dẫn</span>
+<span class="n">chat</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">SystemMessage</span><span class="p">(</span><span class="n">content</span> <span class="o">=</span> <span class="s2">&quot;Bạn là trợ lý hướng dẫn viên du lịch và đưa gợi ý chỉ bằng một trả lời ngắn gọn&quot;</span><span class="p">),</span>
+        <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span> <span class="o">=</span> <span class="s2">&quot;Đi biển ở Việt Nam thì nên đi đâu&quot;</span><span class="p">)</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+AIMessage(content=&#39;Nếu bạn muốn tận hưởng biển xanh, cát trắng và không khí trong lành, hãy đến với Phú Quốc, Nha Trang, Đà Nẵng hoặc Hội An.&#39;, additional_kwargs={}, response_metadata={&#39;token_usage&#39;: {&#39;completion_tokens&#39;: 63, &#39;prompt_tokens&#39;: 72, &#39;total_tokens&#39;: 135, &#39;completion_tokens_details&#39;: {&#39;accepted_prediction_tokens&#39;: 0, &#39;audio_tokens&#39;: 0, &#39;reasoning_tokens&#39;: 0, &#39;rejected_prediction_tokens&#39;: 0}, &#39;prompt_tokens_details&#39;: {&#39;audio_tokens&#39;: 0, &#39;cached_tokens&#39;: 0}}, &#39;model_name&#39;: &#39;gpt-3.5-turbo&#39;, &#39;system_fingerprint&#39;: None, &#39;finish_reason&#39;: &#39;stop&#39;, &#39;logprobs&#39;: None}, id=&#39;run-c76de61c-66d5-468b-b9a6-027aa00ddab8-0&#39;)
+</pre></div></div>
+</div>
+</section>
+<section id="Memory">
+<h2>Memory<a class="headerlink" href="#Memory" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">memory</span></code> là nhóm kỹ thuật cho phép LLM ghi nhớ về các thông tin trong quá trình tương tác</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain.chat_models</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
+<span class="kn">from</span> <span class="nn">langchain.memory</span> <span class="kn">import</span> <span class="n">ChatMessageHistory</span>
+
+<span class="n">chat</span> <span class="o">=</span> <span class="n">ChatOpenAI</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo&quot;</span><span class="p">,</span><span class="n">temperature</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">ChatMessageHistory</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chat</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span> <span class="o">=</span> <span class="s2">&quot;Thủ đô của Pháp là gì?&quot;</span><span class="p">)</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+AIMessage(content=&#39;Thủ đô của Pháp là Paris.&#39;, additional_kwargs={}, response_metadata={&#39;token_usage&#39;: {&#39;completion_tokens&#39;: 12, &#39;prompt_tokens&#39;: 19, &#39;total_tokens&#39;: 31, &#39;completion_tokens_details&#39;: {&#39;accepted_prediction_tokens&#39;: 0, &#39;audio_tokens&#39;: 0, &#39;reasoning_tokens&#39;: 0, &#39;rejected_prediction_tokens&#39;: 0}, &#39;prompt_tokens_details&#39;: {&#39;audio_tokens&#39;: 0, &#39;cached_tokens&#39;: 0}}, &#39;model_name&#39;: &#39;gpt-3.5-turbo&#39;, &#39;system_fingerprint&#39;: None, &#39;finish_reason&#39;: &#39;stop&#39;, &#39;logprobs&#39;: None}, id=&#39;run-95dfae4c-1efd-49d3-b945-3b3637838f62-0&#39;)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Kiểm tra memory</span>
+<span class="n">history</span><span class="o">.</span><span class="n">messages</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[]
+</pre></div></div>
+</div>
+<p>Lúc này, object <code class="docutils literal notranslate"><span class="pre">memory</span></code> chưa được lưu trữ thông tin về cuộc hội thoại của người dùng, ta có thể lưu trữ lại như sau</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span><span class="o">.</span><span class="n">add_ai_message</span><span class="p">(</span><span class="s2">&quot;Xin chào! Tôi có thể giúp gì cho bạn?&quot;</span><span class="p">)</span>
+<span class="n">history</span><span class="o">.</span><span class="n">add_user_message</span><span class="p">(</span><span class="s2">&quot;Thủ đô của Pháp là gì&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span><span class="o">.</span><span class="n">messages</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[AIMessage(content=&#39;Xin chào! Tôi có thể giúp gì cho bạn?&#39;, additional_kwargs={}, response_metadata={}),
+ HumanMessage(content=&#39;Thủ đô của Pháp là gì&#39;, additional_kwargs={}, response_metadata={})]
+</pre></div></div>
+</div>
+</section>
+<section id="Prompts-&amp;-Prompts-template">
+<h2>Prompts &amp; Prompts template<a class="headerlink" href="#Prompts-&-Prompts-template" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Prompt</span></code> là một đoạn văn bản hoặc yêu cầu mà người dùng nhập vào để hướng dẫn mô hình tạo ra kết quả. Prompt có thể là một câu hỏi, một chỉ dẫn cụ thể, hay một mô tả về hình ảnh, bài viết hoặc ý tưởng mà ta muốn mô hình phát triển hoặc phản hồi. Prompt giúp định hình nội dung và hướng đi cho mô hình AI để tạo ra kết quả phù hợp với yêu cầu của người sử dụng.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain_openai</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
+<span class="n">llm</span> <span class="o">=</span> <span class="n">ChatOpenAI</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">)</span>
+
+<span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Today is Monday, tomorrow is Wednesday.</span>
+<span class="s2">What is wrong with that statement?</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">llm</span><span class="p">(</span><span class="n">prompt</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+content=&#39;The statement is incorrect because if today is Monday, then tomorrow would be Tuesday, not Wednesday.&#39; additional_kwargs={&#39;refusal&#39;: None} response_metadata={&#39;token_usage&#39;: {&#39;completion_tokens&#39;: 20, &#39;prompt_tokens&#39;: 23, &#39;total_tokens&#39;: 43, &#39;completion_tokens_details&#39;: {&#39;accepted_prediction_tokens&#39;: 0, &#39;audio_tokens&#39;: 0, &#39;reasoning_tokens&#39;: 0, &#39;rejected_prediction_tokens&#39;: 0}, &#39;prompt_tokens_details&#39;: {&#39;audio_tokens&#39;: 0, &#39;cached_tokens&#39;: 0}}, &#39;model_name&#39;: &#39;gpt-4o-mini-2024-07-18&#39;, &#39;system_fingerprint&#39;: &#39;fp_72ed7ab54c&#39;, &#39;finish_reason&#39;: &#39;stop&#39;, &#39;logprobs&#39;: None} id=&#39;run-2e4f38dd-401e-47a5-8793-6ceba41c405f-0&#39; usage_metadata={&#39;input_tokens&#39;: 23, &#39;output_tokens&#39;: 20, &#39;total_tokens&#39;: 43, &#39;input_token_details&#39;: {&#39;audio&#39;: 0, &#39;cache_read&#39;: 0}, &#39;output_token_details&#39;: {&#39;audio&#39;: 0, &#39;reasoning&#39;: 0}}
+</pre></div></div>
+</div>
+<hr class="docutils" />
+<p><code class="docutils literal notranslate"><span class="pre">Prompt</span> <span class="pre">template</span></code> là một khuôn mẫu được thiết kế sẵn để giúp người dùng tạo ra các prompts một cách dễ dàng và hiệu quả. Nó cung cấp một cấu trúc cụ thể mà người dùng có thể điền vào để tạo ra yêu cầu cho mô hình AI. Prompt template thường được sử dụng để đảm bảo rằng đầu vào được cung cấp có độ rõ ràng và đầy đủ, giúp mô hình AI tạo ra kết quả chính xác và phù hợp.</p>
+<p>Các prompt templates có thể bao gồm các thành phần cố định (ví dụ: cấu trúc câu) và các phần trống mà người dùng có thể điền vào để tùy chỉnh yêu cầu. Việc sử dụng template giúp tiết kiệm thời gian, giảm thiểu sự mơ hồ, và hướng đến mục tiêu rõ ràng hơn khi tương tác với AI.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import prompt and define PromptTemplate</span>
+
+<span class="kn">from</span> <span class="nn">langchain</span> <span class="kn">import</span> <span class="n">PromptTemplate</span>
+
+<span class="n">template</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">You are an expert data scientist with an expertise in building deep learning models.</span>
+<span class="s2">Explain the concept of </span><span class="si">{concept}</span><span class="s2"> in a couple of lines</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">prompt</span> <span class="o">=</span> <span class="n">PromptTemplate</span><span class="p">(</span>
+    <span class="n">input_variables</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;concept&quot;</span><span class="p">],</span>
+    <span class="n">template</span><span class="o">=</span><span class="n">template</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run LLM with PromptTemplate</span>
+<span class="n">my_prompt</span> <span class="o">=</span> <span class="n">prompt</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">concept</span><span class="o">=</span><span class="s2">&quot;autoencoder&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_prompt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+You are an expert data scientist with an expertise in building deep learning models.
+Explain the concept of autoencoder in a couple of lines
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">llm</span><span class="p">(</span><span class="n">prompt</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">concept</span><span class="o">=</span><span class="s2">&quot;autoencoder&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+AIMessage(content=&#39;An autoencoder is a type of neural network used for unsupervised learning, designed to encode input data into a lower-dimensional representation and then decode that representation back to the original input. It consists of two main components: an encoder, which compresses the data, and a decoder, which reconstructs the data, enabling tasks such as dimensionality reduction, anomaly detection, and data denoising.&#39;, additional_kwargs={&#39;refusal&#39;: None}, response_metadata={&#39;token_usage&#39;: {&#39;completion_tokens&#39;: 81, &#39;prompt_tokens&#39;: 36, &#39;total_tokens&#39;: 117, &#39;completion_tokens_details&#39;: {&#39;accepted_prediction_tokens&#39;: 0, &#39;audio_tokens&#39;: 0, &#39;reasoning_tokens&#39;: 0, &#39;rejected_prediction_tokens&#39;: 0}, &#39;prompt_tokens_details&#39;: {&#39;audio_tokens&#39;: 0, &#39;cached_tokens&#39;: 0}}, &#39;model_name&#39;: &#39;gpt-4o-mini-2024-07-18&#39;, &#39;system_fingerprint&#39;: &#39;fp_72ed7ab54c&#39;, &#39;finish_reason&#39;: &#39;stop&#39;, &#39;logprobs&#39;: None}, id=&#39;run-4b825bd8-bc84-430e-aac8-f6e78cfe3f55-0&#39;, usage_metadata={&#39;input_tokens&#39;: 36, &#39;output_tokens&#39;: 81, &#39;total_tokens&#39;: 117, &#39;input_token_details&#39;: {&#39;audio&#39;: 0, &#39;cache_read&#39;: 0}, &#39;output_token_details&#39;: {&#39;audio&#39;: 0, &#39;reasoning&#39;: 0}})
+</pre></div></div>
+</div>
+</section>
+<section id="Chains">
+<h2>Chains<a class="headerlink" href="#Chains" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Chain</span></code> là một chuỗi các bước được liên kết với nhau để thực hiện một tác vụ cụ thể với đầu ra của bước này là đầu vào của một bước khác. Chain cho phép ta tạo ra các quy trình phức tạp &amp; dễ quản lý khi làm việc với mô hình ngôn ngữ lớn</p>
+<p>Ta có thể tạo chain với 2 bước như sau:</p>
+<ul class="simple">
+<li><p>Bước 1: Giải thích 1 thuật ngữ kỹ thuật</p></li>
+<li><p>Bước 2: Dùng kết quả đầu ra của bước 1, viết cô đọng và giải thích lại bằng ngôn ngữ đơn giản</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo chain</span>
+<span class="kn">from</span> <span class="nn">langchain.chains</span> <span class="kn">import</span> <span class="n">LLMChain</span>
+<span class="n">chain</span> <span class="o">=</span> <span class="n">LLMChain</span><span class="p">(</span><span class="n">llm</span><span class="o">=</span><span class="n">llm</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="n">prompt</span><span class="p">)</span>
+
+<span class="c1"># Run the chain only specifying the input variable.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s2">&quot;autoencoder&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;concept&#39;: &#39;autoencoder&#39;, &#39;text&#39;: &#39;An autoencoder is a type of neural network designed to learn efficient representations of data, typically for the purpose of dimensionality reduction or feature learning. It consists of two main parts: an encoder that compresses the input into a lower-dimensional latent space and a decoder that reconstructs the original input from this representation. The model is trained to minimize the reconstruction error between the input and the output.&#39;}
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a second prompt</span>
+
+<span class="n">second_prompt</span> <span class="o">=</span> <span class="n">PromptTemplate</span><span class="p">(</span>
+    <span class="n">input_variables</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ml_concept&quot;</span><span class="p">],</span>
+    <span class="n">template</span><span class="o">=</span><span class="s2">&quot;Turn the concept description of </span><span class="si">{ml_concept}</span><span class="s2"> and explain it to me like I&#39;m five in 500 words&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">chain_two</span> <span class="o">=</span> <span class="n">LLMChain</span><span class="p">(</span><span class="n">llm</span><span class="o">=</span><span class="n">llm</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="n">second_prompt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Sau khi thực hiện xong 2 <code class="docutils literal notranslate"><span class="pre">chain</span></code>, ta có thể ghép lại thành 1 <code class="docutils literal notranslate"><span class="pre">chain</span></code> duy nhất</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain.chains</span> <span class="kn">import</span> <span class="n">SimpleSequentialChain</span>
+<span class="n">overall_chain</span> <span class="o">=</span> <span class="n">SimpleSequentialChain</span><span class="p">(</span><span class="n">chains</span><span class="o">=</span><span class="p">[</span><span class="n">chain</span><span class="p">,</span> <span class="n">chain_two</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Thực hiện toàn bộ chain với input đầu vào từ chain 1</span>
+<span class="n">explanation</span> <span class="o">=</span> <span class="n">overall_chain</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s2">&quot;autoencoder&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">explanation</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+
+<span class="ansi-bold">&gt; Entering new SimpleSequentialChain chain...</span>
+<span class="ansi-cyan-intense-fg ansi-bold">An autoencoder is a type of neural network designed to learn efficient representations (encodings) of input data by compressing it into a lower-dimensional space and then reconstructing the original input from that representation. It consists of two main components: an encoder that compresses the data and a decoder that reconstructs it, with the goal of minimizing the reconstruction error. Autoencoders are commonly used for tasks like dimensionality reduction, anomaly detection, and image denoising.</span>
+<span class="ansi-yellow-intense-fg ansi-bold">Alright! Imagine you have a really big box of toy blocks, and you love to play with them. But sometimes, it gets really hard to find the blocks you want because there are just so many! So, what if you had a magic machine that could help you organize your blocks in a simpler way?
+
+This magic machine is called an **autoencoder**! Think of it like a super-smart toy organizer.
+
+### The Two Parts of the Magic Machine
+
+The autoencoder has two special parts: the **encoder** and the **decoder**.
+
+1. **The Encoder**: This is like the part of the machine that helps you squish all your blocks. When you put your big box of toys into this machine, the encoder looks at all the blocks and figures out a way to squeeze them down into a smaller, easier-to-handle box. It tries to remember what all of your blocks look like, but it keeps only the important bits. So instead of having a big messy box, you now have a smaller, organized one!
+
+2. **The Decoder**: Now, here’s where the magic happens! When you want to play with your toys again, you can use the decoder. This part of the machine takes that smaller box of organized blocks, and magically transforms it back into the big box of toys that looks just like it did before! It tries really hard to make sure that every block is back in its original shape and color.
+
+### Why Do We Use the Autoencoder?
+
+So, why do we need this super-smart organizer? Well, there are a few fun reasons!
+
+- **Making Things Simpler**: Just like how it’s easier to play with a few organized blocks rather than a huge pile, the autoencoder helps people make complicated pictures or sounds easier to understand by turning them into simpler forms. This makes your computer work faster and smarter!
+
+- **Finding Hidden Treasure**: Sometimes, when playing with your toys, you find some blocks that don’t belong. Those are like surprises or mistakes, and the autoencoder can help you find them! With the smaller organized box, it can tell if a block is out of place. This is called **anomaly detection**, which is a fancy way of saying it helps you find things that don’t fit.
+
+- **Cleaning Up Messy Drawings**: Imagine if you drew a picture, but it was all smudged and messy. The autoencoder can help clean it up! It can learn how to fix those mistakes so your picture looks beautiful again. This is called **image denoising**.
+
+### The Goal of the Autoencoder
+
+The main job of the autoencoder is to make sure it does a very good job squeezing and then re-building the toy blocks. It always tries its best to make sure the blocks look the same after they come out of the machine. The better it gets, the less difference there is between the way the toys looked before and after!
+
+### Conclusion
+
+So, just like your magic toy organizer that helps turn a big mess into a neat little box of blocks and back again, autoencoders are smart machines that help us understand and simplify data. They are like trusty helpers in a world full of information! Whether it’s to make sense of pictures, find odd things, or clean up the messes, autoencoders are there to lend a helping hand. How cool is that?</span>
+
+<span class="ansi-bold">&gt; Finished chain.</span>
+{&#39;input&#39;: &#39;autoencoder&#39;, &#39;output&#39;: &#39;Alright! Imagine you have a really big box of toy blocks, and you love to play with them. But sometimes, it gets really hard to find the blocks you want because there are just so many! So, what if you had a magic machine that could help you organize your blocks in a simpler way?\n\nThis magic machine is called an **autoencoder**! Think of it like a super-smart toy organizer.\n\n### The Two Parts of the Magic Machine\n\nThe autoencoder has two special parts: the **encoder** and the **decoder**.\n\n1. **The Encoder**: This is like the part of the machine that helps you squish all your blocks. When you put your big box of toys into this machine, the encoder looks at all the blocks and figures out a way to squeeze them down into a smaller, easier-to-handle box. It tries to remember what all of your blocks look like, but it keeps only the important bits. So instead of having a big messy box, you now have a smaller, organized one!\n\n2. **The Decoder**: Now, here’s where the magic happens! When you want to play with your toys again, you can use the decoder. This part of the machine takes that smaller box of organized blocks, and magically transforms it back into the big box of toys that looks just like it did before! It tries really hard to make sure that every block is back in its original shape and color.\n\n### Why Do We Use the Autoencoder?\n\nSo, why do we need this super-smart organizer? Well, there are a few fun reasons!\n\n- **Making Things Simpler**: Just like how it’s easier to play with a few organized blocks rather than a huge pile, the autoencoder helps people make complicated pictures or sounds easier to understand by turning them into simpler forms. This makes your computer work faster and smarter!\n\n- **Finding Hidden Treasure**: Sometimes, when playing with your toys, you find some blocks that don’t belong. Those are like surprises or mistakes, and the autoencoder can help you find them! With the smaller organized box, it can tell if a block is out of place. This is called **anomaly detection**, which is a fancy way of saying it helps you find things that don’t fit.\n\n- **Cleaning Up Messy Drawings**: Imagine if you drew a picture, but it was all smudged and messy. The autoencoder can help clean it up! It can learn how to fix those mistakes so your picture looks beautiful again. This is called **image denoising**.\n\n### The Goal of the Autoencoder\n\nThe main job of the autoencoder is to make sure it does a very good job squeezing and then re-building the toy blocks. It always tries its best to make sure the blocks look the same after they come out of the machine. The better it gets, the less difference there is between the way the toys looked before and after!\n\n### Conclusion\n\nSo, just like your magic toy organizer that helps turn a big mess into a neat little box of blocks and back again, autoencoders are smart machines that help us understand and simplify data. They are like trusty helpers in a world full of information! Whether it’s to make sense of pictures, find odd things, or clean up the messes, autoencoders are there to lend a helping hand. How cool is that?&#39;}
+</pre></div></div>
+</div>
+</section>
+<section id="Vector-Store">
+<h2>Vector Store<a class="headerlink" href="#Vector-Store" title="Link to this heading"></a></h2>
+<p>Với 1 đoạn văn bản, ta cần chia nhỏ thành các đoạn được gọi là <code class="docutils literal notranslate"><span class="pre">chunk</span></code>. Với langchain, có cấu phần chia nhỏ text thành các chunk với 2 thuộc tính chính:</p>
+<ul class="simple">
+<li><p>chunk_size: Số lượng ký tự tối đa cho 1 chunk</p></li>
+<li><p>chunk_overlap: Cho phép overlap giữa 2 đoạn liên tiếp. <code class="docutils literal notranslate"><span class="pre">chunk_overlap</span> <span class="pre">=</span> <span class="pre">0</span></code> nghĩa là không cho phép trùng lặp giữa 2 đoạn</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain.text_splitter</span> <span class="kn">import</span> <span class="n">RecursiveCharacterTextSplitter</span>
+
+<span class="n">text_splitter</span> <span class="o">=</span> <span class="n">RecursiveCharacterTextSplitter</span><span class="p">(</span>
+    <span class="n">chunk_size</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="n">chunk_overlap</span>  <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">separators</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;!&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">explanation</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Alright! Imagine you have a really big box of toy blocks, and you love to play with them. But sometimes, it gets really hard to find the blocks you want because there are just so many! So, what if you had a magic machine that could help you organize your blocks in a simpler way?\n\nThis magic machine is called an **autoencoder**! Think of it like a super-smart toy organizer.\n\n### The Two Parts of the Magic Machine\n\nThe autoencoder has two special parts: the **encoder** and the **decoder**.\n\n1. **The Encoder**: This is like the part of the machine that helps you squish all your blocks. When you put your big box of toys into this machine, the encoder looks at all the blocks and figures out a way to squeeze them down into a smaller, easier-to-handle box. It tries to remember what all of your blocks look like, but it keeps only the important bits. So instead of having a big messy box, you now have a smaller, organized one!\n\n2. **The Decoder**: Now, here’s where the magic happens! When you want to play with your toys again, you can use the decoder. This part of the machine takes that smaller box of organized blocks, and magically transforms it back into the big box of toys that looks just like it did before! It tries really hard to make sure that every block is back in its original shape and color.\n\n### Why Do We Use the Autoencoder?\n\nSo, why do we need this super-smart organizer? Well, there are a few fun reasons!\n\n- **Making Things Simpler**: Just like how it’s easier to play with a few organized blocks rather than a huge pile, the autoencoder helps people make complicated pictures or sounds easier to understand by turning them into simpler forms. This makes your computer work faster and smarter!\n\n- **Finding Hidden Treasure**: Sometimes, when playing with your toys, you find some blocks that don’t belong. Those are like surprises or mistakes, and the autoencoder can help you find them! With the smaller organized box, it can tell if a block is out of place. This is called **anomaly detection**, which is a fancy way of saying it helps you find things that don’t fit.\n\n- **Cleaning Up Messy Drawings**: Imagine if you drew a picture, but it was all smudged and messy. The autoencoder can help clean it up! It can learn how to fix those mistakes so your picture looks beautiful again. This is called **image denoising**.\n\n### The Goal of the Autoencoder\n\nThe main job of the autoencoder is to make sure it does a very good job squeezing and then re-building the toy blocks. It always tries its best to make sure the blocks look the same after they come out of the machine. The better it gets, the less difference there is between the way the toys looked before and after!\n\n### Conclusion\n\nSo, just like your magic toy organizer that helps turn a big mess into a neat little box of blocks and back again, autoencoders are smart machines that help us understand and simplify data. They are like trusty helpers in a world full of information! Whether it’s to make sense of pictures, find odd things, or clean up the messes, autoencoders are there to lend a helping hand. How cool is that?&#39;
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chia thành chunk</span>
+<span class="n">texts</span> <span class="o">=</span> <span class="n">text_splitter</span><span class="o">.</span><span class="n">create_documents</span><span class="p">([</span><span class="n">explanation</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<p>Các đoạn text riêng biệt có thể xem với <code class="docutils literal notranslate"><span class="pre">page_content</span></code></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">texts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">page_content</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Alright! Imagine you have a really big box of toy blocks, and you love to play with them. But&#39;
+</pre></div></div>
+</div>
+<p>Ta có thể convert các vector text thành embedding vector với OpenAI như sau</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain_openai</span> <span class="kn">import</span> <span class="n">OpenAIEmbeddings</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">embeddings</span> <span class="o">=</span> <span class="n">OpenAIEmbeddings</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Tạo đoạn text chunk đầu tiên thành vector embedding</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Turn the first text chunk into a vector with the embedding</span>
+<span class="n">query_result</span> <span class="o">=</span> <span class="n">embeddings</span><span class="o">.</span><span class="n">embed_query</span><span class="p">(</span><span class="n">texts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">page_content</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Length of vector: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">query_result</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">query_result</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Length of vector: 1536
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[-0.004783688113093376,
+ 0.0018869912018999457,
+ -0.011884734034538269,
+ 0.000676999450661242,
+ -0.03792521357536316]
+</pre></div></div>
+</div>
+<p>Ta có thể lưu trữ toàn bộ vector database với pinecone như sau</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">pinecone</span> <span class="n">langchain</span><span class="o">-</span><span class="n">pinecone</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pip install pinecone langchain-pinecone</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pinecone</span> <span class="kn">import</span> <span class="n">Pinecone</span> <span class="k">as</span> <span class="n">pinecone</span>
+<span class="kn">from</span> <span class="nn">langchain_pinecone</span>  <span class="kn">import</span> <span class="n">Pinecone</span>
+
+<span class="n">pinecone</span><span class="p">(</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;PINECONE_API_KEY&#39;</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;pinecone.control.pinecone.Pinecone at 0x7f15de5a0510&gt;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[75]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">embeddings</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[75]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+OpenAIEmbeddings(client=&lt;openai.resources.embeddings.Embeddings object at 0x7f15d41a4c50&gt;, async_client=&lt;openai.resources.embeddings.AsyncEmbeddings object at 0x7f15d416ac10&gt;, model=&#39;text-embedding-ada-002&#39;, dimensions=None, deployment=&#39;text-embedding-ada-002&#39;, openai_api_version=None, openai_api_base=None, openai_api_type=None, openai_proxy=None, embedding_ctx_length=8191, openai_api_key=SecretStr(&#39;**********&#39;), openai_organization=None, allowed_special=None, disallowed_special=None, chunk_size=1000, max_retries=2, request_timeout=None, headers=None, tiktoken_enabled=True, tiktoken_model_name=None, show_progress_bar=False, model_kwargs={}, skip_empty=False, default_headers=None, default_query=None, retry_min_seconds=4, retry_max_seconds=20, http_client=None, http_async_client=None, check_embedding_ctx_length=True)
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[76]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index_name</span> <span class="o">=</span> <span class="s2">&quot;langchain-quickstart&quot;</span>
+<span class="n">search</span> <span class="o">=</span> <span class="n">Pinecone</span><span class="o">.</span><span class="n">from_documents</span><span class="p">(</span><span class="n">texts</span><span class="p">,</span> <span class="n">embeddings</span><span class="p">,</span> <span class="n">index_name</span><span class="o">=</span><span class="n">index_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Sau khi upload lên pinecone, ta có thể tạo thấy các đoạn text chunk tương ứng với các <code class="docutils literal notranslate"><span class="pre">vector</span> <span class="pre">embedding</span></code> đã được upload lên pinecone và có thể thực hiện tìm kiếm các thông tin phù hợp nhất. Quá trình này còn được gọi là <code class="docutils literal notranslate"><span class="pre">Retrievers</span></code></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do a simple vector similarity search</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;What is magical about an autoencoder?&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">search</span><span class="o">.</span><span class="n">similarity_search</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[Document(id=&#39;38703253-5675-4cea-b19a-ab350195af10&#39;, metadata={}, page_content=&#39;So, the autoencoder is like your helpful magical toy box that learns to make organizing your toys&#39;), Document(id=&#39;f077393d-ee67-486b-9d15-9aca9fd405a3&#39;, metadata={}, page_content=&#39;People use autoencoders for lots of things! Sometimes, they help computers understand images better&#39;), Document(id=&#39;c5a64ce5-e288-4028-b7e5-7b7891ac2f4d&#39;, metadata={}, page_content=&#39;can rely on our little autoencoder friend!&#39;), Document(id=&#39;6d2dc406-8f9e-4f6f-a89e-777445222012&#39;, metadata={}, page_content=&#39;Okay! Let’s think about a fun way to understand what an autoencoder is.&#39;)]
+</pre></div></div>
+</div>
+</section>
+<section id="Agent">
+<h2>Agent<a class="headerlink" href="#Agent" title="Link to this heading"></a></h2>
+<p>Một trong các hạn chế rõ rệt của LLM là khả năng thực hiện các công cụ ở ngoài LLM như Python</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
+<span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">langchain</span><span class="o">-</span><span class="n">experimental</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[79]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain</span> <span class="kn">import</span> <span class="n">hub</span>
+<span class="kn">from</span> <span class="nn">langchain.agents</span> <span class="kn">import</span> <span class="n">AgentExecutor</span>
+<span class="kn">from</span> <span class="nn">langchain_experimental.tools</span> <span class="kn">import</span> <span class="n">PythonREPLTool</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[80]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain_core.tools</span> <span class="kn">import</span> <span class="n">Tool</span>
+<span class="kn">from</span> <span class="nn">langchain_experimental.utilities</span> <span class="kn">import</span> <span class="n">PythonREPL</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[81]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">python_repl</span> <span class="o">=</span> <span class="n">PythonREPL</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[82]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">python_repl</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;print(1+1)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[82]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;2\n&#39;
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[83]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain.agents</span> <span class="kn">import</span> <span class="n">load_tools</span>
+<span class="kn">from</span> <span class="nn">langchain.agents</span> <span class="kn">import</span> <span class="n">initialize_agent</span>
+<span class="kn">from</span> <span class="nn">langchain.agents</span> <span class="kn">import</span> <span class="n">AgentType</span><span class="p">,</span> <span class="n">Tool</span>
+<span class="kn">from</span> <span class="nn">langchain_experimental.tools</span> <span class="kn">import</span> <span class="n">PythonREPLTool</span>
+
+<span class="n">agent</span> <span class="o">=</span> <span class="n">initialize_agent</span><span class="p">(</span>
+    <span class="n">tools</span><span class="o">=</span><span class="p">[</span><span class="n">PythonREPLTool</span><span class="p">()],</span>
+    <span class="n">llm</span><span class="o">=</span><span class="n">llm</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[84]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s2">&quot;what is 2 + 2?&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[84]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;input&#39;: &#39;what is 2 + 2?&#39;, &#39;output&#39;: &#39;4&#39;}
+</pre></div></div>
+</div>
+</section>
+<section id="Tài-liệu-tham-khảo">
+<h2>Tài liệu tham khảo<a class="headerlink" href="#Tài-liệu-tham-khảo" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=aywZrzNaKjs">Langchain in 13 minutes</a></p></li>
+<li><p><a class="reference external" href="https://github.com/anhhd/langchain-tutorials">Langchain tutorials</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Anh Hoang Duc.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

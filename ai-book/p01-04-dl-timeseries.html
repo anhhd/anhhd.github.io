@@ -118,13 +118,11 @@
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-2025-01-03 08:36:23.679723: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:32] Could not find cuda drivers on your machine, GPU will not be used.
-2025-01-03 08:36:23.683757: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:32] Could not find cuda drivers on your machine, GPU will not be used.
-2025-01-03 08:36:23.694230: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-01-09 08:58:39.914367: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-E0000 00:00:1735893383.711521     243 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-E0000 00:00:1735893383.716288     243 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-2025-01-03 08:36:23.734746: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+E0000 00:00:1736413119.935517    6514 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1736413119.941639    6514 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-01-09 08:58:39.961974: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
 </pre></div></div>
 </div>
@@ -145,8 +143,8 @@ To enable the following instructions: AVX2 AVX512F FMA, in other operations, reb
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-2025-01-03 08:36:28.636612: E external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:152] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
-2025-01-03 08:36:28.781746: I tensorflow/core/framework/local_rendezvous.cc:405] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2025-01-09 08:58:45.840487: E external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:152] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+2025-01-09 08:58:46.060166: I tensorflow/core/framework/local_rendezvous.cc:405] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
 </pre></div></div>
 </div>
 <p>Deep Learning có thể sử dụng để dự báo chuỗi thời gian. Trong chương này, ta sẽ dùng dữ liệu dự báo về thông số thời tiết với dữ liệu từ 2009-2016.</p>
@@ -175,11 +173,11 @@ To enable the following instructions: AVX2 AVX512F FMA, in other operations, reb
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&#39;d:\\01-github\\ai-book\\_source&#39;
+&#39;/home/jovyan/workspace/ai-book/_source&#39;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/climate_2009_2016.csv&quot;</span><span class="p">)</span>
@@ -188,7 +186,7 @@ To enable the following instructions: AVX2 AVX512F FMA, in other operations, reb
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -202,7 +200,7 @@ To enable the following instructions: AVX2 AVX512F FMA, in other operations, reb
 <small>shape: (5, 15)</small><table border="1" class="dataframe"><thead><tr><th>Date Time</th><th>p (mbar)</th><th>T (degC)</th><th>Tpot (K)</th><th>Tdew (degC)</th><th>rh (%)</th><th>VPmax (mbar)</th><th>VPact (mbar)</th><th>VPdef (mbar)</th><th>sh (g/kg)</th><th>H2OC (mmol/mol)</th><th>rho (g/m**3)</th><th>wv (m/s)</th><th>max. wv (m/s)</th><th>wd (deg)</th></tr><tr><td>str</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>&quot;01.01.2009 00:10:00&quot;</td><td>996.52</td><td>-8.02</td><td>265.4</td><td>-8.9</td><td>93.3</td><td>3.33</td><td>3.11</td><td>0.22</td><td>1.94</td><td>3.12</td><td>1307.75</td><td>1.03</td><td>1.75</td><td>152.3</td></tr><tr><td>&quot;01.01.2009 00:20:00&quot;</td><td>996.57</td><td>-8.41</td><td>265.01</td><td>-9.28</td><td>93.4</td><td>3.23</td><td>3.02</td><td>0.21</td><td>1.89</td><td>3.03</td><td>1309.8</td><td>0.72</td><td>1.5</td><td>136.1</td></tr><tr><td>&quot;01.01.2009 00:30:00&quot;</td><td>996.53</td><td>-8.51</td><td>264.91</td><td>-9.31</td><td>93.9</td><td>3.21</td><td>3.01</td><td>0.2</td><td>1.88</td><td>3.02</td><td>1310.24</td><td>0.19</td><td>0.63</td><td>171.6</td></tr><tr><td>&quot;01.01.2009 00:40:00&quot;</td><td>996.51</td><td>-8.31</td><td>265.12</td><td>-9.07</td><td>94.2</td><td>3.26</td><td>3.07</td><td>0.19</td><td>1.92</td><td>3.08</td><td>1309.19</td><td>0.34</td><td>0.5</td><td>198.0</td></tr><tr><td>&quot;01.01.2009 00:50:00&quot;</td><td>996.51</td><td>-8.27</td><td>265.15</td><td>-9.04</td><td>94.1</td><td>3.27</td><td>3.08</td><td>0.19</td><td>1.92</td><td>3.09</td><td>1309.0</td><td>0.32</td><td>0.63</td><td>214.3</td></tr></tbody></table></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
@@ -210,7 +208,7 @@ To enable the following instructions: AVX2 AVX512F FMA, in other operations, reb
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -233,7 +231,7 @@ To enable the following instructions: AVX2 AVX512F FMA, in other operations, reb
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Thống kê nhanh chuỗi thời gian</span>
@@ -242,7 +240,7 @@ To enable the following instructions: AVX2 AVX512F FMA, in other operations, reb
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -256,7 +254,7 @@ To enable the following instructions: AVX2 AVX512F FMA, in other operations, reb
 <small>shape: (9, 2)</small><table border="1" class="dataframe"><thead><tr><th>statistic</th><th>value</th></tr><tr><td>str</td><td>f64</td></tr></thead><tbody><tr><td>&quot;count&quot;</td><td>420451.0</td></tr><tr><td>&quot;null_count&quot;</td><td>0.0</td></tr><tr><td>&quot;mean&quot;</td><td>9.448567</td></tr><tr><td>&quot;std&quot;</td><td>8.423685</td></tr><tr><td>&quot;min&quot;</td><td>-23.01</td></tr><tr><td>&quot;25%&quot;</td><td>3.36</td></tr><tr><td>&quot;50%&quot;</td><td>9.41</td></tr><tr><td>&quot;75%&quot;</td><td>15.47</td></tr><tr><td>&quot;max&quot;</td><td>37.28</td></tr></tbody></table></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -264,7 +262,7 @@ To enable the following instructions: AVX2 AVX512F FMA, in other operations, reb
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span>
@@ -272,12 +270,12 @@ To enable the following instructions: AVX2 AVX512F FMA, in other operations, reb
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[&lt;matplotlib.lines.Line2D at 0x7f1e9c456450&gt;]
+[&lt;matplotlib.lines.Line2D at 0x7fb8c6b7b750&gt;]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -289,7 +287,7 @@ To enable the following instructions: AVX2 AVX512F FMA, in other operations, reb
 </div>
 <p>Khi xây dựng mô hình DL, ta cần chuẩn bị dữ liệu dưới dạng array</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -317,7 +315,7 @@ To enable the following instructions: AVX2 AVX512F FMA, in other operations, reb
 </div>
 <p>Phân tách giá trị của dữ liệu dựa vào dựa vào <code class="docutils literal notranslate"><span class="pre">temperature</span></code> và các biến đầu vào</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -331,7 +329,7 @@ To enable the following instructions: AVX2 AVX512F FMA, in other operations, reb
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span>
@@ -339,7 +337,7 @@ To enable the following instructions: AVX2 AVX512F FMA, in other operations, reb
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -348,7 +346,7 @@ array([-8.02, -8.41, -8.51, ..., -3.16, -4.23, -4.82])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raw_data</span>
@@ -356,7 +354,7 @@ array([-8.02, -8.41, -8.51, ..., -3.16, -4.23, -4.82])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -378,7 +376,7 @@ array([[ 9.9652e+02, -8.0200e+00,  2.6540e+02, ...,  1.0300e+00,
 </div>
 <p>Phân chia train &amp; test</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_train_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw_data</span><span class="p">))</span>
@@ -388,7 +386,7 @@ array([[ 9.9652e+02, -8.0200e+00,  2.6540e+02, ...,  1.0300e+00,
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chuẩn hóa dữ liệu</span>
@@ -406,7 +404,7 @@ array([[ 9.9652e+02, -8.0200e+00,  2.6540e+02, ...,  1.0300e+00,
 <li><p><code class="docutils literal notranslate"><span class="pre">delay</span> <span class="pre">=</span> <span class="pre">sampling_rate</span> <span class="pre">*</span> <span class="pre">(sequence_length</span> <span class="pre">+</span> <span class="pre">24</span> <span class="pre">-</span> <span class="pre">1)</span></code>: Dự báo 24h sau khi sequence kết thúc</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sampling_rate</span> <span class="o">=</span> <span class="mi">6</span>
@@ -417,7 +415,7 @@ array([[ 9.9652e+02, -8.0200e+00,  2.6540e+02, ...,  1.0300e+00,
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train data</span>
@@ -451,7 +449,7 @@ array([[ 9.9652e+02, -8.0200e+00,  2.6540e+02, ...,  1.0300e+00,
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_dataset</span>
@@ -459,7 +457,7 @@ array([[ 9.9652e+02, -8.0200e+00,  2.6540e+02, ...,  1.0300e+00,
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -469,7 +467,7 @@ array([[ 9.9652e+02, -8.0200e+00,  2.6540e+02, ...,  1.0300e+00,
 </div>
 <p>Xây dựng mô hình đơn giản</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
@@ -485,7 +483,7 @@ array([[ 9.9652e+02, -8.0200e+00,  2.6540e+02, ...,  1.0300e+00,
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><span></span><span class="n">callbacks</span> <span class="o">=</span> <span class="p">[</span>
@@ -498,7 +496,7 @@ array([[ 9.9652e+02, -8.0200e+00,  2.6540e+02, ...,  1.0300e+00,
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span>
@@ -521,9 +519,9 @@ Epoch 1/10
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-2025-01-03 08:37:00.050278: W tensorflow/core/framework/op_kernel.cc:1841] OP_REQUIRES failed at reshape_op.h:65 : INVALID_ARGUMENT: Only one input size may be -1, not both 0 and 1
-2025-01-03 08:37:00.050357: I tensorflow/core/framework/local_rendezvous.cc:405] Local rendezvous is aborting with status: INVALID_ARGUMENT: Only one input size may be -1, not both 0 and 1
-         [[{{function_node __inference_one_step_on_data_1179}}{{node functional_1/flatten_1/Reshape}}]]
+2025-01-09 08:59:34.091344: W tensorflow/core/framework/op_kernel.cc:1841] OP_REQUIRES failed at reshape_op.h:65 : INVALID_ARGUMENT: Only one input size may be -1, not both 0 and 1
+2025-01-09 08:59:34.091423: I tensorflow/core/framework/local_rendezvous.cc:405] Local rendezvous is aborting with status: INVALID_ARGUMENT: Only one input size may be -1, not both 0 and 1
+         [[{{function_node __inference_one_step_on_data_1180}}{{node functional_1/flatten_1/Reshape}}]]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -533,7 +531,7 @@ Epoch 1/10
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">InvalidArgumentError</span>                      Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[19], line 1</span>
+Cell <span class="ansi-green-fg">In[20], line 1</span>
 <span class="ansi-green-fg">----&gt; 1</span> history <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">model</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">fit</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">train_dataset</span><span class="ansi-yellow-bg">,</span>
 <span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">epochs</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">10</span><span class="ansi-yellow-bg">,</span>
 <span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">validation_data</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">val_dataset</span><span class="ansi-yellow-bg">,</span>
@@ -602,23 +600,23 @@ Detected at node functional_1/flatten_1/Reshape defined at (most recent call las
 
   File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py&#34;, line 3577, in run_code
 
-  File &#34;/tmp/ipykernel_243/2161284880.py&#34;, line 1, in &lt;module&gt;
+  File &#34;/tmp/ipykernel_6514/2161284880.py&#34;, line 1, in &lt;module&gt;
 
   File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py&#34;, line 117, in error_handler
 
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py&#34;, line 368, in fit
+  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py&#34;, line 371, in fit
 
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py&#34;, line 216, in function
+  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py&#34;, line 219, in function
 
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py&#34;, line 129, in multi_step_on_iterator
+  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py&#34;, line 132, in multi_step_on_iterator
 
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py&#34;, line 110, in one_step_on_data
+  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py&#34;, line 113, in one_step_on_data
 
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py&#34;, line 56, in train_step
+  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py&#34;, line 57, in train_step
 
   File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py&#34;, line 117, in error_handler
 
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/layers/layer.py&#34;, line 899, in __call__
+  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/layers/layer.py&#34;, line 908, in __call__
 
   File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py&#34;, line 117, in error_handler
 
@@ -630,11 +628,11 @@ Detected at node functional_1/flatten_1/Reshape defined at (most recent call las
 
   File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/function.py&#34;, line 171, in _run_through_graph
 
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/models/functional.py&#34;, line 632, in call
+  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/models/functional.py&#34;, line 637, in call
 
   File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py&#34;, line 117, in error_handler
 
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/layers/layer.py&#34;, line 899, in __call__
+  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/layers/layer.py&#34;, line 908, in __call__
 
   File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py&#34;, line 117, in error_handler
 
@@ -644,12 +642,12 @@ Detected at node functional_1/flatten_1/Reshape defined at (most recent call las
 
   File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/layers/reshaping/flatten.py&#34;, line 54, in call
 
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/numpy.py&#34;, line 4761, in reshape
+  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/numpy.py&#34;, line 4868, in reshape
 
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/numpy.py&#34;, line 1885, in reshape
+  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/numpy.py&#34;, line 1915, in reshape
 
 Only one input size may be -1, not both 0 and 1
-         [[{{node functional_1/flatten_1/Reshape}}]] [Op:__inference_multi_step_on_iterator_1212]
+         [[{{node functional_1/flatten_1/Reshape}}]] [Op:__inference_multi_step_on_iterator_1213]
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">

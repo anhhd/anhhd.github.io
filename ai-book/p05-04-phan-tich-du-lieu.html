@@ -1,0 +1,656 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="vn" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Use case - truy vấn &amp; phân tích dữ liệu &mdash; AI book 2024 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c86923ab"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            AI book
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Cơ bản về Deep Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="p01-01-gioi-thieu-deep-learning.html">1. Giới thiệu về học sâu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-02-toan-co-ban.html">2. Toán cơ bản với DL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-03-dl-co-ban.html">3. Tensorflow &amp; Keras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html">4. Chuỗi thời gian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html#Giới-thiệu">5. Giới thiệu</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">LLM &amp; GenAI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="p02-01-gioi-thieu-llm.html">1. Giới thiệu về mô hình ngôn ngữ lớn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p02-02-xu-ly-text.html">2. Xử lý dữ liệu text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p02-03-co-che-tu-chu-y.html">3. Cơ chế tự chú ý</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AI book</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Use case - truy vấn &amp; phân tích dữ liệu</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/p05-04-phan-tich-du-lieu.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Use-case---truy-vấn-&amp;-phân-tích-dữ-liệu">
+<h1>Use case - truy vấn &amp; phân tích dữ liệu<a class="headerlink" href="#Use-case---truy-vấn-&-phân-tích-dữ-liệu" title="Link to this heading"></a></h1>
+<section id="Langchain-agent">
+<h2>Langchain agent<a class="headerlink" href="#Langchain-agent" title="Link to this heading"></a></h2>
+<p>Ta có thể sử dụng <code class="docutils literal notranslate"><span class="pre">langchain</span></code> trong việc tự động hóa phân tích số liệu</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">load_dotenv</span><span class="p">()</span>
+
+<span class="n">openai_api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;OPENAI_API_KEY&#39;</span><span class="p">,</span> <span class="s1">&#39;YourAPIKeyIfNotSet&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
+<span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">langchain_experimental</span>
+<span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">langchain_community</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain_openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+<span class="kn">from</span> <span class="nn">langchain_openai</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
+<span class="kn">from</span> <span class="nn">langchain_experimental.sql</span> <span class="kn">import</span> <span class="n">SQLDatabaseChain</span>
+<span class="kn">from</span> <span class="nn">langchain_community.utilities.sql_database</span> <span class="kn">import</span> <span class="n">SQLDatabase</span>
+<span class="n">llm</span> <span class="o">=</span> <span class="n">ChatOpenAI</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">model_name</span> <span class="o">=</span> <span class="s1">&#39;gpt-3.5-turbo&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="kn">from</span> <span class="nn">langchain.agents</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">langchain.sql_database</span> <span class="kn">import</span> <span class="n">SQLDatabase</span>
+<span class="kn">from</span> <span class="nn">langchain.chains</span> <span class="kn">import</span> <span class="n">create_sql_query_chain</span>
+<span class="kn">from</span> <span class="nn">langchain_community.llms</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+<span class="kn">from</span> <span class="nn">langchain_openai</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
+</pre></div>
+</div>
+</div>
+<p>Ta có thể truy vấn dữ liệu database</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db_path</span> <span class="o">=</span> <span class="s1">&#39;data/san_francisco_trees.db&#39;</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">SQLDatabase</span><span class="o">.</span><span class="n">from_uri</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sqlite:///</span><span class="si">{</span><span class="n">sqlite_db_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read query</span>
+<span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Kiểm tra các tables</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_path</span><span class="p">)</span>
+
+<span class="c1"># Query to list all tables in the database</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;SELECT name FROM sqlite_master WHERE type=&#39;table&#39;;&quot;</span>
+<span class="n">tables</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+
+<span class="c1"># Display the list of tables</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tables in the database:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tables</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Tables in the database:
+      name
+0  SFTrees
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT * FROM SFTrees;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>TreeID</th>
+      <th>qSpecies</th>
+      <th>qAddress</th>
+      <th>PlantType</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>168225</td>
+      <td>Arbutus 'Marina' :: Hybrid Strawberry Tree</td>
+      <td>2547 Vallejo St</td>
+      <td>Tree</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>168228</td>
+      <td>Arbutus 'Marina' :: Hybrid Strawberry Tree</td>
+      <td>2547 Vallejo St</td>
+      <td>Tree</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>189160</td>
+      <td>Afrocarpus gracilior :: Fern Pine</td>
+      <td>100 Kissling St</td>
+      <td>Tree</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>189158</td>
+      <td>Afrocarpus gracilior :: Fern Pine</td>
+      <td>100 Kissling St</td>
+      <td>Tree</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>189161</td>
+      <td>Afrocarpus gracilior :: Fern Pine</td>
+      <td>100 Kissling St</td>
+      <td>Tree</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Tạo chain với SQLDatabase</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chain</span> <span class="o">=</span> <span class="n">create_sql_query_chain</span><span class="p">(</span><span class="n">llm</span><span class="p">,</span> <span class="n">db</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chain</span><span class="o">.</span><span class="n">invoke</span><span class="p">({</span><span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;How many Species of trees are there in San Francisco?&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#34;SELECT COUNT(DISTINCT qSpecies) AS NumSpecies\nFROM SFTrees\nWHERE qAddress LIKE &#39;%San Francisco%&#39;&#34;
+</pre></div></div>
+</div>
+<p>Với invoke, dữ liệu chưa thực sự thực hiện code</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent_executor</span> <span class="o">=</span> <span class="n">create_sql_agent</span><span class="p">(</span><span class="n">llm</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="n">db</span><span class="p">,</span> <span class="n">agent_type</span><span class="o">=</span><span class="s2">&quot;openai-tools&quot;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">agent_executor</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;How many Species of trees are there in San Francisco?&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/tmp/ipykernel_1182/3184071199.py:2: LangChainDeprecationWarning: The method `Chain.run` was deprecated in langchain 0.1.0 and will be removed in 1.0. Use :meth:`~invoke` instead.
+  agent_executor.run(&#34;How many Species of trees are there in San Francisco?&#34;)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+
+<span class="ansi-bold">&gt; Entering new SQL Agent Executor chain...</span>
+<span class="ansi-green-intense-fg ansi-bold">
+Invoking: `sql_db_list_tables` with `{}`
+
+
+</span><span class="ansi-bold" style="color: rgb(255,0,215)">SFTrees</span><span class="ansi-green-intense-fg ansi-bold">
+Invoking: `sql_db_schema` with `{&#39;table_names&#39;: &#39;SFTrees&#39;}`
+
+
+</span><span class="ansi-yellow-intense-fg ansi-bold">
+CREATE TABLE &#34;SFTrees&#34; (
+        &#34;TreeID&#34; INTEGER,
+        &#34;qSpecies&#34; TEXT,
+        &#34;qAddress&#34; TEXT,
+        &#34;PlantType&#34; TEXT
+)
+
+/*
+3 rows from SFTrees table:
+TreeID  qSpecies        qAddress        PlantType
+168225  Arbutus &#39;Marina&#39; :: Hybrid Strawberry Tree      2547 Vallejo St Tree
+168228  Arbutus &#39;Marina&#39; :: Hybrid Strawberry Tree      2547 Vallejo St Tree
+189160  Afrocarpus gracilior :: Fern Pine       100 Kissling St Tree
+*/</span><span class="ansi-green-intense-fg ansi-bold">
+Invoking: `sql_db_query` with `{&#39;query&#39;: &#39;SELECT DISTINCT qSpecies FROM SFTrees&#39;}`
+
+
+</span><span class="ansi-cyan-intense-fg ansi-bold">[(&#34;Arbutus &#39;Marina&#39; :: Hybrid Strawberry Tree&#34;,), (&#39;Afrocarpus gracilior :: Fern Pine&#39;,), (&#34;Thuja occidentalis &#39;Emerald&#39; :: Emerald Arborvitae&#34;,), (&#34;Magnolia grandiflora &#39;Little Gem&#39; :: Little Gem Magnolia&#34;,), (&#39;Platanus x hispanica :: Sycamore: London Plane&#39;,), (&#39;Ulmus parvifolia :: Chinese Elm&#39;,), (&#39;Eriobotrya deflexa :: Bronze Loquat&#39;,), (&#39;Leptospermum laevigatum :: Australian Tea Tree&#39;,), (&#34;Olea europaea &#39;Fruitless&#39; :: Fruitless Olive&#34;,), (&#39;Ficus rubiginosa :: Port Jackson Fig&#39;,), (&#39;Cycas revoluta :: Sago palm&#39;,), (&#39;Lophostemon confertus :: Brisbane Box&#39;,), (&#39;Podocarpus gracilor :: Fern Pine&#39;,), (&#39;Ligustrum lucidum :: Glossy Privet&#39;,), (&#39;Tristaniopsis laurina :: Swamp Myrtle&#39;,), (&#39;Prunus cerasifera :: Cherry Plum&#39;,), (&#39;Ginkgo biloba :: Maidenhair Tree&#39;,), (&#39;Pyrus calleryana :: Ornamental Pear&#39;,), (&#34;Morus alba &#39;Fruitless&#39; :: Fruitless Mulberry&#34;,), (&#39;Magnolia grandiflora :: Southern Magnolia&#39;,), (&#39;Pittosporum undulatum :: Victorian Box&#39;,), (&#39;:: Tree&#39;,), (&#39;Carpinus betulus :: European Hornbeam&#39;,), (&#39;Ilex aquifolium :: European Holly&#39;,), (&#39;Eucalyptus citriodora :: Lemon scented eucalyptus&#39;,), (&#39;Lagunaria patersonii :: Primrose Tree&#39;,), (&#39;Prunus laurocerasus :: English laurel&#39;,), (&#39;Cercis occidentalis :: Western Redbud&#39;,), (&#39;Prunus serrulata :: Ornamental Cherry&#39;,), (&#39;Maytenus boaria :: Mayten&#39;,), (&#39;Arbutus unedo :: Strawberry Tree&#39;,), (&#39;Callistemon citrinus :: Lemon Bottlebrush&#39;,), (&#34;Ficus microcarpa nitida &#39;Green Gem&#39; :: Indian Laurel Fig Tree &#39;Green Gem&#39;&#34;,), (&#39;Cordyline australis :: Dracena Palm&#39;,), (&#39;Quercus suber :: Cork Oak&#39;,), (&#39;Platanus racemosa :: California Sycamore&#39;,), (&#39;Metrosideros excelsa :: New Zealand Xmas Tree&#39;,), (&#39;Quercus tomentella :: Island oak&#39;,), (&#39;Fraxinus spp :: Ash Spp&#39;,), (&#39;Potential Site :: Potential Site&#39;,), (&#39;Quercus spp :: Oak&#39;,), (&#39;Platanus occidentalis :: American sycamore&#39;,), (&#39;Hakea suaveolens :: Sweet Hakea Tree&#39;,), (&#39;Acacia melanoxylon :: Blackwood Acacia&#39;,), (&#39;Ligustrum japonicum :: Japanese Privet&#39;,), (&#39;Liquidambar styraciflua :: American Sweet Gum&#39;,), (&#39;Ficus retusa nitida :: Banyan Fig&#39;,), (&#39;Acacia decurrens :: Acacia: Silver Wattle&#39;,), (&#39;Cupressus macrocarpa :: Monterey Cypress&#39;,), (&#39;Archontophoenix cunninghamiana :: King Palm&#39;,), (&#39;Rhamnus alaternus :: Italian Buckthorn&#39;,), (&#39;Schinus molle :: California Pepper&#39;,), (&#39;Crataegus phaenopyrum :: Washington Hawthorn&#39;,), (&#39;Elaeocarpus decipiens :: Japanese Blueberry Tree&#39;,), (&#39;Aesculus x carnea :: Red Horse Chestnut&#39;,), (&#34;Platanus x hispanica &#39;Columbia&#39; :: Columbia Hybrid Plane Tree&#34;,), (&#39;Olea Majestic Beauty ::&#39;,), (&#39;Eucalyptus camaldulensis :: River Red Gum&#39;,), (&#39;Pinus pinea :: Italian Stone Pine&#39;,), (&#39;Myoporum laetum :: Myoporum&#39;,), (&#34;Magnolia grandiflora &#39;Saint Mary&#39; :: Saint Mary Magnolia&#34;,), (&#39;Phoenix dactylifera :: Date Palm&#39;,), (&#39;Pinus radiata :: Monterey Pine&#39;,), (&#39;Acer rubrum :: Red Maple&#39;,), (&#39;Pyrus kawakamii :: Evergreen Pear&#39;,), (&#39;Corymbia maculata :: Spotted Gum&#39;,), (&#39;Schinus terebinthifolius :: Brazilian Pepper&#39;,), (&#39;Acacia stenophylla :: Shoestring Acacia&#39;,), (&#39;Eriobotrya japonica :: Edible Loquat&#39;,), (&#39;Hymenosporum flavum :: Sweetshade&#39;,), (&#39;Tree(s) ::&#39;,), (&#39;Acacia spp :: Acacia Spp&#39;,), (&#39;Jacaranda mimosifolia :: Jacaranda&#39;,), (&#34;Acer rubrum &#39;October Glory&#39; :: Red October Glory Maple&#34;,), (&#34;Olea europaea &#39;Wilsonii&#39; :: Wilson Olive Semi-fruitless&#34;,), (&#39;Melaleuca ericifolia :: Heath Melaleuca&#39;,), (&#39;Prunus caroliniana :: Carolina Cherry Laurel&#39;,), (&#39;Agonis flexuosa :: Peppermint Willow&#39;,), (&#39;Acer buergeranum :: Trident Maple&#39;,), (&#39;Tilia tomentosa :: Silver Linden&#39;,), (&#39;Callistemon viminalis :: Weeping Bottlebrush&#39;,), (&#39;Lyonothamnus floribundus subsp. asplenifolius :: Santa Cruz Ironwood&#39;,), (&#39;Tristania conferta ::&#39;,), (&#39;Magnolia champaca :: Champa&#39;,), (&#39;Quercus agrifolia :: Coast Live Oak&#39;,), (&#34;Acer rubrum &#39;Armstrong&#39; :: Armstrong Red Maple&#34;,), (&#39;Laurus nobilis :: Sweet Bay: Grecian Laurel&#39;,), (&#39;Acer palmatum :: Japanese Maple&#39;,), (&#39;Photinia fraseri :: Photinia: Chinese photinia&#39;,), (&#34;Tristaniopsis laurina &#39;Elegant&#39; :: Small-leaf Tristania &#39;Elegant&#39;&#34;,), (&#39;Quercus virginiana :: Southern Live Oak&#39;,), (&#39;Corymbia ficifolia :: Red Flowering Gum&#39;,), (&#39;Griselinia lucida :: Griselinia&#39;,), (&#34;Dodonaea viscosa &#39;Purpurea&#39; :: Purple Hopseed Bush&#34;,), (&#34;Ginkgo biloba &#39;Autumn Gold&#39; :: Ginkgo: Autumn Gold&#34;,), (&#34;Ulmus carpinifolia &#39;Frontier&#39; :: Frontier Elm &#39;Frontier&#39;&#34;,), (&#39;Geijera parviflora :: Australian Willow&#39;,), (&#39;Tilia cordata :: Littleleaf Linden&#39;,), (&#34;Laurus x &#39;Saratoga&#39; :: Hybrid Laurel&#34;,), (&#39;Melaleuca quinquenervia :: Cajeput&#39;,), (&#39;Juniperus chinensis :: Juniper&#39;,), (&#39;Melaleuca styphelliodes :: Paperbark Tree&#39;,), (&#34;Prunus serrulata &#39;Kwanzan&#39; :: Kwanzan Flowering Cherry&#34;,), (&#39;Acer japonicum :: Japanese Maple&#39;,), (&#39;Araucaria heterophylla :: Norfolk Island Pine&#39;,), (&#39;Washingtonia robusta :: Mexican Fan Palm&#39;,), (&#39;Lagerstroemia indica :: Crape Myrtle&#39;,), (&#39;Magnolia doltsopa :: Himalayan Magnolia&#39;,), (&#39;Ficus microcarpa :: Chinese Banyan&#39;,), (&#39;Syzygium paniculatum :: Brush Cherry&#39;,), (&#39;Pinus thunbergii :: Japanese Black Pine&#39;,), (&#39;Persea americana :: Avocado&#39;,), (&#34;Maytenus boaria &#39;Green Showers&#39; :: Meyten Tree &#39;Green Showers&#39;&#34;,), (&#34;Ceanothus &#39;Ray Hartman&#39; :: California Lilac &#39;Ray Hartman&#39;&#34;,), (&#34;Magnolia grandiflora &#39;Russet&#39; :: Russet Magnolia&#34;,), (&#34;Aesculus x carnea &#39;Briotii&#39; :: Ruby Horse Chestnut&#34;,), (&#34;Magnolia grandiflora &#39;Majestic Beauty&#39; :: Majestic Beauty Magnolia&#34;,), (&#34;Rhaphiolepis Majestic Beauty :: Indian Hawthorn  &#39;Majestic Beau&#39;&#34;,), (&#34;Olea europaea &#39;Swan Hill&#39; :: Olive&#34;,), (&#39;Cupressus spp :: Cypress species&#39;,), (&#39;Phoenix canariensis :: Canary Island Date Palm&#39;,), (&#39;Fraxinus oxycarpa :: Ash&#39;,), (&#39;Crataegus laevigata :: English Hawthorn&#39;,), (&#34;Acacia baileyana :: Bailey&#39;s Acacia&#34;,), (&#39;Olea europaea :: Olive Tree&#39;,), (&#39;Pistacia chinensis :: Chinese Pistache&#39;,), (&#34;Magnolia grandiflora &#39;D.D. Blanchard&#39; :: D.D. Blanchard Southern Magnolia&#34;,), (&#39;Syzygium australe :: Eugenia&#39;,), (&#34;Eriobotrya deflexa &#39;Coppertone&#39; :: Coppertone Loquat&#34;,), (&#39;patanus racemosa ::&#39;,), (&#34;Olea europaea &#39;Majestic Beauty&#39; :: Majestic Beauty Fruitless Olive&#34;,), (&#39;Eucalyptus robusta :: Swamp mahogany&#39;,), (&#34;Aesculus x carnea &#39;O&#39;Neill&#39; :: O&#39;Neill Red Horse Chestnut&#34;,), (&#39;Cupressocyparis leylandii :: Leyland Cypress&#39;,), (&#39;Eucalyptus polyanthemos :: Silver Dollar Eucalyptus&#39;,), (&#34;Prunus cerasifera &#39;Krauter vesuvius&#39; :: Purple Leaf Plum Krauter Vesuvius&#34;,), (&#39;Tilia americana :: Basswood Linden&#39;,), (&#39;Eucalyptus sideroxylon :: Red Ironbark&#39;,), (&#39;Betula pendula :: European White Birch&#39;,), (&#39;Cassia leptophylla :: Gold Medallion Tree&#39;,), (&#39;Banksia integrifolia :: Coast Banksia&#39;,), (&#39;Sambucus species :: Elderberry&#39;,), (&#39;Taxus baccata :: Irish Yew&#39;,), (&#39;::&#39;,), (&#39;Calocedrus decurrens :: Incense Cedar&#39;,), (&#39;Pittosporum crassifolium :: Karo Tree&#39;,), (&#39;Ulmus americana :: American Elm&#39;,), (&#39;Alnus rhombifolia :: White Alder&#39;,), (&#39;Acer spp :: Maple&#39;,), (&#39;Melaleuca spp :: Melaleuca spp&#39;,), (&#39;Eucalyptus Spp :: Eucalyptus&#39;,), (&#39;Melaleuca linariifolia :: Flaxleaf Paperbark&#39;,), (&#39;Pinus Spp :: Pine Spp&#39;,), (&#39;Robinia x ambigua :: Locust&#39;,), (&#39;Liriodendron tulipifera :: Tulip Tree&#39;,), (&#39;Pinus canariensis :: Canary Island Pine&#39;,), (&#39;Cedrus deodara :: Deodar Cedar&#39;,), (&#39;Eucalyptus globulus :: Blue Gum&#39;,), (&#34;Fraxinus velutina &#39;Glabra&#39; :: Arizona Ash&#34;,), (&#39;Ulmus pumila :: Siberian Elm&#39;,), (&#39;Grevillea robusta :: Silk Oak Tree&#39;,), (&#39;Privet ::&#39;,), (&#39;Quercus ilex :: Holly Oak&#39;,), (&#39;Ficus Spp. ::&#39;,), (&#39;Butia capitata :: Pindo Palm&#39;,), (&#39;Yucca gloriosa :: Spanish Dagger&#39;,), (&#39;Pyrus spp :: Pear Tree&#39;,), (&#39;Robinia pseudoacacia :: Black Locust&#39;,), (&#39;Malus :: Crab Apple&#39;,), (&#39;Ficus nitida :: Laurel Fig&#39;,), (&#34;Populus nigra &#39;Italica&#39; :: Lombardy Poplar&#34;,), (&#39;Shrub :: Shrub&#39;,), (&#39;Pittosporum eugenioides :: Tarata&#39;,), (&#39;Prunus spp :: Cherry&#39;,), (&#39;Sequoia sempervirens :: Coast Redwood&#39;,), (&#39;Ilex spp :: Holly Species&#39;,), (&#39;Trachycarpus fortunei :: Windmill Palm&#39;,), (&#34;Robinia x ambigua &#39;Purple Robe&#39; :: Purple Robe Locust&#34;,), (&#39;Acer saccharinum :: Silver Maple&#39;,), (&#39;Melaleuca nesophila :: Pink Melaleuca&#39;,), (&#34;Platanus x hispanica &#39;Yarwood&#39; :: Yarwood Sycamore&#34;,), (&#39;Ceratonia siliqua :: Carob&#39;,), (&#39;Prunus x yedoensis :: Yoshino Cherry&#39;,), (&#39;Malus floribunda :: Showy Crab Apple: Japanese Crabapple&#39;,), (&#39;Cinnamomum camphora :: Camphor Tree&#39;,), (&#34;Pyrus calleryana &#39;Aristocrat&#39; :: Aristocrat Callery Pear&#34;,), (&#34;Ulmus parvifolia &#39;Drake&#39; :: Drake&#39;s Chinese Elm&#34;,), (&#39;Pseudopanax lessonii :: Five finger&#39;,), (&#39;Koelreuteria bipinnata :: Chinese Flame Tree&#39;,), (&#34;Ulmus &#39;Frontier&#39; :: Frontier Elm&#34;,), (&#39;Dracaena draco :: Dragon Tree&#39;,), (&#39;Fraxinus uhdei :: Shamel Ash: Evergreen Ash&#39;,), (&#39;Ceiba speciosa :: Silk floss&#39;,), (&#39;Pinus halepensis :: Allepo Pine&#39;,), (&#39;Rhus lancea :: African Sumac&#39;,), (&#34;Magnolia grandiflora &#39;Samuel Sommer&#39; :: Samuel Sommer Magnolia&#34;,), (&#34;Fraxinus oxycarpa &#39;Raywood&#39; :: Raywood Ash&#34;,), (&#39;Syagrus romanzoffianum :: Queen Palm&#39;,), (&#39;Leptospermum scoparium :: New Zealand Tea Tree&#39;,), (&#34;Acer rubrum &#39;Red Sunset&#39; :: Red Swamp Maple&#34;,), (&#34;Leptospermum scoparium &#39;Ruby Glow&#39; :: New Zealand Ruby Glow Tea Tree&#34;,), (&#39;Hymenosporum flavum :: Sweet Shade&#39;,), (&#39;Photinia fraseri :: Photinia Tree&#39;,), (&#39;Prunus blireiana :: Flowering Plum&#39;,), (&#34;Pyrus calleryana &#39;Bradford&#39; :: Ornamental Pear: Bradford&#34;,), (&#39;Rhaphiolepis indica :: India Hawthorn&#39;,), (&#39;Nyssa sylvatica :: Tupelo: Sour Gum&#39;,), (&#39;Salix spp :: Willow&#39;,), (&#39;Yucca elephantipes :: Giant Yucca&#39;,), (&#39;Koelreuteria paniculata :: Golden Rain Tree&#39;,), (&#39;Palm (unknown Genus) :: Palm Spp&#39;,), (&#34;Prunus domestica &#39;Mariposa&#39; :: Mariposa Plum&#34;,), (&#39;Cupaniopsis anacardioides :: Carrotwood&#39;,), (&#39;Albizia julibrissin :: Mimosa Silk Tree&#39;,), (&#39;Acer x freemanii :: Freeman Maple&#39;,), (&#39;Cotoneaster SPP :: Cotoneaster&#39;,), (&#39;Cercis canadensis :: Eastern Redbud&#39;,), (&#39;Prunus persica :: Peach&#39;,), (&#39;Citrus spp :: Lemon: Orange: Lime&#39;,), (&#34;Pyrus calleryana &#39;Chanticleer&#39; :: Ornamental Pear Tree &#39;Chanticleer&#39;&#34;,), (&#39;Archontophoenix myolensis :: Myola palm&#39;,), (&#39;Brugmansia spp :: Angel trumpet&#39;,), (&#34;Ilex altaclarensis &#39;Wilsonii&#39; :: Wilson Holly Tree&#34;,), (&#39;Celtis sinensis :: Chinese Hackberry&#39;,), (&#34;Agonis flexuosa &#39;After Dark&#39; :: Peppermint willow &#39;After Dark&#39;&#34;,), (&#39;Juniperus silicicola :: Southern red cedar&#39;,), (&#39;Cupressus sempervirens :: Italian Cypress&#39;,), (&#39;Washingtonia filifera :: California Fan Palm&#39;,), (&#39;Dodonaea viscosa :: Hop Bush&#39;,), (&#39;Chamaerops humilis :: Mediterranean Fan Palm&#39;,), (&#39;Brahea edulis :: Guadalupe Palm&#39;,), (&#34;Prunus cerasifera &#39;Atropurpurea&#39; :: Purple-Leaf Plum&#34;,), (&#39;Chiranthodendron pentadactylon :: Monkey Hand Tree&#39;,), (&#39;Acacia longifolia :: Golden Wattle&#39;,), (&#39;Sapium sebiferum :: Chinese Tallow&#39;,), (&#34;Pyrus pyrifolia &#39;Sainseiki&#39; :: Asian Pear &#39;Sainseiki&#39;&#34;,), (&#39;Bambusa spp :: Bamboo Species&#39;,), (&#39;Podocarpus macrophyllus :: Yew Pine&#39;,), (&#39;Casuarina cunninghamiana :: Horsetail pine&#39;,), (&#39;Acer macrophyllum :: Big Leaf Maple&#39;,), (&#34;Prunus subhirtella &#39;Pendula&#39; :: Weeping Cherry&#34;,), (&#39;Zelkova serrata :: Sawleaf Zelkova&#39;,), (&#39;Quillaja saponaria :: Chilean Soapbark&#39;,), (&#39;Celtis australis :: European Hackberry&#39;,), (&#39;Betula spp :: Birch&#39;,), (&#39;Ficus macrophylla :: Morton Bay Fig&#39;,), (&#34;Prunus serrulata &#39;Royal Burgundy&#39; :: Royal Burgundy Flowering Cherry Tree&#34;,), (&#34;Eucalyptus nicholii :: Nichol&#39;s Willow-Leafed Peppermint&#34;,), (&#39;Tecoma stans :: Trumpet bush&#39;,), (&#39;Ulmus spp :: Elm Spp&#39;,), (&#39;Grevillea spp :: Silkoak species&#39;,), (&#39;Prunus armeniaca :: Apricot&#39;,), (&#39;Schefflera species :: Umbrella tree&#39;,), (&#39;Pittosporum spp :: Pittosporum spp&#39;,), (&#39;Psidium guajava :: Guava tree&#39;,), (&#34;Liquidambar styraciflua &#39;Rotundiloba&#39; :: Roundleaf sweetgum&#34;,), (&#39;Acer ginnela :: Amur Maple&#39;,), (&#39;Populus tremuloides :: Quaking aspen&#39;,), (&#39;Vitex lucens :: Puriri tree&#39;,), (&#39;Nerium oleander :: Oleander&#39;,), (&#39;Pittosporum tenuifolium :: Tawhiwhi Pittosporum&#39;,), (&#39;Azara microphylla :: Little-Leaf Azara&#39;,), (&#39;Cedrus atlantica :: Atlas Cedar&#39;,), (&#34;Grevillea &#39;Red Hooks&#39; :: Silk Oak Tree &#39;Red Hooks&#39;&#34;,), (&#39;Fraxinus americana :: American Ash&#39;,), (&#39;Araucaria columnaris :: Coral reef araucaria&#39;,), (&#39;Prunus spp :: Flowering Plum&#39;,), (&#34;Citrus × limon &#39;Lisbon&#39; :: Lisbon Lemon Tree&#34;,), (&#34;Pyrus calleryana &#39;New Bradford&#39; :: New Bradford Pear&#34;,), (&#39;Pittosporum tobira :: Japanese Mockorange&#39;,), (&#34;Ulmus &#39;Prospector&#39; :: Prospector Elm&#34;,), (&#39;Ceanothus Sps :: California lilac&#39;,), (&#39;Pseudotsuga menziesii :: Douglas Fir&#39;,), (&#39;Quercus palustris :: Pin Oak&#39;,), (&#34;Prunus serrulata &#39;Mt. Fuji&#39; :: Mt. Fuji Cherry Tree&#34;,), (&#39;Aesculus californica :: California Buckeye&#39;,), (&#39;Cupressus arizonica :: Arizona Cypress&#39;,), (&#39;Eucalyptus macarthuri :: Camden Wollybutt&#39;,), (&#39;Casurina stricta :: Beefwood: Drooping She-Oak&#39;,), (&#39;Ailanthus altissima :: Tree Of Heaven&#39;,), (&#39;Metrosideros robusta :: Northern Rata Tree&#39;,), (&#34;Acacia baileyana &#39;Purpurea&#39; :: Purple-leaf Acacia&#34;,), (&#39;Pinus muricata :: Bishop Pine&#39;,), (&#39;Acer pseudoplatanus :: Sycamore Maple&#39;,), (&#39;Salix babylonica :: Weeping Willow&#39;,), (&#34;Liquidambar styraciflua &#39;Festival&#39; :: Festival Sweet Gum&#34;,), (&#39;Acacia cyclops :: Cyclops wattle&#39;,), (&#39;Magnolia spp :: Magnolia&#39;,), (&#39;Albizia distachya :: Plume Albizia Tree&#39;,), (&#34;Ginkgo biloba &#39;Fairmont&#39; :: Fairmont Ginkgo&#34;,), (&#39;Persea indica :: Indian Bay&#39;,), (&#39;Syringa :: Lilac Tree&#39;,), (&#39;Private shrub :: Private Shrub&#39;,), (&#39;Metasequoia glyplostroboides :: Dawn Redwood&#39;,), (&#39;Podocarpus henkelii :: Long-Leafed Yellow-Wood&#39;,), (&#34;Prunus x yedoensis &#39;Akebono&#39; :: Daybreak Yoshino Cherry&#34;,), (&#39;Taxodium mucronatum :: Montezuma Cypress&#39;,), (&#39;Arecastrum romanzoffianum :: Queen Palm&#39;,), (&#34;Leucadendron &#39;Gold Strike&#39; :: Yellow conebush&#34;,), (&#34;Ginkgo biloba &#39;Princeton Sentry&#39; :: Princeton Sentry Maidenhair&#34;,), (&#39;Cedrus atlantica Glauca :: Blue Atlas Cedar&#39;,), (&#39;Ficus carica :: Edible Fig&#39;,), (&#39;Gleditsia triacanthos :: Honey Locust&#39;,), (&#39;Eucalyptus microtheca :: Flooded Box: Coolibah&#39;,), (&#34;Pyracantha  &#39;Santa Cruz&#39; :: Firethorn Tree &#39;Santa Cruz&#39;&#34;,), (&#34;Prunus serrulata &#39;Akebono&#39; :: &#39;Akebono&#39; Cherry&#34;,), (&#34;Leptospermum scoparium  &#39;Helene Strybing&#39; :: Helene Strybing New Zealand Tea Tree&#34;,), (&#39;Morus alba :: White Mulberry&#39;,), (&#39;Fagus sylvatica :: European Beech&#39;,), (&#34;Acer palmatum &#39;Bloodgood&#39; :: Bloodgood Japanese Maple&#34;,), (&#39;Tibochina urvilleana :: Princess Flower&#39;,), (&#39;Ficus laurel ::&#39;,), (&#39;Liquidambar orientalis :: Oriental Sweet Gum&#39;,), (&#39;Aloe barberae :: Tree aloe&#39;,), (&#39;Ligustrum ovalifolium :: California privet&#39;,), (&#39;Howea forsteriana :: Kentia Palm&#39;,), (&#39;Cornus florida :: Eastern Dogwood&#39;,), (&#39;Acacia cognata :: River Wattle&#39;,), (&#39;Picea Spp :: Spruce Spp&#39;,), (&#39;Eucalyptus lehmanni :: Bushy Yate&#39;,), (&#34;Platanus x hispanica &#39;Bloodgood&#39; :: Bloodgood London Plane&#34;,), (&#39;Prunus lyonii :: Catalina Cherry&#39;,), (&#39;Quercus coccinea :: Scarlet Oak&#39;,), (&#39;Chitalpa tashkentensis ::&#39;,), (&#39;Chamaecyparis species ::&#39;,), (&#39;Hakea laurina :: Sea Urchin Tree&#39;,), (&#39;Crateagus spp :: Hawthorn&#39;,), (&#39;Quercus rubra :: Red Oak&#39;,), (&#39;Corymbia citriodora :: Lemon Scented Gum&#39;,), (&#39;Acacia iteaphylla :: Willow wattle&#39;,), (&#39;Pinus coulteri :: Coulter pine&#39;,), (&#39;Chorisia speciosa :: Silk Floss Tree&#39;,), (&#39;Eucalyptus melliodora :: Yellow Box&#39;,), (&#39;Dypsis cabadae :: Cabada palm&#39;,), (&#34;Eucalyptus leucoxylon mac &#39;Rosea&#39; :: Yellow Gum&#34;,), (&#34;Ulmus parvifolia &#39;Sempervirens&#39; :: Weeping Chinese Elm&#34;,), (&#39;Eucalyptus pulverulenta :: Silver Mountain Gum Tree&#39;,), (&#39;Dicksonia antarctica :: Soft Tree Fern&#39;,), (&#39;Phoenix reclinata :: Senegal date palm&#39;,), (&#39;Celtis occidentalis :: Common Hackberry&#39;,), (&#34;Fraxinus americana &#39;Autumn Purple&#39; :: American Autumn Purple Ash&#34;,), (&#34;Acer rubrum &#39;Autumn Glory&#39; :: Red Maple Tree &#39;Autumn Glory&#39;&#34;,), (&#39;Alnus cordata :: Italian Alder&#39;,), (&#39;Eucalyptus viminalis :: Manna Gum&#39;,), (&#39;Juglans nigra :: Eastern black walnut&#39;,), (&#39;Viburnum odoratissimum var. awabuki :: Sweet viburnum&#39;,), (&#34;Prunus serrulata &#39;Amanagawa&#39; :: Flowering Cherry Tree &#39;Amanagawa&#39;&#34;,), (&#39;Malus sylvestris :: Apple&#39;,), (&#39;Betula nigra :: River Birch&#39;,), (&#34;Crataegus laevigata &#39;Paul&#39;s Scarlet&#39; :: Paul&#39;s Scarlet Hawthorn&#34;,), (&#39;Quercus robur :: English Oak&#39;,), (&#39;Myrica californica :: Pacific Wax Myrtle Tree&#39;,), (&#39;Populus spp :: Poplar Spp&#39;,), (&#39;Fraxinus x Moraine :: Moraine Ash&#39;,), (&#39;Magnolia x soulangiana :: Saucer Magnolia&#39;,), (&#39;Populus alba :: White Poplar&#39;,), (&#34;Prunus domestica &#39;Santa Rosa&#39; :: Santa Rosa Plum&#34;,), (&#39;Heteromeles arbutifolia :: Toyon&#39;,), (&#39;Solanum rantonnetti ::&#39;,), (&#39;Cussonia spicata :: Cabbage tree&#39;,), (&#34;Punica granatum &#39;Wonderfu :: Pomegranate Tree &#39;Wonderful&#39;&#34;,), (&#34;Salix matsudana &#39;Tortuosa&#39; :: Corkscrew Willow&#34;,), (&#39;Sambucus mexicana :: Blue Elderberry&#39;,), (&#34;Arctostaphylos manzanita &#39;Dr Hurd&#39; :: Dr. Hurd Manzanita&#34;,), (&#39;Paulownia fortunei :: Dragon tree&#39;,), (&#39;Cornus SPP :: Dogwood&#39;,), (&#39;Magnolia x alba :: White Champaca&#39;,), (&#34;Prunus spp &#39;Purpurea&#39; :: Cherry Plum&#34;,), (&#39;Fraxinus velutina :: Modesto Ash&#39;,), (&#34;Liquidambar styraciflua &#39;Palo Alto&#39; :: Palo Alto Sweet Gum&#34;,), (&#39;Prunus ilicifoia :: Holly-leaved Cherry&#39;,), (&#39;Juglans californica :: Walnut: Black (s.calif)&#39;,), (&#39;Lithocarpus densiflorus :: Tan Oak&#39;,), (&#34;Citrus aurantifolia &#39;Bearss&#39; :: Seedless Lime&#34;,), (&#39;Fremontodendron spp :: Flannel Bush Tree&#39;,), (&#34;Gleditsia triacanthos &#39;Shademaster&#39; :: Honey Locust &#39;Shademaster&#39;&#34;,), (&#34;Ulmus propinqua &#39;Emerald Sunshine&#39; :: Emerald Sunshine Elm&#34;,), (&#39;Diospyros kaki :: Persimmon&#39;,), (&#34;Prunus serrulata &#39;Double Pink Weeping&#39; :: Weeping Double Pink Flowering Cherry&#34;,), (&#34;Prunus x &#39;Amanogawa&#39; :: Flowering Cherry&#34;,), (&#39;Pinus strobus :: Eastern white pine&#39;,), (&#39;Araucaria araucana :: Monkey puzzle&#39;,), (&#34;Acer platanoides &#39;Crimson King&#39; :: Norway maple&#34;,), (&#39;Brahea aramata :: Mexican Blue Palm&#39;,), (&#39;Corynocarpus laevigata :: New Zealand Laurel&#39;,), (&#39;Morus rubra :: Red mulbeerry&#39;,), (&#34;Pyrus calleryana &#39;Capital&#39; :: Ornamental Pear Tree &#39;Capital&#39;&#34;,), (&#34;Cercis canadensis &#39;Forest Pansy&#39; :: Forest Pansy Redbud&#34;,), (&#39;Umbellularia californica :: California Bay&#39;,), (&#34;Ulmus parvifolia &#39;Athena&#39; :: Chinese Elm &#39;Athena&#39;&#34;,), (&#34;Malus x &#39;Callaway&#39; :: White-Flowered Crabapple&#34;,), (&#39;Tilia spp :: Linden&#39;,), (&#39;Sequoiadendron giganteum :: Sierra Redwood&#39;,), (&#39;Acer negundo :: Box Elder&#39;,), (&#39;Corymbia calophylla ::&#39;,), (&#39;Crinodendron patagua :: Lily-of-the-Valley Tree&#39;,), (&#39;Thuja plicata :: Western Red Cedar&#39;,), (&#34;Metrosideros excelsa &#39;Aurea&#39; ::&#34;,), (&#39;Fraxinus holotricha :: Holotricha Ash&#39;,), (&#34;Gleditsia triacanthos &#39;Sunburst&#39; :: Sunburst Honey Locust&#34;,), (&#39;Prunus campanulata :: Taiwan Flowering Cherry&#39;,), (&#34;Citrus × meyeri &#39;Improved&#39; :: Improved Meyer Lemon&#34;,), (&#39;Acca sellowiana :: Pineapple Guava Tree&#39;,), (&#39;Jubaea chilensis :: Chilean Wine Palm&#39;,), (&#34;Ginkgo biloba &#39;Autumn Sentinel&#39; :: Autumn Sentinel Ginkgo&#34;,), (&#39;Fraxinus ornus :: Flowering Ash&#39;,), (&#39;Quercus lobata :: Valley Oak&#39;,), (&#34;Pyrus calleryana &#39;Redspire&#39; :: Ornamental Pear Tree &#39;Redspire&#39;&#34;,), (&#39;Persea borbonia :: False Avocado&#39;,), (&#39;New Zealand Tea Tree :: New Zealand Tea Tree&#39;,), (&#39;Leucodendron argenteum :: Silver Tree&#39;,), (&#39;Brachychiton populneus :: Bottle Tree&#39;,), (&#39;Populus canadensis :: Canadian Poplar&#39;,), (&#39;Pinus contorta :: Shore Pine&#39;,), (&#39;Styphnolobium japonicum :: Chinese scholar tree&#39;,), (&#34;Ficus microcarpa &#39;Retusa&#39; :: Pot Belly Fig&#34;,), (&#34;Zelkova serrata &#39;Village Green&#39; :: Village Green Zelkova&#34;,), (&#39;Juglans hindsii :: Walnut: Black (n.calif)&#39;,), (&#39;Eucalyptus rudis :: Swamp Gum: Flooded Gum&#39;,), (&#34;Lagerstroemia indica &#39;Tuscarora&#39; :: Tuscarora Crape Myrtle&#34;,), (&#39;Chamaecyparis obtusa :: Hinoki cypress&#39;,), (&#34;Cornus nuttallii x florida &#39;Eddie&#39;s White Wonder&#39; :: Eddie&#39;s White Wonder Dogwood&#34;,), (&#39;Cercocarpus betuloides :: Mountain mahogany&#39;,), (&#39;Livistona chinensis :: Chinese fan palm&#39;,), (&#39;Rhopalostylis baueri :: Palm&#39;,), (&#34;Cotinus coggygria &#39;Royal Purple&#39; :: Smoke tree&#34;,), (&#39;Eucalyptus cinerea :: Ash-colored Eucalyptus&#39;,), (&#39;Ziziphus jujuba :: Jujube&#39;,), (&#34;Magnolia sargentiana &#39;Robusta&#39; :: Robusta Magnolia&#34;,), (&#39;Catalpa speciosa :: Northern Catalpa&#39;,), (&#34;Sophora japonica &#39;Regent&#39; :: Regent Scholar Tree&#34;,), (&#34;Malus &#39;Gala&#39; :: Apple Tree &#39;Gala&#39;&#34;,), (&#39;Populus trichocarpa :: Black Cottonwood Poplar&#39;,), (&#39;Ilex opaca :: American Holly&#39;,), (&#39;Salix lasiolepis :: Arroyo willow&#39;,), (&#39;Cedrela fissilis :: Argentine cedar&#39;,), (&#34;Fagus sylvatica &#39;Red Obelisk&#39; :: Red Obelisk Beech&#34;,), (&#34;Acer x &#39;Autumn Blaze&#39; :: Hybrid Maple&#34;,), (&#39;Juglans regia :: Walnut: English&#39;,), (&#39;Eucalyptus saligna :: Sidney Blue Gum&#39;,), (&#39;Prunus amygdalus :: Almond&#39;,), (&#39;Quercus douglasii :: Blue Oak&#39;,), (&#39;Musa spp :: Banana&#39;,), (&#39;Quercus alba :: White oak&#39;,), (&#39;Cryptomeria japonica :: Japanese Cryptomeria&#39;,), (&#34;Carpinus betulus &#39;Fastigiata&#39; :: Upright European Hornbeam&#34;,), (&#39;Salix discolor :: Pussy Willow&#39;,), (&#39;Schinus polygamus :: Chilean pepper tree&#39;,), (&#39;Brachychiton acerifolius :: Australian Flame Tree&#39;,), (&#39;Phoenix rupicola :: Cliff date palm&#39;,), (&#39;Rhamnus californica :: Coffeeberry Tree&#39;,), (&#39;Escallonia bifida :: White escallonia&#39;,), (&#34;Prunus domestica &#39;Green Gage&#39; :: Green Gage Plum&#34;,), (&#34;Ginkgo biloba &#39;Saratoga&#39; :: Ginkgo: Saratoga&#34;,), (&#39;Brachychiton discolor ::&#39;,), (&#39;Aesculus hippocastanum :: White Horsechestnut&#39;,), (&#34;Malus floribunda &#39;Prairie Fire&#39; :: Prairie Fire Crabapple Tree&#34;,), (&#39;Erythrina caffra :: Coral tree&#39;,), (&#39;Leptospermum quinquenervia :: Tea Tree&#39;,), (&#39;Xylosma congestum :: Brush holly&#39;,), (&#34;Acer x freemanii &#39;Autumn Blaze&#39; :: Autumn Blaze Freeman Maple&#34;,), (&#39;Wodyetia bifurcata :: Foxtail palm&#39;,), (&#39;Melia azerdarach :: Chinaberry&#39;,), (&#34;Garrya elliptica &#39;Evie&#39; :: Evie Coast Silktassel Tree&#34;,), (&#39;Juniperus californica :: California juniper&#39;,), (&#34;Juglans &#39;Paradox&#39; :: Paradox Walnut Tree &#39;Paradox&#39;&#34;,), (&#34;Caryota maxima &#39;Himalaya&#39; :: Himalayan Fishtail Palm&#34;,), (&#34;Callistemon &#39;Jeffers&#39; :: Purple bottlebrush&#34;,), (&#39;Phoenix roebelenii :: Pigmy Date Palm&#39;,), (&#34;Robinia x ambigua &#39;Idahoensis&#39; :: Idaho Pink Locust&#34;,), (&#34;Ficus carica &#39;Black Mission&#39; :: Black Mission Fig&#34;,), (&#34;Prunus cerasifera &#39;Thundercloud&#39; :: Purple-Leaf Plum &#39;Thundercloud&#39;&#34;,), (&#34;Magnolia x foggii &#39;Jack Fogg&#39; :: Jack Fogg Michelia&#34;,), (&#34;Magnolia doltsopa &#39;Silvercloud&#39; :: Silvercloud Magnolia&#34;,), (&#39;Radermachera sinica :: China Doll Tree&#39;,), (&#39;Araucaria bidwillii :: Bunya Bunya&#39;,), (&#39;Brahea brandegeei :: San Jose hesper palm&#39;,), (&#39;Meryta sinclairii :: Puka or puke tree&#39;,), (&#39;Pinus sylvestris :: Scots Pine&#39;,), (&#39;Yucca spp :: Yucca&#39;,), (&#39;Brahea armata :: Blue hesper palm&#39;,), (&#39;Fraxinus angustifolia :: Narrow-leaved Ash&#39;,), (&#34;Prunus subhirtella &#39;autumnalis&#39; :: Higan Cherry&#34;,), (&#39;Abutilon hybridum :: Flowering maple&#39;,), (&#39;Auranticarpa rhombifolia :: Queensland Pittosporum&#39;,), (&#39;Chamaecyparis lawsoniana :: Port Orford Cedar&#39;,), (&#34;Robinia pseudoacacia &#39;Umbraculifera&#39; :: Globe Locust&#34;,), (&#39;Yucca aloifolia :: Spanish bayonet&#39;,), (&#39;Pinus pinaster :: Maritime Pine&#39;,), (&#39;Brachychiton rupestris :: Narrow-leaf bottle tree&#39;,), (&#34;Quercus frainetto &#39;Trump&#39; :: Hungarian Oak&#34;,), (&#34;Rhamnus alaternus &#39;John Edwards&#39; :: John Edwards Buckthorn&#34;,), (&#34;Persea americana &#39;Stewart&#39; :: Stewart Avocado&#34;,), (&#39;Mangifera indica :: Mango&#39;,), (&#34;Pinus thunbergii &#39;Thunderhead&#39; :: Thunderhead Pine&#34;,), (&#34;Liquidambar styraciflua &#39;Burgundy&#39; :: Burgundy Sweet Gum&#34;,), (&#39;Beaucarnea recurvata :: Ponytail palm&#39;,), (&#39;Rhopalostylis sapida :: Nikau palm&#39;,), (&#39;Alnus rubra :: Red Alder&#39;,), (&#39;Chionanthus retusa :: Chinese Fringe Tree&#39;,), (&#34;Magnolia x soulangiana &#39;Rustica Rubra&#39; :: Chinese Magnolia&#34;,), (&#39;Phoenix spp :: Date palm (species unknown)&#39;,), (&#39;Quercus engelmannii :: Engelmann oak&#39;,), (&#34;Pyrus calleryana &#39;Cleveland&#39; :: Ornamental Pear Tree &#39;Cleveland&#39;&#34;,), (&#39;Quercus keloggii :: California Black Oak&#39;,), (&#34;Fraxinus uhdei &#39;Tomlinson&#39; :: Tomlinson Ash&#34;,), (&#39;Leptospermum petersonii :: Lemon Scented Tea Tree&#39;,), (&#34;Arbutus unedo &#39;Compacta&#39; :: Dwarf strawberry tree&#34;,), (&#39;Aesculus spp :: Horsechestnut&#39;,), (&#39;Liquidambar formosana :: Chinese Sweet Gum&#39;,), (&#34;Eucalyptus simmondsi :: Simmond&#39;s Peppermint&#34;,), (&#34;Lagerstroemia indica &#39;Natchez&#39; :: Natchez Crape Myrtle&#34;,), (&#39;Ulmus procera :: English Elm&#39;,), (&#39;Sophora japonica :: Japanese Pagoda&#39;,), (&#39;Prunus lusitanica :: Portugese Cherry Laurel&#39;,), (&#39;Eucalyptus longifolia :: Woollybutt&#39;,), (&#39;Moringa oleifera :: Drumstick tree&#39;,), (&#34;Garrya elliptica &#39;James Roof&#39; :: James Roof Coast Silktassel Tree&#34;,), (&#39;Prunus serrula :: Birchbark Cherry&#39;,), (&#39;Prunus sargentii :: Sargent Cherry&#39;,), (&#39;Fortunella margarita :: Kumquat&#39;,), (&#34;Magnolia grandiflora &#39;Timeless Beauty&#39; :: Timeless Beauty Southern Magnolia&#34;,), (&#39;Angohpora spp. :: Angophora species&#39;,), (&#39;Torreya californica :: California nutmeg&#39;,), (&#39;Macadamia tetraphylla :: Macadamia&#39;,), (&#39;Ulmus glabra :: Scotch Elm&#39;,), (&#39;Citrus x hystrix :: Kaffir lime&#39;,), (&#39;Castanea dentata :: American Chestnut&#39;,), (&#39;Melaleuca leucadendron :: Weeping Tea Tree&#39;,), (&#39;Corylus colurna :: Hazel: Turkish&#39;,), (&#39;Acer saccharum :: Sugar Maple&#39;,), (&#39;Acer tegmentosum :: Manchurian snakebark maple&#39;,), (&#34;Leptospermum scoparium &#39;Snow White&#39; :: New Zealand White Tea Tree&#34;,), (&#39;Styrax japonicus :: Japanese Snowdrop Tree&#39;,), (&#39;Quercus wislizenii :: Interior Live Oak&#39;,), (&#34;Lagerstroemia x &#39;Tuscarora&#39; :: Tuscarora Crape Myrtle&#34;,), (&#39;Acacia vestita :: Hairy wattle&#39;,), (&#39;Acacia dealbata :: Silver Wattle&#39;,), (&#39;Paulownia tomentosa :: Empress Tree&#39;,), (&#39;Ceanothus thyrsiflorus :: Blueblossom Ceanothus&#39;,), (&#39;Acer circinatum :: Vine Maple&#39;,), (&#39;Sorbus aucuparia :: European Mountain Ash Tr&#39;,), (&#34;Juniperus scopulorum &#39;Pat :: Juniper Tree &#39;Pathfinder&#39;&#34;,), (&#34;Liquidambar styraciflua &#39;Slender Silhoutte&#39; :: Upright Liquidambar&#34;,), (&#39;Eucalyptus odorata :: Peppermint Box&#39;,), (&#39;Stenocarpus sinuatus :: Firewheel tree&#39;,), (&#39;Acer campestre :: Hedge Maple&#39;,), (&#39;Geijera spp :: Geijera&#39;,), (&#39;x Chiranthofremontia lenzii :: Hybrid Monkey Hand Tree&#39;,), (&#39;Pinus torreyana :: Torrey Pine&#39;,), (&#39;Carya illinoensis :: Pecan&#39;,), (&#39;Cedrus libani :: Lebanon cedar&#39;,), (&#39;Arbutus menziesii :: Pacific Madrone&#39;,), (&#39;Metrosideros spp ::&#39;,), (&#39;Euphorbia ingens :: Candelabra tree&#39;,), (&#39;Eucalyptus torquata :: Coral Gum&#39;,), (&#34;Gleditsia triacanthos &#39;Aurea&#39; :: Honey Locust &#39;Aurea&#39;&#34;,), (&#34;Tilia americana &#39;Redmond&#39; :: Redmond Linden&#34;,), (&#39;Dypsis decaryi :: Triangle palm&#39;,), (&#39;Platanus orientalis :: Eastern Plane Tree&#39;,), (&#39;Rhus typhina :: Staghorn sumac&#39;,), (&#39;Acer paxii :: Evergreen Maple&#39;,), (&#39;Eucalyptus gunnii :: Cider Gum&#39;,), (&#39;Populus deltoides :: Eastern cottonwood&#39;,), (&#34;Ficus carica &#39;Brown Turkey&#39; :: Brown Turkey Fig&#34;,), (&#34;Fraxinus velutina &#39;Modesto&#39; :: Modesto Ash Tree &#39;Modesto&#39;&#34;,), (&#39;Acer platanoides :: Norway Maple&#39;,), (&#34;Ulmus parvifolia &#39;True Green&#39; :: True Green Chinese Elm&#34;,), (&#34;Pyrus x &#39;Bartlett&#39; :: Bartlett Pear&#34;,), (&#39;Lagerstroemia spp :: Crape myrtle species&#39;,), (&#39;:: To Be Determine&#39;,), (&#34;Prunus sargentii &#39;Columnaris&#39; :: Sargent Cherry Tree &#39;Columnaris&#39;&#34;,), (&#39;Cercidiphyllum japonicum :: Katsura tree&#39;,), (&#34;Acer palmatum &#39;Sango Kaku&#39; :: Coral Bark Maple&#34;,), (&#39;Cassia excelsa :: Crown of Gold Tree&#39;,), (&#39;Callistemon salignus :: White flowering bottlebrush&#39;,), (&#34;Pyrus pyrifolia &#39;20th Century&#39; :: Asian Pear &#39;20th Century&#39;&#34;,), (&#39;Prunus persica nectarina :: Flowering Nectarine Tree&#39;,)]</span><span class="ansi-green-intense-fg ansi-bold">There are 310 different species of trees in San Francisco.</span>
+
+<span class="ansi-bold">&gt; Finished chain.</span>
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;There are 310 different species of trees in San Francisco.&#39;
+</pre></div></div>
+</div>
+<p>Kiểm tra lại với pandas</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;qSpecies&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+578
+</pre></div></div>
+</div>
+</section>
+<section id="Pandas-AI">
+<h2>Pandas AI<a class="headerlink" href="#Pandas-AI" title="Link to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
+<span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">pandasai</span>
+<span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">pandasai</span><span class="p">[</span><span class="n">langchain</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
+<span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">langchain_openai</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain_openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ImportError</span>                               Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[10], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">langchain_openai</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> OpenAI
+
+File <span class="ansi-green-fg">/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/langchain_openai/__init__.py:1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">langchain_openai</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">chat_models</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> AzureChatOpenAI, ChatOpenAI
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">langchain_openai</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">embeddings</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> AzureOpenAIEmbeddings, OpenAIEmbeddings
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">langchain_openai</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">llms</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> AzureOpenAI, OpenAI
+
+File <span class="ansi-green-fg">/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/langchain_openai/chat_models/__init__.py:1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">langchain_openai</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">chat_models</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">azure</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> AzureChatOpenAI
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">langchain_openai</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">chat_models</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">base</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> ChatOpenAI
+<span class="ansi-green-intense-fg ansi-bold">      4</span> __all__ <span style="color: rgb(98,98,98)">=</span> [<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">ChatOpenAI</span><span style="color: rgb(175,0,0)">&#34;</span>, <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">AzureChatOpenAI</span><span style="color: rgb(175,0,0)">&#34;</span>]
+
+File <span class="ansi-green-fg">/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/langchain_openai/chat_models/azure.py:22</span>
+<span class="ansi-green-intense-fg ansi-bold">     20</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> <span class="ansi-bold" style="color: rgb(0,0,255)">openai</span>
+<span class="ansi-green-intense-fg ansi-bold">     21</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">langchain_core</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">language_models</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> LanguageModelInput
+<span class="ansi-green-fg">---&gt; 22</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">langchain_core</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">language_models</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">chat_models</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> LangSmithParams
+<span class="ansi-green-intense-fg ansi-bold">     23</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">langchain_core</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">messages</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> BaseMessage
+<span class="ansi-green-intense-fg ansi-bold">     24</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">langchain_core</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">outputs</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> ChatResult
+
+<span class="ansi-red-fg">ImportError</span>: cannot import name &#39;LangSmithParams&#39; from &#39;langchain_core.language_models.chat_models&#39; (/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">show</span> <span class="n">langchain</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Name: langchain
+Version: 0.1.20
+Summary: Building applications with LLMs through composability
+Home-page: https://github.com/langchain-ai/langchain
+Author:
+Author-email:
+License: MIT
+Location: /opt/saturncloud/envs/saturn/lib/python3.11/site-packages
+Requires: aiohttp, dataclasses-json, langchain-community, langchain-core, langchain-text-splitters, langsmith, numpy, pydantic, PyYAML, requests, SQLAlchemy, tenacity
+Required-by:
+Note: you may need to restart the kernel to use updated packages.
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">langchain_llm</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span><span class="n">openai_api_key</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ImportError</span>                               Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[3], line 2</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">pandasai</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> SmartDataframe
+<span class="ansi-green-fg">----&gt; 2</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">langchain_openai</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> OpenAI
+<span class="ansi-green-intense-fg ansi-bold">      4</span> langchain_llm <span style="color: rgb(98,98,98)">=</span> OpenAI(openai_api_key)
+
+File <span class="ansi-green-fg">/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/langchain_openai/__init__.py:1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">langchain_openai</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">chat_models</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> AzureChatOpenAI, ChatOpenAI
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">langchain_openai</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">embeddings</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> AzureOpenAIEmbeddings, OpenAIEmbeddings
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">langchain_openai</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">llms</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> AzureOpenAI, OpenAI
+
+File <span class="ansi-green-fg">/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/langchain_openai/chat_models/__init__.py:1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">langchain_openai</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">chat_models</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">azure</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> AzureChatOpenAI
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">langchain_openai</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">chat_models</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">base</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> ChatOpenAI
+<span class="ansi-green-intense-fg ansi-bold">      4</span> __all__ <span style="color: rgb(98,98,98)">=</span> [<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">ChatOpenAI</span><span style="color: rgb(175,0,0)">&#34;</span>, <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">AzureChatOpenAI</span><span style="color: rgb(175,0,0)">&#34;</span>]
+
+File <span class="ansi-green-fg">/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/langchain_openai/chat_models/azure.py:22</span>
+<span class="ansi-green-intense-fg ansi-bold">     20</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> <span class="ansi-bold" style="color: rgb(0,0,255)">openai</span>
+<span class="ansi-green-intense-fg ansi-bold">     21</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">langchain_core</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">language_models</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> LanguageModelInput
+<span class="ansi-green-fg">---&gt; 22</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">langchain_core</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">language_models</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">chat_models</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> LangSmithParams
+<span class="ansi-green-intense-fg ansi-bold">     23</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">langchain_core</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">messages</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> BaseMessage
+<span class="ansi-green-intense-fg ansi-bold">     24</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">langchain_core</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">outputs</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> ChatResult
+
+<span class="ansi-red-fg">ImportError</span>: cannot import name &#39;LangSmithParams&#39; from &#39;langchain_core.language_models.chat_models&#39; (/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py)
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">SmartDataframe</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;llm&quot;</span><span class="p">:</span> <span class="n">langchain_llm</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pandasai</span> <span class="kn">import</span> <span class="n">Agent</span>
+
+<span class="n">employees_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;EmployeeID&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+    <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;Emma&#39;</span><span class="p">,</span> <span class="s1">&#39;Liam&#39;</span><span class="p">,</span> <span class="s1">&#39;Olivia&#39;</span><span class="p">,</span> <span class="s1">&#39;William&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;Department&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;HR&#39;</span><span class="p">,</span> <span class="s1">&#39;Sales&#39;</span><span class="p">,</span> <span class="s1">&#39;IT&#39;</span><span class="p">,</span> <span class="s1">&#39;Marketing&#39;</span><span class="p">,</span> <span class="s1">&#39;Finance&#39;</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">salaries_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;EmployeeID&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+    <span class="s1">&#39;Salary&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">6000</span><span class="p">,</span> <span class="mi">4500</span><span class="p">,</span> <span class="mi">7000</span><span class="p">,</span> <span class="mi">5500</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">employees_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">employees_data</span><span class="p">)</span>
+<span class="n">salaries_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">salaries_data</span><span class="p">)</span>
+
+<span class="c1"># By default, unless you choose a different LLM, it will use BambooLLM.</span>
+<span class="c1"># You can get your free API key signing up at https://pandabi.ai (you can also configure it in your .env file)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;PANDASAI_API_KEY&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;PANDASAI_API_KEY&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">([</span><span class="n">employees_df</span><span class="p">,</span> <span class="n">salaries_df</span><span class="p">])</span>
+<span class="n">agent</span><span class="o">.</span><span class="n">chat</span><span class="p">(</span><span class="s2">&quot;Who gets paid the most?&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Traceback (most recent call last):
+  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/pandasai/pipelines/chat/generate_chat_pipeline.py&#34;, line 335, in run
+    ).run(input)
+      ^^^^^^^^^^
+  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/pandasai/pipelines/pipeline.py&#34;, line 137, in run
+    raise e
+  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/pandasai/pipelines/pipeline.py&#34;, line 101, in run
+    step_output = logic.execute(
+                  ^^^^^^^^^^^^^^
+  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/pandasai/pipelines/chat/prompt_generation.py&#34;, line 37, in execute
+    self.logger.log(f&#34;Using prompt: {prompt}&#34;)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/pandasai/prompts/base.py&#34;, line 55, in __str__
+    return self.to_string()
+           ^^^^^^^^^^^^^^^^
+  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/pandasai/prompts/base.py&#34;, line 50, in to_string
+    self._resolved_prompt = self.prompt.render(**self.props)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/jinja2/environment.py&#34;, line 1304, in render
+    self.environment.handle_exception()
+  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/jinja2/environment.py&#34;, line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/pandasai/prompts/templates/generate_python_code.tmpl&#34;, line 1, in top-level template code
+    {% for df in context.dfs %}{% set index = loop.index %}{% include &#39;shared/dataframe.tmpl&#39; with context %}{% endfor %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/pandasai/prompts/templates/shared/dataframe.tmpl&#34;, line 1, in top-level template code
+    {{ df.to_string(index-1, context.config.direct_sql, context.config.dataframe_serializer, context.config.enforce_privacy) }}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/pandasai/connectors/base.py&#34;, line 284, in to_string
+    return DataframeSerializer().serialize(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/pandasai/helpers/dataframe_serializer.py&#34;, line 31, in serialize
+    return self.convert_df_to_csv(df, extras)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/pandasai/helpers/dataframe_serializer.py&#34;, line 56, in convert_df_to_csv
+    dataframe_info += f&#34;\ndfs[{extras[&#39;index&#39;]}]:{df.rows_count}x{df.columns_count}\n{df.to_csv()}&#34;
+                                                                                      ^^^^^^^^^^^
+  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/pandasai/connectors/base.py&#34;, line 265, in to_csv
+    return self.get_head().to_csv(index=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/pandas/util/_decorators.py&#34;, line 333, in wrapper
+    # error: &#34;Callable[[VarArg(Any), KwArg(Any)], Any]&#34; has no
+               ^^^^^^^^^^^^^^^^^^^^^
+  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/pandas/core/generic.py&#34;, line 3967, in to_csv
+    class  animal  locomotion
+           ^^^^^^^^^^^^^^^^^^
+  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/pandas/io/formats/format.py&#34;, line 995, in to_csv
+    if self.header:
+
+  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/pandas/io/formats/csvs.py&#34;, line 89, in __init__
+    self.cols = self._initialize_columns(cols)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/pandas/io/formats/csvs.py&#34;, line 161, in _initialize_columns
+    return new_cols._format_native_types(**self._number_format)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: &#39;Index&#39; object has no attribute &#39;_format_native_types&#39;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#34;Unfortunately, I was not able to answer your question, because of the following error:\n\n&#39;Index&#39; object has no attribute &#39;_format_native_types&#39;\n&#34;
+</pre></div></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Anh Hoang Duc.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

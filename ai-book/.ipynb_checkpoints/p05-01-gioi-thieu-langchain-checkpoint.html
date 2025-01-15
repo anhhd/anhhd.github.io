@@ -1,0 +1,2001 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="vn" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Giới thiệu langchain &mdash; AI book 2024 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=c86923ab"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            AI book
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Cơ bản về Deep Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="p01-01-gioi-thieu-deep-learning.html">1. Giới thiệu về học sâu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-02-toan-co-ban.html">2. Toán cơ bản với DL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-03-dl-co-ban.html">3. Tensorflow &amp; Keras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html">4. Chuỗi thời gian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html#Giới-thiệu">5. Giới thiệu</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">LLM &amp; GenAI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="p02-01-gioi-thieu-llm.html">1. Giới thiệu về mô hình ngôn ngữ lớn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p02-02-xu-ly-text.html">2. Xử lý dữ liệu text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p02-03-co-che-tu-chu-y.html">3. Cơ chế tự chú ý</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AI book</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Giới thiệu langchain</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/p05-01-gioi-thieu-langchain.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Giới-thiệu-langchain">
+<h1>Giới thiệu langchain<a class="headerlink" href="#Giới-thiệu-langchain" title="Link to this heading"></a></h1>
+<p>Với sự phát triển mạnh mẽ của GenAI, các mô hình ngôn ngữ lớn LLM được sử dụng ngày càng rộng rãi với nhiều ứng dụng khác nhau. Tuy nhiên, các mô hình LLM này có các nhược điểm sau:</p>
+<ul class="simple">
+<li><p>Kiến thức lỗi thời</p></li>
+<li><p>Không thể thực hiện hành động, tương tác như tính toán, tra cứu</p></li>
+<li><p>Thiếu bối cảnh - gặp khó khăn trong việc kết hợp bối cảnh liên quan trước và sau đó để có các phản hồi hữu ích</p></li>
+<li><p>Ảo giác (<code class="docutils literal notranslate"><span class="pre">hallucination</span></code>) - LLM tự tạo ra các nội dung vô nghĩa hoặc không chính xác</p></li>
+<li><p>Thiếu minh bạch &amp; thiên lệch, phụ thuộc vào dữ liệu được huấn luyện</p></li>
+</ul>
+<p>Để giải quyết và hạn chế các nhược điểm trên, có các kỹ thuật sau:</p>
+<ul class="simple">
+<li><p>Tăng cường truy xuất (<code class="docutils literal notranslate"><span class="pre">retrieval</span> <span class="pre">augmentation</span></code>) - bổ sung kiến thức cho dữ liệu đào tạo đã lỗi thời của LLM, cung cấp các bối cảnh bên ngoài và giảm nguy cơ ảo giác</p></li>
+<li><p>Chuỗi (<code class="docutils literal notranslate"><span class="pre">chaining</span></code>) - tích hợp thêm các hành động bên ngoài</p></li>
+<li><p>Nhắc nhở (<code class="docutils literal notranslate"><span class="pre">prompt</span> <span class="pre">engineer</span></code>) - đưa ra các bối cảnh quan trọng để hướng dẫn các phản hồi</p></li>
+<li><p>Giám sát, lọc và đánh giá - đưa thêm đánh giá của con người trong luồng phản hồi của máy</p></li>
+<li><p>Tăng cường bộ nhớ (<code class="docutils literal notranslate"><span class="pre">memory</span></code>)</p></li>
+<li><p>Tinh chỉnh mô hình (<code class="docutils literal notranslate"><span class="pre">fine</span> <span class="pre">tuning</span></code>) - huấn luyện lại mô hình LLM cho 1 số tác vụ cụ thể</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">langchain</span></code> là một framework trên python, được ra đời vào năm 2022 để xây dựng các ứng dụng hỗ trợ LLM thông qua việc xây dựng các module có sẵn. <code class="docutils literal notranslate"><span class="pre">langchain</span></code> có các cấu phần sau:</p>
+<ul class="simple">
+<li><p>Chuỗi (<code class="docutils literal notranslate"><span class="pre">chain</span></code>): Chain là một tập hợp các bước hoặc mô-đun liên tiếp, nơi đầu ra của một bước có thể trở thành đầu vào cho bước tiếp theo, giúp tự động hóa quy trình và quản lý các tác vụ phức tạp mà yêu cầu nhiều bước xử lý.</p></li>
+<li><p>Bộ công cụ (<code class="docutils literal notranslate"><span class="pre">tools</span></code>) - là các chức năng, mỗi tool thực hiện 1 tác vụ cụ thể. Ví dụ - tính toán, tra cứu hoặc kiểm tra thời tiết.</p></li>
+<li><p>Agent - là bộ điều phối, xác định khi nào và cách thức sử dụng tool. Agent sử dụng LLM để hiểu như cầu từ người dùng, quyết định tool phù hợp, gọi các tool theo thứ tự thích hơn và tổng hợp kết quả.</p></li>
+<li><p>Bộ nhớ (<code class="docutils literal notranslate"><span class="pre">memory</span></code>) - là trạng thái tồn tại giữa các lần thực hiện chuỗi hoặc agent. Các bộ nhớ có thể lưu trữ ngắn hạn hoặc dài hạn hoặc toàn bộ lịch sử, phụ thuộc vào chi phí thực hiện và mục tiêu</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Khi nào dùng Agent hoặc Tool?</strong></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Kịch bản</strong></p></th>
+<th class="head"><p><strong>Sử dụng Agent</strong></p></th>
+<th class="head"><p><strong>Sử dụng Tools</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Cần quyết định khi nào và cách sử dụng công cụ</strong></p></td>
+<td><p>✅ Agent sẽ chọn tool dựa trên ngữ cảnh và yêu cầu.</p></td>
+<td><p>❌ Tools không tự quyết định mà phải được gọi thủ công.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Nhiệm vụ cụ thể</strong></p></td>
+<td><p>❌ Không cần agent, chỉ cần gọi tool phù hợp.</p></td>
+<td><p>✅ Tools xử lý nhanh gọn một nhiệm vụ độc lập.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Xử lý tác vụ phức tạp, nhiều bước</strong></p></td>
+<td><p>✅ Agent điều phối nhiều tool để giải quyết nhiệm vụ phức tạp.</p></td>
+<td><p>❌ Tools không đủ khả năng xử lý nhiệm vụ nhiều bước.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Trong chương này sẽ giới thiệu nhanh các khái niệm &amp; ứng dụng cơ bản của <code class="docutils literal notranslate"><span class="pre">langchain</span></code>:</p>
+<ul class="simple">
+<li><p>Document - Object lưu trữ dữ liệu text &amp; metadata</p></li>
+<li><p>Wrapper LLM - Mô hình LLM</p></li>
+<li><p>Embedding - Chuyển đổi text sang vector embedding</p></li>
+<li><p>Vector Store - Cơ sở dữ liệu cho phép lưu trữ vector embedding</p></li>
+<li><p>Retriver - Truy xuất dữ liệu từ vector stor</p></li>
+<li><p>Chat model - Mô hình chatbot sử dụng LLM</p></li>
+<li><p>Prompt template - Xây dựng template cho chatbot</p></li>
+<li><p>Memory - Cơ chế và cách thức lưu trữ lịch sử tương tác</p></li>
+<li><p>Chain - Cách thức tạo ra một chuỗi liên kết với nhau để thực hiện một nhiệm vụ</p></li>
+<li><p>Agent - Robot hay còn gọi là tác nhân, cho phép phân tích và thực hiện các tác vụ, bao gồm cả trong và ngoài LLM</p></li>
+</ul>
+<hr class="docutils" />
+<p>Các thư viện python sẽ sử dụng</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">langchain</span></code> &amp; hệ sinh thái langchain: Thực hiện các ứng dụng GenAI</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pinecone-client</span></code>: Thực hiện vector database với pinecone (cần API)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">openai</span></code></p></li>
+</ul>
+<section id="Documents">
+<h2>Documents<a class="headerlink" href="#Documents" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Document</span></code> là một đối tượng có chứa text và các metadata veef tài liệu đó</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain.schema</span> <span class="kn">import</span> <span class="n">Document</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Document</span><span class="p">(</span><span class="n">page_content</span><span class="o">=</span><span class="s2">&quot;This is my document. It is full of text that I&#39;ve gathered from other places&quot;</span><span class="p">,</span>
+         <span class="n">metadata</span><span class="o">=</span><span class="p">{</span>
+             <span class="s1">&#39;my_document_id&#39;</span> <span class="p">:</span> <span class="mi">234234</span><span class="p">,</span>
+             <span class="s1">&#39;my_document_source&#39;</span> <span class="p">:</span> <span class="s2">&quot;The LangChain Papers&quot;</span><span class="p">,</span>
+             <span class="s1">&#39;my_document_create_time&#39;</span> <span class="p">:</span> <span class="mi">1680013019</span>
+         <span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Document(metadata={&#39;my_document_id&#39;: 234234, &#39;my_document_source&#39;: &#39;The LangChain Papers&#39;, &#39;my_document_create_time&#39;: 1680013019}, page_content=&#34;This is my document. It is full of text that I&#39;ve gathered from other places&#34;)
+</pre></div></div>
+</div>
+<p>Các thông tin về document trong <code class="docutils literal notranslate"><span class="pre">langchain</span></code> là không bắt buộc, ta có thể tạo ra các document mà không cần metadata như sau</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Document</span><span class="p">(</span><span class="n">page_content</span> <span class="o">=</span> <span class="s2">&quot;Thông tin &amp; hiểu biết về langchain là các kiến thức hữu ích&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Document(metadata={}, page_content=&#39;Thông tin &amp; hiểu biết về langchain là các kiến thức hữu ích&#39;)
+</pre></div></div>
+</div>
+</section>
+<section id="Wrappers-LLM">
+<h2>Wrappers LLM<a class="headerlink" href="#Wrappers-LLM" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">langchain</span></code> cho phép sử dụng nhiều mô hình LLM khác nhau, bao gồm cả open-source &amp; enterprise. Để đơn giản, ta sẽ sử dụng mô hình LLM <code class="docutils literal notranslate"><span class="pre">enterprise</span></code> với OpenAI. Key của LLM được lưu trữ trong <code class="docutils literal notranslate"><span class="pre">environment</span></code> notebook.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load environment variables</span>
+<span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span><span class="p">,</span><span class="n">find_dotenv</span>
+<span class="n">load_dotenv</span><span class="p">(</span><span class="n">find_dotenv</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
+</div>
+<p>Ta có thể khởi tạo một mô hình LLM cơ bản như sau</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain_openai</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
+<span class="n">llm</span> <span class="o">=</span> <span class="n">ChatOpenAI</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">)</span>
+<span class="n">llm</span><span class="p">(</span><span class="s2">&quot;explain large language models in one sentence&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/tmp/ipykernel_1455/1144369061.py:3: LangChainDeprecationWarning: The method `BaseChatModel.__call__` was deprecated in langchain-core 0.1.7 and will be removed in 1.0. Use :meth:`~invoke` instead.
+  llm(&#34;explain large language models in one sentence&#34;)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+AIMessage(content=&#39;Large language models are advanced artificial intelligence systems that use deep learning techniques to understand and generate human-like text based on vast amounts of language data.&#39;, additional_kwargs={&#39;refusal&#39;: None}, response_metadata={&#39;token_usage&#39;: {&#39;completion_tokens&#39;: 29, &#39;prompt_tokens&#39;: 15, &#39;total_tokens&#39;: 44, &#39;completion_tokens_details&#39;: {&#39;accepted_prediction_tokens&#39;: 0, &#39;audio_tokens&#39;: 0, &#39;reasoning_tokens&#39;: 0, &#39;rejected_prediction_tokens&#39;: 0}, &#39;prompt_tokens_details&#39;: {&#39;audio_tokens&#39;: 0, &#39;cached_tokens&#39;: 0}}, &#39;model_name&#39;: &#39;gpt-4o-mini-2024-07-18&#39;, &#39;system_fingerprint&#39;: &#39;fp_72ed7ab54c&#39;, &#39;finish_reason&#39;: &#39;stop&#39;, &#39;logprobs&#39;: None}, id=&#39;run-36ee91ce-59b5-4c8d-ae4e-7b1d89587fa8-0&#39;, usage_metadata={&#39;input_tokens&#39;: 15, &#39;output_tokens&#39;: 29, &#39;total_tokens&#39;: 44, &#39;input_token_details&#39;: {&#39;audio&#39;: 0, &#39;cache_read&#39;: 0}, &#39;output_token_details&#39;: {&#39;audio&#39;: 0, &#39;reasoning&#39;: 0}})
+</pre></div></div>
+</div>
+</section>
+<section id="Chat-model">
+<h2>Chat model<a class="headerlink" href="#Chat-model" title="Link to this heading"></a></h2>
+<p>Khi tương tác với LLM thông qua chatbot, có 3 nhóm thông tin</p>
+<ul class="simple">
+<li><p><strong>System</strong>: Thông tin background cho phép AI biết cần phải làm gì</p></li>
+<li><p><strong>Human</strong>: Thông tin của người dùng</p></li>
+<li><p><strong>AI</strong>: Thông tin AI phản hồi người dùng</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import schema for chat messages and ChatOpenAI in order to query chatmodels GPT-3.5-turbo or GPT-4</span>
+
+<span class="kn">from</span> <span class="nn">langchain.schema</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">AIMessage</span><span class="p">,</span>
+    <span class="n">HumanMessage</span><span class="p">,</span>
+    <span class="n">SystemMessage</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">langchain.chat_models</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
+<span class="n">chat</span> <span class="o">=</span> <span class="n">ChatOpenAI</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo&quot;</span><span class="p">,</span><span class="n">temperature</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/tmp/ipykernel_1455/3542676939.py:9: LangChainDeprecationWarning: The class `ChatOpenAI` was deprecated in LangChain 0.0.10 and will be removed in 1.0. An updated version of the class exists in the :class:`~langchain-openai package and should be used instead. To use it run `pip install -U :class:`~langchain-openai` and import as `from :class:`~langchain_openai import ChatOpenAI``.
+  chat = ChatOpenAI(model_name=&#34;gpt-3.5-turbo&#34;,temperature=0.3)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">messages</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">SystemMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;You are an expert data scientist&quot;</span><span class="p">),</span>
+    <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;Write a Python script that trains a neural network on simulated data &quot;</span><span class="p">)</span>
+<span class="p">]</span>
+<span class="n">response</span><span class="o">=</span><span class="n">chat</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Here is an example Python script that trains a simple neural network on simulated data using the TensorFlow library:
+
+```python
+import numpy as np
+import tensorflow as tf
+
+# Generate simulated data
+np.random.seed(0)
+X = np.random.rand(1000, 10)
+y = np.random.randint(0, 2, size=(1000, 1))
+
+# Define the neural network architecture
+model = tf.keras.models.Sequential([
+    tf.keras.layers.Dense(64, activation=&#39;relu&#39;, input_shape=(10,)),
+    tf.keras.layers.Dense(64, activation=&#39;relu&#39;),
+    tf.keras.layers.Dense(1, activation=&#39;sigmoid&#39;)
+])
+
+# Compile the model
+model.compile(optimizer=&#39;adam&#39;, loss=&#39;binary_crossentropy&#39;, metrics=[&#39;accuracy&#39;])
+
+# Train the model
+model.fit(X, y, epochs=10, batch_size=32)
+
+# Evaluate the model
+loss, accuracy = model.evaluate(X, y)
+print(f&#39;Loss: {loss}, Accuracy: {accuracy}&#39;)
+```
+
+In this script:
+- We first generate simulated data with 1000 samples and 10 features.
+- We define a simple neural network with 2 hidden layers of 64 units each and an output layer with a sigmoid activation function.
+- We compile the model using the Adam optimizer and binary cross-entropy loss.
+- We train the model on the simulated data for 10 epochs with a batch size of 32.
+- Finally, we evaluate the model on the training data and print the loss and accuracy.
+
+You can run this script in a Python environment with TensorFlow installed to train a neural network on simulated data.
+</pre></div></div>
+</div>
+<hr class="docutils" />
+<p>Ta cũng có thể loại bỏ hoặc đưa đầy đủ cả hướng dẫn với <code class="docutils literal notranslate"><span class="pre">system</span> <span class="pre">message</span></code> như sau</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chat</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span> <span class="o">=</span> <span class="s2">&quot;Đi biển ở Việt Nam thì nên đi đâu&quot;</span><span class="p">)</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+AIMessage(content=&#39;1. Phú Quốc: Đảo ngọc Phú Quốc nằm ở phía Nam của Việt Nam, có bãi biển đẹp và nước biển trong xanh. Du khách có thể tham gia các hoạt động như lặn biển, chèo kayak, thăm các đảo nhỏ xung quanh.\n\n2. Nha Trang: Nha Trang là điểm đến biển nổi tiếng ở miền Trung Việt Nam, với bãi biển dài và cát trắng. Du khách có thể tham gia các hoạt động như lặn biển, thăm các đảo xung quanh, thưởng thức hải sản tươi ngon.\n\n3. Đà Nẵng: Đà Nẵng có bãi biển Mỹ Khê nổi tiếng với cát trắng và nước biển trong xanh. Du khách có thể thăm các điểm du lịch nổi tiếng như Bà Nà Hills, Hội An cổ kính.\n\n4. Mũi Né: Mũi Né ở Bình Thuận có bãi biển đẹp và nổi tiếng với cát dẻo và gió biển mạnh. Du khách có thể tham gia các hoạt động như lướt ván, lặn biển, thăm đồi cát trắng.\n\n5. Cửa Lò: Cửa Lò ở Nghệ An có bãi biển dài và cát trắng, nước biển trong xanh. Du khách có thể thăm các điểm du lịch nổi tiếng như đảo Cồn Cỏ, đền Cửa Ông.\n\nNhớ chuẩn bị đồ dùng cá nhân, kem chống nắng và nước uống đầy đủ khi đi biển để tránh tác động của ánh nắng mặt trời và nước biển.&#39;, additional_kwargs={}, response_metadata={&#39;token_usage&#39;: {&#39;completion_tokens&#39;: 521, &#39;prompt_tokens&#39;: 25, &#39;total_tokens&#39;: 546, &#39;completion_tokens_details&#39;: {&#39;accepted_prediction_tokens&#39;: 0, &#39;audio_tokens&#39;: 0, &#39;reasoning_tokens&#39;: 0, &#39;rejected_prediction_tokens&#39;: 0}, &#39;prompt_tokens_details&#39;: {&#39;audio_tokens&#39;: 0, &#39;cached_tokens&#39;: 0}}, &#39;model_name&#39;: &#39;gpt-3.5-turbo&#39;, &#39;system_fingerprint&#39;: None, &#39;finish_reason&#39;: &#39;stop&#39;, &#39;logprobs&#39;: None}, id=&#39;run-9098a11c-2527-4ddb-8768-3ff17e4ad6fa-0&#39;)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Có hướng dẫn</span>
+<span class="n">chat</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">SystemMessage</span><span class="p">(</span><span class="n">content</span> <span class="o">=</span> <span class="s2">&quot;Bạn là trợ lý hướng dẫn viên du lịch và đưa gợi ý chỉ bằng một trả lời ngắn gọn&quot;</span><span class="p">),</span>
+        <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span> <span class="o">=</span> <span class="s2">&quot;Đi biển ở Việt Nam thì nên đi đâu&quot;</span><span class="p">)</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+AIMessage(content=&#39;Nếu bạn muốn đi biển ở Việt Nam, bạn nên đến với các điểm đến như Phú Quốc, Nha Trang, Đà Nẵng, Hội An, hay Cửa Lò để trải nghiệm những bãi biển đẹp và dịch vụ du lịch phong phú.&#39;, additional_kwargs={}, response_metadata={&#39;token_usage&#39;: {&#39;completion_tokens&#39;: 93, &#39;prompt_tokens&#39;: 72, &#39;total_tokens&#39;: 165, &#39;completion_tokens_details&#39;: {&#39;accepted_prediction_tokens&#39;: 0, &#39;audio_tokens&#39;: 0, &#39;reasoning_tokens&#39;: 0, &#39;rejected_prediction_tokens&#39;: 0}, &#39;prompt_tokens_details&#39;: {&#39;audio_tokens&#39;: 0, &#39;cached_tokens&#39;: 0}}, &#39;model_name&#39;: &#39;gpt-3.5-turbo&#39;, &#39;system_fingerprint&#39;: None, &#39;finish_reason&#39;: &#39;stop&#39;, &#39;logprobs&#39;: None}, id=&#39;run-e69bed5d-aa7e-47f3-997f-09e1bc02c930-0&#39;)
+</pre></div></div>
+</div>
+</section>
+<section id="Memory">
+<h2>Memory<a class="headerlink" href="#Memory" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">memory</span></code> là nhóm kỹ thuật cho phép LLM ghi nhớ về các thông tin trong quá trình tương tác</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain.chat_models</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
+<span class="kn">from</span> <span class="nn">langchain.memory</span> <span class="kn">import</span> <span class="n">ChatMessageHistory</span>
+
+<span class="n">chat</span> <span class="o">=</span> <span class="n">ChatOpenAI</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo&quot;</span><span class="p">,</span><span class="n">temperature</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">ChatMessageHistory</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chat</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span> <span class="o">=</span> <span class="s2">&quot;Thủ đô của Pháp là gì?&quot;</span><span class="p">)</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+AIMessage(content=&#39;Thủ đô của Pháp là Paris.&#39;, additional_kwargs={}, response_metadata={&#39;token_usage&#39;: {&#39;completion_tokens&#39;: 12, &#39;prompt_tokens&#39;: 19, &#39;total_tokens&#39;: 31, &#39;completion_tokens_details&#39;: {&#39;accepted_prediction_tokens&#39;: 0, &#39;audio_tokens&#39;: 0, &#39;reasoning_tokens&#39;: 0, &#39;rejected_prediction_tokens&#39;: 0}, &#39;prompt_tokens_details&#39;: {&#39;audio_tokens&#39;: 0, &#39;cached_tokens&#39;: 0}}, &#39;model_name&#39;: &#39;gpt-3.5-turbo&#39;, &#39;system_fingerprint&#39;: None, &#39;finish_reason&#39;: &#39;stop&#39;, &#39;logprobs&#39;: None}, id=&#39;run-549bc1a7-38c9-499d-8eac-576efa833f79-0&#39;)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Kiểm tra memory</span>
+<span class="n">history</span><span class="o">.</span><span class="n">messages</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[]
+</pre></div></div>
+</div>
+<p>Lúc này, object <code class="docutils literal notranslate"><span class="pre">memory</span></code> chưa được lưu trữ thông tin về cuộc hội thoại của người dùng, ta có thể lưu trữ lại như sau</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span><span class="o">.</span><span class="n">add_ai_message</span><span class="p">(</span><span class="s2">&quot;Xin chào! Tôi có thể giúp gì cho bạn?&quot;</span><span class="p">)</span>
+<span class="n">history</span><span class="o">.</span><span class="n">add_user_message</span><span class="p">(</span><span class="s2">&quot;Thủ đô của Pháp là gì&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span><span class="o">.</span><span class="n">messages</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[AIMessage(content=&#39;Xin chào! Tôi có thể giúp gì cho bạn?&#39;, additional_kwargs={}, response_metadata={}),
+ HumanMessage(content=&#39;Thủ đô của Pháp là gì&#39;, additional_kwargs={}, response_metadata={})]
+</pre></div></div>
+</div>
+</section>
+<section id="Prompts-&amp;-Prompts-template">
+<h2>Prompts &amp; Prompts template<a class="headerlink" href="#Prompts-&-Prompts-template" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Prompt</span></code> là một đoạn văn bản hoặc yêu cầu mà người dùng nhập vào để hướng dẫn mô hình tạo ra kết quả. Prompt có thể là một câu hỏi, một chỉ dẫn cụ thể, hay một mô tả về hình ảnh, bài viết hoặc ý tưởng mà ta muốn mô hình phát triển hoặc phản hồi. Prompt giúp định hình nội dung và hướng đi cho mô hình AI để tạo ra kết quả phù hợp với yêu cầu của người sử dụng.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain_openai</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
+<span class="n">llm</span> <span class="o">=</span> <span class="n">ChatOpenAI</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">)</span>
+
+<span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Today is Monday, tomorrow is Wednesday.</span>
+<span class="s2">What is wrong with that statement?</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">llm</span><span class="p">(</span><span class="n">prompt</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+content=&#39;The statement is incorrect because if today is Monday, then tomorrow would be Tuesday, not Wednesday.&#39; additional_kwargs={&#39;refusal&#39;: None} response_metadata={&#39;token_usage&#39;: {&#39;completion_tokens&#39;: 20, &#39;prompt_tokens&#39;: 23, &#39;total_tokens&#39;: 43, &#39;completion_tokens_details&#39;: {&#39;accepted_prediction_tokens&#39;: 0, &#39;audio_tokens&#39;: 0, &#39;reasoning_tokens&#39;: 0, &#39;rejected_prediction_tokens&#39;: 0}, &#39;prompt_tokens_details&#39;: {&#39;audio_tokens&#39;: 0, &#39;cached_tokens&#39;: 0}}, &#39;model_name&#39;: &#39;gpt-4o-mini-2024-07-18&#39;, &#39;system_fingerprint&#39;: &#39;fp_72ed7ab54c&#39;, &#39;finish_reason&#39;: &#39;stop&#39;, &#39;logprobs&#39;: None} id=&#39;run-33903cd3-b29e-4467-8e10-98a5c9fdeabf-0&#39; usage_metadata={&#39;input_tokens&#39;: 23, &#39;output_tokens&#39;: 20, &#39;total_tokens&#39;: 43, &#39;input_token_details&#39;: {&#39;audio&#39;: 0, &#39;cache_read&#39;: 0}, &#39;output_token_details&#39;: {&#39;audio&#39;: 0, &#39;reasoning&#39;: 0}}
+</pre></div></div>
+</div>
+<hr class="docutils" />
+<p><code class="docutils literal notranslate"><span class="pre">Prompt</span> <span class="pre">template</span></code> là một khuôn mẫu được thiết kế sẵn để giúp người dùng tạo ra các prompts một cách dễ dàng và hiệu quả. Nó cung cấp một cấu trúc cụ thể mà người dùng có thể điền vào để tạo ra yêu cầu cho mô hình AI. Prompt template thường được sử dụng để đảm bảo rằng đầu vào được cung cấp có độ rõ ràng và đầy đủ, giúp mô hình AI tạo ra kết quả chính xác và phù hợp.</p>
+<p>Các prompt templates có thể bao gồm các thành phần cố định (ví dụ: cấu trúc câu) và các phần trống mà người dùng có thể điền vào để tùy chỉnh yêu cầu. Việc sử dụng template giúp tiết kiệm thời gian, giảm thiểu sự mơ hồ, và hướng đến mục tiêu rõ ràng hơn khi tương tác với AI.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import prompt and define PromptTemplate</span>
+
+<span class="kn">from</span> <span class="nn">langchain</span> <span class="kn">import</span> <span class="n">PromptTemplate</span>
+
+<span class="n">template</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">You are an expert data scientist with an expertise in building deep learning models.</span>
+<span class="s2">Explain the concept of </span><span class="si">{concept}</span><span class="s2"> in a couple of lines</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">prompt</span> <span class="o">=</span> <span class="n">PromptTemplate</span><span class="p">(</span>
+    <span class="n">input_variables</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;concept&quot;</span><span class="p">],</span>
+    <span class="n">template</span><span class="o">=</span><span class="n">template</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run LLM with PromptTemplate</span>
+<span class="n">my_prompt</span> <span class="o">=</span> <span class="n">prompt</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">concept</span><span class="o">=</span><span class="s2">&quot;autoencoder&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_prompt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+You are an expert data scientist with an expertise in building deep learning models.
+Explain the concept of autoencoder in a couple of lines
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">llm</span><span class="p">(</span><span class="n">prompt</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">concept</span><span class="o">=</span><span class="s2">&quot;autoencoder&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+AIMessage(content=&#39;An autoencoder is a type of artificial neural network used for unsupervised learning, designed to compress input data into a lower-dimensional representation (encoding) and then reconstruct the original input from this representation (decoding). It consists of an encoder that reduces the dimensionality and a decoder that reconstructs the data, making it useful for tasks such as dimensionality reduction, feature learning, and denoising.&#39;, additional_kwargs={&#39;refusal&#39;: None}, response_metadata={&#39;token_usage&#39;: {&#39;completion_tokens&#39;: 82, &#39;prompt_tokens&#39;: 36, &#39;total_tokens&#39;: 118, &#39;completion_tokens_details&#39;: {&#39;accepted_prediction_tokens&#39;: 0, &#39;audio_tokens&#39;: 0, &#39;reasoning_tokens&#39;: 0, &#39;rejected_prediction_tokens&#39;: 0}, &#39;prompt_tokens_details&#39;: {&#39;audio_tokens&#39;: 0, &#39;cached_tokens&#39;: 0}}, &#39;model_name&#39;: &#39;gpt-4o-mini-2024-07-18&#39;, &#39;system_fingerprint&#39;: &#39;fp_72ed7ab54c&#39;, &#39;finish_reason&#39;: &#39;stop&#39;, &#39;logprobs&#39;: None}, id=&#39;run-e183d440-0684-4bcb-8e9c-40c980d43caa-0&#39;, usage_metadata={&#39;input_tokens&#39;: 36, &#39;output_tokens&#39;: 82, &#39;total_tokens&#39;: 118, &#39;input_token_details&#39;: {&#39;audio&#39;: 0, &#39;cache_read&#39;: 0}, &#39;output_token_details&#39;: {&#39;audio&#39;: 0, &#39;reasoning&#39;: 0}})
+</pre></div></div>
+</div>
+</section>
+<section id="Chains">
+<h2>Chains<a class="headerlink" href="#Chains" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Chain</span></code> là một chuỗi các bước được liên kết với nhau để thực hiện một tác vụ cụ thể với đầu ra của bước này là đầu vào của một bước khác. Chain cho phép ta tạo ra các quy trình phức tạp &amp; dễ quản lý khi làm việc với mô hình ngôn ngữ lớn</p>
+<p>Ta có thể tạo chain với 2 bước như sau:</p>
+<ul class="simple">
+<li><p>Bước 1: Giải thích 1 thuật ngữ kỹ thuật</p></li>
+<li><p>Bước 2: Dùng kết quả đầu ra của bước 1, viết cô đọng và giải thích lại bằng ngôn ngữ đơn giản</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo chain</span>
+<span class="kn">from</span> <span class="nn">langchain.chains</span> <span class="kn">import</span> <span class="n">LLMChain</span>
+<span class="n">chain</span> <span class="o">=</span> <span class="n">LLMChain</span><span class="p">(</span><span class="n">llm</span><span class="o">=</span><span class="n">llm</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="n">prompt</span><span class="p">)</span>
+
+<span class="c1"># Run the chain only specifying the input variable.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s2">&quot;autoencoder&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/tmp/ipykernel_1455/266492266.py:3: LangChainDeprecationWarning: The class `LLMChain` was deprecated in LangChain 0.1.17 and will be removed in 1.0. Use :meth:`~RunnableSequence, e.g., `prompt | llm`` instead.
+  chain = LLMChain(llm=llm, prompt=prompt)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;concept&#39;: &#39;autoencoder&#39;, &#39;text&#39;: &#39;An autoencoder is a type of neural network designed to learn efficient representations of data, typically for the purpose of dimensionality reduction or feature learning. It consists of two main parts: an encoder that compresses the input data into a lower-dimensional latent space, and a decoder that reconstructs the original data from this compressed representation. By training on the task of reconstruction, autoencoders can capture essential features of the input data while minimizing reconstruction loss.&#39;}
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a second prompt</span>
+
+<span class="n">second_prompt</span> <span class="o">=</span> <span class="n">PromptTemplate</span><span class="p">(</span>
+    <span class="n">input_variables</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ml_concept&quot;</span><span class="p">],</span>
+    <span class="n">template</span><span class="o">=</span><span class="s2">&quot;Turn the concept description of </span><span class="si">{ml_concept}</span><span class="s2"> and explain it to me like I&#39;m five in 500 words&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">chain_two</span> <span class="o">=</span> <span class="n">LLMChain</span><span class="p">(</span><span class="n">llm</span><span class="o">=</span><span class="n">llm</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="n">second_prompt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Sau khi thực hiện xong 2 <code class="docutils literal notranslate"><span class="pre">chain</span></code>, ta có thể ghép lại thành 1 <code class="docutils literal notranslate"><span class="pre">chain</span></code> duy nhất</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain.chains</span> <span class="kn">import</span> <span class="n">SimpleSequentialChain</span>
+<span class="n">overall_chain</span> <span class="o">=</span> <span class="n">SimpleSequentialChain</span><span class="p">(</span><span class="n">chains</span><span class="o">=</span><span class="p">[</span><span class="n">chain</span><span class="p">,</span> <span class="n">chain_two</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Thực hiện toàn bộ chain với input đầu vào từ chain 1</span>
+<span class="n">explanation</span> <span class="o">=</span> <span class="n">overall_chain</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s2">&quot;autoencoder&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">explanation</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+
+<span class="ansi-bold">&gt; Entering new SimpleSequentialChain chain...</span>
+<span class="ansi-cyan-intense-fg ansi-bold">An autoencoder is a type of artificial neural network used for unsupervised learning, designed to compress input data into a lower-dimensional representation (the encoding) and then reconstruct the original input from this representation (the decoding). It consists of two parts: the encoder, which maps the input to the latent space, and the decoder, which aims to reverse this mapping, minimizing the reconstruction error. Autoencoders are commonly used for tasks such as dimensionality reduction, anomaly detection, and data denoising.</span>
+<span class="ansi-yellow-intense-fg ansi-bold">Okay! Let’s think about a fun way to understand what an autoencoder is.
+
+Imagine you have a big box of crayons with many different colors. Each crayon is like a piece of information or data, and together, they can make a beautiful picture. Sometimes, though, it&#39;s hard to carry around the whole box when you want to show just a few colors in a simple drawing.
+
+Now, let’s say we have a friend named Eddie, and he loves to help us. Eddie is really good at organizing things. So if we want to show him the colors we need for our drawing, we ask him to help. Eddie can take all our crayons and find a way to put them together in a smaller box that still keeps most of the important colors. This smaller box is like our &#34;encoding&#34; that Eddie makes. It’s easier to carry around!
+
+After we’ve shown Eddie the colors, he knows he needs to give them back to us in a way that we can use. So, he takes that small box of crayons and carefully opens it to give us back the original colors. But here’s the trick: sometimes, when Eddie puts the crayons back, a couple of them might not be exactly right. They might be a little different from what we showed him at first. This part, when Eddie tries to recreate the colors we had, is like the &#34;decoding.&#34;
+
+Now, Eddie has done both jobs! He’s helped us by making our big box of crayons smaller, and he’s also done his best to give back the original crayons, even if there might be a little mistake here and there. His goal is to make sure we still like our picture, and we understand how the colors go together.
+
+So, the autoencoder works a bit like Eddie. It takes information (like our crayons) and compresses it into a smaller size so it’s easier to handle. This smaller size is called the &#34;latent space.&#34; Then, it tries to give back the original information as best as it can. The autoencoder wants to make sure the picture we get back looks pretty close to the one we started with.
+
+People use autoencoders for lots of things! Sometimes, they help computers understand images better by reducing the number of details but still keeping what’s important. It’s kind of like drawing a picture of a cat using only a few crayons instead of the whole box, but you still can tell it’s a cat!
+
+Autoencoders can also help find problems in pictures or information, like spotting a crayon that’s not the right color—it’s like telling if there’s something funny going on in the data. Plus, they can help clean up any messes in a picture, like when you accidentally colored outside the lines.
+
+In summary, an autoencoder is a smart way for computers to learn about information by making it simpler, yet still keeping what’s special about it. Just like how Eddie helps us with our crayons to make drawing easier and more fun! So when we need to understand or work with lots of data, we can rely on our little autoencoder friend!</span>
+
+<span class="ansi-bold">&gt; Finished chain.</span>
+{&#39;input&#39;: &#39;autoencoder&#39;, &#39;output&#39;: &#39;Okay! Let’s think about a fun way to understand what an autoencoder is.\n\nImagine you have a big box of crayons with many different colors. Each crayon is like a piece of information or data, and together, they can make a beautiful picture. Sometimes, though, it\&#39;s hard to carry around the whole box when you want to show just a few colors in a simple drawing.\n\nNow, let’s say we have a friend named Eddie, and he loves to help us. Eddie is really good at organizing things. So if we want to show him the colors we need for our drawing, we ask him to help. Eddie can take all our crayons and find a way to put them together in a smaller box that still keeps most of the important colors. This smaller box is like our &#34;encoding&#34; that Eddie makes. It’s easier to carry around!\n\nAfter we’ve shown Eddie the colors, he knows he needs to give them back to us in a way that we can use. So, he takes that small box of crayons and carefully opens it to give us back the original colors. But here’s the trick: sometimes, when Eddie puts the crayons back, a couple of them might not be exactly right. They might be a little different from what we showed him at first. This part, when Eddie tries to recreate the colors we had, is like the &#34;decoding.&#34;\n\nNow, Eddie has done both jobs! He’s helped us by making our big box of crayons smaller, and he’s also done his best to give back the original crayons, even if there might be a little mistake here and there. His goal is to make sure we still like our picture, and we understand how the colors go together.\n\nSo, the autoencoder works a bit like Eddie. It takes information (like our crayons) and compresses it into a smaller size so it’s easier to handle. This smaller size is called the &#34;latent space.&#34; Then, it tries to give back the original information as best as it can. The autoencoder wants to make sure the picture we get back looks pretty close to the one we started with.\n\nPeople use autoencoders for lots of things! Sometimes, they help computers understand images better by reducing the number of details but still keeping what’s important. It’s kind of like drawing a picture of a cat using only a few crayons instead of the whole box, but you still can tell it’s a cat!\n\nAutoencoders can also help find problems in pictures or information, like spotting a crayon that’s not the right color—it’s like telling if there’s something funny going on in the data. Plus, they can help clean up any messes in a picture, like when you accidentally colored outside the lines.\n\nIn summary, an autoencoder is a smart way for computers to learn about information by making it simpler, yet still keeping what’s special about it. Just like how Eddie helps us with our crayons to make drawing easier and more fun! So when we need to understand or work with lots of data, we can rely on our little autoencoder friend!&#39;}
+</pre></div></div>
+</div>
+</section>
+<section id="Vector-Store">
+<h2>Vector Store<a class="headerlink" href="#Vector-Store" title="Link to this heading"></a></h2>
+<p>Với 1 đoạn văn bản, ta cần chia nhỏ thành các đoạn được gọi là <code class="docutils literal notranslate"><span class="pre">chunk</span></code>. Với langchain, có cấu phần chia nhỏ text thành các chunk với 2 thuộc tính chính:</p>
+<ul class="simple">
+<li><p>chunk_size: Số lượng ký tự tối đa cho 1 chunk</p></li>
+<li><p>chunk_overlap: Cho phép overlap giữa 2 đoạn liên tiếp. <code class="docutils literal notranslate"><span class="pre">chunk_overlap</span> <span class="pre">=</span> <span class="pre">0</span></code> nghĩa là không cho phép trùng lặp giữa 2 đoạn</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain.text_splitter</span> <span class="kn">import</span> <span class="n">RecursiveCharacterTextSplitter</span>
+
+<span class="n">text_splitter</span> <span class="o">=</span> <span class="n">RecursiveCharacterTextSplitter</span><span class="p">(</span>
+    <span class="n">chunk_size</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="n">chunk_overlap</span>  <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">separators</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;!&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">explanation</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Okay! Let’s think about a fun way to understand what an autoencoder is.\n\nImagine you have a big box of crayons with many different colors. Each crayon is like a piece of information or data, and together, they can make a beautiful picture. Sometimes, though, it\&#39;s hard to carry around the whole box when you want to show just a few colors in a simple drawing.\n\nNow, let’s say we have a friend named Eddie, and he loves to help us. Eddie is really good at organizing things. So if we want to show him the colors we need for our drawing, we ask him to help. Eddie can take all our crayons and find a way to put them together in a smaller box that still keeps most of the important colors. This smaller box is like our &#34;encoding&#34; that Eddie makes. It’s easier to carry around!\n\nAfter we’ve shown Eddie the colors, he knows he needs to give them back to us in a way that we can use. So, he takes that small box of crayons and carefully opens it to give us back the original colors. But here’s the trick: sometimes, when Eddie puts the crayons back, a couple of them might not be exactly right. They might be a little different from what we showed him at first. This part, when Eddie tries to recreate the colors we had, is like the &#34;decoding.&#34;\n\nNow, Eddie has done both jobs! He’s helped us by making our big box of crayons smaller, and he’s also done his best to give back the original crayons, even if there might be a little mistake here and there. His goal is to make sure we still like our picture, and we understand how the colors go together.\n\nSo, the autoencoder works a bit like Eddie. It takes information (like our crayons) and compresses it into a smaller size so it’s easier to handle. This smaller size is called the &#34;latent space.&#34; Then, it tries to give back the original information as best as it can. The autoencoder wants to make sure the picture we get back looks pretty close to the one we started with.\n\nPeople use autoencoders for lots of things! Sometimes, they help computers understand images better by reducing the number of details but still keeping what’s important. It’s kind of like drawing a picture of a cat using only a few crayons instead of the whole box, but you still can tell it’s a cat!\n\nAutoencoders can also help find problems in pictures or information, like spotting a crayon that’s not the right color—it’s like telling if there’s something funny going on in the data. Plus, they can help clean up any messes in a picture, like when you accidentally colored outside the lines.\n\nIn summary, an autoencoder is a smart way for computers to learn about information by making it simpler, yet still keeping what’s special about it. Just like how Eddie helps us with our crayons to make drawing easier and more fun! So when we need to understand or work with lots of data, we can rely on our little autoencoder friend!&#39;
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chia thành chunk</span>
+<span class="n">texts</span> <span class="o">=</span> <span class="n">text_splitter</span><span class="o">.</span><span class="n">create_documents</span><span class="p">([</span><span class="n">explanation</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<p>Các đoạn text riêng biệt có thể xem với <code class="docutils literal notranslate"><span class="pre">page_content</span></code></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">texts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">page_content</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Okay! Let’s think about a fun way to understand what an autoencoder is.&#39;
+</pre></div></div>
+</div>
+<p>Ta có thể convert các vector text thành embedding vector với OpenAI như sau</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain_openai</span> <span class="kn">import</span> <span class="n">OpenAIEmbeddings</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">embeddings</span> <span class="o">=</span> <span class="n">OpenAIEmbeddings</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Tạo đoạn text chunk đầu tiên thành vector embedding</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Turn the first text chunk into a vector with the embedding</span>
+<span class="n">query_result</span> <span class="o">=</span> <span class="n">embeddings</span><span class="o">.</span><span class="n">embed_query</span><span class="p">(</span><span class="n">texts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">page_content</span><span class="p">)</span>
+<span class="n">query_result</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[-0.014400934800505638,
+ -0.004645877983421087,
+ 0.02746344543993473,
+ -0.006820817943662405,
+ -0.004594400059431791,
+ 0.002692936221137643,
+ 0.008532457053661346,
+ 0.0035680599976330996,
+ -0.008287937380373478,
+ -0.02613789029419422,
+ 0.006820817943662405,
+ 0.046510256826877594,
+ 0.0168203953653574,
+ -0.01759256236255169,
+ 0.01957446150481701,
+ -0.00897645391523838,
+ 0.020501062273979187,
+ 0.002898847684264183,
+ 0.015777967870235443,
+ -0.014671193435788155,
+ -0.030397683382034302,
+ 0.010591572150588036,
+ -0.011428087949752808,
+ -0.03219940885901451,
+ -0.009755057282745838,
+ 0.02312643453478813,
+ 0.027231793850660324,
+ -0.014619715511798859,
+ 0.006473342422395945,
+ -0.0009941663593053818,
+ 0.025275634601712227,
+ -0.011685476638376713,
+ 0.007097511552274227,
+ -0.02882760763168335,
+ -0.013963372446596622,
+ -0.003976665437221527,
+ -0.008982888422906399,
+ -0.021427664905786514,
+ 0.010372791439294815,
+ 0.004092490766197443,
+ -0.004867876414209604,
+ 0.00971001386642456,
+ 0.0013175117783248425,
+ -0.03889153152704239,
+ 0.02900778129696846,
+ 0.0059617809019982815,
+ -0.0061194319278001785,
+ -0.027669357135891914,
+ 0.009980272501707077,
+ -0.005739782936871052,
+ 0.013204074464738369,
+ 0.00895714946091175,
+ -0.020243672654032707,
+ -0.004160055425018072,
+ -0.01411780621856451,
+ 0.0198704581707716,
+ -0.03726997971534729,
+ 0.007399944122880697,
+ 0.023229390382766724,
+ -0.025365721434354782,
+ -0.0010376009158790112,
+ -0.004912919364869595,
+ -0.009941664524376392,
+ 0.01898246631026268,
+ 0.007419248577207327,
+ 0.00030162816983647645,
+ 0.012438341043889523,
+ -0.011042003519833088,
+ 0.02008923888206482,
+ 0.023332346230745316,
+ 0.01510875578969717,
+ -0.005852390546351671,
+ -0.040513087064027786,
+ -0.013731722719967365,
+ 0.009999576956033707,
+ 0.0026816753670573235,
+ 0.0007910701096989214,
+ -0.01557205617427826,
+ -0.00021214513981249183,
+ 0.006917339283972979,
+ 0.011846345849335194,
+ -0.0037514499854296446,
+ -0.00901506282389164,
+ 0.036111727356910706,
+ 0.0035230168141424656,
+ -0.00934323389083147,
+ -0.0027556747663766146,
+ 0.015301797538995743,
+ -0.004594400059431791,
+ -0.007515769451856613,
+ -0.009426885284483433,
+ 0.001499293022789061,
+ 0.0023808516561985016,
+ -0.026086412370204926,
+ 0.01755395531654358,
+ 0.0104113994166255,
+ 0.02100297249853611,
+ 0.006930208764970303,
+ 0.00010607256990624592,
+ -0.016202660277485847,
+ 0.0011622738093137741,
+ -0.011350871063768864,
+ -0.006994555704295635,
+ -0.021530620753765106,
+ -0.00515743950381875,
+ -0.002725109923630953,
+ -0.0004657138779293746,
+ -0.0016617700457572937,
+ 0.012766512110829353,
+ 0.014349456876516342,
+ -0.004288750234991312,
+ 0.018609249964356422,
+ 0.004176142625510693,
+ -0.02959977649152279,
+ 0.010096097365021706,
+ -0.0002652317052707076,
+ 0.016318485140800476,
+ 0.015726489946246147,
+ 0.005578914191573858,
+ 0.009381841868162155,
+ 0.013358508236706257,
+ 0.007264814805239439,
+ 0.019947675988078117,
+ -0.004288750234991312,
+ 0.024580683559179306,
+ -0.03073228895664215,
+ -0.006846556905657053,
+ -0.0037224935367703438,
+ -0.0032028888817876577,
+ -0.02530137449502945,
+ 0.016061095520853996,
+ 0.005154221784323454,
+ 0.023152172565460205,
+ -0.012180951423943043,
+ -0.024941029027104378,
+ 0.017103523015975952,
+ 0.0008373197633773088,
+ 0.03873709961771965,
+ -0.02070697396993637,
+ -0.004932223819196224,
+ 0.03595729544758797,
+ 0.0007379835587926209,
+ -0.007181163411587477,
+ -0.03065507300198078,
+ -0.03132428601384163,
+ 0.016318485140800476,
+ 0.004877528641372919,
+ 0.010250531136989594,
+ -0.008191416040062904,
+ -0.004034578334540129,
+ 0.00485500693321228,
+ -0.01821029745042324,
+ 0.005501697771251202,
+ 0.012013648636639118,
+ 0.03106689639389515,
+ 0.01949724368751049,
+ 0.010321313515305519,
+ -0.001964202616363764,
+ -0.02423320896923542,
+ -0.0025385026820003986,
+ 0.004066751804202795,
+ -0.0037192762829363346,
+ 0.0030388031154870987,
+ -0.017052045091986656,
+ 0.036883894354104996,
+ 0.013371377252042294,
+ 0.03091246262192726,
+ 0.01232251524925232,
+ 0.0017856387421488762,
+ -0.01666596159338951,
+ -0.01890524849295616,
+ 0.023332346230745316,
+ -0.024439120665192604,
+ 0.020835669711232185,
+ -0.01618979126214981,
+ 0.011196437291800976,
+ 0.0074835955165326595,
+ 0.006698558107018471,
+ -0.013821808621287346,
+ 0.0016464876243844628,
+ 0.01902107335627079,
+ 0.011099915951490402,
+ 0.020024891942739487,
+ 0.010038184933364391,
+ -0.014568237587809563,
+ -0.014529629610478878,
+ 0.009664970450103283,
+ -0.004291967488825321,
+ 0.0018966378411278129,
+ -0.011093481443822384,
+ 0.007728115655481815,
+ 0.026112150400877,
+ -0.0015169885009527206,
+ -0.011556782759726048,
+ -0.6609758734703064,
+ 0.006801513954997063,
+ 0.023705560714006424,
+ -0.03822232037782669,
+ 0.007065338082611561,
+ 0.006087258458137512,
+ -0.003251149319112301,
+ -0.008854193612933159,
+ -0.00426944624632597,
+ 0.027875268831849098,
+ -0.0024033731315284967,
+ -0.0036806678399443626,
+ -0.028595957905054092,
+ -0.007194032892584801,
+ -0.005514567252248526,
+ -0.010604442097246647,
+ 0.0035937989596277475,
+ -0.01162112969905138,
+ -0.007541508413851261,
+ 0.010340617969632149,
+ -0.005466306582093239,
+ 0.013204074464738369,
+ -0.024812335148453712,
+ -0.01292738039046526,
+ 0.006814383435994387,
+ 0.014195023104548454,
+ 0.002811978803947568,
+ -0.005929607432335615,
+ 0.011781997978687286,
+ -0.007792463060468435,
+ -0.03822232037782669,
+ -0.015610665082931519,
+ -0.007734550163149834,
+ 0.009002192877233028,
+ 0.047900158911943436,
+ -0.018081603571772575,
+ 0.012650687247514725,
+ 0.028261352330446243,
+ -0.016035357490181923,
+ 0.045841045677661896,
+ -0.009529841132462025,
+ -0.02074558287858963,
+ 0.02486381307244301,
+ -0.011518173851072788,
+ 0.013030336238443851,
+ 0.023229390382766724,
+ -0.005665783304721117,
+ 0.019960545003414154,
+ -0.0031610631849616766,
+ -0.02104157954454422,
+ 0.016807524487376213,
+ -0.0006917339051142335,
+ -0.009999576956033707,
+ -0.01068809349089861,
+ 0.006585950497537851,
+ -0.004234055057168007,
+ 0.045918263494968414,
+ -0.00418579438701272,
+ 0.010939047671854496,
+ -0.010733135975897312,
+ -0.0021427664905786514,
+ 0.011080612428486347,
+ -0.00837158877402544,
+ -0.022380005568265915,
+ -0.038248058408498764,
+ 0.020938623696565628,
+ -0.0048196157440543175,
+ 0.016768917441368103,
+ -0.015649273991584778,
+ -0.020037760958075523,
+ 0.015494839288294315,
+ 2.1013427613070235e-05,
+ -0.016434310004115105,
+ -0.027695095166563988,
+ -0.002585154492408037,
+ 0.0009354494395665824,
+ 0.02141479402780533,
+ -0.01498006097972393,
+ 0.02005063183605671,
+ 0.01129295863211155,
+ 0.007271249312907457,
+ -0.005910303443670273,
+ -0.0012595992302522063,
+ -0.01185921486467123,
+ 0.01064948458224535,
+ -0.01725795678794384,
+ -0.025391461327672005,
+ -0.013075379654765129,
+ 0.007136119995266199,
+ 0.007348466198891401,
+ 0.019960545003414154,
+ 0.005440567620098591,
+ 0.0008316893945448101,
+ -0.04352454096078873,
+ 0.007644464261829853,
+ 0.009439755231142044,
+ -0.012528426945209503,
+ -0.008674021810293198,
+ 0.024735117331147194,
+ -0.007020294666290283,
+ 0.013603027909994125,
+ -0.0050030057318508625,
+ -0.008873498067259789,
+ 0.009027931839227676,
+ -0.018454818055033684,
+ -0.0034876258578151464,
+ -0.004929006099700928,
+ 0.017232216894626617,
+ 0.036266159266233444,
+ -0.01640857197344303,
+ -0.010552964173257351,
+ -0.0057655218988657,
+ 0.010636615566909313,
+ 0.01894385740160942,
+ -0.021710792556405067,
+ -0.03510791063308716,
+ -0.013834678567945957,
+ 0.03140150383114815,
+ 0.024722248315811157,
+ -0.008429501205682755,
+ 0.025803282856941223,
+ 0.012148777954280376,
+ 0.0022714610677212477,
+ -0.01485136616975069,
+ 0.013139726594090462,
+ 0.011286523193120956,
+ -0.004922571592032909,
+ -0.018918117508292198,
+ -0.032405320554971695,
+ -0.01268929522484541,
+ -0.01842907816171646,
+ -0.023924341425299644,
+ -0.0038447536062449217,
+ -0.0025015028659254313,
+ 0.016138313338160515,
+ -0.005202482454478741,
+ 0.026562582701444626,
+ -0.024374771863222122,
+ -0.005865260027348995,
+ -0.018995335325598717,
+ -0.028209874406456947,
+ -0.01567501202225685,
+ 0.010713832452893257,
+ -0.006679254118353128,
+ -0.023924341425299644,
+ -0.0002455253270454705,
+ -0.010295574553310871,
+ -0.0010794266127049923,
+ 0.0038897967897355556,
+ 0.022869044914841652,
+ -0.005128482822328806,
+ 0.004137534182518721,
+ -0.019947675988078117,
+ -0.005704391747713089,
+ 0.011955736204981804,
+ -0.003276888281106949,
+ 0.02250869944691658,
+ -0.03454165160655975,
+ -0.03132428601384163,
+ -0.01099696010351181,
+ 0.0088863680139184,
+ 0.014671193435788155,
+ 0.0001093904793378897,
+ 0.004002404399216175,
+ -0.013088248670101166,
+ -0.012888772413134575,
+ 0.008712629787623882,
+ 0.013319899328052998,
+ -0.0355454720556736,
+ -0.009439755231142044,
+ 0.0032688449136912823,
+ -0.044039320200681686,
+ -0.0047552683390676975,
+ 0.023087825626134872,
+ 0.003005020786076784,
+ 0.01608683541417122,
+ -0.012843728996813297,
+ -0.026060672476887703,
+ 0.020140716806054115,
+ -0.029805688187479973,
+ 0.0003309866297058761,
+ -0.0062416922301054,
+ -0.009690709412097931,
+ 9.903457794280257e-06,
+ 0.0240144282579422,
+ 0.001280512078665197,
+ 0.0007371792453341186,
+ 0.04388488456606865,
+ -0.025507286190986633,
+ -0.00864828284829855,
+ 0.02514694072306156,
+ 0.028879085555672646,
+ -0.017348043620586395,
+ 0.028956303372979164,
+ 0.0012797077652066946,
+ 0.03338339924812317,
+ -0.024503467604517937,
+ 0.007715246174484491,
+ 0.022225571796298027,
+ 0.028724653646349907,
+ -0.0033010186161845922,
+ -0.0009394711814820766,
+ 0.008294371888041496,
+ 0.0031095852609723806,
+ 0.027411967515945435,
+ 0.006232040002942085,
+ 0.0031980627682060003,
+ -0.017888560891151428,
+ 0.024323293939232826,
+ -0.0192012470215559,
+ 0.01018618419766426,
+ -0.02585476078093052,
+ -0.013229813426733017,
+ 0.00011904258280992508,
+ -0.004945093300193548,
+ 0.02985716611146927,
+ -0.011962170712649822,
+ -0.00045083355507813394,
+ -0.018892379477620125,
+ 0.0015266406117007136,
+ 0.004095708020031452,
+ -0.0034007569774985313,
+ 0.005842738319188356,
+ 0.025906238704919815,
+ -0.015263189561665058,
+ 0.0198704581707716,
+ 0.011350871063768864,
+ 0.013718852773308754,
+ -0.0037964931689202785,
+ -0.061927881091833115,
+ -0.004324141424149275,
+ 0.03140150383114815,
+ 0.005038396921008825,
+ 0.017245087772607803,
+ 0.019510114565491676,
+ -0.004752051085233688,
+ 0.012933815829455853,
+ 0.004980484023690224,
+ 0.026459626853466034,
+ 0.011762693524360657,
+ 0.011434522457420826,
+ 0.0345931313931942,
+ 0.0021652879659086466,
+ 0.011067742481827736,
+ 0.019111160188913345,
+ 0.004690920934081078,
+ 0.020591149106621742,
+ 0.027128838002681732,
+ -0.008982888422906399,
+ -0.0007194837089627981,
+ 0.0019448983948677778,
+ -0.0033267575781792402,
+ -0.0005244308267720044,
+ 0.013886156491935253,
+ -0.004877528641372919,
+ -0.002866673981770873,
+ -0.009909490123391151,
+ -0.004494661930948496,
+ 0.02841578610241413,
+ 0.03647207096219063,
+ -0.002750848885625601,
+ 0.019214116036891937,
+ -0.011434522457420826,
+ -0.00010059298801934347,
+ 0.00800480879843235,
+ 0.0033750180155038834,
+ -0.004365967120975256,
+ -0.030706550925970078,
+ -0.001467119320295751,
+ 0.027051622048020363,
+ -0.023911472409963608,
+ -0.0254429392516613,
+ -0.0008031352190300822,
+ -0.007850375957787037,
+ 0.006193431559950113,
+ 0.0015161841874942183,
+ 0.008815585635602474,
+ 0.006698558107018471,
+ -0.004143968690186739,
+ 0.01044357381761074,
+ -0.01714213192462921,
+ -0.028287090361118317,
+ 0.012779382057487965,
+ 0.016331354156136513,
+ -0.0051477872766554356,
+ -0.01597101055085659,
+ -0.012998162768781185,
+ -0.006679254118353128,
+ -0.022521568462252617,
+ 0.0016159225488081574,
+ 0.022380005568265915,
+ 0.008635412901639938,
+ -0.01377033069729805,
+ 0.0006716253701597452,
+ -0.009195234626531601,
+ 0.015494839288294315,
+ 0.023113565519452095,
+ 0.004365967120975256,
+ -0.0013150987215340137,
+ 0.014696932397782803,
+ 0.0012748816516250372,
+ 0.012399732135236263,
+ -0.013062509708106518,
+ -0.025674588978290558,
+ 0.01259277481585741,
+ 0.021453402936458588,
+ 0.010836091823875904,
+ -0.016125444322824478,
+ 0.03142724186182022,
+ -0.0550813227891922,
+ 0.014812758192420006,
+ -0.010700962506234646,
+ -0.013603027909994125,
+ 0.0001647895114729181,
+ 0.018017254769802094,
+ 0.010353486984968185,
+ -0.009960968047380447,
+ -0.023744167760014534,
+ 0.031452979892492294,
+ 0.011440956965088844,
+ 0.0045590088702738285,
+ -0.028956303372979164,
+ -0.0008308850228786469,
+ 0.013731722719967365,
+ 0.06862000375986099,
+ 0.02207113802433014,
+ -0.013133292086422443,
+ 0.007605855818837881,
+ -0.03871136158704758,
+ 0.011434522457420826,
+ -0.021672183647751808,
+ -0.02203252911567688,
+ 0.016022488474845886,
+ -0.0026977623347193003,
+ -0.03639485687017441,
+ -0.001470336690545082,
+ 0.029651254415512085,
+ 0.007148989476263523,
+ 0.020205065608024597,
+ 0.015018668957054615,
+ 0.010881135240197182,
+ -0.0025819370057433844,
+ 0.02228991873562336,
+ -0.027746573090553284,
+ -0.022701742127537727,
+ 0.01803012564778328,
+ -0.005292568821460009,
+ 0.009767926298081875,
+ 0.0082428939640522,
+ 0.010700962506234646,
+ -0.012908076867461205,
+ 0.04120803624391556,
+ -0.007818201556801796,
+ -0.03253401443362236,
+ 0.009858012199401855,
+ 0.030243249610066414,
+ -0.0019754632376134396,
+ -0.005598218645900488,
+ 0.000834906764794141,
+ 0.022045398131012917,
+ 0.01923985406756401,
+ 0.033537834882736206,
+ 0.014709802344441414,
+ -0.008590370416641235,
+ 0.0016440745675936341,
+ 0.0265883207321167,
+ 0.0035230168141424656,
+ -0.002276287181302905,
+ 0.009896621108055115,
+ -0.01615118235349655,
+ 0.008249329403042793,
+ 0.025867631658911705,
+ 0.01868646778166294,
+ -0.0005553980008699,
+ 0.02173653244972229,
+ -0.0015354884089902043,
+ -0.025314243510365486,
+ -0.004916136618703604,
+ 0.004365967120975256,
+ 0.0032173669897019863,
+ -0.011421652510762215,
+ -0.008558196015655994,
+ -0.0011896215146407485,
+ 0.002382460283115506,
+ -0.025944847613573074,
+ 0.007168293930590153,
+ 0.0007685485761612654,
+ -0.002302026143297553,
+ -0.02023080363869667,
+ -0.0120072141289711,
+ 0.019741764292120934,
+ -0.011099915951490402,
+ -0.004002404399216175,
+ -0.009008627384901047,
+ -0.01207799557596445,
+ -0.02548154629766941,
+ -0.03732145577669144,
+ 0.013229813426733017,
+ -0.006795078981667757,
+ 0.0241559911519289,
+ 0.007399944122880697,
+ -0.032559752464294434,
+ -0.00308867241255939,
+ -0.004124664701521397,
+ -0.01476128026843071,
+ -0.011923561803996563,
+ 0.0015459448331966996,
+ -0.039560746401548386,
+ 0.006782209500670433,
+ -0.018313253298401833,
+ 0.0099352290853858,
+ 0.0008976454264484346,
+ 0.00472631212323904,
+ 0.020771320909261703,
+ 0.027952484786510468,
+ 0.010623745620250702,
+ 0.02603493444621563,
+ -0.011949300765991211,
+ -5.8314777561463416e-05,
+ 0.01957446150481701,
+ -0.013667374849319458,
+ 0.008841324597597122,
+ -0.0009089061641134322,
+ -0.025031115859746933,
+ 0.0069559477269649506,
+ -0.02441338077187538,
+ 0.015469100326299667,
+ -0.023512518033385277,
+ -0.012039387598633766,
+ 0.005800912622362375,
+ 0.0011550347553566098,
+ 0.003136932849884033,
+ 0.002240896224975586,
+ -0.011582521721720695,
+ 0.0011526216985657811,
+ 0.024246077984571457,
+ -0.004243707284331322,
+ -0.03116985224187374,
+ 0.01997341401875019,
+ -0.006103345192968845,
+ 0.023666951805353165,
+ 0.0018049428472295403,
+ -0.02044958434998989,
+ -0.02331947535276413,
+ 0.011846345849335194,
+ -0.0018982465844601393,
+ 0.031633153557777405,
+ 0.0021073753014206886,
+ -0.013654505833983421,
+ 0.020539671182632446,
+ -0.02288191393017769,
+ -0.014709802344441414,
+ 0.005511349532753229,
+ 0.008873498067259789,
+ -0.015816576778888702,
+ 0.026060672476887703,
+ -0.019960545003414154,
+ -0.020475324243307114,
+ -0.03703832998871803,
+ -0.0009909489890560508,
+ -0.014838497154414654,
+ 0.005839521065354347,
+ -0.0230620875954628,
+ 0.0016633787890896201,
+ 0.0035937989596277475,
+ 0.007251945324242115,
+ -0.008815585635602474,
+ -0.012258168309926987,
+ -0.004211533349007368,
+ -0.039045967161655426,
+ -0.015057277865707874,
+ 0.013043206185102463,
+ -0.004713442642241716,
+ 0.017785605043172836,
+ -0.01787569187581539,
+ 0.03091246262192726,
+ -0.028724653646349907,
+ -0.0075994208455085754,
+ 0.004037795588374138,
+ -0.045841045677661896,
+ -0.01209730003029108,
+ 0.003941274713724852,
+ 0.02841578610241413,
+ 0.009516972117125988,
+ 0.05662566050887108,
+ -0.0088863680139184,
+ 0.03037194535136223,
+ -0.017489606514573097,
+ 0.006096910685300827,
+ -0.002885978203266859,
+ 0.008558196015655994,
+ -0.01176912896335125,
+ -0.013171900995075703,
+ 0.013191204518079758,
+ 0.02313930355012417,
+ -0.01604822650551796,
+ 0.0014848149148747325,
+ 0.012528426945209503,
+ 0.003999187145382166,
+ 0.021105928346514702,
+ 0.004993353504687548,
+ -0.01700056716799736,
+ 0.004417445044964552,
+ -0.009349668398499489,
+ -0.03701259195804596,
+ 0.024477727711200714,
+ -0.0037643194664269686,
+ 0.011955736204981804,
+ 0.0064443862065672874,
+ -0.010372791439294815,
+ 0.05173526331782341,
+ 0.0038962315302342176,
+ 0.008699760772287846,
+ 0.016279876232147217,
+ 0.0225859172642231,
+ -0.0034844086039811373,
+ 0.025288505479693413,
+ -0.009008627384901047,
+ -0.02720605581998825,
+ -0.0037031895481050014,
+ -0.006560211535543203,
+ -0.02140192501246929,
+ -0.0020912885665893555,
+ 0.025095462799072266,
+ 0.030526379123330116,
+ 0.016460049897432327,
+ 0.017322303727269173,
+ 0.0050544836558401585,
+ 0.0018853771034628153,
+ -0.00980653427541256,
+ -0.00036416572402231395,
+ -0.007689507212489843,
+ -0.012669991701841354,
+ -0.01714213192462921,
+ -0.031890541315078735,
+ -0.025545895099639893,
+ -0.014645454473793507,
+ -0.013603027909994125,
+ 0.03461886942386627,
+ 0.016112573444843292,
+ -0.005424480885267258,
+ 0.0022843305487185717,
+ -0.008834890089929104,
+ -0.013577288947999477,
+ -0.022444352507591248,
+ 0.012103734537959099,
+ 0.050731442868709564,
+ 0.004079621285200119,
+ 0.02900778129696846,
+ 0.02001202292740345,
+ 0.008307241834700108,
+ -0.0041214469820261,
+ 0.009632796980440617,
+ -0.01714213192462921,
+ 0.008487414568662643,
+ 0.010372791439294815,
+ 0.009098714217543602,
+ -0.012431906536221504,
+ -0.019561590626835823,
+ 0.008210720494389534,
+ -0.0024870247580111027,
+ -0.00557247968390584,
+ -0.030500639230012894,
+ -0.004169707652181387,
+ 0.03289436176419258,
+ 0.019291331991553307,
+ -0.01004461944103241,
+ 0.015765098854899406,
+ 0.004909702111035585,
+ 0.020591149106621742,
+ -0.009954533539712429,
+ -0.0009475146071054041,
+ -0.019265593960881233,
+ -0.015816576778888702,
+ -0.019291331991553307,
+ 0.030629334971308708,
+ -0.0015676621114835143,
+ 0.010475747287273407,
+ -0.003983100410550833,
+ -0.004774572793394327,
+ 0.019471505656838417,
+ -0.0015483578899875283,
+ -0.01066878903657198,
+ 0.01017331425100565,
+ 0.010231226682662964,
+ 0.04689634218811989,
+ 0.0037064068019390106,
+ 0.032070714980363846,
+ 0.018274644389748573,
+ 0.0009619927150197327,
+ -0.010128271766006947,
+ 0.012850163504481316,
+ -0.007329162210226059,
+ 0.02397581934928894,
+ -0.035854339599609375,
+ -0.03564842790365219,
+ -0.00800480879843235,
+ 0.0014470107853412628,
+ -0.010836091823875904,
+ -0.0064186472445726395,
+ -0.015610665082931519,
+ -0.025198418647050858,
+ -0.019432896748185158,
+ -0.0015298579819500446,
+ 0.017618302255868912,
+ 0.0015708794817328453,
+ -0.025764675810933113,
+ -0.02831283025443554,
+ -0.005427698139101267,
+ 0.011009830050170422,
+ -0.006386473774909973,
+ 0.012161646969616413,
+ 0.026163628324866295,
+ -0.03858266398310661,
+ 0.0020687670912593603,
+ -0.012013648636639118,
+ -0.00023687865177635103,
+ 0.04882676154375076,
+ 0.0179142989218235,
+ 0.006232040002942085,
+ 0.0164857879281044,
+ 0.023988688364624977,
+ -0.005723695736378431,
+ 0.011537478305399418,
+ 0.0032978011295199394,
+ -0.002332590986043215,
+ -0.007921157404780388,
+ 0.0005272460402920842,
+ 0.0036227551754564047,
+ -0.017798474058508873,
+ -0.007882549427449703,
+ 0.009800099767744541,
+ 0.007715246174484491,
+ -0.01187851931899786,
+ 0.020835669711232185,
+ -0.0033235400915145874,
+ -0.004041012842208147,
+ 0.004021708853542805,
+ 0.004266228526830673,
+ -0.009742187336087227,
+ 0.020423846319317818,
+ -0.009008627384901047,
+ -0.014310848899185658,
+ -0.008937845937907696,
+ 0.00025196006754413247,
+ 0.005070570390671492,
+ 0.03091246262192726,
+ 0.00641542999073863,
+ -0.0225859172642231,
+ -0.018120210617780685,
+ -0.008455240167677402,
+ 0.011672607623040676,
+ -0.025198418647050858,
+ -0.0031803674064576626,
+ -0.006827252916991711,
+ -0.0033364095725119114,
+ 0.008725499734282494,
+ 0.002260200446471572,
+ 0.0018467686604708433,
+ -0.023911472409963608,
+ -0.0023165042512118816,
+ 0.012624948285520077,
+ 0.012213124893605709,
+ -0.02736048959195614,
+ -0.016369963064789772,
+ 0.01913689821958542,
+ 0.009336799383163452,
+ -0.0048067462630569935,
+ -0.010585137642920017,
+ -0.01846768707036972,
+ 0.01739952154457569,
+ -0.0008566239848732948,
+ -0.0010166879510506988,
+ 0.004803529009222984,
+ 0.0019014639547094703,
+ 0.040924906730651855,
+ 0.01428510993719101,
+ -0.005646479316055775,
+ -0.013487202115356922,
+ 0.0028972390573471785,
+ -0.028467264026403427,
+ 0.0025111548602581024,
+ -0.007934027351439,
+ 0.007592986337840557,
+ 0.022830436006188393,
+ 0.004404575563967228,
+ -0.008230024948716164,
+ 0.024065906181931496,
+ 0.002179766073822975,
+ 0.0174381285905838,
+ -0.020732713863253593,
+ 0.011312262155115604,
+ 0.0066020372323691845,
+ -0.007940461859107018,
+ -0.02460642345249653,
+ -0.0066149067133665085,
+ -0.008834890089929104,
+ -0.02893056347966194,
+ 0.0017824213718995452,
+ 0.013242682442069054,
+ -0.013371377252042294,
+ 0.03819658234715462,
+ 0.008416632190346718,
+ -0.0021556359715759754,
+ -0.010958352126181126,
+ 0.005253960378468037,
+ 0.011447391472756863,
+ 0.013461464084684849,
+ 0.019999153912067413,
+ -0.01795290783047676,
+ -0.0026559364050626755,
+ 0.0075350734405219555,
+ 0.01579083688557148,
+ 0.0040313610807061195,
+ -0.03219940885901451,
+ 0.014864236116409302,
+ 0.012168082408607006,
+ 0.017541084438562393,
+ -0.028904825448989868,
+ -0.0014502281555905938,
+ 0.00285058724693954,
+ -0.008545327000319958,
+ 0.0027395880315452814,
+ 0.003860840341076255,
+ -0.018223166465759277,
+ 0.04622713103890419,
+ 0.01446528173983097,
+ -0.006167692597955465,
+ -0.01868646778166294,
+ -0.01618979126214981,
+ -0.013628766871988773,
+ 0.0115310437977314,
+ -0.0008405371336266398,
+ 0.003963795956224203,
+ 0.020423846319317818,
+ -0.025095462799072266,
+ 1.7076552012440516e-06,
+ -0.030346205458045006,
+ -0.006795078981667757,
+ 0.007625159807503223,
+ 0.014233632013201714,
+ -0.017965776845812798,
+ 0.028724653646349907,
+ -0.023692691698670387,
+ 0.0023293737322092056,
+ 0.01092617865651846,
+ -0.010514355264604092,
+ -0.03047490119934082,
+ 0.0015177929308265448,
+ -0.029368126764893532,
+ 0.027926744893193245,
+ -0.0022682438138872385,
+ 0.0026446757838129997,
+ -0.004198663868010044,
+ -0.020256543532013893,
+ 0.03428426384925842,
+ 0.007612290326505899,
+ 0.004102142993360758,
+ -0.009175931103527546,
+ -0.002234461484476924,
+ 0.20395533740520477,
+ -0.019265593960881233,
+ -0.005019092466682196,
+ 0.02526276558637619,
+ -0.02236713469028473,
+ 0.007670202758163214,
+ 0.006634210702031851,
+ -0.013873286545276642,
+ -0.014104937203228474,
+ -0.007831071503460407,
+ -0.0033975394908338785,
+ 0.007631594780832529,
+ -0.03976665809750557,
+ -0.005414828658103943,
+ 0.01718074083328247,
+ -0.012476949021220207,
+ -0.03389817848801613,
+ -0.021028710529208183,
+ -0.011151393875479698,
+ -0.0052893515676259995,
+ 0.011067742481827736,
+ 0.004176142625510693,
+ -0.012155212461948395,
+ -0.027514923363924026,
+ 0.021749401465058327,
+ 0.01692335121333599,
+ -0.002339025726541877,
+ 0.008950714953243732,
+ 0.016125444322824478,
+ 0.009021497331559658,
+ -0.027592139318585396,
+ -0.01064948458224535,
+ 0.0021878096740692854,
+ 0.008332980796694756,
+ -0.026562582701444626,
+ 0.005411611404269934,
+ 0.02298486977815628,
+ 0.0015998356975615025,
+ 0.04017847776412964,
+ 0.020102109760046005,
+ 0.026485364884138107,
+ -0.013281291350722313,
+ 0.0052893515676259995,
+ -0.00017132479115389287,
+ 0.014413803815841675,
+ 0.008963584899902344,
+ ...]
+</pre></div></div>
+</div>
+<p>Ta có thể lưu trữ toàn bộ vector database với pinecone như sau</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">pinecone</span> <span class="n">langchain</span><span class="o">-</span><span class="n">pinecone</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pip install pinecone langchain-pinecone</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pinecone</span> <span class="kn">import</span> <span class="n">Pinecone</span> <span class="k">as</span> <span class="n">pinecone</span>
+<span class="kn">from</span> <span class="nn">langchain_pinecone</span>  <span class="kn">import</span> <span class="n">Pinecone</span>
+
+<span class="n">pinecone</span><span class="p">(</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;PINECONE_API_KEY&#39;</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;pinecone.control.pinecone.Pinecone at 0x7f15de59ed10&gt;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">embeddings</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+OpenAIEmbeddings(client=&lt;openai.resources.embeddings.Embeddings object at 0x7f15de8fe050&gt;, async_client=&lt;openai.resources.embeddings.AsyncEmbeddings object at 0x7f15de929250&gt;, model=&#39;text-embedding-ada-002&#39;, dimensions=None, deployment=&#39;text-embedding-ada-002&#39;, openai_api_version=None, openai_api_base=None, openai_api_type=None, openai_proxy=None, embedding_ctx_length=8191, openai_api_key=SecretStr(&#39;**********&#39;), openai_organization=None, allowed_special=None, disallowed_special=None, chunk_size=1000, max_retries=2, request_timeout=None, headers=None, tiktoken_enabled=True, tiktoken_model_name=None, show_progress_bar=False, model_kwargs={}, skip_empty=False, default_headers=None, default_query=None, retry_min_seconds=4, retry_max_seconds=20, http_client=None, http_async_client=None, check_embedding_ctx_length=True)
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index_name</span> <span class="o">=</span> <span class="s2">&quot;langchain-quickstart&quot;</span>
+<span class="n">search</span> <span class="o">=</span> <span class="n">Pinecone</span><span class="o">.</span><span class="n">from_documents</span><span class="p">(</span><span class="n">texts</span><span class="p">,</span> <span class="n">embeddings</span><span class="p">,</span> <span class="n">index_name</span><span class="o">=</span><span class="n">index_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Sau khi upload lên pinecone, ta có thể tạo thấy các đoạn text chunk tương ứng với các <code class="docutils literal notranslate"><span class="pre">vector</span> <span class="pre">embedding</span></code> đã được upload lên pinecone và có thể thực hiện tìm kiếm các thông tin phù hợp nhất. Quá trình này còn được gọi là <code class="docutils literal notranslate"><span class="pre">Retrievers</span></code></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do a simple vector similarity search</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;What is magical about an autoencoder?&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">search</span><span class="o">.</span><span class="n">similarity_search</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[Document(id=&#39;38703253-5675-4cea-b19a-ab350195af10&#39;, metadata={}, page_content=&#39;So, the autoencoder is like your helpful magical toy box that learns to make organizing your toys&#39;), Document(id=&#39;3347d75e-e851-4338-86b4-453f2bb8cc53&#39;, metadata={}, page_content=&#39;This magical toy box works just like something called an autoencoder, which is a special kind of&#39;), Document(id=&#39;91622958-0eae-4108-8597-ed6f5aaab39e&#39;, metadata={}, page_content=&#39;Now, the magical toy box has a special part called the encoder. This part looks at all your toys&#39;), Document(id=&#39;6d3de545-175a-4760-9daf-d0b67c1cf726&#39;, metadata={}, page_content=&#39;where the decoder comes in! The decoder is another special part of the magical toy box that helps&#39;)]
+</pre></div></div>
+</div>
+</section>
+<section id="Agent">
+<h2>Agent<a class="headerlink" href="#Agent" title="Link to this heading"></a></h2>
+<p>Một trong các hạn chế rõ rệt của LLM là khả năng thực hiện các công cụ ở ngoài LLM như Python</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
+<span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">langchain</span><span class="o">-</span><span class="n">experimental</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain</span> <span class="kn">import</span> <span class="n">hub</span>
+<span class="kn">from</span> <span class="nn">langchain.agents</span> <span class="kn">import</span> <span class="n">AgentExecutor</span>
+<span class="kn">from</span> <span class="nn">langchain_experimental.tools</span> <span class="kn">import</span> <span class="n">PythonREPLTool</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain_core.tools</span> <span class="kn">import</span> <span class="n">Tool</span>
+<span class="kn">from</span> <span class="nn">langchain_experimental.utilities</span> <span class="kn">import</span> <span class="n">PythonREPL</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">python_repl</span> <span class="o">=</span> <span class="n">PythonREPL</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">python_repl</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;print(1+1)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Python REPL can execute arbitrary code. Use with caution.
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;2\n&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain.agents</span> <span class="kn">import</span> <span class="n">load_tools</span>
+<span class="kn">from</span> <span class="nn">langchain.agents</span> <span class="kn">import</span> <span class="n">initialize_agent</span>
+<span class="kn">from</span> <span class="nn">langchain.agents</span> <span class="kn">import</span> <span class="n">AgentType</span><span class="p">,</span> <span class="n">Tool</span>
+<span class="kn">from</span> <span class="nn">langchain_experimental.tools</span> <span class="kn">import</span> <span class="n">PythonREPLTool</span>
+
+<span class="n">agent</span> <span class="o">=</span> <span class="n">initialize_agent</span><span class="p">(</span>
+    <span class="n">tools</span><span class="o">=</span><span class="p">[</span><span class="n">PythonREPLTool</span><span class="p">()],</span>
+    <span class="n">llm</span><span class="o">=</span><span class="n">llm</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/tmp/ipykernel_1455/2090262474.py:6: LangChainDeprecationWarning: LangChain agents will continue to be supported, but it is recommended for new use cases to be built with LangGraph. LangGraph offers a more flexible and full-featured framework for building agents, including support for tool-calling, persistence of state, and human-in-the-loop workflows. For details, refer to the `LangGraph documentation &lt;https://langchain-ai.github.io/langgraph/&gt;`_ as well as guides for `Migrating from AgentExecutor &lt;https://python.langchain.com/docs/how_to/migrate_agent/&gt;`_ and LangGraph&#39;s `Pre-built ReAct agent &lt;https://langchain-ai.github.io/langgraph/how-tos/create-react-agent/&gt;`_.
+  agent = initialize_agent(
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s2">&quot;what is 2 + 2?&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;input&#39;: &#39;what is 2 + 2?&#39;, &#39;output&#39;: &#39;4&#39;}
+</pre></div></div>
+</div>
+</section>
+<section id="Tài-liệu-tham-khảo">
+<h2>Tài liệu tham khảo<a class="headerlink" href="#Tài-liệu-tham-khảo" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=aywZrzNaKjs">Langchain in 13 minutes</a></p></li>
+<li><p><a class="reference external" href="https://github.com/anhhd/langchain-tutorials">Langchain tutorials</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Anh Hoang Duc.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
