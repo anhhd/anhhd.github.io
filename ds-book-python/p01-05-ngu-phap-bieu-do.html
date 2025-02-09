@@ -1,28 +1,28 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="vn" >
+<html class="writer-html5" lang="vn" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>5. Ngữ pháp của biểu đồ với plotnine &mdash; Phân tích dữ liệu với Python 2019 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="_static/nbsphinx-code-cells.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/nbsphinx-code-cells.css?v=2aa19091" />
+
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=1ea3fed6"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-        <script src="_static/copybutton.js?v=f281be69"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=1ea3fed6"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -160,7 +160,7 @@
 <li><p><strong>Trục tọa độ (Coordinate)</strong>: Xác định hệ trục tọa độ vẽ biểu đồ. VD: Hệ tọa độ 3 trục trong không gian (hệ tọa đồ Descartes), hệ tọa độ cực</p></li>
 </ol>
 <p>Các lớp trong biểu đồ có thể thể hiện thành các lớp như sau</p>
-<img alt="_images/ggplot2-01.png" src="_images/ggplot2-01.png" />
+<p><img alt="image1" src="_images/ggplot2-02.png" /></p>
 <blockquote>
 <div><p>Việc hiểu và nắm vững nguyên lý của <code class="docutils literal notranslate"><span class="pre">ggplot2</span></code> sẽ cho phép chúng ta xây dựng gần như bất kỳ biểu đồ nào.</p>
 </div></blockquote>
@@ -170,10 +170,7 @@
 <section id="Biểu-đồ-cơ-bản">
 <h3><span class="section-number">5.2.1. </span>Biểu đồ cơ bản<a class="headerlink" href="#Biểu-đồ-cơ-bản" title="Link to this heading"></a></h3>
 <p>Câu lệnh cơ bản của <code class="docutils literal notranslate"><span class="pre">ggplot</span></code> như sau:</p>
-<div class="highlight-{python} notranslate"><div class="highlight"><pre><span></span>ggplot(data = &lt;DATA&gt;) +
-  &lt;GEOM_FUNCTION&gt;(mapping = aes(&lt;MAPPINGS&gt;))
-</pre></div>
-</div>
+<p><code class="docutils literal notranslate"><span class="pre">{python}</span> <span class="pre">ggplot(data</span> <span class="pre">=</span> <span class="pre">&lt;DATA&gt;)</span> <span class="pre">+</span>&#160;&#160;&#160; <span class="pre">&lt;GEOM_FUNCTION&gt;(mapping</span> <span class="pre">=</span> <span class="pre">aes(&lt;MAPPINGS&gt;))</span></code></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -376,11 +373,7 @@
 <section id="Facet">
 <h3><span class="section-number">5.2.2. </span>Facet<a class="headerlink" href="#Facet" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">Facet</span></code> cho phép chúng ta chia dữ liệu thành nhiều phần theo từng nhóm và xây dựng biểu đồ cho mỗi nhóm trong đó. Câu lệnh của facet như sau</p>
-<div class="highlight-{python notranslate"><div class="highlight"><pre><span></span>facet_wrap( group_variable,   # Chia nhóm
-            nrow = 2,         # Số lượng dòng trong biểu đồ
-            scale = &quot;free&quot;)   # &quot;free&quot; cho phép biểu đồ auto scale
-</pre></div>
-</div>
+<p><code class="docutils literal notranslate"><span class="pre">{python</span> <span class="pre">facet_wrap(</span> <span class="pre">group_variable,</span>&#160;&#160; <span class="pre">#</span> <span class="pre">Chia</span> <span class="pre">nhóm</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">nrow</span> <span class="pre">=</span> <span class="pre">2,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">Số</span> <span class="pre">lượng</span> <span class="pre">dòng</span> <span class="pre">trong</span> <span class="pre">biểu</span> <span class="pre">đồ</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">scale</span> <span class="pre">=</span> <span class="pre">&quot;free&quot;)</span>&#160;&#160; <span class="pre">#</span> <span class="pre">&quot;free&quot;</span> <span class="pre">cho</span> <span class="pre">phép</span> <span class="pre">biểu</span> <span class="pre">đồ</span> <span class="pre">auto</span> <span class="pre">scale</span></code></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
@@ -677,7 +670,7 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 </pre></div></div>
 </div>
 <p>Ở ví dụ này, trục <code class="docutils literal notranslate"><span class="pre">x</span></code> là các nhóm của <code class="docutils literal notranslate"><span class="pre">cut</span></code> trong khi trục <code class="docutils literal notranslate"><span class="pre">y</span></code> là <code class="docutils literal notranslate"><span class="pre">số</span> <span class="pre">lượng</span> <span class="pre">quan</span> <span class="pre">sát</span></code> ở mỗi nhóm, giá trị này không phải là biến trực tiếp từ dữ liệu mà là 1 biến phái sinh. Quá trình xây dựng biểu đồ được thực hiện qua 3 bước như sau.</p>
-<img alt="_images/ggplot2-02.png" src="_images/ggplot2-02.png" />
+<p><img alt="image1" src="_images/ggplot2-02.png" /></p>
 <p>Ta cũng có thể thay đổi lớp biến đổi dữ liệu trong biểu đồ trên để hiển thị dạng tổng của 1 biến bất kỳ như sau.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:

@@ -176,7 +176,7 @@
     {
      "data": {
       "text/plain": [
-       "2395417487824"
+       "2161709340688"
       ]
      },
      "execution_count": 6,
@@ -198,7 +198,7 @@
     {
      "data": {
       "text/plain": [
-       "2395417480784"
+       "2161714006960"
       ]
      },
      "execution_count": 7,
@@ -265,7 +265,7 @@
     {
      "data": {
       "text/plain": [
-       "2395417487824"
+       "2161709340688"
       ]
      },
      "execution_count": 10,
@@ -713,7 +713,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "<__main__.Time object at 0x0000022DBA0CB210>\n"
+      "<__main__.Time object at 0x000001F75034CF50>\n"
      ]
     }
    ],
@@ -725,9 +725,9 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### `__str__` method\n",
+    "### `__str__` & `__repr__` method\n",
     "\n",
-    "- `__str__` là method cho phép hiển thị giá trị của instance"
+    "`__str__` & `__repr__` là 2 method cho phép hiển thị giá trị của instance. Tuy nhiên, `__str__` sẽ hướng đến người dùng cuối còn `__repr__` hướng đến developers để có thể debug lỗi"
    ]
   },
   {
@@ -744,12 +744,34 @@
     "    def print_time(time):\n",
     "        print('%.2d:%.2d:%.2d' % (time.hour, time.minute, time.second))\n",
     "    def __str__(time):\n",
-    "        return '%.2d:%.2d:%.2d' % (time.hour, time.minute, time.second)"
+    "        return '%.2d:%.2d:%.2d' % (time.hour, time.minute, time.second)\n",
+    "    def __repr__(self):\n",
+    "        return f\"\"\"Time(hour = {self.hour}, minute = {self.minute}, second = {self.second})\"\"\""
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 33,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "Time(hour = 0, minute = 0, second = 0)"
+      ]
+     },
+     "execution_count": 33,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "Time()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
    "metadata": {},
    "outputs": [
     {
@@ -766,7 +788,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 34,
+   "execution_count": 35,
    "metadata": {},
    "outputs": [
     {
@@ -785,6 +807,99 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "## Data class "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Ngoài cách thức khai báo class thông thường với `__init__` & `__str__` method. Ta có thể khai báo và tạo dữ liệu nhanh chóng với `dataclass` như sau"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from dataclasses import dataclass\n",
+    "@dataclass\n",
+    "class Person:\n",
+    "    name: str = 'Anh'\n",
+    "    email: str = 'anhhd@gmail.com'\n",
+    "    age: float = 10\n",
+    "    height: float = 165"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "Person(name='Anh', email='anhhd@gmail.com', age=10, height=165)"
+      ]
+     },
+     "execution_count": 37,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "Person()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Ta cũng có thể mở rộng & sử dụng `__repr__` để debug và hiển thị dữ liệu trong class như sau."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 38,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "@dataclass\n",
+    "class Person:\n",
+    "    name: str = 'Anh'\n",
+    "    email: str = 'anhhd@gmail.com'\n",
+    "    age: float = 10\n",
+    "    height: float = 165\n",
+    "\n",
+    "    def __repr__(self):\n",
+    "        return(f'''This is a class {self.__class__.__name__} (name = {self.name}, age = {self.age})''')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "This is a class Person (name = Minh, age = 10)"
+      ]
+     },
+     "execution_count": 39,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "Person(name = 'Minh')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
     "## Tài liệu tham khảo\n",
     "\n",
     "- Think Python\n"
@@ -793,7 +908,7 @@
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": "Python 3 (ipykernel)",
+   "display_name": "Python 3",
    "language": "python",
    "name": "python3"
   },
@@ -807,7 +922,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.11.4"
+   "version": "3.11.0"
   }
  },
  "nbformat": 4,

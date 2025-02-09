@@ -1,28 +1,28 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="vn" >
+<html class="writer-html5" lang="vn" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>1. Giới thiệu về Python &mdash; Phân tích dữ liệu với Python 2019 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="_static/nbsphinx-code-cells.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/nbsphinx-code-cells.css?v=2aa19091" />
+
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=1ea3fed6"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-        <script src="_static/copybutton.js?v=f281be69"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=1ea3fed6"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -131,12 +131,15 @@
 <p>Python là ngôn ngữ phổ biến nhất cho Machine Learning nói chung và Data Science nói riêng bởi tính đơn giản gọn nhẹ. Python cũng đồng thời được coi là ngôn ngữ tốt thứ 2 trong rất nhiều lĩnh vực.</p>
 <p>Do độ phổ cập rộng rãi của Python cũng như tính hữu dụng khi làm việc, tương tác với mô trường điện toán đám mấy (cloud) và thiết kế API/deployment cho lĩnh vực AI, bên cạnh các ngôn ngữ phân tích thống kê, khám phá như R, Stata,…, ta cần làm quen và sử dụng Python để có thể mở rộng phạm vi làm việc cũng như tương tác cho các lĩnh vực khác nhau.</p>
 <p>Tài liệu này được viết riêng dành cho nhóm phân tích dữ liệu từ R dịch chuyển sang Python để có thể dễ dàng tiếp cận, đơn giản hóa quá trình học và sử dụng một ngôn ngữ phân tích mới.</p>
-<p>:::warning <strong>Lưu ý</strong>: Đối với các bạn sử dụng Python từ các ngôn ngữ lập trình thống kê khác như R hoặc Stata, sẽ có 1 chút khó khăn trong giai đoạn mới sử dụng ở 2 điểm</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Lưu ý</strong>: Đối với các bạn sử dụng Python từ các ngôn ngữ lập trình thống kê khác như R hoặc Stata, sẽ có 1 chút khó khăn trong giai đoạn mới sử dụng ở 2 điểm</p>
 <ul class="simple">
 <li><p>Python cài đặt và sử dụng thư viện chủ yếu trên <code class="docutils literal notranslate"><span class="pre">terminal</span></code> hoặc <code class="docutils literal notranslate"><span class="pre">cmd</span></code>, khiến cho việc cài đặt và quản lý package có chút khó khăn</p></li>
 <li><p>Các đối tượng trong Python có <code class="docutils literal notranslate"><span class="pre">methods</span></code> đi kèm - đây là điều hơi khó hiểu với những người sử dụng các ngôn ngữ phân tích khác - đặc biệt từ R, do chủ yếu chỉ có hàm (<code class="docutils literal notranslate"><span class="pre">function</span></code>) mà không có <code class="docutils literal notranslate"><span class="pre">method</span></code></p></li>
 </ul>
 <p>Nội dung giải thích về <code class="docutils literal notranslate"><span class="pre">method</span></code> sẽ được nói kỹ hơn trong các phần tiếp theo</p>
+</div>
 </section>
 <section id="Anaconda-&amp;-Pip">
 <h2><span class="section-number">1.2. </span>Anaconda &amp; Pip<a class="headerlink" href="#Anaconda-&-Pip" title="Link to this heading"></a></h2>
@@ -186,7 +189,10 @@
 </ul>
 </li>
 </ul>
-<p>VD: Python package trong windows thường được chứa tại <code class="docutils literal notranslate"><span class="pre">C:\Users\user\AppData\Local\Continuum\anaconda3\Lib\site-packages</span></code> - <code class="docutils literal notranslate"><span class="pre">library</span></code>: Tương tự như package. Tuy nhiên, khi nói về library, ta nói về package đã được download và cài đặt xong</p>
+<p>VD: Python package trong windows thường được chứa tại <code class="docutils literal notranslate"><span class="pre">C:\Users\user\AppData\Local\Continuum\anaconda3\Lib\site-packages</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">library</span></code>: Tương tự như package. Tuy nhiên, khi nói về library, ta nói về package đã được download và cài đặt xong</p></li>
+</ul>
 <p><strong>Import Modules/packages</strong></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:

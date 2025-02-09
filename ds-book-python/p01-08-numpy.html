@@ -1,28 +1,28 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="vn" >
+<html class="writer-html5" lang="vn" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>8. Numpy &mdash; Phân tích dữ liệu với Python 2019 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="_static/nbsphinx-code-cells.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/nbsphinx-code-cells.css?v=2aa19091" />
+
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=1ea3fed6"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-        <script src="_static/copybutton.js?v=f281be69"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=1ea3fed6"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -128,7 +128,7 @@
 <h2><span class="section-number">8.1. </span>Cơ bản về numpy<a class="headerlink" href="#Cơ-bản-về-numpy" title="Link to this heading"></a></h2>
 <p>Numpy là viết tắt của <code class="docutils literal notranslate"><span class="pre">Numerical</span> <span class="pre">Python</span></code>, là một thư viện hỗ trợ tính toán trong Python cho phép xây dựng và tính toán dữ liệu dạng ma trận (<code class="docutils literal notranslate"><span class="pre">array</span></code>) và các phép tính tính toán học.</p>
 <p>Array là một mảng dữ liệu có thể có 1 hoặc nhiều chiều như sau</p>
-<img alt="_images/np_array.png" src="_images/np_array.png" />
+<p><img alt="image1" src="_images/np_array.png" /></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -412,7 +412,12 @@ array([0.        , 0.10204082, 0.20408163, 0.30612245, 0.40816327,
 </section>
 <section id="Các-thuộc-tính-của-array">
 <h2><span class="section-number">8.3. </span>Các thuộc tính của array<a class="headerlink" href="#Các-thuộc-tính-của-array" title="Link to this heading"></a></h2>
-<p>Array có 3 thuộc tính sau: - ndim: Số lượng chiều trong mảng - shape: Chi tiết chiều trong mảng - size: Số lượng phần tử trong mảng</p>
+<p>Array có 3 thuộc tính sau:</p>
+<ul class="simple">
+<li><p>ndim: Số lượng chiều trong mảng</p></li>
+<li><p>shape: Chi tiết chiều trong mảng</p></li>
+<li><p>size: Số lượng phần tử trong mảng</p></li>
+</ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>

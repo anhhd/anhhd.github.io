@@ -1,28 +1,28 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="vn" >
+<html class="writer-html5" lang="vn" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>10. Trực quan hóa với Matplotlib &mdash; Phân tích dữ liệu với Python 2019 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="_static/nbsphinx-code-cells.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/nbsphinx-code-cells.css?v=2aa19091" />
+
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=1ea3fed6"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-        <script src="_static/copybutton.js?v=f281be69"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=1ea3fed6"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -207,7 +207,12 @@
 <img alt="_images/p01-10-matplotlib_6_0.png" class="no-scaled-link" src="_images/p01-10-matplotlib_6_0.png" style="width: 568px; height: 413px;" />
 </div>
 </div>
-<p><strong>Giải thích</strong>: - <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> tạo một object plot. Các câu lệnh của <code class="docutils literal notranslate"><span class="pre">plt</span></code> sẽ thay đổi các thành phần trong plot (add, remove, modify…). - <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> sẽ hiển thị object cuối cùng sau khi đã thực hiện toàn bộ câu lệnh. - Khi thực hiện option <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline</span></code>, sẽ không cần sử dụng <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code></p>
+<p><strong>Giải thích</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pyplot</span></code> tạo một object plot. Các câu lệnh của <code class="docutils literal notranslate"><span class="pre">plt</span></code> sẽ thay đổi các thành phần trong plot (add, remove, modify…).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> sẽ hiển thị object cuối cùng sau khi đã thực hiện toàn bộ câu lệnh.</p></li>
+<li><p>Khi thực hiện option <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline</span></code>, sẽ không cần sử dụng <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code></p></li>
+</ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save plot</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;my_figure.png&#39;</span><span class="p">)</span>
 </pre></div>
@@ -272,7 +277,7 @@
 </pre></div>
 </div>
 <p>Để hiểu hơn các cấu phần của matplotlib, xem chart dưới đây</p>
-<img alt="_images/matplotlib-01.png" src="_images/matplotlib-01.png" />
+<p><img alt="image1" src="_images/matplotlib-02.png" /></p>
 <hr class="docutils" />
 <p>Xem ví dụ dưới đây</p>
 <div class="nbinput docutils container">
@@ -566,7 +571,7 @@
 <section id="Tinh-chỉnh-các-thành-phần">
 <h2><span class="section-number">10.4. </span>Tinh chỉnh các thành phần<a class="headerlink" href="#Tinh-chỉnh-các-thành-phần" title="Link to this heading"></a></h2>
 <p>Các thành phần phụ của <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> như sau</p>
-<img alt="_images/matplotlib-02.png" src="_images/matplotlib-02.png" />
+<p><img alt="image1" src="_images/matplotlib-02.png" /></p>
 </section>
 <section id="Tài-liệu-tham-khảo">
 <h2><span class="section-number">10.5. </span>Tài liệu tham khảo<a class="headerlink" href="#Tài-liệu-tham-khảo" title="Link to this heading"></a></h2>

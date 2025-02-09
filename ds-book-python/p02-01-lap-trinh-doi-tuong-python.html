@@ -1,28 +1,28 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="vn" >
+<html class="writer-html5" lang="vn" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>1. Lập trình hướng - đối tượng với Python &mdash; Phân tích dữ liệu với Python 2019 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="_static/nbsphinx-code-cells.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/nbsphinx-code-cells.css?v=2aa19091" />
+
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=1ea3fed6"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-        <script src="_static/copybutton.js?v=f281be69"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=1ea3fed6"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -79,10 +79,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#Class">1.3. Class</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">1.3.1. Methods</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#init-method">1.3.2. <strong>init</strong> method</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#__str__-method">1.3.3. <code class="docutils literal notranslate"><span class="pre">__str__</span></code> method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#__str__-&amp;-__repr__-method">1.3.3. <code class="docutils literal notranslate"><span class="pre">__str__</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> method</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Tài-liệu-tham-khảo">1.4. Tài liệu tham khảo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Data-class">1.4. Data class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tài-liệu-tham-khảo">1.5. Tài liệu tham khảo</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="p02-02-functions-in-python.html">2. Viết hàm trong Python</a></li>
@@ -138,7 +139,13 @@
 <blockquote>
 <div><p><em>In Python, almost everything is an object, with its properties and methods.</em></p>
 </div></blockquote>
-<p>Trong Python, object bao gồm các thành phần: - Type - Kiểu dữ liệu - ID (unique) - Dùng để xác định vị trí của đối tượng trong memory - Data - Methods</p>
+<p>Trong Python, object bao gồm các thành phần:</p>
+<ul class="simple">
+<li><p>Type - Kiểu dữ liệu</p></li>
+<li><p>ID (unique) - Dùng để xác định vị trí của đối tượng trong memory</p></li>
+<li><p>Data</p></li>
+<li><p>Methods</p></li>
+</ul>
 <section id="Type---kiểu-dữ-liệu">
 <h3><span class="section-number">1.2.1. </span>Type - kiểu dữ liệu<a class="headerlink" href="#Type---kiểu-dữ-liệu" title="Link to this heading"></a></h3>
 <p>Về các kiểu dữ liệu cơ bản, chúng ta đã nắm vững ở chương 1</p>
@@ -253,7 +260,7 @@ module
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-2395417487824
+2161709340688
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -270,7 +277,7 @@ module
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-2395417480784
+2161714006960
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -323,7 +330,7 @@ False
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-2395417487824
+2161709340688
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -383,7 +390,10 @@ True
 int
 </pre></div></div>
 </div>
-<p>Thử gõ <code class="docutils literal notranslate"><span class="pre">x.</span></code> sau đó ấn <code class="docutils literal notranslate"><span class="pre">Tab</span></code> chúng ta sẽ thấy hiện lên rất nhiều thông tin liên quan đến object vừa tạo, những thông tin này được gọi là <code class="docutils literal notranslate"><span class="pre">attribute</span></code> của <code class="docutils literal notranslate"><span class="pre">object</span></code> - e.g. <code class="docutils literal notranslate"><span class="pre">imag</span></code> và <code class="docutils literal notranslate"><span class="pre">__class__</span></code> là các attribute của x</p>
+<p>Thử gõ <code class="docutils literal notranslate"><span class="pre">x.</span></code> sau đó ấn <code class="docutils literal notranslate"><span class="pre">Tab</span></code> chúng ta sẽ thấy hiện lên rất nhiều thông tin liên quan đến object vừa tạo, những thông tin này được gọi là <code class="docutils literal notranslate"><span class="pre">attribute</span></code> của <code class="docutils literal notranslate"><span class="pre">object</span></code></p>
+<ul class="simple">
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">imag</span></code> và <code class="docutils literal notranslate"><span class="pre">__class__</span></code> là các attribute của x</p></li>
+</ul>
 </section>
 <section id="Methods">
 <h3><span class="section-number">1.2.4. </span>Methods<a class="headerlink" href="#Methods" title="Link to this heading"></a></h3>
@@ -692,15 +702,13 @@ __main__.Point
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;__main__.Time object at 0x0000022DBA0CB210&gt;
+&lt;__main__.Time object at 0x000001F75034CF50&gt;
 </pre></div></div>
 </div>
 </section>
-<section id="__str__-method">
-<h3><span class="section-number">1.3.3. </span><code class="docutils literal notranslate"><span class="pre">__str__</span></code> method<a class="headerlink" href="#__str__-method" title="Link to this heading"></a></h3>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">__str__</span></code> là method cho phép hiển thị giá trị của instance</p></li>
-</ul>
+<section id="__str__-&amp;-__repr__-method">
+<h3><span class="section-number">1.3.3. </span><code class="docutils literal notranslate"><span class="pre">__str__</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> method<a class="headerlink" href="#__str__-&-__repr__-method" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">__str__</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> là 2 method cho phép hiển thị giá trị của instance. Tuy nhiên, <code class="docutils literal notranslate"><span class="pre">__str__</span></code> sẽ hướng đến người dùng cuối còn <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> hướng đến developers để có thể debug lỗi</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
@@ -714,11 +722,30 @@ __main__.Point
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%.2d</span><span class="s1">:</span><span class="si">%.2d</span><span class="s1">:</span><span class="si">%.2d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">hour</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">minute</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">second</span><span class="p">))</span>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="n">time</span><span class="p">):</span>
         <span class="k">return</span> <span class="s1">&#39;</span><span class="si">%.2d</span><span class="s1">:</span><span class="si">%.2d</span><span class="s1">:</span><span class="si">%.2d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">hour</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">minute</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">second</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;Time(hour = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">hour</span><span class="si">}</span><span class="s2">, minute = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">minute</span><span class="si">}</span><span class="s2">, second = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">second</span><span class="si">}</span><span class="s2">)&quot;&quot;&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Time</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Time(hour = 0, minute = 0, second = 0)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Time</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
@@ -734,7 +761,7 @@ __main__.Point
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Time</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">print_time</span><span class="p">()</span>
@@ -751,8 +778,77 @@ __main__.Point
 </div>
 </section>
 </section>
+<section id="Data-class">
+<h2><span class="section-number">1.4. </span>Data class<a class="headerlink" href="#Data-class" title="Link to this heading"></a></h2>
+<p>Ngoài cách thức khai báo class thông thường với <code class="docutils literal notranslate"><span class="pre">__init__</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">__str__</span></code> method. Ta có thể khai báo và tạo dữ liệu nhanh chóng với <code class="docutils literal notranslate"><span class="pre">dataclass</span></code> như sau</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Anh&#39;</span>
+    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;anhhd@gmail.com&#39;</span>
+    <span class="n">age</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">height</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">165</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Person</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Person(name=&#39;Anh&#39;, email=&#39;anhhd@gmail.com&#39;, age=10, height=165)
+</pre></div></div>
+</div>
+<p>Ta cũng có thể mở rộng &amp; sử dụng <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> để debug và hiển thị dữ liệu trong class như sau.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Anh&#39;</span>
+    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;anhhd@gmail.com&#39;</span>
+    <span class="n">age</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">height</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">165</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&#39;&#39;This is a class </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1"> (name = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">, age = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s1">)&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Person</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Minh&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+This is a class Person (name = Minh, age = 10)
+</pre></div></div>
+</div>
+</section>
 <section id="Tài-liệu-tham-khảo">
-<h2><span class="section-number">1.4. </span>Tài liệu tham khảo<a class="headerlink" href="#Tài-liệu-tham-khảo" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.5. </span>Tài liệu tham khảo<a class="headerlink" href="#Tài-liệu-tham-khảo" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Think Python</p></li>
 </ul>

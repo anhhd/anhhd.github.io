@@ -1,28 +1,28 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="vn" >
+<html class="writer-html5" lang="vn" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>13. Các mẹo trong Python &mdash; Phân tích dữ liệu với Python 2019 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="_static/nbsphinx-code-cells.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/nbsphinx-code-cells.css?v=2aa19091" />
+
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=1ea3fed6"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-        <script src="_static/copybutton.js?v=f281be69"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=1ea3fed6"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -563,7 +563,13 @@ Scala
 </section>
 <section id="Đặt-tên-có-chứa-_">
 <h3><span class="section-number">13.6.5. </span>Đặt tên có chứa <code class="docutils literal notranslate"><span class="pre">_</span></code><a class="headerlink" href="#Đặt-tên-có-chứa-_" title="Link to this heading"></a></h3>
-<p>Trong Python, có 4 cách đặt tên chứa <code class="docutils literal notranslate"><span class="pre">_</span></code>: - Một dấu đằng trước: <code class="docutils literal notranslate"><span class="pre">_name</span></code> - Một dấu đằng sau: <code class="docutils literal notranslate"><span class="pre">name_</span></code> - Hai dấu đằng trước: <code class="docutils literal notranslate"><span class="pre">__name</span></code> - Hai dấu ở hai bên: <code class="docutils literal notranslate"><span class="pre">__name__</span></code></p>
+<p>Trong Python, có 4 cách đặt tên chứa <code class="docutils literal notranslate"><span class="pre">_</span></code>:</p>
+<ul class="simple">
+<li><p>Một dấu đằng trước: <code class="docutils literal notranslate"><span class="pre">_name</span></code></p></li>
+<li><p>Một dấu đằng sau: <code class="docutils literal notranslate"><span class="pre">name_</span></code></p></li>
+<li><p>Hai dấu đằng trước: <code class="docutils literal notranslate"><span class="pre">__name</span></code></p></li>
+<li><p>Hai dấu ở hai bên: <code class="docutils literal notranslate"><span class="pre">__name__</span></code></p></li>
+</ul>
 <section id="Một-dấu-đằng-trước">
 <h4><span class="section-number">13.6.5.1. </span>Một dấu đằng trước<a class="headerlink" href="#Một-dấu-đằng-trước" title="Link to this heading"></a></h4>
 <p>Cho phép bỏ qua hàm khi import</p>
@@ -807,8 +813,10 @@ Cell <span class="ansi-green-intense-fg ansi-bold">In[34], line 1</span>
 <span class="ansi-red-intense-fg ansi-bold">AttributeError</span>: &#39;MyClass&#39; object has no attribute &#39;__private_variable&#39;
 </pre></div></div>
 </div>
-<p>:::warning</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p><strong>Lưu ý</strong>: Việc hiểu chính xác cách sử dụng của các dấu <code class="docutils literal notranslate"><span class="pre">_</span></code> sẽ cho phép chúng ta hiểu và sử dụng python nhanh chóng hơn</p>
+</div>
 </section>
 </section>
 </section>
@@ -1554,8 +1562,7 @@ Index: 4  Value: e
 <h2><span class="section-number">13.19. </span>Chạy tất cả các cells trong notebook, bỏ qua lỗi<a class="headerlink" href="#Chạy-tất-cả-các-cells-trong-notebook,-bỏ-qua-lỗi" title="Link to this heading"></a></h2>
 <p>Khi chạy lại code trong notebook, ta sẽ gặp trường hợp có 1 cell bị lỗi (có thể do cố tình để lỗi), thì các cell ở dưới sẽ không chạy tiếp được</p>
 <p>Để giải quyết, ta có thể add thêm tags: <code class="docutils literal notranslate"><span class="pre">raises-exception</span></code> vào trong cell. Khi đó, <code class="docutils literal notranslate"><span class="pre">kernel</span></code> sẽ tiếp tuc thực hiện câu lệnh dù có lỗi tại 1 cells</p>
-<a class="reference internal image-reference" href="_images/exception.gif"><img alt="_images/exception.gif" src="_images/exception.gif" style="width: 80.0%;" />
-</a>
+<p><a class="reference internal" href="_images/exception.gif"><img alt="image1" src="_images/exception.gif" style="width: 80.0%;" /></a></p>
 </section>
 </section>
 

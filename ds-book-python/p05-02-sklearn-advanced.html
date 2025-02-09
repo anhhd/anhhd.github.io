@@ -1,28 +1,28 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="vn" >
+<html class="writer-html5" lang="vn" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>2. sklearn nâng cao &mdash; Phân tích dữ liệu với Python 2019 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="_static/nbsphinx-code-cells.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/nbsphinx-code-cells.css?v=2aa19091" />
+
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=1ea3fed6"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-        <script src="_static/copybutton.js?v=f281be69"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=1ea3fed6"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -129,7 +129,13 @@
 <section id="Feature-engineering">
 <h2><span class="section-number">2.1. </span>Feature engineering<a class="headerlink" href="#Feature-engineering" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Feature</span> <span class="pre">engineering</span></code> là quá trình biến đối dữ liệu thô thành các dữ liệu phái sinh (<code class="docutils literal notranslate"><span class="pre">features</span></code>) có thể thể hiện tốt hơn vấn đề cần giải quyết trong mô hình dự báo, từ đó gia tăng độ chính xác của mô hình trên tập dữ liệu mới.</p>
-<p><code class="docutils literal notranslate"><span class="pre">Feature</span> <span class="pre">engineering</span></code> có 4 nhóm lớn: - Dữ liệu dạng số - Dữ liệu dạng category - Dữ liệu text - Dữ liệu dạng ảnh</p>
+<p><code class="docutils literal notranslate"><span class="pre">Feature</span> <span class="pre">engineering</span></code> có 4 nhóm lớn:</p>
+<ul class="simple">
+<li><p>Dữ liệu dạng số</p></li>
+<li><p>Dữ liệu dạng category</p></li>
+<li><p>Dữ liệu text</p></li>
+<li><p>Dữ liệu dạng ảnh</p></li>
+</ul>
 <section id="Dữ-liệu-dạng-số">
 <h3><span class="section-number">2.1.1. </span>Dữ liệu dạng số<a class="headerlink" href="#Dữ-liệu-dạng-số" title="Link to this heading"></a></h3>
 <section id="Chuyển-sang-dạng-nhị-phân-(0,1)">
@@ -390,7 +396,11 @@ numpy.ndarray
 &#39;1.3.0&#39;
 </pre></div></div>
 </div>
-<p><strong>Lưu ý</strong>: - Cần check version của sklearn khi không sử dụng KBinsDiscretizer được - Khi làm việc với array</p>
+<p><strong>Lưu ý</strong>:</p>
+<ul class="simple">
+<li><p>Cần check version của sklearn khi không sử dụng KBinsDiscretizer được</p></li>
+<li><p>Khi làm việc với array</p></li>
+</ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>

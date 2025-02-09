@@ -1,28 +1,28 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="vn" >
+<html class="writer-html5" lang="vn" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>3. Các cấu trúc cơ bản trong Python &mdash; Phân tích dữ liệu với Python 2019 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="_static/nbsphinx-code-cells.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/nbsphinx-code-cells.css?v=2aa19091" />
+
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=1ea3fed6"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-        <script src="_static/copybutton.js?v=f281be69"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=1ea3fed6"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -184,7 +184,11 @@
 20
 </pre></div></div>
 </div>
-<p>Đặt tên biến phải tuân thủ một số nguyên tắc cơ bản sau: - Sử dụng chữ, số, <code class="docutils literal notranslate"><span class="pre">_</span></code> và ko được sử dụng <code class="docutils literal notranslate"><span class="pre">'</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, khoảng trắng - Bắt đầu bằng chữ</p>
+<p>Đặt tên biến phải tuân thủ một số nguyên tắc cơ bản sau:</p>
+<ul class="simple">
+<li><p>Sử dụng chữ, số, <code class="docutils literal notranslate"><span class="pre">_</span></code> và ko được sử dụng <code class="docutils literal notranslate"><span class="pre">'</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, khoảng trắng</p></li>
+<li><p>Bắt đầu bằng chữ</p></li>
+</ul>
 <p>Bên cạnh đó, python cho phép cùng lúc gán nhiều đối tượng đơn giản như sau</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -1811,7 +1815,7 @@ middle
 </section>
 <section id="Vòng-lặp">
 <h2><span class="section-number">3.4. </span>Vòng lặp<a class="headerlink" href="#Vòng-lặp" title="Link to this heading"></a></h2>
-<img alt="Loop" src="https://lh3.googleusercontent.com/Gsy3gvhT5OUjqobdPrCDaNL7B7G8I57KfjTD-cvwZNKjhm0dcHQ1VTZESRnyR3SrbOHhJUrX8UBZ_EO1uJxq3Ddlnxkn6W7F6Nxe7xjqgcqOLfuSN50PSm2vWVIiXxc9z-f_950-cI-NSp5Jd7j592c1yJ9qJySifchPwTPmdzbW2pcQfq5ZE-y3b30pmK1sZGd1U_hh9CjiiFowARUopdY7cz9xkhFg5TGusIxYChZHRmiFqf8eOgZpEDLH-aPNTygyQnArbE61YmUPjzj5-XA2yiXfqfbtS7lzPkMnQOuE5HImeaXnOzEKuJnGGBLi66k22PslajI-_RjyCh_YKsohjThxT-ocK6cw4v6mdDb3qq4etGdRePkhB3a1rlI-7NT62yWphsmbi4OHP2WSOJjpGfblOB-Ezi5irhofUIQJbUHSBDiMQ-fCzZGeJt_6xCXlg-AulJD51CuTHDd4F-sf9QCigiTfFKy0bYriXIhwq_l1MwhUGqWZ5UAamrf1H_HsVVK3UTUfwJN41s40gaH8vMI9fFr2cDlcivRFk43WaK9Ik9Nri1vYr7OeB8_tIMjp6Br2AP_2xbkCXRlyrR_5vsjgkAjuc3dgbiLYLJ37rneo2FTs1R5V48mi85oQjTN3x_Gc_mjExIGoq3tjmMI1hHLRaBWehEb-1QlGsMYo9qa1hQr9LcHcqg=w450-h300-no" />
+<p><img alt="Loop" src="https://lh3.googleusercontent.com/Gsy3gvhT5OUjqobdPrCDaNL7B7G8I57KfjTD-cvwZNKjhm0dcHQ1VTZESRnyR3SrbOHhJUrX8UBZ_EO1uJxq3Ddlnxkn6W7F6Nxe7xjqgcqOLfuSN50PSm2vWVIiXxc9z-f_950-cI-NSp5Jd7j592c1yJ9qJySifchPwTPmdzbW2pcQfq5ZE-y3b30pmK1sZGd1U_hh9CjiiFowARUopdY7cz9xkhFg5TGusIxYChZHRmiFqf8eOgZpEDLH-aPNTygyQnArbE61YmUPjzj5-XA2yiXfqfbtS7lzPkMnQOuE5HImeaXnOzEKuJnGGBLi66k22PslajI-_RjyCh_YKsohjThxT-ocK6cw4v6mdDb3qq4etGdRePkhB3a1rlI-7NT62yWphsmbi4OHP2WSOJjpGfblOB-Ezi5irhofUIQJbUHSBDiMQ-fCzZGeJt_6xCXlg-AulJD51CuTHDd4F-sf9QCigiTfFKy0bYriXIhwq_l1MwhUGqWZ5UAamrf1H_HsVVK3UTUfwJN41s40gaH8vMI9fFr2cDlcivRFk43WaK9Ik9Nri1vYr7OeB8_tIMjp6Br2AP_2xbkCXRlyrR_5vsjgkAjuc3dgbiLYLJ37rneo2FTs1R5V48mi85oQjTN3x_Gc_mjExIGoq3tjmMI1hHLRaBWehEb-1QlGsMYo9qa1hQr9LcHcqg=w450-h300-no" /></p>
 <section id="Vòng-lặp-While">
 <h3><span class="section-number">3.4.1. </span>Vòng lặp While<a class="headerlink" href="#Vòng-lặp-While" title="Link to this heading"></a></h3>
 <p><strong>while + print</strong></p>
@@ -2864,7 +2868,11 @@ Cell <span class="ansi-green-intense-fg ansi-bold">In[117], line 5</span>, in <s
 <h3><span class="section-number">3.7.1. </span>White space<a class="headerlink" href="#White-space" title="Link to this heading"></a></h3>
 <p>Python sử dụng <code class="docutils literal notranslate"><span class="pre">white</span> <span class="pre">space</span></code> - khoảng trắng, tab, để gia tăng khả năng <code class="docutils literal notranslate"><span class="pre">readability</span></code> trong lập trình. Các ngôn ngữ khác như R lại dùng dấu ngoặc nhọn <code class="docutils literal notranslate"><span class="pre">{}</span></code> để phân tách các block.</p>
 <p><strong>Lưu ý về code block &amp; Indentation trong python</strong></p>
-<p>Trong Python, tất cả code block (đoạn code nằm trong câu lệnh if, vòng lặp, hàm…) đều được lùi vào 1 khoảng, dòng trước code block sẽ được kết thúc bằng dấu <code class="docutils literal notranslate"><span class="pre">:</span></code> VD câu lệnh dưới sẽ báo lỗi if 1 &lt; 2: print('x') * Các câu lệnh trong cùng 1 block phải có cùng indentation * Indentation theo chuẩn của Python là 4 dấu cách - hoặc tương đương 1 dấu Tab</p>
+<p>Trong Python, tất cả code block (đoạn code nằm trong câu lệnh if, vòng lặp, hàm…) đều được lùi vào 1 khoảng, dòng trước code block sẽ được kết thúc bằng dấu <code class="docutils literal notranslate"><span class="pre">:</span></code> VD câu lệnh dưới sẽ báo lỗi if 1 &lt; 2: print('x')</p>
+<ul class="simple">
+<li><p>Các câu lệnh trong cùng 1 block phải có cùng indentation</p></li>
+<li><p>Indentation theo chuẩn của Python là 4 dấu cách - hoặc tương đương 1 dấu Tab</p></li>
+</ul>
 <p>Tuân thủ nguyên tắc này sẽ khiến code của chúng ta clean và rành mạch hơn nhất nhiều</p>
 </section>
 <section id="Attribute-&amp;-Method">
