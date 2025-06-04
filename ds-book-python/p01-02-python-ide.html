@@ -72,7 +72,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="p01-03-cau-truc-du-lieu-python.html">3. Các cấu trúc cơ bản trong Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-04-pandas.html">4. Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-05-ngu-phap-bieu-do.html">5. Ngữ pháp của biểu đồ với <code class="docutils literal notranslate"><span class="pre">plotnine</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-05-ngu-phap-bieu-do.html">5. Ngữ pháp của biểu đồ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-06-datetime.html">6. Dữ liệu thời gian trong Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-07-lam-viec-voi-text.html">7. Biến đổi dữ liệu text trong python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-08-numpy.html">8. Numpy</a></li>
@@ -351,7 +351,33 @@ c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages
 <h2><span class="section-number">2.3. </span>Các thư viện khác<a class="headerlink" href="#Các-thư-viện-khác" title="Link to this heading"></a></h2>
 <section id="Quarto">
 <h3><span class="section-number">2.3.1. </span>Quarto<a class="headerlink" href="#Quarto" title="Link to this heading"></a></h3>
-<p>Tương tự như R, quarto có thể sử dụng cùng <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>. Khi đặt heading của quarto phần đầu của notebook, ta chọn cell ở chế độ <code class="docutils literal notranslate"><span class="pre">raw</span></code></p>
+<p>Tương tự như R, quarto có thể sử dụng cùng <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>. Khi đặt heading của quarto phần đầu của notebook, ta chọn cell ở chế độ <code class="docutils literal notranslate"><span class="pre">raw</span></code>. Code <code class="docutils literal notranslate"><span class="pre">yaml</span></code> cho jupyter notebook có thể sử dụng như sau:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Analysis</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">customer</span><span class="nv"> </span><span class="s">using</span><span class="nv"> </span><span class="s">Fex</span><span class="nv"> </span><span class="s">Card&quot;</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Single</span><span class="nv"> </span><span class="s">IDE</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">Python</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">R&quot;</span>
+<span class="nt">author</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Analytics</span><span class="nv"> </span><span class="s">member</span><span class="nv"> </span><span class="s">(author@email.com.vn)&quot;</span>
+<span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">today()</span>
+<span class="nt">format</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">html</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">mainfont</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cambria</span>
+<span class="w">    </span><span class="nt">embed-fonts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">toc</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">toc_number</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yes</span>
+<span class="w">    </span><span class="nt">toc-location</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">left</span>
+<span class="w">    </span><span class="nt">number-sections</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">toc-title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Mục</span><span class="nv"> </span><span class="s">lục&quot;</span>
+<span class="w">    </span><span class="nt">fontcolor</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;black&quot;</span>
+<span class="w">    </span><span class="nt">code-fold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">code-tools</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">code-line-numbers</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">execute</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">warning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="nt">self-contained</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">title-block-banner</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;#27445C&quot;</span>
+<span class="nt">fig-format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">svg</span>
+<span class="nt">jupyter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python3</span>
+</pre></div>
+</div>
 <p><img alt="image1" src="_images/p01-02-rstudio.gif" /></p>
 <p>Để export file <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> thành html, ta dùng cmd như sau</p>
 <p><code class="docutils literal notranslate"><span class="pre">quarto</span> <span class="pre">render</span> <span class="pre">notebook.ipynb</span></code></p>

@@ -503,7 +503,40 @@
    "id": "a15bddc2-87c5-49de-a933-f660235fe9ef",
    "metadata": {},
    "source": [
-    "Tương tự như R, quarto có thể sử dụng cùng `.ipynb`. Khi đặt heading của quarto phần đầu của notebook, ta chọn cell ở chế độ `raw`"
+    "Tương tự như R, quarto có thể sử dụng cùng `.ipynb`. Khi đặt heading của quarto phần đầu của notebook, ta chọn cell ở chế độ `raw`. Code `yaml` cho jupyter notebook có thể sử dụng như sau:"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "bdc85a7c",
+   "metadata": {},
+   "source": [
+    "```yaml\n",
+    "title: \"Analysis of customer using Fex Card\"\n",
+    "description: \"Single IDE for Python and R\"\n",
+    "author: \"Analytics member (author@email.com.vn)\"\n",
+    "date: today()\n",
+    "format:\n",
+    "  html:\n",
+    "    mainfont: Cambria\n",
+    "    embed-fonts: true\n",
+    "    toc: true\n",
+    "    toc_number: yes\n",
+    "    toc-location: left\n",
+    "    number-sections: true\n",
+    "    toc-title: \"Mục lục\"\n",
+    "    fontcolor: \"black\"\n",
+    "    code-fold: true\n",
+    "    code-tools: true\n",
+    "    code-line-numbers: true\n",
+    "execute:\n",
+    "  warning: false\n",
+    "  message: false\n",
+    "self-contained: true\n",
+    "title-block-banner: \"#27445C\"\n",
+    "fig-format: svg\n",
+    "jupyter: python3\n",
+    "```"
    ]
   },
   {
