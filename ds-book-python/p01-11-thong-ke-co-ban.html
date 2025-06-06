@@ -1,0 +1,490 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="vn" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>11. Các chỉ số thống kê mô tả cơ bản &mdash; Phân tích dữ liệu với Python 2022 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=a798377f"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="12. So sánh R với Python cơ bản" href="p01-19-so-sanh-python-r.html" />
+    <link rel="prev" title="10. Trực quan hóa với Matplotlib" href="p01-10-matplotlib.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Phân tích dữ liệu với Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Python cơ bản</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="p01-01-gioi-thieu-python.html">1. Giới thiệu về Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-02-python-ide.html">2. Python IDE - Jupyter lab &amp; Visual Studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-03-cau-truc-du-lieu-python.html">3. Các cấu trúc cơ bản trong Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-pandas.html">4. Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-05-ngu-phap-bieu-do.html">5. Ngữ pháp của biểu đồ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-06-datetime.html">6. Dữ liệu thời gian trong Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-07-lam-viec-voi-text.html">7. Biến đổi dữ liệu text trong python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-08-numpy.html">8. Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-09-seaborn.html">9. Trực quan hóa với Seaborn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-10-matplotlib.html">10. Trực quan hóa với Matplotlib</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">11. Các chỉ số thống kê mô tả cơ bản</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Các-chỉ-số-thống-kê-cơ-bản">11.1. Các chỉ số thống kê cơ bản</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Phân-tích-mối-quan-hệ-2-biến-liên-tục---correlation">11.2. Phân tích mối quan hệ 2 biến liên tục - correlation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ANOVA">11.3. ANOVA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Kiểm-định-quan-hệ-Chi-bình-phương">11.4. Kiểm định quan hệ Chi-bình phương</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Prop-test">11.5. Prop test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Simpson-paradox">11.6. Simpson paradox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tài-liệu-tham-khảo">11.7. Tài liệu tham khảo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="p01-19-so-sanh-python-r.html">12. So sánh R với Python cơ bản</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-20-map-folium.html">13. Bản đồ với <code class="docutils literal notranslate"><span class="pre">folium</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-20-polars.html">14. Polars</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-99-tricks-python.html">15. Các mẹo trong Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Lập trình trong Python</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="p02-01-lap-trinh-doi-tuong-python.html">1. Lập trình hướng - đối tượng với Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p02-02-functions-in-python.html">2. Viết hàm trong Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Machine learning với sklearn</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="p05-01-sklearn.html">1. Giới thiệu cơ bản về Scikit learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p05-02-sklearn-advanced.html">2. sklearn nâng cao</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p05-03-xgboost.html">3. Xgboost với sklearn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p05-07-machine-learning-h2o.html">4. Machine learning với <code class="docutils literal notranslate"><span class="pre">H2O</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="p05-20-api-flask.html">5. Xây dựng API dự báo với Flask</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Phân tích dữ liệu với Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">11. </span>Các chỉ số thống kê mô tả cơ bản</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/p01-11-thong-ke-co-ban.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Các-chỉ-số-thống-kê-mô-tả-cơ-bản">
+<h1><span class="section-number">11. </span>Các chỉ số thống kê mô tả cơ bản<a class="headerlink" href="#Các-chỉ-số-thống-kê-mô-tả-cơ-bản" title="Link to this heading"></a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">{r</span> <span class="pre">include=FALSE}</span> <span class="pre">knitr::opts_chunk$set(warning</span> <span class="pre">=</span> <span class="pre">F,</span> <span class="pre">message</span> <span class="pre">=</span> <span class="pre">F)</span> <span class="pre">pacman::p_load(tidyverse)</span></code></p>
+<p>Trong quá trình phân tích dữ liệu, việc nắm vững các chỉ số thống kê cơ bản là rất quan trọng. Tuy nhiên, vấn đề còn nằm ở khả năng diễn đạt các chỉ số thống kê thành các ngôn ngữ thân thuộc trong kinh doanh. Các chỉ số thống kê mô tả cho 1 biến có tính thực tiễn cao bao gồm:</p>
+<ul class="simple">
+<li><p>Giá trị trung bình</p></li>
+<li><p>Giá trị trung bình sau khi loại bỏ <code class="docutils literal notranslate"><span class="pre">outlier</span></code></p></li>
+<li><p>Nhóm tứ phân vị (<code class="docutils literal notranslate"><span class="pre">quartile</span></code>), <code class="docutils literal notranslate"><span class="pre">percentile</span></code></p></li>
+<li><p>Trung vị (<code class="docutils literal notranslate"><span class="pre">median</span></code>)</p></li>
+<li><p>Giá trị nhỏ nhất, lớn nhất</p></li>
+<li><p>Độ lệch tiêu chuẩn (<code class="docutils literal notranslate"><span class="pre">standard</span> <span class="pre">deviation</span></code>) (ít dùng trong kinh doanh thực tiễn)</p></li>
+</ul>
+<p>Bên cạnh đó, khi so sánh giữa 2 biến với nhau, ta cũng cần nắm vững các phương pháp sau:</p>
+<ul class="simple">
+<li><p>So sánh 1 biến liên tục với 1 biến rời rạc - Phương pháp phân tích phương sai - <code class="docutils literal notranslate"><span class="pre">ANOVA</span></code></p></li>
+<li><p>So sánh 2 biến liên tục - Đánh giá hệ số tương quan - <code class="docutils literal notranslate"><span class="pre">correlation</span></code></p></li>
+<li><p>So sánh 2 biến rời rạc - Phương pháp đánh giá chỉ số khi-bình phương - <code class="docutils literal notranslate"><span class="pre">Chi-Square</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">prop.test</span></code></p></li>
+<li><p>Lưu ý với nghịch lý Simpson (<code class="docutils literal notranslate"><span class="pre">Simpson</span> <span class="pre">paradox</span></code>)</p></li>
+</ul>
+<div class="callout-important docutils container">
+<p class="rubric" id="luu-y">Lưu ý</p>
+<p>Đây là chương rất quan trọng và tổng hợp phần lớn các kỹ thuật thống kê thường dùng khi phân tích dữ liệu thực tế. Thành thạo ứng dụng các kỹ thuật này có thể giúp phân tích và tìm kiếm insight nhanh chóng với khoảng 80%-85% các bài toán phân tích ứng dụng thực tế.</p>
+</div>
+<section id="Các-chỉ-số-thống-kê-cơ-bản">
+<h2><span class="section-number">11.1. </span>Các chỉ số thống kê cơ bản<a class="headerlink" href="#Các-chỉ-số-thống-kê-cơ-bản" title="Link to this heading"></a></h2>
+<p>Giả sử ta có 1 tập hơn 1000 khách hàng với thu nhập như sau.</p>
+<p><code class="docutils literal notranslate"><span class="pre">{r,</span> <span class="pre">warning=F,</span> <span class="pre">message=F}</span> <span class="pre">library(tidyverse)</span> <span class="pre">set.seed(1)</span> <span class="pre">income</span> <span class="pre">&lt;-</span> <span class="pre">c(floor(runif(995,</span> <span class="pre">6,</span> <span class="pre">30)),</span> <span class="pre">1000,</span> <span class="pre">2000,</span> <span class="pre">3000,</span> <span class="pre">5000)</span> <span class="pre">income</span> <span class="pre">%&gt;%</span> <span class="pre">head</span> <span class="pre">#</span> <span class="pre">Tổng</span> <span class="pre">hợp</span> <span class="pre">các</span> <span class="pre">chỉ</span> <span class="pre">số</span> <span class="pre">cơ</span> <span class="pre">bản</span> <span class="pre">income</span> <span class="pre">%&gt;%</span> <span class="pre">summary</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Min</span></code>: giá trị nhỏ nhất - thu nhập thấp nhất của khách hàng là <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">min(income)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Max</span></code>: giá trị lớn nhất - khách hàng có thu nhập cao nhất là 1 tỷ <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">max(income)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">First</span> <span class="pre">quantile</span></code>: quantile 25%</p>
+<ul>
+<li><p><strong>Cách 1</strong>: Tứ phân vị thứ nhất là <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">quantile(income,</span> <span class="pre">0.25)</span></code> triệu</p></li>
+<li><p><strong>Cách 2</strong>: Có 25% khách hàng có thu nhập nhỏ hơn hoặc bằng <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">quantile(income,</span> <span class="pre">0.25)</span></code> triệu hoặc</p></li>
+<li><p><strong>Cách 3</strong>: Có 75% khách hàng có thu nhập lớn hơn hoặc bằng <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">quantile(income,</span> <span class="pre">0.25)</span></code> triệu hoặc</p></li>
+<li><p><strong>Cách 4</strong>: Cứ 4 khách hàng thì có 1 khách hàng có thu nhập nhỏ hơn hoặc bằng <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">quantile(income,</span> <span class="pre">0.25)</span></code> triệu</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Median</span></code>: giá trị trung vị - quantile 50%</p>
+<ul>
+<li><p><strong>Cách 1</strong>: Trung vị có giá trị <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">quantile(income,</span> <span class="pre">0.5)</span></code> triệu</p></li>
+<li><p><strong>Cách 2</strong>: 50% khách hàng có thu nhập nhỏ hơn hoặc bằng <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">quantile(income,</span> <span class="pre">0.5)</span></code> triệu</p></li>
+<li><p><strong>Cách 3</strong>: Có 50% khách hàng có thu nhập lớn hơn hoặc bằng <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">quantile(income,</span> <span class="pre">0.5)</span></code> triệu hoặc</p></li>
+<li><p><strong>Cách 4</strong>: Cứ 2 khách hàng thì có 1 khách hàng có thu nhập lớn hơn hoặc bằng <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">quantile(income,</span> <span class="pre">0.5)</span></code> triệu</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Third</span> <span class="pre">quantile</span></code>: quantile 75% - tứ phân vị thứ 3 - <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">quantile(income,</span> <span class="pre">0.75)</span></code> triệu</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Mean</span></code>: giá trị trung bình - thu nhập trung bình của khách hàng là <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">mean(income)</span></code> triệu</p></li>
+</ul>
+<center><p>§</p>
+</center><p>Để trực quan hóa các chỉ số thống kê vừa đề cập, ta có thể sử dụng biểu đồ <code class="docutils literal notranslate"><span class="pre">boxplot</span></code>. Biểu đồ <code class="docutils literal notranslate"><span class="pre">boxplot</span></code> thể hiện các thành phần như sau.</p>
+<p><img alt="image1" src="Images/p02-04-boxplot.png" /></p>
+<p>Với biểu đồ trên, ta còn thấy có 2 nhóm chỉ số bổ sung nâng cao:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">IQR</span></code>: Inter Quaritle Range - là độ rộng của boxplot, là <code class="docutils literal notranslate"><span class="pre">Q3-Q1</span></code></p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">{r}</span> <span class="pre">IQR(income)</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Outlier</span></code>: Là các quan sát có giá trị quá cao hoặc quá thấp. Về mặt thống kê, các outlier được định nghĩa là các giá trị nằm ngoài khoảng <span class="math notranslate nohighlight">\((\text{Q}_1 - 1.5\times \text{IQR}, \text{Q}_3 + 1.5\times \text{IQR})\)</span></p></li>
+</ul>
+<center><p>§</p>
+</center><p>Bên cạnh đó, do việc xuất hiện các quan sát ngoại lại (<code class="docutils literal notranslate"><span class="pre">outlier</span></code>) là thường xuyên và có thể gây méo các chỉ số, ta cần quan tâm thêm 2 chỉ số sau</p>
+<ul class="simple">
+<li><p>Giá trị trung bình loại bỏ outlier</p></li>
+<li><p>Các percentile - các mốc phân vị từ 1%-100%</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">{r}</span> <span class="pre">#</span> <span class="pre">Mean</span> <span class="pre">loại</span> <span class="pre">bỏ</span> <span class="pre">5%</span> <span class="pre">đầu</span> <span class="pre">và</span> <span class="pre">5%</span> <span class="pre">cuối</span> <span class="pre">mean(income,</span> <span class="pre">trim</span> <span class="pre">=</span> <span class="pre">0.05)</span> <span class="pre">#</span> <span class="pre">Mean</span> <span class="pre">không</span> <span class="pre">loại</span> <span class="pre">outlier</span> <span class="pre">mean(income)</span> <span class="pre">#</span> <span class="pre">Các</span> <span class="pre">mốc</span> <span class="pre">percentile</span> <span class="pre">quantile(income,</span> <span class="pre">seq(0,</span> <span class="pre">1,</span> <span class="pre">by</span> <span class="pre">=</span> <span class="pre">0.01))</span></code></p>
+</section>
+<section id="Phân-tích-mối-quan-hệ-2-biến-liên-tục---correlation">
+<h2><span class="section-number">11.2. </span>Phân tích mối quan hệ 2 biến liên tục - correlation<a class="headerlink" href="#Phân-tích-mối-quan-hệ-2-biến-liên-tục---correlation" title="Link to this heading"></a></h2>
+<p><strong>Hệ số tương quan</strong></p>
+<p>Hệ số tương quan (correlation coefficient) là một chỉ số thống kê, được sử dụng để đo lường mối liên hệ tương quan tuyến tính giữa 2 biến định lượng hay còn gọi là biến liên tục (quantitative/continuous variables). Hay nói một cách dễ hiểu hơn, hệ số tương quan cho ta biết rằng giữa 2 biến liên tục có mối liên hệ <em>tuyến tính</em> nào hay không.</p>
+<p>Thể hiện quan hệ tuyến tính giữa hai hay nhiều biến. Có giá trị nằm trong khoảng [-1,1]</p>
+<ul class="simple">
+<li><p>Giá trị âm: Quan hệ nghịch biến</p></li>
+<li><p>Giá trị dương: Quan hệ đồng biến</p></li>
+</ul>
+<p>Độ mạnh yếu của hệ số tương quan được đo lường bằng giá trị tuyệt đối:</p>
+<ul class="simple">
+<li><p>Lớn hơn 0.7: Mạnh</p></li>
+<li><p>Từ 0.3-0.7: Trung bình</p></li>
+<li><p>Dưới 0.3: Yếu</p></li>
+</ul>
+<p>Tính toán correlation như sau:</p>
+<p><code class="docutils literal notranslate"><span class="pre">{r}</span> <span class="pre">#</span> <span class="pre">Tính</span> <span class="pre">correlation</span> <span class="pre">cor(iris$Sepal.Length,</span> <span class="pre">iris$Petal.Length)</span></code></p>
+<p>Như vậy, tồn tại tương quan <em>tuyến tính</em> chặc giữa <code class="docutils literal notranslate"><span class="pre">Sepal.Length</span></code> và <code class="docutils literal notranslate"><span class="pre">Petal.Length</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">{r}</span> <span class="pre">iris</span> <span class="pre">%&gt;%</span>&#160;&#160;&#160; <span class="pre">ggplot(aes(Sepal.Length,</span> <span class="pre">Petal.Length))</span> <span class="pre">+</span>&#160;&#160; <span class="pre">geom_point(alpha</span> <span class="pre">=</span> <span class="pre">0.5)</span> <span class="pre">+</span>&#160;&#160; <span class="pre">geom_smooth(method</span> <span class="pre">=</span> <span class="pre">&quot;lm&quot;)</span> <span class="pre">+</span>&#160;&#160; <span class="pre">theme_minimal()</span> <span class="pre">+</span>&#160;&#160; <span class="pre">labs(title</span> <span class="pre">=</span> <span class="pre">&quot;Hệ</span> <span class="pre">số</span> <span class="pre">tương</span> <span class="pre">quan&quot;)</span></code></p>
+<center><p>§</p>
+</center><div class="callout-warning docutils container">
+<p class="rubric" id="luu-y-1">Lưu ý</p>
+<ul class="simple">
+<li><p>Hệ số tương quan chỉ mô tả mối quan hệ đồng biến hoặc nghịch biến giữa hai biến liên tục mà không phản ánh quan hệ phi tuyến tính giữa 2 biến</p></li>
+<li><p>Hệ số tương quan không phản ánh được mối quan hệ nhân quả, hai biến có hệ số tương quan cao không có nghĩa là biến này gây ảnh hưởng đến biến kia (correlation vs causiality)</p></li>
+</ul>
+</div>
+<div class="panel-tabset docutils container">
+<p class="rubric" id="quan-he-phi-tuyen">Quan hệ phi tuyến</p>
+<p><code class="docutils literal notranslate"><span class="pre">{r,</span> <span class="pre">echo</span> <span class="pre">=</span> <span class="pre">F}</span> <span class="pre">library(tidyverse)</span> <span class="pre">df</span> <span class="pre">&lt;-</span> <span class="pre">data.frame(x</span> <span class="pre">=</span> <span class="pre">seq(0,</span> <span class="pre">10,</span> <span class="pre">by</span> <span class="pre">=</span> <span class="pre">0.1))</span> <span class="pre">%&gt;%</span>&#160;&#160;&#160; <span class="pre">mutate(y</span> <span class="pre">=</span> <span class="pre">3*sin(x))</span> <span class="pre">df</span> <span class="pre">%&gt;%</span>&#160;&#160;&#160; <span class="pre">ggplot(aes(x,</span> <span class="pre">y))</span> <span class="pre">+</span>&#160;&#160; <span class="pre">geom_point(col</span> <span class="pre">=</span> <span class="pre">&quot;darkblue&quot;,</span> <span class="pre">alpha</span> <span class="pre">=</span> <span class="pre">0.5)</span> <span class="pre">+</span>&#160;&#160; <span class="pre">labs(title</span> <span class="pre">=</span> <span class="pre">&quot;Hệ</span> <span class="pre">số</span> <span class="pre">tương</span> <span class="pre">quan</span> <span class="pre">yếu</span> <span class="pre">-</span> <span class="pre">quan</span> <span class="pre">hệ</span> <span class="pre">phi</span> <span class="pre">tuyến&quot;,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">substitle</span> <span class="pre">=</span> <span class="pre">&quot;(correlation</span> <span class="pre">=</span> <span class="pre">-0.07)&quot;)</span> <span class="pre">+</span>&#160;&#160; <span class="pre">theme_minimal()</span></code></p>
+<p class="rubric" id="correlation-vs-causiality">Correlation vs. Causiality</p>
+<p>Hai biến có hệ số tương quan rất cao nhưng hoàn toàn không có quan hệ trong thực tế</p>
+<p><img alt="image2" src="Images/p02-05-correlation-causation.png" /></p>
+</div>
+</section>
+<section id="ANOVA">
+<h2><span class="section-number">11.3. </span>ANOVA<a class="headerlink" href="#ANOVA" title="Link to this heading"></a></h2>
+<p><strong>ANOVA</strong> viết tắt của từ <em>analysis of variance</em>, tức phân tích phương sai. Phương pháp ANOVA được sử dụng khi chúng ta muốn so sánh giữa 2 hoặc nhiều nhóm đối tượng khác nhau dựa vào 1 tiêu chí nhất định nào đó, ví dụ như so sánh <em>độ tuổi của nhóm khách hàng thường và khách VIP</em>, hay so sánh <em>thu nhập của nhóm khách hàng nam và khách hàng nữ</em>… Để giải thích một cách dễ hiểu hơn, chúng ta sẽ làm ví dụ sau.</p>
+<p>Chúng ta sẽ vẽ biểu đồ boxplot so sánh <code class="docutils literal notranslate"><span class="pre">Sepal.Length</span></code> giữa các loài hoa (<code class="docutils literal notranslate"><span class="pre">Species</span></code>).</p>
+<p><code class="docutils literal notranslate"><span class="pre">{r,</span> <span class="pre">warning=F,</span> <span class="pre">message=F}</span> <span class="pre">library(ggplot2)</span> <span class="pre">iris</span> <span class="pre">%&gt;%</span>&#160;&#160;&#160; <span class="pre">ggplot(aes(Species,</span> <span class="pre">Sepal.Length,</span> <span class="pre">fill</span> <span class="pre">=</span> <span class="pre">Species))</span> <span class="pre">+</span>&#160;&#160;&#160; <span class="pre">geom_boxplot()</span> <span class="pre">+</span>&#160;&#160; <span class="pre">labs(</span>&#160;&#160;&#160; <span class="pre">title</span> <span class="pre">=</span> <span class="pre">&quot;Overview</span> <span class="pre">of</span> <span class="pre">Iris</span> <span class="pre">Sepal</span> <span class="pre">Length</span> <span class="pre">by</span> <span class="pre">Species&quot;,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">x</span> <span class="pre">=</span> <span class="pre">&quot;Species&quot;,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">y</span> <span class="pre">=</span> <span class="pre">&quot;Sepal</span> <span class="pre">Length</span> <span class="pre">(cm)&quot;)</span> <span class="pre">+</span>&#160;&#160; <span class="pre">scale_y_continuous(breaks</span> <span class="pre">=</span> <span class="pre">seq(0,10,</span> <span class="pre">by</span> <span class="pre">=</span> <span class="pre">0.5))</span> <span class="pre">+</span>&#160;&#160; <span class="pre">theme_bw()</span> <span class="pre">+</span>&#160; <span class="pre">#</span> <span class="pre">Background</span> <span class="pre">đen</span> <span class="pre">trắng</span>&#160;&#160; <span class="pre">theme(legend.position</span> <span class="pre">=</span> <span class="pre">&quot;none&quot;)</span>&#160; <span class="pre">#</span> <span class="pre">Bỏ</span> <span class="pre">legend</span></code></p>
+<p>Kiểm định ANOVA sẽ giúp chung ta so sánh chiều dài đài hoa trung bình giữa các loài hoa, sau đó tính toán chênh lệch chiều dài đài hoa trung bình giữa các loài hoa, và cuối cùng sẽ kiểm định xem những sự chênh lệch đó thực sự có ý nghĩa về mặt thống kê hay không. Hay nói cách khác, phương pháp ANOVA kiểm định cặp giả thuyết sau:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(H_0\)</span>: Không có sự khác biệt giữa chiều dài đài hoa của các loài hoa (tức chênh lệch chiều dài đài hoa trung bình = 0)</p></li>
+<li><p><span class="math notranslate nohighlight">\(H_1\)</span>: Có sự khác biệt giữa chiều dài đài hoa của các loài hoa (chênh lệch chiều dài đài hoa trung bình khác 0)</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">{r,</span> <span class="pre">warning=F,</span> <span class="pre">message=F}</span> <span class="pre">#ANOVA</span> <span class="pre">model</span> <span class="pre">&lt;-</span> <span class="pre">aov(Sepal.Length</span> <span class="pre">~</span> <span class="pre">Species,</span> <span class="pre">data</span> <span class="pre">=</span> <span class="pre">iris)</span>&#160; <span class="pre">model</span> <span class="pre">%&gt;%</span> <span class="pre">summary</span></code></p>
+<p>Kết quả trên mô hình cho thấy chỉ số <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">value</span></code> rất nhỏ, điều này cho phép chúng ta bác bỏ <span class="math notranslate nohighlight">\(H_0\)</span> và chấp nhận <span class="math notranslate nohighlight">\(H_1\)</span>, tức là có sự khác biệt của giá trị trung bình của <code class="docutils literal notranslate"><span class="pre">Sepal.Length</span></code> giữa các loài hoa.</p>
+<p>Tuy nhiên, trong thực tế, câu hỏi <em>có khác biệt hay không</em> chưa đủ, mà ta còn phải trả lời câu hỏi: &quot;Sự khác biệt là bao nhiêu?&quot;</p>
+<p>Để trả lời cho câu hỏi trên, ta có thể sử dụng kiểm định <code class="docutils literal notranslate"><span class="pre">TukeyHSD</span></code> để tìm ra sự khác biệt giữa các nhóm.</p>
+<p><code class="docutils literal notranslate"><span class="pre">{r}</span> <span class="pre">model</span> <span class="pre">%&gt;%</span> <span class="pre">TukeyHSD</span></code></p>
+<p>Giải thích ý nghĩa của bảng kết quả:</p>
+<ul class="simple">
+<li><p>Cột <code class="docutils literal notranslate"><span class="pre">diff</span></code>: chênh lệch giá trị trung bình chiều dài đài hoa giữa các loài hoa</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lwr</span></code> và <code class="docutils literal notranslate"><span class="pre">upr</span></code>: khoảng tin cậy 95% (lwr &lt; diff &lt; upr)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">adj</span></code>: giá trị p-value, nếu p-value &lt; 0.05 thì chúng ta đủ cơ sở để bác bỏ giả thuyết Ho, chấp nhận H1.</p></li>
+</ul>
+<p>Với kết quả như trên, ta hiểu như sau:</p>
+<ul class="simple">
+<li><p>Kết quả trong trường hợp này cho ta thấy thực sự có sự khác biệt giữa chiều dài đài hoa của các loài hoa (các giá trị p-value = 0).</p></li>
+<li><p>Trung bình đài hòa của nhóm <code class="docutils literal notranslate"><span class="pre">vesicolor</span></code> cao hơn <code class="docutils literal notranslate"><span class="pre">setosa</span></code> là 0.93 (ước lượng điểm). Hoặc có thể nói đài hoa của nhóm <code class="docutils literal notranslate"><span class="pre">vesicolor</span></code> dài hơn <code class="docutils literal notranslate"><span class="pre">setosa</span></code> trong khoảng từ 0.686 đến 1.173 (từ <code class="docutils literal notranslate"><span class="pre">lwr</span></code> đến <code class="docutils literal notranslate"><span class="pre">upr</span></code>)</p></li>
+</ul>
+<div class="callout-important docutils container">
+<p class="rubric" id="luu-y-2">Lưu ý</p>
+<ul class="simple">
+<li><p>Kỹ thuật phân tích ANOVA là kỹ thuật rất quan trọng và được phần lớn trong các bước phân tích khám phá.</p></li>
+<li><p>Bên cạnh phân tich ANOVA về giá trị trung bình, cần lưu ý sử dụng <strong>giá trị trung bình sau khi loại bỏ outlier</strong> để bổ trợ</p></li>
+</ul>
+</div>
+</section>
+<section id="Kiểm-định-quan-hệ-Chi-bình-phương">
+<h2><span class="section-number">11.4. </span>Kiểm định quan hệ Chi-bình phương<a class="headerlink" href="#Kiểm-định-quan-hệ-Chi-bình-phương" title="Link to this heading"></a></h2>
+<p>Một trong những câu hỏi ta thường xuyên phải giải quyết trong quá trình phân tích dữ liệu là tìm kiếm mối quan hệ giữa các biến rời rạc. Một trong những kỹ thuật phổ biến để tìm kiếm mối quan hệ này là sử dụng kiểm định Chi-square (Khi bình phương).</p>
+<p>Để thực hiện phân tích mối quan hệ này, ta cần thực hiện ba bước:</p>
+<ul class="simple">
+<li><p><strong>Bước một</strong>, xây dựng bảng phân phối tần xuất hai chiều.</p></li>
+<li><p><strong>Bước hai</strong>, tính toán chỉ số <span class="math notranslate nohighlight">\(\chi^2\)</span> để kiểm định giả thuyết độc lập giữa hai biến</p></li>
+<li><p><strong>Bước ba</strong>, đưa ra kết luận về mối quan hệ vừa được kiểm định</p></li>
+</ul>
+<p>Để hiểu hơn về kiểm định <span class="math notranslate nohighlight">\(\chi^2\)</span>, ta xem xét ví dụ dưới đây.</p>
+<p><strong>Ví dụ</strong>: Một trang web quảng cáo muốn phân tích về mối quan hệ giữa <strong>phương thức quảng cáo</strong> và <strong>thiết bị sử dụng</strong>. Dữ liệu trong một tháng về số lượt người dùng truy cập website được thể hiện như bảng dưới đây (đơn vị <em>nghìn user</em>)</p>
+<p><code class="docutils literal notranslate"><span class="pre">{r}</span> <span class="pre">order_dc</span> <span class="pre">&lt;-</span> <span class="pre">c(&quot;Total&quot;,</span> <span class="pre">&quot;Phone&quot;,</span> <span class="pre">&quot;Tablet&quot;,</span> <span class="pre">&quot;Desktop&quot;)</span> <span class="pre">order_ch</span> <span class="pre">&lt;-</span> <span class="pre">c(&quot;Organic</span> <span class="pre">Search&quot;,</span> <span class="pre">&quot;Paid</span> <span class="pre">Search&quot;,</span> <span class="pre">&quot;Email&quot;,</span> <span class="pre">&quot;Display&quot;,</span> <span class="pre">&quot;Total&quot;)</span> <span class="pre">df</span> <span class="pre">&lt;-</span> <span class="pre">data.frame(device_category</span> <span class="pre">=</span> <span class="pre">c(&quot;Desktop&quot;,</span> <span class="pre">&quot;Tablet&quot;,</span> <span class="pre">&quot;Phone&quot;,</span> <span class="pre">&quot;Total&quot;),</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">organic_search</span> <span class="pre">=</span> <span class="pre">c(25,20,35,80),</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">paid_search</span> <span class="pre">=</span> <span class="pre">c(20,30,15,65),</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">email</span> <span class="pre">=</span> <span class="pre">c(35,25,10,80),</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">display</span> <span class="pre">=</span> <span class="pre">c(20,25,40,85),</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">total</span> <span class="pre">=</span> <span class="pre">c(100,100,100,300))</span> <span class="pre">df</span></code></p>
+<p>Để phân tích mối quan hệ giữa hai biến, ta có giả thuyết như sau:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(H_0\)</span>: Phương thức quảng cáo và thiết bị sử dụng không có mối liên hệ với nhau (hai biến độc lập)</p></li>
+<li><p><span class="math notranslate nohighlight">\(H_1\)</span>: Phương thức quảng cáo và thiết bị sử dụng có mối liên hệ với nhau (tồn tại mối quan hệ giữa hai biến)</p></li>
+</ul>
+<p>Chỉ số <span class="math notranslate nohighlight">\(\chi^2\)</span> được tính như sau:</p>
+<div class="math notranslate nohighlight">
+\[\chi^2 = \sum\frac{(O_i - E_i)^2}{E_i}\]</div>
+<p>Trong đó:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(O\)</span> là giá trị quan sát được thực tế (ví dụ: Desktop/Organic Search có 25 ngàn user)</p></li>
+<li><p><span class="math notranslate nohighlight">\(E\)</span> là giá trị kỳ vọng của mỗi cặp giá trị.</p></li>
+</ul>
+<p>Ta tính giá trị <em>kỳ vọng</em> như sau:</p>
+<ul class="simple">
+<li><p>Tính tổng từng cột và từng dòng (giá trị &quot; <em>Total</em> &quot;)</p></li>
+<li><p>Nhân từng dòng với từng hàng và chia cho tổng số quan sát</p></li>
+</ul>
+<p><strong>Ví dụ</strong>: Giá trị kỳ vọng của <em>Desktop</em> và <em>Organic Search</em> có thể được tính như sau:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\text{Users}_{expected} &amp;= \frac{r_1}{T} \times \frac{c_1}{T} \times T \\
+&amp;= \frac{100}{300} \times \frac{80}{300} \times 300 \\
+&amp;= .33 \times .27 \times 300 \\
+&amp;= 26.67 \\
+&amp;= 27
+\end{aligned}\end{split}\]</div>
+<p>Giá trị kỳ vọng của tất cả các giá trị có kết quả như sau</p>
+<p><code class="docutils literal notranslate"><span class="pre">{r</span> <span class="pre">expected,</span> <span class="pre">echo=FALSE,</span> <span class="pre">message=FALSE,</span> <span class="pre">warning=FALSE,</span> <span class="pre">fig.height=3,</span> <span class="pre">fig.width=8}</span> <span class="pre">df2</span> <span class="pre">&lt;-</span> <span class="pre">data.frame(device_category</span> <span class="pre">=</span> <span class="pre">c(&quot;Desktop&quot;,</span> <span class="pre">&quot;Tablet&quot;,</span> <span class="pre">&quot;Phone&quot;),</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">organic_search</span> <span class="pre">=</span> <span class="pre">c(26.67,26.67,26.67),</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">paid_search</span> <span class="pre">=</span> <span class="pre">c(21.67,21.67,21.67),</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">email</span> <span class="pre">=</span> <span class="pre">c(23.33,23.33,23.33),</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">display</span> <span class="pre">=</span> <span class="pre">c(28.33,28.33,28.33))</span> <span class="pre">df2</span></code></p>
+<p>Tiếp đó, ta tính toán sự khác biệt giữa giá trị kỳ vọng và giá trị thực tế. Sau đó tính <span class="math notranslate nohighlight">\(\chi^2\)</span> như sau:</p>
+<ul class="simple">
+<li><p>Tính độ sai lệch</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\text{Difference}&amp;= \text{User}_o - \text{User}_e \\
+&amp;= 25 - 26.67 \\
+&amp;= -1.67
+\end{aligned}\end{split}\]</div>
+<ul class="simple">
+<li><p>Tính giá trị bình phương</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[-1.67^2=2.78\]</div>
+<ul class="simple">
+<li><p>Chia giá trị vừa tính được cho giá trị kỳ vọng:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\frac{2.78}{27} = 0.10\]</div>
+<p>Tương tự, ta tính được cho tất cả các biến như sau:</p>
+<p><code class="docutils literal notranslate"><span class="pre">{r}</span> <span class="pre">df3</span> <span class="pre">&lt;-</span> <span class="pre">data.frame(device_category</span> <span class="pre">=</span> <span class="pre">c(&quot;Desktop&quot;,</span> <span class="pre">&quot;Tablet&quot;,</span> <span class="pre">&quot;Phone&quot;),</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">organic_search</span> <span class="pre">=</span> <span class="pre">c(0.1,</span> <span class="pre">1.67,</span> <span class="pre">2.6),</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">paid_search</span> <span class="pre">=</span> <span class="pre">c(0.13,</span> <span class="pre">3.2,</span> <span class="pre">2.05),</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">email</span> <span class="pre">=</span> <span class="pre">c(5.83,</span> <span class="pre">0.12,</span> <span class="pre">7.62),</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">display</span> <span class="pre">=</span> <span class="pre">c(2.45,</span> <span class="pre">0.39,</span> <span class="pre">4.8))</span> <span class="pre">df3</span></code></p>
+<p><span class="math notranslate nohighlight">\(\chi^2\)</span> thực tế được tính bằng tổng các giá trị trên <span class="math notranslate nohighlight">\(\chi^2 = 30.96\)</span></p>
+<p>Với dữ liệu trên, ta có 4 cột và 3 hàng. Như vậy, bậc tự do trong phân phôi <span class="math notranslate nohighlight">\(\chi^2\)</span> là <span class="math notranslate nohighlight">\((4-1)*(3-1) = 6\)</span>. Ta có thể so sánh giá trị vừa tìm được với giá trị <span class="math notranslate nohighlight">\(\chi^2\)</span> tại <a class="reference external" href="http://www.danielsoper.com/statcalc/calculator.aspx?id=12">đây</a>. Với <span class="math notranslate nohighlight">\(\alpha\)</span> bằng .1 và 6 bậc tự do, giá trị của <span class="math notranslate nohighlight">\(\chi\)</span><sup>2</sup> là 10.64. Với giá trị thực tế lớn hơn giá trị lý thuyết, ta bác bỏ <span class="math notranslate nohighlight">\(H_0\)</span>. Như vậy, về mặt thống kê, tồn tại mối quan hệ giữa phương thức marketing và thiết bị
+sử dụng.</p>
+<p><strong>Ví dụ với R</strong></p>
+<p>Trong thực tế, khi phân tích dữ liệu, ta có thể ra quyết định nhanh chóng về mối quan hệ giữa hai biến rời rạc thông qua <code class="docutils literal notranslate"><span class="pre">p-value</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">{r}</span> <span class="pre">df</span> <span class="pre">%&gt;%</span> <span class="pre">select(-1)</span> <span class="pre">%&gt;%</span> <span class="pre">as.matrix()</span> <span class="pre">%&gt;%</span> <span class="pre">chisq.test()</span></code></p>
+<p>Với <span class="math notranslate nohighlight">\(p-value = 0.002035\)</span>, ta bác bỏ <span class="math notranslate nohighlight">\(H_0\)</span>, chấp nhận <span class="math notranslate nohighlight">\(H_1\)</span>. Nghĩa là tồn tại mối quan hệ giữa phương thức quảng cáo và thiết bị sử dụng.</p>
+</section>
+<section id="Prop-test">
+<h2><span class="section-number">11.5. </span>Prop test<a class="headerlink" href="#Prop-test" title="Link to this heading"></a></h2>
+<p>Nếu Anova được sử dụng để đánh giá ảnh hưởng của 1 biến rời rạc lên 1 biến liên tục, prop test là một trường hợp đặc biệt của <span class="math notranslate nohighlight">\(\chi^2\)</span> dùng để đánh giá ảnh hưởng của 1 biến rời rạc lên phân bổ của 1 biến khác.</p>
+<p>Ví dụ: Thử nghiệm đánh giá khả năng phản hồi của 2 thông điệp quảng cáo đến các nhóm đối tượng tương tự nhau.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Quảng cáo</p></th>
+<th class="head"><p>Số lượt xem</p></th>
+<th class="head"><p>Số lượt click</p></th>
+<th class="head"><p>Tỷ lệ CR</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>A</p></td>
+<td><p>1000</p></td>
+<td><p>20</p></td>
+<td><p>2%</p></td>
+</tr>
+<tr class="row-odd"><td><p>B</p></td>
+<td><p>900</p></td>
+<td><p>16</p></td>
+<td><p>1.8%</p></td>
+</tr>
+</tbody>
+</table>
+<p>Để đánh giá chính xác quảng cáo A có thực sự tốt hơn B hay không, ta có test sau.</p>
+<p><code class="docutils literal notranslate"><span class="pre">{r}</span> <span class="pre">observe</span> <span class="pre">&lt;-</span> <span class="pre">c(1000,</span> <span class="pre">900)</span> <span class="pre">click</span> <span class="pre">&lt;-</span> <span class="pre">c(20,</span> <span class="pre">16)</span> <span class="pre">prop.test(click,</span> <span class="pre">observe)</span> <span class="pre">chisq.test(click,</span> <span class="pre">observe)</span></code></p>
+<p>Trong trường hợp trên, ta không đủ kết luận rằng quảng cáo A tốt hơn quảng cáo B do <span class="math notranslate nohighlight">\(\text{p-value}=0.8523\)</span></p>
+<center><p>§</p>
+</center><p><strong>Lưu ý</strong>: <span class="math notranslate nohighlight">\(\chi^2\)</span> và <code class="docutils literal notranslate"><span class="pre">prop.test</span></code> đều ra cùng kết quả của <span class="math notranslate nohighlight">\(p-value\)</span></p>
+<p><code class="docutils literal notranslate"><span class="pre">{r}</span> <span class="pre">x</span> <span class="pre">&lt;-</span> <span class="pre">matrix(c(1000,</span> <span class="pre">20,</span> <span class="pre">900,</span> <span class="pre">16),</span> <span class="pre">ncol</span> <span class="pre">=</span> <span class="pre">2)</span> <span class="pre">chisq.test(x)</span> <span class="pre">prop.test(x)</span></code></p>
+<center><p>§</p>
+</center><p><strong>Lưu ý</strong>: <code class="docutils literal notranslate"><span class="pre">prop.test</span></code> chỉ được dùng khi đo lường tỷ lệ chuyển đổi, ảnh hưởng của các biến rời rạc (factor) lên đối tượng (<code class="docutils literal notranslate"><span class="pre">discrete</span> <span class="pre">number</span></code>). Do đó, nếu dùng prop.test để đánh giá trên biến giá trị, đặc biệt sau khi chuyển đổi đơn vị tiền tệ sẽ gây ra các nhận định sai lầm.</p>
+<p>VD: Đánh giá về tỷ lệ bảo hiểm tái tục năm 2 nếu khách hàng buộc phải mua bảo hiểm (không phải do tự nguyện), ta có bảng sau</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tiêu chí</p></th>
+<th class="head"><p>Bắt buộc</p></th>
+<th class="head"><p>Không bắt buộc</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Số lượng hợp đồng (A)</p></td>
+<td><p>2000</p></td>
+<td><p>3000</p></td>
+</tr>
+<tr class="row-odd"><td><p>Giá trị 1 hợp đồng (B)</p></td>
+<td><p>20 (M)</p></td>
+<td><p>20 (M)</p></td>
+</tr>
+<tr class="row-even"><td><p>Tổng giá trị (C=A*B)</p></td>
+<td><p>40 (B)</p></td>
+<td><p>60 (B)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Giá trị huỷ năm 2 (D)</p></td>
+<td><p>18 (B)</p></td>
+<td><p>22 (B)</p></td>
+</tr>
+<tr class="row-even"><td><p>Tỷ lệ huỷ (E= D/C)</p></td>
+<td><p>45%</p></td>
+<td><p>36.7%</p></td>
+</tr>
+</tbody>
+</table>
+<p>Bước tiếp theo, ta dùng prop.test để đánh giá hiệu ứng thực sự của việc bắt buộc phải mua bảo hiểm đến tỷ lệ huỷ năm 2.</p>
+<p>Nếu dùng giá trị là tỷ đồng, ta có kết quả sau.</p>
+<p><code class="docutils literal notranslate"><span class="pre">{r}</span> <span class="pre">huy</span> <span class="pre">&lt;-</span> <span class="pre">c(18,</span> <span class="pre">22)</span> <span class="pre">total</span> <span class="pre">&lt;-</span> <span class="pre">c(40,</span> <span class="pre">60)</span> <span class="pre">prop.test(huy,</span> <span class="pre">total)</span></code></p>
+<p>Kết quả cho thấy <span class="math notranslate nohighlight">\(p-value = 0.5\)</span>, việc bắt buộc mua bảo hiểm không ảnh hưởng đến tỷ lệ huỷ năm 2!</p>
+<p>Đây là kết quả sai lầm do bị đi nhầm vào bản chất. Do mỗi hợp đồng trị giá trung bình 20 triêu VND, kết quả đúng phải như sau.</p>
+<p><code class="docutils literal notranslate"><span class="pre">{r}</span> <span class="pre">huy</span> <span class="pre">&lt;-</span> <span class="pre">c(900,</span> <span class="pre">1100)</span> <span class="pre">total</span> <span class="pre">&lt;-</span> <span class="pre">c(2000,</span> <span class="pre">3000)</span> <span class="pre">prop.test(huy,</span> <span class="pre">total)</span></code></p>
+<p>Kết quả sau cho thấy việc bắt buộc mua bảo hiểm làm tỷ lệ huỷ năm 2 cao hơn 9% so với năm đầu.</p>
+<div class="callout-warning docutils container">
+<p class="rubric" id="luu-y-3">Lưu ý</p>
+<p>Khi dùng proportion test, cần lưu ý đến đơn vị của các chỉ số. Nếu không sẽ rất dễ mắc phải và xảy ra sai lầm khi ra quyết định.</p>
+</div>
+</section>
+<section id="Simpson-paradox">
+<h2><span class="section-number">11.6. </span>Simpson paradox<a class="headerlink" href="#Simpson-paradox" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Simpson</span> <span class="pre">paradox</span></code> là hiện tượng xảy ra khi xu hướng/ kết luận tổng thể lại khác biệt so với khi so sánh từ nhóm riêng biệt.</p>
+<p><img alt="image3" src="Images/simpson-paradox.png" /></p>
+<center><p>§</p>
+</center><p>Xem ví dụ sau - Có khảo sát nghiên cứu thị trường về tỷ lệ quan tâm đến uống trà sữa buổi trưa. Kết quả như sau</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Nhóm</strong></p></th>
+<th class="head"><p><strong>Nam</strong></p></th>
+<th class="head"><p><strong>Tỷ lệ</strong></p></th>
+<th class="head"><p><strong>Nữ</strong></p></th>
+<th class="head"><p><strong>Tỷ lệ</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Dưới 30 tuổi</p></td>
+<td><p>630/900</p></td>
+<td><p><strong>70%</strong></p></td>
+<td><p>80/100</p></td>
+<td><p><strong>80%</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Trên 30 tuổi</p></td>
+<td><p>40/100</p></td>
+<td><p><strong>40%</strong></p></td>
+<td><p>450/900</p></td>
+<td><p><strong>50%</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Tổng số</strong></p></td>
+<td><p><strong>670/1000</strong></p></td>
+<td><p><strong>67%</strong></p></td>
+<td><p><strong>530/1000</strong></p></td>
+<td><p><strong>53%</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p>Khi quan sát riêng lẻ từng phân khúc, ta thấy kết quả như sau:</p>
+<ul class="simple">
+<li><p><strong>Với nhóm dưới 30 tuổi</strong> - Nữ quan tâm nhiều hơn nam (80% &gt; 70%)</p></li>
+<li><p><strong>Với nhóm trên 30 tuổi</strong> - Nữ quan tâm nhiều hơn nam (50% &gt; 40%)</p></li>
+</ul>
+<div class="callout-warning docutils container">
+<p class="rubric" id="ket-luan">Kết luận</p>
+<p>Nữ quan tâm đến việc uống trà sữa nhiều hơn nam.</p>
+</div>
+<p>Tuy nhiên, khi phân tích tổng thể, kết quả ra ngược lại - nam giới lại quan tâm nhiều hơn nữ giời (67% &gt; 53%). Hiện tượng trên gọi là Simpson paradox.</p>
+<div class="callout-important docutils container">
+<p class="rubric" id="luu-y-4">Lưu ý</p>
+<p>Simpson paradox là phương pháp bẻ nhỏ dữ liệu và dùng phương pháp suy diễn - nếu xu hướng là đúng với tất cả tập con, sẽ đúng với tổng thể. Do đó, khi phân tích cần đặc biệt cẩn thận để tránh đi vào ngụy biện</p>
+</div>
+</section>
+<section id="Tài-liệu-tham-khảo">
+<h2><span class="section-number">11.7. </span>Tài liệu tham khảo<a class="headerlink" href="#Tài-liệu-tham-khảo" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>R in action</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="p01-10-matplotlib.html" class="btn btn-neutral float-left" title="10. Trực quan hóa với Matplotlib" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="p01-19-so-sanh-python-r.html" class="btn btn-neutral float-right" title="12. So sánh R với Python cơ bản" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Anh Hoang Duc.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
