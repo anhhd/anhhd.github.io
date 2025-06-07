@@ -17,7 +17,16 @@
     "\n",
     "Do độ phổ cập rộng rãi của Python cũng như tính hữu dụng khi làm việc, tương tác với mô trường điện toán đám mấy (cloud) và thiết kế API/deployment cho lĩnh vực AI, bên cạnh các ngôn ngữ phân tích thống kê, khám phá như R, Stata,..., ta cần làm quen và sử dụng Python để có thể mở rộng phạm vi làm việc cũng như tương tác cho các lĩnh vực khác nhau.\n",
     "\n",
-    "Tài liệu này được viết riêng dành cho nhóm phân tích dữ liệu từ R dịch chuyển sang Python để có thể dễ dàng tiếp cận, đơn giản hóa quá trình học và sử dụng một ngôn ngữ phân tích mới."
+    "Tài liệu này được viết riêng dành cho nhóm phân tích dữ liệu từ R dịch chuyển sang Python để có thể dễ dàng tiếp cận, đơn giản hóa quá trình học và sử dụng một ngôn ngữ phân tích mới. Lộ trình học nên bám sát theo:\n",
+    "\n",
+    "- Python IDE, Notebook, Visual Studio\n",
+    "- Cơ bản về Python\n",
+    "- Biến đổi dữ liệu với `polars`\n",
+    "- Biến đổi dữ liệu với `lets_plot`\n",
+    "- Các chỉ số thống kê cơ bản\n",
+    "- Lập trình hàm\n",
+    "\n",
+    "Các nội dung khác có thể học & bổ sung sau"
    ]
   },
   {
@@ -25,7 +34,8 @@
    "metadata": {},
    "source": [
     ":::warning\n",
-    "**Lưu ý**: Đối với các bạn sử dụng Python từ các ngôn ngữ lập trình thống kê khác như R hoặc Stata, sẽ có 1 chút khó khăn trong giai đoạn mới sử dụng ở 2 điểm\n",
+    "\n",
+    "**Lưu ý**: Khi mới sử dụng Python từ các ngôn ngữ lập trình thống kê khác như R hoặc Stata, sẽ có 1 chút khó khăn trong giai đoạn mới sử dụng ở 2 điểm\n",
     "\n",
     "- Python cài đặt và sử dụng thư viện chủ yếu trên `terminal` hoặc `cmd`, khiến cho việc cài đặt và quản lý package có chút khó khăn\n",
     "- Các đối tượng trong Python có `methods` đi kèm - đây là điều hơi khó hiểu với những người sử dụng các ngôn ngữ phân tích khác - đặc biệt từ R, do chủ yếu chỉ có hàm (`function`) mà không có `method`\n",

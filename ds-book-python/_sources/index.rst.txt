@@ -37,6 +37,17 @@ Machine learning với sklearn
    
    p05*
 
+Kiến thức bổ trợ
+===================================================
+
+.. toctree::
+   :maxdepth: 2
+   :numbered:
+   :caption: Kiến thức bổ trợ
+   :glob:
+   
+   p06*
+
 Indices and tables
 ==================
 

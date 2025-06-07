@@ -76,15 +76,14 @@
 <li class="toctree-l1"><a class="reference internal" href="p01-02-python-ide.html">2. Python IDE - Jupyter lab &amp; Visual Studio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-03-cau-truc-du-lieu-python.html">3. Các cấu trúc cơ bản trong Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-04-pandas.html">4. Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-05-ngu-phap-bieu-do.html">5. Ngữ pháp của biểu đồ với <code class="docutils literal notranslate"><span class="pre">plotnine</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-06-datetime.html">6. Dữ liệu thời gian trong Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-07-lam-viec-voi-text.html">7. Biến đổi dữ liệu text trong python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-08-numpy.html">8. Numpy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-09-seaborn.html">9. Trực quan hóa với Seaborn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-10-matplotlib.html">10. Trực quan hóa với Matplotlib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-19-so-sanh-python-r.html">11. So sánh R với Python cơ bản</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-20-polars.html">12. Polars</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-99-tricks-python.html">13. Các mẹo trong Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-05-polars.html">5. Polars</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-06-ngu-phap-bieu-do.html">6. Ngữ pháp của biểu đồ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-07-datetime.html">7. Dữ liệu thời gian trong Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-08-lam-viec-voi-text.html">8. Biến đổi dữ liệu text trong python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-09-numpy.html">9. Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-10-thong-ke-co-ban.html">10. Các chỉ số thống kê mô tả cơ bản</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-11-map-folium.html">11. Bản đồ với <code class="docutils literal notranslate"><span class="pre">folium</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-99-tricks-python.html">12. Các mẹo trong Python</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Lập trình trong Python</span></p>
 <ul>
@@ -98,6 +97,12 @@
 <li class="toctree-l1"><a class="reference internal" href="p05-03-xgboost.html">3. Xgboost với sklearn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p05-07-machine-learning-h2o.html">4. Machine learning với <code class="docutils literal notranslate"><span class="pre">H2O</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="p05-20-api-flask.html">5. Xây dựng API dự báo với Flask</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Kiến thức bổ trợ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="p06-01-so-sanh-python-r.html">1. So sánh R với Python cơ bản</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p06-02-matplotlib.html">2. Trực quan hóa với Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p06-03-seaborn.html">3. Trực quan hóa với Seaborn</a></li>
 </ul>
 
         </div>
@@ -130,10 +135,19 @@
 <h2><span class="section-number">1.1. </span>Giới thiệu<a class="headerlink" href="#Giới-thiệu" title="Link to this heading"></a></h2>
 <p>Python là ngôn ngữ phổ biến nhất cho Machine Learning nói chung và Data Science nói riêng bởi tính đơn giản gọn nhẹ. Python cũng đồng thời được coi là ngôn ngữ tốt thứ 2 trong rất nhiều lĩnh vực.</p>
 <p>Do độ phổ cập rộng rãi của Python cũng như tính hữu dụng khi làm việc, tương tác với mô trường điện toán đám mấy (cloud) và thiết kế API/deployment cho lĩnh vực AI, bên cạnh các ngôn ngữ phân tích thống kê, khám phá như R, Stata,…, ta cần làm quen và sử dụng Python để có thể mở rộng phạm vi làm việc cũng như tương tác cho các lĩnh vực khác nhau.</p>
-<p>Tài liệu này được viết riêng dành cho nhóm phân tích dữ liệu từ R dịch chuyển sang Python để có thể dễ dàng tiếp cận, đơn giản hóa quá trình học và sử dụng một ngôn ngữ phân tích mới.</p>
+<p>Tài liệu này được viết riêng dành cho nhóm phân tích dữ liệu từ R dịch chuyển sang Python để có thể dễ dàng tiếp cận, đơn giản hóa quá trình học và sử dụng một ngôn ngữ phân tích mới. Lộ trình học nên bám sát theo:</p>
+<ul class="simple">
+<li><p>Python IDE, Notebook, Visual Studio</p></li>
+<li><p>Cơ bản về Python</p></li>
+<li><p>Biến đổi dữ liệu với <code class="docutils literal notranslate"><span class="pre">polars</span></code></p></li>
+<li><p>Biến đổi dữ liệu với <code class="docutils literal notranslate"><span class="pre">lets_plot</span></code></p></li>
+<li><p>Các chỉ số thống kê cơ bản</p></li>
+<li><p>Lập trình hàm</p></li>
+</ul>
+<p>Các nội dung khác có thể học &amp; bổ sung sau</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p><strong>Lưu ý</strong>: Đối với các bạn sử dụng Python từ các ngôn ngữ lập trình thống kê khác như R hoặc Stata, sẽ có 1 chút khó khăn trong giai đoạn mới sử dụng ở 2 điểm</p>
+<p><strong>Lưu ý</strong>: Khi mới sử dụng Python từ các ngôn ngữ lập trình thống kê khác như R hoặc Stata, sẽ có 1 chút khó khăn trong giai đoạn mới sử dụng ở 2 điểm</p>
 <ul class="simple">
 <li><p>Python cài đặt và sử dụng thư viện chủ yếu trên <code class="docutils literal notranslate"><span class="pre">terminal</span></code> hoặc <code class="docutils literal notranslate"><span class="pre">cmd</span></code>, khiến cho việc cài đặt và quản lý package có chút khó khăn</p></li>
 <li><p>Các đối tượng trong Python có <code class="docutils literal notranslate"><span class="pre">methods</span></code> đi kèm - đây là điều hơi khó hiểu với những người sử dụng các ngôn ngữ phân tích khác - đặc biệt từ R, do chủ yếu chỉ có hàm (<code class="docutils literal notranslate"><span class="pre">function</span></code>) mà không có <code class="docutils literal notranslate"><span class="pre">method</span></code></p></li>

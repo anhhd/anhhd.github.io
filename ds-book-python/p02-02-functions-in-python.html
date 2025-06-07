@@ -55,17 +55,14 @@
 <li class="toctree-l1"><a class="reference internal" href="p01-02-python-ide.html">2. Python IDE - Jupyter lab &amp; Visual Studio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-03-cau-truc-du-lieu-python.html">3. Các cấu trúc cơ bản trong Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-04-pandas.html">4. Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-05-ngu-phap-bieu-do.html">5. Ngữ pháp của biểu đồ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-06-datetime.html">6. Dữ liệu thời gian trong Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-07-lam-viec-voi-text.html">7. Biến đổi dữ liệu text trong python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-08-numpy.html">8. Numpy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-09-seaborn.html">9. Trực quan hóa với Seaborn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-10-matplotlib.html">10. Trực quan hóa với Matplotlib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-11-thong-ke-co-ban.html">11. Các chỉ số thống kê mô tả cơ bản</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-19-so-sanh-python-r.html">12. So sánh R với Python cơ bản</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-20-map-folium.html">13. Bản đồ với <code class="docutils literal notranslate"><span class="pre">folium</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-20-polars.html">14. Polars</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-99-tricks-python.html">15. Các mẹo trong Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-05-polars.html">5. Polars</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-06-ngu-phap-bieu-do.html">6. Ngữ pháp của biểu đồ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-07-datetime.html">7. Dữ liệu thời gian trong Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-08-lam-viec-voi-text.html">8. Biến đổi dữ liệu text trong python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-09-numpy.html">9. Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-10-thong-ke-co-ban.html">10. Các chỉ số thống kê mô tả cơ bản</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-11-map-folium.html">11. Bản đồ với <code class="docutils literal notranslate"><span class="pre">folium</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-99-tricks-python.html">12. Các mẹo trong Python</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Lập trình trong Python</span></p>
 <ul class="current">
@@ -75,13 +72,13 @@
 <li class="toctree-l2"><a class="reference internal" href="#Các-lưu-ý-với-hàm">2.2. Các lưu ý với hàm</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Hint">2.2.1. Hint</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#*args-và-**kwargs">2.2.2. *args và **kwargs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Higher-order-functions">2.2.3. Higher order functions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#map,-filter,-reduce">2.2.3.1. map, filter, reduce</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Nested-function---hàm-lồng">2.2.3.2. Nested function - hàm lồng</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Decorator">2.2.3.3. Decorator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#yield">2.2.3. yield</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#yield">2.2.4. yield</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Higher-order-functions">2.3. Higher order functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#map,-filter,-reduce">2.3.1. map, filter, reduce</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Nested-function---hàm-lồng">2.3.2. Nested function - hàm lồng</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Decorator">2.3.3. Decorator</a></li>
 </ul>
 </li>
 </ul>
@@ -94,6 +91,12 @@
 <li class="toctree-l1"><a class="reference internal" href="p05-03-xgboost.html">3. Xgboost với sklearn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p05-07-machine-learning-h2o.html">4. Machine learning với <code class="docutils literal notranslate"><span class="pre">H2O</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="p05-20-api-flask.html">5. Xây dựng API dự báo với Flask</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Kiến thức bổ trợ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="p06-01-so-sanh-python-r.html">1. So sánh R với Python cơ bản</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p06-02-matplotlib.html">2. Trực quan hóa với Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p06-03-seaborn.html">3. Trực quan hóa với Seaborn</a></li>
 </ul>
 
         </div>
@@ -174,7 +177,7 @@
 <div class="highlight"><pre>
 <span class="ansi-red-fg">Signature:</span> plus_1(a, b=<span class="ansi-green-fg">2</span>)
 <span class="ansi-red-fg">Docstring:</span> Trả ra kết quả hàm tổng
-<span class="ansi-red-fg">File:</span>      c:\users\admin\appdata\local\temp\ipykernel_25336\2568156839.py
+<span class="ansi-red-fg">File:</span>      c:\users\admin\appdata\local\temp\ipykernel_9044\2568156839.py
 <span class="ansi-red-fg">Type:</span>      function
 </pre></div></div>
 </div>
@@ -202,7 +205,7 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-np.int64(12)
+12
 </pre></div></div>
 </div>
 </section>
@@ -292,17 +295,45 @@ np.int64(12)
 </pre></div></div>
 </div>
 </section>
+<section id="yield">
+<h3><span class="section-number">2.2.3. </span>yield<a class="headerlink" href="#yield" title="Link to this heading"></a></h3>
+<p>Khác với <code class="docutils literal notranslate"><span class="pre">return</span></code>, <code class="docutils literal notranslate"><span class="pre">yield</span></code> cho phép trả ra nhiều kết quả trong một function.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">simple_generator</span><span class="p">():</span>
+    <span class="k">yield</span> <span class="s1">&#39;apple&#39;</span>
+    <span class="k">yield</span> <span class="s1">&#39;store&#39;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">simple_generator</span><span class="p">()</span>
+<span class="c1"># Kiểm tra kết quả</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+apple
+store
+</pre></div></div>
+</div>
+</section>
+</section>
 <section id="Higher-order-functions">
-<h3><span class="section-number">2.2.3. </span>Higher order functions<a class="headerlink" href="#Higher-order-functions" title="Link to this heading"></a></h3>
+<h2><span class="section-number">2.3. </span>Higher order functions<a class="headerlink" href="#Higher-order-functions" title="Link to this heading"></a></h2>
 <p>Các hàm thuộc nhóm này có 1 trong các đặc điểm sau:</p>
 <ul class="simple">
 <li><p>Nhận một hàm khác làm input đầu vào: như <code class="docutils literal notranslate"><span class="pre">map</span></code>, <code class="docutils literal notranslate"><span class="pre">filter</span></code>, <code class="docutils literal notranslate"><span class="pre">reduce</span></code></p></li>
 <li><p>Trả về kết quả là một hàm khác - nhóm hàm <code class="docutils literal notranslate"><span class="pre">nested</span></code> và <code class="docutils literal notranslate"><span class="pre">decorator</span></code></p></li>
 </ul>
 <section id="map,-filter,-reduce">
-<h4><span class="section-number">2.2.3.1. </span>map, filter, reduce<a class="headerlink" href="#map,-filter,-reduce" title="Link to this heading"></a></h4>
+<h3><span class="section-number">2.3.1. </span>map, filter, reduce<a class="headerlink" href="#map,-filter,-reduce" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nhóm hàm map</span>
@@ -324,7 +355,7 @@ np.int64(12)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nhóm hàm filter</span>
@@ -346,7 +377,7 @@ np.int64(12)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nhóm hàm reduce</span>
@@ -371,7 +402,7 @@ np.int64(12)
 </div>
 </section>
 <section id="Nested-function---hàm-lồng">
-<h4><span class="section-number">2.2.3.2. </span>Nested function - hàm lồng<a class="headerlink" href="#Nested-function---hàm-lồng" title="Link to this heading"></a></h4>
+<h3><span class="section-number">2.3.2. </span>Nested function - hàm lồng<a class="headerlink" href="#Nested-function---hàm-lồng" title="Link to this heading"></a></h3>
 <p>Với mỗi hàm, ta sẽ có 3 cấu phần chính:</p>
 <ul class="simple">
 <li><p>Input - tham số đầu vào</p></li>
@@ -392,7 +423,7 @@ np.int64(12)
 <hr class="docutils" />
 <p><strong>Trường hợp 1</strong>: Hàm bên trong sử dụng tham số hàm bên ngoài là đầu vào</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Trường hợp 1: g dùng x là đầu vào</span>
@@ -404,7 +435,7 @@ np.int64(12)
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo hàm mới - gọi là add_five</span>
@@ -414,7 +445,7 @@ np.int64(12)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -425,7 +456,7 @@ np.int64(12)
 <hr class="docutils" />
 <p><strong>Trường hợp 2</strong>: Sử dụng 1 hàm là tham số đầu vào cho một hàm khác</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hai hàm đầu tiên</span>
@@ -444,7 +475,7 @@ np.int64(12)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -453,7 +484,7 @@ np.int64(12)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f_calculate</span><span class="p">(</span><span class="n">multiply</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
@@ -461,7 +492,7 @@ np.int64(12)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -471,11 +502,11 @@ np.int64(12)
 </div>
 </section>
 <section id="Decorator">
-<h4><span class="section-number">2.2.3.3. </span>Decorator<a class="headerlink" href="#Decorator" title="Link to this heading"></a></h4>
+<h3><span class="section-number">2.3.3. </span>Decorator<a class="headerlink" href="#Decorator" title="Link to this heading"></a></h3>
 <p>Decorator là phương thức cho phép chỉnh sửa cách thức hoạt động của một hàm hoặc một lớp (class) mà không ảnh hưởng đến mã nguồn của hàm đó. Decorator sử dụng với cú pháp <code class="docutils literal notranslate"><span class="pre">&#64;decorator_name</span></code>.</p>
 <p>Trước khi đi vào cú pháp chính tắc của decorator với <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>, ta xem xét hàm sau:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hàm 1 - trả tên</span>
@@ -487,7 +518,7 @@ np.int64(12)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -496,7 +527,7 @@ np.int64(12)
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hàm 2 - convert upper</span>
@@ -511,7 +542,7 @@ np.int64(12)
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hàm 3 - Tạo ra từ 2 hàm trên</span>
@@ -530,7 +561,7 @@ wrap
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -546,7 +577,7 @@ wrap
 </ul>
 <p>Cách viết trên có thể đơn giản hóa thông qua sử dụng decorator như sau</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@convert_upper</span>
@@ -567,7 +598,7 @@ wrap
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -583,7 +614,7 @@ wrap
 <li><p>Bổ sung thêm cảnh báo và bỏ qua nếu <span class="math notranslate nohighlight">\(b=0\)</span> với decorator</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">divide</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
@@ -592,7 +623,7 @@ wrap
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">divide</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
@@ -600,7 +631,7 @@ wrap
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -609,7 +640,7 @@ wrap
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bổ sung decorator</span>
@@ -625,7 +656,7 @@ wrap
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@smart_divide</span>
@@ -635,7 +666,7 @@ wrap
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">divide</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
@@ -652,7 +683,7 @@ b = 0, cannot divide
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">divide</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
@@ -668,7 +699,7 @@ Divide 7 by 8
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -679,7 +710,7 @@ Divide 7 by 8
 <hr class="docutils" />
 <p><strong>Chain decorators</strong>: Các decorator có thể dùng liên tục và nối nhau</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hàm đầu tiên</span>
@@ -689,7 +720,7 @@ Divide 7 by 8
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo thêm star</span>
@@ -711,7 +742,7 @@ Divide 7 by 8
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@star</span>
@@ -722,7 +753,7 @@ Divide 7 by 8
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_name</span><span class="p">(</span><span class="s2">&quot;duc anh&quot;</span><span class="p">)</span>
@@ -751,7 +782,7 @@ $$$$$$$$$$$$$$$$$$$$
 </ul>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ví dụ viết log</span>
@@ -765,7 +796,7 @@ $$$$$$$$$$$$$$$$$$$$
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@logger</span>
@@ -775,7 +806,7 @@ $$$$$$$$$$$$$$$$$$$$
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f_hello</span><span class="p">(</span><span class="s2">&quot;Duc Anh&quot;</span><span class="p">)</span>
@@ -790,40 +821,6 @@ $$$$$$$$$$$$$$$$$$$$
 Step: Calling f_hello
 ********************
 Hello Duc Anh
-</pre></div></div>
-</div>
-</section>
-</section>
-<section id="yield">
-<h3><span class="section-number">2.2.4. </span>yield<a class="headerlink" href="#yield" title="Link to this heading"></a></h3>
-<p>Khác với <code class="docutils literal notranslate"><span class="pre">return</span></code> sẽ chỉ trả ra kết quả trong hàm, <code class="docutils literal notranslate"><span class="pre">yield</span></code> cho phép trả ra nhiều kết quả. Xem ví dụ đươi đây</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">simple_generator</span><span class="p">():</span>
-    <span class="k">yield</span> <span class="s1">&#39;apple&#39;</span>
-    <span class="k">yield</span> <span class="s1">&#39;store&#39;</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">simple_generator</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-apple
-store
 </pre></div></div>
 </div>
 </section>
