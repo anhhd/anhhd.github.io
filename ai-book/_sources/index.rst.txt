@@ -13,29 +13,6 @@ Cơ bản về Deep Learning
    :glob:
    
    p01*
-    
-
-DL với dữ liệu text
-===================================================
-
-.. toctree::
-   :maxdepth: 2
-   :numbered:
-   :caption: Deep Learning với text
-   :glob:
-   
-   p03*
-
-DL với dữ liệu ảnh
-===================================================
-
-.. toctree::
-   :maxdepth: 2
-   :numbered:
-   :caption: DL với dữ liệu ảnh
-   :glob:
-   
-   p04*
 
 LLM & GenAI
 ===================================================

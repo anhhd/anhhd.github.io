@@ -7,10 +7,11 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>2. Toán cơ bản với DL &mdash; AI book 2024 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/nbsphinx-code-cells.css?v=2aa19091" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -20,9 +21,8 @@
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -53,27 +53,32 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="p01-01-gioi-thieu-deep-learning.html">1. Giới thiệu về học sâu</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">2. Toán cơ bản với DL</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Tensor">2.1. Tensor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Các-phép-toán-cơ-bản-với-tensor">2.2. Các phép toán cơ bản với tensor</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Phép-tính-từng-phần-tử-(element-wise-operator)">2.2.1. Phép tính từng phần tử (<code class="docutils literal notranslate"><span class="pre">element</span> <span class="pre">wise</span> <span class="pre">operator</span></code>)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Phép-tính-giữa-các-ma-trận-khác-chiều">2.2.2. Phép tính giữa các ma trận khác chiều</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Phép-nhân-tensor">2.2.3. Phép nhân tensor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Thay-đổi-định-dạng-tensor">2.2.4. Thay đổi định dạng tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tensor">2.1. Tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cac-phep-toan-co-ban-voi-tensor">2.2. Các phép toán cơ bản với tensor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#phep-tinh-tung-phan-tu-element-wise-operator">2.2.1. Phép tính từng phần tử (<code class="docutils literal notranslate"><span class="pre">element</span> <span class="pre">wise</span> <span class="pre">operator</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#phep-tinh-giua-cac-ma-tran-khac-chieu">2.2.2. Phép tính giữa các ma trận khác chiều</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#phep-nhan-tensor">2.2.3. Phép nhân tensor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thay-doi-dinh-dang-tensor">2.2.4. Thay đổi định dạng tensor</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Ý-nghĩa-hình-học-các-phép-biến-đổi-tensor">2.3. Ý nghĩa hình học các phép biến đổi tensor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Tối-ưu-hóa">2.4. Tối ưu hóa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#y-nghia-hinh-hoc-cac-phep-bien-doi-tensor">2.3. Ý nghĩa hình học các phép biến đổi tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#toi-uu-hoa">2.4. Tối ưu hóa</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="p01-03-dl-co-ban.html">3. Tensorflow &amp; Keras</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html">4. Chuỗi thời gian</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html#Giới-thiệu">5. Giới thiệu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html#gioi-thieu">5. Giới thiệu</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">LLM &amp; GenAI</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="p02-01-gioi-thieu-llm.html">1. Giới thiệu về mô hình ngôn ngữ lớn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p02-02-xu-ly-text.html">2. Xử lý dữ liệu text</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p02-03-co-che-tu-chu-y.html">3. Cơ chế tự chú ý</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">LLM &amp; GenAI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="p05-01-gioi-thieu-langchain.html">1. Giới thiệu langchain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p05-04-phan-tich-du-lieu.html">2. Use case - truy vấn &amp; phân tích dữ liệu</a></li>
 </ul>
 
         </div>
@@ -100,10 +105,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Toán-cơ-bản-với-DL">
-<h1><span class="section-number">2. </span>Toán cơ bản với DL<a class="headerlink" href="#Toán-cơ-bản-với-DL" title="Link to this heading"></a></h1>
-<section id="Tensor">
-<h2><span class="section-number">2.1. </span>Tensor<a class="headerlink" href="#Tensor" title="Link to this heading"></a></h2>
+  <section id="toan-co-ban-voi-dl">
+<h1><span class="section-number">2. </span>Toán cơ bản với DL<a class="headerlink" href="#toan-co-ban-voi-dl" title="Link to this heading"></a></h1>
+<section id="tensor">
+<h2><span class="section-number">2.1. </span>Tensor<a class="headerlink" href="#tensor" title="Link to this heading"></a></h2>
 <p>Dư liệu đầu vào của mạng neural thần kinh là dữ liệu định dạng mảng, chỉ chứa số và được gọi là <code class="docutils literal notranslate"><span class="pre">tensor</span></code>. Một tensor có thể có từ 0 đến nhiều chiều khác nhau và có cơ bản các thuộc tính sau:</p>
 <ul class="simple">
 <li><p>Số chiều (dimension, <code class="docutils literal notranslate"><span class="pre">axes</span></code>)</p></li>
@@ -111,111 +116,84 @@
 <li><p>Định dạng dữ liệu của mỗi tensor (<code class="docutils literal notranslate"><span class="pre">float64</span></code>, <code class="docutils literal notranslate"><span class="pre">float32</span></code>)</p></li>
 </ul>
 <p><strong>Tensor 0D - Scalars</strong></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">x</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array(1)
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-array(1)
-</pre></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Số chiều dimension</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Số chiều dimension</span>
 <span class="n">x</span><span class="o">.</span><span class="n">ndim</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-0
-</pre></div></div>
+</div>
 </div>
 <hr class="docutils" />
 <p><strong>Tensor 1D</strong></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="n">y</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 3])
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-array([1, 2, 3])
-</pre></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Số chiều</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Số chiều</span>
 <span class="n">y</span><span class="o">.</span><span class="n">ndim</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-1
-</pre></div></div>
+</div>
 </div>
 <hr class="docutils" />
 <p><strong>Tensor 2D</strong></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
               <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
               <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
 <span class="n">x</span><span class="o">.</span><span class="n">ndim</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-2
-</pre></div></div>
+</div>
 </div>
 <p>Trong ví dụ trên, giá trị <code class="docutils literal notranslate"><span class="pre">[5,</span> <span class="pre">78,</span> <span class="pre">2,</span> <span class="pre">35,</span> <span class="pre">0]</span></code> đại diện cho dòng (<code class="docutils literal notranslate"><span class="pre">x-axis</span></code>)</p>
 <hr class="docutils" />
 <p><strong>Tensor 3D</strong></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
                <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
                <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">2</span><span class="p">]],</span>
               <span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
@@ -228,231 +206,189 @@ array([1, 2, 3])
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-3
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-array([[ 5, 78,  2, 34,  0],
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 5, 78,  2, 34,  0],
        [ 6, 79,  3, 35,  1],
        [ 7, 80,  4, 36,  2]])
-</pre></div></div>
+</pre></div>
+</div>
+</div>
 </div>
 <p>Tương tự như các tensor 2D, ta có thể tạo ra các tensor 3D, 4D hoặc cao hơn nữa. Định dạng dữ liệu tensor có thể được sử dụng trong các tập dữ liệu khác nhau.</p>
 <ul class="simple">
 <li><p>Vector data—2D: (samples, features)</p></li>
 <li><p>Dữ liệu thời gian - tensor 3D: (samples, timesteps, features)</p></li>
 </ul>
-<p><img alt="image1" src="_images/p01-02-derivative.png" /></p>
+<p><img alt="" src="_images/p01-02-tensor-3d.png" /></p>
 <ul class="simple">
-<li><p>Dữ liệu ảnh - tensor 4D: (samples, height, width, channels) hoặc (samples, channels, height, width)</p></li>
+<li><p>Dữ liệu ảnh - tensor 4D: (samples, height, width, channels) hoặc (samples,
+channels, height, width)</p></li>
 </ul>
-<p><img alt="image2" src="_images/p01-02-tensor-scale.png" /></p>
+<p><img alt="" src="_images/p01-02-tensor-4d.png" /></p>
 <ul class="simple">
-<li><p>Dữ liệu Video — 5D tensors: (samples, frames, height, width, channels) hoặc (samples, frames, channels, height, width)</p></li>
+<li><p>Dữ liệu Video — 5D tensors: (samples, frames, height, width, channels) hoặc
+(samples, frames, channels, height, width)</p></li>
 </ul>
 <p>Dữ liệu thực tế khi đi qua mạng neural</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.keras.datasets</span> <span class="kn">import</span> <span class="n">mnist</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">mnist</span>
 <span class="p">(</span><span class="n">train_images</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">),</span> <span class="p">(</span><span class="n">test_images</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Số chiều</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Số chiều</span>
 <span class="n">train_images</span><span class="o">.</span><span class="n">ndim</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-3
-</pre></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shape - 60K quan sát, mỗi quan sát có 28x28</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shape - 60K quan sát, mỗi quan sát có 28x28</span>
 <span class="n">train_images</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(60000, 28, 28)
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-(60000, 28, 28)
-</pre></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dtype</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dtype</span>
 <span class="n">train_images</span><span class="o">.</span><span class="n">dtype</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype(&#39;uint8&#39;)
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-dtype(&#39;uint8&#39;)
-</pre></div></div>
+</div>
 </div>
 </section>
-<section id="Các-phép-toán-cơ-bản-với-tensor">
-<h2><span class="section-number">2.2. </span>Các phép toán cơ bản với tensor<a class="headerlink" href="#Các-phép-toán-cơ-bản-với-tensor" title="Link to this heading"></a></h2>
+<section id="cac-phep-toan-co-ban-voi-tensor">
+<h2><span class="section-number">2.2. </span>Các phép toán cơ bản với tensor<a class="headerlink" href="#cac-phep-toan-co-ban-voi-tensor" title="Link to this heading"></a></h2>
 <p>Khi thực hiện các phép toán ma trận của tensor, có các phép tính cơ bản sau</p>
 <ul class="simple">
-<li><p>Phép tính max với 0: <span class="math notranslate nohighlight">\(relu(x) = max(x, 0)\)</span>. Ví dụ: <span class="math notranslate nohighlight">\(relu(2) = 2\)</span> &amp; <span class="math notranslate nohighlight">\(relu(-1) = max(-1, 0) = 0\)</span></p></li>
-<li><p>Phép <span class="math notranslate nohighlight">\(dot(w, x) = \sum_{i=1..n}w_i*x_i\)</span>. Ví dụ</p></li>
+<li><p>Phép tính max với 0: $relu(x) = max(x, 0)$. Ví dụ: $relu(2) = 2$ &amp; $relu(-1) = max(-1, 0) = 0$</p></li>
+<li><p>Phép $dot(w, x) = \sum_{i=1..n}w_i*x_i$. Ví dụ</p></li>
 </ul>
-<p><span class="math notranslate nohighlight">\(x= [1, 2, 3]\)</span> và <span class="math notranslate nohighlight">\(w = [0.2, 0.8, -0.5]\)</span> với <span class="math notranslate nohighlight">\(b = 2\)</span>. Phép tính dot sẽ như sau:</p>
-<div class="math notranslate nohighlight">
-\[z = (1 \cdot 0.2) + (2 \cdot 0.8) + (3 \cdot -0.5) + 2 = 2.3\]</div>
-<section id="Phép-tính-từng-phần-tử-(element-wise-operator)">
-<h3><span class="section-number">2.2.1. </span>Phép tính từng phần tử (<code class="docutils literal notranslate"><span class="pre">element</span> <span class="pre">wise</span> <span class="pre">operator</span></code>)<a class="headerlink" href="#Phép-tính-từng-phần-tử-(element-wise-operator)" title="Link to this heading"></a></h3>
+<p>$x= [1, 2, 3]$ và $w = [0.2, 0.8, -0.5]$ với $b = 2$. Phép tính dot sẽ như sau:</p>
+<p>$$
+z = (1 \cdot 0.2) + (2 \cdot 0.8) + (3 \cdot -0.5) + 2 = 2.3
+$$</p>
+<section id="phep-tinh-tung-phan-tu-element-wise-operator">
+<h3><span class="section-number">2.2.1. </span>Phép tính từng phần tử (<code class="docutils literal notranslate"><span class="pre">element</span> <span class="pre">wise</span> <span class="pre">operator</span></code>)<a class="headerlink" href="#phep-tinh-tung-phan-tu-element-wise-operator" title="Link to this heading"></a></h3>
 <p>Element-wise operator (phép toán từng phần tử) là các phép toán được thực hiện trên từng phần tử tương ứng của hai hoặc nhiều mảng (arrays) hoặc ma trận (matrices). Điều này có nghĩa là mỗi phần tử trong mảng đầu tiên sẽ được kết hợp với phần tử tương ứng tại cùng vị trí trong mảng thứ hai (hoặc các mảng khác) để tạo ra kết quả. Các phép toán không phụ thuộc vào nhau. Các toán tử này có thể được tính toán rất nhanh khi thực hiện tính toán đa nhân.</p>
 <p>Có ba toán tử chính trong element wise operator là relu, phép cộng và phép nhân ma trận</p>
 </section>
-<section id="Phép-tính-giữa-các-ma-trận-khác-chiều">
-<h3><span class="section-number">2.2.2. </span>Phép tính giữa các ma trận khác chiều<a class="headerlink" href="#Phép-tính-giữa-các-ma-trận-khác-chiều" title="Link to this heading"></a></h3>
+<section id="phep-tinh-giua-cac-ma-tran-khac-chieu">
+<h3><span class="section-number">2.2.2. </span>Phép tính giữa các ma trận khác chiều<a class="headerlink" href="#phep-tinh-giua-cac-ma-tran-khac-chieu" title="Link to this heading"></a></h3>
 <p>Đối với các ma trận khác chiều, khi tính toán có thể mở rộng chiều của các <code class="docutils literal notranslate"><span class="pre">tensor</span></code> có số chiều nhỏ hơn để phù hợp với các tensor lớn hơn.</p>
 <p>Xem ví dụ đơn giản sau</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span>
              <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span>
              <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[[1 2 3]
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1 2 3]
  [4 5 6]
  [7 8 9]]
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># shape X</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># shape X</span>
 <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-(3, 3)
-</pre></div></div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 3)
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Phép tính</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Phép tính</span>
 <span class="n">X</span> <span class="o">+</span> <span class="n">y</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-array([[11, 12, 13],
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[11, 12, 13],
        [14, 15, 16],
        [17, 18, 19]])
-</pre></div></div>
+</pre></div>
+</div>
+</div>
 </div>
 <p>Tuy nhiên, khi số chiều của 1 tensor chưa tương thích với việc mở rộng của cả array, ta sẽ không thể thực hiện được các phép tính toán. Xem ví dụ sau</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-</pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">ValueError</span>                                Traceback (most recent call last)
-Cell <span class="ansi-green-intense-fg ansi-bold">In[31], line 1</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span> <span class="ansi-yellow-bg">X</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">+</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">np</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">array</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">2</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">2</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">)</span>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">31</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">X</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 
-<span class="ansi-red-intense-fg ansi-bold">ValueError</span>: operands could not be broadcast together with shapes (3,3) (2,)
-</pre></div></div>
+<span class="ne">ValueError</span>: operands could not be broadcast together with shapes (3,3) (2,) 
+</pre></div>
+</div>
+</div>
 </div>
 </section>
-<section id="Phép-nhân-tensor">
-<h3><span class="section-number">2.2.3. </span>Phép nhân tensor<a class="headerlink" href="#Phép-nhân-tensor" title="Link to this heading"></a></h3>
+<section id="phep-nhan-tensor">
+<h3><span class="section-number">2.2.3. </span>Phép nhân tensor<a class="headerlink" href="#phep-nhan-tensor" title="Link to this heading"></a></h3>
 <p>Phép nhân vector, cho phép nhân 2 tensor lại và tạo thành 1 tensor mới.</p>
-<p><span class="math notranslate nohighlight">\(x(a, b) \times y(b, c) = z(a, c)\)</span></p>
-<p><img alt="image1" src="_images/p01-02-derivative.png" /></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+<p>$x(a, b) \times y(b, c) = z(a, c)$</p>
+<p><img alt="" src="_images/p01-02-dot.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
     <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
     <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
     <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
@@ -467,25 +403,21 @@ Cell <span class="ansi-green-intense-fg ansi-bold">In[31], line 1</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[[21]
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[21]
  [32]
  [51]]
-</pre></div></div>
-</div>
-</section>
-<section id="Thay-đổi-định-dạng-tensor">
-<h3><span class="section-number">2.2.4. </span>Thay đổi định dạng tensor<a class="headerlink" href="#Thay-đổi-định-dạng-tensor" title="Link to this heading"></a></h3>
-<p>Tensor reshaping là các sắp xếp lại các hàng và cột để về định dạng mong muốn</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+</div>
+</div>
+</section>
+<section id="thay-doi-dinh-dang-tensor">
+<h3><span class="section-number">2.2.4. </span>Thay đổi định dạng tensor<a class="headerlink" href="#thay-doi-dinh-dang-tensor" title="Link to this heading"></a></h3>
+<p>Tensor reshaping là các sắp xếp lại các hàng và cột để về định dạng mong muốn</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
               <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
               <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
               <span class="p">])</span>
@@ -493,114 +425,93 @@ Cell <span class="ansi-green-intense-fg ansi-bold">In[31], line 1</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-array([[1, 2],
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 2],
        [3, 4],
        [5, 6]])
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reshape sang (2, 3)</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reshape sang (2, 3)</span>
 <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-array([[1, 2, 3],
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 2, 3],
        [4, 5, 6]])
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reshape sang (1, 6)</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reshape sang (1, 6)</span>
 <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 2, 3, 4, 5, 6]])
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-array([[1, 2, 3, 4, 5, 6]])
-</pre></div></div>
+</div>
 </div>
 </section>
 </section>
-<section id="Ý-nghĩa-hình-học-các-phép-biến-đổi-tensor">
-<h2><span class="section-number">2.3. </span>Ý nghĩa hình học các phép biến đổi tensor<a class="headerlink" href="#Ý-nghĩa-hình-học-các-phép-biến-đổi-tensor" title="Link to this heading"></a></h2>
+<section id="y-nghia-hinh-hoc-cac-phep-bien-doi-tensor">
+<h2><span class="section-number">2.3. </span>Ý nghĩa hình học các phép biến đổi tensor<a class="headerlink" href="#y-nghia-hinh-hoc-cac-phep-bien-doi-tensor" title="Link to this heading"></a></h2>
 <p>Các phép biến đổi của tensor có thể chuyển đổi sang hình ảnh của các phép biến đổi như sau</p>
 <ul class="simple">
 <li><p>Phép cộng tensor: cho phép dịch chuyển đối tượng</p></li>
 </ul>
-<p><img alt="image1" src="_images/p01-02-derivative.png" /></p>
+<p><img alt="" src="_images/p01-02-tensor-translation.png" /></p>
 <ul class="simple">
 <li><p>Phép nhân ma trận: Có thể tạo thành việc xoay chiều đối tượng hoặc thay đổi tỷ lệ (rescaling)</p></li>
 </ul>
-<p><img alt="image1" src="_images/p01-02-derivative.png" /></p>
-<p><img alt="image2" src="_images/p01-02-tensor-scale.png" /></p>
+<p><img alt="" src="_images/p01-02-tensor-rotation.png" /></p>
+<p><img alt="" src="_images/p01-02-tensor-scale.png" /></p>
 </section>
-<section id="Tối-ưu-hóa">
-<h2><span class="section-number">2.4. </span>Tối ưu hóa<a class="headerlink" href="#Tối-ưu-hóa" title="Link to this heading"></a></h2>
+<section id="toi-uu-hoa">
+<h2><span class="section-number">2.4. </span>Tối ưu hóa<a class="headerlink" href="#toi-uu-hoa" title="Link to this heading"></a></h2>
 <p>Các phép tính trong neural network để tính toán ra các bộ tham số đều được dựa trên việc tính toán đạo hàm (<code class="docutils literal notranslate"><span class="pre">derivatives</span></code>). Với hàm đơn biến và liên tục, ta có:</p>
-<div class="math notranslate nohighlight">
-\[f(x + \epsilon) = f(x) + f'(x) \times \epsilon\]</div>
-<p><img alt="image1" src="_images/p01-02-derivative.png" /></p>
+<p>$$f(x + \epsilon) = f(x) + f'(x) \times \epsilon$$</p>
+<p><img alt="" src="_images/p01-02-derivative.png" /></p>
 <p><strong>Ý nghĩa</strong>: Khi muốn tìm điểm cực tiểu của một hàm, ta có thể đi qua ba bước:</p>
 <ul class="simple">
 <li><p>Bắt đầu tại 1 điểm bất kỳ</p></li>
 <li><p>Tính toán đạo hàm tại điểm đó</p></li>
 <li><p>Cập nhật tham số mới: W1 = W0 - step * grad(f(W0), W0)</p></li>
 </ul>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mf">0.</span><span class="p">)</span>
 <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span>
     <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">3</span>
-<br/></pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grad_of_y_wrt_x</span> <span class="o">=</span> <span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grad_of_y_wrt_x</span> <span class="o">=</span> <span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">grad_of_y_wrt_x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-tf.Tensor(2.0, shape=(), dtype=float32)
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tf.Tensor(2.0, shape=(), dtype=float32)
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
 <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span>
     <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">3</span>
 <span class="n">grad_of_y_wrt_x</span> <span class="o">=</span> <span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
@@ -608,21 +519,17 @@ tf.Tensor(2.0, shape=(), dtype=float32)
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-tf.Tensor(
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tf.Tensor(
 [[2. 2.]
  [2. 2.]], shape=(2, 2), dtype=float32)
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,)))</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span>
@@ -632,15 +539,13 @@ tf.Tensor(
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[&lt;tf.Tensor: shape=(2, 2), dtype=float32, numpy=
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;tf.Tensor: shape=(2, 2), dtype=float32, numpy=
 array([[0.90537345, 0.90537345],
        [1.8831768 , 1.8831768 ]], dtype=float32)&gt;, &lt;tf.Tensor: shape=(2,), dtype=float32, numpy=array([2., 2.], dtype=float32)&gt;]
-</pre></div></div>
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>

@@ -10,7 +10,8 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/nbsphinx-code-cells.css?v=2aa19091" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -20,9 +21,8 @@
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -75,8 +75,8 @@
 <li class="toctree-l1"><a class="reference internal" href="p05-02-sklearn-advanced.html">2. sklearn nâng cao</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p05-03-xgboost.html">3. Xgboost với sklearn</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">4. Machine learning với <code class="docutils literal notranslate"><span class="pre">H2O</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Giới-thiệu">4.1. Giới thiệu</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Tài-liệu-tham-khảo">4.2. Tài liệu tham khảo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gioi-thieu">4.1. Giới thiệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tai-lieu-tham-khao">4.2. Tài liệu tham khảo</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="p05-20-api-flask.html">5. Xây dựng API dự báo với Flask</a></li>
@@ -112,36 +112,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Machine-learning-với-H2O">
-<h1><span class="section-number">4. </span>Machine learning với <code class="docutils literal notranslate"><span class="pre">H2O</span></code><a class="headerlink" href="#Machine-learning-với-H2O" title="Link to this heading"></a></h1>
-<section id="Giới-thiệu">
-<h2><span class="section-number">4.1. </span>Giới thiệu<a class="headerlink" href="#Giới-thiệu" title="Link to this heading"></a></h2>
+  <section id="machine-learning-voi-h2o">
+<h1><span class="section-number">4. </span>Machine learning với <code class="docutils literal notranslate"><span class="pre">H2O</span></code><a class="headerlink" href="#machine-learning-voi-h2o" title="Link to this heading"></a></h1>
+<section id="gioi-thieu">
+<h2><span class="section-number">4.1. </span>Giới thiệu<a class="headerlink" href="#gioi-thieu" title="Link to this heading"></a></h2>
 <p>Tương tự như R, <code class="docutils literal notranslate"><span class="pre">H2O</span></code> phát triển module máy học trên <code class="docutils literal notranslate"><span class="pre">python</span></code>. Từ <code class="docutils literal notranslate"><span class="pre">h2o</span></code> version <code class="docutils literal notranslate"><span class="pre">3.26.0.7</span></code>, H2O cho phép upload ngược lại <code class="docutils literal notranslate"><span class="pre">MOJO</span> <span class="pre">object</span></code> để có thể sử dụng trong mô hình.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">h2o</span>
 </pre></div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">h2o</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h2o</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">nthreads</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_mem_size</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">h2o</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Checking whether there is an H2O instance running at http://localhost:54321 ..... not found.
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h2o</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">nthreads</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_mem_size</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Checking whether there is an H2O instance running at http://localhost:54321 ..... not found.
 Attempting to start a local H2O server...
 ; Java HotSpot(TM) 64-Bit Server VM (build 25.172-b11, mixed mode)
   Starting server from C:\Users\Admin\Anaconda3\lib\site-packages\h2o\backend\bin\h2o.jar
@@ -150,13 +143,9 @@ Attempting to start a local H2O server...
   JVM stderr: C:\Users\Admin\AppData\Local\Temp\tmpzkoh5o7z\h2o_Admin_started_from_python.err
   Server is running at http://127.0.0.1:54321
 Connecting to H2O server at http://127.0.0.1:54321 ... successful.
-</pre></div></div>
+</pre></div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area rendered_html docutils container">
-<div style="overflow:auto"><table style="width:50%"><tr><td>H2O cluster uptime:</td>
+<div class="output text_html"><div style="overflow:auto"><table style="width:50%"><tr><td>H2O cluster uptime:</td>
 <td>04 secs</td></tr>
 <tr><td>H2O cluster timezone:</td>
 <td>Asia/Bangkok</td></tr>
@@ -187,37 +176,28 @@ Connecting to H2O server at http://127.0.0.1:54321 ... successful.
 <tr><td>H2O API Extensions:</td>
 <td>Amazon S3, Algos, AutoML, Core V3, TargetEncoder, Core V4</td></tr>
 <tr><td>Python version:</td>
-<td>3.6.5 final</td></tr></table></div></div>
+<td>3.6.5 final</td></tr></table></div></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">airlines_data</span> <span class="o">=</span> <span class="n">h2o</span><span class="o">.</span><span class="n">import_file</span><span class="p">(</span><span class="s2">&quot;./99_dataset/allyears2k.csv&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Parse progress: |█████████████████████████████████████████████████████████| 100%
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">airlines_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">airlines_data</span> <span class="o">=</span> <span class="n">h2o</span><span class="o">.</span><span class="n">import_file</span><span class="p">(</span><span class="s2">&quot;./99_dataset/allyears2k.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parse progress: |█████████████████████████████████████████████████████████| 100%
+</pre></div>
 </div>
-<div class="output_area rendered_html docutils container">
-<table>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">airlines_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
 <thead>
 <tr><th style="text-align: right;">  Year</th><th style="text-align: right;">  Month</th><th style="text-align: right;">  DayofMonth</th><th style="text-align: right;">  DayOfWeek</th><th style="text-align: right;">  DepTime</th><th style="text-align: right;">  CRSDepTime</th><th style="text-align: right;">  ArrTime</th><th style="text-align: right;">  CRSArrTime</th><th>UniqueCarrier  </th><th style="text-align: right;">  FlightNum</th><th>TailNum  </th><th style="text-align: right;">  ActualElapsedTime</th><th style="text-align: right;">  CRSElapsedTime</th><th style="text-align: right;">  AirTime</th><th style="text-align: right;">  ArrDelay</th><th style="text-align: right;">  DepDelay</th><th>Origin  </th><th>Dest  </th><th style="text-align: right;">  Distance</th><th style="text-align: right;">  TaxiIn</th><th style="text-align: right;">  TaxiOut</th><th style="text-align: right;">  Cancelled</th><th>CancellationCode  </th><th style="text-align: right;">  Diverted</th><th style="text-align: right;">  CarrierDelay</th><th style="text-align: right;">  WeatherDelay</th><th style="text-align: right;">  NASDelay</th><th style="text-align: right;">  SecurityDelay</th><th style="text-align: right;">  LateAircraftDelay</th><th>IsArrDelayed  </th><th>IsDepDelayed  </th></tr>
 </thead>
@@ -233,63 +213,43 @@ Parse progress: |█████████████████████
 <tr><td style="text-align: right;">  1987</td><td style="text-align: right;">     10</td><td style="text-align: right;">          24</td><td style="text-align: right;">          6</td><td style="text-align: right;">      744</td><td style="text-align: right;">         730</td><td style="text-align: right;">      908</td><td style="text-align: right;">         849</td><td>PS             </td><td style="text-align: right;">       1451</td><td>NA       </td><td style="text-align: right;">                 84</td><td style="text-align: right;">              79</td><td style="text-align: right;">      nan</td><td style="text-align: right;">        19</td><td style="text-align: right;">        14</td><td>SAN     </td><td>SFO   </td><td style="text-align: right;">       447</td><td style="text-align: right;">     nan</td><td style="text-align: right;">      nan</td><td style="text-align: right;">          0</td><td>NA                </td><td style="text-align: right;">         0</td><td style="text-align: right;">           nan</td><td style="text-align: right;">           nan</td><td style="text-align: right;">       nan</td><td style="text-align: right;">            nan</td><td style="text-align: right;">                nan</td><td>YES           </td><td>YES           </td></tr>
 <tr><td style="text-align: right;">  1987</td><td style="text-align: right;">     10</td><td style="text-align: right;">          25</td><td style="text-align: right;">          7</td><td style="text-align: right;">      729</td><td style="text-align: right;">         730</td><td style="text-align: right;">      851</td><td style="text-align: right;">         849</td><td>PS             </td><td style="text-align: right;">       1451</td><td>NA       </td><td style="text-align: right;">                 82</td><td style="text-align: right;">              79</td><td style="text-align: right;">      nan</td><td style="text-align: right;">         2</td><td style="text-align: right;">        -1</td><td>SAN     </td><td>SFO   </td><td style="text-align: right;">       447</td><td style="text-align: right;">     nan</td><td style="text-align: right;">      nan</td><td style="text-align: right;">          0</td><td>NA                </td><td style="text-align: right;">         0</td><td style="text-align: right;">           nan</td><td style="text-align: right;">           nan</td><td style="text-align: right;">       nan</td><td style="text-align: right;">            nan</td><td style="text-align: right;">                nan</td><td>YES           </td><td>NO            </td></tr>
 </tbody>
-</table></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</table></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-</pre></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Create a GBM model, only to later export it as a MOJO</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Create a GBM model, only to later export it as a MOJO</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">h2o.estimators</span><span class="w"> </span><span class="kn">import</span> <span class="n">H2OGradientBoostingEstimator</span>
 <span class="n">original_model</span> <span class="o">=</span> <span class="n">H2OGradientBoostingEstimator</span><span class="p">(</span><span class="n">ntrees</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">original_model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Origin&quot;</span><span class="p">,</span> <span class="s2">&quot;Dest&quot;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;IsDepDelayed&quot;</span><span class="p">,</span> <span class="n">training_frame</span><span class="o">=</span><span class="n">airlines_data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-gbm Model Build progress: |███████████████████████████████████████████████| 100%
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">original_model</span><span class="o">.</span><span class="n">accuracy</span>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>gbm Model Build progress: |███████████████████████████████████████████████| 100%
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Model Details
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">original_model</span><span class="o">.</span><span class="n">accuracy</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model Details
 =============
 H2OGradientBoostingEstimator :  Gradient Boosting Machine
 Model Key:  GBM_model_python_1571539319179_1
 
 
-Model Summary:
-</pre></div></div>
+Model Summary: 
+</pre></div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -335,16 +295,7 @@ Model Summary:
     </tr>
   </tbody>
 </table>
-</div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-
-ModelMetricsBinomial: gbm
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ModelMetricsBinomial: gbm
 ** Reported on train data. **
 
 MSE: 0.24472926827174102
@@ -355,14 +306,10 @@ AUC: 0.674679575109205
 pr_auc: 0.6903387192776655
 Gini: 0.3493591502184099
 
-Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.5084441442563068:
-</pre></div></div>
+Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.5084441442563068: 
+</pre></div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -414,22 +361,10 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.5084441442563068:
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum Metrics: Maximum metrics at their respective thresholds
+</pre></div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-Maximum Metrics: Maximum metrics at their respective thresholds
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -582,22 +517,10 @@ Maximum Metrics: Maximum metrics at their respective thresholds
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gains/Lift Table: Avg response rate: 52.51 %, avg score: 52.50 %
+</pre></div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-Gains/Lift Table: Avg response rate: 52.51 %, avg score: 52.50 %
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -838,23 +761,10 @@ Gains/Lift Table: Avg response rate: 52.51 %, avg score: 52.50 %
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scoring History: 
+</pre></div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-
-Scoring History:
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -913,22 +823,10 @@ Scoring History:
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variable Importances: 
+</pre></div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-Variable Importances:
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -969,137 +867,94 @@ Variable Importances:
     </tr>
   </tbody>
 </table>
-</div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;bound method H2OBinomialModel.accuracy of &gt;
-</pre></div></div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;bound method H2OBinomialModel.accuracy of &gt;
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert sang H2o Frame</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert sang H2o Frame</span>
 <span class="n">test_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Origin&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;SAN&#39;</span><span class="p">],</span> <span class="s1">&#39;Dest&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;SFO&#39;</span><span class="p">]})</span>
 <span class="n">test_data_h2o</span> <span class="o">=</span> <span class="n">h2o</span><span class="o">.</span><span class="n">H2OFrame</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Parse progress: |█████████████████████████████████████████████████████████| 100%
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parse progress: |█████████████████████████████████████████████████████████| 100%
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dự báo</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dự báo</span>
 <span class="n">original_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_data_h2o</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>gbm prediction progress: |████████████████████████████████████████████████| 100%
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-gbm prediction progress: |████████████████████████████████████████████████| 100%
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area rendered_html docutils container">
-<table>
+<div class="output text_html"><table>
 <thead>
 <tr><th>predict  </th><th style="text-align: right;">      NO</th><th style="text-align: right;">     YES</th></tr>
 </thead>
 <tbody>
 <tr><td>YES      </td><td style="text-align: right;">0.475288</td><td style="text-align: right;">0.524712</td></tr>
 </tbody>
-</table></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</table></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-</pre></div></div>
+</div>
 </div>
 <p><strong>Cách download file MOJO</strong></p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">original_model_filename</span> <span class="o">=</span> <span class="n">original_model</span><span class="o">.</span><span class="n">download_mojo</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;../datasets/model/&quot;</span><span class="p">,</span> <span class="n">get_genmodel_jar</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">original_model_filename</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">original_model_filename</span> <span class="o">=</span> <span class="n">original_model</span><span class="o">.</span><span class="n">download_mojo</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;../datasets/model/&quot;</span><span class="p">,</span> <span class="n">get_genmodel_jar</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">original_model_filename</span>
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&#39;E:\\OneDrive - VPBank\\02. Python\\01-python-book\\datasets\\model\\GBM_model_python_1571539319179_1.zip&#39;
-</pre></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;E:\\OneDrive - VPBank\\02. Python\\01-python-book\\datasets\\model\\GBM_model_python_1571539319179_1.zip&#39;
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Upload mojo back</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Upload mojo back</span>
 <span class="n">mojo_model</span> <span class="o">=</span> <span class="n">h2o</span><span class="o">.</span><span class="n">upload_mojo</span><span class="p">(</span><span class="n">original_model_filename</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-generic Model Build progress: |███████████████████████████████████████████| 100%
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>generic Model Build progress: |███████████████████████████████████████████| 100%
 Model Details
 =============
 H2OGenericEstimator :  Import MOJO Model
 Model Key:  Generic_model_python_1571539319179_7
 
 
-Model Summary:
-</pre></div></div>
+Model Summary: 
+</pre></div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1145,16 +1000,7 @@ Model Summary:
     </tr>
   </tbody>
 </table>
-</div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-
-ModelMetricsBinomialGeneric: generic
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ModelMetricsBinomialGeneric: generic
 ** Reported on train data. **
 
 MSE: 0.24472926827174102
@@ -1165,14 +1011,10 @@ AUC: 0.674679575109205
 pr_auc: 0.6903387192776655
 Gini: 0.3493591502184099
 
-Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.5084441442563068:
-</pre></div></div>
+Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.5084441442563068: 
+</pre></div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1224,22 +1066,10 @@ Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.5084441442563068:
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum Metrics: Maximum metrics at their respective thresholds
+</pre></div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-Maximum Metrics: Maximum metrics at their respective thresholds
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1392,22 +1222,10 @@ Maximum Metrics: Maximum metrics at their respective thresholds
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gains/Lift Table: Avg response rate: 52.51 %, avg score: 52.50 %
+</pre></div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-Gains/Lift Table: Avg response rate: 52.51 %, avg score: 52.50 %
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1648,23 +1466,10 @@ Gains/Lift Table: Avg response rate: 52.51 %, avg score: 52.50 %
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scoring History: 
+</pre></div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-
-Scoring History:
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1723,22 +1528,10 @@ Scoring History:
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variable Importances: 
+</pre></div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-Variable Importances:
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1779,59 +1572,45 @@ Variable Importances:
     </tr>
   </tbody>
 </table>
-</div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">mojo_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">airlines_data</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-generic prediction progress: |████████████████████████████████████████████| 100%
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">mojo_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">airlines_data</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert từ H2oFrame sang DataFrame</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>generic prediction progress: |████████████████████████████████████████████| 100%
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert từ H2oFrame sang DataFrame</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">h2o</span><span class="o">.</span><span class="n">as_list</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-pandas.core.frame.DataFrame
-</pre></div></div>
+</div>
 </div>
 <p><strong>Lưu ý</strong>:</p>
 <ul class="simple">
 <li><p>Mô hình <code class="docutils literal notranslate"><span class="pre">MOJO</span></code> có thể load ngược lại vào R và sử dụng cho production</p></li>
 </ul>
 </section>
-<section id="Tài-liệu-tham-khảo">
-<h2><span class="section-number">4.2. </span>Tài liệu tham khảo<a class="headerlink" href="#Tài-liệu-tham-khảo" title="Link to this heading"></a></h2>
+<section id="tai-lieu-tham-khao">
+<h2><span class="section-number">4.2. </span>Tài liệu tham khảo<a class="headerlink" href="#tai-lieu-tham-khao" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="http://docs.h2o.ai/h2o-tutorials/latest-stable/">http://docs.h2o.ai/h2o-tutorials/latest-stable/</a></p></li>
+<li><p>http://docs.h2o.ai/h2o-tutorials/latest-stable/</p></li>
 </ul>
 </section>
 </section>

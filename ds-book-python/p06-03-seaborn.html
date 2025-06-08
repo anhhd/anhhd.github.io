@@ -10,7 +10,8 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/nbsphinx-code-cells.css?v=2aa19091" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -20,9 +21,8 @@
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -81,32 +81,35 @@
 <li class="toctree-l1"><a class="reference internal" href="p06-01-so-sanh-python-r.html">1. So sánh R với Python cơ bản</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p06-02-matplotlib.html">2. Trực quan hóa với Matplotlib</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">3. Trực quan hóa với Seaborn</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Object-interfaces">3.1. Object interfaces</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Các-layer-cơ-bản">3.1.1. Các layer cơ bản</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Facet">3.1.2. Facet</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Chia-nhóm-dữ-liệu">3.1.3. Chia nhóm dữ liệu</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Scale">3.1.4. Scale</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Histogram-&amp;-Density">3.1.5. Histogram &amp; Density</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#object-interfaces">3.1. Object interfaces</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cac-layer-co-ban">3.1.1. Các layer cơ bản</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#facet">3.1.2. Facet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chia-nhom-du-lieu">3.1.3. Chia nhóm dữ liệu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scale">3.1.4. Scale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#histogram-density">3.1.5. Histogram &amp; Density</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Các-biểu-đồ-dạng-khác">3.2. Các biểu đồ dạng khác</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Scatterplot">3.2.1. Scatterplot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Point-plot">3.2.2. Point plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Histogram-&amp;-density">3.2.3. Histogram &amp; density</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Kernel-density">3.2.4. Kernel density</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Joint-plot">3.2.5. Joint plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cac-bieu-do-dang-khac">3.2. Các biểu đồ dạng khác</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#scatterplot">3.2.1. Scatterplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#point-plot">3.2.2. Point plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">3.2.3. Histogram &amp; density</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kernel-density">3.2.4. Kernel density</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#joint-plot">3.2.5. Joint plot</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Pair-plot">3.3. Pair plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pair-plot">3.3. Pair plot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">3.4. Facet</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Category-plot">3.5. Category plot</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Factor-plot">3.5.1. Factor plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Barplot">3.5.2. Barplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#category-plot">3.5. Category plot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#factor-plot">3.5.1. Factor plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#barplot">3.5.2. Barplot</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Tùy-chỉnh-các-thành-phần">3.6. Tùy chỉnh các thành phần</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Lưu-ý-khác">3.7. Lưu ý khác</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Tài-liệu-tham-khảo">3.8. Tài liệu tham khảo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tuy-chinh-cac-thanh-phan">3.6. Tùy chỉnh các thành phần</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#luu-y-khac">3.7. Lưu ý khác</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#chia-facet">3.7.1. Chia facet</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tai-lieu-tham-khao">3.8. Tài liệu tham khảo</a></li>
 </ul>
 </li>
 </ul>
@@ -135,8 +138,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Trực-quan-hóa-với-Seaborn">
-<h1><span class="section-number">3. </span>Trực quan hóa với Seaborn<a class="headerlink" href="#Trực-quan-hóa-với-Seaborn" title="Link to this heading"></a></h1>
+  <section id="truc-quan-hoa-voi-seaborn">
+<h1><span class="section-number">3. </span>Trực quan hóa với Seaborn<a class="headerlink" href="#truc-quan-hoa-voi-seaborn" title="Link to this heading"></a></h1>
 <p>Seaborn là package được xây dựng dựa trên nền của matplotlib, hỗ trợ tốt hơn việc trực quan hóa dữ liệu. Flow trực quan hóa dữ liệu với <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> gần tương đồng với <code class="docutils literal notranslate"><span class="pre">GGPLOT2</span></code> và được tiến hành như sau:</p>
 <ul class="simple">
 <li><p>Chuẩn bị dữ liệu</p></li>
@@ -145,11 +148,9 @@
 <li><p>Customize các yếu tố khác</p></li>
 </ul>
 <p><strong>Lưu ý</strong>: Trong seaborn có các dataset ví dụ. Tuy nhiên, do các data set này không được lưu sẵn mà lại được load từ github. Do đó, khi bị chặn proxy sẽ không sử dụng được.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
@@ -165,20 +166,15 @@
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -246,17 +242,18 @@
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
-<div class="note docutils container">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p class="rubric" id="luu-y">Lưu ý</p>
 <p>Từ phiên bản <code class="docutils literal notranslate"><span class="pre">0.12</span></code>, seaborn cho phép xây dựng biểu đồ thông qua <code class="docutils literal notranslate"><span class="pre">objects</span> <span class="pre">interface</span></code>. Đây là cách xây dựng biểu đồ mới, cho phép thực hiện biểu đồ thông qua các layer với các nhóm biểu đồ thông dụng như: bar, line, histogram, dot</p>
 </div>
-<section id="Object-interfaces">
-<h2><span class="section-number">3.1. </span>Object interfaces<a class="headerlink" href="#Object-interfaces" title="Link to this heading"></a></h2>
+<section id="object-interfaces">
+<h2><span class="section-number">3.1. </span>Object interfaces<a class="headerlink" href="#object-interfaces" title="Link to this heading"></a></h2>
 <p>Với <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> mới, ta có thể viết phần lớn các biểu đồ thông dụng theo cách viết của ngữ pháp biểu đồ với các layers được đặt chồng lấn lên nhau.</p>
 <p>Công thức tổng quát dạng đơn giản.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>so.Plot(data, x, y).add(so.layers())
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">layers</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>Các methods thường dùng nhất của <code class="docutils literal notranslate"><span class="pre">sns.objects</span></code>:</p>
@@ -281,13 +278,11 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">so.Dodge</span></code>, <code class="docutils literal notranslate"><span class="pre">so.Stack</span></code>: Đặt vị trí trên của các object, dùng kèm với <code class="docutils literal notranslate"><span class="pre">bar</span></code> hoặc <code class="docutils literal notranslate"><span class="pre">text</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">so.scale</span></code>: Dùng để scale các trục</p></li>
 </ul>
-<section id="Các-layer-cơ-bản">
-<h3><span class="section-number">3.1.1. </span>Các layer cơ bản<a class="headerlink" href="#Các-layer-cơ-bản" title="Link to this heading"></a></h3>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn.objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">so</span>
+<section id="cac-layer-co-ban">
+<h3><span class="section-number">3.1.1. </span>Các layer cơ bản<a class="headerlink" href="#cac-layer-co-ban" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn.objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">so</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
 <span class="n">g</span> <span class="o">=</span> <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;sepal_width&quot;</span><span class="p">)</span><span class="o">.</span>\
     <span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dot</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;darkblue&quot;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">))</span>
@@ -295,141 +290,112 @@
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="_images/p06-03-seaborn_6_0.png" class="no-scaled-link" src="_images/p06-03-seaborn_6_0.png" style="width: 623px; height: 463px;" />
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/3b7ea6337961dd29f1c3d0334e1751d6add49aaae8e5f6514f24f56fceea99a9.png"><img alt="_images/3b7ea6337961dd29f1c3d0334e1751d6add49aaae8e5f6514f24f56fceea99a9.png" src="_images/3b7ea6337961dd29f1c3d0334e1751d6add49aaae8e5f6514f24f56fceea99a9.png" style="width: 623px; height: 463px;" />
+</a>
 </div>
 </div>
 </section>
-<section id="Facet">
-<h3><span class="section-number">3.1.2. </span>Facet<a class="headerlink" href="#Facet" title="Link to this heading"></a></h3>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g2</span> <span class="o">=</span> <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;sepal_width&quot;</span><span class="p">)</span><span class="o">.</span>\
+<section id="facet">
+<h3><span class="section-number">3.1.2. </span>Facet<a class="headerlink" href="#facet" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g2</span> <span class="o">=</span> <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;sepal_width&quot;</span><span class="p">)</span><span class="o">.</span>\
     <span class="n">facet</span><span class="p">(</span><span class="s2">&quot;species&quot;</span><span class="p">)</span><span class="o">.</span>\
     <span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dot</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;species&quot;</span><span class="p">)</span>
 <span class="n">g2</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="_images/p06-03-seaborn_8_0.png" class="no-scaled-link" src="_images/p06-03-seaborn_8_0.png" style="width: 623px; height: 464px;" />
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/cb9e92e9545dcca1b4c07d6c248ea296464dd711313bf9658c9d6e7b7b115b99.png"><img alt="_images/cb9e92e9545dcca1b4c07d6c248ea296464dd711313bf9658c9d6e7b7b115b99.png" src="_images/cb9e92e9545dcca1b4c07d6c248ea296464dd711313bf9658c9d6e7b7b115b99.png" style="width: 623px; height: 464px;" />
+</a>
 </div>
 </div>
 </section>
-<section id="Chia-nhóm-dữ-liệu">
-<h3><span class="section-number">3.1.3. </span>Chia nhóm dữ liệu<a class="headerlink" href="#Chia-nhóm-dữ-liệu" title="Link to this heading"></a></h3>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g3</span> <span class="o">=</span> <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;sepal_width&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;species&quot;</span><span class="p">)</span><span class="o">.</span>\
+<section id="chia-nhom-du-lieu">
+<h3><span class="section-number">3.1.3. </span>Chia nhóm dữ liệu<a class="headerlink" href="#chia-nhom-du-lieu" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g3</span> <span class="o">=</span> <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;sepal_width&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;species&quot;</span><span class="p">)</span><span class="o">.</span>\
     <span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Line</span><span class="p">(</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mi">2</span><span class="p">),</span> <span class="n">so</span><span class="o">.</span><span class="n">Agg</span><span class="p">())</span><span class="o">.</span>\
     <span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Dot</span><span class="p">())</span>
 <span class="n">g3</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="_images/p06-03-seaborn_10_0.png" class="no-scaled-link" src="_images/p06-03-seaborn_10_0.png" style="width: 623px; height: 463px;" />
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/9fa414f24b9a53c502ddf329c6733051ac9ae3aca0f66578981857d8ebf8788e.png"><img alt="_images/9fa414f24b9a53c502ddf329c6733051ac9ae3aca0f66578981857d8ebf8788e.png" src="_images/9fa414f24b9a53c502ddf329c6733051ac9ae3aca0f66578981857d8ebf8788e.png" style="width: 623px; height: 463px;" />
+</a>
 </div>
 </div>
 </section>
-<section id="Scale">
-<h3><span class="section-number">3.1.4. </span>Scale<a class="headerlink" href="#Scale" title="Link to this heading"></a></h3>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g4</span> <span class="o">=</span> <span class="n">g3</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;log&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;sqrt&quot;</span><span class="p">)</span><span class="o">.</span>\
+<section id="scale">
+<h3><span class="section-number">3.1.4. </span>Scale<a class="headerlink" href="#scale" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g4</span> <span class="o">=</span> <span class="n">g3</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;log&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;sqrt&quot;</span><span class="p">)</span><span class="o">.</span>\
     <span class="n">label</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Example seaborn&quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Sepal Length&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Sepal Width&quot;</span><span class="p">)</span><span class="o">.</span>\
     <span class="n">label</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="n">g4</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="_images/p06-03-seaborn_12_0.png" class="no-scaled-link" src="_images/p06-03-seaborn_12_0.png" style="width: 623px; height: 464px;" />
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/91b1c25eaaab6de7a26b1417d93881a19300f67e07bad992dfaa16442740badd.png"><img alt="_images/91b1c25eaaab6de7a26b1417d93881a19300f67e07bad992dfaa16442740badd.png" src="_images/91b1c25eaaab6de7a26b1417d93881a19300f67e07bad992dfaa16442740badd.png" style="width: 623px; height: 464px;" />
+</a>
 </div>
 </div>
 </section>
-<section id="Histogram-&amp;-Density">
-<h3><span class="section-number">3.1.5. </span>Histogram &amp; Density<a class="headerlink" href="#Histogram-&-Density" title="Link to this heading"></a></h3>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g5</span> <span class="o">=</span> <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="s2">&quot;sepal_length&quot;</span><span class="p">)</span><span class="o">.</span>\
+<section id="histogram-density">
+<h3><span class="section-number">3.1.5. </span>Histogram &amp; Density<a class="headerlink" href="#histogram-density" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g5</span> <span class="o">=</span> <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="s2">&quot;sepal_length&quot;</span><span class="p">)</span><span class="o">.</span>\
     <span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Bar</span><span class="p">(),</span><span class="n">so</span><span class="o">.</span><span class="n">Hist</span><span class="p">())</span>
 <span class="n">g5</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="_images/p06-03-seaborn_14_0.png" class="no-scaled-link" src="_images/p06-03-seaborn_14_0.png" style="width: 623px; height: 463px;" />
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/b43f4581affa69c02406bdffb3a8df0622ba70ad68e24951ca483c46000cf887.png"><img alt="_images/b43f4581affa69c02406bdffb3a8df0622ba70ad68e24951ca483c46000cf887.png" src="_images/b43f4581affa69c02406bdffb3a8df0622ba70ad68e24951ca483c46000cf887.png" style="width: 623px; height: 463px;" />
+</a>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g6</span> <span class="o">=</span> <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="s2">&quot;sepal_length&quot;</span><span class="p">)</span><span class="o">.</span>\
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g6</span> <span class="o">=</span> <span class="n">so</span><span class="o">.</span><span class="n">Plot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="s2">&quot;sepal_length&quot;</span><span class="p">)</span><span class="o">.</span>\
     <span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Bar</span><span class="p">(),</span><span class="n">so</span><span class="o">.</span><span class="n">Hist</span><span class="p">(</span><span class="s2">&quot;density&quot;</span><span class="p">))</span><span class="o">.</span>\
     <span class="n">add</span><span class="p">(</span><span class="n">so</span><span class="o">.</span><span class="n">Area</span><span class="p">(),</span> <span class="n">so</span><span class="o">.</span><span class="n">KDE</span><span class="p">())</span>
 <span class="n">g6</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="_images/p06-03-seaborn_15_0.png" class="no-scaled-link" src="_images/p06-03-seaborn_15_0.png" style="width: 623px; height: 464px;" />
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/cac2df5f9dd14bc5e53e5da506f4c847b54bf68d0740ba50cd849dda45bd9920.png"><img alt="_images/cac2df5f9dd14bc5e53e5da506f4c847b54bf68d0740ba50cd849dda45bd9920.png" src="_images/cac2df5f9dd14bc5e53e5da506f4c847b54bf68d0740ba50cd849dda45bd9920.png" style="width: 623px; height: 464px;" />
+</a>
 </div>
 </div>
 </section>
 </section>
-<section id="Các-biểu-đồ-dạng-khác">
-<h2><span class="section-number">3.2. </span>Các biểu đồ dạng khác<a class="headerlink" href="#Các-biểu-đồ-dạng-khác" title="Link to this heading"></a></h2>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./99_dataset/titanic.csv&quot;</span><span class="p">)</span>
+<section id="cac-bieu-do-dang-khac">
+<h2><span class="section-number">3.2. </span>Các biểu đồ dạng khác<a class="headerlink" href="#cac-bieu-do-dang-khac" title="Link to this heading"></a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./99_dataset/titanic.csv&quot;</span><span class="p">)</span>
 <span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./99_dataset/tips.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -557,43 +523,33 @@
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
-<section id="Scatterplot">
-<h3><span class="section-number">3.2.1. </span>Scatterplot<a class="headerlink" href="#Scatterplot" title="Link to this heading"></a></h3>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">stripplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">iris</span><span class="p">)</span>
+<section id="scatterplot">
+<h3><span class="section-number">3.2.1. </span>Scatterplot<a class="headerlink" href="#scatterplot" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">stripplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">iris</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="_images/p06-03-seaborn_20_0.png" class="no-scaled-link" src="_images/p06-03-seaborn_20_0.png" style="width: 563px; height: 430px;" />
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/eefa9d7a30a284a302e341bd9a5b99c72503cc44cfb5a3c890838e346e49be5f.png"><img alt="_images/eefa9d7a30a284a302e341bd9a5b99c72503cc44cfb5a3c890838e346e49be5f.png" src="_images/eefa9d7a30a284a302e341bd9a5b99c72503cc44cfb5a3c890838e346e49be5f.png" style="width: 563px; height: 430px;" />
+</a>
 </div>
 </div>
 </section>
-<section id="Point-plot">
-<h3><span class="section-number">3.2.2. </span>Point plot<a class="headerlink" href="#Point-plot" title="Link to this heading"></a></h3>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<section id="point-plot">
+<h3><span class="section-number">3.2.2. </span>Point plot<a class="headerlink" href="#point-plot" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tips</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tips</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-</pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -667,45 +623,35 @@
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pointplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pointplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
 <span class="c1"># Add thêm annotate</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;Average: 9&#39;</span><span class="p">,</span> <span class="n">xy</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">25</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="_images/p06-03-seaborn_23_0.png" class="no-scaled-link" src="_images/p06-03-seaborn_23_0.png" style="width: 571px; height: 430px;" />
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/b307bfba180dac982b65d97005360c2d48b52669655bb3df7300655f468cd1d9.png"><img alt="_images/b307bfba180dac982b65d97005360c2d48b52669655bb3df7300655f468cd1d9.png" src="_images/b307bfba180dac982b65d97005360c2d48b52669655bb3df7300655f468cd1d9.png" style="width: 571px; height: 430px;" />
+</a>
 </div>
 </div>
 </section>
-<section id="Histogram-&amp;-density">
-<h3><span class="section-number">3.2.3. </span>Histogram &amp; density<a class="headerlink" href="#Histogram-&-density" title="Link to this heading"></a></h3>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">])</span>
+<section id="id1">
+<h3><span class="section-number">3.2.3. </span>Histogram &amp; density<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">])</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="s1">&#39;sepal_width&#39;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-C:\Users\anhhd3\AppData\Local\Temp\ipykernel_12492\1221992167.py:1: UserWarning:
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\anhhd3\AppData\Local\Temp\ipykernel_12492\1221992167.py:1: UserWarning: 
 
 `distplot` is a deprecated function and will be removed in seaborn v0.14.0.
 
@@ -716,7 +662,7 @@ For a guide to updating your code to use the new functions, please see
 https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 
   sns.distplot(iris[&#39;sepal_length&#39;])
-C:\Users\anhhd3\AppData\Local\Temp\ipykernel_12492\1221992167.py:2: UserWarning:
+C:\Users\anhhd3\AppData\Local\Temp\ipykernel_12492\1221992167.py:2: UserWarning: 
 
 `distplot` is a deprecated function and will be removed in seaborn v0.14.0.
 
@@ -727,220 +673,185 @@ For a guide to updating your code to use the new functions, please see
 https://gist.github.com/mwaskom/de44147ed2974457ad6372750bbe5751
 
   sns.distplot(iris[&#39;sepal_width&#39;])
-</pre></div></div>
+</pre></div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="_images/p06-03-seaborn_25_1.png" class="no-scaled-link" src="_images/p06-03-seaborn_25_1.png" style="width: 563px; height: 435px;" />
+<a class="reference internal image-reference" href="_images/091a0fa92ded11cd89b9091a6374984701b9db78f29f288e9afb94b3f7cae642.png"><img alt="_images/091a0fa92ded11cd89b9091a6374984701b9db78f29f288e9afb94b3f7cae642.png" src="_images/091a0fa92ded11cd89b9091a6374984701b9db78f29f288e9afb94b3f7cae642.png" style="width: 563px; height: 435px;" />
+</a>
 </div>
 </div>
 </section>
-<section id="Kernel-density">
-<h3><span class="section-number">3.2.4. </span>Kernel density<a class="headerlink" href="#Kernel-density" title="Link to this heading"></a></h3>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kde_plot</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]])</span>
+<section id="kernel-density">
+<h3><span class="section-number">3.2.4. </span>Kernel density<a class="headerlink" href="#kernel-density" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kde_plot</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">kde_plot</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="_images/p06-03-seaborn_27_0.png" class="no-scaled-link" src="_images/p06-03-seaborn_27_0.png" style="width: 563px; height: 412px;" />
+<div class="cell_output docutils container">
+<a class="reference internal image-reference" href="_images/8b68e74913be29c80b8b1a24f04b97e36a010bb5e67f8b9b6be7b811a83da667.png"><img alt="_images/8b68e74913be29c80b8b1a24f04b97e36a010bb5e67f8b9b6be7b811a83da667.png" src="_images/8b68e74913be29c80b8b1a24f04b97e36a010bb5e67f8b9b6be7b811a83da667.png" style="width: 563px; height: 412px;" />
+</a>
 </div>
 </div>
 </section>
-<section id="Joint-plot">
-<h3><span class="section-number">3.2.5. </span>Joint plot<a class="headerlink" href="#Joint-plot" title="Link to this heading"></a></h3>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Joint plot</span>
+<section id="joint-plot">
+<h3><span class="section-number">3.2.5. </span>Joint plot<a class="headerlink" href="#joint-plot" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Joint plot</span>
 <span class="k">with</span> <span class="n">sns</span><span class="o">.</span><span class="n">axes_style</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">):</span>
     <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal_width&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;kde&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-intense-fg ansi-bold">In[9], line 3</span>
-<span class="ansi-green-fg">      1</span> <span style="color: rgb(95,135,135)"># Joint plot</span>
-<span class="ansi-green-fg">      2</span> <span class="ansi-bold" style="color: rgb(0,135,0)">with</span> sns<span style="color: rgb(98,98,98)">.</span>axes_style(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">white</span><span style="color: rgb(175,0,0)">&#34;</span>):
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 3</span>     <span class="ansi-yellow-bg">sns</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">jointplot</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">sepal_length</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">sepal_width</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">iris</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">kind</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">kde</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">)</span>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Joint plot</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">with</span> <span class="n">sns</span><span class="o">.</span><span class="n">axes_style</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">3</span>     <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal_width&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;kde&quot;</span><span class="p">)</span>
 
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: jointplot() takes from 0 to 1 positional arguments but 3 positional arguments (and 1 keyword-only argument) were given
-</pre></div></div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<span class="ne">TypeError</span>: jointplot() takes from 0 to 1 positional arguments but 3 positional arguments (and 1 keyword-only argument) were given
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Joint plot</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Joint plot</span>
 <span class="k">with</span> <span class="n">sns</span><span class="o">.</span><span class="n">axes_style</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">):</span>
     <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;sepal_width&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;hex&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-</section>
-</section>
-<section id="Pair-plot">
-<h2><span class="section-number">3.3. </span>Pair plot<a class="headerlink" href="#Pair-plot" title="Link to this heading"></a></h2>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span>
+</section>
+</section>
+<section id="pair-plot">
+<h2><span class="section-number">3.3. </span>Pair plot<a class="headerlink" href="#pair-plot" title="Link to this heading"></a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span>
             <span class="n">hue</span> <span class="o">=</span> <span class="s1">&#39;species&#39;</span><span class="p">)</span> <span class="c1"># Chia nhóm</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x24daa709610&gt;
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;seaborn.axisgrid.PairGrid at 0x24daa709610&gt;
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="_images/p06-03-seaborn_32_1.png" class="no-scaled-link" src="_images/p06-03-seaborn_32_1.png" style="width: 1103px; height: 983px;" />
+<a class="reference internal image-reference" href="_images/f8dc7ec9488c82fda270bfc0e3f8b4b895e9adb0b0e251e8b4bb56bbc8cc9bca.png"><img alt="_images/f8dc7ec9488c82fda270bfc0e3f8b4b895e9adb0b0e251e8b4bb56bbc8cc9bca.png" src="_images/f8dc7ec9488c82fda270bfc0e3f8b4b895e9adb0b0e251e8b4bb56bbc8cc9bca.png" style="width: 1103px; height: 983px;" />
+</a>
 </div>
 </div>
 </section>
 <section id="id2">
 <h2><span class="section-number">3.4. </span>Facet<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">seaborn</span></code> hỗ trợ hệ thống facet</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./99_dataset/tips.csv&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tips</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./99_dataset/tips.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tips</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chưa chia facet</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chưa chia facet</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">tips</span><span class="p">[</span><span class="s1">&#39;total_bill&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chia facet</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chia facet</span>
 <span class="n">grid</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">row</span> <span class="o">=</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s2">&quot;sex&quot;</span><span class="p">)</span>
 <span class="n">grid</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">,</span> <span class="s1">&#39;total_bill&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chia facet</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chia facet</span>
 <span class="n">grid</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">row</span> <span class="o">=</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s2">&quot;sex&quot;</span><span class="p">)</span>
 <span class="n">grid</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">,</span> <span class="s2">&quot;total_bill&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-</section>
-<section id="Category-plot">
-<h2><span class="section-number">3.5. </span>Category plot<a class="headerlink" href="#Category-plot" title="Link to this heading"></a></h2>
-<section id="Factor-plot">
-<h3><span class="section-number">3.5.1. </span>Factor plot<a class="headerlink" href="#Factor-plot" title="Link to this heading"></a></h3>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">sns</span><span class="o">.</span><span class="n">axes_style</span><span class="p">(</span><span class="n">style</span> <span class="o">=</span> <span class="s2">&quot;ticks&quot;</span><span class="p">):</span>
+</section>
+<section id="category-plot">
+<h2><span class="section-number">3.5. </span>Category plot<a class="headerlink" href="#category-plot" title="Link to this heading"></a></h2>
+<section id="factor-plot">
+<h3><span class="section-number">3.5.1. </span>Factor plot<a class="headerlink" href="#factor-plot" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">sns</span><span class="o">.</span><span class="n">axes_style</span><span class="p">(</span><span class="n">style</span> <span class="o">=</span> <span class="s2">&quot;ticks&quot;</span><span class="p">):</span>
     <span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">factorplot</span><span class="p">(</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">tips</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;box&quot;</span><span class="p">)</span>
     <span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;Days&quot;</span><span class="p">,</span> <span class="s2">&quot;Bill&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tips</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tips</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Boxplot</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Boxplot</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">axes_style</span><span class="p">(</span><span class="s1">&#39;ticks&#39;</span><span class="p">)</span>
 <span class="n">my_plot</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">tips</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="s2">&quot;sex&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chuyển legend lên trên figure</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chuyển legend lên trên figure</span>
 <span class="n">my_plot</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_plot</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_plot</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span>
-</pre></div>
 </div>
 </div>
 </section>
-<section id="Barplot">
-<h3><span class="section-number">3.5.2. </span>Barplot<a class="headerlink" href="#Barplot" title="Link to this heading"></a></h3>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<section id="barplot">
+<h3><span class="section-number">3.5.2. </span>Barplot<a class="headerlink" href="#barplot" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">factorplot</span><span class="p">(</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">tips</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;count&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">factorplot</span><span class="p">(</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">tips</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;count&quot;</span><span class="p">)</span>
-</pre></div>
 </div>
 </div>
 </section>
 </section>
-<section id="Tùy-chỉnh-các-thành-phần">
-<h2><span class="section-number">3.6. </span>Tùy chỉnh các thành phần<a class="headerlink" href="#Tùy-chỉnh-các-thành-phần" title="Link to this heading"></a></h2>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;ticks&#39;</span><span class="p">)</span>
+<section id="tuy-chinh-cac-thanh-phan">
+<h2><span class="section-number">3.6. </span>Tùy chỉnh các thành phần<a class="headerlink" href="#tuy-chinh-cac-thanh-phan" title="Link to this heading"></a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;ticks&#39;</span><span class="p">)</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">stripplot</span><span class="p">(</span><span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span> <span class="s2">&quot;sepal_width&quot;</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">iris</span><span class="p">)</span>
 <span class="c1"># Add title, name</span>
 <span class="n">p</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span> <span class="o">=</span> <span class="s2">&quot;X&quot;</span><span class="p">,</span> <span class="n">ylabel</span> <span class="o">=</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;My chart&quot;</span><span class="p">)</span>
@@ -957,23 +868,21 @@ Cell <span class="ansi-green-intense-fg ansi-bold">In[9], line 3</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_chart</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;chart.png&#39;</span><span class="p">,</span> <span class="n">dpi</span> <span class="o">=</span> <span class="mi">400</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_chart</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;chart.png&#39;</span><span class="p">,</span> <span class="n">dpi</span> <span class="o">=</span> <span class="mi">400</span><span class="p">)</span>
-</pre></div>
 </div>
 </div>
 </section>
-<section id="Lưu-ý-khác">
-<h2><span class="section-number">3.7. </span>Lưu ý khác<a class="headerlink" href="#Lưu-ý-khác" title="Link to this heading"></a></h2>
+<section id="luu-y-khac">
+<h2><span class="section-number">3.7. </span>Lưu ý khác<a class="headerlink" href="#luu-y-khac" title="Link to this heading"></a></h2>
 <p><strong>Lưu ý</strong>: <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> không áp dụng chain method một cách đơn giản giống pandas được</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">sns</span><span class="o">.</span><span class="n">axes_style</span><span class="p">(</span><span class="s2">&quot;ticks&quot;</span><span class="p">):</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">sns</span><span class="o">.</span><span class="n">axes_style</span><span class="p">(</span><span class="s2">&quot;ticks&quot;</span><span class="p">):</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="s2">&quot;sex&quot;</span><span class="p">,</span> <span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">hue</span> <span class="o">=</span> <span class="s2">&quot;smoker&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">tips</span><span class="p">)</span>
     <span class="c1"># Thêm title</span>
     <span class="c1"># Điều chỉnh tên trục</span>
@@ -985,24 +894,27 @@ Cell <span class="ansi-green-intense-fg ansi-bold">In[9], line 3</span>
 </pre></div>
 </div>
 </div>
+</div>
 <p><strong>Lưu lại biểu đồ</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">boxplot</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;boxplot.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+<section id="chia-facet">
+<h3><span class="section-number">3.7.1. </span>Chia facet<a class="headerlink" href="#chia-facet" title="Link to this heading"></a></h3>
 <p>Tương tự như <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> cần được sử dụng kèm với <code class="docutils literal notranslate"><span class="pre">map</span></code> để chia thành hệ thống <code class="docutils literal notranslate"><span class="pre">facet</span></code></p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="n">g</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s1">&#39;sex&#39;</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">,</span><span class="s1">&#39;total_bill&#39;</span><span class="p">,</span><span class="s1">&#39;tip&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</div>
 </section>
-<section id="Tài-liệu-tham-khảo">
-<h2><span class="section-number">3.8. </span>Tài liệu tham khảo<a class="headerlink" href="#Tài-liệu-tham-khảo" title="Link to this heading"></a></h2>
+</section>
+<section id="tai-lieu-tham-khao">
+<h2><span class="section-number">3.8. </span>Tài liệu tham khảo<a class="headerlink" href="#tai-lieu-tham-khao" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://seaborn.pydata.org/tutorial.html">https://seaborn.pydata.org/tutorial.html</a></p></li>
 </ul>

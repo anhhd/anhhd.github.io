@@ -10,7 +10,8 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/nbsphinx-code-cells.css?v=2aa19091" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -20,9 +21,8 @@
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -57,32 +57,32 @@
 <li class="toctree-l1"><a class="reference internal" href="p01-04-pandas.html">4. Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-05-polars.html">5. Polars</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">6. Ngữ pháp của biểu đồ</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Giới-thiệu">6.1. Giới thiệu</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Xây-dựng-biểu-đồ">6.2. Xây dựng biểu đồ</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Biểu-đồ-cơ-bản">6.2.1. Biểu đồ cơ bản</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Facet">6.2.2. Facet</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Thuộc-tính-hình-học---geom">6.2.3. Thuộc tính hình học - geom</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Tính-toán-thống-kê---statistical-transformations">6.2.4. Tính toán thống kê - statistical transformations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Vị-trí-trong-biểu-đồ">6.2.5. Vị trí trong biểu đồ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Hệ-trục-tọa-độ">6.2.6. Hệ trục tọa độ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Các-yếu-tố-khác">6.2.7. Các yếu tố khác</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Labs">6.2.7.1. Labs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Theme">6.2.7.2. Theme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gioi-thieu">6.1. Giới thiệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#xay-dung-bieu-do">6.2. Xây dựng biểu đồ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bieu-do-co-ban">6.2.1. Biểu đồ cơ bản</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#facet">6.2.2. Facet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thuoc-tinh-hinh-hoc-geom">6.2.3. Thuộc tính hình học - geom</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tinh-toan-thong-ke-statistical-transformations">6.2.4. Tính toán thống kê - statistical transformations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vi-tri-trong-bieu-do">6.2.5. Vị trí trong biểu đồ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#he-truc-toa-do">6.2.6. Hệ trục tọa độ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cac-yeu-to-khac">6.2.7. Các yếu tố khác</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#labs">6.2.7.1. Labs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#theme">6.2.7.2. Theme</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#Thay-đổi-màu-trong-biểu-đồ">6.2.8. Thay đổi màu trong biểu đồ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thay-doi-mau-trong-bieu-do">6.2.8. Thay đổi màu trong biểu đồ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Các-mẹo-với-lets_plots">6.3. Các mẹo với <code class="docutils literal notranslate"><span class="pre">lets_plots</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Loại-bỏ-legend-trong-1-lớp">6.3.1. Loại bỏ legend trong 1 lớp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Hiển-thị-text-biểu-đồ-ở-giữa-bar-chart">6.3.2. Hiển thị text biểu đồ ở giữa bar chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Tạo-biểu-đồ-geom_area_ridges">6.3.3. Tạo biểu đồ <code class="docutils literal notranslate"><span class="pre">geom_area_ridges</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Tạo-toolbar-cho-biểu-đồ">6.3.4. Tạo toolbar cho biểu đồ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Kết-hợp-nhiều-biểu-đồ-với-ggrid">6.3.5. Kết hợp nhiều biểu đồ với ggrid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Biểu-đồ-nâng-cao">6.3.6. Biểu đồ nâng cao</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cac-meo-voi-lets-plots">6.3. Các mẹo với <code class="docutils literal notranslate"><span class="pre">lets_plots</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#loai-bo-legend-trong-1-lop">6.3.1. Loại bỏ legend trong 1 lớp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hien-thi-text-bieu-do-o-giua-bar-chart">6.3.2. Hiển thị text biểu đồ ở giữa bar chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tao-bieu-do-geom-area-ridges">6.3.3. Tạo biểu đồ <code class="docutils literal notranslate"><span class="pre">geom_area_ridges</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tao-toolbar-cho-bieu-do">6.3.4. Tạo toolbar cho biểu đồ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ket-hop-nhieu-bieu-do-voi-ggrid">6.3.5. Kết hợp nhiều biểu đồ với ggrid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bieu-do-nang-cao">6.3.6. Biểu đồ nâng cao</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Tài-liệu-tham-khảo">6.4. Tài liệu tham khảo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tai-lieu-tham-khao">6.4. Tài liệu tham khảo</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="p01-07-datetime.html">7. Dữ liệu thời gian trong Python</a></li>
@@ -136,15 +136,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Ngữ-pháp-của-biểu-đồ">
-<h1><span class="section-number">6. </span>Ngữ pháp của biểu đồ<a class="headerlink" href="#Ngữ-pháp-của-biểu-đồ" title="Link to this heading"></a></h1>
-<section id="Giới-thiệu">
-<h2><span class="section-number">6.1. </span>Giới thiệu<a class="headerlink" href="#Giới-thiệu" title="Link to this heading"></a></h2>
+  <section id="ngu-phap-cua-bieu-do">
+<h1><span class="section-number">6. </span>Ngữ pháp của biểu đồ<a class="headerlink" href="#ngu-phap-cua-bieu-do" title="Link to this heading"></a></h1>
+<section id="gioi-thieu">
+<h2><span class="section-number">6.1. </span>Giới thiệu<a class="headerlink" href="#gioi-thieu" title="Link to this heading"></a></h2>
 <p>Trong lĩnh vực phân tích dữ liệu, bên cạnh việc biến đổi dữ liệu, kỹ năng trực quan hóa biểu đồ là kỹ năng đặc biệt quan trọng, giúp cho người đọc báo cáo, phân tích nắm được kết quả phân tích một cách đơn giản hơn.</p>
 <p>Với python, việc trực quan hóa thường được sử dụng với <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> hoặc <code class="docutils literal notranslate"><span class="pre">searborn</span></code>. Tuy nhiên, trong lĩnh vực trực quan hóa dữ liệu, tư tưởng mang tính đột phá là tư duy <em>ngữ pháp biểu đồ</em> và được phổ biến rộng rãi qua ngôn ngữ R. Với <code class="docutils literal notranslate"><span class="pre">python</span></code>, ta có thể sử dụng package <code class="docutils literal notranslate"><span class="pre">lets_plot</span></code> hoặc <code class="docutils literal notranslate"><span class="pre">plotnine</span></code>. Ra đời từ 2019 và được truyền cảm hứng từ <code class="docutils literal notranslate"><span class="pre">GGPLOT2</span></code>, package <code class="docutils literal notranslate"><span class="pre">lets_plot</span></code> đã phát triển rất đầy đủ và có thể sử dụng thay thế hoàn toàn ggplot2 với python</p>
 <p>Các thư viện khác như <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> hoặc <code class="docutils literal notranslate"><span class="pre">searborn</span></code> sẽ được trình bày trong các chương tiếp theo</p>
 <hr class="docutils" />
-<p>Khái niệm &quot;ngữ pháp của biểu đồ&quot; cho rằng: Mỗi biểu đồ được tạo ra do 2 hay nhiều lớp chống lấn mà thành. Các lớp của biểu đồ bao gồm</p>
+<p>Khái niệm &quot;ngữ pháp của biểu đồ&quot; cho rằng: Mỗi  biểu đồ được tạo ra do 2 hay nhiều lớp chống lấn mà thành. Các lớp của biểu đồ bao gồm</p>
 <p><strong>Các lớp (layer) cơ bản (bắt buộc phải có)</strong>:</p>
 <ol class="arabic simple">
 <li><p><strong>Dữ liệu (data)</strong>: Tập số liệu được sử dụng cho việc xây dựng biểu đồ.</p></li>
@@ -154,27 +154,24 @@
 <p><strong>Các lớp (layer) nâng cao (không bắt buộc)</strong>:</p>
 <ol class="arabic simple" start="4">
 <li><p><strong>Facet</strong> (tạm dịch: cách thức sắp xếp số liệu trên cùng 1 biểu đồ): Xác định cách thức sắp xếp vị trí của nhiều biểu đồ trên cùng một màn hình.</p></li>
-<li><p><strong>Tính toán thống kê (statistical transformation)</strong>: Sử dụng các tính toán trong biểu đồ. VD: Thêm các biểu đồ xu hướng dạng trơ (geom_smooth) , số lượng bin trong histogram… Lớp này có thể nằm lồng trong ngay trong nhóm <code class="docutils literal notranslate"><span class="pre">aesthetics</span></code></p></li>
+<li><p><strong>Tính toán thống kê (statistical transformation)</strong>: Sử dụng các tính toán trong biểu đồ. VD: Thêm các biểu đồ xu hướng dạng trơ (geom_smooth) , số lượng bin trong histogram... Lớp này có thể nằm lồng trong ngay trong nhóm <code class="docutils literal notranslate"><span class="pre">aesthetics</span></code></p></li>
 <li><p><strong>Vị trí (position)</strong>: Xác định vị trí trong biểu đồ</p></li>
 <li><p><strong>Trục tọa độ (Coordinate)</strong>: Xác định hệ trục tọa độ vẽ biểu đồ. VD: Hệ tọa độ 3 trục trong không gian (hệ tọa đồ Descartes), hệ tọa độ cực</p></li>
 </ol>
 <p>Các lớp trong biểu đồ có thể thể hiện thành các lớp như sau</p>
-<p><img alt="image1" src="_images/ggplot2-02.png" /></p>
+<p><img alt="" src="_images/ggplot2-01.png" /></p>
 <blockquote>
 <div><p>Việc hiểu và nắm vững nguyên lý của <code class="docutils literal notranslate"><span class="pre">ggplot2</span></code> sẽ cho phép chúng ta xây dựng gần như bất kỳ biểu đồ nào.</p>
 </div></blockquote>
 </section>
-<section id="Xây-dựng-biểu-đồ">
-<h2><span class="section-number">6.2. </span>Xây dựng biểu đồ<a class="headerlink" href="#Xây-dựng-biểu-đồ" title="Link to this heading"></a></h2>
-<section id="Biểu-đồ-cơ-bản">
-<h3><span class="section-number">6.2.1. </span>Biểu đồ cơ bản<a class="headerlink" href="#Biểu-đồ-cơ-bản" title="Link to this heading"></a></h3>
+<section id="xay-dung-bieu-do">
+<h2><span class="section-number">6.2. </span>Xây dựng biểu đồ<a class="headerlink" href="#xay-dung-bieu-do" title="Link to this heading"></a></h2>
+<section id="bieu-do-co-ban">
+<h3><span class="section-number">6.2.1. </span>Biểu đồ cơ bản<a class="headerlink" href="#bieu-do-co-ban" title="Link to this heading"></a></h3>
 <p>Câu lệnh cơ bản của <code class="docutils literal notranslate"><span class="pre">ggplot</span></code> như sau:</p>
-<p><code class="docutils literal notranslate"><span class="pre">{python}</span> <span class="pre">ggplot(data</span> <span class="pre">=</span> <span class="pre">&lt;DATA&gt;)</span> <span class="pre">+</span>&#160;&#160;&#160; <span class="pre">&lt;GEOM_FUNCTION&gt;(mapping</span> <span class="pre">=</span> <span class="pre">aes(&lt;MAPPINGS&gt;))</span></code></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="c1"># Sử dụng data mpg</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">plotnine.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">mpg</span>
 <span class="c1"># Sử dụng tất cả các hàm trong plotnine</span>
@@ -184,55 +181,48 @@
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <div id="IEME2I"></div>
+            <script type="text/javascript" data-lets-plot-script="library">
+                if(!window.letsPlotCallQueue) {
+                    window.letsPlotCallQueue = [];
+                }; 
+                window.letsPlotCall = function(f) {
+                    window.letsPlotCallQueue.push(f);
+                };
+                (function() {
+                    var script = document.createElement("script");
+                    script.type = "text/javascript";
+                    script.src = "https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.6.2/js-package/distr/lets-plot.min.js";
+                    script.onload = function() {
+                        window.letsPlotCall = function(f) {f();};
+                        window.letsPlotCallQueue.forEach(function(f) {f();});
+                        window.letsPlotCallQueue = [];
+                        
+                    };
+                    script.onerror = function(event) {
+                        window.letsPlotCall = function(f) {};    // noop
+                        window.letsPlotCallQueue = [];
+                        var div = document.createElement("div");
+                        div.style.color = 'darkred';
+                        div.textContent = 'Error loading Lets-Plot JS';
+                        document.getElementById("IEME2I").appendChild(div);
+                    };
+                    var e = document.getElementById("IEME2I");
+                    e.appendChild(script);
+                })()
+            </script>
+            </div></div>
 </div>
-<div class="output_area rendered_html docutils container">
-<div id="IEME2I"></div>
-<script type="text/javascript" data-lets-plot-script="library">
-    if(!window.letsPlotCallQueue) {
-        window.letsPlotCallQueue = [];
-    };
-    window.letsPlotCall = function(f) {
-        window.letsPlotCallQueue.push(f);
-    };
-    (function() {
-        var script = document.createElement("script");
-        script.type = "text/javascript";
-        script.src = "https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.6.2/js-package/distr/lets-plot.min.js";
-        script.onload = function() {
-            window.letsPlotCall = function(f) {f();};
-            window.letsPlotCallQueue.forEach(function(f) {f();});
-            window.letsPlotCallQueue = [];
-
-        };
-        script.onerror = function(event) {
-            window.letsPlotCall = function(f) {};    // noop
-            window.letsPlotCallQueue = [];
-            var div = document.createElement("div");
-            div.style.color = 'darkred';
-            div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("IEME2I").appendChild(div);
-        };
-        var e = document.getElementById("IEME2I");
-        e.appendChild(script);
-    })()
-</script></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mpg</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mpg</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -336,40 +326,34 @@
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span> \
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span> \
   <span class="n">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;displ&quot;</span><span class="p">,</span> <span class="c1"># Trục x là displ</span>
                            <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;hwy&quot;</span><span class="p">,</span>   <span class="c1"># Trục y là hwy</span>
                            <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;class&quot;</span><span class="p">))</span> <span class="c1"># Color là class</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="AhmOs5"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="AhmOs5"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -378,10 +362,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("AhmOs5");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -450,22 +434,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -478,22 +462,20 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
 <p>Trong ví dụ trên, ta đã vẽ biểu đồ điểm (<code class="docutils literal notranslate"><span class="pre">geom_point</span></code>) với tập dữ liệu <code class="docutils literal notranslate"><span class="pre">mpg</span></code> để phân tích quan hệ giữa hai biến <code class="docutils literal notranslate"><span class="pre">displ</span></code> và <code class="docutils literal notranslate"><span class="pre">hwy</span></code> và phân nhóm màu theo class.</p>
 <p>Ta có thể vẽ biểu đồ với kích thước của từng điểm theo <code class="docutils literal notranslate"><span class="pre">cyl</span></code> như sau.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span> \
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span> \
   <span class="n">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;displ&quot;</span><span class="p">,</span>   <span class="c1"># Trục x là displ</span>
                            <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;hwy&quot;</span><span class="p">,</span>     <span class="c1"># Trục y là hwy</span>
                            <span class="n">size</span> <span class="o">=</span> <span class="s2">&quot;cyl&quot;</span><span class="p">),</span> <span class="c1"># Kích thước theo cyl</span>
@@ -502,27 +484,23 @@
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="FBV8Q6"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="FBV8Q6"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -531,10 +509,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("FBV8Q6");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -605,22 +583,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -633,55 +611,53 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
 </section>
-<section id="Facet">
-<h3><span class="section-number">6.2.2. </span>Facet<a class="headerlink" href="#Facet" title="Link to this heading"></a></h3>
+<section id="facet">
+<h3><span class="section-number">6.2.2. </span>Facet<a class="headerlink" href="#facet" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">Facet</span></code> cho phép chúng ta chia dữ liệu thành nhiều phần theo từng nhóm và xây dựng biểu đồ cho mỗi nhóm trong đó. Câu lệnh của facet như sau</p>
-<p><code class="docutils literal notranslate"><span class="pre">{python</span> <span class="pre">facet_wrap(</span> <span class="pre">group_variable,</span>&#160;&#160; <span class="pre">#</span> <span class="pre">Chia</span> <span class="pre">nhóm</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">nrow</span> <span class="pre">=</span> <span class="pre">2,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">Số</span> <span class="pre">lượng</span> <span class="pre">dòng</span> <span class="pre">trong</span> <span class="pre">biểu</span> <span class="pre">đồ</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">scale</span> <span class="pre">=</span> <span class="pre">&quot;free&quot;)</span>&#160;&#160; <span class="pre">#</span> <span class="pre">&quot;free&quot;</span> <span class="pre">cho</span> <span class="pre">phép</span> <span class="pre">biểu</span> <span class="pre">đồ</span> <span class="pre">auto</span> <span class="pre">scale</span></code></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="highlight-{python notranslate"><div class="highlight"><pre><span></span>facet_wrap( group_variable,   # Chia nhóm
+            nrow = 2,         # Số lượng dòng trong biểu đồ  
+            scale = &quot;free&quot;)   # &quot;free&quot; cho phép biểu đồ auto scale
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span> \
-  <span class="n">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;displ&quot;</span><span class="p">,</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span> \
+  <span class="n">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;displ&quot;</span><span class="p">,</span> 
                            <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;hwy&quot;</span><span class="p">),</span>
-             <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;darkblue&quot;</span><span class="p">,</span>
+             <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;darkblue&quot;</span><span class="p">,</span> 
              <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">+</span>\
 <span class="n">facet_wrap</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="n">scales</span> <span class="o">=</span> <span class="s2">&quot;free&quot;</span><span class="p">)</span> <span class="o">+</span> \
 <span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Facet wrap&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="SOtJP6"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="SOtJP6"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -690,10 +666,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("SOtJP6");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -773,22 +749,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -801,54 +777,48 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
 <p><strong>Lưu ý</strong>: Ta có thể viết cách khác như sau</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span>
-        <span class="o">+</span> <span class="n">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;displ&quot;</span><span class="p">,</span>
+        <span class="o">+</span> <span class="n">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;displ&quot;</span><span class="p">,</span> 
                                 <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;hwy&quot;</span><span class="p">),</span>
-                                <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;darkgreen&quot;</span><span class="p">,</span>
+                                <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;darkgreen&quot;</span><span class="p">,</span> 
                                 <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">)</span>
-        <span class="o">+</span> <span class="n">facet_wrap</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span>
-                    <span class="n">nrow</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">facet_wrap</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> 
+                    <span class="n">nrow</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> 
         <span class="o">+</span> <span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Facet wrap&quot;</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="adkxYd"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="adkxYd"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -857,10 +827,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("adkxYd");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -940,22 +910,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -968,52 +938,46 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
 </section>
-<section id="Thuộc-tính-hình-học---geom">
-<h3><span class="section-number">6.2.3. </span>Thuộc tính hình học - geom<a class="headerlink" href="#Thuộc-tính-hình-học---geom" title="Link to this heading"></a></h3>
+<section id="thuoc-tinh-hinh-hoc-geom">
+<h3><span class="section-number">6.2.3. </span>Thuộc tính hình học - geom<a class="headerlink" href="#thuoc-tinh-hinh-hoc-geom" title="Link to this heading"></a></h3>
 <p>Các loại biểu đồ khác nhau trong <code class="docutils literal notranslate"><span class="pre">plotnine</span></code> chỉ khác nhau ở <code class="docutils literal notranslate"><span class="pre">geom_</span></code> - thuộc tính hình học của biểu đồ. Mỗi <code class="docutils literal notranslate"><span class="pre">geom</span></code> sẽ có các tham số khác nhau cần được điều chỉnh.</p>
 <p>Trong ví dụ dưới đây, ta vẽ 2 loại biểu đồ chồng lên nhau gồm 1. biểu đồ điểm và 2. biểu đồ thể hiện xu hướng</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span> 
   <span class="n">mapping</span> <span class="o">=</span> <span class="n">aes</span><span class="p">(</span><span class="s2">&quot;displ&quot;</span><span class="p">,</span> <span class="s2">&quot;hwy&quot;</span><span class="p">))</span> <span class="o">+</span>\
   <span class="n">geom_point</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;darkblue&quot;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span> <span class="o">+</span>\
   <span class="n">geom_smooth</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="bdEQys"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="bdEQys"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -1022,10 +986,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("bdEQys");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -1108,22 +1072,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -1136,48 +1100,42 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
 <p><strong>Lưu ý</strong>: Khi có nhiều <code class="docutils literal notranslate"><span class="pre">geom_object</span></code>, nếu không có sự điều chỉnh khi mapping của từng <code class="docutils literal notranslate"><span class="pre">geom</span></code>, các lớp sau sẽ lấy các biến <code class="docutils literal notranslate"><span class="pre">global</span></code> để làm thuộc tính. Trong ví dụ trên, hai lớp <code class="docutils literal notranslate"><span class="pre">geom_point</span></code> và <code class="docutils literal notranslate"><span class="pre">geom_smooth</span></code> lấy giá trị mặc định là <code class="docutils literal notranslate"><span class="pre">aes(displ,</span> <span class="pre">hwy)</span></code></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="n">aes</span><span class="p">(</span><span class="s2">&quot;displ&quot;</span><span class="p">,</span> <span class="s2">&quot;hwy&quot;</span><span class="p">))</span> <span class="o">+</span>\
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="n">aes</span><span class="p">(</span><span class="s2">&quot;displ&quot;</span><span class="p">,</span> <span class="s2">&quot;hwy&quot;</span><span class="p">))</span> <span class="o">+</span>\
   <span class="n">geom_point</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;drv&quot;</span><span class="p">),</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">)</span> <span class="o">+</span>\
   <span class="n">geom_smooth</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;drv&quot;</span><span class="p">),</span>
               <span class="n">size</span> <span class="o">=</span> <span class="mf">1.2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="j6JQSe"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="j6JQSe"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -1186,10 +1144,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("j6JQSe");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -1274,22 +1232,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -1302,14 +1260,14 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
 <p>Trong <code class="docutils literal notranslate"><span class="pre">plotnine</span></code> có rất nhiều <code class="docutils literal notranslate"><span class="pre">geom</span></code> phục vụ các loại biểu đồ khác nhau. Tuy nhiên, để phục vụ công viên thực tế, trong <code class="docutils literal notranslate"><span class="pre">ggplot2</span></code> cần nắm vững các loại <code class="docutils literal notranslate"><span class="pre">geom</span></code> quan trọng nhất như sau.</p>
 <ul class="simple">
@@ -1320,37 +1278,31 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">geom_smooth</span></code>: Biểu đồ vẽ xu hướng</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">geom_histogram</span></code>, <code class="docutils literal notranslate"><span class="pre">geom_density</span></code>: Biểu đồ phân phối</p></li>
 </ul>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># geom_boxplot</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># geom_boxplot</span>
 <span class="n">ggplot</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;hwy&quot;</span><span class="p">))</span> <span class="o">+</span>\
   <span class="n">geom_boxplot</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;darkblue&quot;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="XOFy75"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="XOFy75"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -1359,10 +1311,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("XOFy75");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -1453,22 +1405,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -1481,46 +1433,40 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># geom_col</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># geom_col</span>
 <span class="n">ggplot</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">))</span> <span class="o">+</span>\
   <span class="n">geom_bar</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;drv&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="a2LffW"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="a2LffW"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -1529,10 +1475,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("a2LffW");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -1600,22 +1546,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -1628,46 +1574,40 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># geom_density</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># geom_density</span>
 <span class="n">ggplot</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s2">&quot;hwy&quot;</span><span class="p">))</span> <span class="o">+</span>\
   <span class="n">geom_density</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;darkblue&quot;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="BT8aYB"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="BT8aYB"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -1676,10 +1616,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("BT8aYB");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -1748,22 +1688,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -1776,46 +1716,40 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># geom_histogram</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># geom_histogram</span>
 <span class="n">ggplot</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s2">&quot;hwy&quot;</span><span class="p">))</span> <span class="o">+</span>\
   <span class="n">geom_histogram</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;darkgreen&quot;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="omHgII"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="omHgII"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -1824,10 +1758,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("omHgII");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -1895,22 +1829,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -1923,52 +1857,46 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
 </section>
-<section id="Tính-toán-thống-kê---statistical-transformations">
-<h3><span class="section-number">6.2.4. </span>Tính toán thống kê - statistical transformations<a class="headerlink" href="#Tính-toán-thống-kê---statistical-transformations" title="Link to this heading"></a></h3>
+<section id="tinh-toan-thong-ke-statistical-transformations">
+<h3><span class="section-number">6.2.4. </span>Tính toán thống kê - statistical transformations<a class="headerlink" href="#tinh-toan-thong-ke-statistical-transformations" title="Link to this heading"></a></h3>
 <p>Đối với lớp <em>tính toán thống kê</em> (statistical transformation), biểu đồ không được vẽ trực tiếp với 2 trục tung và trục hoành mà sẽ phải trải qua bước tính toán thống kê trước.</p>
 <p>Xem ví dụ biểu đồ cột dưới đây.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">plotnine.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">diamonds</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">plotnine.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">diamonds</span>
 
 <span class="n">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>\
   <span class="n">geom_bar</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;cut&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="O1eW5X"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="O1eW5X"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -1977,10 +1905,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("O1eW5X");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -2056,22 +1984,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -2084,48 +2012,42 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
 <p>Ở ví dụ này, trục <code class="docutils literal notranslate"><span class="pre">x</span></code> là các nhóm của <code class="docutils literal notranslate"><span class="pre">cut</span></code> trong khi trục <code class="docutils literal notranslate"><span class="pre">y</span></code> là <code class="docutils literal notranslate"><span class="pre">số</span> <span class="pre">lượng</span> <span class="pre">quan</span> <span class="pre">sát</span></code> ở mỗi nhóm, giá trị này không phải là biến trực tiếp từ dữ liệu mà là 1 biến phái sinh. Quá trình xây dựng biểu đồ được thực hiện qua 3 bước như sau.</p>
-<p><img alt="image1" src="_images/ggplot2-02.png" /></p>
+<p><img alt="" src="_images/ggplot2-02.png" /></p>
 <p>Ta cũng có thể thay đổi lớp biến đổi dữ liệu trong biểu đồ trên để hiển thị dạng tổng của 1 biến bất kỳ như sau.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>\
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>\
   <span class="n">geom_bar</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;cut&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;carat&quot;</span><span class="p">),</span> <span class="n">stat</span> <span class="o">=</span> <span class="s2">&quot;identity&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="Lx842h"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="Lx842h"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -2134,10 +2056,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("Lx842h");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -2216,22 +2138,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -2244,18 +2166,18 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
 </section>
-<section id="Vị-trí-trong-biểu-đồ">
-<h3><span class="section-number">6.2.5. </span>Vị trí trong biểu đồ<a class="headerlink" href="#Vị-trí-trong-biểu-đồ" title="Link to this heading"></a></h3>
+<section id="vi-tri-trong-bieu-do">
+<h3><span class="section-number">6.2.5. </span>Vị trí trong biểu đồ<a class="headerlink" href="#vi-tri-trong-bieu-do" title="Link to this heading"></a></h3>
 <p>Quay lại ví dụ <code class="docutils literal notranslate"><span class="pre">bar</span> <span class="pre">chart</span></code> phía trên, khi xây dựng biểu đồ có 2 hoặc nhiều nhóm, biểu đồ có thể có 3 kiểu vị trí như sau:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">position</span> <span class="pre">=</span> <span class="pre">&quot;identity&quot;</span></code> (default): Giữ nguyên chế độ mặc định, để dạng stack bar với giá trị trục y mặc định</p></li>
@@ -2263,37 +2185,31 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">position</span> <span class="pre">=</span> <span class="pre">&quot;dodge&quot;</span></code>: Phân nhóm biểu đồ</p></li>
 </ul>
 <p>Xem ví dụ dưới đây.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># position = &quot;identity&quot;</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># position = &quot;identity&quot;</span>
 <span class="n">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>\
   <span class="n">geom_bar</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;cut&quot;</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;clarity&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="qiohKq"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="qiohKq"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -2302,10 +2218,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("qiohKq");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -2383,22 +2299,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -2411,47 +2327,41 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># position = &quot;fill&quot;</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># position = &quot;fill&quot;</span>
 <span class="n">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>\
-  <span class="n">geom_bar</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;cut&quot;</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;clarity&quot;</span><span class="p">),</span>
+  <span class="n">geom_bar</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;cut&quot;</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;clarity&quot;</span><span class="p">),</span> 
            <span class="n">position</span> <span class="o">=</span> <span class="s2">&quot;fill&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="yzDNnb"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="yzDNnb"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -2460,10 +2370,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("yzDNnb");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -2542,22 +2452,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -2570,47 +2480,41 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># position = &quot;dodge&quot;</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># position = &quot;dodge&quot;</span>
 <span class="n">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">)</span> <span class="o">+</span>\
-  <span class="n">geom_bar</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;cut&quot;</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;clarity&quot;</span><span class="p">),</span>
+  <span class="n">geom_bar</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;cut&quot;</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;clarity&quot;</span><span class="p">),</span> 
            <span class="n">position</span> <span class="o">=</span> <span class="s2">&quot;dodge&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="Wi1cju"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="Wi1cju"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -2619,10 +2523,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("Wi1cju");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -2701,22 +2605,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -2729,47 +2633,41 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
 <p>Bên cạnh 3 nhóm <code class="docutils literal notranslate"><span class="pre">position</span></code> trên, biểu đồ điểm còn có nhóm riêng là <code class="docutils literal notranslate"><span class="pre">postion</span> <span class="pre">=</span> <span class="pre">&quot;jitter&quot;</span></code>. Option này cho phép thay đổi giá trị của mỗi điểm một lượng nhỏ để biểu đồ điểm không bị trùng lặp nhiều quan sát (khi nhiều quan sát có chung một giá trị). Nhóm này có thể sử dụng tương đương với <code class="docutils literal notranslate"><span class="pre">geom_jitter</span></code>.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span>\
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span>\
   <span class="n">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;displ&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;hwy&quot;</span><span class="p">))</span> <span class="o">+</span>\
   <span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Without position jitter&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="TxYUOj"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="TxYUOj"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -2778,10 +2676,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("TxYUOj");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -2851,22 +2749,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -2879,47 +2777,41 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span> \
-  <span class="n">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;displ&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;hwy&quot;</span><span class="p">),</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span> \
+  <span class="n">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;displ&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;hwy&quot;</span><span class="p">),</span> 
              <span class="n">position</span> <span class="o">=</span> <span class="s2">&quot;jitter&quot;</span><span class="p">)</span> <span class="o">+</span> \
   <span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Position jitter&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="ZGKhkO"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="ZGKhkO"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -2928,10 +2820,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("ZGKhkO");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -3002,22 +2894,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -3030,22 +2922,19 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
-<center><p>§</p>
-</center><p>Đối với biểu đồ miền (area chart), ta có thể sử dụng option <code class="docutils literal notranslate"><span class="pre">position</span> <span class="pre">=</span> <span class="pre">&quot;fill&quot;</span></code> để thể hiện dạng phần trăm.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<center><font size=4>&sect;</font></center><p>Đối với biểu đồ miền (area chart), ta có thể sử dụng option <code class="docutils literal notranslate"><span class="pre">position</span> <span class="pre">=</span> <span class="pre">&quot;fill&quot;</span></code> để thể hiện dạng phần trăm.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># Tạo dữ liệu giả lập</span>
@@ -3069,12 +2958,8 @@
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -3130,39 +3015,33 @@
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lấy theo số tuyệt đối</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lấy theo số tuyệt đối</span>
 <span class="n">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;level&quot;</span><span class="p">))</span> <span class="o">+</span>\
   <span class="n">geom_area</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;group&quot;</span><span class="p">),</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-<br/></pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="output_area rendered_html docutils container">
-   <div id="OWAdyW"></div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="OWAdyW"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -3171,10 +3050,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("OWAdyW");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -3221,22 +3100,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -3249,48 +3128,42 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lấy theo tỷ lệ</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lấy theo tỷ lệ</span>
 <span class="n">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;level&quot;</span><span class="p">))</span> <span class="o">+</span>\
-  <span class="n">geom_area</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;group&quot;</span><span class="p">),</span>
+  <span class="n">geom_area</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;group&quot;</span><span class="p">),</span> 
             <span class="n">position</span> <span class="o">=</span> <span class="n">position_fill</span><span class="p">(),</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">+</span>\
   <span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Position fill&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="MWbCKA"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="MWbCKA"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -3299,10 +3172,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("MWbCKA");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -3354,22 +3227,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -3382,50 +3255,44 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
 </section>
-<section id="Hệ-trục-tọa-độ">
-<h3><span class="section-number">6.2.6. </span>Hệ trục tọa độ<a class="headerlink" href="#Hệ-trục-tọa-độ" title="Link to this heading"></a></h3>
+<section id="he-truc-toa-do">
+<h3><span class="section-number">6.2.6. </span>Hệ trục tọa độ<a class="headerlink" href="#he-truc-toa-do" title="Link to this heading"></a></h3>
 <p>Biểu đồ thông thường được xây trên hệ trục tọa độ Đề-các với tỷ lệ 1-1. Bên cạnh hệ trục này, <code class="docutils literal notranslate"><span class="pre">ggplot2</span></code> hỗ trợ các hệ trục tọa độ khác nhưng thông dụng nhất là <code class="docutils literal notranslate"><span class="pre">coord_flip</span></code>, cho phép đổi vị trí hai trục tọa độ cho nhau</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;hwy&quot;</span><span class="p">))</span> <span class="o">+</span>\
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;hwy&quot;</span><span class="p">))</span> <span class="o">+</span>\
   <span class="n">geom_boxplot</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;cyl&quot;</span><span class="p">),</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">)</span> <span class="o">+</span>\
   <span class="n">coord_flip</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="g9jURp"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="g9jURp"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -3434,10 +3301,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("g9jURp");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -3534,22 +3401,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -3562,25 +3429,25 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
 </section>
-<section id="Các-yếu-tố-khác">
-<h3><span class="section-number">6.2.7. </span>Các yếu tố khác<a class="headerlink" href="#Các-yếu-tố-khác" title="Link to this heading"></a></h3>
+<section id="cac-yeu-to-khac">
+<h3><span class="section-number">6.2.7. </span>Các yếu tố khác<a class="headerlink" href="#cac-yeu-to-khac" title="Link to this heading"></a></h3>
 <p>Bên cạnh các lớp biểu đồ đã phân tích trên, khi xây dựng biểu đồ với, còn 2 nhóm câu lệnh thường sử dụng:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">labs</span></code>: Đặt tên bản đồ, chú giải, tên các trục</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">theme</span></code>: Sử dụng để có bản đồ đẹp và phù hợp hơn</p></li>
 </ul>
-<section id="Labs">
-<h4><span class="section-number">6.2.7.1. </span>Labs<a class="headerlink" href="#Labs" title="Link to this heading"></a></h4>
+<section id="labs">
+<h4><span class="section-number">6.2.7.1. </span>Labs<a class="headerlink" href="#labs" title="Link to this heading"></a></h4>
 <p>Để điều chỉnh tên biểu đồ, chú giải, ta có thể sử dụng câu lệnh <code class="docutils literal notranslate"><span class="pre">labs</span></code></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;title&quot;</span><span class="p">,</span>
      <span class="n">subtitle</span> <span class="o">=</span> <span class="s2">&quot;subtitle&quot;</span><span class="p">,</span>
@@ -3589,42 +3456,36 @@
      <span class="n">caption</span> <span class="o">=</span> <span class="s2">&quot;Footnote&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s2">&quot;displ&quot;</span><span class="p">,</span> <span class="s2">&quot;hwy&quot;</span><span class="p">))</span> <span class="o">+</span>\
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s2">&quot;displ&quot;</span><span class="p">,</span> <span class="s2">&quot;hwy&quot;</span><span class="p">))</span> <span class="o">+</span>\
   <span class="n">geom_point</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;darkblue&quot;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">position</span> <span class="o">=</span> <span class="s2">&quot;jitter&quot;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span> <span class="o">+</span>\
   <span class="n">geom_smooth</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;loess&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;darkblue&quot;</span><span class="p">)</span> <span class="o">+</span> \
   <span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Highway miles per gallon by Engine displacement&quot;</span><span class="p">,</span>
        <span class="n">subtitle</span> <span class="o">=</span> <span class="s2">&quot;From mpg data set&quot;</span><span class="p">,</span>
-       <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Engine displacement&quot;</span><span class="p">,</span>
+       <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Engine displacement&quot;</span><span class="p">,</span> 
        <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Highway miles per gallon&quot;</span><span class="p">,</span>
        <span class="n">caption</span> <span class="o">=</span> <span class="s2">&quot;Source: data science team&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="guk6Ic"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="guk6Ic"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -3633,10 +3494,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("guk6Ic");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -3736,22 +3597,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -3764,51 +3625,45 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
 </section>
-<section id="Theme">
-<h4><span class="section-number">6.2.7.2. </span>Theme<a class="headerlink" href="#Theme" title="Link to this heading"></a></h4>
+<section id="theme">
+<h4><span class="section-number">6.2.7.2. </span>Theme<a class="headerlink" href="#theme" title="Link to this heading"></a></h4>
 <p>Khi xây dựng biểu đồ với <code class="docutils literal notranslate"><span class="pre">ggplot2</span></code>, ta có thể sử dụng rất nhiều <code class="docutils literal notranslate"><span class="pre">theme</span></code> có sẵn nhưng được dùng nhiều nhất là <code class="docutils literal notranslate"><span class="pre">theme_bw()</span></code>, <code class="docutils literal notranslate"><span class="pre">theme_classic()</span></code>, <code class="docutils literal notranslate"><span class="pre">theme_minimal()</span></code></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s2">&quot;displ&quot;</span><span class="p">,</span> <span class="s2">&quot;hwy&quot;</span><span class="p">))</span> <span class="o">+</span>\
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s2">&quot;displ&quot;</span><span class="p">,</span> <span class="s2">&quot;hwy&quot;</span><span class="p">))</span> <span class="o">+</span>\
   <span class="n">geom_point</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;darkblue&quot;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span>  <span class="n">size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
 
 <span class="n">p</span> <span class="o">+</span> <span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Default theme&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="OkdPba"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="OkdPba"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -3817,10 +3672,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("OkdPba");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -3893,22 +3748,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -3921,44 +3776,38 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">+</span> <span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Theme black &amp; white&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">theme_bw</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">+</span> <span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Theme black &amp; white&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">theme_bw</span><span class="p">()</span>
-</pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="pWcXXx"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="pWcXXx"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -3967,10 +3816,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("pWcXXx");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -4046,22 +3895,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -4074,44 +3923,38 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">+</span> <span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Theme classic&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">theme_classic</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">+</span> <span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Theme classic&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">theme_classic</span><span class="p">()</span>
-</pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="b6kM5n"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="b6kM5n"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -4120,10 +3963,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("b6kM5n");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -4199,22 +4042,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -4227,44 +4070,38 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">+</span> <span class="n">theme_minimal</span><span class="p">()</span> <span class="o">+</span> <span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Theme minimal&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">+</span> <span class="n">theme_minimal</span><span class="p">()</span> <span class="o">+</span> <span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Theme minimal&quot;</span><span class="p">)</span>
-</pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="unocSN"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="unocSN"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -4273,10 +4110,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("unocSN");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -4352,22 +4189,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -4380,23 +4217,21 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
 <p>Để tùy chỉnh các thành phần có sẵn trong biểu đồ, ta có thể sử dụng hàm <code class="docutils literal notranslate"><span class="pre">theme</span></code> để customize từng thành phần như sau.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-  <span class="n">p</span> <span class="o">+</span>
-    <span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Chart with customized theme&quot;</span><span class="p">)</span> <span class="o">+</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+  <span class="n">p</span> <span class="o">+</span> 
+    <span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Chart with customized theme&quot;</span><span class="p">)</span> <span class="o">+</span> 
     <span class="n">theme</span><span class="p">(</span>
     <span class="c1"># Tên title</span>
     <span class="n">plot_title</span> <span class="o">=</span> <span class="n">element_text</span><span class="p">(</span><span class="n">family</span> <span class="o">=</span> <span class="s2">&quot;serif&quot;</span><span class="p">,</span> <span class="n">face</span> <span class="o">=</span> <span class="s2">&quot;bold&quot;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">20</span><span class="p">),</span>
@@ -4412,27 +4247,23 @@
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="cLwjth"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="cLwjth"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -4441,10 +4272,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("cLwjth");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -4542,22 +4373,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -4570,20 +4401,20 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
 <p>Để xem các yếu tố có thể tùy chỉnh trong <code class="docutils literal notranslate"><span class="pre">theme</span></code>, ta có thể sử dụng câu lệnh <code class="docutils literal notranslate"><span class="pre">plotnine.theme??</span></code></p>
 </section>
 </section>
-<section id="Thay-đổi-màu-trong-biểu-đồ">
-<h3><span class="section-number">6.2.8. </span>Thay đổi màu trong biểu đồ<a class="headerlink" href="#Thay-đổi-màu-trong-biểu-đồ" title="Link to this heading"></a></h3>
+<section id="thay-doi-mau-trong-bieu-do">
+<h3><span class="section-number">6.2.8. </span>Thay đổi màu trong biểu đồ<a class="headerlink" href="#thay-doi-mau-trong-bieu-do" title="Link to this heading"></a></h3>
 <p>Hệ mã màu trong <code class="docutils literal notranslate"><span class="pre">plotnine</span></code> được chia làm 2 nhóm chính:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">color</span></code>: Với các nhóm biểu đồ điểm, đường (<code class="docutils literal notranslate"><span class="pre">point</span></code>, <code class="docutils literal notranslate"><span class="pre">line</span></code>)</p></li>
@@ -4595,11 +4426,9 @@
 <li><p>Biến rời rạc</p></li>
 </ul>
 <p><strong>Với biến màu rời rạc</strong></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Điều chỉnh màu thủ công</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Điều chỉnh màu thủ công</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;hwy&quot;</span><span class="p">))</span> <span class="o">+</span>\
   <span class="n">geom_boxplot</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;class&quot;</span><span class="p">))</span> <span class="o">+</span>\
   <span class="n">coord_flip</span><span class="p">()</span>
@@ -4607,27 +4436,23 @@
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="fnJSup"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="fnJSup"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -4636,10 +4461,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("fnJSup");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -4733,22 +4558,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -4761,44 +4586,38 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">+</span> <span class="n">scale_fill_brewer</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="s2">&quot;YlGnBu&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">+</span> <span class="n">scale_fill_brewer</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="s2">&quot;YlGnBu&quot;</span><span class="p">)</span>
-</pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="agyC6K"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="agyC6K"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -4807,10 +4626,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("agyC6K");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -4908,22 +4727,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -4936,54 +4755,48 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
 </section>
 </section>
-<section id="Các-mẹo-với-lets_plots">
-<h2><span class="section-number">6.3. </span>Các mẹo với <code class="docutils literal notranslate"><span class="pre">lets_plots</span></code><a class="headerlink" href="#Các-mẹo-với-lets_plots" title="Link to this heading"></a></h2>
-<section id="Loại-bỏ-legend-trong-1-lớp">
-<h3><span class="section-number">6.3.1. </span>Loại bỏ legend trong 1 lớp<a class="headerlink" href="#Loại-bỏ-legend-trong-1-lớp" title="Link to this heading"></a></h3>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Để cả 2 legend</span>
+<section id="cac-meo-voi-lets-plots">
+<h2><span class="section-number">6.3. </span>Các mẹo với <code class="docutils literal notranslate"><span class="pre">lets_plots</span></code><a class="headerlink" href="#cac-meo-voi-lets-plots" title="Link to this heading"></a></h2>
+<section id="loai-bo-legend-trong-1-lop">
+<h3><span class="section-number">6.3.1. </span>Loại bỏ legend trong 1 lớp<a class="headerlink" href="#loai-bo-legend-trong-1-lop" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Để cả 2 legend</span>
 <span class="n">ggplot</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s2">&quot;displ&quot;</span><span class="p">,</span> <span class="s2">&quot;hwy&quot;</span><span class="p">))</span> <span class="o">+</span>\
   <span class="n">geom_point</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;class&quot;</span><span class="p">),</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span>  <span class="n">size</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">+</span>\
   <span class="n">geom_smooth</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;class&quot;</span><span class="p">))</span> <span class="o">+</span>\
   <span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Legend in 2 layers&quot;</span><span class="p">)</span>
-<br/><br/></pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
-<div class="output_area rendered_html docutils container">
-   <div id="ferR7Y"></div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="ferR7Y"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -4992,10 +4805,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("ferR7Y");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -5083,22 +4896,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -5111,20 +4924,18 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Loại bỏ 1 legend</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Loại bỏ 1 legend</span>
 <span class="n">ggplot</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s2">&quot;displ&quot;</span><span class="p">,</span> <span class="s2">&quot;hwy&quot;</span><span class="p">))</span> <span class="o">+</span>\
   <span class="n">geom_point</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;class&quot;</span><span class="p">),</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span>  <span class="n">size</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">+</span>\
   <span class="n">geom_smooth</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;class&quot;</span><span class="p">),</span> <span class="n">show_legend</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">+</span>\
@@ -5132,27 +4943,23 @@
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="kFQ9bq"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="kFQ9bq"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -5161,10 +4968,10 @@
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("kFQ9bq");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -5253,22 +5060,22 @@
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -5281,46 +5088,35 @@
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
 </section>
-<section id="Hiển-thị-text-biểu-đồ-ở-giữa-bar-chart">
-<h3><span class="section-number">6.3.2. </span>Hiển thị text biểu đồ ở giữa bar chart<a class="headerlink" href="#Hiển-thị-text-biểu-đồ-ở-giữa-bar-chart" title="Link to this heading"></a></h3>
+<section id="hien-thi-text-bieu-do-o-giua-bar-chart">
+<h3><span class="section-number">6.3.2. </span>Hiển thị text biểu đồ ở giữa bar chart<a class="headerlink" href="#hien-thi-text-bieu-do-o-giua-bar-chart" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Sử dụng option <code class="docutils literal notranslate"><span class="pre">position</span> <span class="pre">=</span> <span class="pre">position_stack(vjust</span> <span class="pre">=</span> <span class="pre">0.5)</span></code></p></li>
 </ul>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">mpg</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">)</span><span class="o">.</span>\
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">mpg</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">)</span><span class="o">.</span>\
   <span class="n">size</span><span class="p">()</span><span class="o">.</span>\
   <span class="n">reset_index</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;no&quot;</span><span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
 </pre></div>
 </div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -5380,39 +5176,33 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;no&quot;</span><span class="p">))</span> <span class="o">+</span>\
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;no&quot;</span><span class="p">))</span> <span class="o">+</span>\
   <span class="n">geom_bar</span><span class="p">(</span><span class="n">stat</span> <span class="o">=</span> <span class="s2">&quot;identity&quot;</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;darkblue&quot;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.6</span><span class="p">)</span> <span class="o">+</span>\
   <span class="n">geom_text</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;no&quot;</span><span class="p">),</span> <span class="n">position</span> <span class="o">=</span> <span class="n">position_stack</span><span class="p">(</span><span class="n">vjust</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;white&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="G1ARLc"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="G1ARLc"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -5421,10 +5211,10 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("G1ARLc");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -5481,22 +5271,22 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -5509,54 +5299,48 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
 </section>
-<section id="Tạo-biểu-đồ-geom_area_ridges">
-<h3><span class="section-number">6.3.3. </span>Tạo biểu đồ <code class="docutils literal notranslate"><span class="pre">geom_area_ridges</span></code><a class="headerlink" href="#Tạo-biểu-đồ-geom_area_ridges" title="Link to this heading"></a></h3>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<section id="tao-bieu-do-geom-area-ridges">
+<h3><span class="section-number">6.3.3. </span>Tạo biểu đồ <code class="docutils literal notranslate"><span class="pre">geom_area_ridges</span></code><a class="headerlink" href="#tao-bieu-do-geom-area-ridges" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <span class="n">ggplot</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s1">&#39;hwy&#39;</span><span class="p">,</span> <span class="s1">&#39;manufacturer&#39;</span><span class="p">))</span>
     <span class="o">+</span> <span class="n">geom_area_ridges</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span>
                        <span class="n">fill</span> <span class="o">=</span> <span class="s1">&#39;darkblue&#39;</span><span class="p">,</span>
                        <span class="n">quantiles</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">],</span>
                        <span class="n">quantile_lines</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># Thêm các đường quantile</span>
-                       <span class="n">scale</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">)</span>
+                       <span class="n">scale</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">)</span> 
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="ZUdJ1d"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="ZUdJ1d"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -5565,10 +5349,10 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("ZUdJ1d");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -5642,22 +5426,22 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -5670,28 +5454,26 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
 </section>
-<section id="Tạo-toolbar-cho-biểu-đồ">
-<h3><span class="section-number">6.3.4. </span>Tạo toolbar cho biểu đồ<a class="headerlink" href="#Tạo-toolbar-cho-biểu-đồ" title="Link to this heading"></a></h3>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo toolbar</span>
+<section id="tao-toolbar-cho-bieu-do">
+<h3><span class="section-number">6.3.4. </span>Tạo toolbar cho biểu đồ<a class="headerlink" href="#tao-toolbar-cho-bieu-do" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo toolbar</span>
 <span class="p">(</span>
     <span class="n">ggplot</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s1">&#39;displ&#39;</span><span class="p">,</span> <span class="s1">&#39;hwy&#39;</span><span class="p">))</span>
-        <span class="o">+</span> <span class="n">geom_jitter</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;darkblue&quot;</span><span class="p">,</span>
+        <span class="o">+</span> <span class="n">geom_jitter</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;darkblue&quot;</span><span class="p">,</span> 
                      <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span>
-                     <span class="n">size</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+                     <span class="n">size</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> 
         <span class="o">+</span> <span class="n">geom_smooth</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;loess&quot;</span><span class="p">,</span>
                       <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">)</span>
         <span class="o">+</span> <span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Toolbar for chart&quot;</span><span class="p">)</span>
@@ -5700,27 +5482,23 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="gkCWAK"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="gkCWAK"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -5729,10 +5507,10 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("gkCWAK");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -5821,22 +5599,22 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -5849,62 +5627,55 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
 </section>
-<section id="Kết-hợp-nhiều-biểu-đồ-với-ggrid">
-<h3><span class="section-number">6.3.5. </span>Kết hợp nhiều biểu đồ với ggrid<a class="headerlink" href="#Kết-hợp-nhiều-biểu-đồ-với-ggrid" title="Link to this heading"></a></h3>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo các biểu đồ riêng rẽ</span>
+<section id="ket-hop-nhieu-bieu-do-voi-ggrid">
+<h3><span class="section-number">6.3.5. </span>Kết hợp nhiều biểu đồ với ggrid<a class="headerlink" href="#ket-hop-nhieu-bieu-do-voi-ggrid" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo các biểu đồ riêng rẽ</span>
 <span class="n">p1</span> <span class="o">=</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s1">&#39;displ&#39;</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_histogram</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">)</span>
 <span class="n">p2</span> <span class="o">=</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s1">&#39;hwy&#39;</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_histogram</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">)</span>
 <span class="n">p3</span> <span class="o">=</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s1">&#39;displ&#39;</span><span class="p">,</span> <span class="s1">&#39;hwy&#39;</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo chart đơn giản nằm ngang</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo chart đơn giản nằm ngang</span>
 <span class="p">(</span>
-    <span class="n">gggrid</span><span class="p">([</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">])</span>
+    <span class="n">gggrid</span><span class="p">([</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">])</span> 
     <span class="o">+</span> <span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Frist ggrid chart&quot;</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="sb0JhY"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="sb0JhY"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -5913,10 +5684,10 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("sb0JhY");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -6113,22 +5884,22 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -6141,56 +5912,50 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo chart phức tạp</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo chart phức tạp</span>
 <span class="p">(</span>
     <span class="n">gggrid</span><span class="p">([</span>
-        <span class="n">gggrid</span><span class="p">([</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">]),</span>
+        <span class="n">gggrid</span><span class="p">([</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">]),</span> 
         <span class="n">p3</span><span class="p">],</span>
         <span class="n">ncol</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
         <span class="n">hspace</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
         <span class="n">vspace</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
         <span class="n">fit</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-        <span class="n">heights</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+        <span class="n">heights</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span> 
     <span class="o">+</span> <span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Frist ggrid chart&quot;</span><span class="p">)</span>
     <span class="o">+</span> <span class="n">ggsize</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="knGc9a"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="knGc9a"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -6199,10 +5964,10 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("knGc9a");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -6415,22 +6180,22 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -6443,33 +6208,30 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
 </section>
-<section id="Biểu-đồ-nâng-cao">
-<h3><span class="section-number">6.3.6. </span>Biểu đồ nâng cao<a class="headerlink" href="#Biểu-đồ-nâng-cao" title="Link to this heading"></a></h3>
+<section id="bieu-do-nang-cao">
+<h3><span class="section-number">6.3.6. </span>Biểu đồ nâng cao<a class="headerlink" href="#bieu-do-nang-cao" title="Link to this heading"></a></h3>
 <p>Bên cạnh các biểu đồ cơ bản có thể xây dựng nhanh chóng, <code class="docutils literal notranslate"><span class="pre">lets-plot</span></code> cũng hỗ trợ rất tốt các biểu đồ phức tạp với module <code class="docutils literal notranslate"><span class="pre">bistro</span></code>, hỗ trợ rất tốt phần <code class="docutils literal notranslate"><span class="pre">correlation</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">joinplot</span></code>. Các nhóm biểu đồ này sẽ trả về kết quả là 1 objects của lets-plot và ta có thể thêm các thuộc tính như biểu đồ thường.</p>
 <p><strong>Biểu đồ correlation</strong></p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">lets_plot.bistro.corr</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">lets_plot.bistro.corr</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-</pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Biểu đồ correlation</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Biểu đồ correlation</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">corr_plot</span><span class="p">(</span><span class="n">mpg</span><span class="p">)</span><span class="o">.</span><span class="n">tiles</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;upper&#39;</span><span class="p">,</span> <span class="n">diag</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>\
     <span class="o">.</span><span class="n">labels</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;upper&#39;</span><span class="p">,</span> <span class="n">diag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">map_size</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>\
     <span class="o">.</span><span class="n">palette_RdBu</span><span class="p">()</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
@@ -6478,27 +6240,23 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="1jKkS6"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="1jKkS6"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -6507,10 +6265,10 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("1jKkS6");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -6644,22 +6402,22 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -6672,22 +6430,20 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Thêm labs &amp; title</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Thêm labs &amp; title</span>
 <span class="p">(</span>
-    <span class="n">p</span>
+    <span class="n">p</span> 
         <span class="o">+</span> <span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Correlation between variables&quot;</span><span class="p">)</span>
         <span class="o">+</span> <span class="n">ggsize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
         <span class="o">+</span> <span class="n">theme</span><span class="p">(</span><span class="n">legend_position</span> <span class="o">=</span> <span class="s2">&quot;none&quot;</span><span class="p">)</span>
@@ -6695,27 +6451,23 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="NWCp5S"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="NWCp5S"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -6724,10 +6476,10 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("NWCp5S");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -6865,22 +6617,22 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -6893,22 +6645,20 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
-<p><strong>Biểu đồ ``joint_plot``</strong></p>
+<p><strong>Biểu đồ <code class="docutils literal notranslate"><span class="pre">joint_plot</span></code></strong></p>
 <p>Biểu đồ <code class="docutils literal notranslate"><span class="pre">joint_plot</span></code> rất hữu dụng và cho phép tạo marginal effect (tạo thêm biểu đồ 2 bên, dưới dạng histogram, boxplot hoặc density cho 2 biến liên tục.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">lets_plot.bistro.joint</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">lets_plot.bistro.joint</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">500</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
@@ -6919,36 +6669,31 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><span></span><span class="c1"># Vẽ biểu đồ join plot đơn giản</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vẽ biểu đồ join plot đơn giản</span>
 <span class="n">joint_plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="DrGZwG"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="DrGZwG"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -6957,10 +6702,10 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("DrGZwG");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -7058,22 +6803,22 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -7086,23 +6831,21 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Biểu đồ phức tạp với marginal effect params</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Biểu đồ phức tạp với marginal effect params</span>
 <span class="p">(</span>
-    <span class="n">joint_plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span>
-            <span class="n">geom</span> <span class="o">=</span> <span class="s2">&quot;hex&quot;</span><span class="p">,</span>
+    <span class="n">joint_plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> 
+            <span class="n">geom</span> <span class="o">=</span> <span class="s2">&quot;hex&quot;</span><span class="p">,</span> 
             <span class="n">binwidth</span> <span class="o">=</span> <span class="p">[</span><span class="mf">.5</span><span class="p">,</span> <span class="mf">.5</span><span class="p">],</span>
             <span class="n">marginal</span><span class="o">=</span><span class="s2">&quot;hist:tl,box:br&quot;</span> <span class="c1"># Histogram: top, left; Boxplot: bottom, right</span>
             <span class="p">)</span>
@@ -7111,27 +6854,23 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="A8fZGO"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="A8fZGO"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -7140,10 +6879,10 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("A8fZGO");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -7318,22 +7057,22 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -7346,23 +7085,23 @@ C:\Users\Admin\AppData\Local\Temp\ipykernel_5828\179534537.py:1: FutureWarning: 
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
 </section>
 </section>
-<section id="Tài-liệu-tham-khảo">
-<h2><span class="section-number">6.4. </span>Tài liệu tham khảo<a class="headerlink" href="#Tài-liệu-tham-khảo" title="Link to this heading"></a></h2>
+<section id="tai-lieu-tham-khao">
+<h2><span class="section-number">6.4. </span>Tài liệu tham khảo<a class="headerlink" href="#tai-lieu-tham-khao" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://aeturrell.github.io/python4DS/data-visualise.html">https://aeturrell.github.io/python4DS/data-visualise.html</a></p></li>
-<li><p><a class="reference external" href="https://lets-plot.org/python/index.html">https://lets-plot.org/python/index.html</a></p></li>
-<li><p><a class="reference external" href="https://plotnine.org/reference/">https://plotnine.org/reference/</a></p></li>
+<li><p>https://aeturrell.github.io/python4DS/data-visualise.html</p></li>
+<li><p>https://lets-plot.org/python/index.html</p></li>
+<li><p>https://plotnine.org/reference/</p></li>
 </ul>
 </section>
 </section>

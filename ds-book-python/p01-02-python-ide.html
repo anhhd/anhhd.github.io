@@ -10,7 +10,8 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/nbsphinx-code-cells.css?v=2aa19091" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -20,9 +21,8 @@
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -53,21 +53,21 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="p01-01-gioi-thieu-python.html">1. Giới thiệu về Python</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">2. Python IDE - Jupyter lab &amp; Visual Studio</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Jupyter-lab">2.1. Jupyter lab</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Cách-hiển-thị-biểu-đồ-trong-jupyer">2.1.1. Cách hiển thị biểu đồ trong jupyer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Magic-commands">2.1.2. Magic commands</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Viết-công-thức-toán">2.1.3. Viết công thức toán</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Cài-đặt-extension-cho-phép-quản-lý-jupyter-tốt-hơn">2.1.4. Cài đặt extension cho phép quản lý jupyter tốt hơn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jupyter-lab">2.1. Jupyter lab</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cach-hien-thi-bieu-do-trong-jupyer">2.1.1. Cách hiển thị biểu đồ trong jupyer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#magic-commands">2.1.2. Magic commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#viet-cong-thuc-toan">2.1.3. Viết công thức toán</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cai-dat-extension-cho-phep-quan-ly-jupyter-tot-hon">2.1.4. Cài đặt extension cho phép quản lý jupyter tốt hơn</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Visual-Studio">2.2. Visual Studio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Positron">2.3. Positron</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Các-thư-viện-khác">2.4. Các thư viện khác</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Quarto">2.4.1. Quarto</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Sphinx">2.4.2. Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#visual-studio">2.2. Visual Studio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#positron">2.3. Positron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cac-thu-vien-khac">2.4. Các thư viện khác</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#quarto">2.4.1. Quarto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sphinx">2.4.2. Sphinx</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Tài-liệu-tham-khảo">2.5. Tài liệu tham khảo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tai-lieu-tham-khao">2.5. Tài liệu tham khảo</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="p01-03-cau-truc-du-lieu-python.html">3. Các cấu trúc cơ bản trong Python</a></li>
@@ -125,12 +125,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Python-IDE---Jupyter-lab-&amp;-Visual-Studio">
-<h1><span class="section-number">2. </span>Python IDE - Jupyter lab &amp; Visual Studio<a class="headerlink" href="#Python-IDE---Jupyter-lab-&-Visual-Studio" title="Link to this heading"></a></h1>
+  <section id="python-ide-jupyter-lab-visual-studio">
+<h1><span class="section-number">2. </span>Python IDE - Jupyter lab &amp; Visual Studio<a class="headerlink" href="#python-ide-jupyter-lab-visual-studio" title="Link to this heading"></a></h1>
 <p>Để làm việc hiệu quả với Python, ta cần làm quen với IDE - Integrated Development Environment - phổ biến cho Python. Có 2 IDE hiệu quả là <code class="docutils literal notranslate"><span class="pre">Jupyter</span> <span class="pre">Lab</span></code> và <code class="docutils literal notranslate"><span class="pre">Visual</span> <span class="pre">Studio</span></code></p>
-<section id="Jupyter-lab">
-<h2><span class="section-number">2.1. </span>Jupyter lab<a class="headerlink" href="#Jupyter-lab" title="Link to this heading"></a></h2>
-<p><strong>Jupyter Lab</strong> là IDE phổ biến nhất cho Python, và là phiên bản nâng cấp của <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code>. Jupyter lab sử dụng <em>browser-based interface</em>, cho phép chúng ta hiển thị code, hình ảnh, bảng biểu… và viết note bằng Markdown - tương tự như RMarkdown. Tiếp tục với sự phát triển của Jupyeter Notebook là <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code>.</p>
+<section id="jupyter-lab">
+<h2><span class="section-number">2.1. </span>Jupyter lab<a class="headerlink" href="#jupyter-lab" title="Link to this heading"></a></h2>
+<p><strong>Jupyter Lab</strong> là IDE phổ biến nhất cho Python, và là phiên bản nâng cấp của <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code>. Jupyter lab sử dụng <em>browser-based interface</em>, cho phép chúng ta hiển thị code, hình ảnh, bảng biểu... và viết note bằng Markdown - tương tự như RMarkdown. Tiếp tục với sự phát triển của Jupyeter Notebook là <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code>.</p>
 <p>Cách cài đặt jupyter như sau</p>
 <p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">jupyterlab</span></code></p>
 <hr class="docutils" />
@@ -155,14 +155,12 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">-</span></code>: Tách 1 cell thành 2 cell từ vị trí đặt con trỏ</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">P</span></code>: Hiển thị các phím tắt:</p></li>
 </ul>
-<section id="Cách-hiển-thị-biểu-đồ-trong-jupyer">
-<h3><span class="section-number">2.1.1. </span>Cách hiển thị biểu đồ trong jupyer<a class="headerlink" href="#Cách-hiển-thị-biểu-đồ-trong-jupyer" title="Link to this heading"></a></h3>
+<section id="cach-hien-thi-bieu-do-trong-jupyer">
+<h3><span class="section-number">2.1.1. </span>Cách hiển thị biểu đồ trong jupyer<a class="headerlink" href="#cach-hien-thi-bieu-do-trong-jupyer" title="Link to this heading"></a></h3>
 <p>Sử dụng option <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline</span></code> với jupyter</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %matplotlib inline</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %matplotlib inline</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;some numbers&#39;</span><span class="p">)</span>
@@ -170,90 +168,67 @@
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="_images/p01-02-python-ide_7_0.png" src="_images/p01-02-python-ide_7_0.png" />
+<div class="cell_output docutils container">
+<img alt="_images/8436f9d4ec509ba84c8f664e2cb124c78ff1cb92924c26f050c96422125e24ca.png" src="_images/8436f9d4ec509ba84c8f664e2cb124c78ff1cb92924c26f050c96422125e24ca.png" />
 </div>
 </div>
 </section>
-<section id="Magic-commands">
-<h3><span class="section-number">2.1.2. </span>Magic commands<a class="headerlink" href="#Magic-commands" title="Link to this heading"></a></h3>
+<section id="magic-commands">
+<h3><span class="section-number">2.1.2. </span>Magic commands<a class="headerlink" href="#magic-commands" title="Link to this heading"></a></h3>
 <p>Trong <code class="docutils literal notranslate"><span class="pre">Python</span></code> có nhóm các câu lệnh được khai báo sẵn được gọi là <code class="docutils literal notranslate"><span class="pre">magic</span> <span class="pre">command</span></code>. Các câu lệnh này cho phép thực hiện nhanh các nhóm lệnh khác.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">lsmagic</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">lsmagic</span>
-</pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Available line magics:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Available line magics:
 %alias  %alias_magic  %autoawait  %autocall  %automagic  %autosave  %bookmark  %cd  %clear  %cls  %code_wrap  %colors  %conda  %config  %connect_info  %copy  %ddir  %debug  %dhist  %dirs  %doctest_mode  %echo  %ed  %edit  %env  %gui  %hist  %history  %killbgscripts  %ldir  %less  %load  %load_ext  %loadpy  %logoff  %logon  %logstart  %logstate  %logstop  %ls  %lsmagic  %macro  %magic  %mamba  %matplotlib  %micromamba  %mkdir  %more  %notebook  %page  %pastebin  %pdb  %pdef  %pdoc  %pfile  %pinfo  %pinfo2  %pip  %popd  %pprint  %precision  %prun  %psearch  %psource  %pushd  %pwd  %pycat  %pylab  %qtconsole  %quickref  %recall  %rehashx  %reload_ext  %ren  %rep  %rerun  %reset  %reset_selective  %rmdir  %run  %save  %sc  %set_env  %store  %sx  %system  %tb  %time  %timeit  %unalias  %unload_ext  %uv  %who  %who_ls  %whos  %xdel  %xmode
 
 Available cell magics:
 %%!  %%HTML  %%SVG  %%bash  %%capture  %%cmd  %%code_wrap  %%debug  %%file  %%html  %%javascript  %%js  %%latex  %%markdown  %%perl  %%prun  %%pypy  %%python  %%python2  %%python3  %%ruby  %%script  %%sh  %%svg  %%sx  %%system  %%time  %%timeit  %%writefile
 
 Automagic is ON, % prefix IS NOT needed for line magics.
-</pre></div></div>
-</div>
-<p>Các magic command thường dùng</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Project working directory</span>
+</div>
+</div>
+<p>Các magic command thường dùng</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Project working directory</span>
 <span class="o">%</span><span class="k">pwd</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;d:\\01-github\\ds-book-python\\_source&#39;
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&#39;d:\\01-github\\ds-book-python\\_source&#39;
-</pre></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Current directory in in Python</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Current directory in in Python</span>
 <span class="o">%</span><span class="k">cd</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-C:\Users\Admin
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">ls</span>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Admin
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
- Volume in drive C is Windows-SSD
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">ls</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Volume in drive C is Windows-SSD
  Volume Serial Number is 0A3C-70C9
 
  Directory of C:\Users\Admin
@@ -289,27 +264,29 @@ C:\Users\Admin
 05/23/2025  10:46 AM    &lt;DIR&gt;          Videos
                3 File(s)            341 bytes
               26 Dir(s)  136,196,231,168 bytes free
-</pre></div></div>
+</pre></div>
+</div>
+</div>
 </div>
 </section>
-<section id="Viết-công-thức-toán">
-<h3><span class="section-number">2.1.3. </span>Viết công thức toán<a class="headerlink" href="#Viết-công-thức-toán" title="Link to this heading"></a></h3>
+<section id="viet-cong-thuc-toan">
+<h3><span class="section-number">2.1.3. </span>Viết công thức toán<a class="headerlink" href="#viet-cong-thuc-toan" title="Link to this heading"></a></h3>
 <p>Ta có thể viết công thức toán như rmarkdown thông thường.</p>
 <p>Ví dụ: Kết quả hiển thị của công thức <code class="docutils literal notranslate"><span class="pre">$$\theta</span> <span class="pre">=</span> <span class="pre">\sum_{i=1}^{n}X_{i}$$</span></code> như sau</p>
-<div class="math notranslate nohighlight">
-\[\theta = \sum_{i=1}^{n}X_{i}\]</div>
+<p>$$\theta = \sum_{i=1}^{n}X_{i}$$</p>
 </section>
-<section id="Cài-đặt-extension-cho-phép-quản-lý-jupyter-tốt-hơn">
-<h3><span class="section-number">2.1.4. </span>Cài đặt extension cho phép quản lý jupyter tốt hơn<a class="headerlink" href="#Cài-đặt-extension-cho-phép-quản-lý-jupyter-tốt-hơn" title="Link to this heading"></a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">jupyter_contrib_nbextensions</span> <span class="pre">jupyter_nbextensions_configurator</span></code> <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">jupyter_contrib_nbextensions</span> <span class="pre">jupyter_nbextensions_configurator</span></code></p>
+<section id="cai-dat-extension-cho-phep-quan-ly-jupyter-tot-hon">
+<h3><span class="section-number">2.1.4. </span>Cài đặt extension cho phép quản lý jupyter tốt hơn<a class="headerlink" href="#cai-dat-extension-cho-phep-quan-ly-jupyter-tot-hon" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">jupyter_contrib_nbextensions</span> <span class="pre">jupyter_nbextensions_configurator</span></code>
+<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">jupyter_contrib_nbextensions</span> <span class="pre">jupyter_nbextensions_configurator</span></code></p>
 </section>
 </section>
-<section id="Visual-Studio">
-<h2><span class="section-number">2.2. </span>Visual Studio<a class="headerlink" href="#Visual-Studio" title="Link to this heading"></a></h2>
+<section id="visual-studio">
+<h2><span class="section-number">2.2. </span>Visual Studio<a class="headerlink" href="#visual-studio" title="Link to this heading"></a></h2>
 <p>Bên cạnh Jupyter Lab, ta có thể sử dụng Visual Studio làm IDE cho Python. Download Visual Studio tại đường link dưới đây</p>
 <p><a class="reference external" href="https://code.visualstudio.com/download">https://code.visualstudio.com/download</a></p>
 <p>Visual Studio cho phép cài đặt rất nhiều công cụ bổ trợ (<code class="docutils literal notranslate"><span class="pre">extension</span></code>) để thực hiện phân tích dữ liệu với Python. Giao diện của Visual Studio như sau</p>
-<p><img alt="image1" src="_images/p02-quarto-example.png" /></p>
+<p><img alt="" src="_images/p01-02-vs-code.png" /></p>
 <p>Trong cấu trúc của Visual Studio, có các cấu phần quan trọng sau:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Explorer</span></code>:</p>
@@ -333,20 +310,20 @@ C:\Users\Admin
 <li><p><code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">%%%</span></code>: Cho phép chạy code tương tự như các cell trong notebook (nên dùng). Khi sử dụng cách này, các file <code class="docutils literal notranslate"><span class="pre">.py</span></code> có thể tương tác và sử dụng dễ dàng thay vì phải chọn và chạy bằng phím <code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Enter</span></code></p></li>
 </ul>
 </section>
-<section id="Positron">
-<h2><span class="section-number">2.3. </span>Positron<a class="headerlink" href="#Positron" title="Link to this heading"></a></h2>
+<section id="positron">
+<h2><span class="section-number">2.3. </span>Positron<a class="headerlink" href="#positron" title="Link to this heading"></a></h2>
 <p>Positron là IDE mới được phát triển từ 2024 của <code class="docutils literal notranslate"><span class="pre">Rstudio</span></code> với mục tiêu phát triển IDE duy nhất cho cả R &amp; PYthon. Positron được phát triển trên nền của Visual Studio và được kế thừa các ưu việt của cả Visual Studio và Rstudio trong lĩnh vực data science.</p>
 <ul class="simple">
 <li><p>Cho phép chạy code theo từng dòng</p></li>
 <li><p>Thiết kế trên cùng 1 UI toàn bộ các objects &amp; variables cho Python</p></li>
 </ul>
 <p>Tuy nhiên, Positron tại thời đểm 6/2025 vẫn đang ở bản beta, phải cần thêm 1 thời gian để đạt đến mức độ ổn định. Giao diện của Positron như sau</p>
-<p><img alt="image1" src="_images/p02-quarto-example.png" /></p>
+<p><img alt="" src="_images/p01-02-positron.PNG" /></p>
 </section>
-<section id="Các-thư-viện-khác">
-<h2><span class="section-number">2.4. </span>Các thư viện khác<a class="headerlink" href="#Các-thư-viện-khác" title="Link to this heading"></a></h2>
-<section id="Quarto">
-<h3><span class="section-number">2.4.1. </span>Quarto<a class="headerlink" href="#Quarto" title="Link to this heading"></a></h3>
+<section id="cac-thu-vien-khac">
+<h2><span class="section-number">2.4. </span>Các thư viện khác<a class="headerlink" href="#cac-thu-vien-khac" title="Link to this heading"></a></h2>
+<section id="quarto">
+<h3><span class="section-number">2.4.1. </span>Quarto<a class="headerlink" href="#quarto" title="Link to this heading"></a></h3>
 <p>Tương tự như R, quarto có thể sử dụng cùng <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>. Khi đặt heading của quarto phần đầu của notebook, ta chọn cell ở chế độ <code class="docutils literal notranslate"><span class="pre">raw</span></code>. Code <code class="docutils literal notranslate"><span class="pre">yaml</span></code> cho jupyter notebook có thể sử dụng như sau:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Analysis</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">customer</span><span class="nv"> </span><span class="s">using</span><span class="nv"> </span><span class="s">Fex</span><span class="nv"> </span><span class="s">Card&quot;</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Single</span><span class="nv"> </span><span class="s">IDE</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">Python</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">R&quot;</span>
@@ -374,16 +351,16 @@ C:\Users\Admin
 <span class="nt">jupyter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python3</span>
 </pre></div>
 </div>
-<p><img alt="image1" src="_images/p02-quarto-example.png" /></p>
+<p><img alt="" src="_images/p02-quarto-option.png" /></p>
 <p>Để export file <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> thành html, ta dùng cmd như sau</p>
 <p><code class="docutils literal notranslate"><span class="pre">quarto</span> <span class="pre">render</span> <span class="pre">notebook.ipynb</span></code></p>
 <p>Kết quả render ra file html như sau</p>
-<p><img alt="image1" src="_images/p02-quarto-example.png" /></p>
+<p><img alt="" src="_images/p02-quarto-example.png" /></p>
 <hr class="docutils" />
 <p>Như vậy, khi ta dùng kết hợp notebook và export ra quarto, ta có thể sử dụng đồng nhất kết quả đầu ra của cả 2 ngôn ngữ R &amp; Python</p>
 </section>
-<section id="Sphinx">
-<h3><span class="section-number">2.4.2. </span>Sphinx<a class="headerlink" href="#Sphinx" title="Link to this heading"></a></h3>
+<section id="sphinx">
+<h3><span class="section-number">2.4.2. </span>Sphinx<a class="headerlink" href="#sphinx" title="Link to this heading"></a></h3>
 <p>Mặc dù <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code> là công cụ hữu hiệu để phân tích dữ liệu với Python, <code class="docutils literal notranslate"><span class="pre">jupyter</span></code> lại chưa phải là công cụ hữu hiệu để viết lại các document thành hệ thống. Để viết hiệu quả, ta cần dùng <code class="docutils literal notranslate"><span class="pre">sphinx</span></code></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cài đặt sphinx</span>
 <span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx</span>
@@ -409,13 +386,13 @@ sphinx-build<span class="w"> </span>_source<span class="w"> </span>_build/html
 </div>
 </section>
 </section>
-<section id="Tài-liệu-tham-khảo">
-<h2><span class="section-number">2.5. </span>Tài liệu tham khảo<a class="headerlink" href="#Tài-liệu-tham-khảo" title="Link to this heading"></a></h2>
+<section id="tai-lieu-tham-khao">
+<h2><span class="section-number">2.5. </span>Tài liệu tham khảo<a class="headerlink" href="#tai-lieu-tham-khao" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p><a href="#id1"><span class="problematic" id="id2">`https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html &lt;&gt;`__</span></a></p></li>
-<li><p><a href="#id1"><span class="problematic" id="id3">`https://nbsphinx.readthedocs.io/en/0.4.2/installation.html &lt;&gt;`__</span></a></p></li>
-<li><p><a href="#id1"><span class="problematic" id="id4">`https://sphinx-rtd-theme.readthedocs.io/en/stable/installing.html &lt;&gt;`__</span></a></p></li>
-<li><p><a href="#id1"><span class="problematic" id="id5">`https://posit.co/blog/three-ways-to-program-in-python-with-rstudio/ &lt;&gt;`__</span></a></p></li>
+<li><p><a class="reference internal" href="#"><span class="xref myst">https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html</span></a></p></li>
+<li><p><a class="reference internal" href="#"><span class="xref myst">https://nbsphinx.readthedocs.io/en/0.4.2/installation.html</span></a></p></li>
+<li><p><a class="reference internal" href="#"><span class="xref myst">https://sphinx-rtd-theme.readthedocs.io/en/stable/installing.html</span></a></p></li>
+<li><p><a class="reference internal" href="#"><span class="xref myst">https://posit.co/blog/three-ways-to-program-in-python-with-rstudio/</span></a></p></li>
 </ul>
 </section>
 </section>

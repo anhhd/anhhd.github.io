@@ -7,10 +7,11 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>4. Chuỗi thời gian &mdash; AI book 2024 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/nbsphinx-code-cells.css?v=2aa19091" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -20,9 +21,8 @@
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -55,13 +55,18 @@
 <li class="toctree-l1"><a class="reference internal" href="p01-02-toan-co-ban.html">2. Toán cơ bản với DL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-03-dl-co-ban.html">3. Tensorflow &amp; Keras</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">4. Chuỗi thời gian</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#Giới-thiệu">5. Giới thiệu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#gioi-thieu">5. Giới thiệu</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">LLM &amp; GenAI</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="p02-01-gioi-thieu-llm.html">1. Giới thiệu về mô hình ngôn ngữ lớn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p02-02-xu-ly-text.html">2. Xử lý dữ liệu text</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p02-03-co-che-tu-chu-y.html">3. Cơ chế tự chú ý</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">LLM &amp; GenAI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="p05-01-gioi-thieu-langchain.html">1. Giới thiệu langchain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p05-04-phan-tich-du-lieu.html">2. Use case - truy vấn &amp; phân tích dữ liệu</a></li>
 </ul>
 
         </div>
@@ -88,18 +93,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Chuỗi-thời-gian">
-<h1><span class="section-number">4. </span>Chuỗi thời gian<a class="headerlink" href="#Chuỗi-thời-gian" title="Link to this heading"></a></h1>
+  <section id="chuoi-thoi-gian">
+<h1><span class="section-number">4. </span>Chuỗi thời gian<a class="headerlink" href="#chuoi-thoi-gian" title="Link to this heading"></a></h1>
 </section>
-<section id="Giới-thiệu">
-<h1><span class="section-number">5. </span>Giới thiệu<a class="headerlink" href="#Giới-thiệu" title="Link to this heading"></a></h1>
+<section id="gioi-thieu">
+<h1><span class="section-number">5. </span>Giới thiệu<a class="headerlink" href="#gioi-thieu" title="Link to this heading"></a></h1>
 <p>Khi dự báo với deep learning, ta có thể chia dữ liệu thành các minibatch khác nhau. Với mỗi <code class="docutils literal notranslate"><span class="pre">sequence_length</span></code> là <code class="docutils literal notranslate"><span class="pre">m</span></code>, sẽ lấy <code class="docutils literal notranslate"><span class="pre">m</span></code> điểm thời gian trước đó để làm input dự báo cho thời gian hiện tại</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="kn">import</span> <span class="n">keras</span>
 <span class="n">int_sequence</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">dummy_dataset</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">timeseries_dataset_from_array</span><span class="p">(</span>
     <span class="n">data</span><span class="o">=</span><span class="n">int_sequence</span><span class="p">[:</span><span class="o">-</span><span class="mi">3</span><span class="p">],</span>
@@ -113,107 +116,76 @@
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-2025-01-09 08:58:39.914367: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-09 08:58:39.914367: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
 E0000 00:00:1736413119.935517    6514 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
 E0000 00:00:1736413119.941639    6514 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
 2025-01-09 08:58:39.961974: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-</pre></div></div>
+</pre></div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[0, 1, 2] 3
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2] 3
 [1, 2, 3] 4
 [2, 3, 4] 5
 [3, 4, 5] 6
 [4, 5, 6] 7
-</pre></div></div>
+</pre></div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-2025-01-09 08:58:45.840487: E external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:152] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-09 08:58:45.840487: E external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:152] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
 2025-01-09 08:58:46.060166: I tensorflow/core/framework/local_rendezvous.cc:405] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
-</pre></div></div>
+</pre></div>
+</div>
+</div>
 </div>
 <p>Deep Learning có thể sử dụng để dự báo chuỗi thời gian. Trong chương này, ta sẽ dùng dữ liệu dự báo về thông số thời tiết với dữ liệu từ 2009-2016.</p>
-<p><a href="#id1"><span class="problematic" id="id2">`https://s3.amazonaws.com/keras-datasets/jena_climate_2009_2016.csv.zip &lt;&gt;`__</span></a></p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">polars</span> <span class="k">as</span> <span class="nn">pl</span>
-<span class="kn">from</span> <span class="nn">plotnine</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">os</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<p><a class="reference internal" href="#"><span class="xref myst">https://s3.amazonaws.com/keras-datasets/jena_climate_2009_2016.csv.zip</span></a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">plotnine</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span> 
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&#39;/home/jovyan/workspace/ai-book/_source&#39;
-</pre></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/home/jovyan/workspace/ai-book/_source&#39;
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/climate_2009_2016.csv&quot;</span><span class="p">)</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/climate_2009_2016.csv&quot;</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div><style>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
 .dataframe > thead > tr,
 .dataframe > tbody > tr {
   text-align: right;
   white-space: pre-wrap;
 }
 </style>
-<small>shape: (5, 15)</small><table border="1" class="dataframe"><thead><tr><th>Date Time</th><th>p (mbar)</th><th>T (degC)</th><th>Tpot (K)</th><th>Tdew (degC)</th><th>rh (%)</th><th>VPmax (mbar)</th><th>VPact (mbar)</th><th>VPdef (mbar)</th><th>sh (g/kg)</th><th>H2OC (mmol/mol)</th><th>rho (g/m**3)</th><th>wv (m/s)</th><th>max. wv (m/s)</th><th>wd (deg)</th></tr><tr><td>str</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>&quot;01.01.2009 00:10:00&quot;</td><td>996.52</td><td>-8.02</td><td>265.4</td><td>-8.9</td><td>93.3</td><td>3.33</td><td>3.11</td><td>0.22</td><td>1.94</td><td>3.12</td><td>1307.75</td><td>1.03</td><td>1.75</td><td>152.3</td></tr><tr><td>&quot;01.01.2009 00:20:00&quot;</td><td>996.57</td><td>-8.41</td><td>265.01</td><td>-9.28</td><td>93.4</td><td>3.23</td><td>3.02</td><td>0.21</td><td>1.89</td><td>3.03</td><td>1309.8</td><td>0.72</td><td>1.5</td><td>136.1</td></tr><tr><td>&quot;01.01.2009 00:30:00&quot;</td><td>996.53</td><td>-8.51</td><td>264.91</td><td>-9.31</td><td>93.9</td><td>3.21</td><td>3.01</td><td>0.2</td><td>1.88</td><td>3.02</td><td>1310.24</td><td>0.19</td><td>0.63</td><td>171.6</td></tr><tr><td>&quot;01.01.2009 00:40:00&quot;</td><td>996.51</td><td>-8.31</td><td>265.12</td><td>-9.07</td><td>94.2</td><td>3.26</td><td>3.07</td><td>0.19</td><td>1.92</td><td>3.08</td><td>1309.19</td><td>0.34</td><td>0.5</td><td>198.0</td></tr><tr><td>&quot;01.01.2009 00:50:00&quot;</td><td>996.51</td><td>-8.27</td><td>265.15</td><td>-9.04</td><td>94.1</td><td>3.27</td><td>3.08</td><td>0.19</td><td>1.92</td><td>3.09</td><td>1309.0</td><td>0.32</td><td>0.63</td><td>214.3</td></tr></tbody></table></div></div>
+<small>shape: (5, 15)</small><table border="1" class="dataframe"><thead><tr><th>Date Time</th><th>p (mbar)</th><th>T (degC)</th><th>Tpot (K)</th><th>Tdew (degC)</th><th>rh (%)</th><th>VPmax (mbar)</th><th>VPact (mbar)</th><th>VPdef (mbar)</th><th>sh (g/kg)</th><th>H2OC (mmol/mol)</th><th>rho (g/m**3)</th><th>wv (m/s)</th><th>max. wv (m/s)</th><th>wd (deg)</th></tr><tr><td>str</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>&quot;01.01.2009 00:10:00&quot;</td><td>996.52</td><td>-8.02</td><td>265.4</td><td>-8.9</td><td>93.3</td><td>3.33</td><td>3.11</td><td>0.22</td><td>1.94</td><td>3.12</td><td>1307.75</td><td>1.03</td><td>1.75</td><td>152.3</td></tr><tr><td>&quot;01.01.2009 00:20:00&quot;</td><td>996.57</td><td>-8.41</td><td>265.01</td><td>-9.28</td><td>93.4</td><td>3.23</td><td>3.02</td><td>0.21</td><td>1.89</td><td>3.03</td><td>1309.8</td><td>0.72</td><td>1.5</td><td>136.1</td></tr><tr><td>&quot;01.01.2009 00:30:00&quot;</td><td>996.53</td><td>-8.51</td><td>264.91</td><td>-9.31</td><td>93.9</td><td>3.21</td><td>3.01</td><td>0.2</td><td>1.88</td><td>3.02</td><td>1310.24</td><td>0.19</td><td>0.63</td><td>171.6</td></tr><tr><td>&quot;01.01.2009 00:40:00&quot;</td><td>996.51</td><td>-8.31</td><td>265.12</td><td>-9.07</td><td>94.2</td><td>3.26</td><td>3.07</td><td>0.19</td><td>1.92</td><td>3.08</td><td>1309.19</td><td>0.34</td><td>0.5</td><td>198.0</td></tr><tr><td>&quot;01.01.2009 00:50:00&quot;</td><td>996.51</td><td>-8.27</td><td>265.15</td><td>-9.04</td><td>94.1</td><td>3.27</td><td>3.08</td><td>0.19</td><td>1.92</td><td>3.09</td><td>1309.0</td><td>0.32</td><td>0.63</td><td>214.3</td></tr></tbody></table></div></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
-</pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[&#39;Date Time&#39;,
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Date Time&#39;,
  &#39;p (mbar)&#39;,
  &#39;T (degC)&#39;,
  &#39;Tpot (K)&#39;,
@@ -228,69 +200,51 @@ To enable the following instructions: AVX2 AVX512F FMA, in other operations, reb
  &#39;wv (m/s)&#39;,
  &#39;max. wv (m/s)&#39;,
  &#39;wd (deg)&#39;]
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Thống kê nhanh chuỗi thời gian</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Thống kê nhanh chuỗi thời gian</span>
 <span class="n">df</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div><style>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
 .dataframe > thead > tr,
 .dataframe > tbody > tr {
   text-align: right;
   white-space: pre-wrap;
 }
 </style>
-<small>shape: (9, 2)</small><table border="1" class="dataframe"><thead><tr><th>statistic</th><th>value</th></tr><tr><td>str</td><td>f64</td></tr></thead><tbody><tr><td>&quot;count&quot;</td><td>420451.0</td></tr><tr><td>&quot;null_count&quot;</td><td>0.0</td></tr><tr><td>&quot;mean&quot;</td><td>9.448567</td></tr><tr><td>&quot;std&quot;</td><td>8.423685</td></tr><tr><td>&quot;min&quot;</td><td>-23.01</td></tr><tr><td>&quot;25%&quot;</td><td>3.36</td></tr><tr><td>&quot;50%&quot;</td><td>9.41</td></tr><tr><td>&quot;75%&quot;</td><td>15.47</td></tr><tr><td>&quot;max&quot;</td><td>37.28</td></tr></tbody></table></div></div>
+<small>shape: (9, 2)</small><table border="1" class="dataframe"><thead><tr><th>statistic</th><th>value</th></tr><tr><td>str</td><td>f64</td></tr></thead><tbody><tr><td>&quot;count&quot;</td><td>420451.0</td></tr><tr><td>&quot;null_count&quot;</td><td>0.0</td></tr><tr><td>&quot;mean&quot;</td><td>9.448567</td></tr><tr><td>&quot;std&quot;</td><td>8.423685</td></tr><tr><td>&quot;min&quot;</td><td>-23.01</td></tr><tr><td>&quot;25%&quot;</td><td>3.36</td></tr><tr><td>&quot;50%&quot;</td><td>9.41</td></tr><tr><td>&quot;75%&quot;</td><td>15.47</td></tr><tr><td>&quot;max&quot;</td><td>37.28</td></tr></tbody></table></div></div></div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[&lt;matplotlib.lines.Line2D at 0x7fb8c6b7b750&gt;]
-</pre></div></div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fb8c6b7b750&gt;]
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<img alt="_images/p01-04-dl-timeseries_11_1.png" src="_images/p01-04-dl-timeseries_11_1.png" />
+<img alt="_images/f3e9935e0eb0f97d2dfefdb6c2cfa824119a6d6a00ab0233581a0f2c42ddaf58.png" src="_images/f3e9935e0eb0f97d2dfefdb6c2cfa824119a6d6a00ab0233581a0f2c42ddaf58.png" />
 </div>
 </div>
 <p>Khi xây dựng mô hình DL, ta cần chuẩn bị dữ liệu dưới dạng array</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;data/climate_2009_2016.csv&quot;</span><span class="p">)</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
@@ -304,21 +258,17 @@ To enable the following instructions: AVX2 AVX512F FMA, in other operations, reb
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[&#39;&#34;Date Time&#34;&#39;, &#39;&#34;p (mbar)&#34;&#39;, &#39;&#34;T (degC)&#34;&#39;, &#39;&#34;Tpot (K)&#34;&#39;, &#39;&#34;Tdew (degC)&#34;&#39;, &#39;&#34;rh (%)&#34;&#39;, &#39;&#34;VPmax (mbar)&#34;&#39;, &#39;&#34;VPact (mbar)&#34;&#39;, &#39;&#34;VPdef (mbar)&#34;&#39;, &#39;&#34;sh (g/kg)&#34;&#39;, &#39;&#34;H2OC (mmol/mol)&#34;&#39;, &#39;&#34;rho (g/m**3)&#34;&#39;, &#39;&#34;wv (m/s)&#34;&#39;, &#39;&#34;max. wv (m/s)&#34;&#39;, &#39;&#34;wd (deg)&#34;&#39;]
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;&quot;Date Time&quot;&#39;, &#39;&quot;p (mbar)&quot;&#39;, &#39;&quot;T (degC)&quot;&#39;, &#39;&quot;Tpot (K)&quot;&#39;, &#39;&quot;Tdew (degC)&quot;&#39;, &#39;&quot;rh (%)&quot;&#39;, &#39;&quot;VPmax (mbar)&quot;&#39;, &#39;&quot;VPact (mbar)&quot;&#39;, &#39;&quot;VPdef (mbar)&quot;&#39;, &#39;&quot;sh (g/kg)&quot;&#39;, &#39;&quot;H2OC (mmol/mol)&quot;&#39;, &#39;&quot;rho (g/m**3)&quot;&#39;, &#39;&quot;wv (m/s)&quot;&#39;, &#39;&quot;max. wv (m/s)&quot;&#39;, &#39;&quot;wd (deg)&quot;&#39;]
 420451
-</pre></div></div>
-</div>
-<p>Phân tách giá trị của dữ liệu dựa vào dựa vào <code class="docutils literal notranslate"><span class="pre">temperature</span></code> và các biến đầu vào</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</div>
+</div>
+<p>Phân tách giá trị của dữ liệu dựa vào dựa vào <code class="docutils literal notranslate"><span class="pre">temperature</span></code> và các biến đầu vào</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="n">temperature</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">),))</span>
 <span class="n">raw_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">header</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lines</span><span class="p">):</span>
@@ -328,38 +278,27 @@ To enable the following instructions: AVX2 AVX512F FMA, in other operations, reb
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-array([-8.02, -8.41, -8.51, ..., -3.16, -4.23, -4.82])
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raw_data</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-8.02, -8.41, -8.51, ..., -3.16, -4.23, -4.82])
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-array([[ 9.9652e+02, -8.0200e+00,  2.6540e+02, ...,  1.0300e+00,
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raw_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 9.9652e+02, -8.0200e+00,  2.6540e+02, ...,  1.0300e+00,
          1.7500e+00,  1.5230e+02],
        [ 9.9657e+02, -8.4100e+00,  2.6501e+02, ...,  7.2000e-01,
          1.5000e+00,  1.3610e+02],
@@ -372,29 +311,29 @@ array([[ 9.9652e+02, -8.0200e+00,  2.6540e+02, ...,  1.0300e+00,
          2.1600e+00,  2.2580e+02],
        [ 9.9982e+02, -4.8200e+00,  2.6836e+02, ...,  1.2300e+00,
          1.9600e+00,  1.8490e+02]])
-</pre></div></div>
-</div>
-<p>Phân chia train &amp; test</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_train_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw_data</span><span class="p">))</span>
+</div>
+</div>
+<p>Phân chia train &amp; test</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_train_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw_data</span><span class="p">))</span>
 <span class="n">num_val_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.25</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw_data</span><span class="p">))</span>
 <span class="n">num_test_samples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw_data</span><span class="p">)</span> <span class="o">-</span> <span class="n">num_train_samples</span> <span class="o">-</span> <span class="n">num_val_samples</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chuẩn hóa dữ liệu</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chuẩn hóa dữ liệu</span>
 <span class="n">mean</span> <span class="o">=</span> <span class="n">raw_data</span><span class="p">[:</span><span class="n">num_train_samples</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">raw_data</span> <span class="o">-=</span> <span class="n">mean</span>
 <span class="n">std</span> <span class="o">=</span> <span class="n">raw_data</span><span class="p">[:</span><span class="n">num_train_samples</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">raw_data</span> <span class="o">/=</span> <span class="n">std</span>
 </pre></div>
+</div>
 </div>
 </div>
 <p>Với tập dữ liệu về nhiệt độ, mục tiêu dự báo nhiệt độ theo mỗi giờ. Dữ liệu gốc được ghi nhận mỗi 10 phút 1 lần. Do đó, ta chỉ cần lấy sample của mỗi giờ trong dữ liệu dự báo.</p>
@@ -403,22 +342,19 @@ array([[ 9.9652e+02, -8.0200e+00,  2.6540e+02, ...,  1.0300e+00,
 <li><p><code class="docutils literal notranslate"><span class="pre">sequence_length</span> <span class="pre">=</span> <span class="pre">120</span></code>: Sử dụng 120 quan sát trước để dự báo (5 ngày dữ liệu = 24 * 5)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">delay</span> <span class="pre">=</span> <span class="pre">sampling_rate</span> <span class="pre">*</span> <span class="pre">(sequence_length</span> <span class="pre">+</span> <span class="pre">24</span> <span class="pre">-</span> <span class="pre">1)</span></code>: Dự báo 24h sau khi sequence kết thúc</p></li>
 </ul>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sampling_rate</span> <span class="o">=</span> <span class="mi">6</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sampling_rate</span> <span class="o">=</span> <span class="mi">6</span>
 <span class="n">sequence_length</span> <span class="o">=</span> <span class="mi">120</span>
 <span class="n">delay</span> <span class="o">=</span> <span class="n">sampling_rate</span> <span class="o">*</span> <span class="p">(</span><span class="n">sequence_length</span> <span class="o">+</span> <span class="mi">24</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">256</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train data</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train data</span>
 <span class="n">train_dataset</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">timeseries_dataset_from_array</span><span class="p">(</span>
     <span class="n">raw_data</span><span class="p">[:</span><span class="o">-</span><span class="n">delay</span><span class="p">],</span>
     <span class="n">targets</span><span class="o">=</span><span class="n">temperature</span><span class="p">[</span><span class="n">delay</span><span class="p">:],</span>
@@ -448,30 +384,24 @@ array([[ 9.9652e+02, -8.0200e+00,  2.6540e+02, ...,  1.0300e+00,
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_dataset</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_dataset</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;_BatchDataset element_spec=(TensorSpec(shape=(None, None, 14), dtype=tf.float64, name=None), TensorSpec(shape=(None,), dtype=tf.float64, name=None))&gt;
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;_BatchDataset element_spec=(TensorSpec(shape=(None, None, 14), dtype=tf.float64, name=None), TensorSpec(shape=(None,), dtype=tf.float64, name=None))&gt;
-</pre></div></div>
 </div>
 <p>Xây dựng mô hình đơn giản</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="kn">import</span> <span class="n">keras</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras</span><span class="w"> </span><span class="kn">import</span> <span class="n">layers</span>
 <span class="n">inputs</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">sequence_length</span><span class="p">,</span> <span class="n">raw_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">()(</span><span class="n">inputs</span><span class="p">)</span>
@@ -482,11 +412,10 @@ array([[ 9.9652e+02, -8.0200e+00,  2.6540e+02, ...,  1.0300e+00,
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><span></span><span class="n">callbacks</span> <span class="o">=</span> <span class="p">[</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">callbacks</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">ModelCheckpoint</span><span class="p">(</span><span class="s2">&quot;jena_dense.keras&quot;</span><span class="p">,</span>
     <span class="n">save_best_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="p">]</span>
@@ -495,168 +424,154 @@ array([[ 9.9652e+02, -8.0200e+00,  2.6540e+02, ...,  1.0300e+00,
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span>
     <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
     <span class="n">validation_data</span><span class="o">=</span><span class="n">val_dataset</span><span class="p">,</span>
     <span class="n">callbacks</span><span class="o">=</span><span class="n">callbacks</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Epoch 1/10
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-2025-01-09 08:59:34.091344: W tensorflow/core/framework/op_kernel.cc:1841] OP_REQUIRES failed at reshape_op.h:65 : INVALID_ARGUMENT: Only one input size may be -1, not both 0 and 1
-2025-01-09 08:59:34.091423: I tensorflow/core/framework/local_rendezvous.cc:405] Local rendezvous is aborting with status: INVALID_ARGUMENT: Only one input size may be -1, not both 0 and 1
-         [[{{function_node __inference_one_step_on_data_1180}}{{node functional_1/flatten_1/Reshape}}]]
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">InvalidArgumentError</span>                      Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[20], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> history <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">model</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">fit</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">train_dataset</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">epochs</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">10</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">validation_data</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">val_dataset</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">callbacks</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">callbacks</span><span class="ansi-yellow-bg">)</span>
-
-File <span class="ansi-green-fg">/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py:122</span>, in <span class="ansi-cyan-fg">filter_traceback.&lt;locals&gt;.error_handler</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">    119</span>     filtered_tb <span style="color: rgb(98,98,98)">=</span> _process_traceback_frames(e<span style="color: rgb(98,98,98)">.</span>__traceback__)
-<span class="ansi-green-intense-fg ansi-bold">    120</span>     <span style="color: rgb(95,135,135)"># To get the full stack trace, call:</span>
-<span class="ansi-green-intense-fg ansi-bold">    121</span>     <span style="color: rgb(95,135,135)"># `keras.config.disable_traceback_filtering()`</span>
-<span class="ansi-green-fg">--&gt; 122</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> e<span style="color: rgb(98,98,98)">.</span>with_traceback(filtered_tb) <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>
-<span class="ansi-green-intense-fg ansi-bold">    123</span> <span class="ansi-bold" style="color: rgb(0,135,0)">finally</span>:
-<span class="ansi-green-intense-fg ansi-bold">    124</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">del</span> filtered_tb
-
-File <span class="ansi-green-fg">/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/tensorflow/python/eager/execute.py:53</span>, in <span class="ansi-cyan-fg">quick_execute</span><span class="ansi-blue-fg">(op_name, num_outputs, inputs, attrs, ctx, name)</span>
-<span class="ansi-green-intense-fg ansi-bold">     51</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
-<span class="ansi-green-intense-fg ansi-bold">     52</span>   ctx<span style="color: rgb(98,98,98)">.</span>ensure_initialized()
-<span class="ansi-green-fg">---&gt; 53</span>   tensors <span style="color: rgb(98,98,98)">=</span> pywrap_tfe<span style="color: rgb(98,98,98)">.</span>TFE_Py_Execute(ctx<span style="color: rgb(98,98,98)">.</span>_handle, device_name, op_name,
-<span class="ansi-green-intense-fg ansi-bold">     54</span>                                       inputs, attrs, num_outputs)
-<span class="ansi-green-intense-fg ansi-bold">     55</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> core<span style="color: rgb(98,98,98)">.</span>_NotOkStatusException <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> e:
-<span class="ansi-green-intense-fg ansi-bold">     56</span>   <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> name <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
-
-<span class="ansi-red-fg">InvalidArgumentError</span>: Graph execution error:
-
-Detected at node functional_1/flatten_1/Reshape defined at (most recent call last):
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/runpy.py&#34;, line 198, in _run_module_as_main
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/runpy.py&#34;, line 88, in _run_code
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel_launcher.py&#34;, line 18, in &lt;module&gt;
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/traitlets/config/application.py&#34;, line 1075, in launch_instance
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelapp.py&#34;, line 739, in start
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/tornado/platform/asyncio.py&#34;, line 205, in start
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/asyncio/base_events.py&#34;, line 608, in run_forever
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/asyncio/base_events.py&#34;, line 1936, in _run_once
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/asyncio/events.py&#34;, line 84, in _run
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelbase.py&#34;, line 545, in dispatch_queue
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelbase.py&#34;, line 534, in process_one
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelbase.py&#34;, line 437, in dispatch_shell
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/ipkernel.py&#34;, line 362, in execute_request
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelbase.py&#34;, line 778, in execute_request
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/ipkernel.py&#34;, line 449, in do_execute
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/zmqshell.py&#34;, line 549, in run_cell
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py&#34;, line 3075, in run_cell
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py&#34;, line 3130, in _run_cell
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/async_helpers.py&#34;, line 128, in _pseudo_sync_runner
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py&#34;, line 3334, in run_cell_async
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py&#34;, line 3517, in run_ast_nodes
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py&#34;, line 3577, in run_code
-
-  File &#34;/tmp/ipykernel_6514/2161284880.py&#34;, line 1, in &lt;module&gt;
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py&#34;, line 117, in error_handler
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py&#34;, line 371, in fit
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py&#34;, line 219, in function
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py&#34;, line 132, in multi_step_on_iterator
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py&#34;, line 113, in one_step_on_data
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py&#34;, line 57, in train_step
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py&#34;, line 117, in error_handler
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/layers/layer.py&#34;, line 908, in __call__
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py&#34;, line 117, in error_handler
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/operation.py&#34;, line 46, in __call__
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py&#34;, line 156, in error_handler
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/models/functional.py&#34;, line 182, in call
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/function.py&#34;, line 171, in _run_through_graph
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/models/functional.py&#34;, line 637, in call
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py&#34;, line 117, in error_handler
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/layers/layer.py&#34;, line 908, in __call__
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py&#34;, line 117, in error_handler
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/operation.py&#34;, line 46, in __call__
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py&#34;, line 156, in error_handler
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/layers/reshaping/flatten.py&#34;, line 54, in call
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/numpy.py&#34;, line 4868, in reshape
-
-  File &#34;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/numpy.py&#34;, line 1915, in reshape
-
-Only one input size may be -1, not both 0 and 1
-         [[{{node functional_1/flatten_1/Reshape}}]] [Op:__inference_multi_step_on_iterator_1213]
-</pre></div></div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/10
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;jena_dense.keras&quot;</span><span class="p">)</span>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-09 08:59:34.091344: W tensorflow/core/framework/op_kernel.cc:1841] OP_REQUIRES failed at reshape_op.h:65 : INVALID_ARGUMENT: Only one input size may be -1, not both 0 and 1
+2025-01-09 08:59:34.091423: I tensorflow/core/framework/local_rendezvous.cc:405] Local rendezvous is aborting with status: INVALID_ARGUMENT: Only one input size may be -1, not both 0 and 1
+	 [[{{function_node __inference_one_step_on_data_1180}}{{node functional_1/flatten_1/Reshape}}]]
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">InvalidArgumentError</span><span class="g g-Whitespace">                      </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">validation_data</span><span class="o">=</span><span class="n">val_dataset</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">callbacks</span><span class="o">=</span><span class="n">callbacks</span><span class="p">)</span>
+
+<span class="nn">File /opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py:122,</span> in <span class="ni">filter_traceback.&lt;locals&gt;.error_handler</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">119</span>     <span class="n">filtered_tb</span> <span class="o">=</span> <span class="n">_process_traceback_frames</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">__traceback__</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">120</span>     <span class="c1"># To get the full stack trace, call:</span>
+<span class="g g-Whitespace">    </span><span class="mi">121</span>     <span class="c1"># `keras.config.disable_traceback_filtering()`</span>
+<span class="ne">--&gt; </span><span class="mi">122</span>     <span class="k">raise</span> <span class="n">e</span><span class="o">.</span><span class="n">with_traceback</span><span class="p">(</span><span class="n">filtered_tb</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">123</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">124</span>     <span class="k">del</span> <span class="n">filtered_tb</span>
+
+<span class="nn">File /opt/saturncloud/envs/saturn/lib/python3.11/site-packages/tensorflow/python/eager/execute.py:53,</span> in <span class="ni">quick_execute</span><span class="nt">(op_name, num_outputs, inputs, attrs, ctx, name)</span>
+<span class="g g-Whitespace">     </span><span class="mi">51</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span>   <span class="n">ctx</span><span class="o">.</span><span class="n">ensure_initialized</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">53</span>   <span class="n">tensors</span> <span class="o">=</span> <span class="n">pywrap_tfe</span><span class="o">.</span><span class="n">TFE_Py_Execute</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">_handle</span><span class="p">,</span> <span class="n">device_name</span><span class="p">,</span> <span class="n">op_name</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">54</span>                                       <span class="n">inputs</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">num_outputs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="k">except</span> <span class="n">core</span><span class="o">.</span><span class="n">_NotOkStatusException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">56</span>   <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="ne">InvalidArgumentError</span>: Graph execution error:
+
+<span class="n">Detected</span> <span class="n">at</span> <span class="n">node</span> <span class="n">functional_1</span><span class="o">/</span><span class="n">flatten_1</span><span class="o">/</span><span class="n">Reshape</span> <span class="n">defined</span> <span class="n">at</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/runpy.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">198</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_run_module_as_main</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/runpy.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">88</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_run_code</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel_launcher.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">18</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/traitlets/config/application.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1075</span><span class="p">,</span> <span class="ow">in</span> <span class="n">launch_instance</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelapp.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">739</span><span class="p">,</span> <span class="ow">in</span> <span class="n">start</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/tornado/platform/asyncio.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">205</span><span class="p">,</span> <span class="ow">in</span> <span class="n">start</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/asyncio/base_events.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">608</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_forever</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/asyncio/base_events.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1936</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_run_once</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/asyncio/events.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">84</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_run</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">545</span><span class="p">,</span> <span class="ow">in</span> <span class="n">dispatch_queue</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">534</span><span class="p">,</span> <span class="ow">in</span> <span class="n">process_one</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">437</span><span class="p">,</span> <span class="ow">in</span> <span class="n">dispatch_shell</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/ipkernel.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">362</span><span class="p">,</span> <span class="ow">in</span> <span class="n">execute_request</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">778</span><span class="p">,</span> <span class="ow">in</span> <span class="n">execute_request</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/ipkernel.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">449</span><span class="p">,</span> <span class="ow">in</span> <span class="n">do_execute</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/zmqshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">549</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_cell</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3075</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_cell</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3130</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_run_cell</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/async_helpers.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">128</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_pseudo_sync_runner</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3334</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_cell_async</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3517</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_ast_nodes</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3577</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_code</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/tmp/ipykernel_6514/2161284880.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">117</span><span class="p">,</span> <span class="ow">in</span> <span class="n">error_handler</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">371</span><span class="p">,</span> <span class="ow">in</span> <span class="n">fit</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">219</span><span class="p">,</span> <span class="ow">in</span> <span class="n">function</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">132</span><span class="p">,</span> <span class="ow">in</span> <span class="n">multi_step_on_iterator</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">113</span><span class="p">,</span> <span class="ow">in</span> <span class="n">one_step_on_data</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">57</span><span class="p">,</span> <span class="ow">in</span> <span class="n">train_step</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">117</span><span class="p">,</span> <span class="ow">in</span> <span class="n">error_handler</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/layers/layer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">908</span><span class="p">,</span> <span class="ow">in</span> <span class="fm">__call__</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">117</span><span class="p">,</span> <span class="ow">in</span> <span class="n">error_handler</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/operation.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">46</span><span class="p">,</span> <span class="ow">in</span> <span class="fm">__call__</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">156</span><span class="p">,</span> <span class="ow">in</span> <span class="n">error_handler</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/models/functional.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">182</span><span class="p">,</span> <span class="ow">in</span> <span class="n">call</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/function.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">171</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_run_through_graph</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/models/functional.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">637</span><span class="p">,</span> <span class="ow">in</span> <span class="n">call</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">117</span><span class="p">,</span> <span class="ow">in</span> <span class="n">error_handler</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/layers/layer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">908</span><span class="p">,</span> <span class="ow">in</span> <span class="fm">__call__</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">117</span><span class="p">,</span> <span class="ow">in</span> <span class="n">error_handler</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/operation.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">46</span><span class="p">,</span> <span class="ow">in</span> <span class="fm">__call__</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">156</span><span class="p">,</span> <span class="ow">in</span> <span class="n">error_handler</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/layers/reshaping/flatten.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">54</span><span class="p">,</span> <span class="ow">in</span> <span class="n">call</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/numpy.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">4868</span><span class="p">,</span> <span class="ow">in</span> <span class="n">reshape</span>
+
+  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/numpy.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1915</span><span class="p">,</span> <span class="ow">in</span> <span class="n">reshape</span>
+
+<span class="n">Only</span> <span class="n">one</span> <span class="nb">input</span> <span class="n">size</span> <span class="n">may</span> <span class="n">be</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="ow">not</span> <span class="n">both</span> <span class="mi">0</span> <span class="ow">and</span> <span class="mi">1</span>
+	 <span class="p">[[{{</span><span class="n">node</span> <span class="n">functional_1</span><span class="o">/</span><span class="n">flatten_1</span><span class="o">/</span><span class="n">Reshape</span><span class="p">}}]]</span> <span class="p">[</span><span class="n">Op</span><span class="p">:</span><span class="n">__inference_multi_step_on_iterator_1213</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;jena_dense.keras&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Test MAE: </span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
+</div>
 </div>
 </div>
 </section>

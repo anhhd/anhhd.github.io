@@ -1,0 +1,90 @@
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\nbclient\client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Admin\AppData\Roaming\Python\Python313\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\nbclient\client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import polars as pl
+# Series 1
+pl.Series([1, 2.4, 5, 6])
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mTypeError[39m                                 Traceback (most recent call last)
+[36mFile [39m[32m~\AppData\Local\Programs\Python\Python313\Lib\site-packages\polars\_utils\construction\series.py:316[39m, in [36m_construct_series_with_fallbacks[39m[34m(constructor, name, values, dtype, strict)[39m
+[32m    315[39m [38;5;28;01mtry[39;00m:
+[32m--> [39m[32m316[39m     [38;5;28;01mreturn[39;00m [43mconstructor[49m[43m([49m[43mname[49m[43m,[49m[43m [49m[43mvalues[49m[43m,[49m[43m [49m[43mstrict[49m[43m)[49m
+[32m    317[39m [38;5;28;01mexcept[39;00m ([38;5;167;01mTypeError[39;00m, [38;5;167;01mOverflowError[39;00m) [38;5;28;01mas[39;00m e:
+[32m    318[39m     [38;5;66;03m# # This retry with i64 is related to https://github.com/pola-rs/polars/issues/17231[39;00m
+[32m    319[39m     [38;5;66;03m# # Essentially, when given a [0, u64::MAX] then it would Overflow.[39;00m
+
+[31mTypeError[39m: 'float' object cannot be interpreted as an integer
+
+During handling of the above exception, another exception occurred:
+
+[31mTypeError[39m                                 Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 3[39m
+[32m      1[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mpolars[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[34;01mpl[39;00m
+[32m      2[39m [38;5;66;03m# Series 1[39;00m
+[32m----> [39m[32m3[39m [43mpl[49m[43m.[49m[43mSeries[49m[43m([49m[43m[[49m[32;43m1[39;49m[43m,[49m[43m [49m[32;43m2.4[39;49m[43m,[49m[43m [49m[32;43m5[39;49m[43m,[49m[43m [49m[32;43m6[39;49m[43m][49m[43m)[49m
+
+[36mFile [39m[32m~\AppData\Local\Programs\Python\Python313\Lib\site-packages\polars\series\series.py:295[39m, in [36mSeries.__init__[39m[34m(self, name, values, dtype, strict, nan_to_null)[39m
+[32m    292[39m         [38;5;28;01mraise[39;00m [38;5;167;01mTypeError[39;00m(msg)
+[32m    294[39m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(values, Sequence):
+[32m--> [39m[32m295[39m     [38;5;28mself[39m._s = [43msequence_to_pyseries[49m[43m([49m
+[32m    296[39m [43m        [49m[43mname[49m[43m,[49m
+[32m    297[39m [43m        [49m[43mvalues[49m[43m,[49m
+[32m    298[39m [43m        [49m[43mdtype[49m[43m=[49m[43mdtype[49m[43m,[49m
+[32m    299[39m [43m        [49m[43mstrict[49m[43m=[49m[43mstrict[49m[43m,[49m
+[32m    300[39m [43m        [49m[43mnan_to_null[49m[43m=[49m[43mnan_to_null[49m[43m,[49m
+[32m    301[39m [43m    [49m[43m)[49m
+[32m    303[39m [38;5;28;01melif[39;00m values [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[32m    304[39m     [38;5;28mself[39m._s = sequence_to_pyseries(name, [], dtype=dtype)
+
+[36mFile [39m[32m~\AppData\Local\Programs\Python\Python313\Lib\site-packages\polars\_utils\construction\series.py:301[39m, in [36msequence_to_pyseries[39m[34m(name, values, dtype, strict, nan_to_null)[39m
+[32m    298[39m     [38;5;28;01mexcept[39;00m [38;5;167;01mRuntimeError[39;00m:
+[32m    299[39m         [38;5;28;01mreturn[39;00m PySeries.new_from_any_values(name, values, strict=strict)
+[32m--> [39m[32m301[39m [38;5;28;01mreturn[39;00m [43m_construct_series_with_fallbacks[49m[43m([49m
+[32m    302[39m [43m    [49m[43mconstructor[49m[43m,[49m[43m [49m[43mname[49m[43m,[49m[43m [49m[43mvalues[49m[43m,[49m[43m [49m[43mdtype[49m[43m,[49m[43m [49m[43mstrict[49m[43m=[49m[43mstrict[49m
+[32m    303[39m [43m[49m[43m)[49m
+
+[36mFile [39m[32m~\AppData\Local\Programs\Python\Python313\Lib\site-packages\polars\_utils\construction\series.py:329[39m, in [36m_construct_series_with_fallbacks[39m[34m(constructor, name, values, dtype, strict)[39m
+[32m    325[39m     [38;5;28;01mreturn[39;00m _construct_series_with_fallbacks(
+[32m    326[39m         PySeries.new_opt_u64, name, values, dtype, strict=strict
+[32m    327[39m     )
+[32m    328[39m [38;5;28;01melif[39;00m dtype [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[32m--> [39m[32m329[39m     [38;5;28;01mreturn[39;00m [43mPySeries[49m[43m.[49m[43mnew_from_any_values[49m[43m([49m[43mname[49m[43m,[49m[43m [49m[43mvalues[49m[43m,[49m[43m [49m[43mstrict[49m[43m=[49m[43mstrict[49m[43m)[49m
+[32m    330[39m [38;5;28;01melse[39;00m:
+[32m    331[39m     [38;5;28;01mreturn[39;00m PySeries.new_from_any_values_and_dtype(
+[32m    332[39m         name, values, dtype, strict=strict
+[32m    333[39m     )
+
+[31mTypeError[39m: unexpected value while building Series of type Int64; found value of type Float64: 2.4
+
+Hint: Try setting `strict=False` to allow passing data with mixed types.
+

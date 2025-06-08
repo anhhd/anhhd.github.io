@@ -7,9 +7,11 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cơ bản về Deep Learning &mdash; AI book 2024 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -19,9 +21,8 @@
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -53,7 +54,7 @@
 <li class="toctree-l1"><a class="reference internal" href="p01-02-toan-co-ban.html">2. Toán cơ bản với DL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-03-dl-co-ban.html">3. Tensorflow &amp; Keras</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html">4. Chuỗi thời gian</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html#Giới-thiệu">5. Giới thiệu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html#gioi-thieu">5. Giới thiệu</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">LLM &amp; GenAI</span></p>
 <ul>
@@ -97,38 +98,28 @@
 <p class="caption" role="heading"><span class="caption-text">Cơ bản về Deep Learning</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="p01-01-gioi-thieu-deep-learning.html">1. Giới thiệu về học sâu</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="p01-01-gioi-thieu-deep-learning.html#Giới-thiệu">1.1. Giới thiệu</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-01-gioi-thieu-deep-learning.html#Mô-hình-cơ-bản">1.2. Mô hình cơ bản</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-01-gioi-thieu-deep-learning.html#Tài-liệu-tham-khảo">1.3. Tài liệu tham khảo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-01-gioi-thieu-deep-learning.html#gioi-thieu">1.1. Giới thiệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-01-gioi-thieu-deep-learning.html#mo-hinh-co-ban">1.2. Mô hình cơ bản</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-01-gioi-thieu-deep-learning.html#tai-lieu-tham-khao">1.3. Tài liệu tham khảo</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="p01-02-toan-co-ban.html">2. Toán cơ bản với DL</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="p01-02-toan-co-ban.html#Tensor">2.1. Tensor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-02-toan-co-ban.html#Các-phép-toán-cơ-bản-với-tensor">2.2. Các phép toán cơ bản với tensor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-02-toan-co-ban.html#Ý-nghĩa-hình-học-các-phép-biến-đổi-tensor">2.3. Ý nghĩa hình học các phép biến đổi tensor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-02-toan-co-ban.html#Tối-ưu-hóa">2.4. Tối ưu hóa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-02-toan-co-ban.html#tensor">2.1. Tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-02-toan-co-ban.html#cac-phep-toan-co-ban-voi-tensor">2.2. Các phép toán cơ bản với tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-02-toan-co-ban.html#y-nghia-hinh-hoc-cac-phep-bien-doi-tensor">2.3. Ý nghĩa hình học các phép biến đổi tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-02-toan-co-ban.html#toi-uu-hoa">2.4. Tối ưu hóa</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="p01-03-dl-co-ban.html">3. Tensorflow &amp; Keras</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="p01-03-dl-co-ban.html#Tensorflow">3.1. Tensorflow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-03-dl-co-ban.html#Keras">3.2. Keras</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-03-dl-co-ban.html#Các-mô-hình-cơ-bản">3.3. Các mô hình cơ bản</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-03-dl-co-ban.html#Lưu-ý-xây-dựng-mô-hình">3.4. Lưu ý xây dựng mô hình</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-03-dl-co-ban.html#tensorflow">3.1. Tensorflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-03-dl-co-ban.html#keras">3.2. Keras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-03-dl-co-ban.html#cac-mo-hinh-co-ban">3.3. Các mô hình cơ bản</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-03-dl-co-ban.html#luu-y-xay-dung-mo-hinh">3.4. Lưu ý xây dựng mô hình</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html">4. Chuỗi thời gian</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html#Giới-thiệu">5. Giới thiệu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html#gioi-thieu">5. Giới thiệu</a></li>
 </ul>
-</div>
-</section>
-<section id="dl-voi-du-lieu-text">
-<h1>DL với dữ liệu text<a class="headerlink" href="#dl-voi-du-lieu-text" title="Link to this heading"></a></h1>
-<div class="toctree-wrapper compound">
-</div>
-</section>
-<section id="dl-voi-du-lieu-anh">
-<h1>DL với dữ liệu ảnh<a class="headerlink" href="#dl-voi-du-lieu-anh" title="Link to this heading"></a></h1>
-<div class="toctree-wrapper compound">
 </div>
 </section>
 <section id="llm-genai">
@@ -137,19 +128,19 @@
 <p class="caption" role="heading"><span class="caption-text">LLM &amp; GenAI</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="p02-01-gioi-thieu-llm.html">1. Giới thiệu về mô hình ngôn ngữ lớn</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="p02-01-gioi-thieu-llm.html#Giới-thiệu">1.1. Giới thiệu</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p02-01-gioi-thieu-llm.html#Quy-trình-xây-dựng-LLM">1.2. Quy trình xây dựng LLM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p02-01-gioi-thieu-llm.html#gioi-thieu">1.1. Giới thiệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p02-01-gioi-thieu-llm.html#quy-trinh-xay-dung-llm">1.2. Quy trình xây dựng LLM</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="p02-02-xu-ly-text.html">2. Xử lý dữ liệu text</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="p02-02-xu-ly-text.html#Word-embedding">2.1. Word embedding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p02-02-xu-ly-text.html#Tokenization-text">2.2. Tokenization text</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p02-02-xu-ly-text.html#Chuyển-đổi-text-sang-token-ID">2.3. Chuyển đổi text sang token ID</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p02-02-xu-ly-text.html#Các-context-tokens-đặc-biệt">2.4. Các context tokens đặc biệt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p02-02-xu-ly-text.html#Byte-Pair-Encoding">2.5. Byte Pair Encoding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p02-02-xu-ly-text.html#Data-sampling">2.6. Data sampling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p02-02-xu-ly-text.html#Token-embedding">2.7. Token embedding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p02-02-xu-ly-text.html#Mã-hóa-vị-trí-từ">2.8. Mã hóa vị trí từ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p02-02-xu-ly-text.html#word-embedding">2.1. Word embedding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p02-02-xu-ly-text.html#tokenization-text">2.2. Tokenization text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p02-02-xu-ly-text.html#chuyen-doi-text-sang-token-id">2.3. Chuyển đổi text sang token ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p02-02-xu-ly-text.html#cac-context-tokens-dac-biet">2.4. Các context tokens đặc biệt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p02-02-xu-ly-text.html#byte-pair-encoding">2.5. Byte Pair Encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p02-02-xu-ly-text.html#data-sampling">2.6. Data sampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p02-02-xu-ly-text.html#token-embedding">2.7. Token embedding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p02-02-xu-ly-text.html#ma-hoa-vi-tri-tu">2.8. Mã hóa vị trí từ</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="p02-03-co-che-tu-chu-y.html">3. Cơ chế tự chú ý</a></li>
@@ -162,20 +153,20 @@
 <p class="caption" role="heading"><span class="caption-text">LLM &amp; GenAI</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="p05-01-gioi-thieu-langchain.html">1. Giới thiệu langchain</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="p05-01-gioi-thieu-langchain.html#Documents">1.1. Documents</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p05-01-gioi-thieu-langchain.html#Wrappers-LLM">1.2. Wrappers LLM</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p05-01-gioi-thieu-langchain.html#Chat-model">1.3. Chat model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p05-01-gioi-thieu-langchain.html#Memory">1.4. Memory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p05-01-gioi-thieu-langchain.html#Prompts-&amp;-Prompts-template">1.5. Prompts &amp; Prompts template</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p05-01-gioi-thieu-langchain.html#Chains">1.6. Chains</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p05-01-gioi-thieu-langchain.html#Vector-Store">1.7. Vector Store</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p05-01-gioi-thieu-langchain.html#Agent">1.8. Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p05-01-gioi-thieu-langchain.html#Tài-liệu-tham-khảo">1.9. Tài liệu tham khảo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p05-01-gioi-thieu-langchain.html#documents">1.1. Documents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p05-01-gioi-thieu-langchain.html#wrappers-llm">1.2. Wrappers LLM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p05-01-gioi-thieu-langchain.html#chat-model">1.3. Chat model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p05-01-gioi-thieu-langchain.html#memory">1.4. Memory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p05-01-gioi-thieu-langchain.html#prompts-prompts-template">1.5. Prompts &amp; Prompts template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p05-01-gioi-thieu-langchain.html#chains">1.6. Chains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p05-01-gioi-thieu-langchain.html#vector-store">1.7. Vector Store</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p05-01-gioi-thieu-langchain.html#agent">1.8. Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p05-01-gioi-thieu-langchain.html#tai-lieu-tham-khao">1.9. Tài liệu tham khảo</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="p05-04-phan-tich-du-lieu.html">2. Use case - truy vấn &amp; phân tích dữ liệu</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="p05-04-phan-tich-du-lieu.html#Langchain-agent">2.1. Langchain agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p05-04-phan-tich-du-lieu.html#Pandas-AI">2.2. Pandas AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p05-04-phan-tich-du-lieu.html#langchain-agent">2.1. Langchain agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p05-04-phan-tich-du-lieu.html#pandas-ai">2.2. Pandas AI</a></li>
 </ul>
 </li>
 </ul>

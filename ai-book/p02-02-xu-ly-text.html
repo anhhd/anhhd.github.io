@@ -7,10 +7,11 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>2. Xử lý dữ liệu text &mdash; AI book 2024 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/nbsphinx-code-cells.css?v=2aa19091" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -20,9 +21,8 @@
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -55,29 +55,34 @@
 <li class="toctree-l1"><a class="reference internal" href="p01-02-toan-co-ban.html">2. Toán cơ bản với DL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-03-dl-co-ban.html">3. Tensorflow &amp; Keras</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html">4. Chuỗi thời gian</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html#Giới-thiệu">5. Giới thiệu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html#gioi-thieu">5. Giới thiệu</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">LLM &amp; GenAI</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="p02-01-gioi-thieu-llm.html">1. Giới thiệu về mô hình ngôn ngữ lớn</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">2. Xử lý dữ liệu text</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Word-embedding">2.1. Word embedding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Tokenization-text">2.2. Tokenization text</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Ví-dụ-với-Python">2.2.1. Ví dụ với Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#word-embedding">2.1. Word embedding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tokenization-text">2.2. Tokenization text</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#vi-du-voi-python">2.2.1. Ví dụ với Python</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Chuyển-đổi-text-sang-token-ID">2.3. Chuyển đổi text sang token ID</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Các-context-tokens-đặc-biệt">2.4. Các context tokens đặc biệt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Byte-Pair-Encoding">2.5. Byte Pair Encoding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Data-sampling">2.6. Data sampling</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Xây-dựng-data-loader">2.6.1. Xây dựng data loader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chuyen-doi-text-sang-token-id">2.3. Chuyển đổi text sang token ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cac-context-tokens-dac-biet">2.4. Các context tokens đặc biệt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#byte-pair-encoding">2.5. Byte Pair Encoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-sampling">2.6. Data sampling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#xay-dung-data-loader">2.6.1. Xây dựng data loader</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Token-embedding">2.7. Token embedding</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Mã-hóa-vị-trí-từ">2.8. Mã hóa vị trí từ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#token-embedding">2.7. Token embedding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ma-hoa-vi-tri-tu">2.8. Mã hóa vị trí từ</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="p02-03-co-che-tu-chu-y.html">3. Cơ chế tự chú ý</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">LLM &amp; GenAI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="p05-01-gioi-thieu-langchain.html">1. Giới thiệu langchain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p05-04-phan-tich-du-lieu.html">2. Use case - truy vấn &amp; phân tích dữ liệu</a></li>
 </ul>
 
         </div>
@@ -104,30 +109,28 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Xử-lý-dữ-liệu-text">
-<h1><span class="section-number">2. </span>Xử lý dữ liệu text<a class="headerlink" href="#Xử-lý-dữ-liệu-text" title="Link to this heading"></a></h1>
+  <section id="xu-ly-du-lieu-text">
+<h1><span class="section-number">2. </span>Xử lý dữ liệu text<a class="headerlink" href="#xu-ly-du-lieu-text" title="Link to this heading"></a></h1>
 <p>Trước khi xây dựng mô hình ngôn ngữ lớn LLM, việc chuyển đổi dữ liệu text sang dữ liệu định dạng số để máy tính có thể xử lý là bước rất quan trọng.</p>
-<p><img alt="image1" src="_images/p02-02-03-text-embedding-15.webp" /></p>
-<section id="Word-embedding">
-<h2><span class="section-number">2.1. </span>Word embedding<a class="headerlink" href="#Word-embedding" title="Link to this heading"></a></h2>
+<p><img alt="" src="_images/p02-02-data-preparation.webp" /></p>
+<section id="word-embedding">
+<h2><span class="section-number">2.1. </span>Word embedding<a class="headerlink" href="#word-embedding" title="Link to this heading"></a></h2>
 <p>Dữ liệu phi cấu trúc sẽ không thể sử dụng trực tiếp trong các mô hình mà cần phải chuyển sang dạng vector có giá trị liên tục. Quá trình chuyển đổi từ text sang vector gọi là nhúng (<code class="docutils literal notranslate"><span class="pre">embedding</span></code>). Khi thực hiện các phép nhúng, mỗi đoạn text sẽ được phân rã thành các vector nhiều chiều, như GPT-2 có 768 chiều, trong khi GPT3 có đến 12288 chiều.</p>
-<p><img alt="image1" src="_images/p02-02-03-text-embedding-15.webp" /></p>
-<p><img alt="image1" src="_images/p02-02-03-text-embedding-15.webp" /></p>
+<p><img alt="" src="_images/p02-02-text-embedding.webp" /></p>
+<p><img alt="" src="_images/p02-02-03-dimensional-embedding.webp" /></p>
 </section>
-<section id="Tokenization-text">
-<h2><span class="section-number">2.2. </span>Tokenization text<a class="headerlink" href="#Tokenization-text" title="Link to this heading"></a></h2>
+<section id="tokenization-text">
+<h2><span class="section-number">2.2. </span>Tokenization text<a class="headerlink" href="#tokenization-text" title="Link to this heading"></a></h2>
 <p>Trong quá trình chuyển đổi (embedding) từ text sang word, các từ hoặc cụm từ sẽ được chia thành các từ hoặc cụm từ được gọi là <code class="docutils literal notranslate"><span class="pre">tokens</span></code>. Trường hợp đơn giản nhất, mỗi từ, ký tự đứng riêng sẽ được chia thành tokens như ở dưới đây</p>
-<p><img alt="image1" src="_images/p02-02-03-text-embedding-15.webp" /></p>
-<p><img alt="image1" src="_images/p02-02-03-text-embedding-15.webp" /></p>
-<section id="Ví-dụ-với-Python">
-<h3><span class="section-number">2.2.1. </span>Ví dụ với Python<a class="headerlink" href="#Ví-dụ-với-Python" title="Link to this heading"></a></h3>
+<p><img alt="" src="_images/p02-02-03-text-embedding-02.webp" /></p>
+<p><img alt="" src="_images/p02-02-03-text-embedding.webp" /></p>
+<section id="vi-du-voi-python">
+<h3><span class="section-number">2.2.1. </span>Ví dụ với Python<a class="headerlink" href="#vi-du-voi-python" title="Link to this heading"></a></h3>
 <p>Trong ví dụ dưới đây, ta sẽ đọc toàn bộ dữ liệu text từ một truện ngắn và xử lý token</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">urllib.request</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">urllib.request</span>
 
 <span class="c1"># Download file nếu dữ liệu chưa tồn tại</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;data/the-verdict.txt&quot;</span><span class="p">):</span>
@@ -139,94 +142,79 @@
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/the-verdict.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/the-verdict.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">raw_text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-
+    
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total number of character:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw_text</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">raw_text</span><span class="p">[:</span><span class="mi">99</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Total number of character: 20479
-I HAD always thought Jack Gisburn rather a cheap genius--though a good fellow enough--so it was no
-</pre></div></div>
-</div>
-<p>Để có thể phân nhỏ dữ liệu text, ta cần làm sạch dữ liệu với <code class="docutils literal notranslate"><span class="pre">regular</span> <span class="pre">expression</span></code>, loại bỏ khoảng trắng, loại các ký tự đặc biệt, etc.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total number of character: 20479
+I HAD always thought Jack Gisburn rather a cheap genius--though a good fellow enough--so it was no 
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+</div>
+</div>
+<p>Để có thể phân nhỏ dữ liệu text, ta cần làm sạch dữ liệu với <code class="docutils literal notranslate"><span class="pre">regular</span> <span class="pre">expression</span></code>, loại bỏ khoảng trắng, loại các ký tự đặc biệt, etc.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 <span class="n">preprocessed</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;([,.:;?_!&quot;()</span><span class="se">\&#39;</span><span class="s1">]|--|\s)&#39;</span><span class="p">,</span> <span class="n">raw_text</span><span class="p">)</span>
 <span class="n">preprocessed</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">preprocessed</span> <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">preprocessed</span><span class="p">[:</span><span class="mi">99</span><span class="p">])</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">preprocessed</span><span class="p">[:</span><span class="mi">99</span><span class="p">])</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;I&#39;, &#39;HAD&#39;, &#39;always&#39;, &#39;thought&#39;, &#39;Jack&#39;, &#39;Gisburn&#39;, &#39;rather&#39;, &#39;a&#39;, &#39;cheap&#39;, &#39;genius&#39;, &#39;--&#39;, &#39;though&#39;, &#39;a&#39;, &#39;good&#39;, &#39;fellow&#39;, &#39;enough&#39;, &#39;--&#39;, &#39;so&#39;, &#39;it&#39;, &#39;was&#39;, &#39;no&#39;, &#39;great&#39;, &#39;surprise&#39;, &#39;to&#39;, &#39;me&#39;, &#39;to&#39;, &#39;hear&#39;, &#39;that&#39;, &#39;,&#39;, &#39;in&#39;, &#39;the&#39;, &#39;height&#39;, &#39;of&#39;, &#39;his&#39;, &#39;glory&#39;, &#39;,&#39;, &#39;he&#39;, &#39;had&#39;, &#39;dropped&#39;, &#39;his&#39;, &#39;painting&#39;, &#39;,&#39;, &#39;married&#39;, &#39;a&#39;, &#39;rich&#39;, &#39;widow&#39;, &#39;,&#39;, &#39;and&#39;, &#39;established&#39;, &#39;himself&#39;, &#39;in&#39;, &#39;a&#39;, &#39;villa&#39;, &#39;on&#39;, &#39;the&#39;, &#39;Riviera&#39;, &#39;.&#39;, &#39;(&#39;, &#39;Though&#39;, &#39;I&#39;, &#39;rather&#39;, &#39;thought&#39;, &#39;it&#39;, &#39;would&#39;, &#39;have&#39;, &#39;been&#39;, &#39;Rome&#39;, &#39;or&#39;, &#39;Florence&#39;, &#39;.&#39;, &#39;)&#39;, &#39;&quot;&#39;, &#39;The&#39;, &#39;height&#39;, &#39;of&#39;, &#39;his&#39;, &#39;glory&#39;, &#39;&quot;&#39;, &#39;--&#39;, &#39;that&#39;, &#39;was&#39;, &#39;what&#39;, &#39;the&#39;, &#39;women&#39;, &#39;called&#39;, &#39;it&#39;, &#39;.&#39;, &#39;I&#39;, &#39;can&#39;, &#39;hear&#39;, &#39;Mrs&#39;, &#39;.&#39;, &#39;Gideon&#39;, &#39;Thwing&#39;, &#39;--&#39;, &#39;his&#39;, &#39;last&#39;, &#39;Chicago&#39;, &#39;sitter&#39;]
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[&#39;I&#39;, &#39;HAD&#39;, &#39;always&#39;, &#39;thought&#39;, &#39;Jack&#39;, &#39;Gisburn&#39;, &#39;rather&#39;, &#39;a&#39;, &#39;cheap&#39;, &#39;genius&#39;, &#39;--&#39;, &#39;though&#39;, &#39;a&#39;, &#39;good&#39;, &#39;fellow&#39;, &#39;enough&#39;, &#39;--&#39;, &#39;so&#39;, &#39;it&#39;, &#39;was&#39;, &#39;no&#39;, &#39;great&#39;, &#39;surprise&#39;, &#39;to&#39;, &#39;me&#39;, &#39;to&#39;, &#39;hear&#39;, &#39;that&#39;, &#39;,&#39;, &#39;in&#39;, &#39;the&#39;, &#39;height&#39;, &#39;of&#39;, &#39;his&#39;, &#39;glory&#39;, &#39;,&#39;, &#39;he&#39;, &#39;had&#39;, &#39;dropped&#39;, &#39;his&#39;, &#39;painting&#39;, &#39;,&#39;, &#39;married&#39;, &#39;a&#39;, &#39;rich&#39;, &#39;widow&#39;, &#39;,&#39;, &#39;and&#39;, &#39;established&#39;, &#39;himself&#39;, &#39;in&#39;, &#39;a&#39;, &#39;villa&#39;, &#39;on&#39;, &#39;the&#39;, &#39;Riviera&#39;, &#39;.&#39;, &#39;(&#39;, &#39;Though&#39;, &#39;I&#39;, &#39;rather&#39;, &#39;thought&#39;, &#39;it&#39;, &#39;would&#39;, &#39;have&#39;, &#39;been&#39;, &#39;Rome&#39;, &#39;or&#39;, &#39;Florence&#39;, &#39;.&#39;, &#39;)&#39;, &#39;&#34;&#39;, &#39;The&#39;, &#39;height&#39;, &#39;of&#39;, &#39;his&#39;, &#39;glory&#39;, &#39;&#34;&#39;, &#39;--&#39;, &#39;that&#39;, &#39;was&#39;, &#39;what&#39;, &#39;the&#39;, &#39;women&#39;, &#39;called&#39;, &#39;it&#39;, &#39;.&#39;, &#39;I&#39;, &#39;can&#39;, &#39;hear&#39;, &#39;Mrs&#39;, &#39;.&#39;, &#39;Gideon&#39;, &#39;Thwing&#39;, &#39;--&#39;, &#39;his&#39;, &#39;last&#39;, &#39;Chicago&#39;, &#39;sitter&#39;]
-</pre></div></div>
 </div>
 </section>
 </section>
-<section id="Chuyển-đổi-text-sang-token-ID">
-<h2><span class="section-number">2.3. </span>Chuyển đổi text sang token ID<a class="headerlink" href="#Chuyển-đổi-text-sang-token-ID" title="Link to this heading"></a></h2>
+<section id="chuyen-doi-text-sang-token-id">
+<h2><span class="section-number">2.3. </span>Chuyển đổi text sang token ID<a class="headerlink" href="#chuyen-doi-text-sang-token-id" title="Link to this heading"></a></h2>
 <p>Mỗi token sẽ được đưa vào <em>kho từ vựng</em> (<code class="docutils literal notranslate"><span class="pre">vocabulary</span></code>), và sẽ đưa các từ, ký tự đặc biệt hoặc cụm từ thành các số nguyên duy nhất như dưới đây.</p>
-<p><img alt="image1" src="_images/p02-02-03-text-embedding-15.webp" /></p>
+<p><img alt="" src="_images/p02-02-03-text-embedding-03.webp" /></p>
 <p>Tạo kho từ điển dữ liệu</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_words</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">preprocessed</span><span class="p">))</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_words</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">preprocessed</span><span class="p">))</span>
 <span class="n">vocab_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_words</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-1130
-</pre></div></div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1130
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo dictionary với token, integer</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo dictionary với token, integer</span>
 <span class="n">vocab</span> <span class="o">=</span> <span class="p">{</span><span class="n">token</span><span class="p">:</span><span class="n">integer</span> <span class="k">for</span> <span class="n">integer</span><span class="p">,</span><span class="n">token</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">all_words</span><span class="p">)}</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hiển thị kết quả mappting từ điển</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hiển thị kết quả mappting từ điển</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vocab</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">20</span><span class="p">:</span>
@@ -234,14 +222,10 @@ I HAD always thought Jack Gisburn rather a cheap genius--though a good fellow en
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-(&#39;!&#39;, 0)
-(&#39;&#34;&#39;, 1)
-(&#34;&#39;&#34;, 2)
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;!&#39;, 0)
+(&#39;&quot;&#39;, 1)
+(&quot;&#39;&quot;, 2)
 (&#39;(&#39;, 3)
 (&#39;)&#39;, 4)
 (&#39;,&#39;, 5)
@@ -260,7 +244,9 @@ I HAD always thought Jack Gisburn rather a cheap genius--though a good fellow en
 (&#39;At&#39;, 18)
 (&#39;Be&#39;, 19)
 (&#39;Begin&#39;, 20)
-</pre></div></div>
+</pre></div>
+</div>
+</div>
 </div>
 <hr class="docutils" />
 <p>Quá trình tạo token ID có thể được đơn giản hóa bằng 3 bước sau</p>
@@ -269,21 +255,19 @@ I HAD always thought Jack Gisburn rather a cheap genius--though a good fellow en
 <li><p>Tạo bộ từ điển vocabulary</p></li>
 <li><p>Mapping token về key của bộ từ điển</p></li>
 </ul>
-<p><img alt="image1" src="_images/p02-02-03-text-embedding-15.webp" /></p>
+<p><img alt="" src="_images/p02-02-03-text-embedding-04.webp" /></p>
 <p>Ta có thể tạo một class cho phép encode &amp; decode dữ liệu text đơn giản từ bộ từ điển có sẵn (vocab ở ví dụ trên) như sau</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SimpleTokenizerV1</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vocab</span><span class="p">):</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">SimpleTokenizerV1</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vocab</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">str_to_int</span> <span class="o">=</span> <span class="n">vocab</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">int_to_str</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span><span class="p">,</span><span class="n">i</span> <span class="ow">in</span> <span class="n">vocab</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
 
     <span class="c1"># ecode để convert từ text sang embedding id</span>
-    <span class="k">def</span> <span class="nf">encode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">encode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
         <span class="n">preprocessed</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;([,.:;?_!&quot;()</span><span class="se">\&#39;</span><span class="s1">]|--|\s)&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
-
+                                
         <span class="n">preprocessed</span> <span class="o">=</span> <span class="p">[</span>
             <span class="n">item</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">preprocessed</span> <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
         <span class="p">]</span>
@@ -291,7 +275,7 @@ I HAD always thought Jack Gisburn rather a cheap genius--though a good fellow en
         <span class="k">return</span> <span class="n">ids</span>
 
     <span class="c1"># decode để convert từ embedding id về dạng text</span>
-    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ids</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ids</span><span class="p">):</span>
         <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">int_to_str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">])</span>
         <span class="c1"># Replace spaces before the specified punctuations</span>
         <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\s+([,.?!&quot;()</span><span class="se">\&#39;</span><span class="s1">])&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\1&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
@@ -299,50 +283,42 @@ I HAD always thought Jack Gisburn rather a cheap genius--though a good fellow en
 </pre></div>
 </div>
 </div>
-<p><img alt="image1" src="_images/p02-02-03-text-embedding-15.webp" /></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">SimpleTokenizerV1</span><span class="p">(</span><span class="n">vocab</span><span class="p">)</span>
+<p><img alt="" src="_images/p02-02-03-text-embedding-05.webp" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">SimpleTokenizerV1</span><span class="p">(</span><span class="n">vocab</span><span class="p">)</span>
 
-<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;&quot;It&#39;s the last he painted, you know,&quot;</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;&quot;It&#39;s the last he painted, you know,&quot; </span>
 <span class="s2">           Mrs. Gisburn said with pardonable pride.&quot;&quot;&quot;</span>
 <span class="n">ids</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[1, 56, 2, 850, 988, 602, 533, 746, 5, 1126, 596, 5, 1, 67, 7, 38, 851, 1108, 754, 793, 7]
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 56, 2, 850, 988, 602, 533, 746, 5, 1126, 596, 5, 1, 67, 7, 38, 851, 1108, 754, 793, 7]
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Decode</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Decode</span>
 <span class="n">tokenizer</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;&quot; It\&#39; s the last he painted, you know,&quot; Mrs. Gisburn said with pardonable pride.&#39;
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&#39;&#34; It\&#39; s the last he painted, you know,&#34; Mrs. Gisburn said with pardonable pride.&#39;
-</pre></div></div>
+</div>
 </div>
 </section>
-<section id="Các-context-tokens-đặc-biệt">
-<h2><span class="section-number">2.4. </span>Các context tokens đặc biệt<a class="headerlink" href="#Các-context-tokens-đặc-biệt" title="Link to this heading"></a></h2>
-<p>Trong một số trường hợp, ta cần phải thêm các tokens để có thể hỗ trợ LLM xử lý và hiểu ngữ cảnh tốt hơn - như ký tự kết thúc đầu câu, cuối câu,… Một số tokens đặc biệt thường gặp như sau:</p>
+<section id="cac-context-tokens-dac-biet">
+<h2><span class="section-number">2.4. </span>Các context tokens đặc biệt<a class="headerlink" href="#cac-context-tokens-dac-biet" title="Link to this heading"></a></h2>
+<p>Trong một số trường hợp, ta cần phải thêm các tokens để có thể hỗ trợ LLM xử lý và hiểu ngữ cảnh tốt hơn - như ký tự kết thúc đầu câu, cuối câu,... Một số tokens đặc biệt thường gặp như sau:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">[BOS]</span></code> (beginning of sequence)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">[EOS]</span></code> (end of sequence)</p></li>
@@ -360,128 +336,113 @@ I HAD always thought Jack Gisburn rather a cheap genius--though a good fellow en
 </ul>
 <p><strong>Lưu ý</strong>: Với GPT2, để đơn giản hóa quá trình, GPT2 sử dung <code class="docutils literal notranslate"><span class="pre">&lt;|endoftext|&gt;</span></code> để thay thế cho các token đặc biệt. Với trường hợp <code class="docutils literal notranslate"><span class="pre">tokens</span></code> không có trong bộ từ điển, GPT2 sẽ sử dụng kỹ thuật BPE (byte pair encoding) để xử lý.</p>
 <p>Xem minh họa dưới đây để hiểu rõ hơn</p>
-<p><img alt="image1" src="_images/p02-02-03-text-embedding-15.webp" /></p>
-<p><img alt="image1" src="_images/p02-02-03-text-embedding-15.webp" /></p>
+<p><img alt="" src="_images/p02-02-03-text-embedding-06.webp" /></p>
+<p><img alt="" src="_images/p02-02-03-text-embedding-07.webp" /></p>
 <p>Xem ví dụ dưới đây</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">SimpleTokenizerV1</span><span class="p">(</span><span class="n">vocab</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">SimpleTokenizerV1</span><span class="p">(</span><span class="n">vocab</span><span class="p">)</span>
 <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Hello, do you like tea. Is this-- a test?&quot;</span>
 <span class="n">tokenizer</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="c1"># error</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">SimpleTokenizerV1</span><span class="p">(</span><span class="n">vocab</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Hello, do you like tea. Is this-- a test?&quot;</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="c1"># error</span>
+
+<span class="nn">Cell In[18], line 13,</span> in <span class="ni">SimpleTokenizerV1.encode</span><span class="nt">(self, text)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">preprocessed</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;([,.:;?_!&quot;()</span><span class="se">\&#39;</span><span class="s1">]|--|\s)&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">preprocessed</span> <span class="o">=</span> <span class="p">[</span>
+<span class="nn">     11     item.strip() for item</span> in <span class="ni">preprocessed if item.strip</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="p">]</span>
+<span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">ids</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">str_to_int</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">preprocessed</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="k">return</span> <span class="n">ids</span>
+
+<span class="nn">Cell In[18], line 13,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">preprocessed</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;([,.:;?_!&quot;()</span><span class="se">\&#39;</span><span class="s1">]|--|\s)&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">preprocessed</span> <span class="o">=</span> <span class="p">[</span>
+<span class="nn">     11     item.strip() for item</span> in <span class="ni">preprocessed if item.strip</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="p">]</span>
+<span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">ids</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">str_to_int</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">preprocessed</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="k">return</span> <span class="n">ids</span>
+
+<span class="ne">KeyError</span>: &#39;Hello&#39;
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[23], line 3</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> tokenizer <span style="color: rgb(98,98,98)">=</span> SimpleTokenizerV1(vocab)
-<span class="ansi-green-intense-fg ansi-bold">      2</span> text <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Hello, do you like tea. Is this-- a test?</span><span style="color: rgb(175,0,0)">&#34;</span>
-<span class="ansi-green-fg">----&gt; 3</span> <span class="ansi-yellow-bg">tokenizer</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">encode</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">text</span><span class="ansi-yellow-bg">)</span> <span style="color: rgb(95,135,135)"># error</span>
-
-Cell <span class="ansi-green-fg">In[18], line 13</span>, in <span class="ansi-cyan-fg">SimpleTokenizerV1.encode</span><span class="ansi-blue-fg">(self, text)</span>
-<span class="ansi-green-intense-fg ansi-bold">      8</span> preprocessed <span style="color: rgb(98,98,98)">=</span> re<span style="color: rgb(98,98,98)">.</span>split(<span style="color: rgb(175,0,0)">r</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">([,.:;?_!</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">()</span><span class="ansi-bold" style="color: rgb(175,95,0)">\&#39;</span><span style="color: rgb(175,0,0)">]|--|</span><span style="color: rgb(175,0,0)">\</span><span style="color: rgb(175,0,0)">s)</span><span style="color: rgb(175,0,0)">&#39;</span>, text)
-<span class="ansi-green-intense-fg ansi-bold">     10</span> preprocessed <span style="color: rgb(98,98,98)">=</span> [
-<span class="ansi-green-intense-fg ansi-bold">     11</span>     item<span style="color: rgb(98,98,98)">.</span>strip() <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> item <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> preprocessed <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> item<span style="color: rgb(98,98,98)">.</span>strip()
-<span class="ansi-green-intense-fg ansi-bold">     12</span> ]
-<span class="ansi-green-fg">---&gt; 13</span> ids <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">str_to_int</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg">s</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">for</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">s</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(175,0,255)">in</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">preprocessed</span><span class="ansi-yellow-bg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">     14</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> ids
-
-Cell <span class="ansi-green-fg">In[18], line 13</span>, in <span class="ansi-cyan-fg">&lt;listcomp&gt;</span><span class="ansi-blue-fg">(.0)</span>
-<span class="ansi-green-intense-fg ansi-bold">      8</span> preprocessed <span style="color: rgb(98,98,98)">=</span> re<span style="color: rgb(98,98,98)">.</span>split(<span style="color: rgb(175,0,0)">r</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">([,.:;?_!</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">()</span><span class="ansi-bold" style="color: rgb(175,95,0)">\&#39;</span><span style="color: rgb(175,0,0)">]|--|</span><span style="color: rgb(175,0,0)">\</span><span style="color: rgb(175,0,0)">s)</span><span style="color: rgb(175,0,0)">&#39;</span>, text)
-<span class="ansi-green-intense-fg ansi-bold">     10</span> preprocessed <span style="color: rgb(98,98,98)">=</span> [
-<span class="ansi-green-intense-fg ansi-bold">     11</span>     item<span style="color: rgb(98,98,98)">.</span>strip() <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> item <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> preprocessed <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> item<span style="color: rgb(98,98,98)">.</span>strip()
-<span class="ansi-green-intense-fg ansi-bold">     12</span> ]
-<span class="ansi-green-fg">---&gt; 13</span> ids <span style="color: rgb(98,98,98)">=</span> [<span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">str_to_int</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg">s</span><span class="ansi-yellow-bg">]</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> s <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> preprocessed]
-<span class="ansi-green-intense-fg ansi-bold">     14</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> ids
-
-<span class="ansi-red-fg">KeyError</span>: &#39;Hello&#39;
-</pre></div></div>
+</div>
 </div>
 <p>Ở ví dụ trên, quá trình tokenization sẽ báo lỗi do từ <code class="docutils literal notranslate"><span class="pre">Hello</span></code> đang không có trong bộ từ điển ban đầu. Do đó, ta cần thực hiện 2 bước:</p>
 <ul class="simple">
 <li><p>Mở rộng vocabulary với <code class="docutils literal notranslate"><span class="pre">&lt;|unk|&gt;</span></code> và <code class="docutils literal notranslate"><span class="pre">&lt;|endoftext|&gt;</span></code></p></li>
 <li><p>Điều chỉnh tokenization trong trường hợp không có dữ liệu</p></li>
 </ul>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_tokens</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">preprocessed</span><span class="p">)))</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_tokens</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">preprocessed</span><span class="p">)))</span>
 <span class="n">all_tokens</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="s2">&quot;&lt;|endoftext|&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;|unk|&gt;&quot;</span><span class="p">])</span>
 
 <span class="n">vocab</span> <span class="o">=</span> <span class="p">{</span><span class="n">token</span><span class="p">:</span><span class="n">integer</span> <span class="k">for</span> <span class="n">integer</span><span class="p">,</span><span class="n">token</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">all_tokens</span><span class="p">)}</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vocab</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vocab</span><span class="p">))</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1132
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-1132
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Kiểm tra các ký tự đặc biệt đã được thêm vào embedding</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Kiểm tra các ký tự đặc biệt đã được thêm vào embedding</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">vocab</span><span class="o">.</span><span class="n">items</span><span class="p">())[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-(&#39;younger&#39;, 1127)
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;younger&#39;, 1127)
 (&#39;your&#39;, 1128)
 (&#39;yourself&#39;, 1129)
 (&#39;&lt;|endoftext|&gt;&#39;, 1130)
 (&#39;&lt;|unk|&gt;&#39;, 1131)
-</pre></div></div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Viết lại class mới</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Viết lại class mới</span>
 
-<span class="k">class</span> <span class="nc">SimpleTokenizerV2</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vocab</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SimpleTokenizerV2</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vocab</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">str_to_int</span> <span class="o">=</span> <span class="n">vocab</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">int_to_str</span> <span class="o">=</span> <span class="p">{</span> <span class="n">i</span><span class="p">:</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span><span class="p">,</span><span class="n">i</span> <span class="ow">in</span> <span class="n">vocab</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
-
-    <span class="k">def</span> <span class="nf">encode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">encode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
         <span class="n">preprocessed</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;([,.:;?_!&quot;()</span><span class="se">\&#39;</span><span class="s1">]|--|\s)&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
         <span class="n">preprocessed</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">preprocessed</span> <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span>
         <span class="n">preprocessed</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="n">item</span> <span class="k">if</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">str_to_int</span>
+            <span class="n">item</span> <span class="k">if</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">str_to_int</span> 
             <span class="c1"># Nếu từ không có trong vocab thì chuyển |unk|</span>
             <span class="k">else</span> <span class="s2">&quot;&lt;|unk|&gt;&quot;</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">preprocessed</span>
         <span class="p">]</span>
 
         <span class="n">ids</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">str_to_int</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">preprocessed</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">ids</span>
-
-    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ids</span><span class="p">):</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ids</span><span class="p">):</span>
         <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">int_to_str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">])</span>
         <span class="c1"># Replace spaces before the specified punctuations</span>
         <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\s+([,.:;?!&quot;()</span><span class="se">\&#39;</span><span class="s1">])&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\1&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
@@ -489,11 +450,10 @@ Cell <span class="ansi-green-fg">In[18], line 13</span>, in <span class="ansi-cy
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">SimpleTokenizerV2</span><span class="p">(</span><span class="n">vocab</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">SimpleTokenizerV2</span><span class="p">(</span><span class="n">vocab</span><span class="p">)</span>
 
 <span class="n">text1</span> <span class="o">=</span> <span class="s2">&quot;Hello, do you like tea?&quot;</span>
 <span class="n">text2</span> <span class="o">=</span> <span class="s2">&quot;In the sunlit terraces of the palace.&quot;</span>
@@ -504,88 +464,69 @@ Cell <span class="ansi-green-fg">In[18], line 13</span>, in <span class="ansi-cy
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Hello, do you like tea? &lt;|endoftext|&gt; In the sunlit terraces of the palace.
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokenizer</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, do you like tea? &lt;|endoftext|&gt; In the sunlit terraces of the palace.
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
-</pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[1131, 5, 355, 1126, 628, 975, 10, 1130, 55, 988, 956, 984, 722, 988, 1131, 7]
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokenizer</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;&lt;|unk|&gt; my word&quot;</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokenizer</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1131, 5, 355, 1126, 628, 975, 10, 1130, 55, 988, 956, 984, 722, 988, 1131, 7]
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[1131, 697, 1116]
-</pre></div></div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokenizer</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;&lt;|unk|&gt; my word&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1131, 697, 1116]
+</pre></div>
+</div>
+</div>
 </div>
 </section>
-<section id="Byte-Pair-Encoding">
-<h2><span class="section-number">2.5. </span>Byte Pair Encoding<a class="headerlink" href="#Byte-Pair-Encoding" title="Link to this heading"></a></h2>
+<section id="byte-pair-encoding">
+<h2><span class="section-number">2.5. </span>Byte Pair Encoding<a class="headerlink" href="#byte-pair-encoding" title="Link to this heading"></a></h2>
 <p>Bên cạnh kỹ thuật thêm các từ và đặt từ đơn giản như <code class="docutils literal notranslate"><span class="pre">&lt;|unk|&gt;</span></code>, GPT2 sử dụng kỹ thuật Byte Pair Encoding.</p>
 <p>BPE sẽ chia nhỏ một từ mới thành các token nhỏ hơn và đã tồn tại trong kho từ vựng. BPE xây dựng vốn từ vựng bằng cách kết hợp lặp đi lặp lại các ký tự thường gặp thành từ phụ và từ phụ thường gặp thành từ. Ví dụ: BPE bắt đầu bằng việc thêm tất cả các ký tự đơn riêng lẻ vào từ vựng của nó (&quot;a&quot;, &quot;b&quot;, v.v.).</p>
 <p>Trong giai đoạn tiếp theo, nó hợp nhất các tổ hợp ký tự thường xuất hiện cùng nhau thành các từ phụ. Ví dụ: &quot;d&quot; và &quot;e&quot; có thể được hợp nhất thành từ phụ &quot;de&quot;, từ này phổ biến trong nhiều tiếng Anh.</p>
-<p><img alt="image1" src="_images/p02-02-03-text-embedding-15.webp" /></p>
+<p><img alt="" src="_images/p02-02-03-text-embedding-08.webp" /></p>
 <p>Thư viện phổ biến để encode text embeding là <code class="docutils literal notranslate"><span class="pre">titoken</span></code> với core được viết bằng <code class="docutils literal notranslate"><span class="pre">Rust</span></code> để tăng tốc độ xử lý và tính toán</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">importlib</span>
-<span class="kn">import</span> <span class="nn">tiktoken</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">importlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tiktoken</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;tiktoken version:&quot;</span><span class="p">,</span> <span class="n">importlib</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">version</span><span class="p">(</span><span class="s2">&quot;tiktoken&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-tiktoken version: 0.8.0
-</pre></div></div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">tiktoken</span><span class="o">.</span><span class="n">get_encoding</span><span class="p">(</span><span class="s2">&quot;gpt2&quot;</span><span class="p">)</span>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tiktoken version: 0.8.0
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">tiktoken</span><span class="o">.</span><span class="n">get_encoding</span><span class="p">(</span><span class="s2">&quot;gpt2&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="p">(</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="p">(</span>
     <span class="s2">&quot;Hello, do you like tea? &lt;|endoftext|&gt; In the sunlit terraces&quot;</span>
      <span class="s2">&quot;of someunknownPlace loretipsum.&quot;</span>
 <span class="p">)</span>
@@ -596,48 +537,35 @@ tiktoken version: 0.8.0
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[15496, 11, 466, 345, 588, 8887, 30, 220, 50256, 554, 262, 4252, 18250, 8812, 2114, 1659, 617, 34680, 27271, 300, 9997, 2419, 388, 13]
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[15496, 11, 466, 345, 588, 8887, 30, 220, 50256, 554, 262, 4252, 18250, 8812, 2114, 1659, 617, 34680, 27271, 300, 9997, 2419, 388, 13]
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">strings</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">integers</span><span class="p">)</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">strings</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">integers</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">strings</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Hello, do you like tea? &lt;|endoftext|&gt; In the sunlit terracesof someunknownPlace loretipsum.
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, do you like tea? &lt;|endoftext|&gt; In the sunlit terracesof someunknownPlace loretipsum.
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tokenize với tiếng Việt</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tokenize với tiếng Việt</span>
 <span class="n">tokenizer</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;Cộng hòa xã hội chủ nghĩa Việt Nam&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[34,
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[34,
  157,
  119,
  247,
@@ -668,18 +596,18 @@ Hello, do you like tea? &lt;|endoftext|&gt; In the sunlit terracesof someunknown
  229,
  83,
  17871]
-</pre></div></div>
-</div>
-</section>
-<section id="Data-sampling">
-<h2><span class="section-number">2.6. </span>Data sampling<a class="headerlink" href="#Data-sampling" title="Link to this heading"></a></h2>
-<p>Như ta đã biết, LLM tập trung dự báo các từ tiếp theo trong một đoạn văn bản. Để xây dựng dữ liệu huấn luyện cho LLM, ta cần tạo các cặp vector đầu vào - kết quả tương ứng.</p>
-<p><img alt="image1" src="_images/p02-02-03-text-embedding-15.webp" /></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/the-verdict.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</div>
+</div>
+</section>
+<section id="data-sampling">
+<h2><span class="section-number">2.6. </span>Data sampling<a class="headerlink" href="#data-sampling" title="Link to this heading"></a></h2>
+<p>Như ta đã biết, LLM tập trung dự báo các từ tiếp theo trong một đoạn văn bản. Để xây dựng dữ liệu huấn luyện cho LLM, ta cần tạo các cặp vector đầu vào - kết quả tương ứng.</p>
+<p><img alt="" src="_images/p02-02-03-text-embedding-09.webp" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/the-verdict.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">raw_text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
 <span class="n">enc_text</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">raw_text</span><span class="p">)</span>
@@ -687,28 +615,23 @@ Hello, do you like tea? &lt;|endoftext|&gt; In the sunlit terracesof someunknown
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-5145
-</pre></div></div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5145
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lấy dữ liệu sample</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lấy dữ liệu sample</span>
 <span class="n">enc_sample</span> <span class="o">=</span> <span class="n">enc_text</span><span class="p">[</span><span class="mi">50</span><span class="p">:]</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo context 4 từ và dự đoán từ tiếp theo</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo context 4 từ và dự đoán từ tiếp theo</span>
 <span class="n">context_size</span> <span class="o">=</span> <span class="mi">4</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">enc_sample</span><span class="p">[:</span><span class="n">context_size</span><span class="p">]</span>
@@ -721,22 +644,18 @@ Hello, do you like tea? &lt;|endoftext|&gt; In the sunlit terracesof someunknown
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-x: [290, 4920, 2241, 287]
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x: [290, 4920, 2241, 287]
 y:      [4920, 2241, 287, 257]
 z:            [2241, 287, 257, 4489]
-</pre></div></div>
-</div>
-<p>Các cặp input, output cần dự báo sẽ như sau</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">context_size</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+</div>
+</div>
+<p>Các cặp input, output cần dự báo sẽ như sau</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">context_size</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
     <span class="n">context</span> <span class="o">=</span> <span class="n">enc_sample</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span>
     <span class="n">desired</span> <span class="o">=</span> <span class="n">enc_sample</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 
@@ -744,22 +663,18 @@ z:            [2241, 287, 257, 4489]
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[290] ----&gt; 4920
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[290] ----&gt; 4920
 [290, 4920] ----&gt; 2241
 [290, 4920, 2241] ----&gt; 287
 [290, 4920, 2241, 287] ----&gt; 257
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">context_size</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">context_size</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
     <span class="n">context</span> <span class="o">=</span> <span class="n">enc_sample</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span>
     <span class="n">desired</span> <span class="o">=</span> <span class="n">enc_sample</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 
@@ -767,47 +682,39 @@ z:            [2241, 287, 257, 4489]
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
- and ----&gt;  established
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> and ----&gt;  established
  and established ----&gt;  himself
  and established himself ----&gt;  in
  and established himself in ----&gt;  a
-</pre></div></div>
-</div>
-<section id="Xây-dựng-data-loader">
-<h3><span class="section-number">2.6.1. </span>Xây dựng data loader<a class="headerlink" href="#Xây-dựng-data-loader" title="Link to this heading"></a></h3>
-<p>Để thuận tiện cho việc chuẩn bị dữ liệu input/output cho LLM, ta cần xây dựng một <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">loader</span></code> class, cho phép tạo ra các tensor chứa input &amp; output cho LLM</p>
-<p><img alt="image1" src="_images/p02-02-03-text-embedding-15.webp" /></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+</div>
+</div>
+<section id="xay-dung-data-loader">
+<h3><span class="section-number">2.6.1. </span>Xây dựng data loader<a class="headerlink" href="#xay-dung-data-loader" title="Link to this heading"></a></h3>
+<p>Để thuận tiện cho việc chuẩn bị dữ liệu input/output cho LLM, ta cần xây dựng một <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">loader</span></code> class, cho phép tạo ra các tensor chứa input &amp; output cho LLM</p>
+<p><img alt="" src="_images/p02-02-03-text-embedding-10.webp" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;PyTorch version:&quot;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-PyTorch version: 2.5.1+cu124
-</pre></div></div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PyTorch version: 2.5.1+cu124
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">DataLoader</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">torch.utils.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">DataLoader</span>
 
 
-<span class="k">class</span> <span class="nc">GPTDatasetV1</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">txt</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">max_length</span><span class="p">,</span> <span class="n">stride</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">GPTDatasetV1</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">txt</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">max_length</span><span class="p">,</span> <span class="n">stride</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">input_ids</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">target_ids</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -821,19 +728,18 @@ PyTorch version: 2.5.1+cu124
             <span class="bp">self</span><span class="o">.</span><span class="n">input_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">input_chunk</span><span class="p">))</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">target_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">target_chunk</span><span class="p">))</span>
 
-    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_ids</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_ids</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_ids</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_dataloader_v1</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">create_dataloader_v1</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> 
                          <span class="n">stride</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">drop_last</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                          <span class="n">num_workers</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 
@@ -856,20 +762,18 @@ PyTorch version: 2.5.1+cu124
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/the-verdict.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data/the-verdict.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">raw_text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataloader</span> <span class="o">=</span> <span class="n">create_dataloader_v1</span><span class="p">(</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataloader</span> <span class="o">=</span> <span class="n">create_dataloader_v1</span><span class="p">(</span>
     <span class="n">raw_text</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span>
 <span class="p">)</span>
 
@@ -879,21 +783,17 @@ PyTorch version: 2.5.1+cu124
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[tensor([[  40,  367, 2885, 1464]]), tensor([[ 367, 2885, 1464, 1807]])]
-</pre></div></div>
-</div>
-<p><strong>Lưu ý</strong>: <code class="docutils literal notranslate"><span class="pre">stride</span> <span class="pre">=</span> <span class="pre">1</span></code> cho phép dịch chuyển context đi 1 token.</p>
-<p><img alt="image1" src="_images/p02-02-03-text-embedding-15.webp" /></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[tensor([[  40,  367, 2885, 1464]]), tensor([[ 367, 2885, 1464, 1807]])]
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataloader</span> <span class="o">=</span> <span class="n">create_dataloader_v1</span><span class="p">(</span><span class="n">raw_text</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</div>
+</div>
+<p><strong>Lưu ý</strong>: <code class="docutils literal notranslate"><span class="pre">stride</span> <span class="pre">=</span> <span class="pre">1</span></code> cho phép dịch chuyển context đi 1 token.</p>
+<p><img alt="" src="_images/p02-02-03-text-embedding-11.webp" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataloader</span> <span class="o">=</span> <span class="n">create_dataloader_v1</span><span class="p">(</span><span class="n">raw_text</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">data_iter</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">dataloader</span><span class="p">)</span>
 <span class="n">inputs</span><span class="p">,</span> <span class="n">targets</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">data_iter</span><span class="p">)</span>
@@ -902,12 +802,8 @@ PyTorch version: 2.5.1+cu124
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Inputs:
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Inputs:
  tensor([[   40,   367,  2885,  1464],
         [ 1807,  3619,   402,   271],
         [10899,  2138,   257,  7026],
@@ -926,28 +822,27 @@ Targets:
         [  340,   373,   645,  1049],
         [ 5975,   284,   502,   284],
         [ 3285,   326,    11,   287]])
-</pre></div></div>
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
-<section id="Token-embedding">
-<h2><span class="section-number">2.7. </span>Token embedding<a class="headerlink" href="#Token-embedding" title="Link to this heading"></a></h2>
+<section id="token-embedding">
+<h2><span class="section-number">2.7. </span>Token embedding<a class="headerlink" href="#token-embedding" title="Link to this heading"></a></h2>
 <p>Bước tiếp theo là triển chuyển đổi các token id thành các vector nhúng (vector embedding) như dưới đây</p>
-<p><img alt="image1" src="_images/p02-02-03-text-embedding-15.webp" /></p>
+<p><img alt="" src="_images/p02-02-03-text-embedding-12.webp" /></p>
 <p><strong>Ví dụ</strong>: Ta có 4 word id và cần chuyển đổi thành vector embedding với kích thước là 3</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[75]:
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">input_ids</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">input_ids</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-</pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[76]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vocab_size</span> <span class="o">=</span> <span class="mi">6</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vocab_size</span> <span class="o">=</span> <span class="mi">6</span>
 <span class="n">output_dim</span> <span class="o">=</span> <span class="mi">3</span>
 
 <span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
@@ -955,110 +850,92 @@ Targets:
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">embedding_layer</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">embedding_layer</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span>
-</pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Parameter containing:
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parameter containing:
 tensor([[ 0.3374, -0.1778, -0.1690],
         [ 0.9178,  1.5810,  1.3010],
         [ 1.2753, -0.2010, -0.1606],
         [-0.4015,  0.9666, -1.1481],
         [-1.1589,  0.3255, -0.6315],
         [-2.8400, -0.7849, -1.4096]], requires_grad=True)
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">embedding_layer</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">3</span><span class="p">])))</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-tensor([[-0.4015,  0.9666, -1.1481]], grad_fn=&lt;EmbeddingBackward0&gt;)
-</pre></div></div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">embedding_layer</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">3</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[-0.4015,  0.9666, -1.1481]], grad_fn=&lt;EmbeddingBackward0&gt;)
+</pre></div>
+</div>
+</div>
 </div>
 <p>Convert một id ra vector embedding</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[85]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tensor 3</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tensor 3</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">embedding_layer</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">3</span><span class="p">])))</span>
 <span class="c1"># Tensor 1</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">embedding_layer</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">1</span><span class="p">])))</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-tensor([[-0.4015,  0.9666, -1.1481]], grad_fn=&lt;EmbeddingBackward0&gt;)
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[-0.4015,  0.9666, -1.1481]], grad_fn=&lt;EmbeddingBackward0&gt;)
 tensor([[0.9178, 1.5810, 1.3010]], grad_fn=&lt;EmbeddingBackward0&gt;)
-</pre></div></div>
+</pre></div>
+</div>
+</div>
 </div>
 <p>Convert toàn bộ id ra vector embedding</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[88]:
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">embedding_layer</span><span class="p">(</span><span class="n">input_ids</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">embedding_layer</span><span class="p">(</span><span class="n">input_ids</span><span class="p">))</span>
-</pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-tensor([[ 1.2753, -0.2010, -0.1606],
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[ 1.2753, -0.2010, -0.1606],
         [-0.4015,  0.9666, -1.1481],
         [-2.8400, -0.7849, -1.4096],
         [ 0.9178,  1.5810,  1.3010]], grad_fn=&lt;EmbeddingBackward0&gt;)
-</pre></div></div>
-</div>
-</section>
-<section id="Mã-hóa-vị-trí-từ">
-<h2><span class="section-number">2.8. </span>Mã hóa vị trí từ<a class="headerlink" href="#Mã-hóa-vị-trí-từ" title="Link to this heading"></a></h2>
-<p>Với cách thực hiện word embedding, mỗi từ sẽ có vector biểu diễn giống nhau với mọi câu.</p>
-<p><img alt="image1" src="_images/p02-02-03-text-embedding-15.webp" /></p>
-<p>Tuy nhiên, trong văn bản, các từ ở các vị trí khác nhau sẽ có các biểu đạt và ý nghĩa khác nhau. Do đó, để khắc phục nhược điểm này, ta có thể bổ sung tham số về vị trí. Vị trí này có thể chia làm 2 nhóm - vị trí tương đối và vị trí tuyệt đối.</p>
-<p>Vị trí tuyệt đối mô tả vị trí của embeding trong đoạn văn. Trong khi đó, vị trí tương đối mô tả mối quan hệ theo khía cạnh - các vector cách nhau bao xa.</p>
-<p><img alt="image1" src="_images/p02-02-03-text-embedding-15.webp" /></p>
-<p>Ví dụ với Python</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[89]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vocab_size</span> <span class="o">=</span> <span class="mi">50257</span>
+</div>
+</div>
+</section>
+<section id="ma-hoa-vi-tri-tu">
+<h2><span class="section-number">2.8. </span>Mã hóa vị trí từ<a class="headerlink" href="#ma-hoa-vi-tri-tu" title="Link to this heading"></a></h2>
+<p>Với cách thực hiện word embedding, mỗi từ sẽ có vector biểu diễn giống nhau với mọi câu.</p>
+<p><img alt="" src="_images/p02-02-03-text-embedding-14.webp" /></p>
+<p>Tuy nhiên, trong văn bản, các từ ở các vị trí khác nhau sẽ có các biểu đạt và ý nghĩa khác nhau. Do đó, để khắc phục nhược điểm này, ta có thể bổ sung tham số về vị trí. Vị trí này có thể chia làm 2 nhóm - vị trí tương đối và vị trí tuyệt đối.</p>
+<p>Vị trí tuyệt đối mô tả vị trí của embeding trong đoạn văn. Trong khi đó, vị trí tương đối mô tả mối quan hệ theo khía cạnh - các vector cách nhau bao xa.</p>
+<p><img alt="" src="_images/p02-02-03-text-embedding-15.webp" /></p>
+<p>Ví dụ với Python</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vocab_size</span> <span class="o">=</span> <span class="mi">50257</span>
 <span class="n">output_dim</span> <span class="o">=</span> <span class="mi">256</span>
 
 <span class="n">token_embedding_layer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">output_dim</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[90]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">max_length</span> <span class="o">=</span> <span class="mi">4</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">max_length</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="n">dataloader</span> <span class="o">=</span> <span class="n">create_dataloader_v1</span><span class="p">(</span>
     <span class="n">raw_text</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="n">max_length</span><span class="p">,</span>
     <span class="n">stride</span><span class="o">=</span><span class="n">max_length</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span>
@@ -1068,21 +945,16 @@ tensor([[ 1.2753, -0.2010, -0.1606],
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[92]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Token IDs:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inputs</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Token IDs:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inputs</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Inputs shape:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inputs</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Token IDs:
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Token IDs:
  tensor([[   40,   367,  2885,  1464],
         [ 1807,  3619,   402,   271],
         [10899,  2138,   257,  7026],
@@ -1094,68 +966,57 @@ Token IDs:
 
 Inputs shape:
  torch.Size([8, 4])
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[95]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">token_embeddings</span> <span class="o">=</span> <span class="n">token_embedding_layer</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">token_embeddings</span> <span class="o">=</span> <span class="n">token_embedding_layer</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">token_embeddings</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-torch.Size([8, 4, 256])
-</pre></div></div>
-</div>
-<p>GPT2 sử dụng position embedding theo giá trị tuyệt đối</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[94]:
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>torch.Size([8, 4, 256])
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">context_length</span> <span class="o">=</span> <span class="n">max_length</span>
+</div>
+</div>
+<p>GPT2 sử dụng position embedding theo giá trị tuyệt đối</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">context_length</span> <span class="o">=</span> <span class="n">max_length</span>
 <span class="n">pos_embedding_layer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="n">context_length</span><span class="p">,</span> <span class="n">output_dim</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[96]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pos_embeddings</span> <span class="o">=</span> <span class="n">pos_embedding_layer</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">max_length</span><span class="p">))</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pos_embeddings</span> <span class="o">=</span> <span class="n">pos_embedding_layer</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">max_length</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">pos_embeddings</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-torch.Size([4, 256])
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[97]:
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>torch.Size([4, 256])
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">input_embeddings</span> <span class="o">=</span> <span class="n">token_embeddings</span> <span class="o">+</span> <span class="n">pos_embeddings</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">input_embeddings</span> <span class="o">=</span> <span class="n">token_embeddings</span> <span class="o">+</span> <span class="n">pos_embeddings</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">input_embeddings</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>torch.Size([8, 4, 256])
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-torch.Size([8, 4, 256])
-</pre></div></div>
+</div>
 </div>
 </section>
 </section>

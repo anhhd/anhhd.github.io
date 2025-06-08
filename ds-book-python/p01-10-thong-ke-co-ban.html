@@ -10,7 +10,8 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/nbsphinx-code-cells.css?v=2aa19091" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -20,9 +21,8 @@
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -61,12 +61,12 @@
 <li class="toctree-l1"><a class="reference internal" href="p01-08-lam-viec-voi-text.html">8. Biến đổi dữ liệu text trong python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-09-numpy.html">9. Numpy</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">10. Các chỉ số thống kê mô tả cơ bản</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Các-chỉ-số-thống-kê-cơ-bản">10.1. Các chỉ số thống kê cơ bản</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Phân-tích-mối-quan-hệ-2-biến-liên-tục---correlation">10.2. Phân tích mối quan hệ 2 biến liên tục - correlation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ANOVA">10.3. ANOVA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Kiểm-định-quan-hệ-Chi-bình-phương">10.4. Kiểm định quan hệ Chi-bình phương</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Prop-test">10.5. Prop test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Simpson-paradox">10.6. Simpson paradox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cac-chi-so-thong-ke-co-ban">10.1. Các chỉ số thống kê cơ bản</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#phan-tich-moi-quan-he-2-bien-lien-tuc-correlation">10.2. Phân tích mối quan hệ 2 biến liên tục - correlation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#anova">10.3. ANOVA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kiem-dinh-quan-he-chi-binh-phuong">10.4. Kiểm định quan hệ Chi-bình phương</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prop-test">10.5. Prop test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#simpson-paradox">10.6. Simpson paradox</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="p01-11-map-folium.html">11. Bản đồ với <code class="docutils literal notranslate"><span class="pre">folium</span></code></a></li>
@@ -116,8 +116,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Các-chỉ-số-thống-kê-mô-tả-cơ-bản">
-<h1><span class="section-number">10. </span>Các chỉ số thống kê mô tả cơ bản<a class="headerlink" href="#Các-chỉ-số-thống-kê-mô-tả-cơ-bản" title="Link to this heading"></a></h1>
+  <section id="cac-chi-so-thong-ke-mo-ta-co-ban">
+<h1><span class="section-number">10. </span>Các chỉ số thống kê mô tả cơ bản<a class="headerlink" href="#cac-chi-so-thong-ke-mo-ta-co-ban" title="Link to this heading"></a></h1>
 <p>Trong quá trình phân tích dữ liệu, việc nắm vững các chỉ số thống kê cơ bản là rất quan trọng. Tuy nhiên, vấn đề còn nằm ở khả năng diễn đạt các chỉ số thống kê thành các ngôn ngữ thân thuộc trong kinh doanh. Các chỉ số thống kê mô tả cho 1 biến có tính thực tiễn cao bao gồm:</p>
 <ul class="simple">
 <li><p>Giá trị trung bình</p></li>
@@ -134,18 +134,17 @@
 <li><p>So sánh 2 biến rời rạc - Phương pháp đánh giá chỉ số khi-bình phương - <code class="docutils literal notranslate"><span class="pre">Chi-Square</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">prop.test</span></code></p></li>
 <li><p>Lưu ý với nghịch lý Simpson (<code class="docutils literal notranslate"><span class="pre">Simpson</span> <span class="pre">paradox</span></code>)</p></li>
 </ul>
-<div class="note docutils container">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p class="rubric" id="luu-y">Lưu ý</p>
 <p>Đây là chương rất quan trọng và tổng hợp phần lớn các kỹ thuật thống kê thường dùng khi phân tích dữ liệu thực tế. Thành thạo ứng dụng các kỹ thuật này có thể giúp phân tích và tìm kiếm insight nhanh chóng với khoảng 80%-85% các bài toán phân tích ứng dụng thực tế.</p>
 </div>
-<section id="Các-chỉ-số-thống-kê-cơ-bản">
-<h2><span class="section-number">10.1. </span>Các chỉ số thống kê cơ bản<a class="headerlink" href="#Các-chỉ-số-thống-kê-cơ-bản" title="Link to this heading"></a></h2>
+<section id="cac-chi-so-thong-ke-co-ban">
+<h2><span class="section-number">10.1. </span>Các chỉ số thống kê cơ bản<a class="headerlink" href="#cac-chi-so-thong-ke-co-ban" title="Link to this heading"></a></h2>
 <p>Giả sử ta có 1 tập hơn 1000 khách hàng với thu nhập như sau.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">lets_plot</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 <span class="n">LetsPlot</span><span class="o">.</span><span class="n">setup_html</span><span class="p">()</span>
@@ -158,96 +157,85 @@
 <span class="n">extra_income</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">])</span>
 <span class="n">income</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">random_income</span><span class="p">,</span> <span class="n">extra_income</span><span class="p">])</span>
 <span class="n">income_series</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">income</span><span class="p">)</span>
-<br/></pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area rendered_html docutils container">
-<div id="2eMsKY"></div>
-<script type="text/javascript" data-lets-plot-script="library">
-    if(!window.letsPlotCallQueue) {
-        window.letsPlotCallQueue = [];
-    };
-    window.letsPlotCall = function(f) {
-        window.letsPlotCallQueue.push(f);
-    };
-    (function() {
-        var script = document.createElement("script");
-        script.type = "text/javascript";
-        script.src = "https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.6.2/js-package/distr/lets-plot.min.js";
-        script.onload = function() {
-            window.letsPlotCall = function(f) {f();};
-            window.letsPlotCallQueue.forEach(function(f) {f();});
-            window.letsPlotCallQueue = [];
-
-        };
-        script.onerror = function(event) {
-            window.letsPlotCall = function(f) {};    // noop
-            window.letsPlotCallQueue = [];
-            var div = document.createElement("div");
-            div.style.color = 'darkred';
-            div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("2eMsKY").appendChild(div);
-        };
-        var e = document.getElementById("2eMsKY");
-        e.appendChild(script);
-    })()
-</script></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show first few values</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <div id="2eMsKY"></div>
+            <script type="text/javascript" data-lets-plot-script="library">
+                if(!window.letsPlotCallQueue) {
+                    window.letsPlotCallQueue = [];
+                }; 
+                window.letsPlotCall = function(f) {
+                    window.letsPlotCallQueue.push(f);
+                };
+                (function() {
+                    var script = document.createElement("script");
+                    script.type = "text/javascript";
+                    script.src = "https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.6.2/js-package/distr/lets-plot.min.js";
+                    script.onload = function() {
+                        window.letsPlotCall = function(f) {f();};
+                        window.letsPlotCallQueue.forEach(function(f) {f();});
+                        window.letsPlotCallQueue = [];
+                        
+                    };
+                    script.onerror = function(event) {
+                        window.letsPlotCall = function(f) {};    // noop
+                        window.letsPlotCallQueue = [];
+                        var div = document.createElement("div");
+                        div.style.color = 'darkred';
+                        div.textContent = 'Error loading Lets-Plot JS';
+                        document.getElementById("2eMsKY").appendChild(div);
+                    };
+                    var e = document.getElementById("2eMsKY");
+                    e.appendChild(script);
+                })()
+            </script>
+            </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show first few values</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">income_series</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-shape: (10,)
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>shape: (10,)
 Series: &#39;&#39; [i32]
 [
-        16
-        23
-        6
-        13
-        9
-        8
-        10
-        14
-        15
-        18
+	16
+	23
+	6
+	13
+	9
+	8
+	10
+	14
+	15
+	18
 ]
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><span></span><span class="c1"># Tổng hợp thống kê</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tổng hợp thống kê</span>
 <span class="n">income_series</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div><style>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
 .dataframe > thead > tr,
 .dataframe > tbody > tr {
   text-align: right;
   white-space: pre-wrap;
 }
 </style>
-<small>shape: (9, 2)</small><table border="1" class="dataframe"><thead><tr><th>statistic</th><th>value</th></tr><tr><td>str</td><td>f64</td></tr></thead><tbody><tr><td>&quot;count&quot;</td><td>999.0</td></tr><tr><td>&quot;null_count&quot;</td><td>0.0</td></tr><tr><td>&quot;mean&quot;</td><td>28.444444</td></tr><tr><td>&quot;std&quot;</td><td>196.523392</td></tr><tr><td>&quot;min&quot;</td><td>6.0</td></tr><tr><td>&quot;25%&quot;</td><td>12.0</td></tr><tr><td>&quot;50%&quot;</td><td>18.0</td></tr><tr><td>&quot;75%&quot;</td><td>24.0</td></tr><tr><td>&quot;max&quot;</td><td>5000.0</td></tr></tbody></table></div></div>
+<small>shape: (9, 2)</small><table border="1" class="dataframe"><thead><tr><th>statistic</th><th>value</th></tr><tr><td>str</td><td>f64</td></tr></thead><tbody><tr><td>&quot;count&quot;</td><td>999.0</td></tr><tr><td>&quot;null_count&quot;</td><td>0.0</td></tr><tr><td>&quot;mean&quot;</td><td>28.444444</td></tr><tr><td>&quot;std&quot;</td><td>196.523392</td></tr><tr><td>&quot;min&quot;</td><td>6.0</td></tr><tr><td>&quot;25%&quot;</td><td>12.0</td></tr><tr><td>&quot;50%&quot;</td><td>18.0</td></tr><tr><td>&quot;75%&quot;</td><td>24.0</td></tr><tr><td>&quot;max&quot;</td><td>5000.0</td></tr></tbody></table></div></div></div>
 </div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Min</span></code>: giá trị nhỏ nhất - thu nhập thấp nhất của khách hàng là 6 triệu</p></li>
@@ -272,30 +260,25 @@ Series: &#39;&#39; [i32]
 <li><p><code class="docutils literal notranslate"><span class="pre">Mean</span></code>: giá trị trung bình - thu nhập trung bình của khách hàng là 5000 triệu</p></li>
 </ul>
 <p>Để trực quan hóa các chỉ số thống kê vừa đề cập, ta có thể sử dụng biểu đồ <code class="docutils literal notranslate"><span class="pre">boxplot</span></code>. Biểu đồ <code class="docutils literal notranslate"><span class="pre">boxplot</span></code> thể hiện các thành phần như sau.</p>
-<p><img alt="image1" src="_images/simpson-paradox.png" /></p>
+<p><img alt="" src="_images/p02-04-boxplot.png" /></p>
 <p>Với biểu đồ trên, ta còn thấy có 2 nhóm chỉ số bổ sung nâng cao:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">IQR</span></code>: Inter Quaritle Range - là độ rộng của boxplot, là <code class="docutils literal notranslate"><span class="pre">Q3-Q1</span></code></p></li>
 </ul>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">income_series</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span> <span class="o">-</span> <span class="n">income_series</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">income_series</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span> <span class="o">-</span> <span class="n">income_series</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12.0
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-12.0
-</pre></div></div>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Outlier</span></code>: Là các quan sát có giá trị quá cao hoặc quá thấp. Về mặt thống kê, các outlier được định nghĩa là các giá trị nằm ngoài khoảng <span class="math notranslate nohighlight">\((\text{Q}_1 - 1.5\times \text{IQR}, \text{Q}_3 + 1.5\times \text{IQR})\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Outlier</span></code>: Là các quan sát có giá trị quá cao hoặc quá thấp. Về mặt thống kê, các outlier được định nghĩa là các giá trị nằm ngoài khoảng $(\text{Q}_1 - 1.5\times \text{IQR}, \text{Q}_3 + 1.5\times \text{IQR})$</p></li>
 </ul>
 <hr class="docutils" />
 <p>Bên cạnh đó, do việc xuất hiện các quan sát ngoại lại (<code class="docutils literal notranslate"><span class="pre">outlier</span></code>) là thường xuyên và có thể gây méo các chỉ số, ta cần quan tâm thêm 2 chỉ số sau</p>
@@ -303,42 +286,30 @@ Series: &#39;&#39; [i32]
 <li><p>Giá trị trung bình loại bỏ outlier</p></li>
 <li><p>Các percentile - các mốc phân vị từ 1%-100%</p></li>
 </ul>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mean loại bỏ 5% đầu và 5% cuối</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mean loại bỏ 5% đầu và 5% cuối</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">trim_mean</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="n">trim_mean</span><span class="p">(</span><span class="n">income_series</span><span class="p">,</span> <span class="n">proportiontocut</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17.56159822419534
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-17.56159822419534
-</pre></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Xem xét các mốc percentile</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Xem xét các mốc percentile</span>
 <span class="p">[</span><span class="n">income_series</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[6.0,
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[6.0,
  6.0,
  6.0,
  6.0,
@@ -439,11 +410,13 @@ Series: &#39;&#39; [i32]
  29.0,
  29.0,
  5000.0]
-</pre></div></div>
+</pre></div>
+</div>
+</div>
 </div>
 </section>
-<section id="Phân-tích-mối-quan-hệ-2-biến-liên-tục---correlation">
-<h2><span class="section-number">10.2. </span>Phân tích mối quan hệ 2 biến liên tục - correlation<a class="headerlink" href="#Phân-tích-mối-quan-hệ-2-biến-liên-tục---correlation" title="Link to this heading"></a></h2>
+<section id="phan-tich-moi-quan-he-2-bien-lien-tuc-correlation">
+<h2><span class="section-number">10.2. </span>Phân tích mối quan hệ 2 biến liên tục - correlation<a class="headerlink" href="#phan-tich-moi-quan-he-2-bien-lien-tuc-correlation" title="Link to this heading"></a></h2>
 <p><strong>Hệ số tương quan</strong></p>
 <p>Hệ số tương quan (correlation coefficient) là một chỉ số thống kê, được sử dụng để đo lường mối liên hệ tương quan tuyến tính giữa 2 biến định lượng hay còn gọi là biến liên tục (quantitative/continuous variables). Hay nói một cách dễ hiểu hơn, hệ số tương quan cho ta biết rằng giữa 2 biến liên tục có mối liên hệ <em>tuyến tính</em> nào hay không.</p>
 <p>Thể hiện quan hệ tuyến tính giữa hai hay nhiều biến. Có giá trị nằm trong khoảng [-1,1]</p>
@@ -458,11 +431,9 @@ Series: &#39;&#39; [i32]
 <li><p>Dưới 0.3: Yếu</p></li>
 </ul>
 <p>Tính toán correlation như sau:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
@@ -480,63 +451,56 @@ Series: &#39;&#39; [i32]
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Correlation (Pearson): 0.7338691687538745
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Correlation (Pearson): 0.7338691687538745
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">lets_plot</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">lets_plot</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span> 
 <span class="n">LetsPlot</span><span class="o">.</span><span class="n">setup_html</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <div id="zaF1pG"></div>
+            <script type="text/javascript" data-lets-plot-script="library">
+                if(!window.letsPlotCallQueue) {
+                    window.letsPlotCallQueue = [];
+                }; 
+                window.letsPlotCall = function(f) {
+                    window.letsPlotCallQueue.push(f);
+                };
+                (function() {
+                    var script = document.createElement("script");
+                    script.type = "text/javascript";
+                    script.src = "https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.6.2/js-package/distr/lets-plot.min.js";
+                    script.onload = function() {
+                        window.letsPlotCall = function(f) {f();};
+                        window.letsPlotCallQueue.forEach(function(f) {f();});
+                        window.letsPlotCallQueue = [];
+                        
+                    };
+                    script.onerror = function(event) {
+                        window.letsPlotCall = function(f) {};    // noop
+                        window.letsPlotCallQueue = [];
+                        var div = document.createElement("div");
+                        div.style.color = 'darkred';
+                        div.textContent = 'Error loading Lets-Plot JS';
+                        document.getElementById("zaF1pG").appendChild(div);
+                    };
+                    var e = document.getElementById("zaF1pG");
+                    e.appendChild(script);
+                })()
+            </script>
+            </div></div>
 </div>
-<div class="output_area rendered_html docutils container">
-<div id="zaF1pG"></div>
-<script type="text/javascript" data-lets-plot-script="library">
-    if(!window.letsPlotCallQueue) {
-        window.letsPlotCallQueue = [];
-    };
-    window.letsPlotCall = function(f) {
-        window.letsPlotCallQueue.push(f);
-    };
-    (function() {
-        var script = document.createElement("script");
-        script.type = "text/javascript";
-        script.src = "https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.6.2/js-package/distr/lets-plot.min.js";
-        script.onload = function() {
-            window.letsPlotCall = function(f) {f();};
-            window.letsPlotCallQueue.forEach(function(f) {f();});
-            window.letsPlotCallQueue = [];
-
-        };
-        script.onerror = function(event) {
-            window.letsPlotCall = function(f) {};    // noop
-            window.letsPlotCallQueue = [];
-            var div = document.createElement("div");
-            div.style.color = 'darkred';
-            div.textContent = 'Error loading Lets-Plot JS';
-            document.getElementById("zaF1pG").appendChild(div);
-        };
-        var e = document.getElementById("zaF1pG");
-        e.appendChild(script);
-    })()
-</script></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <span class="n">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">))</span>
         <span class="o">+</span> <span class="n">geom_point</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
         <span class="o">+</span> <span class="n">geom_smooth</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;lm&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">)</span>
@@ -545,27 +509,23 @@ Correlation (Pearson): 0.7338691687538745
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="pr4bUL"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="pr4bUL"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -574,10 +534,10 @@ Correlation (Pearson): 0.7338691687538745
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("pr4bUL");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -636,22 +596,22 @@ Correlation (Pearson): 0.7338691687538745
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -664,27 +624,26 @@ Correlation (Pearson): 0.7338691687538745
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
-<div class="warning docutils container">
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p class="rubric" id="id1">Lưu ý</p>
 <ul class="simple">
 <li><p>Hệ số tương quan chỉ mô tả mối quan hệ đồng biến hoặc nghịch biến giữa hai biến liên tục mà không phản ánh quan hệ phi tuyến tính giữa 2 biến</p></li>
 <li><p>Hệ số tương quan không phản ánh được mối quan hệ nhân quả, hai biến có hệ số tương quan cao không có nghĩa là biến này gây ảnh hưởng đến biến kia (correlation vs causiality)</p></li>
 </ul>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 
 <span class="c1"># Create a Polars DataFrame</span>
@@ -705,27 +664,23 @@ Correlation (Pearson): 0.7338691687538745
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="cBKveh"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="cBKveh"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -734,10 +689,10 @@ Correlation (Pearson): 0.7338691687538745
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("cBKveh");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -796,22 +751,22 @@ Correlation (Pearson): 0.7338691687538745
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -824,86 +779,74 @@ Correlation (Pearson): 0.7338691687538745
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
 <p><strong>Correlation vs. Causiality</strong></p>
 <p>Hai biến có hệ số tương quan rất cao nhưng hoàn toàn không có quan hệ trong thực tế</p>
-<p><img alt="image1" src="_images/simpson-paradox.png" /> ::</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.. |image1| image:: Image/p02-05-correlation-causation.png
-</pre></div>
+<p><img alt="" src="_images/p02-05-correlation-causation.png" /></p>
+<div class="docutils">
 </div>
 </section>
-<section id="ANOVA">
-<h2><span class="section-number">10.3. </span>ANOVA<a class="headerlink" href="#ANOVA" title="Link to this heading"></a></h2>
-<p><strong>ANOVA</strong> viết tắt của từ <em>analysis of variance</em>, tức phân tích phương sai. Phương pháp ANOVA được sử dụng khi chúng ta muốn so sánh giữa 2 hoặc nhiều nhóm đối tượng khác nhau dựa vào 1 tiêu chí nhất định nào đó, ví dụ như so sánh <em>độ tuổi của nhóm khách hàng thường và khách VIP</em>, hay so sánh <em>thu nhập của nhóm khách hàng nam và khách hàng nữ</em>… Để giải thích một cách dễ hiểu hơn, chúng ta sẽ làm ví dụ sau với tập dữ liệu <code class="docutils literal notranslate"><span class="pre">iris</span></code></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<section id="anova">
+<h2><span class="section-number">10.3. </span>ANOVA<a class="headerlink" href="#anova" title="Link to this heading"></a></h2>
+<p><strong>ANOVA</strong> viết tắt của từ <em>analysis of variance</em>, tức phân tích phương sai.
+Phương pháp ANOVA được sử dụng khi chúng ta muốn so sánh giữa 2 hoặc nhiều nhóm đối tượng khác nhau dựa vào 1 tiêu chí nhất định nào đó, ví dụ như so sánh <em>độ tuổi của nhóm khách hàng thường và khách VIP</em>, hay so sánh <em>thu nhập của nhóm khách hàng nam và khách hàng nữ</em>... Để giải thích một cách dễ hiểu hơn, chúng ta sẽ làm ví dụ sau với tập dữ liệu <code class="docutils literal notranslate"><span class="pre">iris</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="n">iris</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">from_pandas</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">))</span>
 <span class="n">iris</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div><style>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
 .dataframe > thead > tr,
 .dataframe > tbody > tr {
   text-align: right;
   white-space: pre-wrap;
 }
 </style>
-<small>shape: (5, 5)</small><table border="1" class="dataframe"><thead><tr><th>sepal_length</th><th>sepal_width</th><th>petal_length</th><th>petal_width</th><th>species</th></tr><tr><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>str</td></tr></thead><tbody><tr><td>5.1</td><td>3.5</td><td>1.4</td><td>0.2</td><td>&quot;setosa&quot;</td></tr><tr><td>4.9</td><td>3.0</td><td>1.4</td><td>0.2</td><td>&quot;setosa&quot;</td></tr><tr><td>4.7</td><td>3.2</td><td>1.3</td><td>0.2</td><td>&quot;setosa&quot;</td></tr><tr><td>4.6</td><td>3.1</td><td>1.5</td><td>0.2</td><td>&quot;setosa&quot;</td></tr><tr><td>5.0</td><td>3.6</td><td>1.4</td><td>0.2</td><td>&quot;setosa&quot;</td></tr></tbody></table></div></div>
+<small>shape: (5, 5)</small><table border="1" class="dataframe"><thead><tr><th>sepal_length</th><th>sepal_width</th><th>petal_length</th><th>petal_width</th><th>species</th></tr><tr><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>str</td></tr></thead><tbody><tr><td>5.1</td><td>3.5</td><td>1.4</td><td>0.2</td><td>&quot;setosa&quot;</td></tr><tr><td>4.9</td><td>3.0</td><td>1.4</td><td>0.2</td><td>&quot;setosa&quot;</td></tr><tr><td>4.7</td><td>3.2</td><td>1.3</td><td>0.2</td><td>&quot;setosa&quot;</td></tr><tr><td>4.6</td><td>3.1</td><td>1.5</td><td>0.2</td><td>&quot;setosa&quot;</td></tr><tr><td>5.0</td><td>3.6</td><td>1.4</td><td>0.2</td><td>&quot;setosa&quot;</td></tr></tbody></table></div></div></div>
 </div>
 <p>Chúng ta sẽ vẽ biểu đồ boxplot so sánh <code class="docutils literal notranslate"><span class="pre">Sepal.Length</span></code> giữa các loài hoa (<code class="docutils literal notranslate"><span class="pre">Species</span></code>).</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
   <span class="n">ggplot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="s2">&quot;sepal_length&quot;</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="s2">&quot;species&quot;</span><span class="p">))</span>
     <span class="o">+</span> <span class="n">geom_boxplot</span><span class="p">()</span> <span class="o">+</span>
     <span class="n">labs</span><span class="p">(</span>
-    <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Overview of Iris Sepal Length by Species&quot;</span><span class="p">,</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Species&quot;</span><span class="p">,</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Overview of Iris Sepal Length by Species&quot;</span><span class="p">,</span> 
+        <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Species&quot;</span><span class="p">,</span>                                          
         <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Sepal Length (cm)&quot;</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-   <div id="0Y69Lc"></div>
+<div class="cell_output docutils container">
+<div class="output text_html">   <div id="0Y69Lc"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
-
+   
    (function() {
    // ----------
-
+   
    const forceImmediateRender = false;
    const responsive = false;
-
+   
    let sizing = {
        width_mode: "MIN",
        height_mode: "SCALED",
-       width: null,
-       height: null
+       width: null, 
+       height: null 
    };
-
+   
    const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
    if (preferredWidth !== undefined) {
        sizing = {
@@ -912,10 +855,10 @@ Correlation (Pearson): 0.7338691687538745
            width: parseFloat(preferredWidth)
        };
    }
-
+   
    const containerDiv = document.getElementById("0Y69Lc");
    let fig = null;
-
+   
    function renderPlot() {
        if (fig === null) {
            const plotSpec = {
@@ -997,22 +940,22 @@ Correlation (Pearson): 0.7338691687538745
            fig.updateView({});
        }
    }
-
-   const renderImmediately =
+   
+   const renderImmediately = 
        forceImmediateRender || (
-           sizing.width_mode === 'FIXED' &&
+           sizing.width_mode === 'FIXED' && 
            (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
        );
-
+   
    if (renderImmediately) {
        renderPlot();
    }
-
+   
    if (!renderImmediately || responsive) {
        // Set up observer for initial sizing or continuous monitoring
        var observer = new ResizeObserver(function(entries) {
            for (let entry of entries) {
-               if (entry.contentBoxSize &&
+               if (entry.contentBoxSize && 
                    entry.contentBoxSize[0].inlineSize > 0) {
                    if (!responsive && observer) {
                        observer.disconnect();
@@ -1025,25 +968,23 @@ Correlation (Pearson): 0.7338691687538745
                }
            }
        });
-
+       
        observer.observe(containerDiv);
    }
-
+   
    // ----------
    })();
-
-   </script></div>
+   
+   </script></div></div>
 </div>
 <p>Kiểm định ANOVA sẽ giúp chung ta so sánh chiều dài đài hoa trung bình giữa các loài hoa, sau đó tính toán chênh lệch chiều dài đài hoa trung bình giữa các loài hoa, và cuối cùng sẽ kiểm định xem những sự chênh lệch đó thực sự có ý nghĩa về mặt thống kê hay không. Hay nói cách khác, phương pháp ANOVA kiểm định cặp giả thuyết sau:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(H_0\)</span>: Không có sự khác biệt giữa chiều dài đài hoa của các loài hoa (tức chênh lệch chiều dài đài hoa trung bình = 0)</p></li>
-<li><p><span class="math notranslate nohighlight">\(H_1\)</span>: Có sự khác biệt giữa chiều dài đài hoa của các loài hoa (chênh lệch chiều dài đài hoa trung bình khác 0)</p></li>
+<li><p>$H_0$: Không có sự khác biệt giữa chiều dài đài hoa của các loài hoa (tức chênh lệch chiều dài đài hoa trung bình  = 0)</p></li>
+<li><p>$H_1$: Có sự khác biệt giữa chiều dài đài hoa của các loài hoa (chênh lệch chiều dài đài hoa trung bình khác 0)</p></li>
 </ul>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">ols</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.stats.multicomp</span><span class="w"> </span><span class="kn">import</span> <span class="n">pairwise_tukeyhsd</span>
 
@@ -1057,12 +998,8 @@ Correlation (Pearson): 0.7338691687538745
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-   Multiple Comparison of Means - Tukey HSD, FWER=0.05
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Multiple Comparison of Means - Tukey HSD, FWER=0.05   
 =========================================================
   group1     group2   meandiff p-adj lower  upper  reject
 ---------------------------------------------------------
@@ -1070,14 +1007,17 @@ Correlation (Pearson): 0.7338691687538745
     setosa  virginica    1.582   0.0 1.3382 1.8258   True
 versicolor  virginica    0.652   0.0 0.4082 0.8958   True
 ---------------------------------------------------------
-</pre></div></div>
+</pre></div>
+</div>
+</div>
 </div>
 <p>Với kết quả như trên, ta hiểu như sau:</p>
 <ul class="simple">
 <li><p>Kết quả trong trường hợp này cho ta thấy thực sự có sự khác biệt giữa chiều dài đài hoa của các loài hoa (các giá trị p-value = 0).</p></li>
 <li><p>Trung bình đài hòa của nhóm <code class="docutils literal notranslate"><span class="pre">vesicolor</span></code> cao hơn <code class="docutils literal notranslate"><span class="pre">setosa</span></code> là 0.93 (ước lượng điểm). Hoặc có thể nói đài hoa của nhóm <code class="docutils literal notranslate"><span class="pre">vesicolor</span></code> dài hơn <code class="docutils literal notranslate"><span class="pre">setosa</span></code> trong khoảng từ 0.686 đến 1.173 (từ <code class="docutils literal notranslate"><span class="pre">lwr</span></code> đến <code class="docutils literal notranslate"><span class="pre">upr</span></code>)</p></li>
 </ul>
-<div class="important docutils container">
+<div class="admonition important">
+<p class="admonition-title">Important</p>
 <p class="rubric" id="id2">Lưu ý</p>
 <ul class="simple">
 <li><p>Kỹ thuật phân tích ANOVA là kỹ thuật rất quan trọng và được phần lớn trong các bước phân tích khám phá.</p></li>
@@ -1085,22 +1025,20 @@ versicolor  virginica    0.652   0.0 0.4082 0.8958   True
 </ul>
 </div>
 </section>
-<section id="Kiểm-định-quan-hệ-Chi-bình-phương">
-<h2><span class="section-number">10.4. </span>Kiểm định quan hệ Chi-bình phương<a class="headerlink" href="#Kiểm-định-quan-hệ-Chi-bình-phương" title="Link to this heading"></a></h2>
+<section id="kiem-dinh-quan-he-chi-binh-phuong">
+<h2><span class="section-number">10.4. </span>Kiểm định quan hệ Chi-bình phương<a class="headerlink" href="#kiem-dinh-quan-he-chi-binh-phuong" title="Link to this heading"></a></h2>
 <p>Một trong những câu hỏi ta thường xuyên phải giải quyết trong quá trình phân tích dữ liệu là tìm kiếm mối quan hệ giữa các biến rời rạc. Một trong những kỹ thuật phổ biến để tìm kiếm mối quan hệ này là sử dụng kiểm định Chi-square (Khi bình phương).</p>
 <p>Để thực hiện phân tích mối quan hệ này, ta cần thực hiện ba bước:</p>
 <ul class="simple">
 <li><p><strong>Bước một</strong>, xây dựng bảng phân phối tần xuất hai chiều.</p></li>
-<li><p><strong>Bước hai</strong>, tính toán chỉ số <span class="math notranslate nohighlight">\(\chi^2\)</span> để kiểm định giả thuyết độc lập giữa hai biến</p></li>
+<li><p><strong>Bước hai</strong>, tính toán chỉ số $\chi^2$ để kiểm định giả thuyết độc lập giữa hai biến</p></li>
 <li><p><strong>Bước ba</strong>, đưa ra kết luận về mối quan hệ vừa được kiểm định</p></li>
 </ul>
-<p>Để hiểu hơn về kiểm định <span class="math notranslate nohighlight">\(\chi^2\)</span>, ta xem xét ví dụ dưới đây.</p>
+<p>Để hiểu hơn về kiểm định $\chi^2$, ta xem xét ví dụ dưới đây.</p>
 <p><strong>Ví dụ</strong>: Một trang web quảng cáo muốn phân tích về mối quan hệ giữa <strong>phương thức quảng cáo</strong> và <strong>thiết bị sử dụng</strong>. Dữ liệu trong một tháng về số lượt người dùng truy cập website được thể hiện như bảng dưới đây (đơn vị <em>nghìn user</em>)</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s2">&quot;device_category&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Desktop&quot;</span><span class="p">,</span> <span class="s2">&quot;Tablet&quot;</span><span class="p">,</span> <span class="s2">&quot;Phone&quot;</span><span class="p">,</span> <span class="s2">&quot;Total&quot;</span><span class="p">],</span>
     <span class="s2">&quot;organic_search&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">80</span><span class="p">],</span>
     <span class="s2">&quot;paid_search&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">65</span><span class="p">],</span>
@@ -1114,12 +1052,8 @@ versicolor  virginica    0.652   0.0 0.4082 0.8958   True
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-shape: (4, 6)
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>shape: (4, 6)
 ┌─────────────────┬────────────────┬─────────────┬───────┬─────────┬───────┐
 │ device_category ┆ organic_search ┆ paid_search ┆ email ┆ display ┆ total │
 │ ---             ┆ ---            ┆ ---         ┆ ---   ┆ ---     ┆ ---   │
@@ -1130,41 +1064,41 @@ shape: (4, 6)
 │ Phone           ┆ 35             ┆ 15          ┆ 10    ┆ 40      ┆ 100   │
 │ Total           ┆ 80             ┆ 65          ┆ 80    ┆ 85      ┆ 300   │
 └─────────────────┴────────────────┴─────────────┴───────┴─────────┴───────┘
-</pre></div></div>
+</pre></div>
+</div>
+</div>
 </div>
 <p>Để phân tích mối quan hệ giữa hai biến, ta có giả thuyết như sau:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(H_0\)</span>: Phương thức quảng cáo và thiết bị sử dụng không có mối liên hệ với nhau (hai biến độc lập)</p></li>
-<li><p><span class="math notranslate nohighlight">\(H_1\)</span>: Phương thức quảng cáo và thiết bị sử dụng có mối liên hệ với nhau (tồn tại mối quan hệ giữa hai biến)</p></li>
+<li><p>$H_0$: Phương thức quảng cáo và thiết bị sử dụng không có mối liên hệ với nhau (hai biến độc lập)</p></li>
+<li><p>$H_1$: Phương thức quảng cáo và thiết bị sử dụng có mối liên hệ với nhau (tồn tại mối quan hệ giữa hai biến)</p></li>
 </ul>
-<p>Chỉ số <span class="math notranslate nohighlight">\(\chi^2\)</span> được tính như sau:</p>
-<div class="math notranslate nohighlight">
-\[\chi^2 = \sum\frac{(O_i - E_i)^2}{E_i}\]</div>
+<p>Chỉ số $\chi^2$ được tính như sau:</p>
+<p>$$\chi^2 = \sum\frac{(O_i - E_i)^2}{E_i}$$</p>
 <p>Trong đó:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(O\)</span> là giá trị quan sát được thực tế (ví dụ: Desktop/Organic Search có 25 ngàn user)</p></li>
-<li><p><span class="math notranslate nohighlight">\(E\)</span> là giá trị kỳ vọng của mỗi cặp giá trị.</p></li>
+<li><p>$O$ là giá trị quan sát được thực tế (ví dụ: Desktop/Organic Search có 25 ngàn user)</p></li>
+<li><p>$E$ là giá trị kỳ vọng của mỗi cặp giá trị.</p></li>
 </ul>
 <p>Ta tính giá trị <em>kỳ vọng</em> như sau:</p>
 <ul class="simple">
-<li><p>Tính tổng từng cột và từng dòng (giá trị &quot; <em>Total</em> &quot;)</p></li>
+<li><p>Tính tổng từng cột và từng dòng (giá trị  &quot; <em>Total</em> &quot;)</p></li>
 <li><p>Nhân từng dòng với từng hàng và chia cho tổng số quan sát</p></li>
 </ul>
 <p><strong>Ví dụ</strong>: Giá trị kỳ vọng của <em>Desktop</em> và <em>Organic Search</em> có thể được tính như sau:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-\text{Users}_{expected} &amp;= \frac{r_1}{T} \times \frac{c_1}{T} \times T \\
-&amp;= \frac{100}{300} \times \frac{80}{300} \times 300 \\
-&amp;= .33 \times .27 \times 300 \\
-&amp;= 26.67 \\
+<p>$$
+\begin{aligned}
+\text{Users}_{expected} &amp;= \frac{r_1}{T} \times \frac{c_1}{T} \times T \
+&amp;= \frac{100}{300} \times \frac{80}{300} \times 300 \
+&amp;= .33 \times .27 \times 300 \
+&amp;= 26.67 \
 &amp;= 27
-\end{aligned}\end{split}\]</div>
+\end{aligned}
+$$</p>
 <p>Giá trị kỳ vọng của tất cả các giá trị có kết quả như sau</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s2">&quot;device_category&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Desktop&quot;</span><span class="p">,</span> <span class="s2">&quot;Tablet&quot;</span><span class="p">,</span> <span class="s2">&quot;Phone&quot;</span><span class="p">],</span>
     <span class="s2">&quot;organic_search&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">26.67</span><span class="p">,</span> <span class="mf">26.67</span><span class="p">,</span> <span class="mf">26.67</span><span class="p">],</span>
     <span class="s2">&quot;paid_search&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">21.67</span><span class="p">,</span> <span class="mf">21.67</span><span class="p">,</span> <span class="mf">21.67</span><span class="p">],</span>
@@ -1177,12 +1111,8 @@ shape: (4, 6)
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-shape: (3, 5)
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>shape: (3, 5)
 ┌─────────────────┬────────────────┬─────────────┬───────┬─────────┐
 │ device_category ┆ organic_search ┆ paid_search ┆ email ┆ display │
 │ ---             ┆ ---            ┆ ---         ┆ ---   ┆ ---     │
@@ -1192,34 +1122,33 @@ shape: (3, 5)
 │ Tablet          ┆ 26.67          ┆ 21.67       ┆ 23.33 ┆ 28.33   │
 │ Phone           ┆ 26.67          ┆ 21.67       ┆ 23.33 ┆ 28.33   │
 └─────────────────┴────────────────┴─────────────┴───────┴─────────┘
-</pre></div></div>
+</pre></div>
 </div>
-<p>Tiếp đó, ta tính toán sự khác biệt giữa giá trị kỳ vọng và giá trị thực tế. Sau đó tính <span class="math notranslate nohighlight">\(\chi^2\)</span> như sau:</p>
+</div>
+</div>
+<p>Tiếp đó, ta tính toán sự khác biệt giữa giá trị kỳ vọng và giá trị thực tế. Sau đó tính $\chi^2$ như sau:</p>
 <ul class="simple">
 <li><p>Tính độ sai lệch</p></li>
 </ul>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-\text{Difference}&amp;= \text{User}_o - \text{User}_e \\
-&amp;= 25 - 26.67 \\
+<p>$$
+\begin{aligned}
+\text{Difference}&amp;= \text{User}_o - \text{User}_e \
+&amp;= 25 - 26.67 \
 &amp;= -1.67
-\end{aligned}\end{split}\]</div>
+\end{aligned}
+$$</p>
 <ul class="simple">
 <li><p>Tính giá trị bình phương</p></li>
 </ul>
-<div class="math notranslate nohighlight">
-\[-1.67^2=2.78\]</div>
+<p>$$-1.67^2=2.78$$</p>
 <ul class="simple">
 <li><p>Chia giá trị vừa tính được cho giá trị kỳ vọng:</p></li>
 </ul>
-<div class="math notranslate nohighlight">
-\[\frac{2.78}{27} = 0.10\]</div>
+<p>$$\frac{2.78}{27} = 0.10$$</p>
 <p>Tương tự, ta tính được cho tất cả các biến như sau</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><span></span><span class="n">df3</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;device_category&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Desktop&quot;</span><span class="p">,</span> <span class="s2">&quot;Tablet&quot;</span><span class="p">,</span> <span class="s2">&quot;Phone&quot;</span><span class="p">],</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df3</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;device_category&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Desktop&quot;</span><span class="p">,</span> <span class="s2">&quot;Tablet&quot;</span><span class="p">,</span> <span class="s2">&quot;Phone&quot;</span><span class="p">],</span>
                  <span class="s2">&quot;organic_search&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.67</span><span class="p">,</span> <span class="mf">2.6</span><span class="p">],</span>
                  <span class="s2">&quot;paid_search&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.13</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">,</span> <span class="mf">2.05</span><span class="p">],</span>
                  <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">5.83</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">,</span> <span class="mf">7.62</span><span class="p">],</span>
@@ -1229,30 +1158,24 @@ shape: (3, 5)
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div><style>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
 .dataframe > thead > tr,
 .dataframe > tbody > tr {
   text-align: right;
   white-space: pre-wrap;
 }
 </style>
-<small>shape: (3, 5)</small><table border="1" class="dataframe"><thead><tr><th>device_category</th><th>organic_search</th><th>paid_search</th><th>email</th><th>display</th></tr><tr><td>str</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>&quot;Desktop&quot;</td><td>0.1</td><td>0.13</td><td>5.83</td><td>2.45</td></tr><tr><td>&quot;Tablet&quot;</td><td>1.67</td><td>3.2</td><td>0.12</td><td>0.39</td></tr><tr><td>&quot;Phone&quot;</td><td>2.6</td><td>2.05</td><td>7.62</td><td>4.8</td></tr></tbody></table></div></div>
+<small>shape: (3, 5)</small><table border="1" class="dataframe"><thead><tr><th>device_category</th><th>organic_search</th><th>paid_search</th><th>email</th><th>display</th></tr><tr><td>str</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>&quot;Desktop&quot;</td><td>0.1</td><td>0.13</td><td>5.83</td><td>2.45</td></tr><tr><td>&quot;Tablet&quot;</td><td>1.67</td><td>3.2</td><td>0.12</td><td>0.39</td></tr><tr><td>&quot;Phone&quot;</td><td>2.6</td><td>2.05</td><td>7.62</td><td>4.8</td></tr></tbody></table></div></div></div>
 </div>
-<p><span class="math notranslate nohighlight">\(\chi^2\)</span> thực tế được tính bằng tổng các giá trị trên <span class="math notranslate nohighlight">\(\chi^2 = 30.96\)</span></p>
-<p>Với dữ liệu trên, ta có 4 cột và 3 hàng. Như vậy, bậc tự do trong phân phôi <span class="math notranslate nohighlight">\(\chi^2\)</span> là <span class="math notranslate nohighlight">\((4-1)*(3-1) = 6\)</span>. Ta có thể so sánh giá trị vừa tìm được với giá trị <span class="math notranslate nohighlight">\(\chi^2\)</span> tại <a class="reference external" href="http://www.danielsoper.com/statcalc/calculator.aspx?id=12">đây</a>. Với <span class="math notranslate nohighlight">\(\alpha\)</span> bằng .1 và 6 bậc tự do, giá trị của <span class="math notranslate nohighlight">\(\chi\)</span><sup>2</sup> là 10.64. Với giá trị thực tế lớn hơn giá trị lý thuyết, ta bác bỏ <span class="math notranslate nohighlight">\(H_0\)</span>. Như vậy, về mặt thống kê, tồn tại mối quan hệ giữa phương thức marketing và thiết bị
-sử dụng.</p>
+<p>$\chi^2$ thực tế được tính bằng tổng các giá trị trên $\chi^2 = 30.96$</p>
+<p>Với dữ liệu trên, ta có 4 cột và 3 hàng. Như vậy, bậc tự do trong phân phôi $\chi^2$ là $(4-1)*(3-1) = 6$. Ta có thể so sánh giá trị vừa tìm được với giá trị $\chi^2$ tại
+<a class="reference external" href="http://www.danielsoper.com/statcalc/calculator.aspx?id=12">đây</a>. Với $\alpha$ bằng .1 và 6 bậc tự do, giá trị của $\chi$^2^ là 10.64. Với giá trị thực tế lớn hơn giá trị lý thuyết, ta bác bỏ $H_0$. Như vậy, về mặt thống kê, tồn tại mối quan hệ giữa phương thức marketing và thiết bị sử dụng.</p>
 <p><strong>Ví dụ với Python</strong></p>
 <p>Trong thực tế, khi phân tích dữ liệu, ta có thể ra quyết định nhanh chóng về mối quan hệ giữa hai biến rời rạc thông qua <code class="docutils literal notranslate"><span class="pre">p-value</span></code>.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">chi2_contingency</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">chi2_contingency</span>
 <span class="n">df_chisq</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;device_category&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="s2">&quot;Total&quot;</span><span class="p">)</span>
         <span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s2">&quot;organic_search&quot;</span><span class="p">,</span> <span class="s2">&quot;paid_search&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span><span class="p">,</span> <span class="s2">&quot;display&quot;</span><span class="p">])</span>
@@ -1260,33 +1183,30 @@ sử dụng.</p>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chi2</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">dof</span><span class="p">,</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">chi2_contingency</span><span class="p">(</span><span class="n">df_chisq</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chi2</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">dof</span><span class="p">,</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">chi2_contingency</span><span class="p">(</span><span class="n">df_chisq</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">expected</span><span class="p">)</span> <span class="c1"># Expected Value</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-2.5594473044479567e-05
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.5594473044479567e-05
 [[26.66666667 21.66666667 23.33333333 28.33333333]
  [26.66666667 21.66666667 23.33333333 28.33333333]
  [26.66666667 21.66666667 23.33333333 28.33333333]]
-</pre></div></div>
+</pre></div>
 </div>
-<p>Với <span class="math notranslate nohighlight">\(p-value &lt; 0.05\)</span>, ta bác bỏ <span class="math notranslate nohighlight">\(H_0\)</span>, chấp nhận <span class="math notranslate nohighlight">\(H_1\)</span>. Nghĩa là tồn tại mối quan hệ giữa phương thức quảng cáo và thiết bị sử dụng.</p>
+</div>
+</div>
+<p>Với $p-value &lt; 0.05$, ta bác bỏ $H_0$, chấp nhận $H_1$. Nghĩa là tồn tại mối quan hệ giữa phương thức quảng cáo và thiết bị sử dụng.</p>
 </section>
-<section id="Prop-test">
-<h2><span class="section-number">10.5. </span>Prop test<a class="headerlink" href="#Prop-test" title="Link to this heading"></a></h2>
-<p>Nếu Anova được sử dụng để đánh giá ảnh hưởng của 1 biến rời rạc lên 1 biến liên tục, prop test là một trường hợp đặc biệt của <span class="math notranslate nohighlight">\(\chi^2\)</span> dùng để đánh giá ảnh hưởng của 1 biến rời rạc lên phân bổ của 1 biến khác.</p>
+<section id="prop-test">
+<h2><span class="section-number">10.5. </span>Prop test<a class="headerlink" href="#prop-test" title="Link to this heading"></a></h2>
+<p>Nếu Anova được sử dụng để đánh giá ảnh hưởng của 1 biến rời rạc lên 1 biến liên tục, prop test là một trường hợp đặc biệt của $\chi^2$ dùng để đánh giá ảnh hưởng của 1 biến rời rạc lên phân bổ của 1 biến khác.</p>
 <p>Ví dụ: Thử nghiệm đánh giá khả năng phản hồi của 2 thông điệp quảng cáo đến các nhóm đối tượng tương tự nhau.</p>
 <table class="docutils align-default">
 <thead>
@@ -1310,11 +1230,9 @@ sử dụng.</p>
 </tbody>
 </table>
 <p>Để đánh giá chính xác quảng cáo A có thực sự tốt hơn B hay không, ta có test sau.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.stats.proportion</span><span class="w"> </span><span class="kn">import</span> <span class="n">proportions_ztest</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.stats.proportion</span><span class="w"> </span><span class="kn">import</span> <span class="n">proportions_ztest</span>
 
 <span class="c1"># Two groups: 30/100 and 50/120</span>
 <span class="n">nobs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">900</span><span class="p">]</span>
@@ -1326,16 +1244,14 @@ sử dụng.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Z statistic: 0.35
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Z statistic: 0.35
 P-value: 0.7228
-</pre></div></div>
+</pre></div>
 </div>
-<p>Trong trường hợp trên, ta không đủ kết luận rằng quảng cáo A tốt hơn quảng cáo B do <span class="math notranslate nohighlight">\(\text{p-value} &gt; 0.05\)</span></p>
+</div>
+</div>
+<p>Trong trường hợp trên, ta không đủ kết luận rằng quảng cáo A tốt hơn quảng cáo B do $\text{p-value} &gt; 0.05$</p>
 <p><strong>Lưu ý</strong>: <code class="docutils literal notranslate"><span class="pre">prop.test</span></code> chỉ được dùng khi đo lường tỷ lệ chuyển đổi, ảnh hưởng của các biến rời rạc (factor) lên đối tượng (<code class="docutils literal notranslate"><span class="pre">discrete</span> <span class="pre">number</span></code>). Do đó, nếu dùng prop.test để đánh giá trên biến giá trị, đặc biệt sau khi chuyển đổi đơn vị tiền tệ sẽ gây ra các nhận định sai lầm.</p>
 <p>VD: Đánh giá về tỷ lệ bảo hiểm tái tục năm 2 nếu khách hàng buộc phải mua bảo hiểm (không phải do tự nguyện), ta có bảng sau</p>
 <table class="docutils align-default">
@@ -1370,56 +1286,49 @@ P-value: 0.7228
 </table>
 <p>Bước tiếp theo, ta dùng <code class="docutils literal notranslate"><span class="pre">proportion</span> <span class="pre">test</span></code> để đánh giá hiệu ứng thực sự của việc bắt buộc phải mua bảo hiểm đến tỷ lệ huỷ năm 2.</p>
 <p>Nếu dùng giá trị là tỷ đồng, ta có kết quả sau.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">huy</span> <span class="o">=</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">22</span><span class="p">]</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">huy</span> <span class="o">=</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">22</span><span class="p">]</span>
 <span class="n">total</span> <span class="o">=</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span>
 <span class="n">stat</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">proportions_ztest</span><span class="p">(</span><span class="n">huy</span><span class="p">,</span> <span class="n">total</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;P-value is: </span><span class="si">{</span><span class="n">p_value</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-P-value is: 0.405
-</pre></div></div>
-</div>
-<p>Kết quả cho thấy <span class="math notranslate nohighlight">\(p-value &gt; 0.05\)</span>, việc bắt buộc mua bảo hiểm không ảnh hưởng đến tỷ lệ huỷ năm 2!</p>
-<p>Đây là kết quả sai lầm do bị đi nhầm vào bản chất. Do mỗi hợp đồng trị giá trung bình 20 triêu VND, kết quả đúng phải như sau.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P-value is: 0.405
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">huy</span> <span class="o">=</span> <span class="p">[</span><span class="mi">900</span><span class="p">,</span> <span class="mi">1100</span><span class="p">]</span>
+</div>
+</div>
+<p>Kết quả cho thấy $p-value &gt; 0.05$, việc bắt buộc mua bảo hiểm không ảnh hưởng đến tỷ lệ huỷ năm 2!</p>
+<p>Đây là kết quả sai lầm do bị đi nhầm vào bản chất. Do mỗi hợp đồng trị giá trung bình 20 triêu VND, kết quả đúng phải như sau.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">huy</span> <span class="o">=</span> <span class="p">[</span><span class="mi">900</span><span class="p">,</span> <span class="mi">1100</span><span class="p">]</span>
 <span class="n">total</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">3000</span><span class="p">]</span>
 <span class="n">stat</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">proportions_ztest</span><span class="p">(</span><span class="n">huy</span><span class="p">,</span> <span class="n">total</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;P-value is: </span><span class="si">{</span><span class="n">p_value</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P-value is: 0.000
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-P-value is: 0.000
-</pre></div></div>
+</div>
 </div>
 <p>Kết quả sau cho thấy việc bắt buộc mua bảo hiểm làm tỷ lệ huỷ năm 2 cao hơn 9% so với năm đầu.</p>
-<div class="warning docutils container">
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p class="rubric" id="id3">Lưu ý</p>
 <p>Khi dùng proportion test, cần lưu ý đến đơn vị của các chỉ số. Nếu không sẽ rất dễ mắc phải và xảy ra sai lầm khi ra quyết định.</p>
 </div>
 </section>
-<section id="Simpson-paradox">
-<h2><span class="section-number">10.6. </span>Simpson paradox<a class="headerlink" href="#Simpson-paradox" title="Link to this heading"></a></h2>
+<section id="simpson-paradox">
+<h2><span class="section-number">10.6. </span>Simpson paradox<a class="headerlink" href="#simpson-paradox" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Simpson</span> <span class="pre">paradox</span></code> là hiện tượng xảy ra khi xu hướng/ kết luận tổng thể lại khác biệt so với khi so sánh từ nhóm riêng biệt.</p>
-<p><img alt="image1" src="_images/simpson-paradox.png" /></p>
+<p><img alt="" src="_images/simpson-paradox.png" /></p>
 <p>Xem ví dụ sau - Có khảo sát nghiên cứu thị trường về tỷ lệ quan tâm đến uống trà sữa buổi trưa. Kết quả như sau</p>
 <table class="docutils align-default">
 <thead>
@@ -1458,7 +1367,8 @@ P-value is: 0.000
 </ul>
 <p><strong>Kết luận</strong>: Nữ quan tâm đến việc uống trà sữa nhiều hơn nam.</p>
 <p>Tuy nhiên, khi phân tích tổng thể, kết quả ra ngược lại - nam giới lại quan tâm nhiều hơn nữ giời (67% &gt; 53%). Hiện tượng trên gọi là Simpson paradox.</p>
-<div class="important docutils container">
+<div class="admonition important">
+<p class="admonition-title">Important</p>
 <p class="rubric" id="id4">Lưu ý</p>
 <p>Simpson paradox là phương pháp bẻ nhỏ dữ liệu và dùng phương pháp suy diễn - nếu xu hướng là đúng với tất cả tập con, sẽ đúng với tổng thể. Do đó, khi phân tích cần đặc biệt cẩn thận để tránh đi vào ngụy biện</p>
 </div>

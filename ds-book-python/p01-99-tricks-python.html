@@ -10,7 +10,8 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/nbsphinx-code-cells.css?v=2aa19091" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -20,9 +21,8 @@
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -63,43 +63,43 @@
 <li class="toctree-l1"><a class="reference internal" href="p01-10-thong-ke-co-ban.html">10. Các chỉ số thống kê mô tả cơ bản</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-11-map-folium.html">11. Bản đồ với <code class="docutils literal notranslate"><span class="pre">folium</span></code></a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">12. Các mẹo trong Python</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Câu-lệnh-trong-điều-kiện">12.1. Câu lệnh trong điều kiện</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Any-vs-All">12.2. Any vs All</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Debug">12.3. Debug</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Kiểm-tra-thời-gian-chạy-code">12.4. Kiểm tra thời gian chạy code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Profiling-với-memory">12.5. Profiling với memory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Phân-biệt-các-dấu-gạch-dưới-trong-Python">12.6. Phân biệt các dấu gạch dưới trong Python</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Lưu-giá-trị-từ-trước">12.6.1. Lưu giá trị từ trước</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Bỏ-qua-giá-trị-không-cần-thiết">12.6.2. Bỏ qua giá trị không cần thiết</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Sử-dụng-trong-loop">12.6.3. Sử dụng trong loop</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Phân-cách-hàng-nghìn">12.6.4. Phân cách hàng nghìn</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Đặt-tên-có-chứa-_">12.6.5. Đặt tên có chứa <code class="docutils literal notranslate"><span class="pre">_</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Một-dấu-đằng-trước">12.6.5.1. Một dấu đằng trước</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Gạch-dưới-cuối-tên">12.6.5.2. Gạch dưới cuối tên</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Hai-dấu-gạch-trước-và-sau">12.6.5.3. Hai dấu gạch trước và sau</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cau-lenh-trong-dieu-kien">12.1. Câu lệnh trong điều kiện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#any-vs-all">12.2. Any vs All</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#debug">12.3. Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kiem-tra-thoi-gian-chay-code">12.4. Kiểm tra thời gian chạy code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#profiling-voi-memory">12.5. Profiling với memory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#phan-biet-cac-dau-gach-duoi-trong-python">12.6. Phân biệt các dấu gạch dưới trong Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#luu-gia-tri-tu-truoc">12.6.1. Lưu giá trị từ trước</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bo-qua-gia-tri-khong-can-thiet">12.6.2. Bỏ qua giá trị không cần thiết</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#su-dung-trong-loop">12.6.3. Sử dụng trong loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#phan-cach-hang-nghin">12.6.4. Phân cách hàng nghìn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dat-ten-co-chua">12.6.5. Đặt tên có chứa <code class="docutils literal notranslate"><span class="pre">_</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mot-dau-dang-truoc">12.6.5.1. Một dấu đằng trước</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gach-duoi-cuoi-ten">12.6.5.2. Gạch dưới cuối tên</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hai-dau-gach-truoc-va-sau">12.6.5.3. Hai dấu gạch trước và sau</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#List-object-trong-môi-trường-làm-việc">12.7. List object trong môi trường làm việc</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Hiển-thị-nhiều-kết-quả-trong-1-cell">12.8. Hiển thị nhiều kết quả trong 1 cell</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Assign-string-thành-object">12.9. Assign string thành object</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Evaluation">12.10. Evaluation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Xóa-toàn-bộ-environment">12.11. Xóa toàn bộ environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Lưu-code-từ-cell-thành-file">12.12. Lưu code từ cell thành file</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Mở-một-loạt-file-text-và-sửa-nội-dung">12.13. Mở một loạt file text và sửa nội dung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Chạy-file-python-từ-bat">12.14. Chạy file python từ bat</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Auto-format">12.15. Auto format</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Làm-việc-với-các-file-trong-máy-tính">12.16. Làm việc với các file trong máy tính</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Liệt-kê-các-file-theo-định-dạng">12.16.1. Liệt kê các file theo định dạng</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Chèn-thêm-prefix-vào-tất-cả-file_name">12.16.2. Chèn thêm prefix vào tất cả file_name</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Rename-1-file">12.16.3. Rename 1 file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Mở-1-file-text,-thay-đổi-và-save">12.16.4. Mở 1 file text, thay đổi và save</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list-object-trong-moi-truong-lam-viec">12.7. List object trong môi trường làm việc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hien-thi-nhieu-ket-qua-trong-1-cell">12.8. Hiển thị nhiều kết quả trong 1 cell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#assign-string-thanh-object">12.9. Assign string thành object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#evaluation">12.10. Evaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#xoa-toan-bo-environment">12.11. Xóa toàn bộ environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#luu-code-tu-cell-thanh-file">12.12. Lưu code từ cell thành file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mo-mot-loat-file-text-va-sua-noi-dung">12.13. Mở một loạt file text và sửa nội dung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chay-file-python-tu-bat">12.14. Chạy file python từ bat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#auto-format">12.15. Auto format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lam-viec-voi-cac-file-trong-may-tinh">12.16. Làm việc với các file trong máy tính</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#liet-ke-cac-file-theo-dinh-dang">12.16.1. Liệt kê các file theo định dạng</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chen-them-prefix-vao-tat-ca-file-name">12.16.2. Chèn thêm prefix vào tất cả file_name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rename-1-file">12.16.3. Rename 1 file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mo-1-file-text-thay-doi-va-save">12.16.4. Mở 1 file text, thay đổi và save</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Giả-lập-dữ-liệu">12.17. Giả lập dữ liệu</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Enumerate">12.18. Enumerate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Chạy-tất-cả-các-cells-trong-notebook,-bỏ-qua-lỗi">12.19. Chạy tất cả các cells trong notebook, bỏ qua lỗi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gia-lap-du-lieu">12.17. Giả lập dữ liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enumerate">12.18. Enumerate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chay-tat-ca-cac-cells-trong-notebook-bo-qua-loi">12.19. Chạy tất cả các cells trong notebook, bỏ qua lỗi</a></li>
 </ul>
 </li>
 </ul>
@@ -147,11 +147,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Các-mẹo-trong-Python">
-<h1><span class="section-number">12. </span>Các mẹo trong Python<a class="headerlink" href="#Các-mẹo-trong-Python" title="Link to this heading"></a></h1>
-<section id="Câu-lệnh-trong-điều-kiện">
-<h2><span class="section-number">12.1. </span>Câu lệnh trong điều kiện<a class="headerlink" href="#Câu-lệnh-trong-điều-kiện" title="Link to this heading"></a></h2>
-<p>Trong python, các câu lệnh điều kiện if…else có thể viết ngắn gọn và đơn giản như sau:</p>
+  <section id="cac-meo-trong-python">
+<h1><span class="section-number">12. </span>Các mẹo trong Python<a class="headerlink" href="#cac-meo-trong-python" title="Link to this heading"></a></h1>
+<section id="cau-lenh-trong-dieu-kien">
+<h2><span class="section-number">12.1. </span>Câu lệnh trong điều kiện<a class="headerlink" href="#cau-lenh-trong-dieu-kien" title="Link to this heading"></a></h2>
+<p>Trong python, các câu lệnh điều kiện if...else có thể viết ngắn gọn và đơn giản như sau:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Don&#39;t</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
   <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -178,207 +178,163 @@
 </pre></div>
 </div>
 </section>
-<section id="Any-vs-All">
-<h2><span class="section-number">12.2. </span>Any vs All<a class="headerlink" href="#Any-vs-All" title="Link to this heading"></a></h2>
+<section id="any-vs-all">
+<h2><span class="section-number">12.2. </span>Any vs All<a class="headerlink" href="#any-vs-all" title="Link to this heading"></a></h2>
 <p>Hàm <code class="docutils literal notranslate"><span class="pre">any</span></code> trong trong python cho phép trả ra kết quả nếu 1 trong các điều kiện là <code class="docutils literal notranslate"><span class="pre">TRUE</span></code></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">any</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">any</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-True
-</pre></div></div>
 </div>
 <p>Khác với <code class="docutils literal notranslate"><span class="pre">any</span></code>, <code class="docutils literal notranslate"><span class="pre">all</span></code> sẽ kiểm tra tất cả điều kiện</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">all</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">all</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-False
-</pre></div></div>
 </div>
 </section>
-<section id="Debug">
-<h2><span class="section-number">12.3. </span>Debug<a class="headerlink" href="#Debug" title="Link to this heading"></a></h2>
+<section id="debug">
+<h2><span class="section-number">12.3. </span>Debug<a class="headerlink" href="#debug" title="Link to this heading"></a></h2>
 <p>Sử dụng <code class="docutils literal notranslate"><span class="pre">%xmode</span></code> hoặc <code class="docutils literal notranslate"><span class="pre">%debug</span></code> để tìm lỗi. Xem ví dụ dưới đây</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">func_1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">func_1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
     <span class="k">return</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">func_1</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-2.6666666666666665
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">func_1</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">func_1</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.6666666666666665
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">ZeroDivisionError</span>                         Traceback (most recent call last)
-Cell <span class="ansi-green-intense-fg ansi-bold">In[5], line 1</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span> <span class="ansi-yellow-bg">func_1</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">7</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">0</span><span class="ansi-yellow-bg">)</span>
+</div>
+</div>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">func_1</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">func_1</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 
-Cell <span class="ansi-green-intense-fg ansi-bold">In[3], line 2</span>, in <span class="ansi-cyan-fg">func_1</span><span class="ansi-blue-intense-fg ansi-bold">(a, b)</span>
-<span class="ansi-green-fg">      1</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">func_1</span>(a,b):
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 2</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span>(<span class="ansi-yellow-bg">a</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">/</span><span class="ansi-yellow-bg">b</span>)
+<span class="nn">Cell In[3], line 2,</span> in <span class="ni">func_1</span><span class="nt">(a, b)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span><span class="w"> </span><span class="nf">func_1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="k">return</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">)</span>
 
-<span class="ansi-red-intense-fg ansi-bold">ZeroDivisionError</span>: division by zero
-</pre></div></div>
+<span class="ne">ZeroDivisionError</span>: division by zero
+</pre></div>
+</div>
+</div>
 </div>
 <p>Sử dụng <code class="docutils literal notranslate"><span class="pre">%xmode</span></code> cho phép hiển thị thêm các thông tin lỗi trong <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">xmode</span> Verbose
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Exception reporting mode: Verbose
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">func_1</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">xmode</span> Verbose
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Exception reporting mode: Verbose
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">ZeroDivisionError</span>                         Traceback (most recent call last)
-Cell <span class="ansi-green-intense-fg ansi-bold">In[7], line 1</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span> <span class="ansi-yellow-bg">func_1</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">8</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">0</span><span class="ansi-yellow-bg">)</span>
+</div>
+</div>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">func_1</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">func_1</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 
-Cell <span class="ansi-green-intense-fg ansi-bold">In[3], line 2</span>, in <span class="ansi-cyan-fg">func_1</span><span class="ansi-blue-intense-fg ansi-bold">(a=8, b=0)</span>
-<span class="ansi-green-fg">      1</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">func_1</span>(a,b):
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 2</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span>(<span class="ansi-yellow-bg">a</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">/</span><span class="ansi-yellow-bg">b</span>)
-        a <span class="ansi-blue-intense-fg ansi-bold">= 8</span><span class="ansi-blue-intense-fg ansi-bold">
-        </span>b <span class="ansi-blue-intense-fg ansi-bold">= 0</span>
+<span class="nn">Cell In[3], line 2,</span> in <span class="ni">func_1</span><span class="nt">(a=8, b=0)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span><span class="w"> </span><span class="nf">func_1</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="k">return</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">)</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="mi">8</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="ansi-red-intense-fg ansi-bold">ZeroDivisionError</span>: division by zero
-</pre></div></div>
+<span class="ne">ZeroDivisionError</span>: division by zero
+</pre></div>
+</div>
+</div>
 </div>
 </section>
-<section id="Kiểm-tra-thời-gian-chạy-code">
-<h2><span class="section-number">12.4. </span>Kiểm tra thời gian chạy code<a class="headerlink" href="#Kiểm-tra-thời-gian-chạy-code" title="Link to this heading"></a></h2>
-<p>Python cho phép sử dụng profiling. Hai <code class="docutils literal notranslate"><span class="pre">magic</span> <span class="pre">command</span></code> hay dùng nhất là <code class="docutils literal notranslate"><span class="pre">%time</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">%timeit</span></code>. <code class="docutils literal notranslate"><span class="pre">%timeit</span></code> cho phép hiển thị thông tin chính xác với nhiều thông số hơn.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<section id="kiem-tra-thoi-gian-chay-code">
+<h2><span class="section-number">12.4. </span>Kiểm tra thời gian chạy code<a class="headerlink" href="#kiem-tra-thoi-gian-chay-code" title="Link to this heading"></a></h2>
+<p>Python cho phép sử dụng profiling. Hai <code class="docutils literal notranslate"><span class="pre">magic</span> <span class="pre">command</span></code> hay dùng nhất là <code class="docutils literal notranslate"><span class="pre">%time</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">%timeit</span></code>.
+<code class="docutils literal notranslate"><span class="pre">%timeit</span></code> cho phép hiển thị thông tin chính xác với nhiều thông số hơn.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">time</span> sum(range(100))
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">time</span> sum(range(100))
-</pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-CPU times: total: 0 ns
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: total: 0 ns
 Wall time: 0 ns
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-4950
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> sum(range(100))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4950
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-711 ns ± 18.5 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
-</pre></div></div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> sum(range(100))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>711 ns ± 18.5 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
+</pre></div>
+</div>
+</div>
 </div>
 </section>
-<section id="Profiling-với-memory">
-<h2><span class="section-number">12.5. </span>Profiling với memory<a class="headerlink" href="#Profiling-với-memory" title="Link to this heading"></a></h2>
+<section id="profiling-voi-memory">
+<h2><span class="section-number">12.5. </span>Profiling với memory<a class="headerlink" href="#profiling-voi-memory" title="Link to this heading"></a></h2>
 <p>cài đặt <code class="docutils literal notranslate"><span class="pre">memory_profiler</span></code> trên với <code class="docutils literal notranslate"><span class="pre">anaconda</span> <span class="pre">prompt</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">memory_profiler</span></code></p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> memory_profiler
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> memory_profiler
-</pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sum_of_lists</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sum_of_lists</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
            <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
                <span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="n">j</span> <span class="o">^</span> <span class="p">(</span><span class="n">j</span> <span class="o">&gt;&gt;</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
@@ -387,187 +343,151 @@ Wall time: 0 ns
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">memit</span> sum_of_lists(10000)
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-peak memory: 85.32 MiB, increment: 1.11 MiB
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sum_of_lists</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">memit</span> sum_of_lists(10000)
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>peak memory: 85.32 MiB, increment: 1.11 MiB
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-211713248
-</pre></div></div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sum_of_lists</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>211713248
+</pre></div>
+</div>
+</div>
 </div>
 </section>
-<section id="Phân-biệt-các-dấu-gạch-dưới-trong-Python">
-<h2><span class="section-number">12.6. </span>Phân biệt các dấu gạch dưới trong Python<a class="headerlink" href="#Phân-biệt-các-dấu-gạch-dưới-trong-Python" title="Link to this heading"></a></h2>
+<section id="phan-biet-cac-dau-gach-duoi-trong-python">
+<h2><span class="section-number">12.6. </span>Phân biệt các dấu gạch dưới trong Python<a class="headerlink" href="#phan-biet-cac-dau-gach-duoi-trong-python" title="Link to this heading"></a></h2>
 <p>Dâu gạch dưới <code class="docutils literal notranslate"><span class="pre">_</span></code> có nhiều ý nghĩa khác nhau trong Python và có nhiều cách sử dụng. Ta cần phải nắm vững để có thể hiểu cách sử dụng của python</p>
-<section id="Lưu-giá-trị-từ-trước">
-<h3><span class="section-number">12.6.1. </span>Lưu giá trị từ trước<a class="headerlink" href="#Lưu-giá-trị-từ-trước" title="Link to this heading"></a></h3>
+<section id="luu-gia-tri-tu-truoc">
+<h3><span class="section-number">12.6.1. </span>Lưu giá trị từ trước<a class="headerlink" href="#luu-gia-tri-tu-truoc" title="Link to this heading"></a></h3>
 <p>Cách này chỉ sử dụng với Ipython - dấu <code class="docutils literal notranslate"><span class="pre">-</span></code> cho phép hiển thị lại giá trị gần nhất trên Python REPL</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span>
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-211713248
-</pre></div></div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>211713248
+</pre></div>
+</div>
+</div>
 </div>
 </section>
-<section id="Bỏ-qua-giá-trị-không-cần-thiết">
-<h3><span class="section-number">12.6.2. </span>Bỏ qua giá trị không cần thiết<a class="headerlink" href="#Bỏ-qua-giá-trị-không-cần-thiết" title="Link to this heading"></a></h3>
+<section id="bo-qua-gia-tri-khong-can-thiet">
+<h3><span class="section-number">12.6.2. </span>Bỏ qua giá trị không cần thiết<a class="headerlink" href="#bo-qua-gia-tri-khong-can-thiet" title="Link to this heading"></a></h3>
 <p>Ta có thể dùng <code class="docutils literal notranslate"><span class="pre">_</span></code> để bỏ qua các giá trị không muốn gán</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span><span class="n">_</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">c</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span><span class="n">_</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">c</span>
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-(1, 3)
-</pre></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, 3)
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bor qua cùng lúc nhiều giá trị</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bor qua cùng lúc nhiều giá trị</span>
 <span class="n">a</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-1
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 7
-</pre></div></div>
-</div>
-</section>
-<section id="Sử-dụng-trong-loop">
-<h3><span class="section-number">12.6.3. </span>Sử dụng trong loop<a class="headerlink" href="#Sử-dụng-trong-loop" title="Link to this heading"></a></h3>
-<p>Sử dụng như một biến tạm</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+</div>
+</div>
+</section>
+<section id="su-dung-trong-loop">
+<h3><span class="section-number">12.6.3. </span>Sử dụng trong loop<a class="headerlink" href="#su-dung-trong-loop" title="Link to this heading"></a></h3>
+<p>Sử dụng như một biến tạm</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">_</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-0
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
 1
 2
 3
 4
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">languages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;Python&#39;</span><span class="p">,</span> <span class="s1">&#39;Scala&#39;</span><span class="p">]</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">languages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;Python&#39;</span><span class="p">,</span> <span class="s1">&#39;Scala&#39;</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">languages</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">_</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-R
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R
 Python
 Scala
-</pre></div></div>
-</div>
-</section>
-<section id="Phân-cách-hàng-nghìn">
-<h3><span class="section-number">12.6.4. </span>Phân cách hàng nghìn<a class="headerlink" href="#Phân-cách-hàng-nghìn" title="Link to this heading"></a></h3>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1_000_000</span>
+</div>
+</div>
+</section>
+<section id="phan-cach-hang-nghin">
+<h3><span class="section-number">12.6.4. </span>Phân cách hàng nghìn<a class="headerlink" href="#phan-cach-hang-nghin" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1_000_000</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1000000
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-1000000
-</pre></div></div>
+</div>
 </div>
 </section>
-<section id="Đặt-tên-có-chứa-_">
-<h3><span class="section-number">12.6.5. </span>Đặt tên có chứa <code class="docutils literal notranslate"><span class="pre">_</span></code><a class="headerlink" href="#Đặt-tên-có-chứa-_" title="Link to this heading"></a></h3>
+<section id="dat-ten-co-chua">
+<h3><span class="section-number">12.6.5. </span>Đặt tên có chứa <code class="docutils literal notranslate"><span class="pre">_</span></code><a class="headerlink" href="#dat-ten-co-chua" title="Link to this heading"></a></h3>
 <p>Trong Python, có 4 cách đặt tên chứa <code class="docutils literal notranslate"><span class="pre">_</span></code>:</p>
 <ul class="simple">
 <li><p>Một dấu đằng trước: <code class="docutils literal notranslate"><span class="pre">_name</span></code></p></li>
@@ -575,15 +495,14 @@ Scala
 <li><p>Hai dấu đằng trước: <code class="docutils literal notranslate"><span class="pre">__name</span></code></p></li>
 <li><p>Hai dấu ở hai bên: <code class="docutils literal notranslate"><span class="pre">__name__</span></code></p></li>
 </ul>
-<section id="Một-dấu-đằng-trước">
-<h4><span class="section-number">12.6.5.1. </span>Một dấu đằng trước<a class="headerlink" href="#Một-dấu-đằng-trước" title="Link to this heading"></a></h4>
+<section id="mot-dau-dang-truoc">
+<h4><span class="section-number">12.6.5.1. </span>Một dấu đằng trước<a class="headerlink" href="#mot-dau-dang-truoc" title="Link to this heading"></a></h4>
 <p>Cho phép bỏ qua hàm khi import</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo file my_functions.py </span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo file my_functions.py</span>
-</pre></div>
 </div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## filename: my_functions.py</span>
@@ -596,60 +515,48 @@ Scala
     <span class="k">return</span> <span class="mi">7</span>
 </pre></div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#| eval: false</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#| eval: false</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">my_functions</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#| eval: false</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#| eval: false</span>
 <span class="n">func</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&#39;Anh Hoang Duc&#39;
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_private_func</span><span class="p">()</span>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Anh Hoang Duc&#39;
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-intense-fg ansi-bold">In[25], line 1</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span> <span class="ansi-yellow-bg">_private_func</span>()
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_private_func</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">_private_func</span><span class="p">()</span>
 
-<span class="ansi-red-intense-fg ansi-bold">NameError</span>: name &#39;_private_func&#39; is not defined
-</pre></div></div>
+<span class="ne">NameError</span>: name &#39;_private_func&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 <p>Trong cách import trên, hàm <code class="docutils literal notranslate"><span class="pre">_private_func</span></code> đã không được import vào trong môi trường làm việc. Ta có thể import vào môi trường làm việc như sau</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">my_functions</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">my_functions</span>
 
 <span class="n">my_functions</span><span class="o">.</span><span class="n">func</span><span class="p">()</span>
 
@@ -657,75 +564,61 @@ Cell <span class="ansi-green-intense-fg ansi-bold">In[25], line 1</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-7
-</pre></div></div>
+</div>
 </div>
 </section>
-<section id="Gạch-dưới-cuối-tên">
-<h4><span class="section-number">12.6.5.2. </span>Gạch dưới cuối tên<a class="headerlink" href="#Gạch-dưới-cuối-tên" title="Link to this heading"></a></h4>
+<section id="gach-duoi-cuoi-ten">
+<h4><span class="section-number">12.6.5.2. </span>Gạch dưới cuối tên<a class="headerlink" href="#gach-duoi-cuoi-ten" title="Link to this heading"></a></h4>
 <p>Với cách dùng này, ta sử dụng <code class="docutils literal notranslate"><span class="pre">_</span></code> khi dùng làm keyword</p>
 <p>Câu lệnh dưới đây sẽ hiển thị tên lỗi</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">class</span><span class="p">):</span>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">class</span><span class="p">):</span>
     <span class="k">return</span> <span class="nb">print</span><span class="p">(</span><span class="n">class</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-cyan-intense-fg ansi-bold">  Cell </span><span class="ansi-green-intense-fg ansi-bold">In[27], line 1</span>
-<span class="ansi-yellow-intense-fg ansi-bold">    def function(class):</span>
-<span class="ansi-white-intense-fg ansi-bold">                 ^</span>
-<span class="ansi-red-intense-fg ansi-bold">SyntaxError</span><span class="ansi-red-intense-fg ansi-bold">:</span> invalid syntax
-
-</pre></div></div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">27</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">class</span><span class="p">):</span>
+                 <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">class_</span><span class="p">):</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">class_</span><span class="p">):</span>
     <span class="k">return</span> <span class="nb">print</span><span class="p">(</span><span class="n">class_</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">function</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">function</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-9
-</pre></div></div>
 </div>
 </section>
-<section id="Hai-dấu-gạch-trước-và-sau">
-<h4><span class="section-number">12.6.5.3. </span>Hai dấu gạch trước và sau<a class="headerlink" href="#Hai-dấu-gạch-trước-và-sau" title="Link to this heading"></a></h4>
-<p>Python sử dụng 2 dấu gạch dưới trước và sau với các hàm đặc biệt khi khai báo class như <code class="docutils literal notranslate"><span class="pre">__init__</span></code>. Trong trường hợp sử dụng 2 dấu gạch dưới, sẽ khai báo các <code class="docutils literal notranslate"><span class="pre">method</span></code> hoặc <code class="docutils literal notranslate"><span class="pre">attribute</span></code> sẽ mang tính cá nhân và bảo mật hơn</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="p">:</span>
+<section id="hai-dau-gach-truoc-va-sau">
+<h4><span class="section-number">12.6.5.3. </span>Hai dấu gạch trước và sau<a class="headerlink" href="#hai-dau-gach-truoc-va-sau" title="Link to this heading"></a></h4>
+<p>Python sử dụng 2 dấu gạch dưới trước và sau với các hàm đặc biệt khi khai báo class như <code class="docutils literal notranslate"><span class="pre">__init__</span></code>.
+Trong trường hợp sử dụng 2 dấu gạch dưới, sẽ khai báo các <code class="docutils literal notranslate"><span class="pre">method</span></code> hoặc <code class="docutils literal notranslate"><span class="pre">attribute</span></code> sẽ mang tính cá nhân và bảo mật hơn</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__private_variable</span> <span class="o">=</span> <span class="mi">42</span>
 
@@ -734,122 +627,98 @@ Cell <span class="ansi-green-intense-fg ansi-bold">In[25], line 1</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">__private_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is a private method&quot;</span><span class="p">)</span>
-
+    
     <span class="k">def</span><span class="w"> </span><span class="nf">not_private</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is not private&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><span></span><span class="c1"># Thử truy cập biến hoặc phương thức từ bên ngoài lớp</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Thử truy cập biến hoặc phương thức từ bên ngoài lớp</span>
 <span class="n">obj</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;__main__.MyClass object at 0x000002B98A81DF50&gt;
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.MyClass object at 0x000002B98A81DF50&gt;
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Attribute</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Attribute</span>
 <span class="n">obj</span><span class="o">.</span><span class="n">_not_private</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-15
-</pre></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Method</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Method</span>
 <span class="n">obj</span><span class="o">.</span><span class="n">not_private</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-This is not private
-</pre></div></div>
-</div>
-<p>Khi dùng 2 dấu gạch dưới trước tên của <code class="docutils literal notranslate"><span class="pre">method</span></code> hoặc <code class="docutils literal notranslate"><span class="pre">attribute</span></code> sẽ khiến không thể truy cập được vào các thuộc tính và method sẵn có này</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This is not private
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">__private_variable</span><span class="p">)</span>  <span class="c1"># Sẽ gây lỗi AttributeError</span>
+</div>
+</div>
+<p>Khi dùng 2 dấu gạch dưới trước tên của <code class="docutils literal notranslate"><span class="pre">method</span></code> hoặc <code class="docutils literal notranslate"><span class="pre">attribute</span></code> sẽ khiến không thể truy cập được vào các thuộc tính và method sẵn có này</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">__private_variable</span><span class="p">)</span>  <span class="c1"># Sẽ gây lỗi AttributeError</span>
 <span class="n">obj</span><span class="o">.</span><span class="n">__private_method</span><span class="p">()</span>  <span class="c1"># Sẽ gây lỗi AttributeError</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">AttributeError</span>                            Traceback (most recent call last)
-Cell <span class="ansi-green-intense-fg ansi-bold">In[34], line 1</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span> <span style="color: rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">obj</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">__private_variable</span>)  <span style="color: rgb(95,135,135)"># Sẽ gây lỗi AttributeError</span>
-        obj <span class="ansi-blue-intense-fg ansi-bold">= &lt;__main__.MyClass object at 0x000002B98A81DF50&gt;</span>
-<span class="ansi-green-fg">      2</span> obj<span style="color: rgb(98,98,98)">.</span>__private_method()  <span style="color: rgb(95,135,135)"># Sẽ gây lỗi AttributeError</span>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">34</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">__private_variable</span><span class="p">)</span>  <span class="c1"># Sẽ gây lỗi AttributeError</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">MyClass</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x000002B98A81DF50</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">obj</span><span class="o">.</span><span class="n">__private_method</span><span class="p">()</span>  <span class="c1"># Sẽ gây lỗi AttributeError</span>
 
-<span class="ansi-red-intense-fg ansi-bold">AttributeError</span>: &#39;MyClass&#39; object has no attribute &#39;__private_variable&#39;
-</pre></div></div>
+<span class="ne">AttributeError</span>: &#39;MyClass&#39; object has no attribute &#39;__private_variable&#39;
+</pre></div>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
+</div>
+</div>
+<div class="warning docutils">
 <p><strong>Lưu ý</strong>: Việc hiểu chính xác cách sử dụng của các dấu <code class="docutils literal notranslate"><span class="pre">_</span></code> sẽ cho phép chúng ta hiểu và sử dụng python nhanh chóng hơn</p>
 </div>
 </section>
 </section>
 </section>
-<section id="List-object-trong-môi-trường-làm-việc">
-<h2><span class="section-number">12.7. </span>List object trong môi trường làm việc<a class="headerlink" href="#List-object-trong-môi-trường-làm-việc" title="Link to this heading"></a></h2>
+<section id="list-object-trong-moi-truong-lam-viec">
+<h2><span class="section-number">12.7. </span>List object trong môi trường làm việc<a class="headerlink" href="#list-object-trong-moi-truong-lam-viec" title="Link to this heading"></a></h2>
 <p>Hiển thị tất cả các biến trong môi trường: sử dụng <code class="docutils literal notranslate"><span class="pre">%whos</span></code></p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">whos</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span> 
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Variable       Type        Data/Info
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">whos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variable       Type        Data/Info
 ------------------------------------
 MyClass        type        &lt;class &#39;__main__.MyClass&#39;&gt;
 a              int         1
@@ -864,14 +733,14 @@ obj            MyClass     &lt;__main__.MyClass object at 0x000002B98A81DF50&gt;
 sum_of_lists   function    &lt;function sum_of_lists at 0x000002B98A01A200&gt;
 x              int         7
 y              str         test
-</pre></div></div>
-</div>
-<p>Sử dụng <code class="docutils literal notranslate"><span class="pre">%who_ls</span> <span class="pre">data_type</span></code></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</div>
+</div>
+<p>Sử dụng <code class="docutils literal notranslate"><span class="pre">%who_ls</span> <span class="pre">data_type</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;x&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]})</span>
 <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 
@@ -879,240 +748,183 @@ y              str         test
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;df&#39;]
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[&#39;df&#39;]
-</pre></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#| eval: false</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#| eval: false</span>
 <span class="o">%</span><span class="k">who_ls</span> list
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;languages&#39;, &#39;x&#39;]
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[&#39;languages&#39;, &#39;x&#39;]
-</pre></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#| eval: false</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#| eval: false</span>
 <span class="o">%</span><span class="k">who_ls</span> DataFrame list
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;df&#39;, &#39;languages&#39;, &#39;x&#39;]
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[&#39;df&#39;, &#39;languages&#39;, &#39;x&#39;]
-</pre></div></div>
+</div>
 </div>
 </section>
-<section id="Hiển-thị-nhiều-kết-quả-trong-1-cell">
-<h2><span class="section-number">12.8. </span>Hiển thị nhiều kết quả trong 1 cell<a class="headerlink" href="#Hiển-thị-nhiều-kết-quả-trong-1-cell" title="Link to this heading"></a></h2>
+<section id="hien-thi-nhieu-ket-qua-trong-1-cell">
+<h2><span class="section-number">12.8. </span>Hiển thị nhiều kết quả trong 1 cell<a class="headerlink" href="#hien-thi-nhieu-ket-qua-trong-1-cell" title="Link to this heading"></a></h2>
 <p>Trong jupyter notebook, kết quả trong 1 cell chỉ được hiển thị 1 lần. ta có thể khắc phục như sau</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.core.interactiveshell</span><span class="w"> </span><span class="kn">import</span> <span class="n">InteractiveShell</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.core.interactiveshell</span><span class="w"> </span><span class="kn">import</span> <span class="n">InteractiveShell</span>
 <span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s2">&quot;all&quot;</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span>
-</pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span>
 <span class="n">y</span>
 <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-7
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-8
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>56
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-56
-</pre></div></div>
+</div>
 </div>
 </section>
-<section id="Assign-string-thành-object">
-<h2><span class="section-number">12.9. </span>Assign string thành object<a class="headerlink" href="#Assign-string-thành-object" title="Link to this heading"></a></h2>
+<section id="assign-string-thanh-object">
+<h2><span class="section-number">12.9. </span>Assign string thành object<a class="headerlink" href="#assign-string-thanh-object" title="Link to this heading"></a></h2>
 <p><strong>Problem</strong>: Tạo cùng lúc nhiều object, gán mỗi object với 1 giá trị</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="n">df_name</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;df1&quot;</span><span class="p">,</span> <span class="s2">&quot;df2&quot;</span><span class="p">,</span> <span class="s2">&quot;df3&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">df_name</span><span class="p">:</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">df_name</span><span class="p">:</span>
     <span class="nb">globals</span><span class="p">()[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-df1
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>df1
 [0.97386133]
 df2
 [0.53453316]
 df3
 [0.46273654]
-</pre></div></div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">df_name</span><span class="p">:</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">df_name</span><span class="p">:</span>
     <span class="k">del</span> <span class="nb">globals</span><span class="p">()[</span><span class="n">i</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
+</div>
 </section>
-<section id="Evaluation">
-<h2><span class="section-number">12.10. </span>Evaluation<a class="headerlink" href="#Evaluation" title="Link to this heading"></a></h2>
+<section id="evaluation">
+<h2><span class="section-number">12.10. </span>Evaluation<a class="headerlink" href="#evaluation" title="Link to this heading"></a></h2>
 <p>Tương tự như R, Python có thể sử dụng evaluation để thực hiện lập trình đơn giản</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span> <span class="o">=</span> <span class="mi">7</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">eval</span><span class="p">(</span><span class="s1">&#39;my_df&#39;</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span> <span class="o">=</span> <span class="mi">7</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">eval</span><span class="p">(</span><span class="s1">&#39;my_df&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-7
-</pre></div></div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+</pre></div>
+</div>
+</div>
 </div>
 </section>
-<section id="Xóa-toàn-bộ-environment">
-<h2><span class="section-number">12.11. </span>Xóa toàn bộ environment<a class="headerlink" href="#Xóa-toàn-bộ-environment" title="Link to this heading"></a></h2>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Xóa dataframe</span>
+<section id="xoa-toan-bo-environment">
+<h2><span class="section-number">12.11. </span>Xóa toàn bộ environment<a class="headerlink" href="#xoa-toan-bo-environment" title="Link to this heading"></a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Xóa dataframe</span>
 <span class="n">all_var</span> <span class="o">=</span> <span class="o">%</span><span class="k">who_ls</span> DataFrame
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">all_var</span><span class="p">:</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">all_var</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">globals</span><span class="p">()[</span><span class="n">i</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-   x
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   x
 0  1
 1  2
 2  3
-</pre></div></div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">all_var</span><span class="p">:</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">all_var</span><span class="p">:</span>
     <span class="k">del</span> <span class="nb">globals</span><span class="p">()[</span><span class="n">_</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">who_ls</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">who_ls</span>
-</pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[&#39;InteractiveShell&#39;,
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;InteractiveShell&#39;,
  &#39;MyClass&#39;,
  &#39;a&#39;,
  &#39;all_var&#39;,
@@ -1132,21 +944,22 @@ df3
  &#39;sum_of_lists&#39;,
  &#39;x&#39;,
  &#39;y&#39;]
-</pre></div></div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#| eval: false</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#| eval: false</span>
 <span class="c1"># Delete all</span>
 <span class="o">%</span><span class="k">reset</span> -f
 </pre></div>
 </div>
 </div>
+</div>
 </section>
-<section id="Lưu-code-từ-cell-thành-file">
-<h2><span class="section-number">12.12. </span>Lưu code từ cell thành file<a class="headerlink" href="#Lưu-code-từ-cell-thành-file" title="Link to this heading"></a></h2>
+<section id="luu-code-tu-cell-thanh-file">
+<h2><span class="section-number">12.12. </span>Lưu code từ cell thành file<a class="headerlink" href="#luu-code-tu-cell-thanh-file" title="Link to this heading"></a></h2>
 <p>Sử dụng magic command %%writefile</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">writefile</span> <span class="mf">09.</span><span class="n">test_script</span><span class="o">/</span><span class="mi">03</span><span class="n">_test_script</span><span class="o">.</span><span class="n">py</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">joke</span><span class="p">():</span>
@@ -1154,8 +967,8 @@ df3
 </pre></div>
 </div>
 </section>
-<section id="Mở-một-loạt-file-text-và-sửa-nội-dung">
-<h2><span class="section-number">12.13. </span>Mở một loạt file text và sửa nội dung<a class="headerlink" href="#Mở-một-loạt-file-text-và-sửa-nội-dung" title="Link to this heading"></a></h2>
+<section id="mo-mot-loat-file-text-va-sua-noi-dung">
+<h2><span class="section-number">12.13. </span>Mở một loạt file text và sửa nội dung<a class="headerlink" href="#mo-mot-loat-file-text-va-sua-noi-dung" title="Link to this heading"></a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">replace_md</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">find</span><span class="p">,</span> <span class="n">replace</span><span class="p">):</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">s</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
@@ -1171,14 +984,14 @@ df3
 </pre></div>
 </div>
 </section>
-<section id="Chạy-file-python-từ-bat">
-<h2><span class="section-number">12.14. </span>Chạy file python từ bat<a class="headerlink" href="#Chạy-file-python-từ-bat" title="Link to this heading"></a></h2>
+<section id="chay-file-python-tu-bat">
+<h2><span class="section-number">12.14. </span>Chạy file python từ bat<a class="headerlink" href="#chay-file-python-tu-bat" title="Link to this heading"></a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">script</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 </section>
-<section id="Auto-format">
-<h2><span class="section-number">12.15. </span>Auto format<a class="headerlink" href="#Auto-format" title="Link to this heading"></a></h2>
+<section id="auto-format">
+<h2><span class="section-number">12.15. </span>Auto format<a class="headerlink" href="#auto-format" title="Link to this heading"></a></h2>
 <p>Ta có thể sử dụng package <code class="docutils literal notranslate"><span class="pre">black</span></code> để auto format lại các file trong python.</p>
 <ul class="simple">
 <li><p>Tất cả string để lại dưới dạng ngoặc kép (double quoted)</p></li>
@@ -1189,37 +1002,29 @@ df3
 </pre></div>
 </div>
 </section>
-<section id="Làm-việc-với-các-file-trong-máy-tính">
-<h2><span class="section-number">12.16. </span>Làm việc với các file trong máy tính<a class="headerlink" href="#Làm-việc-với-các-file-trong-máy-tính" title="Link to this heading"></a></h2>
+<section id="lam-viec-voi-cac-file-trong-may-tinh">
+<h2><span class="section-number">12.16. </span>Làm việc với các file trong máy tính<a class="headerlink" href="#lam-viec-voi-cac-file-trong-may-tinh" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Python</span></code> rất mạnh trong việc xử lý các vấn đề liên quan đến các file trong máy tính. Hai thư viện được dùng nhiều khi xử lý các file trong máy tính là <code class="docutils literal notranslate"><span class="pre">glob</span></code> và <code class="docutils literal notranslate"><span class="pre">os</span></code></p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span><span class="o">,</span><span class="w"> </span><span class="nn">glob</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span><span class="o">,</span><span class="w"> </span><span class="nn">glob</span>
-</pre></div>
 </div>
 </div>
-<section id="Liệt-kê-các-file-theo-định-dạng">
-<h3><span class="section-number">12.16.1. </span>Liệt kê các file theo định dạng<a class="headerlink" href="#Liệt-kê-các-file-theo-định-dạng" title="Link to this heading"></a></h3>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_name</span> <span class="o">=</span> <span class="p">[]</span>
+<section id="liet-ke-cac-file-theo-dinh-dang">
+<h3><span class="section-number">12.16.1. </span>Liệt kê các file theo định dạng<a class="headerlink" href="#liet-ke-cac-file-theo-dinh-dang" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_name</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">extension</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;*.png&#39;</span><span class="p">,</span> <span class="s1">&#39;*.py&#39;</span><span class="p">]:</span>
     <span class="n">file_name</span> <span class="o">=</span> <span class="n">file_name</span> <span class="o">+</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">extension</span><span class="p">)</span>
 <span class="n">file_name</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[&#39;boxplot.png&#39;,
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;boxplot.png&#39;,
  &#39;chart.png&#39;,
  &#39;my_figure.png&#39;,
  &#39;seaborn_chart.png&#39;,
@@ -1227,18 +1032,18 @@ df3
  &#39;flask-api.py&#39;,
  &#39;my_functions.py&#39;,
  &#39;untitled.py&#39;]
-</pre></div></div>
-</div>
-</section>
-<section id="Chèn-thêm-prefix-vào-tất-cả-file_name">
-<h3><span class="section-number">12.16.2. </span>Chèn thêm prefix vào tất cả file_name<a class="headerlink" href="#Chèn-thêm-prefix-vào-tất-cả-file_name" title="Link to this heading"></a></h3>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">change_name</span><span class="p">(</span><span class="n">file_extension</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;*.PNG&#39;</span><span class="p">,</span> <span class="s1">&#39;*.JPG&#39;</span><span class="p">,</span> <span class="s1">&#39;*.JPEG&#39;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">):</span>
+</div>
+</div>
+</section>
+<section id="chen-them-prefix-vao-tat-ca-file-name">
+<h3><span class="section-number">12.16.2. </span>Chèn thêm prefix vào tất cả file_name<a class="headerlink" href="#chen-them-prefix-vao-tat-ca-file-name" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">change_name</span><span class="p">(</span><span class="n">file_extension</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;*.PNG&#39;</span><span class="p">,</span> <span class="s1">&#39;*.JPG&#39;</span><span class="p">,</span> <span class="s1">&#39;*.JPEG&#39;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Function to add a prefix in name of files within a folder. It will help organizing files better,</span>
+<span class="sd">    Function to add a prefix in name of files within a folder. It will help organizing files better, </span>
 <span class="sd">    especially Images for markdown files without changing much in source code.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="kn">import</span><span class="w"> </span><span class="nn">re</span><span class="o">,</span><span class="w"> </span><span class="nn">glob</span><span class="o">,</span><span class="w"> </span><span class="nn">os</span>
@@ -1261,31 +1066,28 @@ df3
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">change_name</span><span class="p">(</span><span class="n">prefix</span> <span class="o">=</span> <span class="s2">&quot;hello-&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">change_name</span><span class="p">(</span><span class="n">prefix</span> <span class="o">=</span> <span class="s2">&quot;hello-&quot;</span><span class="p">)</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;hello-boxplot.png&#39;, &#39;hello-chart.png&#39;, &#39;hello-my_figure.png&#39;, &#39;hello-seaborn_chart.png&#39;]
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[&#39;hello-boxplot.png&#39;, &#39;hello-chart.png&#39;, &#39;hello-my_figure.png&#39;, &#39;hello-seaborn_chart.png&#39;]
-</pre></div></div>
 </div>
 </section>
-<section id="Rename-1-file">
-<h3><span class="section-number">12.16.3. </span>Rename 1 file<a class="headerlink" href="#Rename-1-file" title="Link to this heading"></a></h3>
+<section id="rename-1-file">
+<h3><span class="section-number">12.16.3. </span>Rename 1 file<a class="headerlink" href="#rename-1-file" title="Link to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">old_name</span><span class="p">,</span> <span class="n">new_name</span><span class="p">)</span> <span class="k">for</span> <span class="n">old_name</span><span class="p">,</span> <span class="n">new_name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">file_name_full</span><span class="p">,</span> <span class="n">new_name</span><span class="p">)]</span>
 </pre></div>
 </div>
 </section>
-<section id="Mở-1-file-text,-thay-đổi-và-save">
-<h3><span class="section-number">12.16.4. </span>Mở 1 file text, thay đổi và save<a class="headerlink" href="#Mở-1-file-text,-thay-đổi-và-save" title="Link to this heading"></a></h3>
+<section id="mo-1-file-text-thay-doi-va-save">
+<h3><span class="section-number">12.16.4. </span>Mở 1 file text, thay đổi và save<a class="headerlink" href="#mo-1-file-text-thay-doi-va-save" title="Link to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="s2">&quot;my_file.txt&quot;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -1297,17 +1099,15 @@ df3
 </div>
 </section>
 </section>
-<section id="Giả-lập-dữ-liệu">
-<h2><span class="section-number">12.17. </span>Giả lập dữ liệu<a class="headerlink" href="#Giả-lập-dữ-liệu" title="Link to this heading"></a></h2>
+<section id="gia-lap-du-lieu">
+<h2><span class="section-number">12.17. </span>Giả lập dữ liệu<a class="headerlink" href="#gia-lap-du-lieu" title="Link to this heading"></a></h2>
 <p>Trong quá trình phân tích, ta có thể tạo thêm các dữ liệu giả lập nhanh chóng từ package <code class="docutils literal notranslate"><span class="pre">faker</span></code></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">faker</span>
 </pre></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo fake name</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo fake name</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">faker</span><span class="w"> </span><span class="kn">import</span> <span class="n">Faker</span>
 <span class="n">fake</span> <span class="o">=</span> <span class="n">Faker</span><span class="p">()</span>
 <span class="c1"># fake name</span>
@@ -1315,59 +1115,44 @@ df3
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Jessica Collins&#39;
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&#39;Jessica Collins&#39;
-</pre></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fake ip4</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fake ip4</span>
 <span class="n">fake</span><span class="o">.</span><span class="n">ipv4</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;213.41.0.188&#39;
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&#39;213.41.0.188&#39;
-</pre></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fake email</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fake email</span>
 <span class="n">fake</span><span class="o">.</span><span class="n">email</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;vincent71@example.org&#39;
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&#39;vincent71@example.org&#39;
-</pre></div></div>
+</div>
 </div>
 <p>Ta có thể tạo các dữ liệu giả lập như sau</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">faker</span><span class="w"> </span><span class="kn">import</span> <span class="n">Faker</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">faker</span><span class="w"> </span><span class="kn">import</span> <span class="n">Faker</span>
 
-<span class="c1"># Generate synthetic client data</span>
+<span class="c1"># Generate synthetic client data </span>
 <span class="k">def</span><span class="w"> </span><span class="nf">generate_client_data</span><span class="p">(</span><span class="n">num_clients</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
     <span class="n">clients</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">fake</span> <span class="o">=</span> <span class="n">Faker</span><span class="p">()</span>
@@ -1390,22 +1175,17 @@ df3
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">generate_client_data</span><span class="p">(</span><span class="n">num_clients</span><span class="o">=</span><span class="mi">100</span><span class="p">))</span>
 <span class="n">df1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1509,17 +1289,15 @@ df3
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
 </section>
-<section id="Enumerate">
-<h2><span class="section-number">12.18. </span>Enumerate<a class="headerlink" href="#Enumerate" title="Link to this heading"></a></h2>
+<section id="enumerate">
+<h2><span class="section-number">12.18. </span>Enumerate<a class="headerlink" href="#enumerate" title="Link to this heading"></a></h2>
 <p>Trong <code class="docutils literal notranslate"><span class="pre">python</span></code>, ta có thể sử dụng hàm <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> để liệt kê thay vì dùng vòng lặp và trả về các <code class="docutils literal notranslate"><span class="pre">counter</span></code></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">]</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">]</span>
 <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lista</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Index:&#39;</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span><span class="s1">&#39; Value:&#39;</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
@@ -1527,47 +1305,41 @@ df3
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Index: 0  Value: a
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index: 0  Value: a
 Index: 1  Value: b
 Index: 2  Value: c
 Index: 3  Value: d
 Index: 4  Value: e
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Khi sử dụng enumerate</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Khi sử dụng enumerate</span>
 <span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">count</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lista</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Index:&#39;</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span><span class="s1">&#39; Value:&#39;</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Index: 0  Value: a
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index: 0  Value: a
 Index: 1  Value: b
 Index: 2  Value: c
 Index: 3  Value: d
 Index: 4  Value: e
-</pre></div></div>
+</pre></div>
+</div>
+</div>
 </div>
 </section>
-<section id="Chạy-tất-cả-các-cells-trong-notebook,-bỏ-qua-lỗi">
-<h2><span class="section-number">12.19. </span>Chạy tất cả các cells trong notebook, bỏ qua lỗi<a class="headerlink" href="#Chạy-tất-cả-các-cells-trong-notebook,-bỏ-qua-lỗi" title="Link to this heading"></a></h2>
+<section id="chay-tat-ca-cac-cells-trong-notebook-bo-qua-loi">
+<h2><span class="section-number">12.19. </span>Chạy tất cả các cells trong notebook, bỏ qua lỗi<a class="headerlink" href="#chay-tat-ca-cac-cells-trong-notebook-bo-qua-loi" title="Link to this heading"></a></h2>
 <p>Khi chạy lại code trong notebook, ta sẽ gặp trường hợp có 1 cell bị lỗi (có thể do cố tình để lỗi), thì các cell ở dưới sẽ không chạy tiếp được</p>
 <p>Để giải quyết, ta có thể add thêm tags: <code class="docutils literal notranslate"><span class="pre">raises-exception</span></code> vào trong cell. Khi đó, <code class="docutils literal notranslate"><span class="pre">kernel</span></code> sẽ tiếp tuc thực hiện câu lệnh dù có lỗi tại 1 cells</p>
-<p><a class="reference internal" href="_images/exception.gif"><img alt="image1" src="_images/exception.gif" style="width: 80.0%;" /></a></p>
+<p><img alt="" src="_images/exception.gif" />{width=&quot;80%&quot;}</p>
 </section>
 </section>
 

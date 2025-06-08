@@ -10,7 +10,8 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/nbsphinx-code-cells.css?v=2aa19091" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -20,9 +21,8 @@
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -55,56 +55,56 @@
 <li class="toctree-l1"><a class="reference internal" href="p01-02-python-ide.html">2. Python IDE - Jupyter lab &amp; Visual Studio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-03-cau-truc-du-lieu-python.html">3. Các cấu trúc cơ bản trong Python</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">4. Pandas</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Giới-thiệu-về-pandas">4.1. Giới thiệu về pandas</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Series">4.1.1. Series</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataFrame">4.1.2. DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gioi-thieu-ve-pandas">4.1. Giới thiệu về pandas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#series">4.1.1. Series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dataframe">4.1.2. DataFrame</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Nhóm-câu-lệnh-truy-vấn-dữ-liệu">4.2. Nhóm câu lệnh truy vấn dữ liệu</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Chọn-biến">4.2.1. Chọn biến</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Lọc-dữ-liệu-theo-dòng">4.2.2. Lọc dữ liệu theo dòng</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Lọc-dữ-liệu-theo-điều-kiện">4.2.3. Lọc dữ liệu theo điều kiện</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Sắp-xếp-lại-dữ-liệu">4.2.4. Sắp xếp lại dữ liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nhom-cau-lenh-truy-van-du-lieu">4.2. Nhóm câu lệnh truy vấn dữ liệu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#chon-bien">4.2.1. Chọn biến</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loc-du-lieu-theo-dong">4.2.2. Lọc dữ liệu theo dòng</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loc-du-lieu-theo-dieu-kien">4.2.3. Lọc dữ liệu theo điều kiện</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sap-xep-lai-du-lieu">4.2.4. Sắp xếp lại dữ liệu</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Nhóm-câu-lệnh-biến-đổi-dữ-liệu">4.3. Nhóm câu lệnh biến đổi dữ liệu</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Đổi-tên-biến">4.3.1. Đổi tên biến</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Tạo-&amp;-xóa-biến-mới">4.3.2. Tạo &amp; xóa biến mới</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Tạo-biến-mới-theo-nhóm">4.3.3. Tạo biến mới theo nhóm</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Join">4.3.4. Join</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Ghép-dữ-liệu">4.3.5. Ghép dữ liệu</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Ghép-dòng">4.3.5.1. Ghép dòng</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Ghép-theo-cột">4.3.5.2. Ghép theo cột</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#Tổng-hợp-dữ-liệu">4.4. Tổng hợp dữ liệu</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#groupby-&amp;-aggregate">4.4.1. groupby &amp; aggregate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Pivot-table">4.4.2. Pivot table</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#Các-hàm-nâng-cao">4.5. Các hàm nâng cao</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#select_dtype">4.5.1. select_dtype</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Xoay-chiều-dữ-liệu">4.5.2. Xoay chiều dữ liệu</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Làm-việc-với-missing-value">4.5.3. Làm việc với missing value</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Các-hàm-khác">4.5.4. Các hàm khác</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Lag">4.5.4.1. Lag</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Rank">4.5.4.2. Rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nhom-cau-lenh-bien-doi-du-lieu">4.3. Nhóm câu lệnh biến đổi dữ liệu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#doi-ten-bien">4.3.1. Đổi tên biến</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tao-xoa-bien-moi">4.3.2. Tạo &amp; xóa biến mới</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tao-bien-moi-theo-nhom">4.3.3. Tạo biến mới theo nhóm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#join">4.3.4. Join</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ghep-du-lieu">4.3.5. Ghép dữ liệu</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ghep-dong">4.3.5.1. Ghép dòng</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ghep-theo-cot">4.3.5.2. Ghép theo cột</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Đọc-&amp;-ghi-dữ-liệu">4.6. Đọc &amp; ghi dữ liệu</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Import-dữ-liệu">4.6.1. Import dữ liệu</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Kết-nối-với-database">4.6.1.1. Kết nối với database</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Import-từ-file">4.6.1.2. Import từ file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tong-hop-du-lieu">4.4. Tổng hợp dữ liệu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#groupby-aggregate">4.4.1. groupby &amp; aggregate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pivot-table">4.4.2. Pivot table</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#Lưu-dữ-liệu">4.6.2. Lưu dữ liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cac-ham-nang-cao">4.5. Các hàm nâng cao</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#select-dtype">4.5.1. select_dtype</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#xoay-chieu-du-lieu">4.5.2. Xoay chiều dữ liệu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lam-viec-voi-missing-value">4.5.3. Làm việc với missing value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cac-ham-khac">4.5.4. Các hàm khác</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lag">4.5.4.1. Lag</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rank">4.5.4.2. Rank</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Tài-liệu-tham-khảo">4.7. Tài liệu tham khảo</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#doc-ghi-du-lieu">4.6. Đọc &amp; ghi dữ liệu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#import-du-lieu">4.6.1. Import dữ liệu</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ket-noi-voi-database">4.6.1.1. Kết nối với database</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#import-tu-file">4.6.1.2. Import từ file</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#luu-du-lieu">4.6.2. Lưu dữ liệu</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tai-lieu-tham-khao">4.7. Tài liệu tham khảo</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="p01-05-polars.html">5. Polars</a></li>
@@ -160,8 +160,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Pandas">
-<h1><span class="section-number">4. </span>Pandas<a class="headerlink" href="#Pandas" title="Link to this heading"></a></h1>
+  <section id="pandas">
+<h1><span class="section-number">4. </span>Pandas<a class="headerlink" href="#pandas" title="Link to this heading"></a></h1>
 <p>Khi bắt tay vào công việc phân tích số liệu, việc đầu tiên ta cần phải làm là thu thập dữ liệu từ nhiều nguồn khác nhau. Sau khi hoàn thành xong bước này, ta sẽ phải dành phần lớn thời gian để làm sạch, biến đổi và tổng hợp dữ liệu nhằm tìm kiếm các insights hoặc chuẩn bị dữ liệu cho các bước xây dựng mô hình, dự báo.</p>
 <p>Với python, định dạng dữ liệu cho phép phân tích &amp; xử lý dữ liệu gọi là <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> - tương tự như dataframe trong R. Tuy nhiên, định dạng này không có mặc định trong python mà phải đi qua thư viện <code class="docutils literal notranslate"><span class="pre">pandas</span></code> (viết tắt của <code class="docutils literal notranslate"><span class="pre">panel</span> <span class="pre">data</span></code>). Trong chương này, ta sẽ tìm hiểu thư viện nổi tiếng nhất trong <code class="docutils literal notranslate"><span class="pre">python</span></code> trong việc làm sạch và biến đổi dữ liệu là <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
 <p>Ta có thể cài đặt &amp; gọi pandas như sau</p>
@@ -171,14 +171,12 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 </pre></div>
 </div>
-<section id="Giới-thiệu-về-pandas">
-<h2><span class="section-number">4.1. </span>Giới thiệu về pandas<a class="headerlink" href="#Giới-thiệu-về-pandas" title="Link to this heading"></a></h2>
+<section id="gioi-thieu-ve-pandas">
+<h2><span class="section-number">4.1. </span>Giới thiệu về pandas<a class="headerlink" href="#gioi-thieu-ve-pandas" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Pandas</span></code> là viết tắt của <code class="docutils literal notranslate"><span class="pre">panel</span> <span class="pre">data</span></code>, pandas dataframe có thể coi như <code class="docutils literal notranslate"><span class="pre">dataframe</span></code> trong R</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -188,60 +186,49 @@
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Kiểm tra version pandas</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Kiểm tra version pandas</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">__version__</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;2.2.2&#39;
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&#39;2.2.2&#39;
-</pre></div></div>
+</div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> có thể được tạo ra từ 2 cách:</p>
 <ul class="simple">
-<li><p>Tạo ra trực tiếp từ <code class="docutils literal notranslate"><span class="pre">Series</span></code> từ <code class="docutils literal notranslate"><span class="pre">list</span></code> hoặc <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>. <code class="docutils literal notranslate"><span class="pre">Series</span></code> là một dạng dữ liệu kiểu vector (chỉ hỗ trợ với <code class="docutils literal notranslate"><span class="pre">pandas</span></code>) -</p></li>
+<li><p>Tạo ra trực tiếp từ  <code class="docutils literal notranslate"><span class="pre">Series</span></code> từ <code class="docutils literal notranslate"><span class="pre">list</span></code> hoặc <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>. <code class="docutils literal notranslate"><span class="pre">Series</span></code> là một dạng dữ liệu kiểu vector (chỉ hỗ trợ với <code class="docutils literal notranslate"><span class="pre">pandas</span></code>) -</p></li>
 <li><p>Tạo ra từ <code class="docutils literal notranslate"><span class="pre">dictionary</span></code></p></li>
 </ul>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo các data cần thiết</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo các data cần thiết</span>
 <span class="c1"># series</span>
-<span class="n">population</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s1">&#39;Germany&#39;</span><span class="p">:</span> <span class="mf">81.3</span><span class="p">,</span> <span class="s1">&#39;Belgium&#39;</span><span class="p">:</span> <span class="mf">11.3</span><span class="p">,</span> <span class="s1">&#39;France&#39;</span><span class="p">:</span> <span class="mf">64.3</span><span class="p">,</span>
+<span class="n">population</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s1">&#39;Germany&#39;</span><span class="p">:</span> <span class="mf">81.3</span><span class="p">,</span> <span class="s1">&#39;Belgium&#39;</span><span class="p">:</span> <span class="mf">11.3</span><span class="p">,</span> <span class="s1">&#39;France&#39;</span><span class="p">:</span> <span class="mf">64.3</span><span class="p">,</span> 
                         <span class="s1">&#39;United Kingdom&#39;</span><span class="p">:</span> <span class="mf">64.9</span><span class="p">,</span> <span class="s1">&#39;Netherlands&#39;</span><span class="p">:</span> <span class="mf">16.9</span><span class="p">})</span>
 <span class="n">population</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Germany           81.3
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Germany           81.3
 Belgium           11.3
 France            64.3
 United Kingdom    64.9
 Netherlands       16.9
 dtype: float64
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dataframe</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dataframe</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;country&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Belgium&#39;</span><span class="p">,</span> <span class="s1">&#39;France&#39;</span><span class="p">,</span> <span class="s1">&#39;Germany&#39;</span><span class="p">,</span> <span class="s1">&#39;Netherlands&#39;</span><span class="p">,</span> <span class="s1">&#39;United Kingdom&#39;</span><span class="p">],</span>
         <span class="s1">&#39;population&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">11.3</span><span class="p">,</span> <span class="mf">64.3</span><span class="p">,</span> <span class="mf">81.3</span><span class="p">,</span> <span class="mf">16.9</span><span class="p">,</span> <span class="mf">64.9</span><span class="p">],</span>
         <span class="s1">&#39;area&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">30510</span><span class="p">,</span> <span class="mi">671308</span><span class="p">,</span> <span class="mi">357050</span><span class="p">,</span> <span class="mi">41526</span><span class="p">,</span> <span class="mi">244820</span><span class="p">],</span>
@@ -251,12 +238,8 @@ dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -318,342 +301,259 @@ dtype: float64
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
-<section id="Series">
-<h3><span class="section-number">4.1.1. </span>Series<a class="headerlink" href="#Series" title="Link to this heading"></a></h3>
+<section id="series">
+<h3><span class="section-number">4.1.1. </span>Series<a class="headerlink" href="#series" title="Link to this heading"></a></h3>
 <p>Series là mảng một chiều, <code class="docutils literal notranslate"><span class="pre">Series</span></code> có thể chứa <code class="docutils literal notranslate"><span class="pre">index</span></code> và <code class="docutils literal notranslate"><span class="pre">values</span></code>. Series có thể coi như là mảng một chiều mở rộng của numpy array</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
 <span class="n">obj</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-0    4
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    4
 1    5
 2   -7
 3    6
 dtype: int64
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span><span class="o">.</span><span class="n">values</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-array([ 4,  5, -7,  6], dtype=int64)
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span><span class="o">.</span><span class="n">index</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span><span class="o">.</span><span class="n">values</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 4,  5, -7,  6], dtype=int64)
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-RangeIndex(start=0, stop=4, step=1)
-</pre></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span><span class="o">.</span><span class="n">index</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lấy thành phần từ 1 đến 2</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RangeIndex(start=0, stop=4, step=1)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lấy thành phần từ 1 đến 2</span>
 <span class="n">obj</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-1    5
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1    5
 2   -7
 dtype: int64
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Đổi lại index</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Đổi lại index</span>
 <span class="n">obj</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">]</span>
 <span class="n">obj</span><span class="o">.</span><span class="n">index</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Index([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;], dtype=&#39;object&#39;)
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;], dtype=&#39;object&#39;)
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-4
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span><span class="p">[</span><span class="n">obj</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-a    4
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span><span class="p">[</span><span class="n">obj</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a    4
 b    5
 d    6
 dtype: int64
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span><span class="o">*</span><span class="mi">2</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span><span class="o">*</span><span class="mi">2</span>
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-a     8
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a     8
 b    10
 c   -14
 d    12
 dtype: int64
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">isnull</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-a    False
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a    False
 b    False
 c    False
 d    False
 dtype: bool
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
-</pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-4
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">notnull</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-a    True
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">notnull</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a    True
 b    True
 c    True
 d    True
 dtype: bool
-</pre></div></div>
+</pre></div>
+</div>
+</div>
 </div>
 <hr class="docutils" />
 <p><strong>Biến category</strong>: Trong pandas cho phép sử dụng biến category - là loại định dạng dữ liệu cho phép tạo các nhóm. Định dạng này tương tự như <code class="docutils literal notranslate"><span class="pre">factor</span></code> của R</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">,</span><span class="s2">&quot;a&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">,</span><span class="s2">&quot;a&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
 <span class="n">s</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-count     4
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count     4
 unique    3
 top       a
 freq      2
 dtype: object
-</pre></div></div>
-</div>
-<p>Ta cũng có thể biến đổi định dạng dữ liệu sang category theo các cách khác như sau</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">])</span>
+</div>
+</div>
+<p>Ta cũng có thể biến đổi định dạng dữ liệu sang category theo các cách khác như sau</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">])</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-pandas.core.series.Series
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-count     3
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count     3
 unique    2
 top       a
 freq      2
 dtype: object
-</pre></div></div>
-</div>
-</section>
-<section id="DataFrame">
-<h3><span class="section-number">4.1.2. </span>DataFrame<a class="headerlink" href="#DataFrame" title="Link to this heading"></a></h3>
-<p>DataFrame có cấu trúc tương tự như R dataframe. Một dataframe có thể được tạo ra từ <code class="docutils literal notranslate"><span class="pre">dictionary</span></code> hoặc <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo dictionary</span>
+</div>
+</div>
+</section>
+<section id="dataframe">
+<h3><span class="section-number">4.1.2. </span>DataFrame<a class="headerlink" href="#dataframe" title="Link to this heading"></a></h3>
+<p>DataFrame có cấu trúc tương tự như R dataframe. Một dataframe có thể được tạo ra từ <code class="docutils literal notranslate"><span class="pre">dictionary</span></code> hoặc <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo dictionary</span>
 <span class="n">df_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;group&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">],</span>
 <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]}</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_dict</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_dict</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;group&#39;: [&#39;a&#39;, &#39;b&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;], &#39;value&#39;: [1, 2, 4, 2, 3]}
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
-</pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-{&#39;group&#39;: [&#39;a&#39;, &#39;b&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;], &#39;value&#39;: [1, 2, 4, 2, 3]}
-</pre></div></div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert sang data.frame</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert sang data.frame</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_dict</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
-</pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -703,31 +603,24 @@ dtype: object
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_dict</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">],</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_dict</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">],</span>
                   <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">,</span> <span class="s1">&#39;four&#39;</span><span class="p">,</span> <span class="s1">&#39;five&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span>
-</pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -777,7 +670,7 @@ dtype: object
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
 <hr class="docutils" />
 <p>Trong công việc biến đổi dữ liệu, bất kỳ ngôn ngữ phân tích nào cũng có 3 nhóm hàm lớn.</p>
@@ -792,12 +685,11 @@ dtype: object
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">plotnine</span>
 </pre></div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">plotnine.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">mtcars</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">plotnine.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">mtcars</span>
-</pre></div>
 </div>
 </div>
 <p>Với dataframe, có 3 <code class="docutils literal notranslate"><span class="pre">method</span></code> thường dùng là</p>
@@ -806,21 +698,15 @@ dtype: object
 <li><p><code class="docutils literal notranslate"><span class="pre">describe</span></code>: Thống kê cơ bản các biến</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">info</span></code>: Định dạng các biến</p></li>
 </ul>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hiển thị 3 dòng đầu tiên</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hiển thị 3 dòng đầu tiên</span>
 <span class="n">mtcars</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -900,23 +786,17 @@ dtype: object
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Thống kê cơ bản</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Thống kê cơ bản</span>
 <span class="n">mtcars</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1021,114 +901,94 @@ dtype: object
   </tbody>
 </table>
 <p>8 rows × 11 columns</p>
-</div></div>
+</div></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hiển thị định dạng dữ liệu</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hiển thị định dạng dữ liệu</span>
 <span class="n">mtcars</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 32 entries, 0 to 31
 Data columns (total 12 columns):
- #   Column  Non-Null Count  Dtype
----  ------  --------------  -----
- 0   name    32 non-null     object
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   name    32 non-null     object 
  1   mpg     32 non-null     float64
- 2   cyl     32 non-null     int64
+ 2   cyl     32 non-null     int64  
  3   disp    32 non-null     float64
- 4   hp      32 non-null     int64
+ 4   hp      32 non-null     int64  
  5   drat    32 non-null     float64
  6   wt      32 non-null     float64
  7   qsec    32 non-null     float64
- 8   vs      32 non-null     int64
- 9   am      32 non-null     int64
- 10  gear    32 non-null     int64
- 11  carb    32 non-null     int64
+ 8   vs      32 non-null     int64  
+ 9   am      32 non-null     int64  
+ 10  gear    32 non-null     int64  
+ 11  carb    32 non-null     int64  
 dtypes: float64(5), int64(6), object(1)
 memory usage: 3.1+ KB
-</pre></div></div>
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
-<section id="Nhóm-câu-lệnh-truy-vấn-dữ-liệu">
-<h2><span class="section-number">4.2. </span>Nhóm câu lệnh truy vấn dữ liệu<a class="headerlink" href="#Nhóm-câu-lệnh-truy-vấn-dữ-liệu" title="Link to this heading"></a></h2>
-<section id="Chọn-biến">
-<h3><span class="section-number">4.2.1. </span>Chọn biến<a class="headerlink" href="#Chọn-biến" title="Link to this heading"></a></h3>
+<section id="nhom-cau-lenh-truy-van-du-lieu">
+<h2><span class="section-number">4.2. </span>Nhóm câu lệnh truy vấn dữ liệu<a class="headerlink" href="#nhom-cau-lenh-truy-van-du-lieu" title="Link to this heading"></a></h2>
+<section id="chon-bien">
+<h3><span class="section-number">4.2.1. </span>Chọn biến<a class="headerlink" href="#chon-bien" title="Link to this heading"></a></h3>
 <p>Trong pandas có 2 cách chọn các biến</p>
 <ul class="simple">
 <li><p><strong>Cách 1</strong>: Sử dụng dạng attribute - bị giới hạn và chỉ dùng với 1 biến</p></li>
 <li><p><strong>Cách 2</strong>: Sử dụng các biến dưới dạng list</p></li>
 </ul>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cách 1: Chọn biến mpg theo attribute</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cách 1: Chọn biến mpg theo attribute</span>
 <span class="n">mtcars</span><span class="o">.</span><span class="n">mpg</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-0     21.0
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     21.0
 1     21.0
-      ...
+      ... 
 30    15.0
 31    21.4
 Name: mpg, Length: 32, dtype: float64
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cách 2: Chọn biến theo dạng list</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cách 2: Chọn biến theo dạng list</span>
 <span class="n">mtcars</span><span class="p">[</span><span class="s1">&#39;mpg&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-0     21.0
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     21.0
 1     21.0
-      ...
+      ... 
 30    15.0
 31    21.4
 Name: mpg, Length: 32, dtype: float64
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="p">[[</span><span class="s1">&#39;mpg&#39;</span><span class="p">,</span> <span class="s1">&#39;cyl&#39;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="p">[[</span><span class="s1">&#39;mpg&#39;</span><span class="p">,</span> <span class="s1">&#39;cyl&#39;</span><span class="p">]]</span>
 </pre></div>
 </div>
-<div class="output_area rendered_html docutils container">
-<div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1179,23 +1039,17 @@ Name: mpg, Length: 32, dtype: float64
   </tbody>
 </table>
 <p>32 rows × 2 columns</p>
-</div></div>
+</div></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mpg&#39;</span><span class="p">,</span> <span class="s1">&#39;cyl&#39;</span><span class="p">,</span> <span class="s1">&#39;vs&#39;</span><span class="p">]</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mpg&#39;</span><span class="p">,</span> <span class="s1">&#39;cyl&#39;</span><span class="p">,</span> <span class="s1">&#39;vs&#39;</span><span class="p">]</span>
 <span class="n">mtcars</span><span class="p">[</span><span class="n">var</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1252,24 +1106,18 @@ Name: mpg, Length: 32, dtype: float64
   </tbody>
 </table>
 <p>32 rows × 3 columns</p>
-</div></div>
+</div></div></div>
 </div>
 <p>Ngoài cách trên, ta có thể sử dụng method <code class="docutils literal notranslate"><span class="pre">filter</span></code> như sau</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="o">.</span>\
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="o">.</span>\
     <span class="nb">filter</span><span class="p">([</span><span class="s1">&#39;mpg&#39;</span><span class="p">,</span> <span class="s1">&#39;cyl&#39;</span><span class="p">,</span> <span class="s1">&#39;am&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1326,27 +1174,21 @@ Name: mpg, Length: 32, dtype: float64
   </tbody>
 </table>
 <p>32 rows × 3 columns</p>
-</div></div>
+</div></div></div>
 </div>
 </section>
-<section id="Lọc-dữ-liệu-theo-dòng">
-<h3><span class="section-number">4.2.2. </span>Lọc dữ liệu theo dòng<a class="headerlink" href="#Lọc-dữ-liệu-theo-dòng" title="Link to this heading"></a></h3>
+<section id="loc-du-lieu-theo-dong">
+<h3><span class="section-number">4.2.2. </span>Lọc dữ liệu theo dòng<a class="headerlink" href="#loc-du-lieu-theo-dong" title="Link to this heading"></a></h3>
 <p>Ta có thể lấy thứ tự số dòng trong 1 dataframe với <code class="docutils literal notranslate"><span class="pre">iloc</span></code></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lấy các dòng từ 1 đến 4</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lấy các dòng từ 1 đến 4</span>
 <span class="n">mtcars</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1426,24 +1268,18 @@ Name: mpg, Length: 32, dtype: float64
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">iloc</span></code> cũng cho phép lấy theo cột</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3 dòng đầu tiên, 2 biến đầu tiên</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3 dòng đầu tiên, 2 biến đầu tiên</span>
 <span class="n">mtcars</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1483,25 +1319,19 @@ Name: mpg, Length: 32, dtype: float64
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
 <hr class="docutils" />
 <p><strong>Lưu ý</strong>: Trong pandas, ta có thể kết hợp truy vấn cả cột và dòng theo dạng <code class="docutils literal notranslate"><span class="pre">pipe</span></code> khi áp dụng method do mỗi object biến đổi dữ liệu trong pandas đều là một DataFrame</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="p">[[</span><span class="s1">&#39;mpg&#39;</span><span class="p">,</span> <span class="s1">&#39;cyl&#39;</span><span class="p">]]</span><span class="o">.</span>\
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="p">[[</span><span class="s1">&#39;mpg&#39;</span><span class="p">,</span> <span class="s1">&#39;cyl&#39;</span><span class="p">]]</span><span class="o">.</span>\
     <span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1541,32 +1371,26 @@ Name: mpg, Length: 32, dtype: float64
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
 </section>
-<section id="Lọc-dữ-liệu-theo-điều-kiện">
-<h3><span class="section-number">4.2.3. </span>Lọc dữ liệu theo điều kiện<a class="headerlink" href="#Lọc-dữ-liệu-theo-điều-kiện" title="Link to this heading"></a></h3>
+<section id="loc-du-lieu-theo-dieu-kien">
+<h3><span class="section-number">4.2.3. </span>Lọc dữ liệu theo điều kiện<a class="headerlink" href="#loc-du-lieu-theo-dieu-kien" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> cho phép lọc theo điều kiện theo 2 cách:</p>
 <ul class="simple">
 <li><p>Sử dụng phương pháp lọc thông thường, cấu truc: <code class="docutils literal notranslate"><span class="pre">df[df.var1</span> <span class="pre">&gt;</span> <span class="pre">a</span> <span class="pre">&amp;</span> <span class="pre">df.var2</span> <span class="pre">&lt;</span> <span class="pre">b]</span></code></p></li>
 <li><p>Sử dụng <code class="docutils literal notranslate"><span class="pre">query</span></code> method</p></li>
 </ul>
 <p><strong>Ví dụ sử dụng phương pháp lọc thông thường</strong></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lọc mpg &gt;= 20</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lọc mpg &gt;= 20</span>
 <span class="n">mtcars</span><span class="p">[</span><span class="n">mtcars</span><span class="o">.</span><span class="n">mpg</span> <span class="o">&gt;=</span> <span class="mi">20</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1677,23 +1501,17 @@ Name: mpg, Length: 32, dtype: float64
   </tbody>
 </table>
 <p>14 rows × 12 columns</p>
-</div></div>
+</div></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mpg &gt;= 20 &amp; cyl = 4</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mpg &gt;= 20 &amp; cyl = 4</span>
 <span class="n">mtcars</span><span class="p">[(</span><span class="n">mtcars</span><span class="o">.</span><span class="n">mpg</span> <span class="o">&gt;=</span> <span class="mi">20</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">mtcars</span><span class="o">.</span><span class="n">cyl</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1804,29 +1622,24 @@ Name: mpg, Length: 32, dtype: float64
   </tbody>
 </table>
 <p>11 rows × 12 columns</p>
-</div></div>
+</div></div></div>
 </div>
-<p>Với cách thức như trên, ta sẽ gặp khó khăn trong trường hợp các bước truy vấn dữ liệu xảy ra liên tục. Ví dụ:</p>
+<p>Với cách thức như trên, ta sẽ gặp khó khăn trong trường hợp các bước truy vấn dữ liệu xảy ra liên tục.
+Ví dụ:</p>
 <ul class="simple">
 <li><p>Từ <code class="docutils literal notranslate"><span class="pre">mtcars</span></code> lấy các dòng có <code class="docutils literal notranslate"><span class="pre">mpg</span> <span class="pre">&gt;=</span> <span class="pre">20</span></code></p></li>
 <li><p>Từ tập dữ liệu vừa có, lọc tiếp <code class="docutils literal notranslate"><span class="pre">cyl</span> <span class="pre">=</span> <span class="pre">4</span></code></p></li>
 </ul>
 <p>Để giải quyết các trường hợp trên, ta có thể sử dụng query method như sau</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mpg &gt;= 20</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mpg &gt;= 20</span>
 <span class="n">mtcars</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;mpg &gt;= 20&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1937,25 +1750,19 @@ Name: mpg, Length: 32, dtype: float64
   </tbody>
 </table>
 <p>14 rows × 12 columns</p>
-</div></div>
+</div></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lấy thêm điều kiện cyl == 4</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lấy thêm điều kiện cyl == 4</span>
 <span class="n">mtcars</span><span class="o">.</span>\
     <span class="n">query</span><span class="p">(</span><span class="s1">&#39;mpg &gt;= 20&#39;</span><span class="p">)</span><span class="o">.</span>\
     <span class="n">query</span><span class="p">(</span><span class="s1">&#39;cyl == 4&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -2066,14 +1873,12 @@ Name: mpg, Length: 32, dtype: float64
   </tbody>
 </table>
 <p>11 rows × 12 columns</p>
-</div></div>
+</div></div></div>
 </div>
 <p><strong>Lưu ý</strong>: Ta có thể kết hợp liên tục các điều kiện lọc theo dòng &amp; cột tương tự như pipe operator trong R như sau</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="o">.</span>\
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="o">.</span>\
     <span class="n">query</span><span class="p">(</span><span class="s1">&#39;mpg &gt;= 20&#39;</span><span class="p">)</span><span class="o">.</span>\
     <span class="n">query</span><span class="p">(</span><span class="s1">&#39;cyl == 4&#39;</span><span class="p">)</span>\
     <span class="p">[[</span><span class="s1">&#39;mpg&#39;</span><span class="p">,</span> <span class="s1">&#39;am&#39;</span><span class="p">]]</span><span class="o">.</span>\
@@ -2081,12 +1886,8 @@ Name: mpg, Length: 32, dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -2137,7 +1938,7 @@ Name: mpg, Length: 32, dtype: float64
   </tbody>
 </table>
 <p>8 rows × 2 columns</p>
-</div></div>
+</div></div></div>
 </div>
 <p>Trong ví dụ trên, ta trải qua 4 bước như sau:</p>
 <ol class="arabic simple">
@@ -2148,23 +1949,17 @@ Name: mpg, Length: 32, dtype: float64
 </ol>
 <hr class="docutils" />
 <p><strong>Lưu ý</strong>: <code class="docutils literal notranslate"><span class="pre">pandas</span></code> cho phép chúng ta có thể sử dụng linh hoạt nhiều cách thức truy vấn dữ liệu. Tuy nhiên, với phương thức lấy dữ liệu theo dòng và cột thuận tiên, ta nên sử dụng kết hợp giữa <code class="docutils literal notranslate"><span class="pre">filter</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">query</span></code>.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="o">.</span>\
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="o">.</span>\
     <span class="n">query</span><span class="p">(</span><span class="s1">&#39;mpg &gt;= 20 &amp; am == 1&#39;</span><span class="p">)</span><span class="o">.</span>\
     <span class="nb">filter</span><span class="p">([</span><span class="s1">&#39;mpg&#39;</span><span class="p">,</span> <span class="s1">&#39;am&#39;</span><span class="p">])</span><span class="o">.</span>\
     <span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -2204,27 +1999,21 @@ Name: mpg, Length: 32, dtype: float64
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
 </section>
-<section id="Sắp-xếp-lại-dữ-liệu">
-<h3><span class="section-number">4.2.4. </span>Sắp xếp lại dữ liệu<a class="headerlink" href="#Sắp-xếp-lại-dữ-liệu" title="Link to this heading"></a></h3>
+<section id="sap-xep-lai-du-lieu">
+<h3><span class="section-number">4.2.4. </span>Sắp xếp lại dữ liệu<a class="headerlink" href="#sap-xep-lai-du-lieu" title="Link to this heading"></a></h3>
 <p>Ta có thể sort lại dữ liệu với method <code class="docutils literal notranslate"><span class="pre">sort_values</span></code></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lọc từ thấp đến cao</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lọc từ thấp đến cao</span>
 <span class="n">mtcars</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;mpg&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -2335,23 +2124,17 @@ Name: mpg, Length: 32, dtype: float64
   </tbody>
 </table>
 <p>32 rows × 12 columns</p>
-</div></div>
+</div></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lọc từ cao đến thấp</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lọc từ cao đến thấp</span>
 <span class="n">mtcars</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;mpg&#39;</span><span class="p">,</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -2462,20 +2245,19 @@ Name: mpg, Length: 32, dtype: float64
   </tbody>
 </table>
 <p>32 rows × 12 columns</p>
-</div></div>
+</div></div></div>
 </div>
 </section>
 </section>
-<section id="Nhóm-câu-lệnh-biến-đổi-dữ-liệu">
-<h2><span class="section-number">4.3. </span>Nhóm câu lệnh biến đổi dữ liệu<a class="headerlink" href="#Nhóm-câu-lệnh-biến-đổi-dữ-liệu" title="Link to this heading"></a></h2>
-<section id="Đổi-tên-biến">
-<h3><span class="section-number">4.3.1. </span>Đổi tên biến<a class="headerlink" href="#Đổi-tên-biến" title="Link to this heading"></a></h3>
-<p><strong>Cấu trúc</strong>: <code class="docutils literal notranslate"><span class="pre">df.rename(columns</span> <span class="pre">=</span> <span class="pre">{old_var</span> <span class="pre">:</span> <span class="pre">new_var})</span></code></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars_2</span> <span class="o">=</span> <span class="n">mtcars</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span>
+<section id="nhom-cau-lenh-bien-doi-du-lieu">
+<h2><span class="section-number">4.3. </span>Nhóm câu lệnh biến đổi dữ liệu<a class="headerlink" href="#nhom-cau-lenh-bien-doi-du-lieu" title="Link to this heading"></a></h2>
+<section id="doi-ten-bien">
+<h3><span class="section-number">4.3.1. </span>Đổi tên biến<a class="headerlink" href="#doi-ten-bien" title="Link to this heading"></a></h3>
+<p><strong>Cấu trúc</strong>:
+<code class="docutils literal notranslate"><span class="pre">df.rename(columns</span> <span class="pre">=</span> <span class="pre">{old_var</span> <span class="pre">:</span> <span class="pre">new_var})</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars_2</span> <span class="o">=</span> <span class="n">mtcars</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;mpg&#39;</span> <span class="p">:</span> <span class="s1">&#39;mpg_new&#39;</span><span class="p">,</span>
     <span class="s1">&#39;cyl&#39;</span> <span class="p">:</span> <span class="s1">&#39;cyl_new&#39;</span>
 <span class="p">})</span>
@@ -2483,12 +2265,8 @@ Name: mpg, Length: 32, dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -2598,28 +2376,22 @@ Name: mpg, Length: 32, dtype: float64
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
 </section>
-<section id="Tạo-&amp;-xóa-biến-mới">
-<h3><span class="section-number">4.3.2. </span>Tạo &amp; xóa biến mới<a class="headerlink" href="#Tạo-&-xóa-biến-mới" title="Link to this heading"></a></h3>
+<section id="tao-xoa-bien-moi">
+<h3><span class="section-number">4.3.2. </span>Tạo &amp; xóa biến mới<a class="headerlink" href="#tao-xoa-bien-moi" title="Link to this heading"></a></h3>
 <p>Ta có thể tạo và xóa biến bằng cách gán một cột mới và sử dụng <code class="docutils literal notranslate"><span class="pre">drop</span></code> method</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo biến mới</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo biến mới</span>
 <span class="n">mtcars</span><span class="p">[</span><span class="s1">&#39;new_var&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="n">mtcars</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -2703,25 +2475,19 @@ Name: mpg, Length: 32, dtype: float64
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop biến new_var</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop biến new_var</span>
 <span class="n">mtcars</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;new_var&#39;</span><span class="p">,</span>\
             <span class="n">axis</span> <span class="o">=</span> <span class="s1">&#39;columns&#39;</span><span class="p">)</span><span class="o">.</span>\
         <span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -2801,23 +2567,17 @@ Name: mpg, Length: 32, dtype: float64
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
 <p><strong>Lưu ý</strong>: Khi drop biến, ta phải lưu ý gán lại giá trị vào dataframe ban đầu. Như cách viết trên, <code class="docutils literal notranslate"><span class="pre">mtcars</span></code> sẽ chưa được loại bỏ biến <code class="docutils literal notranslate"><span class="pre">new_var</span></code></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -2901,24 +2661,18 @@ Name: mpg, Length: 32, dtype: float64
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Xóa hoàn toàn new_var</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Xóa hoàn toàn new_var</span>
 <span class="n">mtcars</span> <span class="o">=</span> <span class="n">mtcars</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;new_var&#39;</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="s1">&#39;columns&#39;</span><span class="p">)</span>
 <span class="n">mtcars</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -2998,26 +2752,20 @@ Name: mpg, Length: 32, dtype: float64
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
 <p>Bên cạnh các phương pháp trên, để thuận tiện cho việc tạo <code class="docutils literal notranslate"><span class="pre">chain</span> <span class="pre">operator</span></code>, ta có thể dùng <code class="docutils literal notranslate"><span class="pre">assign</span></code> method</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span>
     <span class="n">cyl_sqrt</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;cyl&quot;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span>
     <span class="n">mpg_new</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;mpg&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;cyl&quot;</span><span class="p">]</span>
 <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">([</span><span class="s1">&#39;mpg&#39;</span><span class="p">,</span> <span class="s1">&#39;cyl&#39;</span><span class="p">,</span> <span class="s1">&#39;cyl_sqrt&#39;</span><span class="p">,</span> <span class="s1">&#39;mpg_new&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -3080,61 +2828,49 @@ Name: mpg, Length: 32, dtype: float64
   </tbody>
 </table>
 <p>32 rows × 4 columns</p>
-</div></div>
+</div></div></div>
 </div>
 </section>
-<section id="Tạo-biến-mới-theo-nhóm">
-<h3><span class="section-number">4.3.3. </span>Tạo biến mới theo nhóm<a class="headerlink" href="#Tạo-biến-mới-theo-nhóm" title="Link to this heading"></a></h3>
+<section id="tao-bien-moi-theo-nhom">
+<h3><span class="section-number">4.3.3. </span>Tạo biến mới theo nhóm<a class="headerlink" href="#tao-bien-moi-theo-nhom" title="Link to this heading"></a></h3>
 <p>Ta có thể tạo biến mới theo nhóm bằng cách kết hợp giữa <code class="docutils literal notranslate"><span class="pre">groupby</span></code> và <code class="docutils literal notranslate"><span class="pre">transform</span></code>. Công thức như sau</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;new_var&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;group_var&#39;</span><span class="p">)[</span><span class="s1">&#39;calculated_var&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="err">`</span><span class="n">function</span><span class="err">`</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Biến đổi biến value thành mean trong từng nhóm</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Biến đổi biến value thành mean trong từng nhóm</span>
 <span class="n">mtcars</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;am&#39;</span><span class="p">)[</span><span class="s1">&#39;mpg&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-0     24.392308
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     24.392308
 1     24.392308
-        ...
+        ...    
 30    24.392308
 31    24.392308
 Name: mpg, Length: 32, dtype: float64
-</pre></div></div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo biến mới</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo biến mới</span>
 <span class="n">mtcars</span><span class="p">[</span><span class="s1">&#39;new_var&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mtcars</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;am&#39;</span><span class="p">)[</span><span class="s1">&#39;mpg&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;am == 0&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;am == 0&#39;</span><span class="p">)</span>
-</pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -3251,22 +2987,16 @@ Name: mpg, Length: 32, dtype: float64
   </tbody>
 </table>
 <p>19 rows × 13 columns</p>
-</div></div>
+</div></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;am == 1&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;am == 1&#39;</span><span class="p">)</span>
-</pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -3383,17 +3113,15 @@ Name: mpg, Length: 32, dtype: float64
   </tbody>
 </table>
 <p>13 rows × 13 columns</p>
-</div></div>
+</div></div></div>
 </div>
 </section>
-<section id="Join">
-<h3><span class="section-number">4.3.4. </span>Join<a class="headerlink" href="#Join" title="Link to this heading"></a></h3>
+<section id="join">
+<h3><span class="section-number">4.3.4. </span>Join<a class="headerlink" href="#join" title="Link to this heading"></a></h3>
 <p>Trong Python có thể join giữa 2 bảng với hàm <code class="docutils literal notranslate"><span class="pre">merge</span></code></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;employee&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="s1">&#39;Lisa&#39;</span><span class="p">,</span> <span class="s1">&#39;Sue&#39;</span><span class="p">],</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;employee&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="s1">&#39;Lisa&#39;</span><span class="p">,</span> <span class="s1">&#39;Sue&#39;</span><span class="p">],</span>
                     <span class="s1">&#39;group&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Accounting&#39;</span><span class="p">,</span> <span class="s1">&#39;Engineering&#39;</span><span class="p">,</span> <span class="s1">&#39;Engineering&#39;</span><span class="p">,</span> <span class="s1">&#39;HR&#39;</span><span class="p">]})</span>
 <span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;employee&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Lisa&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Jake&#39;</span><span class="p">],</span>
                     <span class="s1">&#39;hire_date&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2004</span><span class="p">,</span> <span class="mi">2008</span><span class="p">,</span> <span class="mi">2012</span><span class="p">]})</span>
@@ -3401,12 +3129,8 @@ Name: mpg, Length: 32, dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-  employee        group
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  employee        group
 0      Bob   Accounting
 1     Jake  Engineering
 2     Lisa  Engineering
@@ -3415,22 +3139,18 @@ Name: mpg, Length: 32, dtype: float64
 0     Lisa       2004
 1      Bob       2008
 2     Jake       2012
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output_area rendered_html docutils container">
-<div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -3474,23 +3194,17 @@ Name: mpg, Length: 32, dtype: float64
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
 <p><strong>Lưu ý</strong>: Khi dùng merge, sẽ tự động bỏ các trường không chứa trong cả 2 bảng. Nếu muốn chuyển thành <code class="docutils literal notranslate"><span class="pre">left_join</span></code>, cần thêm option <code class="docutils literal notranslate"><span class="pre">how</span></code></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s2">&quot;left&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s2">&quot;left&quot;</span><span class="p">)</span>
-</pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -3540,22 +3254,16 @@ Name: mpg, Length: 32, dtype: float64
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s1">&#39;right&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s1">&#39;right&#39;</span><span class="p">)</span>
-</pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -3599,26 +3307,20 @@ Name: mpg, Length: 32, dtype: float64
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
 <hr class="docutils" />
 <p>Với trường hợp bảng dữ liệu khác key, ta cần lựa chọn các biến ở bảng</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="s1">&#39;Lisa&#39;</span><span class="p">,</span> <span class="s1">&#39;Sue&#39;</span><span class="p">],</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="s1">&#39;Lisa&#39;</span><span class="p">,</span> <span class="s1">&#39;Sue&#39;</span><span class="p">],</span>
                     <span class="s1">&#39;salary&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">70000</span><span class="p">,</span> <span class="mi">80000</span><span class="p">,</span> <span class="mi">120000</span><span class="p">,</span> <span class="mi">90000</span><span class="p">]})</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df1</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="n">df3</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-  employee        group
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  employee        group
 0      Bob   Accounting
 1     Jake  Engineering
 2     Lisa  Engineering
@@ -3628,22 +3330,18 @@ Name: mpg, Length: 32, dtype: float64
 1  Jake   80000
 2  Lisa  120000
 3   Sue   90000
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df3</span><span class="p">,</span> <span class="n">left_on</span> <span class="o">=</span> <span class="s1">&#39;employee&#39;</span><span class="p">,</span> <span class="n">right_on</span> <span class="o">=</span> <span class="s1">&#39;name&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df3</span><span class="p">,</span> <span class="n">left_on</span> <span class="o">=</span> <span class="s1">&#39;employee&#39;</span><span class="p">,</span> <span class="n">right_on</span> <span class="o">=</span> <span class="s1">&#39;name&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output_area rendered_html docutils container">
-<div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -3698,26 +3396,20 @@ Name: mpg, Length: 32, dtype: float64
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop name khi không cần thiết</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df3</span><span class="p">,</span>
-         <span class="n">left_on</span> <span class="o">=</span> <span class="s1">&#39;employee&#39;</span><span class="p">,</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop name khi không cần thiết</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df3</span><span class="p">,</span> 
+         <span class="n">left_on</span> <span class="o">=</span> <span class="s1">&#39;employee&#39;</span><span class="p">,</span> 
          <span class="n">right_on</span> <span class="o">=</span> <span class="s1">&#39;name&#39;</span><span class="p">)</span><span class="o">.</span>\
     <span class="n">drop</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -3767,21 +3459,19 @@ Name: mpg, Length: 32, dtype: float64
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
 </section>
-<section id="Ghép-dữ-liệu">
-<h3><span class="section-number">4.3.5. </span>Ghép dữ liệu<a class="headerlink" href="#Ghép-dữ-liệu" title="Link to this heading"></a></h3>
+<section id="ghep-du-lieu">
+<h3><span class="section-number">4.3.5. </span>Ghép dữ liệu<a class="headerlink" href="#ghep-du-lieu" title="Link to this heading"></a></h3>
 <p>Với pandas, cấu trúc của DataFrame được chia thành hàng và cột. Do đó, cả 2 trường hợp ghép dòng và ghép cột, ta có thể dùng hàm <code class="docutils literal notranslate"><span class="pre">concat</span></code></p>
-<section id="Ghép-dòng">
-<h4><span class="section-number">4.3.5.1. </span>Ghép dòng<a class="headerlink" href="#Ghép-dòng" title="Link to this heading"></a></h4>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-<span class="p">{</span><span class="s2">&quot;a&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">4</span> <span class="p">,</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
-<span class="s2">&quot;b&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]},</span>
+<section id="ghep-dong">
+<h4><span class="section-number">4.3.5.1. </span>Ghép dòng<a class="headerlink" href="#ghep-dong" title="Link to this heading"></a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+<span class="p">{</span><span class="s2">&quot;a&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">4</span> <span class="p">,</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> 
+<span class="s2">&quot;b&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]},</span>    
 <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 
 <span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
@@ -3792,35 +3482,27 @@ Name: mpg, Length: 32, dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-   a  b
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   a  b
 1  4  7
 2  5  8
 3  6  9
    a  b
 0  1  8
 1  2  9
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -3870,34 +3552,27 @@ Name: mpg, Length: 32, dtype: float64
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
 </section>
-<section id="Ghép-theo-cột">
-<h4><span class="section-number">4.3.5.2. </span>Ghép theo cột<a class="headerlink" href="#Ghép-theo-cột" title="Link to this heading"></a></h4>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<section id="ghep-theo-cot">
+<h4><span class="section-number">4.3.5.2. </span>Ghép theo cột<a class="headerlink" href="#ghep-theo-cot" title="Link to this heading"></a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s2">&quot;c&quot;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">]})</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df3</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df3</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-</pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -3947,23 +3622,17 @@ Name: mpg, Length: 32, dtype: float64
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
 <p><strong>Lưu ý</strong>: Xảy ra lỗi trên vì df1 và df3 đang có 2 hệ thống index khác nhau. Muốn ghép theo cột bình thường cần reset index của dataframe đầu tiên.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span> <span class="n">df3</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span> <span class="n">df3</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-</pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -4011,31 +3680,25 @@ Name: mpg, Length: 32, dtype: float64
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
 </section>
 </section>
 </section>
-<section id="Tổng-hợp-dữ-liệu">
-<h2><span class="section-number">4.4. </span>Tổng hợp dữ liệu<a class="headerlink" href="#Tổng-hợp-dữ-liệu" title="Link to this heading"></a></h2>
-<section id="groupby-&amp;-aggregate">
-<h3><span class="section-number">4.4.1. </span>groupby &amp; aggregate<a class="headerlink" href="#groupby-&-aggregate" title="Link to this heading"></a></h3>
+<section id="tong-hop-du-lieu">
+<h2><span class="section-number">4.4. </span>Tổng hợp dữ liệu<a class="headerlink" href="#tong-hop-du-lieu" title="Link to this heading"></a></h2>
+<section id="groupby-aggregate">
+<h3><span class="section-number">4.4.1. </span>groupby &amp; aggregate<a class="headerlink" href="#groupby-aggregate" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> cho phép sử dụng nhiều cách linh hoạt để tổng hợp dữ liệu nhanh chóng với <code class="docutils literal notranslate"><span class="pre">agg</span></code> method kết hợp với <code class="docutils literal notranslate"><span class="pre">groupby</span></code> method</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Summary toàn bộ data.frame</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Summary toàn bộ data.frame</span>
 <span class="n">mtcars</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -4146,25 +3809,19 @@ Name: mpg, Length: 32, dtype: float64
   </tbody>
 </table>
 <p>8 rows × 12 columns</p>
-</div></div>
+</div></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Summary theo nhóm với biến mpg</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Summary theo nhóm với biến mpg</span>
 <span class="n">mtcars</span><span class="o">.</span>\
     <span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;am&#39;</span><span class="p">,</span> <span class="s1">&#39;vs&#39;</span><span class="p">])[</span><span class="s1">&#39;mpg&#39;</span><span class="p">]</span><span class="o">.</span>\
     <span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -4254,13 +3911,11 @@ Name: mpg, Length: 32, dtype: float64
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Summary theo nhóm, chuyển thành data.frame</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Summary theo nhóm, chuyển thành data.frame</span>
 <span class="n">mtcars</span><span class="o">.</span>\
     <span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;am&#39;</span><span class="p">,</span> <span class="s1">&#39;vs&#39;</span><span class="p">])[</span><span class="s1">&#39;mpg&#39;</span><span class="p">]</span><span class="o">.</span>\
     <span class="n">describe</span><span class="p">()</span><span class="o">.</span>\
@@ -4268,12 +3923,8 @@ Name: mpg, Length: 32, dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -4384,7 +4035,7 @@ Name: mpg, Length: 32, dtype: float64
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
 <hr class="docutils" />
 <p>Trong pandas, có 3 cách chính tổng hợp dữ liệu như sau:</p>
@@ -4393,22 +4044,16 @@ Name: mpg, Length: 32, dtype: float64
 <li><p>Dùng dictionary: <code class="docutils literal notranslate"><span class="pre">df.agg(['x':</span> <span class="pre">['mean',</span> <span class="pre">'max']])</span></code></p></li>
 <li><p>Dùng tupple: <code class="docutils literal notranslate"><span class="pre">df.agg(mean_x</span> <span class="pre">=</span> <span class="pre">('x',</span> <span class="pre">'mean'),</span> <span class="pre">max_x</span> <span class="pre">=</span> <span class="pre">('x',</span> <span class="pre">'max'))</span></code></p></li>
 </ul>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[70]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dùng list</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dùng list</span>
 <span class="n">mtcars</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;am&#39;</span><span class="p">)[</span><span class="s1">&#39;mpg&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">])</span>
 <span class="c1"># agg có thể viết đầy đủ thành aggregate</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[70]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -4448,26 +4093,20 @@ Name: mpg, Length: 32, dtype: float64
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dùng dictionary</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dùng dictionary</span>
 <span class="n">mtcars</span><span class="o">.</span>\
     <span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;am&#39;</span><span class="p">)</span><span class="o">.</span>\
-    <span class="n">agg</span><span class="p">({</span><span class="s1">&#39;mpg&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">],</span>
+    <span class="n">agg</span><span class="p">({</span><span class="s1">&#39;mpg&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">],</span> 
          <span class="s1">&#39;wt&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)]})</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -4528,28 +4167,22 @@ Name: mpg, Length: 32, dtype: float64
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
 <p>Với cách viết trên, sẽ hiện tên cột không như mong muốn, ta có thể sửa lại như sau:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p25</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p25</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
 <span class="n">p25</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="s2">&quot;25%&quot;</span>
 
 <span class="n">mtcars</span><span class="o">.</span>\
     <span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;am&#39;</span><span class="p">)</span><span class="o">.</span>\
-    <span class="n">agg</span><span class="p">({</span><span class="s1">&#39;mpg&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">p25</span><span class="p">]})</span>
+    <span class="n">agg</span><span class="p">({</span><span class="s1">&#39;mpg&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">p25</span><span class="p">]})</span>  
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -4597,26 +4230,20 @@ Name: mpg, Length: 32, dtype: float64
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
 <p>Với cách thứ 3, dùng dưới dạng thể hiện tuple sẽ cho phép ta tùy biến nhanh chóng việc tổng hợp dữ liệu</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dùng tuple</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dùng tuple</span>
 <span class="n">mtcars</span><span class="o">.</span>\
     <span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;am&#39;</span><span class="p">)</span><span class="o">.</span>\
     <span class="n">agg</span><span class="p">(</span><span class="n">q25_x</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;mpg&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -4652,18 +4279,16 @@ Name: mpg, Length: 32, dtype: float64
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
 </section>
-<section id="Pivot-table">
-<h3><span class="section-number">4.4.2. </span>Pivot table<a class="headerlink" href="#Pivot-table" title="Link to this heading"></a></h3>
+<section id="pivot-table">
+<h3><span class="section-number">4.4.2. </span>Pivot table<a class="headerlink" href="#pivot-table" title="Link to this heading"></a></h3>
 <p>Bên cạnh nhóm <code class="docutils literal notranslate"><span class="pre">groupby</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">agg</span></code>, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> cho phép sử dụng <code class="docutils literal notranslate"><span class="pre">pivot_table</span></code> để tổng hợp dữ liệu nhiều chiều</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
-    <span class="n">index</span> <span class="o">=</span> <span class="s1">&#39;am&#39;</span><span class="p">,</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mtcars</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="s1">&#39;am&#39;</span><span class="p">,</span> 
     <span class="n">columns</span> <span class="o">=</span> <span class="s1">&#39;vs&#39;</span><span class="p">,</span>
     <span class="n">aggfunc</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;mpg&#39;</span><span class="p">:</span> <span class="s1">&#39;sum&#39;</span><span class="p">,</span>
                <span class="s1">&#39;wt&#39;</span> <span class="p">:</span> <span class="s1">&#39;mean&#39;</span><span class="p">}</span>
@@ -4671,12 +4296,8 @@ Name: mpg, Length: 32, dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -4733,20 +4354,18 @@ Name: mpg, Length: 32, dtype: float64
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
 </section>
 </section>
-<section id="Các-hàm-nâng-cao">
-<h2><span class="section-number">4.5. </span>Các hàm nâng cao<a class="headerlink" href="#Các-hàm-nâng-cao" title="Link to this heading"></a></h2>
-<section id="select_dtype">
-<h3><span class="section-number">4.5.1. </span>select_dtype<a class="headerlink" href="#select_dtype" title="Link to this heading"></a></h3>
+<section id="cac-ham-nang-cao">
+<h2><span class="section-number">4.5. </span>Các hàm nâng cao<a class="headerlink" href="#cac-ham-nang-cao" title="Link to this heading"></a></h2>
+<section id="select-dtype">
+<h3><span class="section-number">4.5.1. </span>select_dtype<a class="headerlink" href="#select-dtype" title="Link to this heading"></a></h3>
 <p>pandas cho phép select cùng lúc các biến cùng thuộc một kiểu dữ liệu. Xem ví dụ dưới đây:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[75]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
     <span class="s1">&#39;y&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">],</span>
     <span class="s1">&#39;z&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
@@ -4756,39 +4375,31 @@ Name: mpg, Length: 32, dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 3 entries, 0 to 2
 Data columns (total 4 columns):
- #   Column  Non-Null Count  Dtype
----  ------  --------------  -----
- 0   x       3 non-null      int64
- 1   y       3 non-null      object
- 2   z       3 non-null      int64
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   x       3 non-null      int64  
+ 1   y       3 non-null      object 
+ 2   z       3 non-null      int64  
  3   t       3 non-null      float64
 dtypes: float64(1), int64(2), object(1)
 memory usage: 228.0+ bytes
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[76]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chọn các biến là biến số dạng integer</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chọn các biến là biến số dạng integer</span>
 <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span> <span class="o">=</span> <span class="s1">&#39;int64&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[76]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -4828,23 +4439,17 @@ memory usage: 228.0+ bytes
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chọn các biến là biến số</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chọn các biến là biến số</span>
 <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;int64&#39;</span><span class="p">,</span> <span class="s1">&#39;float64&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -4888,21 +4493,19 @@ memory usage: 228.0+ bytes
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
 </section>
-<section id="Xoay-chiều-dữ-liệu">
-<h3><span class="section-number">4.5.2. </span>Xoay chiều dữ liệu<a class="headerlink" href="#Xoay-chiều-dữ-liệu" title="Link to this heading"></a></h3>
+<section id="xoay-chieu-du-lieu">
+<h3><span class="section-number">4.5.2. </span>Xoay chiều dữ liệu<a class="headerlink" href="#xoay-chieu-du-lieu" title="Link to this heading"></a></h3>
 <p>Pandas cho phép xoay chiều dữ liệu từ ngang sang dọc và dọc sang ngang với 2 hàm:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">melt</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">long_to_wide</span></code></p></li>
 </ul>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s1">&#39;id&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span>
     <span class="s1">&#39;var1&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
     <span class="s1">&#39;var2&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">],</span>
@@ -4911,20 +4514,15 @@ memory usage: 228.0+ bytes
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[79]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span>
-</pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[79]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -4972,22 +4570,16 @@ memory usage: 228.0+ bytes
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[80]:
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">my_df</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">my_df</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">)</span>
-</pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[80]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -5044,22 +4636,16 @@ memory usage: 228.0+ bytes
   </tbody>
 </table>
 <p>9 rows × 3 columns</p>
-</div></div>
+</div></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[81]:
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">my_df</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;var1&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">my_df</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;var1&#39;</span><span class="p">])</span>
-</pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[81]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -5122,25 +4708,19 @@ memory usage: 228.0+ bytes
   </tbody>
 </table>
 <p>6 rows × 4 columns</p>
-</div></div>
+</div></div></div>
 </div>
 <hr class="docutils" />
 <p>Xoay chiều từ dọc sang ngang</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[82]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">my_df</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">my_df</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">)</span>
 <span class="n">df2</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[82]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -5197,24 +4777,18 @@ memory usage: 228.0+ bytes
   </tbody>
 </table>
 <p>9 rows × 3 columns</p>
-</div></div>
+</div></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[83]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="s1">&#39;variable&#39;</span><span class="p">,</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="s1">&#39;variable&#39;</span><span class="p">,</span> 
                 <span class="n">values</span> <span class="o">=</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">aggfunc</span> <span class="o">=</span> <span class="s1">&#39;first&#39;</span><span class="p">)</span><span class="o">.</span>\
     <span class="n">reset_index</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[83]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -5262,57 +4836,45 @@ memory usage: 228.0+ bytes
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
 </section>
-<section id="Làm-việc-với-missing-value">
-<h3><span class="section-number">4.5.3. </span>Làm việc với missing value<a class="headerlink" href="#Làm-việc-với-missing-value" title="Link to this heading"></a></h3>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[84]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_null</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[85]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_null</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
+<section id="lam-viec-voi-missing-value">
+<h3><span class="section-number">4.5.3. </span>Làm việc với missing value<a class="headerlink" href="#lam-viec-voi-missing-value" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_null</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[85]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_null</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-0    False
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    False
 1     True
 2    False
 3     True
 dtype: bool
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[86]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_null</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_null</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
                         <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span>
                         <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
 <span class="n">df_null</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[86]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -5356,23 +4918,17 @@ dtype: bool
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[87]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dropna sẽ loại tất cả các dòng chứa missing value</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dropna sẽ loại tất cả các dòng chứa missing value</span>
 <span class="n">df_null</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[87]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -5404,22 +4960,16 @@ dtype: bool
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[88]:
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_null</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="s1">&#39;columns&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_null</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="s1">&#39;columns&#39;</span><span class="p">)</span>
-</pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[88]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -5455,25 +5005,19 @@ dtype: bool
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">fillna</span></code>: Cho phép điền giá trị thiếu vào missing value</p></li>
 </ul>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[89]:
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_null</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">99</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_null</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">99</span><span class="p">)</span>
-</pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[89]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -5517,18 +5061,16 @@ dtype: bool
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
 </section>
-<section id="Các-hàm-khác">
-<h3><span class="section-number">4.5.4. </span>Các hàm khác<a class="headerlink" href="#Các-hàm-khác" title="Link to this heading"></a></h3>
-<section id="Lag">
-<h4><span class="section-number">4.5.4.1. </span>Lag<a class="headerlink" href="#Lag" title="Link to this heading"></a></h4>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[90]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<section id="cac-ham-khac">
+<h3><span class="section-number">4.5.4. </span>Các hàm khác<a class="headerlink" href="#cac-ham-khac" title="Link to this heading"></a></h3>
+<section id="lag">
+<h4><span class="section-number">4.5.4.1. </span>Lag<a class="headerlink" href="#lag" title="Link to this heading"></a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s1">&#39;date&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span>
     <span class="s1">&#39;value&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span>
 <span class="p">})</span>
@@ -5536,12 +5078,8 @@ dtype: bool
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[90]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -5581,30 +5119,23 @@ dtype: bool
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[91]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;value_1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[92]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;value_1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[92]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
 </pre></div>
 </div>
-<div class="output_area rendered_html docutils container">
-<div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -5648,17 +5179,15 @@ dtype: bool
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
 </section>
-<section id="Rank">
-<h4><span class="section-number">4.5.4.2. </span>Rank<a class="headerlink" href="#Rank" title="Link to this heading"></a></h4>
+<section id="rank">
+<h4><span class="section-number">4.5.4.2. </span>Rank<a class="headerlink" href="#rank" title="Link to this heading"></a></h4>
 <p>Các biến cũng có thể được <code class="docutils literal notranslate"><span class="pre">rank</span></code> đơn giản với method rank như sau</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s1">&#39;id&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span>
     <span class="s1">&#39;var1&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
     <span class="s1">&#39;var2&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">],</span>
@@ -5667,41 +5196,31 @@ dtype: bool
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-intense-fg ansi-bold">In[2], line 1</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span> my_df <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">pl</span><span style="color: rgb(98,98,98)">.</span>DataFrame({
-<span class="ansi-green-fg">      2</span>     <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">id</span><span style="color: rgb(175,0,0)">&#39;</span> : [<span style="color: rgb(98,98,98)">1</span>,<span style="color: rgb(98,98,98)">2</span>,<span style="color: rgb(98,98,98)">3</span>],
-<span class="ansi-green-fg">      3</span>     <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">var1</span><span style="color: rgb(175,0,0)">&#39;</span> : [<span style="color: rgb(98,98,98)">5</span>,<span style="color: rgb(98,98,98)">4</span>,<span style="color: rgb(98,98,98)">2</span>],
-<span class="ansi-green-fg">      4</span>     <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">var2</span><span style="color: rgb(175,0,0)">&#39;</span> : [<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">a</span><span style="color: rgb(175,0,0)">&#39;</span>, <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">a</span><span style="color: rgb(175,0,0)">&#39;</span>, <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">b</span><span style="color: rgb(175,0,0)">&#39;</span>],
-<span class="ansi-green-fg">      5</span>     <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">var3</span><span style="color: rgb(175,0,0)">&#39;</span> : [<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">x</span><span style="color: rgb(175,0,0)">&#39;</span>, <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">y</span><span style="color: rgb(175,0,0)">&#39;</span>, <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">z</span><span style="color: rgb(175,0,0)">&#39;</span>]
-<span class="ansi-green-fg">      6</span> })
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">my_df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="s1">&#39;id&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="s1">&#39;var1&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="s1">&#39;var2&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">],</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="s1">&#39;var3&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="p">})</span>
 
-<span class="ansi-red-intense-fg ansi-bold">NameError</span>: name &#39;pl&#39; is not defined
-</pre></div></div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+<span class="ne">NameError</span>: name &#39;pl&#39; is not defined
 </pre></div>
 </div>
 </div>
+</div>
 </section>
 </section>
 </section>
-<section id="Đọc-&amp;-ghi-dữ-liệu">
-<h2><span class="section-number">4.6. </span>Đọc &amp; ghi dữ liệu<a class="headerlink" href="#Đọc-&-ghi-dữ-liệu" title="Link to this heading"></a></h2>
-<section id="Import-dữ-liệu">
-<h3><span class="section-number">4.6.1. </span>Import dữ liệu<a class="headerlink" href="#Import-dữ-liệu" title="Link to this heading"></a></h3>
-<section id="Kết-nối-với-database">
-<h4><span class="section-number">4.6.1.1. </span>Kết nối với database<a class="headerlink" href="#Kết-nối-với-database" title="Link to this heading"></a></h4>
+<section id="doc-ghi-du-lieu">
+<h2><span class="section-number">4.6. </span>Đọc &amp; ghi dữ liệu<a class="headerlink" href="#doc-ghi-du-lieu" title="Link to this heading"></a></h2>
+<section id="import-du-lieu">
+<h3><span class="section-number">4.6.1. </span>Import dữ liệu<a class="headerlink" href="#import-du-lieu" title="Link to this heading"></a></h3>
+<section id="ket-noi-voi-database">
+<h4><span class="section-number">4.6.1.1. </span>Kết nối với database<a class="headerlink" href="#ket-noi-voi-database" title="Link to this heading"></a></h4>
 <p>Ta có thể đọc dữ liệu từ SQL Server thông qua odbc</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyodbc</span>
 <span class="n">conn</span> <span class="o">=</span> <span class="n">pyodbc</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
@@ -5725,28 +5244,22 @@ Cell <span class="ansi-green-intense-fg ansi-bold">In[2], line 1</span>
 </pre></div>
 </div>
 </section>
-<section id="Import-từ-file">
-<h4><span class="section-number">4.6.1.2. </span>Import từ file<a class="headerlink" href="#Import-từ-file" title="Link to this heading"></a></h4>
+<section id="import-tu-file">
+<h4><span class="section-number">4.6.1.2. </span>Import từ file<a class="headerlink" href="#import-tu-file" title="Link to this heading"></a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;file.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Kiểm tra các kiểu dữ liệu có thể đọc</p></li>
 </ul>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[94]:
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>pd.read_*
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>pd.read_*
-</pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-pd.read_clipboard
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pd.read_clipboard
 pd.read_csv
 pd.read_excel
 pd.read_feather
@@ -5766,18 +5279,18 @@ pd.read_sql_table
 pd.read_stata
 pd.read_table
 pd.read_xml
-</pre></div></div>
-</div>
-</section>
-</section>
-<section id="Lưu-dữ-liệu">
-<h3><span class="section-number">4.6.2. </span>Lưu dữ liệu<a class="headerlink" href="#Lưu-dữ-liệu" title="Link to this heading"></a></h3>
-<p><strong>Lưu dưới dạng pickle</strong></p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[95]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+</div>
+</div>
+</section>
+</section>
+<section id="luu-du-lieu">
+<h3><span class="section-number">4.6.2. </span>Lưu dữ liệu<a class="headerlink" href="#luu-du-lieu" title="Link to this heading"></a></h3>
+<p><strong>Lưu dưới dạng pickle</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s1">&#39;x&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span>
     <span class="s1">&#39;y&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
     <span class="s1">&#39;group&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span>
@@ -5785,12 +5298,12 @@ pd.read_xml
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[96]:
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pickle</span> 
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pickle</span>
-</pre></div>
 </div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save data</span>
@@ -5802,23 +5315,22 @@ pd.read_xml
 </pre></div>
 </div>
 <hr class="docutils" />
-<p>Ngoài ra, pandas có thể hỗ trợ dễ dàng lưu trữ thành các định dạng khác như xlsx, parquet,…</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[97]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s1">&#39;test_excel_pdf.xlsx&#39;</span><span class="p">)</span>
+<p>Ngoài ra, pandas có thể hỗ trợ dễ dàng lưu trữ thành các định dạng khác như xlsx, parquet,...</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s1">&#39;test_excel_pdf.xlsx&#39;</span><span class="p">)</span>
 <span class="n">my_df</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="s1">&#39;test_pq.xlsx&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</div>
 </section>
 </section>
-<section id="Tài-liệu-tham-khảo">
-<h2><span class="section-number">4.7. </span>Tài liệu tham khảo<a class="headerlink" href="#Tài-liệu-tham-khảo" title="Link to this heading"></a></h2>
+<section id="tai-lieu-tham-khao">
+<h2><span class="section-number">4.7. </span>Tài liệu tham khảo<a class="headerlink" href="#tai-lieu-tham-khao" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p><a href="#id1"><span class="problematic" id="id2">`https://github.com/jorisvandenbossche/pandas-tutorial &lt;&gt;`__</span></a></p></li>
-<li><p><a href="#id1"><span class="problematic" id="id3">`https://aeturrell.github.io/python4DS/data-tidy.html &lt;&gt;`__</span></a></p></li>
+<li><p><a class="reference internal" href="#"><span class="xref myst">https://github.com/jorisvandenbossche/pandas-tutorial</span></a></p></li>
+<li><p><a class="reference internal" href="#"><span class="xref myst">https://aeturrell.github.io/python4DS/data-tidy.html</span></a></p></li>
 </ul>
 </section>
 </section>
