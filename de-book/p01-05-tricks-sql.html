@@ -1,31 +1,32 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="vi" data-content_root="./">
+<html class="writer-html5" lang="vn" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5. Mẹo với SQL &mdash; Tài liệu Khai thác dữ liệu với SQL 2019</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+  <title>5. Mẹo với SQL &mdash; Data Engineer book 2025 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0cebd926" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=33847982"></script>
+      <script src="_static/documentation_options.js?v=6c11a7b2"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="_static/copybutton.js?v=f281be69"></script>
-      <script src="_static/translations.js?v=4c1d55b0"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Tìm Kiếm" href="search.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="6. SQLCMD" href="p01-06-sqlcmd.html" />
     <link rel="prev" title="4. SQL style guide" href="p01-04-sql-style.html" /> 
 </head>
@@ -39,7 +40,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            Khai thác dữ liệu với SQL
+            Data Engineer book
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -56,36 +57,36 @@
 <li class="toctree-l1"><a class="reference internal" href="p01-03-sql-tuning.html">3. SQL tuning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-04-sql-style.html">4. SQL style guide</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">5. Mẹo với SQL</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Kiểm-tra-kiểu-dữ-liệu-trong-bảng">5.1. Kiểm tra kiểu dữ liệu trong bảng</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Dữ-liệu-bị-collate">5.2. Dữ liệu bị collate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Drop-nhiều-bảng-theo-điều-kiện">5.3. Drop nhiều bảng theo điều kiện</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Auto-Wrap-in-MSSQL">5.4. Auto Wrap in MSSQL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Format-định-dạng-thêm-ký-tự-00-trước-số">5.5. Format định dạng thêm ký tự 00 trước số</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Kiểm-tra-định-dạng-dữ-liệu-một-bảng">5.6. Kiểm tra định dạng dữ liệu một bảng</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Convert-từ-tiếng-Việt-có-dấu-sang-không-dấu">5.7. Convert từ tiếng Việt có dấu sang không dấu</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Functions-chọn-giá-trị-lớn-hơn">5.8. Functions chọn giá trị lớn hơn</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Procedure-pivot-vs.-unpivot">5.9. Procedure pivot vs. unpivot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Đổi-tên-bảng-và-tên-cột">5.10. Đổi tên bảng và tên cột</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Viết-hoa-chữ-đầu">5.11. Viết hoa chữ đầu</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Tạo-floor-date">5.12. Tạo floor date</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Clean-city">5.13. Clean city</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Kiểm-tra-chất-lượng-dữ-liệu-hàng-ngày">5.14. Kiểm tra chất lượng dữ liệu hàng ngày</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Sửa-default-template-trong-SQL">5.15. Sửa default template trong SQL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Bắt-đầu-têm-bảng-với-DIM">5.16. Bắt đầu têm bảng với DIM</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Xóa-bảng-nếu-tồn-tại">5.17. Xóa bảng nếu tồn tại</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Tìm-kiếm-kiểu-dữ-liệu-trong-bảng-của-db">5.18. Tìm kiếm kiểu dữ liệu trong bảng của db</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Sử-dụng-drop-và-create-trong-cùng-batch">5.19. Sử dụng drop và create trong cùng batch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Phân-biệt-định-dạng-integer">5.20. Phân biệt định dạng integer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#VARCHAR-vs.-NVARCHAR">5.21. VARCHAR vs. NVARCHAR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Primary-key-vs.-Unique-key">5.22. Primary key vs. Unique key</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#EXEC-vs.-EXEC()">5.23. EXEC vs. EXEC()</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Xem-tất-cả-các-user-defined-procedure">5.24. Xem tất cả các user-defined procedure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Làm-việc-với-link-server">5.25. Làm việc với link server</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Procedure-tạo-nhiều-link-server">5.25.1. Procedure tạo nhiều link server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kiem-tra-kieu-du-lieu-trong-bang">5.1. Kiểm tra kiểu dữ liệu trong bảng</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#du-lieu-bi-collate">5.2. Dữ liệu bị collate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#drop-nhieu-bang-theo-dieu-kien">5.3. Drop nhiều bảng theo điều kiện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#auto-wrap-in-mssql">5.4. Auto Wrap in MSSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#format-dinh-dang-them-ky-tu-00-truoc-so">5.5. Format định dạng thêm ký tự 00 trước số</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kiem-tra-dinh-dang-du-lieu-mot-bang">5.6. Kiểm tra định dạng dữ liệu một bảng</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#convert-tu-tieng-viet-co-dau-sang-khong-dau">5.7. Convert từ tiếng Việt có dấu sang không dấu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#functions-chon-gia-tri-lon-hon">5.8. Functions chọn giá trị lớn hơn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#procedure-pivot-vs-unpivot">5.9. Procedure pivot vs. unpivot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#doi-ten-bang-va-ten-cot">5.10. Đổi tên bảng và tên cột</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#viet-hoa-chu-dau">5.11. Viết hoa chữ đầu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tao-floor-date">5.12. Tạo floor date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clean-city">5.13. Clean city</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kiem-tra-chat-luong-du-lieu-hang-ngay">5.14. Kiểm tra chất lượng dữ liệu hàng ngày</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sua-default-template-trong-sql">5.15. Sửa default template trong SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bat-dau-tem-bang-voi-dim">5.16. Bắt đầu têm bảng với DIM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#xoa-bang-neu-ton-tai">5.17. Xóa bảng nếu tồn tại</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tim-kiem-kieu-du-lieu-trong-bang-cua-db">5.18. Tìm kiếm kiểu dữ liệu trong bảng của db</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#su-dung-drop-va-create-trong-cung-batch">5.19. Sử dụng drop và create trong cùng batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#phan-biet-dinh-dang-integer">5.20. Phân biệt định dạng integer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#varchar-vs-nvarchar">5.21. VARCHAR vs. NVARCHAR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#primary-key-vs-unique-key">5.22. Primary key vs. Unique key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exec-vs-exec">5.23. EXEC vs. EXEC()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#xem-tat-ca-cac-user-defined-procedure">5.24. Xem tất cả các user-defined procedure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lam-viec-voi-link-server">5.25. Làm việc với link server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#procedure-tao-nhieu-link-server">5.25.1. Procedure tạo nhiều link server</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Tìm-tất-cả-các-bảng,-cột-trong-Database">5.26. Tìm tất cả các bảng, cột trong Database</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Chạy-file-.BAT-từ-T-SQL">5.27. Chạy file .BAT từ T-SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tim-tat-ca-cac-bang-cot-trong-database">5.26. Tìm tất cả các bảng, cột trong Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chay-file-bat-tu-t-sql">5.27. Chạy file .BAT từ T-SQL</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="p01-06-sqlcmd.html">6. SQLCMD</a></li>
@@ -99,7 +100,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Khai thác dữ liệu với SQL</a>
+          <a href="index.html">Data Engineer book</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -117,52 +118,52 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Mẹo-với-SQL">
-<h1><span class="section-number">5. </span>Mẹo với SQL<a class="headerlink" href="#Mẹo-với-SQL" title="Link to this heading"></a></h1>
-<section id="Kiểm-tra-kiểu-dữ-liệu-trong-bảng">
-<h2><span class="section-number">5.1. </span>Kiểm tra kiểu dữ liệu trong bảng<a class="headerlink" href="#Kiểm-tra-kiểu-dữ-liệu-trong-bảng" title="Link to this heading"></a></h2>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">COLUMN_NAME</span><span class="p">,</span><span class="w"> </span><span class="n">DATA_TYPE</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">INFORMATION_SCHEMA</span><span class="p">.</span><span class="n">COLUMNS</span>
+  <section id="meo-voi-sql">
+<h1><span class="section-number">5. </span>Mẹo với SQL<a class="headerlink" href="#meo-voi-sql" title="Link to this heading"></a></h1>
+<section id="kiem-tra-kieu-du-lieu-trong-bang">
+<h2><span class="section-number">5.1. </span>Kiểm tra kiểu dữ liệu trong bảng<a class="headerlink" href="#kiem-tra-kieu-du-lieu-trong-bang" title="Link to this heading"></a></h2>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">COLUMN_NAME</span><span class="p">,</span><span class="w"> </span><span class="n">DATA_TYPE</span><span class="w"> </span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">INFORMATION_SCHEMA</span><span class="p">.</span><span class="n">COLUMNS</span><span class="w"> </span>
 <span class="k">WHERE</span><span class="w"> </span><span class="k">TABLE_NAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;ACCOUNT&#39;</span><span class="w"> </span><span class="c1">-- Điền tên bảng</span>
 </pre></div>
 </div>
 </section>
-<section id="Dữ-liệu-bị-collate">
-<h2><span class="section-number">5.2. </span>Dữ liệu bị collate<a class="headerlink" href="#Dữ-liệu-bị-collate" title="Link to this heading"></a></h2>
+<section id="du-lieu-bi-collate">
+<h2><span class="section-number">5.2. </span>Dữ liệu bị collate<a class="headerlink" href="#du-lieu-bi-collate" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Khi làm việc, dữ liệu các bảng có thể bị convert định dạng khác nhau. Trong trường hợp này, phải dùng <code class="docutils literal notranslate"><span class="pre">COLLATE</span> <span class="pre">DATABASE_DEFAULT</span></code></p></li>
 </ul>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span>
 <span class="n">INFORMATION_SCHEMA</span><span class="p">.</span><span class="n">columns</span>
-<span class="k">where</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="k">COLLATE</span><span class="w"> </span><span class="n">DATABASE_DEFAULT</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">new_table</span><span class="w"> </span><span class="k">COLLATE</span><span class="w"> </span><span class="n">DATABASE_DEFAULT</span>
+<span class="k">where</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="k">COLLATE</span><span class="w"> </span><span class="n">DATABASE_DEFAULT</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">new_table</span><span class="w"> </span><span class="k">COLLATE</span><span class="w"> </span><span class="n">DATABASE_DEFAULT</span><span class="w"> </span>
 <span class="k">from</span><span class="w"> </span><span class="n">table_rename</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </section>
-<section id="Drop-nhiều-bảng-theo-điều-kiện">
-<h2><span class="section-number">5.3. </span>Drop nhiều bảng theo điều kiện<a class="headerlink" href="#Drop-nhiều-bảng-theo-điều-kiện" title="Link to this heading"></a></h2>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">declare</span><span class="w"> </span><span class="o">@</span><span class="n">string</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)</span>
+<section id="drop-nhieu-bang-theo-dieu-kien">
+<h2><span class="section-number">5.3. </span>Drop nhiều bảng theo điều kiện<a class="headerlink" href="#drop-nhieu-bang-theo-dieu-kien" title="Link to this heading"></a></h2>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">declare</span><span class="w"> </span><span class="o">@</span><span class="n">string</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)</span><span class="w"> </span>
 <span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">STRING</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
-<span class="k">SELECT</span><span class="w"> </span><span class="o">@</span><span class="n">STRING</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">STRING</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;DROP TABLE ANALYTICS.DBO.&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">TABLE_NAME</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;;&#39;</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">ANALYTICS</span><span class="p">.</span><span class="n">INFORMATION_SCHEMA</span><span class="p">.</span><span class="n">TABLES</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">@</span><span class="n">STRING</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">STRING</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;DROP TABLE ANALYTICS.DBO.&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">TABLE_NAME</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;;&#39;</span><span class="w"> </span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">ANALYTICS</span><span class="p">.</span><span class="n">INFORMATION_SCHEMA</span><span class="p">.</span><span class="n">TABLES</span><span class="w"> </span>
 <span class="k">WHERE</span><span class="w"> </span><span class="k">TABLE_NAME</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;Mckinsey%&#39;</span>
 <span class="k">exec</span><span class="w"> </span><span class="p">(</span><span class="o">@</span><span class="n">string</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
-<section id="Auto-Wrap-in-MSSQL">
-<h2><span class="section-number">5.4. </span>Auto Wrap in MSSQL<a class="headerlink" href="#Auto-Wrap-in-MSSQL" title="Link to this heading"></a></h2>
+<section id="auto-wrap-in-mssql">
+<h2><span class="section-number">5.4. </span>Auto Wrap in MSSQL<a class="headerlink" href="#auto-wrap-in-mssql" title="Link to this heading"></a></h2>
 <p>Tools &gt;&gt; Options &gt;&gt; Text Editor &gt;&gt; Transact SQL &gt;&gt; General &gt;&gt; WordWrap</p>
 </section>
-<section id="Format-định-dạng-thêm-ký-tự-00-trước-số">
-<h2><span class="section-number">5.5. </span>Format định dạng thêm ký tự 00 trước số<a class="headerlink" href="#Format-định-dạng-thêm-ký-tự-00-trước-số" title="Link to this heading"></a></h2>
+<section id="format-dinh-dang-them-ky-tu-00-truoc-so">
+<h2><span class="section-number">5.5. </span>Format định dạng thêm ký tự 00 trước số<a class="headerlink" href="#format-dinh-dang-them-ky-tu-00-truoc-so" title="Link to this heading"></a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="n">FORMAT</span><span class="p">(</span><span class="mi">01</span><span class="p">,</span><span class="s1">&#39;00#&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">index</span>
 </pre></div>
 </div>
 </section>
-<section id="Kiểm-tra-định-dạng-dữ-liệu-một-bảng">
-<h2><span class="section-number">5.6. </span>Kiểm tra định dạng dữ liệu một bảng<a class="headerlink" href="#Kiểm-tra-định-dạng-dữ-liệu-một-bảng" title="Link to this heading"></a></h2>
+<section id="kiem-tra-dinh-dang-du-lieu-mot-bang">
+<h2><span class="section-number">5.6. </span>Kiểm tra định dạng dữ liệu một bảng<a class="headerlink" href="#kiem-tra-dinh-dang-du-lieu-mot-bang" title="Link to this heading"></a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Với Link server</span>
 <span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">ANHNT67</span><span class="p">.</span><span class="k">DATA</span><span class="p">.</span><span class="n">INFORMATION_SCHEMA</span><span class="p">.</span><span class="n">COLUMNS</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="k">TABLE_NAME</span><span class="o">=</span><span class="s1">&#39;CARD_LIVE&#39;</span>
 
@@ -170,19 +171,19 @@
 <span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">COLUMNS</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="k">TABLE_NAME</span><span class="o">=</span><span class="s1">&#39;CARD_LIVE&#39;</span>
 
 <span class="c1">-- Kiểm tra toàn bộ thông tin</span>
-<span class="n">sp_help</span><span class="w"> </span><span class="k">table_name</span>
+<span class="n">sp_help</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span>
 <span class="n">sp_help</span><span class="w"> </span><span class="n">CARD_LIVE</span>
 </pre></div>
 </div>
 </section>
-<section id="Convert-từ-tiếng-Việt-có-dấu-sang-không-dấu">
-<h2><span class="section-number">5.7. </span>Convert từ tiếng Việt có dấu sang không dấu<a class="headerlink" href="#Convert-từ-tiếng-Việt-có-dấu-sang-không-dấu" title="Link to this heading"></a></h2>
+<section id="convert-tu-tieng-viet-co-dau-sang-khong-dau">
+<h2><span class="section-number">5.7. </span>Convert từ tiếng Việt có dấu sang không dấu<a class="headerlink" href="#convert-tu-tieng-viet-co-dau-sang-khong-dau" title="Link to this heading"></a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">fChuyenCoDauThanhKhongDau</span><span class="p">](</span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
 <span class="k">RETURNS</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">)</span>
 <span class="k">AS</span>
-<span class="k">BEGIN</span>
+<span class="k">BEGIN</span><span class="w">    </span>
 <span class="w">    </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="w">  </span><span class="k">RETURN</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
-
+<span class="w">   </span>
 <span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">RT</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">)</span>
 <span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">SIGN_CHARS</span><span class="w"> </span><span class="k">NCHAR</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span>
 <span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">UNSIGN_CHARS</span><span class="w"> </span><span class="k">NCHAR</span><span class="w"> </span><span class="p">(</span><span class="mi">256</span><span class="p">)</span>
@@ -192,17 +193,17 @@
 
 <span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">COUNTER</span><span class="w"> </span><span class="nb">int</span>
 <span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">COUNTER1</span><span class="w"> </span><span class="nb">int</span>
-
+<span class="w">   </span>
 <span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">COUNTER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 <span class="w">    </span><span class="n">WHILE</span><span class="w"> </span><span class="p">(</span><span class="o">@</span><span class="n">COUNTER</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">LEN</span><span class="p">(</span><span class="o">@</span><span class="n">inputVar</span><span class="p">))</span>
-<span class="w">    </span><span class="k">BEGIN</span>
+<span class="w">    </span><span class="k">BEGIN</span><span class="w">  </span>
 <span class="w">        </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">COUNTER1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 <span class="w">        </span><span class="n">WHILE</span><span class="w"> </span><span class="p">(</span><span class="o">@</span><span class="n">COUNTER1</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">LEN</span><span class="p">(</span><span class="o">@</span><span class="n">SIGN_CHARS</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <span class="w">        </span><span class="k">BEGIN</span>
 <span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="n">UNICODE</span><span class="p">(</span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">SIGN_CHARS</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">COUNTER1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UNICODE</span><span class="p">(</span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">inputVar</span><span class="p">,</span><span class="o">@</span><span class="n">COUNTER</span><span class="w"> </span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
-<span class="w">            </span><span class="k">BEGIN</span>
+<span class="w">            </span><span class="k">BEGIN</span><span class="w">          </span>
 <span class="w">                </span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">COUNTER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">                    </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">UNSIGN_CHARS</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">COUNTER1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">inputVar</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">COUNTER</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">LEN</span><span class="p">(</span><span class="o">@</span><span class="n">inputVar</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">UNSIGN_CHARS</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">COUNTER1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">inputVar</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">COUNTER</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">LEN</span><span class="p">(</span><span class="o">@</span><span class="n">inputVar</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w">      </span>
 <span class="w">                </span><span class="k">ELSE</span>
 <span class="w">                    </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">inputVar</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">COUNTER</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">UNSIGN_CHARS</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">COUNTER1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">inputVar</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">COUNTER</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">LEN</span><span class="p">(</span><span class="o">@</span><span class="n">inputVar</span><span class="p">)</span><span class="o">-</span><span class="w"> </span><span class="o">@</span><span class="n">COUNTER</span><span class="p">)</span>
 <span class="w">                </span><span class="n">BREAK</span>
@@ -219,17 +220,17 @@
 <ul class="simple">
 <li><p>Ví dụ</p></li>
 </ul>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">fChuyenCoDauThanhKhongDau</span><span class="p">(</span><span class="n">N</span><span class="s1">&#39;Một thiên thần&#39;</span><span class="p">)</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">fChuyenCoDauThanhKhongDau</span><span class="p">(</span><span class="n">N</span><span class="s1">&#39;Một thiên thần&#39;</span><span class="p">)</span><span class="w"> </span>
 </pre></div>
 </div>
 </section>
-<section id="Functions-chọn-giá-trị-lớn-hơn">
-<h2><span class="section-number">5.8. </span>Functions chọn giá trị lớn hơn<a class="headerlink" href="#Functions-chọn-giá-trị-lớn-hơn" title="Link to this heading"></a></h2>
+<section id="functions-chon-gia-tri-lon-hon">
+<h2><span class="section-number">5.8. </span>Functions chọn giá trị lớn hơn<a class="headerlink" href="#functions-chon-gia-tri-lon-hon" title="Link to this heading"></a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="cm">/********************************</span>
 <span class="cm">Script:         Function lấy giá trị lớn hơn</span>
 <span class="cm">Author:         TrangTQ2</span>
 <span class="cm">Created date:   20190301</span>
-<span class="cm">Modifed date:</span>
+<span class="cm">Modifed date:   </span>
 <span class="cm">========================================</span>
 <span class="cm">Description: Tạo fuction lấy giá trị lớn hơn trong 2 số</span>
 
@@ -247,13 +248,13 @@
 </pre></div>
 </div>
 </section>
-<section id="Procedure-pivot-vs.-unpivot">
-<h2><span class="section-number">5.9. </span>Procedure pivot vs. unpivot<a class="headerlink" href="#Procedure-pivot-vs.-unpivot" title="Link to this heading"></a></h2>
+<section id="procedure-pivot-vs-unpivot">
+<h2><span class="section-number">5.9. </span>Procedure pivot vs. unpivot<a class="headerlink" href="#procedure-pivot-vs-unpivot" title="Link to this heading"></a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="cm">/********************************</span>
 <span class="cm">Script:         Procedure pivot và unpivot</span>
 <span class="cm">Author:         TrangTQ2</span>
 <span class="cm">Created date:   20190301</span>
-<span class="cm">Modifed date:</span>
+<span class="cm">Modifed date:   </span>
 <span class="cm">========================================</span>
 <span class="cm">Description: Tạo procedure pivot và unpivot trong SQL với concept giống dcast và melt trong R</span>
 
@@ -275,7 +276,7 @@
 
 <span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">##</span><span class="n">student_wide</span>
 
-<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
 <span class="k">into</span><span class="w"> </span><span class="o">##</span><span class="n">student_long</span><span class="w"> </span><span class="k">FROM</span>
 <span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
 <span class="k">FROM</span><span class="w"> </span><span class="o">##</span><span class="n">student_wide</span><span class="p">)</span><span class="w"> </span><span class="n">a</span>
@@ -285,9 +286,9 @@
 
 <span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">##</span><span class="n">student_long</span>
 
-<span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span>
+<span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span>
 <span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">##</span><span class="n">student_long</span><span class="p">)</span><span class="w"> </span><span class="n">a</span>
-<span class="n">pivot</span>
+<span class="n">pivot</span><span class="w"> </span>
 <span class="p">(</span><span class="k">sum</span><span class="p">(</span><span class="n">value_var</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">group_var</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">([</span><span class="n">mark1</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">mark2</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="n">mark3</span><span class="p">]))</span><span class="w"> </span><span class="n">b</span>
 
 <span class="c1">---------------------------------------------------CREATE PROCEDURE TO PIVOT---------------------------------------------</span>
@@ -306,18 +307,18 @@
 <span class="s1">declare @group_value nvarchar(max)</span>
 <span class="s1">set @group_value = STUFF(</span>
 <span class="s1">(SELECT &#39;&#39;,&#39;&#39; + &#39;&#39;[&#39;&#39; + b.&#39;</span><span class="o">+@</span><span class="k">group</span><span class="o">+</span><span class="s1">&#39; + &#39;&#39;]&#39;&#39;</span>
-<span class="s1">              FROM</span>
+<span class="s1">              FROM </span>
 <span class="s1">              (select distinct &#39;</span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="k">group</span><span class="w"> </span><span class="o">+</span><span class="s1">&#39; from &#39;</span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="k">data</span><span class="w"> </span><span class="o">+</span><span class="s1">&#39;) b</span>
 <span class="s1">              FOR XML PATH (&#39;&#39;&#39;&#39;)),1,1,&#39;&#39;&#39;&#39;)</span>
 
 <span class="s1">declare @sqlstr nvarchar(max)</span>
 <span class="s1">set @sqlstr = N&#39;&#39;</span>
 <span class="s1">drop table if exists &#39;</span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="n">stored_data</span><span class="w"> </span><span class="o">+</span><span class="s1">&#39;</span>
-<span class="s1">select *</span>
+<span class="s1">select * </span>
 <span class="s1">into &#39;</span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="n">stored_data</span><span class="w"> </span><span class="o">+</span><span class="s1">&#39;</span>
-<span class="s1">from</span>
+<span class="s1">from </span>
 <span class="s1">(select &#39;</span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="k">group</span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;, &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="k">row</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;, &#39;</span><span class="o">+@</span><span class="n">value</span><span class="w"> </span><span class="o">+</span><span class="s1">&#39;  from &#39;</span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="k">data</span><span class="w"> </span><span class="o">+</span><span class="s1">&#39;) a</span>
-<span class="s1">pivot</span>
+<span class="s1">pivot </span>
 <span class="s1">(&#39;</span><span class="o">+@</span><span class="k">function</span><span class="o">+</span><span class="s1">&#39;(&#39;</span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="n">value</span><span class="w"> </span><span class="o">+</span><span class="s1">&#39;) for &#39;</span><span class="o">+@</span><span class="k">group</span><span class="o">+</span><span class="s1">&#39; in (&#39;&#39; + @group_value + &#39;&#39;)) b</span>
 <span class="s1">&#39;&#39;</span>
 <span class="s1">exec sp_executesql @sqlstr</span>
@@ -326,10 +327,10 @@
 <span class="k">end</span><span class="p">;</span>
 
 
-<span class="n">sql_pivot</span><span class="w"> </span><span class="o">@</span><span class="k">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;##student_long&#39;</span><span class="p">,</span>
+<span class="n">sql_pivot</span><span class="w"> </span><span class="o">@</span><span class="k">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;##student_long&#39;</span><span class="p">,</span><span class="w"> </span>
 <span class="w">          </span><span class="o">@</span><span class="k">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;id&#39;</span><span class="p">,</span>
-<span class="w">          </span><span class="o">@</span><span class="k">group</span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;group_var&#39;</span><span class="p">,</span>
-<span class="w">          </span><span class="o">@</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;value_var&#39;</span><span class="p">,</span>
+<span class="w">          </span><span class="o">@</span><span class="k">group</span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;group_var&#39;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">          </span><span class="o">@</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;value_var&#39;</span><span class="p">,</span><span class="w"> </span>
 <span class="w">          </span><span class="o">@</span><span class="k">function</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;sum&#39;</span><span class="p">,</span>
 <span class="w">          </span><span class="o">@</span><span class="n">stored_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;##student_wide2&#39;</span>
 
@@ -340,41 +341,41 @@
 <span class="c1">---------------------------------------------------CREATE PROCEDURE TO UNPIVOT---------------------------------------------</span>
 
 <span class="c1">--drop procedure if exists sql_unpivot</span>
-<span class="k">create</span><span class="w"> </span><span class="k">procedure</span><span class="w"> </span><span class="n">sql_unpivot</span>
+<span class="k">create</span><span class="w"> </span><span class="k">procedure</span><span class="w"> </span><span class="n">sql_unpivot</span><span class="w"> </span>
 <span class="w"> </span><span class="o">@</span><span class="n">db</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;tempdb&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">--Database contains data</span>
 <span class="o">@</span><span class="k">data</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">),</span><span class="w"> </span><span class="c1">-- Name of data</span>
 <span class="o">@</span><span class="n">id_var</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">),</span><span class="w"> </span><span class="c1">-- Key variables</span>
 <span class="o">@</span><span class="n">group_var</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;group_var&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">--Name of groups variable</span>
 <span class="o">@</span><span class="n">value_var</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;value_var&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Name of value variable</span>
 <span class="o">@</span><span class="n">stored_data</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;##unpivot_result&#39;</span><span class="w">  </span><span class="c1">-- Data storage</span>
-<span class="k">as</span>
+<span class="k">as</span><span class="w"> </span>
 <span class="k">begin</span>
-<span class="k">declare</span><span class="w"> </span><span class="o">@</span><span class="k">sql</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="o">@</span><span class="k">sql</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)</span><span class="w"> </span>
 <span class="k">set</span><span class="w"> </span><span class="o">@</span><span class="k">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="s1">&#39;</span>
 <span class="s1">drop table if exists ##all_cols</span>
 <span class="s1">select name into ##all_cols</span>
-<span class="s1">from &#39;</span><span class="o">+@</span><span class="n">db</span><span class="o">+</span><span class="s1">&#39;.sys.columns</span>
+<span class="s1">from &#39;</span><span class="o">+@</span><span class="n">db</span><span class="o">+</span><span class="s1">&#39;.sys.columns </span>
 <span class="s1">where object_id in (select object_id from &#39;</span><span class="o">+@</span><span class="n">db</span><span class="o">+</span><span class="s1">&#39;.sys.tables where name like &#39;&#39;%&#39;</span><span class="o">+@</span><span class="k">data</span><span class="o">+</span><span class="s1">&#39;&#39;&#39;)</span>
 
 <span class="s1">declare @cols AS NVARCHAR(MAX)</span>
-<span class="s1">   select @cols = STUFF((SELECT &#39;&#39;,&#39;&#39; + QUOTENAME(name)</span>
+<span class="s1">   select @cols = STUFF((SELECT &#39;&#39;,&#39;&#39; + QUOTENAME(name) </span>
 <span class="s1">                    FROM (</span>
-<span class="s1">                        select name from ##all_cols</span>
-<span class="s1">                        where name not in (&#39;</span><span class="o">+@</span><span class="n">id_var</span><span class="o">+</span><span class="s1">&#39;)</span>
-<span class="s1">                        ) cols</span>
+<span class="s1">                        select name from ##all_cols </span>
+<span class="s1">                        where name not in (&#39;</span><span class="o">+@</span><span class="n">id_var</span><span class="o">+</span><span class="s1">&#39;) </span>
+<span class="s1">                        ) cols            </span>
 <span class="s1">                    FOR XML PATH(&#39;&#39;&#39;&#39;), TYPE).value(&#39;&#39;.&#39;&#39;, &#39;&#39;NVARCHAR(MAX)&#39;&#39;),1,1,&#39;&#39;&#39;&#39;)</span>
 <span class="s1">-- Show columns</span>
-<span class="s1">print @cols</span>
+<span class="s1">print @cols </span>
 
 <span class="s1">declare @key AS NVARCHAR(MAX)</span>
-<span class="s1">   select @key = STUFF((SELECT &#39;&#39;,&#39;&#39; + QUOTENAME(name)</span>
+<span class="s1">   select @key = STUFF((SELECT &#39;&#39;,&#39;&#39; + QUOTENAME(name) </span>
 <span class="s1">                    FROM (</span>
-<span class="s1">                        select name from ##all_cols</span>
-<span class="s1">                        where name in (&#39;</span><span class="o">+@</span><span class="n">id_var</span><span class="o">+</span><span class="s1">&#39;)</span>
-<span class="s1">                        ) cols</span>
+<span class="s1">                        select name from ##all_cols </span>
+<span class="s1">                        where name in (&#39;</span><span class="o">+@</span><span class="n">id_var</span><span class="o">+</span><span class="s1">&#39;) </span>
+<span class="s1">                        ) cols            </span>
 <span class="s1">                    FOR XML PATH(&#39;&#39;&#39;&#39;), TYPE).value(&#39;&#39;.&#39;&#39;, &#39;&#39;NVARCHAR(MAX)&#39;&#39;),1,1,&#39;&#39;&#39;&#39;)</span>
 <span class="s1">-- Show key</span>
-<span class="s1">print @key</span>
+<span class="s1">print @key </span>
 
 <span class="s1">--Run procedure</span>
 
@@ -399,10 +400,10 @@
 <span class="k">exec</span><span class="w"> </span><span class="n">sp_executesql</span><span class="w"> </span><span class="o">@</span><span class="k">sql</span>
 <span class="k">end</span>
 
-<span class="n">sql_unpivot</span><span class="w"> </span><span class="o">@</span><span class="n">db</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;tempdb&#39;</span><span class="p">,</span>
-<span class="w">          </span><span class="o">@</span><span class="k">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;##student_wide&#39;</span><span class="p">,</span>
+<span class="n">sql_unpivot</span><span class="w"> </span><span class="o">@</span><span class="n">db</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;tempdb&#39;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">          </span><span class="o">@</span><span class="k">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;##student_wide&#39;</span><span class="p">,</span><span class="w"> </span>
 <span class="w">          </span><span class="o">@</span><span class="n">id_var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;&#39;id&#39;&#39;&#39;</span><span class="p">,</span><span class="w">  </span><span class="c1">--&gt; neu muon giu nhieu cot thi viet &#39;&#39;&#39;id&#39;&#39;,&#39;&#39;mark1&#39;&#39;&#39;</span>
-<span class="w">          </span><span class="o">@</span><span class="n">stored_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;##unpivot_result&#39;</span><span class="p">,</span>
+<span class="w">          </span><span class="o">@</span><span class="n">stored_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;##unpivot_result&#39;</span><span class="p">,</span><span class="w"> </span>
 <span class="w">          </span><span class="o">@</span><span class="n">group_var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;group_mark&#39;</span>
 
 <span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">##</span><span class="n">student_wide</span>
@@ -411,13 +412,13 @@
 </pre></div>
 </div>
 </section>
-<section id="Đổi-tên-bảng-và-tên-cột">
-<h2><span class="section-number">5.10. </span>Đổi tên bảng và tên cột<a class="headerlink" href="#Đổi-tên-bảng-và-tên-cột" title="Link to this heading"></a></h2>
+<section id="doi-ten-bang-va-ten-cot">
+<h2><span class="section-number">5.10. </span>Đổi tên bảng và tên cột<a class="headerlink" href="#doi-ten-bang-va-ten-cot" title="Link to this heading"></a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="cm">/********************************</span>
 <span class="cm">Script:         Đổi tên bảng và cột</span>
 <span class="cm">Author:         TrangTQ2</span>
 <span class="cm">Created date:   20190301</span>
-<span class="cm">Modifed date:</span>
+<span class="cm">Modifed date:   </span>
 <span class="cm">========================================</span>
 <span class="cm">Description:</span>
 
@@ -440,7 +441,7 @@
 <span class="n">sp_rename</span><span class="w"> </span><span class="s1">&#39;PCB_UPLTOPUP_FULL_201806&#39;</span><span class="p">,</span><span class="s1">&#39;PCB_UPLTOPUP_FULL&#39;</span>
 <span class="k">go</span>
 
-<span class="c1">-- Đổi tên cột</span>
+<span class="c1">-- Đổi tên cột </span>
 <span class="n">use</span><span class="w"> </span><span class="n">DBS_ADHOC</span>
 <span class="k">go</span>
 <span class="n">sp_rename</span><span class="w"> </span><span class="s1">&#39;EBANKING_TRANSACTION_2017.TRANS_TYPE&#39;</span><span class="p">,</span><span class="s1">&#39;TYPE&#39;</span><span class="p">,</span><span class="s1">&#39;column&#39;</span>
@@ -449,13 +450,13 @@
 </pre></div>
 </div>
 </section>
-<section id="Viết-hoa-chữ-đầu">
-<h2><span class="section-number">5.11. </span>Viết hoa chữ đầu<a class="headerlink" href="#Viết-hoa-chữ-đầu" title="Link to this heading"></a></h2>
+<section id="viet-hoa-chu-dau">
+<h2><span class="section-number">5.11. </span>Viết hoa chữ đầu<a class="headerlink" href="#viet-hoa-chu-dau" title="Link to this heading"></a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="cm">/********************************</span>
 <span class="cm">Script:         Function viết hoa chữ đầu</span>
 <span class="cm">Author:         TrangTQ2</span>
 <span class="cm">Created date:   20190301</span>
-<span class="cm">Modifed date:</span>
+<span class="cm">Modifed date:   </span>
 <span class="cm">========================================</span>
 <span class="cm">Description: Tạo function viết hoa chữ cái đầu</span>
 
@@ -497,15 +498,15 @@
 </pre></div>
 </div>
 </section>
-<section id="Tạo-floor-date">
-<h2><span class="section-number">5.12. </span>Tạo floor date<a class="headerlink" href="#Tạo-floor-date" title="Link to this heading"></a></h2>
+<section id="tao-floor-date">
+<h2><span class="section-number">5.12. </span>Tạo floor date<a class="headerlink" href="#tao-floor-date" title="Link to this heading"></a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="cm">/********************************</span>
 <span class="cm">Script:         Floor Date trong SQL</span>
 <span class="cm">Author:         AnhHD3</span>
 <span class="cm">Created date:   20190412</span>
-<span class="cm">Modifed date:</span>
+<span class="cm">Modifed date:   </span>
 <span class="cm">========================================</span>
-<span class="cm">Description:  Hàm cho phép lấy nhanh ngày đầu tiên</span>
+<span class="cm">Description:  Hàm cho phép lấy nhanh ngày đầu tiên </span>
 <span class="cm">của tháng, năm, cho phép tính toán và nhóm theo month/year</span>
 <span class="cm">*********************************/</span>
 
@@ -542,13 +543,13 @@
 </pre></div>
 </div>
 </section>
-<section id="Clean-city">
-<h2><span class="section-number">5.13. </span>Clean city<a class="headerlink" href="#Clean-city" title="Link to this heading"></a></h2>
+<section id="clean-city">
+<h2><span class="section-number">5.13. </span>Clean city<a class="headerlink" href="#clean-city" title="Link to this heading"></a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="cm">/********************************</span>
 <span class="cm">Script:         Function clean city</span>
 <span class="cm">Author:         Hoangnb3</span>
 <span class="cm">Created date:   20190426</span>
-<span class="cm">Modifed date:</span>
+<span class="cm">Modifed date:   </span>
 <span class="cm">========================================</span>
 <span class="cm">Description: Tạo function làm sạch dữ liệu tỉnh/thành phố trực thuộc trung ương</span>
 
@@ -595,7 +596,7 @@
 <span class="w">                            </span><span class="k">or</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%Quang Yen%&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%Q%Ninh%&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%Tien Yen%&#39;</span>
 <span class="w">                            </span><span class="k">or</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%Hoanh Bo%&#39;</span>
 <span class="w">                            </span><span class="k">or</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%cam pha%&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;quang ninh&#39;</span>
-<span class="w">                        </span><span class="k">WHEN</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%quang binh%&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%quangb binh%&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%q%binh%&#39;</span>
+<span class="w">                        </span><span class="k">WHEN</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%quang binh%&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%quangb binh%&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%q%binh%&#39;</span><span class="w"> </span>
 <span class="w">                            </span><span class="k">or</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%Hoan Lao%&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%Dong Hoi%&#39;</span>
 <span class="w">                            </span><span class="k">or</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%qbinh%&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;quang binh&#39;</span>
 <span class="w">                        </span><span class="k">WHEN</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%quang tri%&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%quangtri%&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%q%tr%&#39;</span>
@@ -657,7 +658,7 @@
 <span class="w">                        </span><span class="k">WHEN</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%hai phong%&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%h%ph%&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%An Bien%&#39;</span>
 <span class="w">                            </span><span class="k">or</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%Kien An%&#39;</span>
 <span class="w">                            </span><span class="k">or</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%hp%&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;hai phong&#39;</span>
-<span class="w">                        </span><span class="k">WHEN</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%da nang%&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%da%n%&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;da nã¢ng&#39;</span>
+<span class="w">                        </span><span class="k">WHEN</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%da nang%&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%da%n%&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;da nã¢ng&#39;</span><span class="w"> </span>
 <span class="w">                            </span><span class="k">or</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%d%nang%&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%Lien Chieu%&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%Hai Chau%&#39;</span>
 <span class="w">                            </span><span class="k">or</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%Son Tra%&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%Cam Le%&#39;</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%Hoa Vang%&#39;</span>
 <span class="w">                            </span><span class="k">or</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;cam ranh&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;da nang&#39;</span>
@@ -750,14 +751,14 @@
 <span class="w">                        </span><span class="k">WHEN</span><span class="w"> </span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%Q%Ngai%&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;quang ngai&#39;</span>
 <span class="w">                        </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">&#39;Others&#39;</span>
 <span class="w">                        </span><span class="k">END</span>
-
+<span class="w">    </span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">@</span><span class="n">city_new</span>
 <span class="k">end</span>
 </pre></div>
 </div>
 </section>
-<section id="Kiểm-tra-chất-lượng-dữ-liệu-hàng-ngày">
-<h2><span class="section-number">5.14. </span>Kiểm tra chất lượng dữ liệu hàng ngày<a class="headerlink" href="#Kiểm-tra-chất-lượng-dữ-liệu-hàng-ngày" title="Link to this heading"></a></h2>
+<section id="kiem-tra-chat-luong-du-lieu-hang-ngay">
+<h2><span class="section-number">5.14. </span>Kiểm tra chất lượng dữ liệu hàng ngày<a class="headerlink" href="#kiem-tra-chat-luong-du-lieu-hang-ngay" title="Link to this heading"></a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="cm">/********************************</span>
 <span class="cm">Script: Tạo bảng kiểm tra chất lượng dữ liệu (nrow) hàng ngày</span>
 <span class="cm">Author:         AnhHD3</span>
@@ -771,7 +772,7 @@
 
 <span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">DATA</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">TABLE_QUALITY</span>
 <span class="p">(</span>
-<span class="k">TABLE_NAME</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+<span class="k">TABLE_NAME</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span><span class="w"> </span>
 <span class="n">N_ROW</span><span class="w"> </span><span class="nb">int</span><span class="p">)</span>
 
 <span class="c1">-- Step 2: Update số dòng trong bảng (chỉ dùng bảng mới)</span>
@@ -791,55 +792,55 @@
 </pre></div>
 </div>
 </section>
-<section id="Sửa-default-template-trong-SQL">
-<h2><span class="section-number">5.15. </span>Sửa default template trong SQL<a class="headerlink" href="#Sửa-default-template-trong-SQL" title="Link to this heading"></a></h2>
+<section id="sua-default-template-trong-sql">
+<h2><span class="section-number">5.15. </span>Sửa default template trong SQL<a class="headerlink" href="#sua-default-template-trong-sql" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Sửa file <code class="docutils literal notranslate"><span class="pre">SQLfile.sql</span></code> tại đường dẫn sau <code class="docutils literal notranslate"><span class="pre">C:\Program</span> <span class="pre">Files</span> <span class="pre">(x86)\Microsoft</span> <span class="pre">SQL</span> <span class="pre">Server\130\Tools\Binn\ManagementStudio\SqlWorkbenchProjectItems\Sql</span></code></p></li>
 <li><p>Nội dung default script</p></li>
 </ul>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="cm">/********************************</span>
-<span class="cm">Script:         Giao dịch Ebanking</span>
-<span class="cm">Author:         AnhHD3</span>
-<span class="cm">Created date:   20180701</span>
-<span class="cm">Modifed date:   20181127</span>
+<span class="cm">Script:			Giao dịch Ebanking</span>
+<span class="cm">Author:			AnhHD3</span>
+<span class="cm">Created date:	20180701</span>
+<span class="cm">Modifed date:	20181127</span>
 <span class="cm">========================================</span>
-<span class="cm">Description: Create Data Preparation</span>
+<span class="cm">Description: Create Data Preparation </span>
 <span class="cm">for datamart</span>
 <span class="cm">========================================</span>
 <span class="cm">Affected tables:</span>
-<span class="cm">    - [dbo].[POS_ECOMCARD_2017]</span>
+<span class="cm">	- [dbo].[POS_ECOMCARD_2017]</span>
 
 <span class="cm">Steps:</span>
-<span class="cm">    - Step 1: Declare date</span>
-<span class="cm">    - Step 2:</span>
-<span class="cm">        - POS transaction</span>
-<span class="cm">        - ATM/CDM transaction</span>
+<span class="cm">	- Step 1: Declare date</span>
+<span class="cm">	- Step 2: </span>
+<span class="cm">		- POS transaction</span>
+<span class="cm">		- ATM/CDM transaction</span>
 <span class="cm">*********************************/</span>
 <span class="k">SELECT</span><span class="w"> </span><span class="n">TOP</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">XXX</span>
 </pre></div>
 </div>
 </section>
-<section id="Bắt-đầu-têm-bảng-với-DIM">
-<h2><span class="section-number">5.16. </span>Bắt đầu têm bảng với DIM<a class="headerlink" href="#Bắt-đầu-têm-bảng-với-DIM" title="Link to this heading"></a></h2>
+<section id="bat-dau-tem-bang-voi-dim">
+<h2><span class="section-number">5.16. </span>Bắt đầu têm bảng với DIM<a class="headerlink" href="#bat-dau-tem-bang-voi-dim" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Tên các bảng thường bắt đầu bằng Dim - viết tắt của Dimension</p></li>
 </ul>
 </section>
-<section id="Xóa-bảng-nếu-tồn-tại">
-<h2><span class="section-number">5.17. </span>Xóa bảng nếu tồn tại<a class="headerlink" href="#Xóa-bảng-nếu-tồn-tại" title="Link to this heading"></a></h2>
+<section id="xoa-bang-neu-ton-tai">
+<h2><span class="section-number">5.17. </span>Xóa bảng nếu tồn tại<a class="headerlink" href="#xoa-bang-neu-ton-tai" title="Link to this heading"></a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">CROSS_SELLING_RESULTS</span>
 </pre></div>
 </div>
 </section>
-<section id="Tìm-kiếm-kiểu-dữ-liệu-trong-bảng-của-db">
-<h2><span class="section-number">5.18. </span>Tìm kiếm kiểu dữ liệu trong bảng của db<a class="headerlink" href="#Tìm-kiếm-kiểu-dữ-liệu-trong-bảng-của-db" title="Link to this heading"></a></h2>
+<section id="tim-kiem-kieu-du-lieu-trong-bang-cua-db">
+<h2><span class="section-number">5.18. </span>Tìm kiếm kiểu dữ liệu trong bảng của db<a class="headerlink" href="#tim-kiem-kieu-du-lieu-trong-bang-cua-db" title="Link to this heading"></a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Kiểm tra thông tin kiểu dữ liệu trong bảng</span>
 <span class="k">select</span><span class="w"> </span><span class="k">table_name</span><span class="p">,</span><span class="w"> </span><span class="k">column_name</span><span class="p">,</span><span class="w"> </span><span class="n">data_type</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="p">[</span><span class="n">learningsql</span><span class="p">].[</span><span class="n">INFORMATION_SCHEMA</span><span class="p">].[</span><span class="n">columns</span><span class="p">]</span>
 </pre></div>
 </div>
 </section>
-<section id="Sử-dụng-drop-và-create-trong-cùng-batch">
-<h2><span class="section-number">5.19. </span>Sử dụng drop và create trong cùng batch<a class="headerlink" href="#Sử-dụng-drop-và-create-trong-cùng-batch" title="Link to this heading"></a></h2>
+<section id="su-dung-drop-va-create-trong-cung-batch">
+<h2><span class="section-number">5.19. </span>Sử dụng drop và create trong cùng batch<a class="headerlink" href="#su-dung-drop-va-create-trong-cung-batch" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>DROP và CREATE không thể chạy cùng trong 1 batch, khi muốn sử dụng phải thêm câu lệnh GO</p></li>
 </ul>
@@ -853,8 +854,8 @@
 </pre></div>
 </div>
 </section>
-<section id="Phân-biệt-định-dạng-integer">
-<h2><span class="section-number">5.20. </span>Phân biệt định dạng integer<a class="headerlink" href="#Phân-biệt-định-dạng-integer" title="Link to this heading"></a></h2>
+<section id="phan-biet-dinh-dang-integer">
+<h2><span class="section-number">5.20. </span>Phân biệt định dạng integer<a class="headerlink" href="#phan-biet-dinh-dang-integer" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>SQL không phân biệt được định dạng numeric &amp; integer ngay lập tức</p></li>
 </ul>
@@ -866,40 +867,26 @@
 </pre></div>
 </div>
 </section>
-<section id="VARCHAR-vs.-NVARCHAR">
-<h2><span class="section-number">5.21. </span>VARCHAR vs. NVARCHAR<a class="headerlink" href="#VARCHAR-vs.-NVARCHAR" title="Link to this heading"></a></h2>
+<section id="varchar-vs-nvarchar">
+<h2><span class="section-number">5.21. </span>VARCHAR vs. NVARCHAR<a class="headerlink" href="#varchar-vs-nvarchar" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>varchar vs. nvarchar: nvarchar cho phép lưu trữ ký tự Unicode, varchar không cho phép</p></li>
 <li><p>varchar(n) vs. varchar(max):</p></li>
 </ul>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>varchar(n)
-</pre></div>
-</div>
-</th>
-<th class="head"><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>varchar(max)
-</pre></div>
-</div>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Tối đa 8000 ký tự</p></td>
-<td><p>Tối đa hơn 2 tỷ, khoảng 2G</p></td>
-</tr>
-<tr class="row-odd"><td><p>Cho phép tạo index</p></td>
-<td><p>Không cho phép tạo index</p></td>
-</tr>
-</tbody>
-</table>
+<p>+--------------------+----------------------------+
+|     varchar(n)     |        varchar(max)        |
++====================+============================+
+| Tối đa 8000 ký tự  | Tối đa hơn 2 tỷ, khoảng 2G |
++--------------------+----------------------------+
+| Cho phép tạo index | Không cho phép tạo index   |
++--------------------+----------------------------+</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">--Varchar(50): Work</span>
 <span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">Employee</span>
 <span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">identity</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">   </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
 <span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
 <span class="k">GO</span>
-<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">IX_EmployeeName</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">IX_EmployeeName</span><span class="w"> </span>
 <span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">Employee</span><span class="p">(</span><span class="n">Name</span><span class="p">)</span>
 <span class="k">GO</span>
 
@@ -911,43 +898,24 @@
 <span class="k">GO</span>
 <span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">IX_EmployeeName</span>
 <span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">Employee</span><span class="p">(</span><span class="n">Name</span><span class="p">)</span>
-<span class="k">GO</span>
+<span class="k">GO</span><span class="w"> </span>
 </pre></div>
 </div>
 </section>
-<section id="Primary-key-vs.-Unique-key">
-<h2><span class="section-number">5.22. </span>Primary key vs. Unique key<a class="headerlink" href="#Primary-key-vs.-Unique-key" title="Link to this heading"></a></h2>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Tiêu chí</p></th>
-<th class="head"><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Primary key
-</pre></div>
-</div>
-</th>
-<th class="head"><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Unique key
-</pre></div>
-</div>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>NULL</p></td>
-<td><p>Không cho phép null</p></td>
-<td><p>Cho phép MỘT giá trị NULL</p></td>
-</tr>
-<tr class="row-odd"><td><p>Index</p></td>
-<td><p>Default là clustered index</p></td>
-<td><p>Default là unique non-cluster index</p></td>
-</tr>
-<tr class="row-even"><td><p>Limit</p></td>
-<td><p>Chỉ có 1 key</p></td>
-<td><p>Có thể có nhiều key</p></td>
-</tr>
-</tbody>
-</table>
+<section id="primary-key-vs-unique-key">
+<h2><span class="section-number">5.22. </span>Primary key vs. Unique key<a class="headerlink" href="#primary-key-vs-unique-key" title="Link to this heading"></a></h2>
+<p>+----------+----------------------------+-------------------------------------+
+| Tiêu chí |        Primary key         |             Unique key              |
++==========+============================+=====================================+
+| NULL     |  Không cho phép null       | Cho phép MỘT giá trị NULL           |
++----------+----------------------------+-------------------------------------+
+| Index    | Default là clustered index | Default là unique non-cluster index |
++----------+----------------------------+-------------------------------------+
+| Limit    | Chỉ có 1 key               | Có thể có nhiều key                 |
++----------+----------------------------+-------------------------------------+</p>
 </section>
-<section id="EXEC-vs.-EXEC()">
-<h2><span class="section-number">5.23. </span>EXEC vs. EXEC()<a class="headerlink" href="#EXEC-vs.-EXEC()" title="Link to this heading"></a></h2>
+<section id="exec-vs-exec">
+<h2><span class="section-number">5.23. </span>EXEC vs. EXEC()<a class="headerlink" href="#exec-vs-exec" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Exec dùng để thực hiện các procedure. VD: <code class="docutils literal notranslate"><span class="pre">exec</span> <span class="pre">sp_pivot</span></code></p></li>
 <li><p>Exec() dùng để thực hiện dinamic SQL.</p></li>
@@ -956,9 +924,9 @@
 </pre></div>
 </div>
 </section>
-<section id="Xem-tất-cả-các-user-defined-procedure">
-<h2><span class="section-number">5.24. </span>Xem tất cả các user-defined procedure<a class="headerlink" href="#Xem-tất-cả-các-user-defined-procedure" title="Link to this heading"></a></h2>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
+<section id="xem-tat-ca-cac-user-defined-procedure">
+<h2><span class="section-number">5.24. </span>Xem tất cả các user-defined procedure<a class="headerlink" href="#xem-tat-ca-cac-user-defined-procedure" title="Link to this heading"></a></h2>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span>
 <span class="w">       </span><span class="k">type</span>
 <span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">sysobjects</span>
 <span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="p">(</span><span class="k">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;P&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">and</span>
@@ -966,14 +934,14 @@
 </pre></div>
 </div>
 </section>
-<section id="Làm-việc-với-link-server">
-<h2><span class="section-number">5.25. </span>Làm việc với link server<a class="headerlink" href="#Làm-việc-với-link-server" title="Link to this heading"></a></h2>
+<section id="lam-viec-voi-link-server">
+<h2><span class="section-number">5.25. </span>Làm việc với link server<a class="headerlink" href="#lam-viec-voi-link-server" title="Link to this heading"></a></h2>
 <p><strong>Vấn đề</strong>: Cách link server thủ công (GUI) có thể sẽ gặp vấn đề khi cùng lúc làm việc với nhiều server. Ta có thể sử dụng T-SQL để làm việc với link server như sau</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Bước 1: Tạo link server</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Bước 1: Tạo link server </span>
 
-<span class="k">EXEC</span><span class="w"> </span><span class="n">sp_addlinkedserver</span>
-<span class="w">   </span><span class="o">@</span><span class="n">server</span><span class="o">=</span><span class="s1">&#39;RBD&#39;</span><span class="p">,</span>
-<span class="w">   </span><span class="o">@</span><span class="n">srvproduct</span><span class="o">=</span><span class="n">N</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="k">EXEC</span><span class="w"> </span><span class="n">sp_addlinkedserver</span><span class="w">     </span>
+<span class="w">   </span><span class="o">@</span><span class="n">server</span><span class="o">=</span><span class="s1">&#39;RBD&#39;</span><span class="p">,</span><span class="w">   </span>
+<span class="w">   </span><span class="o">@</span><span class="n">srvproduct</span><span class="o">=</span><span class="n">N</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w">  </span>
 <span class="w">   </span><span class="o">@</span><span class="n">provider</span><span class="o">=</span><span class="n">N</span><span class="s1">&#39;SQLNCLI&#39;</span><span class="p">,</span>
 <span class="w">   </span><span class="o">@</span><span class="n">datasrc</span><span class="o">=</span><span class="s1">&#39;10.39.200.204&#39;</span>
 
@@ -990,60 +958,60 @@
 <span class="n">sp_helpserver</span>
 
 <span class="c1">-- Xóa link server RBD</span>
-<span class="n">sp_dropserver</span><span class="w"> </span><span class="s1">&#39;RBD&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;droplogins&#39;</span><span class="p">;</span>
+<span class="n">sp_dropserver</span><span class="w"> </span><span class="s1">&#39;RBD&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;droplogins&#39;</span><span class="p">;</span><span class="w">  </span>
 </pre></div>
 </div>
-<section id="Procedure-tạo-nhiều-link-server">
-<h3><span class="section-number">5.25.1. </span>Procedure tạo nhiều link server<a class="headerlink" href="#Procedure-tạo-nhiều-link-server" title="Link to this heading"></a></h3>
+<section id="procedure-tao-nhieu-link-server">
+<h3><span class="section-number">5.25.1. </span>Procedure tạo nhiều link server<a class="headerlink" href="#procedure-tao-nhieu-link-server" title="Link to this heading"></a></h3>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">drop</span><span class="w"> </span><span class="k">procedure</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">u_createlinkserver</span>
 <span class="k">GO</span>
-<span class="k">create</span><span class="w"> </span><span class="k">procedure</span><span class="w"> </span><span class="n">u_createlinkserver</span>
-<span class="w">    </span><span class="o">@</span><span class="n">name</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">),</span>
-<span class="w">    </span><span class="o">@</span><span class="k">source</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">),</span>
-<span class="w">    </span><span class="o">@</span><span class="k">user</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">),</span>
-<span class="w">    </span><span class="o">@</span><span class="n">password</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)</span>
+<span class="k">create</span><span class="w"> </span><span class="k">procedure</span><span class="w"> </span><span class="n">u_createlinkserver</span><span class="w"> </span>
+<span class="w">	</span><span class="o">@</span><span class="n">name</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">),</span>
+<span class="w">	</span><span class="o">@</span><span class="k">source</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">),</span>
+<span class="w">	</span><span class="o">@</span><span class="k">user</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">),</span>
+<span class="w">	</span><span class="o">@</span><span class="n">password</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)</span>
 <span class="k">as</span>
 
 <span class="k">BEGIN</span>
-<span class="w">    </span><span class="k">EXEC</span><span class="w"> </span><span class="n">sp_addlinkedserver</span>
-<span class="w">       </span><span class="o">@</span><span class="n">server</span><span class="o">=@</span><span class="n">name</span><span class="p">,</span>
-<span class="w">       </span><span class="o">@</span><span class="n">srvproduct</span><span class="o">=</span><span class="n">N</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="w">	</span><span class="k">EXEC</span><span class="w"> </span><span class="n">sp_addlinkedserver</span><span class="w">     </span>
+<span class="w">	   </span><span class="o">@</span><span class="n">server</span><span class="o">=@</span><span class="n">name</span><span class="p">,</span><span class="w">   </span>
+<span class="w">	   </span><span class="o">@</span><span class="n">srvproduct</span><span class="o">=</span><span class="n">N</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w">  </span>
 <span class="w">       </span><span class="o">@</span><span class="n">provider</span><span class="o">=</span><span class="n">N</span><span class="s1">&#39;SQLNCLI&#39;</span><span class="p">,</span>
-<span class="w">       </span><span class="o">@</span><span class="n">datasrc</span><span class="o">=@</span><span class="k">source</span><span class="p">;</span>
-
-<span class="w">    </span><span class="k">EXEC</span><span class="w"> </span><span class="n">sp_addlinkedsrvlogin</span>
-<span class="w">      </span><span class="o">@</span><span class="n">rmtsrvname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">name</span>
-<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">useself</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;FALSE&#39;</span>
-<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">rmtuser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="k">user</span>
-<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">rmtpassword</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">password</span>
-<span class="k">END</span>
+<span class="w">	   </span><span class="o">@</span><span class="n">datasrc</span><span class="o">=@</span><span class="k">source</span><span class="p">;</span>
+<span class="w">   </span>
+<span class="w">	</span><span class="k">EXEC</span><span class="w"> </span><span class="n">sp_addlinkedsrvlogin</span>
+<span class="w">	  </span><span class="o">@</span><span class="n">rmtsrvname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">name</span>
+<span class="w">	</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">useself</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;FALSE&#39;</span>
+<span class="w">	</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">rmtuser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="k">user</span>
+<span class="w">	</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">rmtpassword</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">password</span>
+<span class="k">END</span><span class="w"> </span>
 </pre></div>
 </div>
 <p><strong>Ví dụ</strong>:</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">exec</span><span class="w"> </span><span class="n">u_createlinkserver</span>
-<span class="w">    </span><span class="o">@</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;RBD&#39;</span><span class="p">,</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">exec</span><span class="w"> </span><span class="n">u_createlinkserver</span><span class="w"> </span>
+<span class="w">	</span><span class="o">@</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;RBD&#39;</span><span class="p">,</span><span class="w">   </span>
 <span class="w">    </span><span class="o">@</span><span class="k">source</span><span class="o">=</span><span class="s1">&#39;10.39.200.204&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="o">@</span><span class="k">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;bic_user&#39;</span><span class="p">,</span>
-<span class="w">    </span><span class="o">@</span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;bic_user&#39;</span>
+<span class="w">	</span><span class="o">@</span><span class="k">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;bic_user&#39;</span><span class="p">,</span>
+<span class="w">	</span><span class="o">@</span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;bic_user&#39;</span>
 </pre></div>
 </div>
 </section>
 </section>
-<section id="Tìm-tất-cả-các-bảng,-cột-trong-Database">
-<h2><span class="section-number">5.26. </span>Tìm tất cả các bảng, cột trong Database<a class="headerlink" href="#Tìm-tất-cả-các-bảng,-cột-trong-Database" title="Link to this heading"></a></h2>
+<section id="tim-tat-ca-cac-bang-cot-trong-database">
+<h2><span class="section-number">5.26. </span>Tìm tất cả các bảng, cột trong Database<a class="headerlink" href="#tim-tat-ca-cac-bang-cot-trong-database" title="Link to this heading"></a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="s1">&#39;SERVER_74&#39;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">SERVER</span><span class="p">,</span>
-<span class="w">        </span><span class="s1">&#39;BICDATA&#39;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">DATA_BASE</span><span class="p">,</span>
-<span class="w">        </span><span class="n">lst</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">Table_Name</span><span class="p">,</span>
-<span class="w">        </span><span class="n">lsc</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">Column_Name</span><span class="p">,</span>
+<span class="w">		</span><span class="s1">&#39;BICDATA&#39;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">DATA_BASE</span><span class="p">,</span>
+<span class="w">		</span><span class="n">lst</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">Table_Name</span><span class="p">,</span><span class="w"> </span>
+<span class="w">        </span><span class="n">lsc</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">Column_Name</span><span class="p">,</span><span class="w"> </span>
 <span class="w">        </span><span class="n">lsc</span><span class="p">.</span><span class="n">max_length</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Max_Length</span>
 <span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">M74</span><span class="p">].[</span><span class="n">BICDATA</span><span class="p">].[</span><span class="n">sys</span><span class="p">].[</span><span class="n">tables</span><span class="p">]</span><span class="w"> </span><span class="n">lst</span>
 <span class="w">    </span><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="p">[</span><span class="n">M74</span><span class="p">].[</span><span class="n">BICDATA</span><span class="p">].[</span><span class="n">sys</span><span class="p">].[</span><span class="n">columns</span><span class="p">]</span><span class="w"> </span><span class="n">lsc</span>
 <span class="w">        </span><span class="k">ON</span><span class="w"> </span><span class="n">lst</span><span class="p">.</span><span class="n">OBJECT_ID</span><span class="o">=</span><span class="n">lsc</span><span class="p">.</span><span class="n">object_id</span>
-<span class="k">union</span>
+<span class="k">union</span><span class="w"> </span>
 <span class="k">SELECT</span><span class="w"> </span><span class="s1">&#39;SERVER_16&#39;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">SERVER</span><span class="p">,</span>
-<span class="w">       </span><span class="s1">&#39;VPB_WHR2&#39;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">DATA_BASE</span><span class="p">,</span>
-<span class="w">       </span><span class="n">lst</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">Table_Name</span><span class="p">,</span>
-<span class="w">       </span><span class="n">lsc</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">Column_Name</span><span class="p">,</span>
+<span class="w">	   </span><span class="s1">&#39;VPB_WHR2&#39;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">DATA_BASE</span><span class="p">,</span>
+<span class="w">	   </span><span class="n">lst</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">Table_Name</span><span class="p">,</span><span class="w"> </span>
+<span class="w">       </span><span class="n">lsc</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">Column_Name</span><span class="p">,</span><span class="w"> </span>
 <span class="w">       </span><span class="n">lsc</span><span class="p">.</span><span class="n">max_length</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Max_Length</span>
 <span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">M16</span><span class="p">].[</span><span class="n">VPB_WHR2</span><span class="p">].[</span><span class="n">sys</span><span class="p">].[</span><span class="n">tables</span><span class="p">]</span><span class="w"> </span><span class="n">lst</span>
 <span class="w">    </span><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="p">[</span><span class="n">M16</span><span class="p">].[</span><span class="n">VPB_WHR2</span><span class="p">].[</span><span class="n">sys</span><span class="p">].[</span><span class="n">columns</span><span class="p">]</span><span class="w"> </span><span class="n">lsc</span>
@@ -1052,15 +1020,15 @@
 </pre></div>
 </div>
 </section>
-<section id="Chạy-file-.BAT-từ-T-SQL">
-<h2><span class="section-number">5.27. </span>Chạy file .BAT từ T-SQL<a class="headerlink" href="#Chạy-file-.BAT-từ-T-SQL" title="Link to this heading"></a></h2>
+<section id="chay-file-bat-tu-t-sql">
+<h2><span class="section-number">5.27. </span>Chạy file .BAT từ T-SQL<a class="headerlink" href="#chay-file-bat-tu-t-sql" title="Link to this heading"></a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">sp_configure</span><span class="w"> </span><span class="s1">&#39;show advanced options&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1&#39;</span>
 <span class="n">RECONFIGURE</span>
-<span class="n">sp_configure</span><span class="w"> </span><span class="s1">&#39;xp_cmdshell&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1&#39;</span>
+<span class="n">sp_configure</span><span class="w"> </span><span class="s1">&#39;xp_cmdshell&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="w"> </span>
 <span class="n">RECONFIGURE</span>
 </pre></div>
 </div>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span><span class="w"> </span><span class="n">xp_cmdshell</span><span class="w"> </span><span class="s1">&#39;cmd /c &quot;F:\D\my_file.bat&quot;&#39;</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span><span class="w"> </span><span class="n">xp_cmdshell</span><span class="w"> </span><span class="s1">&#39;cmd /c &quot;F:\D\my_file.bat&quot;&#39;</span><span class="w">  </span>
 </pre></div>
 </div>
 <p><strong>Lưu ý</strong>: Cách sử dụng <code class="docutils literal notranslate"><span class="pre">xp_cmdshell</span></code> khắc phục được nhược điểm của <code class="docutils literal notranslate"><span class="pre">sqlcmd</span></code>, cho phép đặt job với file <code class="docutils literal notranslate"><span class="pre">bat</span></code></p>

@@ -105,7 +105,7 @@ if (themeFlyoutDisplay === "attached") {
               </dd>
             </dl>
             <dl>
-              <dt>Tìm Kiếm</dt>
+              <dt>Search</dt>
               <dd>
                 <form id="flyout-search-form">
                   <input

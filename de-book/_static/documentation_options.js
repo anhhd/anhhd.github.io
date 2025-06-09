@@ -1,6 +1,6 @@
 const DOCUMENTATION_OPTIONS = {
-    VERSION: '2019',
-    LANGUAGE: 'vi',
+    VERSION: '2025',
+    LANGUAGE: 'vn',
     COLLAPSE_INDEX: false,
     BUILDER: 'html',
     FILE_SUFFIX: '.html',

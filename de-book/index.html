@@ -1,31 +1,32 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="vi" data-content_root="./">
+<html class="writer-html5" lang="vn" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SQL cơ bản &mdash; Tài liệu Khai thác dữ liệu với SQL 2019</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+  <title>SQL cơ bản &mdash; Data Engineer book 2025 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0cebd926" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=33847982"></script>
+      <script src="_static/documentation_options.js?v=6c11a7b2"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="_static/copybutton.js?v=f281be69"></script>
-      <script src="_static/translations.js?v=4c1d55b0"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Tìm Kiếm" href="search.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="1. SQL cơ bản" href="p01-01-sql-co-ban.html" /> 
 </head>
 
@@ -38,7 +39,7 @@
           
           
           <a href="#" class="icon icon-home">
-            Khai thác dữ liệu với SQL
+            Data Engineer book
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -66,7 +67,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">Khai thác dữ liệu với SQL</a>
+          <a href="#">Data Engineer book</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -90,92 +91,92 @@
 <p class="caption" role="heading"><span class="caption-text">SQL cơ bản</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html">1. SQL cơ bản</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="p01-01-sql-co-ban.html#Giới-thiệu-về-SQL">1.1. Giới thiệu về SQL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-01-sql-co-ban.html#Các-nhóm-câu-lệnh-truy-vấn,-tổng-hợp">1.2. Các nhóm câu lệnh truy vấn, tổng hợp</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-01-sql-co-ban.html#Các-nhóm-câu-lệnh-tính-toán">1.3. Các nhóm câu lệnh tính toán</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-01-sql-co-ban.html#Join">1.4. Join</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-01-sql-co-ban.html#Làm-việc-với-string">1.5. Làm việc với string</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-01-sql-co-ban.html#Làm-việc-với-date">1.6. Làm việc với date</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-01-sql-co-ban.html#Các-nhóm-câu-lệnh-thay-đổi-dữ-liệu">1.7. Các nhóm câu lệnh thay đổi dữ liệu</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-01-sql-co-ban.html#Sub-Query">1.8. Sub Query</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-01-sql-co-ban.html#Các-nhóm-câu-lệnh-cơ-bản-khác">1.9. Các nhóm câu lệnh cơ bản khác</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-01-sql-co-ban.html#gioi-thieu-ve-sql">1.1. Giới thiệu về SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-01-sql-co-ban.html#cac-nhom-cau-lenh-truy-van-tong-hop">1.2. Các nhóm câu lệnh truy vấn, tổng hợp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-01-sql-co-ban.html#cac-nhom-cau-lenh-tinh-toan">1.3. Các nhóm câu lệnh tính toán</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-01-sql-co-ban.html#join">1.4. Join</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-01-sql-co-ban.html#lam-viec-voi-string">1.5. Làm việc với string</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-01-sql-co-ban.html#lam-viec-voi-date">1.6. Làm việc với date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-01-sql-co-ban.html#cac-nhom-cau-lenh-thay-doi-du-lieu">1.7. Các nhóm câu lệnh thay đổi dữ liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-01-sql-co-ban.html#sub-query">1.8. Sub Query</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-01-sql-co-ban.html#cac-nhom-cau-lenh-co-ban-khac">1.9. Các nhóm câu lệnh cơ bản khác</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="p01-02-sql-nang-cao.html">2. SQL nâng cao</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="p01-02-sql-nang-cao.html#SQL-động-với-Exec">2.1. SQL động với Exec</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-02-sql-nang-cao.html#Thủ-tục-&amp;-hàm">2.2. Thủ tục &amp; hàm</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-02-sql-nang-cao.html#Câu-điều-kiện-If...Else">2.3. Câu điều kiện If…Else</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-02-sql-nang-cao.html#Vòng-lặp-với-bảng">2.4. Vòng lặp với bảng</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-02-sql-nang-cao.html#Đặt-job-trong-SQL">2.5. Đặt job trong SQL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-02-sql-nang-cao.html#Pivot-&amp;-Unpivot">2.6. Pivot &amp; Unpivot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-02-sql-nang-cao.html#Chia-một-cột-thành-nhiều-cột">2.7. Chia một cột thành nhiều cột</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-02-sql-nang-cao.html#sql-dong-voi-exec">2.1. SQL động với Exec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-02-sql-nang-cao.html#thu-tuc-ham">2.2. Thủ tục &amp; hàm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-02-sql-nang-cao.html#cau-dieu-kien-if-else">2.3. Câu điều kiện If...Else</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-02-sql-nang-cao.html#vong-lap-voi-bang">2.4. Vòng lặp với bảng</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-02-sql-nang-cao.html#dat-job-trong-sql">2.5. Đặt job trong SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-02-sql-nang-cao.html#pivot-unpivot">2.6. Pivot &amp; Unpivot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-02-sql-nang-cao.html#chia-mot-cot-thanh-nhieu-cot">2.7. Chia một cột thành nhiều cột</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="p01-03-sql-tuning.html">3. SQL tuning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-04-sql-style.html">4. SQL style guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="p01-04-sql-style.html#Viết-thường-câu-lệnh">4.1. Viết thường câu lệnh</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-04-sql-style.html#Mỗi-cột-cần-được-tách-thành-các-dòng-khác-nhau-trong-select">4.2. Mỗi cột cần được tách thành các dòng khác nhau trong select</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-04-sql-style.html#Các-điều-kiện-trong-where-cần-viết-lùi-vào-trong">4.3. Các điều kiện trong where cần viết lùi vào trong</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-04-sql-style.html#Căn-trái-các-keyword-chính">4.4. Căn trái các keyword chính</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-04-sql-style.html#Khoảng-trắng-trong-dấu-ngoặc">4.5. Khoảng trắng trong dấu ngoặc</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-04-sql-style.html#Tách-dòng-trong-điều-kiện-in-nhiều-giá-trị">4.6. Tách dòng trong điều kiện in nhiều giá trị</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-04-sql-style.html#Tên-các-bảng-và-cột">4.7. Tên các bảng và cột</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-04-sql-style.html#Các-lưu-ý-format-khi-join">4.8. Các lưu ý format khi join</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-04-sql-style.html#Các-cột-được-group-được-đẩy-lên-trước">4.9. Các cột được group được đẩy lên trước</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-04-sql-style.html#Case-when">4.10. Case when</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-04-sql-style.html#Dùng-bảng-ảo-CTE">4.11. Dùng bảng ảo CTE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-04-sql-style.html#Tài-liệu-tham-khảo">4.12. Tài liệu tham khảo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-04-sql-style.html#viet-thuong-cau-lenh">4.1. Viết thường câu lệnh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-04-sql-style.html#moi-cot-can-duoc-tach-thanh-cac-dong-khac-nhau-trong-select">4.2. Mỗi cột cần được tách thành các dòng khác nhau trong select</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-04-sql-style.html#cac-dieu-kien-trong-where-can-viet-lui-vao-trong">4.3. Các điều kiện trong where cần viết lùi vào trong</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-04-sql-style.html#can-trai-cac-keyword-chinh">4.4. Căn trái các keyword chính</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-04-sql-style.html#khoang-trang-trong-dau-ngoac">4.5. Khoảng trắng trong dấu ngoặc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-04-sql-style.html#tach-dong-trong-dieu-kien-in-nhieu-gia-tri">4.6. Tách dòng trong điều kiện in nhiều giá trị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-04-sql-style.html#ten-cac-bang-va-cot">4.7. Tên các bảng và cột</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-04-sql-style.html#cac-luu-y-format-khi-join">4.8. Các lưu ý format khi join</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-04-sql-style.html#cac-cot-duoc-group-duoc-day-len-truoc">4.9. Các cột được group được đẩy lên trước</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-04-sql-style.html#case-when">4.10. Case when</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-04-sql-style.html#dung-bang-ao-cte">4.11. Dùng bảng ảo CTE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-04-sql-style.html#tai-lieu-tham-khao">4.12. Tài liệu tham khảo</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="p01-05-tricks-sql.html">5. Mẹo với SQL</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#Kiểm-tra-kiểu-dữ-liệu-trong-bảng">5.1. Kiểm tra kiểu dữ liệu trong bảng</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#Dữ-liệu-bị-collate">5.2. Dữ liệu bị collate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#Drop-nhiều-bảng-theo-điều-kiện">5.3. Drop nhiều bảng theo điều kiện</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#Auto-Wrap-in-MSSQL">5.4. Auto Wrap in MSSQL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#Format-định-dạng-thêm-ký-tự-00-trước-số">5.5. Format định dạng thêm ký tự 00 trước số</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#Kiểm-tra-định-dạng-dữ-liệu-một-bảng">5.6. Kiểm tra định dạng dữ liệu một bảng</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#Convert-từ-tiếng-Việt-có-dấu-sang-không-dấu">5.7. Convert từ tiếng Việt có dấu sang không dấu</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#Functions-chọn-giá-trị-lớn-hơn">5.8. Functions chọn giá trị lớn hơn</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#Procedure-pivot-vs.-unpivot">5.9. Procedure pivot vs. unpivot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#Đổi-tên-bảng-và-tên-cột">5.10. Đổi tên bảng và tên cột</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#Viết-hoa-chữ-đầu">5.11. Viết hoa chữ đầu</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#Tạo-floor-date">5.12. Tạo floor date</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#Clean-city">5.13. Clean city</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#Kiểm-tra-chất-lượng-dữ-liệu-hàng-ngày">5.14. Kiểm tra chất lượng dữ liệu hàng ngày</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#Sửa-default-template-trong-SQL">5.15. Sửa default template trong SQL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#Bắt-đầu-têm-bảng-với-DIM">5.16. Bắt đầu têm bảng với DIM</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#Xóa-bảng-nếu-tồn-tại">5.17. Xóa bảng nếu tồn tại</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#Tìm-kiếm-kiểu-dữ-liệu-trong-bảng-của-db">5.18. Tìm kiếm kiểu dữ liệu trong bảng của db</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#Sử-dụng-drop-và-create-trong-cùng-batch">5.19. Sử dụng drop và create trong cùng batch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#Phân-biệt-định-dạng-integer">5.20. Phân biệt định dạng integer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#VARCHAR-vs.-NVARCHAR">5.21. VARCHAR vs. NVARCHAR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#Primary-key-vs.-Unique-key">5.22. Primary key vs. Unique key</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#EXEC-vs.-EXEC()">5.23. EXEC vs. EXEC()</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#Xem-tất-cả-các-user-defined-procedure">5.24. Xem tất cả các user-defined procedure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#Làm-việc-với-link-server">5.25. Làm việc với link server</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#Tìm-tất-cả-các-bảng,-cột-trong-Database">5.26. Tìm tất cả các bảng, cột trong Database</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#Chạy-file-.BAT-từ-T-SQL">5.27. Chạy file .BAT từ T-SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#kiem-tra-kieu-du-lieu-trong-bang">5.1. Kiểm tra kiểu dữ liệu trong bảng</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#du-lieu-bi-collate">5.2. Dữ liệu bị collate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#drop-nhieu-bang-theo-dieu-kien">5.3. Drop nhiều bảng theo điều kiện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#auto-wrap-in-mssql">5.4. Auto Wrap in MSSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#format-dinh-dang-them-ky-tu-00-truoc-so">5.5. Format định dạng thêm ký tự 00 trước số</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#kiem-tra-dinh-dang-du-lieu-mot-bang">5.6. Kiểm tra định dạng dữ liệu một bảng</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#convert-tu-tieng-viet-co-dau-sang-khong-dau">5.7. Convert từ tiếng Việt có dấu sang không dấu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#functions-chon-gia-tri-lon-hon">5.8. Functions chọn giá trị lớn hơn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#procedure-pivot-vs-unpivot">5.9. Procedure pivot vs. unpivot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#doi-ten-bang-va-ten-cot">5.10. Đổi tên bảng và tên cột</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#viet-hoa-chu-dau">5.11. Viết hoa chữ đầu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#tao-floor-date">5.12. Tạo floor date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#clean-city">5.13. Clean city</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#kiem-tra-chat-luong-du-lieu-hang-ngay">5.14. Kiểm tra chất lượng dữ liệu hàng ngày</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#sua-default-template-trong-sql">5.15. Sửa default template trong SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#bat-dau-tem-bang-voi-dim">5.16. Bắt đầu têm bảng với DIM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#xoa-bang-neu-ton-tai">5.17. Xóa bảng nếu tồn tại</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#tim-kiem-kieu-du-lieu-trong-bang-cua-db">5.18. Tìm kiếm kiểu dữ liệu trong bảng của db</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#su-dung-drop-va-create-trong-cung-batch">5.19. Sử dụng drop và create trong cùng batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#phan-biet-dinh-dang-integer">5.20. Phân biệt định dạng integer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#varchar-vs-nvarchar">5.21. VARCHAR vs. NVARCHAR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#primary-key-vs-unique-key">5.22. Primary key vs. Unique key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#exec-vs-exec">5.23. EXEC vs. EXEC()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#xem-tat-ca-cac-user-defined-procedure">5.24. Xem tất cả các user-defined procedure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#lam-viec-voi-link-server">5.25. Làm việc với link server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#tim-tat-ca-cac-bang-cot-trong-database">5.26. Tìm tất cả các bảng, cột trong Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-05-tricks-sql.html#chay-file-bat-tu-t-sql">5.27. Chạy file .BAT từ T-SQL</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="p01-06-sqlcmd.html">6. SQLCMD</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="p01-06-sqlcmd.html#SQLCMD-là-gì?">6.1. SQLCMD là gì?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-06-sqlcmd.html#CMD">6.2. CMD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-06-sqlcmd.html#sqlcmd-la-gi">6.1. SQLCMD là gì?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-06-sqlcmd.html#cmd">6.2. CMD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="p01-06-sqlcmd.html#id1">6.3. SQLCMD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-06-sqlcmd.html#Các-lệnh-trong-SQLCMD">6.4. Các lệnh trong SQLCMD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-06-sqlcmd.html#Tạo-file-bat">6.5. Tạo file bat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-06-sqlcmd.html#cac-lenh-trong-sqlcmd">6.4. Các lệnh trong SQLCMD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-06-sqlcmd.html#tao-file-bat">6.5. Tạo file bat</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="p01-07-sql-project.html">7. SQL prọject</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="p01-07-sql-project.html#Tạo-SQL-project">7.1. Tạo SQL project</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-07-sql-project.html#Tạo-connection-và-queries-:">7.2. Tạo connection và queries :</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-07-sql-project.html#Đóng-project">7.3. Đóng project</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-07-sql-project.html#Mở-project-đã-có-sẵn">7.4. Mở project đã có sẵn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-07-sql-project.html#tao-sql-project">7.1. Tạo SQL project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-07-sql-project.html#tao-connection-va-queries">7.2. Tạo connection và queries :</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-07-sql-project.html#dong-project">7.3. Đóng project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-07-sql-project.html#mo-project-da-co-san">7.4. Mở project đã có sẵn</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="p01-08-sql-va-excel.html">8. Kết nối SQL với Excel phục vụ báo cáo tự động</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="p01-08-sql-va-excel.html#From-SQL-server">8.1. From SQL server</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-08-sql-va-excel.html#Kết-nối-SQL-với-Microft-Query">8.2. Kết nối SQL với Microft Query</a></li>
-<li class="toctree-l2"><a class="reference internal" href="p01-08-sql-va-excel.html#Chỉnh-sửa-cậu-lệnh-truy-vấn-SQL-sau-khi-đã-tạo-connection">8.3. Chỉnh sửa cậu lệnh truy vấn SQL sau khi đã tạo connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-08-sql-va-excel.html#from-sql-server">8.1. From SQL server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-08-sql-va-excel.html#ket-noi-sql-voi-microft-query">8.2. Kết nối SQL với Microft Query</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p01-08-sql-va-excel.html#chinh-sua-cau-lenh-truy-van-sql-sau-khi-da-tao-connection">8.3. Chỉnh sửa cậu lệnh truy vấn SQL sau khi đã tạo connection</a></li>
 </ul>
 </li>
 </ul>

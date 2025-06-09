@@ -1,31 +1,32 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="vi" data-content_root="./">
+<html class="writer-html5" lang="vn" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2. SQL nâng cao &mdash; Tài liệu Khai thác dữ liệu với SQL 2019</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+  <title>2. SQL nâng cao &mdash; Data Engineer book 2025 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0cebd926" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=33847982"></script>
+      <script src="_static/documentation_options.js?v=6c11a7b2"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="_static/copybutton.js?v=f281be69"></script>
-      <script src="_static/translations.js?v=4c1d55b0"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Tìm Kiếm" href="search.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="3. SQL tuning" href="p01-03-sql-tuning.html" />
     <link rel="prev" title="1. SQL cơ bản" href="p01-01-sql-co-ban.html" /> 
 </head>
@@ -39,7 +40,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            Khai thác dữ liệu với SQL
+            Data Engineer book
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -53,28 +54,28 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html">1. SQL cơ bản</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">2. SQL nâng cao</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#SQL-động-với-Exec">2.1. SQL động với Exec</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Thủ-tục-&amp;-hàm">2.2. Thủ tục &amp; hàm</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Procedure">2.2.1. Procedure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Tạo-procedure">2.2.2. Tạo procedure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Hàm-(function)">2.2.3. Hàm (function)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sql-dong-voi-exec">2.1. SQL động với Exec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#thu-tuc-ham">2.2. Thủ tục &amp; hàm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#procedure">2.2.1. Procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tao-procedure">2.2.2. Tạo procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ham-function">2.2.3. Hàm (function)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Câu-điều-kiện-If...Else">2.3. Câu điều kiện If…Else</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Vòng-lặp-với-bảng">2.4. Vòng lặp với bảng</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Đặt-job-trong-SQL">2.5. Đặt job trong SQL</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Bước-1:-Active-email-tự-động">2.5.1. Bước 1: Active email tự động</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Bước-2:-Đăng-kí-email-trong-Database-mail">2.5.2. Bước 2: Đăng kí email trong Database mail</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Bước-3:-Active-SQL-Server-Agent">2.5.3. Bước 3: Active SQL Server Agent</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Bước-4:-Đặt-Job">2.5.4. Bước 4: Đặt Job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cau-dieu-kien-if-else">2.3. Câu điều kiện If...Else</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vong-lap-voi-bang">2.4. Vòng lặp với bảng</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dat-job-trong-sql">2.5. Đặt job trong SQL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#buoc-1-active-email-tu-dong">2.5.1. Bước 1: Active email tự động</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#buoc-2-dang-ki-email-trong-database-mail">2.5.2. Bước 2: Đăng kí email trong Database mail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#buoc-3-active-sql-server-agent">2.5.3. Bước 3: Active SQL Server Agent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#buoc-4-dat-job">2.5.4. Bước 4: Đặt Job</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Pivot-&amp;-Unpivot">2.6. Pivot &amp; Unpivot</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Procedure-pivot">2.6.1. Procedure pivot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Procedure-unpivot">2.6.2. Procedure unpivot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pivot-unpivot">2.6. Pivot &amp; Unpivot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#procedure-pivot">2.6.1. Procedure pivot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#procedure-unpivot">2.6.2. Procedure unpivot</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Chia-một-cột-thành-nhiều-cột">2.7. Chia một cột thành nhiều cột</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chia-mot-cot-thanh-nhieu-cot">2.7. Chia một cột thành nhiều cột</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="p01-03-sql-tuning.html">3. SQL tuning</a></li>
@@ -91,7 +92,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Khai thác dữ liệu với SQL</a>
+          <a href="index.html">Data Engineer book</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -109,10 +110,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="SQL-nâng-cao">
-<h1><span class="section-number">2. </span>SQL nâng cao<a class="headerlink" href="#SQL-nâng-cao" title="Link to this heading"></a></h1>
-<section id="SQL-động-với-Exec">
-<h2><span class="section-number">2.1. </span>SQL động với Exec<a class="headerlink" href="#SQL-động-với-Exec" title="Link to this heading"></a></h2>
+  <section id="sql-nang-cao">
+<h1><span class="section-number">2. </span>SQL nâng cao<a class="headerlink" href="#sql-nang-cao" title="Link to this heading"></a></h1>
+<section id="sql-dong-voi-exec">
+<h2><span class="section-number">2.1. </span>SQL động với Exec<a class="headerlink" href="#sql-dong-voi-exec" title="Link to this heading"></a></h2>
 <p>SQL động là nhóm sử dụng nâng cao của SQL, cho phép người dùng tự động hóa các script. Sử dụng SQL động cho phép tùy biến các câu lệnh khi truy vấn và xử lý dữ liệu. Khi sử dụng SQL động, ta cần dùng <code class="docutils literal notranslate"><span class="pre">EXEC</span></code></p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Cách 1</span>
 <span class="k">declare</span><span class="w"> </span><span class="o">@</span><span class="n">id</span><span class="w"> </span><span class="nb">int</span>
@@ -145,21 +146,21 @@
 </pre></div>
 </div>
 </section>
-<section id="Thủ-tục-&amp;-hàm">
-<h2><span class="section-number">2.2. </span>Thủ tục &amp; hàm<a class="headerlink" href="#Thủ-tục-&-hàm" title="Link to this heading"></a></h2>
-<section id="Procedure">
-<h3><span class="section-number">2.2.1. </span>Procedure<a class="headerlink" href="#Procedure" title="Link to this heading"></a></h3>
+<section id="thu-tuc-ham">
+<h2><span class="section-number">2.2. </span>Thủ tục &amp; hàm<a class="headerlink" href="#thu-tuc-ham" title="Link to this heading"></a></h2>
+<section id="procedure">
+<h3><span class="section-number">2.2.1. </span>Procedure<a class="headerlink" href="#procedure" title="Link to this heading"></a></h3>
 <p><strong>Hiển thị tất cả các procedure đang lưu trong hệ thống</strong></p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Tất cả các procedure</span>
-<span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span>
 <span class="w">       </span><span class="k">type</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">sysobjects</span>
 <span class="k">WHERE</span><span class="w"> </span><span class="p">(</span><span class="k">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;P&#39;</span><span class="p">)</span>
-
-<span class="c1">-- Các procedure do người dùng tạo</span>
-<span class="w">  </span><span class="k">select</span><span class="w"> </span><span class="o">*</span>
-<span class="w">  </span><span class="k">from</span><span class="w"> </span><span class="n">master</span><span class="p">.</span><span class="n">information_schema</span><span class="p">.</span><span class="n">routines</span>
-<span class="w">  </span><span class="k">where</span><span class="w"> </span><span class="n">routine_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;PROCEDURE&#39;</span>
+<span class="w"> </span>
+<span class="c1">-- Các procedure do người dùng tạo </span>
+<span class="w">  </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
+<span class="w">  </span><span class="k">from</span><span class="w"> </span><span class="n">master</span><span class="p">.</span><span class="n">information_schema</span><span class="p">.</span><span class="n">routines</span><span class="w"> </span>
+<span class="w">  </span><span class="k">where</span><span class="w"> </span><span class="n">routine_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;PROCEDURE&#39;</span><span class="w"> </span>
 <span class="w">        </span><span class="k">and</span><span class="w"> </span><span class="k">Left</span><span class="p">(</span><span class="k">Routine_Name</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;sp_&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;xp_&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ms_&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -170,13 +171,13 @@
 </pre></div>
 </div>
 </section>
-<section id="Tạo-procedure">
-<h3><span class="section-number">2.2.2. </span>Tạo procedure<a class="headerlink" href="#Tạo-procedure" title="Link to this heading"></a></h3>
+<section id="tao-procedure">
+<h3><span class="section-number">2.2.2. </span>Tạo procedure<a class="headerlink" href="#tao-procedure" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Procedure không có biến</p></li>
 </ul>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Tạo procedure</span>
-<span class="k">create</span><span class="w"> </span><span class="k">procedure</span><span class="w"> </span><span class="n">getID_normal</span>
+<span class="k">create</span><span class="w"> </span><span class="k">procedure</span><span class="w"> </span><span class="n">getID_normal</span><span class="w"> </span>
 <span class="k">as</span>
 <span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">ACCOUNT</span>
 <span class="c1">-- Chạy procedure</span>
@@ -187,7 +188,7 @@
 <li><p>Procedure nhiều biến</p></li>
 </ul>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">--Tạo procedure</span>
-<span class="k">create</span><span class="w"> </span><span class="k">procedure</span><span class="w"> </span><span class="n">PROD_CD</span>
+<span class="k">create</span><span class="w"> </span><span class="k">procedure</span><span class="w"> </span><span class="n">PROD_CD</span><span class="w"> </span>
 <span class="w">  </span><span class="o">@</span><span class="n">prod</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
 <span class="w">  </span><span class="o">@</span><span class="n">AVAIL_BALANCE</span><span class="w"> </span><span class="nb">float</span>
 <span class="k">as</span>
@@ -202,8 +203,8 @@
 </div>
 <p><strong>Lưu ý</strong>: Trong SQL có 2 loại biến:</p>
 <ul class="simple">
-<li><p>User defined variable: Bắt đầu bằng dấu <a class="reference external" href="mailto:**&#37;&#52;&#48;**">**<span>&#64;</span>**</a></p></li>
-<li><p>System variable: Bắt đầu bằng dấu **&#64;&#64;** - loại này chỉ xuất hiện sau khi đã thực hiện xong 1 số câu lệnh</p></li>
+<li><p>User defined variable: Bắt đầu bằng dấu <strong>&#64;</strong></p></li>
+<li><p>System variable: Bắt đầu bằng dấu <strong>&#64;&#64;</strong> - loại này chỉ xuất hiện sau khi đã thực hiện xong 1 số câu lệnh</p></li>
 </ul>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="p">[</span><span class="n">DimCustomer</span><span class="p">]</span>
 <span class="k">select</span><span class="w"> </span><span class="o">@@</span><span class="n">ROWCOUNT</span>
@@ -214,7 +215,7 @@
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">drop</span><span class="w"> </span><span class="k">procedure</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">return_date</span>
 <span class="k">create</span><span class="w"> </span><span class="k">procedure</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">return_date</span><span class="p">]</span><span class="w"> </span><span class="p">(</span><span class="o">@</span><span class="n">no_date</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">no_date2</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">  </span><span class="o">@</span><span class="k">result</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="k">output</span><span class="p">)</span>
 <span class="k">as</span>
-<span class="k">begin</span>
+<span class="k">begin</span><span class="w"> </span>
 <span class="k">set</span><span class="w"> </span><span class="o">@</span><span class="k">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="k">convert</span><span class="p">(</span><span class="nb">varchar</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="n">getdate</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="o">@</span><span class="n">no_date</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="n">no_date2</span><span class="p">,</span><span class="w"> </span><span class="mi">112</span><span class="p">))</span>
 <span class="k">end</span>
 
@@ -224,17 +225,17 @@
 </pre></div>
 </div>
 </section>
-<section id="Hàm-(function)">
-<h3><span class="section-number">2.2.3. </span>Hàm (function)<a class="headerlink" href="#Hàm-(function)" title="Link to this heading"></a></h3>
+<section id="ham-function">
+<h3><span class="section-number">2.2.3. </span>Hàm (function)<a class="headerlink" href="#ham-function" title="Link to this heading"></a></h3>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DROP</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">fn_return_date</span>
 
 <span class="k">CREATE</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">fn_return_date</span><span class="p">]</span><span class="w"> </span><span class="p">(</span><span class="o">@</span><span class="n">no_date</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="k">RETURNS</span><span class="w"> </span><span class="nb">INT</span>
 <span class="k">AS</span>
 <span class="k">BEGIN</span>
-<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="p">(</span>
-<span class="w">            </span><span class="k">SELECT</span><span class="w"> </span><span class="k">cast</span><span class="p">(</span><span class="k">convert</span><span class="p">(</span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="n">getdate</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="o">@</span><span class="n">no_date</span><span class="p">,</span><span class="w"> </span><span class="mi">112</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">INT</span><span class="p">)</span>
-<span class="w">            </span><span class="p">)</span>
+<span class="w">	</span><span class="k">RETURN</span><span class="w"> </span><span class="p">(</span>
+<span class="w">			</span><span class="k">SELECT</span><span class="w"> </span><span class="k">cast</span><span class="p">(</span><span class="k">convert</span><span class="p">(</span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="n">getdate</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="o">@</span><span class="n">no_date</span><span class="p">,</span><span class="w"> </span><span class="mi">112</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">INT</span><span class="p">)</span>
+<span class="w">			</span><span class="p">)</span>
 <span class="k">END</span><span class="p">;</span>
 
 <span class="c1">-- Cách 1</span>
@@ -250,8 +251,8 @@
 </div>
 </section>
 </section>
-<section id="Câu-điều-kiện-If...Else">
-<h2><span class="section-number">2.3. </span>Câu điều kiện If…Else<a class="headerlink" href="#Câu-điều-kiện-If...Else" title="Link to this heading"></a></h2>
+<section id="cau-dieu-kien-if-else">
+<h2><span class="section-number">2.3. </span>Câu điều kiện If...Else<a class="headerlink" href="#cau-dieu-kien-if-else" title="Link to this heading"></a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 <span class="k">begin</span>
 <span class="n">print</span><span class="w"> </span><span class="s1">&#39;wrong&#39;</span>
@@ -263,9 +264,9 @@
 <span class="n">print</span><span class="w"> </span><span class="s1">&#39;absolutely right&#39;</span>
 </pre></div>
 </div>
-<p><strong>Lưu ý</strong>: Sau mệnh đề else, if, nếu có nhiều câu lệnh cùng thực hiện, cần khai báo begin…end</p>
+<p><strong>Lưu ý</strong>: Sau mệnh đề else, if, nếu có nhiều câu lệnh cùng thực hiện, cần khai báo begin...end</p>
 <hr class="docutils" />
-<p>Lưu ý: Ta có thể sử dụng câu điều kiện <code class="docutils literal notranslate"><span class="pre">if...else</span></code> để kiểm tra điều kiện để thực thi tiếp</p>
+<p>Lưu ý: Ta có thể sử dụng câu điều kiện <code class="docutils literal notranslate"><span class="pre">if...else</span></code> để kiểm tra  điều kiện để thực thi tiếp</p>
 <ul class="simple">
 <li><p>Kiểm tra điều kiện tồn tại của bảng</p></li>
 <li><p>Nếu tồn tại, chạy tiếp</p></li>
@@ -277,8 +278,8 @@
 <span class="k">declare</span><span class="w"> </span><span class="o">@</span><span class="n">tbl</span><span class="w"> </span><span class="n">sysname</span>
 <span class="k">set</span><span class="w"> </span><span class="o">@</span><span class="n">tbl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;TBL_I2B_USERS_F0_20180502&#39;</span>
 
-<span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ANHNT67</span><span class="p">.</span><span class="n">DBS_DAILY</span><span class="p">.</span><span class="n">DBO</span><span class="p">.</span><span class="n">SYSOBJECTS</span>
-<span class="w">                </span><span class="k">WHERE</span><span class="w"> </span><span class="n">NAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">tbl</span><span class="p">)</span>
+<span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">ANHNT67</span><span class="p">.</span><span class="n">DBS_DAILY</span><span class="p">.</span><span class="n">DBO</span><span class="p">.</span><span class="n">SYSOBJECTS</span><span class="w"> </span>
+<span class="w">				</span><span class="k">WHERE</span><span class="w"> </span><span class="n">NAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">tbl</span><span class="p">)</span>
 <span class="k">BEGIN</span>
 <span class="n">raiserror</span><span class="p">(</span><span class="s1">&#39;Table does not exist&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
 <span class="n">print</span><span class="p">(</span><span class="o">@</span><span class="n">tbl</span><span class="p">)</span>
@@ -289,8 +290,8 @@
 </pre></div>
 </div>
 </section>
-<section id="Vòng-lặp-với-bảng">
-<h2><span class="section-number">2.4. </span>Vòng lặp với bảng<a class="headerlink" href="#Vòng-lặp-với-bảng" title="Link to this heading"></a></h2>
+<section id="vong-lap-voi-bang">
+<h2><span class="section-number">2.4. </span>Vòng lặp với bảng<a class="headerlink" href="#vong-lap-voi-bang" title="Link to this heading"></a></h2>
 <p>SQL chỉ chạy được vòng lặp <code class="docutils literal notranslate"><span class="pre">WHILE</span></code></p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DROP</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">fn_return_date</span>
 
@@ -298,9 +299,9 @@
 <span class="k">RETURNS</span><span class="w"> </span><span class="nb">INT</span>
 <span class="k">AS</span>
 <span class="k">BEGIN</span>
-<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="p">(</span>
-<span class="w">            </span><span class="k">SELECT</span><span class="w"> </span><span class="k">cast</span><span class="p">(</span><span class="k">convert</span><span class="p">(</span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="n">getdate</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="o">@</span><span class="n">no_date</span><span class="p">,</span><span class="w"> </span><span class="mi">112</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">INT</span><span class="p">)</span>
-<span class="w">            </span><span class="p">)</span>
+<span class="w">	</span><span class="k">RETURN</span><span class="w"> </span><span class="p">(</span>
+<span class="w">			</span><span class="k">SELECT</span><span class="w"> </span><span class="k">cast</span><span class="p">(</span><span class="k">convert</span><span class="p">(</span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="n">getdate</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="o">@</span><span class="n">no_date</span><span class="p">,</span><span class="w"> </span><span class="mi">112</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">INT</span><span class="p">)</span>
+<span class="w">			</span><span class="p">)</span>
 <span class="k">END</span><span class="p">;</span>
 
 <span class="k">declare</span><span class="w"> </span><span class="o">@</span><span class="k">result</span><span class="w"> </span><span class="nb">int</span>
@@ -319,7 +320,7 @@
 <span class="k">select</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">fn_return_date</span><span class="p">](</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nb">date</span>
 
 <span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="o">#</span><span class="n">temp2</span>
-<span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
 <span class="k">into</span><span class="w"> </span><span class="o">#</span><span class="n">temp2</span>
 <span class="k">from</span><span class="w"> </span><span class="o">#</span><span class="n">temp</span>
 
@@ -328,7 +329,7 @@
 
 <span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">#</span><span class="n">temp2</span>
 
-<span class="k">update</span><span class="w"> </span><span class="o">#</span><span class="n">temp2</span>
+<span class="k">update</span><span class="w"> </span><span class="o">#</span><span class="n">temp2</span><span class="w"> </span>
 <span class="k">set</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">cast</span><span class="p">(</span><span class="nb">date</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;abc&#39;</span>
 
 
@@ -347,15 +348,15 @@
 
 <span class="c1">-- VERSION 1: DOES NOT WORK</span>
 
-<span class="k">declare</span><span class="w"> </span><span class="o">@</span><span class="n">loopcounter</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">maxcounter</span><span class="w"> </span><span class="nb">int</span>
+<span class="k">declare</span><span class="w"> </span><span class="o">@</span><span class="n">loopcounter</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">maxcounter</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span>
 <span class="k">set</span><span class="w"> </span><span class="o">@</span><span class="n">loopcounter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="k">min</span><span class="p">(</span><span class="nb">date</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">#</span><span class="n">temp2</span><span class="p">)</span>
 <span class="k">set</span><span class="w"> </span><span class="o">@</span><span class="n">maxcounter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="k">max</span><span class="p">(</span><span class="nb">date</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">#</span><span class="n">temp2</span><span class="p">)</span>
 
 <span class="n">while</span><span class="w"> </span><span class="p">(</span><span class="o">@</span><span class="n">loopcounter</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="o">@</span><span class="n">maxcounter</span><span class="p">)</span>
 <span class="k">begin</span>
-<span class="w">    </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">#</span><span class="n">temp2</span><span class="w"> </span><span class="k">where</span>
-<span class="w">    </span><span class="nb">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">loopcounter</span>
-<span class="w">    </span><span class="k">set</span><span class="w"> </span><span class="o">@</span><span class="n">loopcounter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">loopcounter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">	</span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">#</span><span class="n">temp2</span><span class="w"> </span><span class="k">where</span>
+<span class="w">	</span><span class="nb">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">loopcounter</span>
+<span class="w">	</span><span class="k">set</span><span class="w"> </span><span class="o">@</span><span class="n">loopcounter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">loopcounter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
 <span class="k">end</span>
 
 
@@ -364,27 +365,27 @@
 <span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="o">#</span><span class="k">result</span><span class="w"> </span><span class="p">(</span><span class="nb">date</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
 <span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">#</span><span class="k">result</span>
 
-<span class="k">declare</span><span class="w"> </span><span class="o">@</span><span class="n">loopcounter</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">maxcounter</span><span class="w"> </span><span class="nb">int</span>
+<span class="k">declare</span><span class="w"> </span><span class="o">@</span><span class="n">loopcounter</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">maxcounter</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span>
 <span class="k">set</span><span class="w"> </span><span class="o">@</span><span class="n">loopcounter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="k">min</span><span class="p">([</span><span class="k">index</span><span class="p">])</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">#</span><span class="k">ref</span><span class="p">)</span>
 <span class="k">set</span><span class="w"> </span><span class="o">@</span><span class="n">maxcounter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="k">max</span><span class="p">([</span><span class="k">index</span><span class="p">])</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">#</span><span class="k">ref</span><span class="p">)</span>
 
 <span class="n">while</span><span class="w"> </span><span class="p">(</span><span class="o">@</span><span class="n">loopcounter</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="o">@</span><span class="n">maxcounter</span><span class="p">)</span>
 <span class="k">begin</span>
-<span class="w">    </span><span class="k">declare</span><span class="w"> </span><span class="o">@</span><span class="nb">date</span><span class="w"> </span><span class="nb">int</span>
-<span class="w">    </span><span class="k">set</span><span class="w"> </span><span class="o">@</span><span class="nb">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="p">[</span><span class="nb">date</span><span class="p">]</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">#</span><span class="k">ref</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="p">[</span><span class="k">index</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">loopcounter</span><span class="p">)</span>
-
-<span class="w">    </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="o">#</span><span class="k">result</span><span class="w"> </span><span class="p">([</span><span class="nb">date</span><span class="p">],</span><span class="w"> </span><span class="k">new</span><span class="p">)</span>
-<span class="w">    </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">#</span><span class="n">temp2</span><span class="w"> </span><span class="k">where</span>
-<span class="w">    </span><span class="p">[</span><span class="nb">date</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="nb">date</span>
-<span class="w">    </span><span class="k">set</span><span class="w"> </span><span class="o">@</span><span class="n">loopcounter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">loopcounter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">	</span><span class="k">declare</span><span class="w"> </span><span class="o">@</span><span class="nb">date</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span>
+<span class="w">	</span><span class="k">set</span><span class="w"> </span><span class="o">@</span><span class="nb">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="p">[</span><span class="nb">date</span><span class="p">]</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">#</span><span class="k">ref</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="p">[</span><span class="k">index</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">loopcounter</span><span class="p">)</span>
+<span class="w">	</span>
+<span class="w">	</span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="o">#</span><span class="k">result</span><span class="w"> </span><span class="p">([</span><span class="nb">date</span><span class="p">],</span><span class="w"> </span><span class="k">new</span><span class="p">)</span>
+<span class="w">	</span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">#</span><span class="n">temp2</span><span class="w"> </span><span class="k">where</span>
+<span class="w">	</span><span class="p">[</span><span class="nb">date</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="nb">date</span>
+<span class="w">	</span><span class="k">set</span><span class="w"> </span><span class="o">@</span><span class="n">loopcounter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">loopcounter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
 <span class="k">end</span>
 
 <span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">#</span><span class="k">result</span>
 </pre></div>
 </div>
 </section>
-<section id="Đặt-job-trong-SQL">
-<h2><span class="section-number">2.5. </span>Đặt job trong SQL<a class="headerlink" href="#Đặt-job-trong-SQL" title="Link to this heading"></a></h2>
+<section id="dat-job-trong-sql">
+<h2><span class="section-number">2.5. </span>Đặt job trong SQL<a class="headerlink" href="#dat-job-trong-sql" title="Link to this heading"></a></h2>
 <p>Khi làm việc với SQL, một trong những yêu cầu rất quan trọng là phải tự động hóa code SQL theo thơi gian. Yêu cầu này có thể được xử lý bằng cách đặt job thông qua các bước lớn sau.</p>
 <ul class="simple">
 <li><p>Active email tự động</p></li>
@@ -392,10 +393,10 @@
 <li><p>Active SQL Server Agent</p></li>
 <li><p>Đặt job</p></li>
 </ul>
-<section id="Bước-1:-Active-email-tự-động">
-<h3><span class="section-number">2.5.1. </span>Bước 1: Active email tự động<a class="headerlink" href="#Bước-1:-Active-email-tự-động" title="Link to this heading"></a></h3>
+<section id="buoc-1-active-email-tu-dong">
+<h3><span class="section-number">2.5.1. </span>Bước 1: Active email tự động<a class="headerlink" href="#buoc-1-active-email-tu-dong" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p>Thực hiện câu lệnh sau trên SQL để active gửi Database Mail. Do khi cài SQL, mặc định Database mail chưa được active nên khi sử dụng ta cần active database này</p></li>
+<li><p>Thực hiện câu lệnh  sau trên SQL để active gửi Database Mail. Do khi cài SQL, mặc định Database mail chưa được active nên khi sử dụng ta cần active database này</p></li>
 </ul>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">sp_configure</span><span class="w"> </span><span class="s1">&#39;show advanced options&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="k">GO</span>
@@ -408,8 +409,8 @@
 </pre></div>
 </div>
 </section>
-<section id="Bước-2:-Đăng-kí-email-trong-Database-mail">
-<h3><span class="section-number">2.5.2. </span>Bước 2: Đăng kí email trong Database mail<a class="headerlink" href="#Bước-2:-Đăng-kí-email-trong-Database-mail" title="Link to this heading"></a></h3>
+<section id="buoc-2-dang-ki-email-trong-database-mail">
+<h3><span class="section-number">2.5.2. </span>Bước 2: Đăng kí email trong Database mail<a class="headerlink" href="#buoc-2-dang-ki-email-trong-database-mail" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Tại màn hình SQL &gt;&gt; Object Explore &gt;&gt; Management &gt;&gt; Database Mail &gt;&gt; Tick vào Set up database Mail by performing the following tasks &gt;&gt; Next &gt;&gt; Profile name điền tên id của mình muốn &gt;&gt; Add &gt;&gt; Điền đẩy đủ thông tin như hình bên dưới với thông tin email &gt;&gt; Next</p></li>
 <li><p>Mục đích của bước này là sau khi hoàn thành Job ta sẽ có 1 email thông báo Job đã thành công hoặc gửi thẳng cho client là dữ liệu đã sẵn sàng để có thể sử dụng</p></li>
@@ -418,61 +419,61 @@
 <span class="n">Pass</span><span class="p">:</span><span class="w"> </span><span class="n">pwd</span>
 </pre></div>
 </div>
-<p><img alt="Template" src="_images/job_5.png" /></p>
+<p><img alt="Template" src="_images/job_1.png" /></p>
 <hr class="docutils" />
-<p><img alt="image1" src="_images/job_2.png" /></p>
-<hr class="docutils" />
+<p><img alt="Template" src="_images/job_2.png" /></p>
 </section>
-<section id="Bước-3:-Active-SQL-Server-Agent">
-<h3><span class="section-number">2.5.3. </span>Bước 3: Active SQL Server Agent<a class="headerlink" href="#Bước-3:-Active-SQL-Server-Agent" title="Link to this heading"></a></h3>
+<hr class="docutils" />
+<section id="buoc-3-active-sql-server-agent">
+<h3><span class="section-number">2.5.3. </span>Bước 3: Active SQL Server Agent<a class="headerlink" href="#buoc-3-active-sql-server-agent" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Tại <code class="docutils literal notranslate"><span class="pre">Object</span> <span class="pre">Explore</span></code> &gt;&gt; Click chuột phải vào SQL Server Agent &gt;&gt; Start</p></li>
 </ul>
 </section>
-<section id="Bước-4:-Đặt-Job">
-<h3><span class="section-number">2.5.4. </span>Bước 4: Đặt Job<a class="headerlink" href="#Bước-4:-Đặt-Job" title="Link to this heading"></a></h3>
+<section id="buoc-4-dat-job">
+<h3><span class="section-number">2.5.4. </span>Bước 4: Đặt Job<a class="headerlink" href="#buoc-4-dat-job" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Chuột phải vào SQL Server Agent &gt;&gt; New &gt;&gt; Điền Name vào mục General &gt;&gt; Qua mục Steps &gt;&gt; Tạo các bước của Job tại New &gt;&gt; Điền Step Name &gt;&gt; Paste code automate vào phần Command. Ví dụ có thể sử dụng tại code bên dưới</p></li>
 </ul>
-<p><img alt="Template" src="_images/job_5.png" /></p>
+<p><img alt="Template" src="_images/job_3.png" /></p>
 <hr class="docutils" />
-<p><img alt="Template" src="_images/job_5.png" /></p>
+<p><img alt="Template" src="_images/job_4.png" /></p>
 <hr class="docutils" />
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">BA</span><span class="p">].[</span><span class="n">INFORMATION_SCHEMA</span><span class="p">].[</span><span class="n">TABLES</span><span class="p">]</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="p">[</span><span class="k">TABLE_NAME</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;CREDIT_CARD_TRANSACTION_SUCCESSFUL_MASTER&#39;</span><span class="p">)</span>
 <span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">[</span><span class="n">BA</span><span class="p">].[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">CREDIT_CARD_TRANSACTION_SUCCESSFUL_MASTER</span><span class="p">]</span>
 
 <span class="k">EXEC</span><span class="p">(</span><span class="s1">&#39;</span>
 <span class="s1">SELECT  ID,</span>
-<span class="s1">        YEARMONTH,</span>
-<span class="s1">        TARGET_ID,</span>
-<span class="s1">        TRANS_DATE,</span>
-<span class="s1">        TRANS_CURR,</span>
-<span class="s1">        TRANS_AMOUNT_QD,</span>
-<span class="s1">        TRANS_DETAILS,</span>
-<span class="s1">        MERCHANT_ID,</span>
-<span class="s1">        TRANS_CITY,</span>
-<span class="s1">        TRANS_COUNTRY,</span>
-<span class="s1">        BI_TRANS_TYPE,</span>
-<span class="s1">        SIC_CODE,</span>
-<span class="s1">        CIF,</span>
-<span class="s1">        PRODUCT_DETAIL</span>
+<span class="s1">		YEARMONTH,</span>
+<span class="s1">		TARGET_ID,</span>
+<span class="s1">		TRANS_DATE,</span>
+<span class="s1">		TRANS_CURR,</span>
+<span class="s1">		TRANS_AMOUNT_QD,</span>
+<span class="s1">		TRANS_DETAILS,</span>
+<span class="s1">		MERCHANT_ID,</span>
+<span class="s1">		TRANS_CITY,</span>
+<span class="s1">		TRANS_COUNTRY,</span>
+<span class="s1">		BI_TRANS_TYPE,</span>
+<span class="s1">		SIC_CODE,</span>
+<span class="s1">		CIF,</span>
+<span class="s1">		PRODUCT_DETAIL</span>
 <span class="s1">INTO [BA].[dbo].[CREDIT_CARD_TRANSACTION_SUCCESSFUL_MASTER]</span>
 <span class="s1">FROM [BA].[dbo].[CREDIT_CARD_TRANSACTION_SUCCESSFUL_2018]</span>
 <span class="s1">UNION ALL</span>
 <span class="s1">SELECT  ID,</span>
-<span class="s1">        YEARMONTH,</span>
-<span class="s1">        TARGET_ID,</span>
-<span class="s1">        TRANS_DATE,</span>
-<span class="s1">        TRANS_CURR,</span>
-<span class="s1">        TRANS_AMOUNT_QD,</span>
-<span class="s1">        TRANS_DETAILS,</span>
-<span class="s1">        MERCHANT_ID,</span>
-<span class="s1">        TRANS_CITY,</span>
-<span class="s1">        TRANS_COUNTRY,</span>
-<span class="s1">        BI_TRANS_TYPE,</span>
-<span class="s1">        SIC_CODE,</span>
-<span class="s1">        CIF,</span>
-<span class="s1">        PRODUCT_DETAIL</span>
+<span class="s1">		YEARMONTH,</span>
+<span class="s1">		TARGET_ID,</span>
+<span class="s1">		TRANS_DATE,</span>
+<span class="s1">		TRANS_CURR,</span>
+<span class="s1">		TRANS_AMOUNT_QD,</span>
+<span class="s1">		TRANS_DETAILS,</span>
+<span class="s1">		MERCHANT_ID,</span>
+<span class="s1">		TRANS_CITY,</span>
+<span class="s1">		TRANS_COUNTRY,</span>
+<span class="s1">		BI_TRANS_TYPE,</span>
+<span class="s1">		SIC_CODE,</span>
+<span class="s1">		CIF,</span>
+<span class="s1">		PRODUCT_DETAIL</span>
 <span class="s1">FROM [BA].[dbo].[CREDIT_CARD_TRANSACTION_SUCCESSFUL_2017]</span>
 <span class="s1">&#39;</span><span class="p">)</span>
 
@@ -484,9 +485,9 @@
 <span class="k">EXEC</span><span class="p">(</span><span class="s1">&#39;</span>
 <span class="s1">UPDATE [BA].[dbo].[CREDIT_CARD_TRANSACTION_SUCCESSFUL_MASTER]</span>
 <span class="s1">SET SIC_ID = A.SIC_CODE collate database_default,</span>
-<span class="s1">    MCC_CATEGORY = A.CATEGORIES</span>
+<span class="s1">	MCC_CATEGORY = A.CATEGORIES</span>
 <span class="s1">FROM [BA].[dbo].[MCC_CATEGORY_20170808] A</span>
-<span class="s1">WHERE [BA].[dbo].[CREDIT_CARD_TRANSACTION_SUCCESSFUL_MASTER].SIC_CODE = A.SIC_ID</span>
+<span class="s1">WHERE [BA].[dbo].[CREDIT_CARD_TRANSACTION_SUCCESSFUL_MASTER].SIC_CODE = A.SIC_ID		</span>
 
 <span class="s1">UPDATE [BA].[dbo].[CREDIT_CARD_TRANSACTION_SUCCESSFUL_MASTER]</span>
 <span class="s1">SET MCC_CATEGORY_AIA = A.MCC_CATEGORY</span>
@@ -535,8 +536,8 @@
 </ul>
 </section>
 </section>
-<section id="Pivot-&amp;-Unpivot">
-<h2><span class="section-number">2.6. </span>Pivot &amp; Unpivot<a class="headerlink" href="#Pivot-&-Unpivot" title="Link to this heading"></a></h2>
+<section id="pivot-unpivot">
+<h2><span class="section-number">2.6. </span>Pivot &amp; Unpivot<a class="headerlink" href="#pivot-unpivot" title="Link to this heading"></a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Tạo bảng</span>
 <span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="o">#</span><span class="n">student</span>
 <span class="p">(</span>
@@ -561,7 +562,7 @@
 
 <span class="c1">-- PIVOT</span>
 
-<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
 <span class="k">into</span><span class="w"> </span><span class="o">#</span><span class="n">student_pivot</span><span class="w"> </span><span class="k">FROM</span>
 <span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
 <span class="k">FROM</span><span class="w"> </span><span class="o">#</span><span class="n">Student</span><span class="p">)</span><span class="w"> </span><span class="n">a</span>
@@ -570,14 +571,14 @@
 <span class="p">)</span><span class="w"> </span><span class="n">b</span>
 
 
-<span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span>
+<span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span>
 <span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">#</span><span class="n">student_pivot</span><span class="p">)</span><span class="w"> </span><span class="n">a</span>
-<span class="n">pivot</span>
+<span class="n">pivot</span><span class="w"> </span>
 <span class="p">(</span><span class="k">sum</span><span class="p">(</span><span class="n">value_var</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">group_var</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="n">mark1</span><span class="p">,</span><span class="w"> </span><span class="n">mark2</span><span class="p">,</span><span class="w"> </span><span class="n">mark3</span><span class="p">))</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
-<section id="Procedure-pivot">
-<h3><span class="section-number">2.6.1. </span>Procedure pivot<a class="headerlink" href="#Procedure-pivot" title="Link to this heading"></a></h3>
+<section id="procedure-pivot">
+<h3><span class="section-number">2.6.1. </span>Procedure pivot<a class="headerlink" href="#procedure-pivot" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Dynamic sql</p></li>
 </ul>
@@ -586,15 +587,15 @@
 <span class="k">set</span><span class="w"> </span><span class="o">@</span><span class="k">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;#student_pivot&#39;</span>
 <span class="k">set</span><span class="w"> </span><span class="o">@</span><span class="k">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">STUFF</span><span class="p">(</span>
 <span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">group_var</span>
-<span class="w">              </span><span class="k">FROM</span>
-<span class="w">              </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">group_var</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">#</span><span class="n">student_pivot</span>
-<span class="w">              </span><span class="k">where</span><span class="w"> </span><span class="n">group_var</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;mark1&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">b</span>
+<span class="w">              </span><span class="k">FROM</span><span class="w"> </span>
+<span class="w">			  </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="n">group_var</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">#</span><span class="n">student_pivot</span>
+<span class="w">			  </span><span class="k">where</span><span class="w"> </span><span class="n">group_var</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;mark1&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">b</span>
 <span class="w">              </span><span class="k">FOR</span><span class="w"> </span><span class="n">XML</span><span class="w"> </span><span class="n">PATH</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)),</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 
 <span class="k">declare</span><span class="w"> </span><span class="o">@</span><span class="n">sqlstr</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)</span>
-<span class="k">set</span><span class="w"> </span><span class="o">@</span><span class="n">sqlstr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="s1">&#39;select * from</span>
+<span class="k">set</span><span class="w"> </span><span class="o">@</span><span class="n">sqlstr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="s1">&#39;select * from </span>
 <span class="s1">(select * from &#39;</span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="k">data</span><span class="w"> </span><span class="o">+</span><span class="s1">&#39;) a</span>
-<span class="s1">pivot</span>
+<span class="s1">pivot </span>
 <span class="s1">(sum(value_var) for group_var in (&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="k">group</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;)) b</span>
 <span class="s1">&#39;</span>
 <span class="k">exec</span><span class="w"> </span><span class="n">sp_executesql</span><span class="w"> </span><span class="o">@</span><span class="n">sqlstr</span>
@@ -605,11 +606,11 @@
 </ul>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">drop</span><span class="w"> </span><span class="k">procedure</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">sql_pivot</span>
 <span class="k">create</span><span class="w"> </span><span class="k">procedure</span><span class="w"> </span><span class="n">sql_pivot</span><span class="w">  </span><span class="o">@</span><span class="k">data</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">),</span>
-<span class="w">                            </span><span class="o">@</span><span class="k">group</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">),</span><span class="w"> </span><span class="c1">-- Variable to pivot</span>
-<span class="w">                            </span><span class="o">@</span><span class="k">row</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">),</span><span class="w"> </span><span class="c1">-- Column to keep as key</span>
-<span class="w">                            </span><span class="o">@</span><span class="n">value</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">),</span><span class="w"> </span><span class="c1">-- Column to calculate</span>
-<span class="w">                            </span><span class="o">@</span><span class="k">function</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;sum&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Function to calculate</span>
-<span class="w">                            </span><span class="o">@</span><span class="n">stored_data</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;##pivot_result&#39;</span><span class="w"> </span><span class="c1">-- Store data result</span>
+<span class="w">							</span><span class="o">@</span><span class="k">group</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">),</span><span class="w"> </span><span class="c1">-- Variable to pivot</span>
+<span class="w">							</span><span class="o">@</span><span class="k">row</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">),</span><span class="w"> </span><span class="c1">-- Column to keep as key</span>
+<span class="w">							</span><span class="o">@</span><span class="n">value</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">),</span><span class="w"> </span><span class="c1">-- Column to calculate</span>
+<span class="w">							</span><span class="o">@</span><span class="k">function</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;sum&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Function to calculate</span>
+<span class="w">							</span><span class="o">@</span><span class="n">stored_data</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;##pivot_result&#39;</span><span class="w"> </span><span class="c1">-- Store data result</span>
 <span class="k">as</span>
 <span class="k">begin</span>
 <span class="k">declare</span><span class="w"> </span><span class="o">@</span><span class="k">sql</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)</span>
@@ -617,18 +618,18 @@
 <span class="s1">declare @group_value nvarchar(max)</span>
 <span class="s1">set @group_value = STUFF(</span>
 <span class="s1">(SELECT &#39;&#39;,&#39;&#39; + b.&#39;</span><span class="o">+@</span><span class="k">group</span><span class="o">+</span><span class="s1">&#39;</span>
-<span class="s1">              FROM</span>
-<span class="s1">              (select distinct &#39;</span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="k">group</span><span class="w"> </span><span class="o">+</span><span class="s1">&#39; from &#39;</span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="k">data</span><span class="w"> </span><span class="o">+</span><span class="s1">&#39;) b</span>
+<span class="s1">              FROM </span>
+<span class="s1">			  (select distinct &#39;</span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="k">group</span><span class="w"> </span><span class="o">+</span><span class="s1">&#39; from &#39;</span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="k">data</span><span class="w"> </span><span class="o">+</span><span class="s1">&#39;) b</span>
 <span class="s1">              FOR XML PATH (&#39;&#39;&#39;&#39;)),1,1,&#39;&#39;&#39;&#39;)</span>
 
 <span class="s1">declare @sqlstr nvarchar(max)</span>
 <span class="s1">set @sqlstr = N&#39;&#39;</span>
 <span class="s1">drop table if exists &#39;</span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="n">stored_data</span><span class="w"> </span><span class="o">+</span><span class="s1">&#39;</span>
-<span class="s1">select *</span>
+<span class="s1">select * </span>
 <span class="s1">into &#39;</span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="n">stored_data</span><span class="w"> </span><span class="o">+</span><span class="s1">&#39;</span>
-<span class="s1">from</span>
+<span class="s1">from </span>
 <span class="s1">(select &#39;</span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="k">group</span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="k">row</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;, &#39;</span><span class="o">+@</span><span class="n">value</span><span class="w"> </span><span class="o">+</span><span class="s1">&#39;  from &#39;</span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="k">data</span><span class="w"> </span><span class="o">+</span><span class="s1">&#39;) a</span>
-<span class="s1">pivot</span>
+<span class="s1">pivot </span>
 <span class="s1">(&#39;</span><span class="o">+@</span><span class="k">function</span><span class="o">+</span><span class="s1">&#39;(&#39;</span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="n">value</span><span class="w"> </span><span class="o">+</span><span class="s1">&#39;) for &#39;</span><span class="o">+@</span><span class="k">group</span><span class="o">+</span><span class="s1">&#39; in (&#39;&#39; + @group_value + &#39;&#39;)) b</span>
 <span class="s1">&#39;&#39;</span>
 <span class="s1">exec sp_executesql @sqlstr</span>
@@ -646,8 +647,8 @@
 </pre></div>
 </div>
 </section>
-<section id="Procedure-unpivot">
-<h3><span class="section-number">2.6.2. </span>Procedure unpivot<a class="headerlink" href="#Procedure-unpivot" title="Link to this heading"></a></h3>
+<section id="procedure-unpivot">
+<h3><span class="section-number">2.6.2. </span>Procedure unpivot<a class="headerlink" href="#procedure-unpivot" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Dynamic sql: Cho phép nhiều ID</p></li>
 <li><p>Cách 1: Chỉ sử dụng với các data trong máy local</p></li>
@@ -660,26 +661,26 @@
 <span class="k">declare</span><span class="w"> </span><span class="o">@</span><span class="k">sql</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)</span>
 <span class="k">set</span><span class="w"> </span><span class="o">@</span><span class="k">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;</span>
 <span class="s1">declare @cols AS NVARCHAR(MAX)</span>
-<span class="s1">   select @cols = STUFF((SELECT &#39;&#39;,&#39;&#39; + QUOTENAME(column_name)</span>
+<span class="s1">   select @cols = STUFF((SELECT &#39;&#39;,&#39;&#39; + QUOTENAME(column_name) </span>
 <span class="s1">                    FROM (</span>
 <span class="s1">                        select   table_name, column_name, ordinal_position, data_type</span>
 <span class="s1">                        from   information_schema.columns</span>
-<span class="s1">                        where   table_name = &#39;&#39;&#39;</span><span class="o">+@</span><span class="k">data</span><span class="o">+</span><span class="s1">&#39;&#39;&#39; and</span>
-<span class="s1">                        column_name not in (&#39;</span><span class="o">+@</span><span class="n">id_var</span><span class="o">+</span><span class="s1">&#39;)</span>
+<span class="s1">                        where   table_name = &#39;&#39;&#39;</span><span class="o">+@</span><span class="k">data</span><span class="o">+</span><span class="s1">&#39;&#39;&#39; and </span>
+<span class="s1">						column_name not in (&#39;</span><span class="o">+@</span><span class="n">id_var</span><span class="o">+</span><span class="s1">&#39;) </span>
 <span class="s1">                        ) cols</span>
-<span class="s1">                    ORDER BY ordinal_position</span>
+<span class="s1">                    ORDER BY ordinal_position               </span>
 <span class="s1">                    FOR XML PATH(&#39;&#39;&#39;&#39;), TYPE).value(&#39;&#39;.&#39;&#39;, &#39;&#39;NVARCHAR(MAX)&#39;&#39;),1,1,&#39;&#39;&#39;&#39;)</span>
 <span class="s1">select @cols</span>
 
 <span class="s1">declare @key AS NVARCHAR(MAX)</span>
-<span class="s1">   select @key = STUFF((SELECT &#39;&#39;,&#39;&#39; + QUOTENAME(column_name)</span>
+<span class="s1">   select @key = STUFF((SELECT &#39;&#39;,&#39;&#39; + QUOTENAME(column_name) </span>
 <span class="s1">                    FROM (</span>
 <span class="s1">                        select   table_name, column_name, ordinal_position, data_type</span>
 <span class="s1">                        from   information_schema.columns</span>
-<span class="s1">                        where   table_name = &#39;&#39;&#39;</span><span class="o">+@</span><span class="k">data</span><span class="o">+</span><span class="s1">&#39;&#39;&#39; and</span>
-<span class="s1">                        column_name in (&#39;</span><span class="o">+@</span><span class="n">id_var</span><span class="o">+</span><span class="s1">&#39;)</span>
+<span class="s1">                        where   table_name = &#39;&#39;&#39;</span><span class="o">+@</span><span class="k">data</span><span class="o">+</span><span class="s1">&#39;&#39;&#39; and </span>
+<span class="s1">						column_name in (&#39;</span><span class="o">+@</span><span class="n">id_var</span><span class="o">+</span><span class="s1">&#39;) </span>
 <span class="s1">                        ) cols</span>
-<span class="s1">                    ORDER BY ordinal_position</span>
+<span class="s1">                    ORDER BY ordinal_position               </span>
 <span class="s1">                    FOR XML PATH(&#39;&#39;&#39;&#39;), TYPE).value(&#39;&#39;.&#39;&#39;, &#39;&#39;NVARCHAR(MAX)&#39;&#39;),1,1,&#39;&#39;&#39;&#39;)</span>
 <span class="s1">select @key</span>
 
@@ -697,7 +698,7 @@
 <span class="s1">print @sqlstr</span>
 <span class="s1">exec sp_executesql @sqlstr</span>
 <span class="s1">&#39;</span>
-
+<span class="w">  </span>
 <span class="k">exec</span><span class="w"> </span><span class="n">sp_executesql</span><span class="w"> </span><span class="o">@</span><span class="k">sql</span>
 </pre></div>
 </div>
@@ -710,29 +711,29 @@
 <span class="k">declare</span><span class="w"> </span><span class="o">@</span><span class="n">group_var</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;group_var&#39;</span>
 <span class="k">declare</span><span class="w"> </span><span class="o">@</span><span class="n">value_var</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;value_var&#39;</span>
 <span class="k">declare</span><span class="w"> </span><span class="o">@</span><span class="n">stored_data</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;##a&#39;</span>
-<span class="k">declare</span><span class="w"> </span><span class="o">@</span><span class="k">sql</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="o">@</span><span class="k">sql</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)</span><span class="w"> </span>
 
 <span class="k">set</span><span class="w"> </span><span class="o">@</span><span class="k">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="s1">&#39;</span>
 <span class="s1">drop table if exists ##all_cols</span>
 <span class="s1">select name into ##all_cols</span>
-<span class="s1">from &#39;</span><span class="o">+@</span><span class="n">db</span><span class="o">+</span><span class="s1">&#39;.sys.columns</span>
+<span class="s1">from &#39;</span><span class="o">+@</span><span class="n">db</span><span class="o">+</span><span class="s1">&#39;.sys.columns </span>
 <span class="s1">where object_id in (select object_id from &#39;</span><span class="o">+@</span><span class="n">db</span><span class="o">+</span><span class="s1">&#39;.sys.tables where name like &#39;&#39;%&#39;</span><span class="o">+@</span><span class="k">data</span><span class="o">+</span><span class="s1">&#39;&#39;&#39;)</span>
 
 <span class="s1">declare @cols AS NVARCHAR(MAX)</span>
-<span class="s1">   select @cols = STUFF((SELECT &#39;&#39;,&#39;&#39; + QUOTENAME(name)</span>
+<span class="s1">   select @cols = STUFF((SELECT &#39;&#39;,&#39;&#39; + QUOTENAME(name) </span>
 <span class="s1">                    FROM (</span>
-<span class="s1">                        select name from ##all_cols</span>
-<span class="s1">                        where name not in (&#39;</span><span class="o">+@</span><span class="n">id_var</span><span class="o">+</span><span class="s1">&#39;)</span>
-<span class="s1">                        ) cols</span>
+<span class="s1">                        select name from ##all_cols </span>
+<span class="s1">                        where name not in (&#39;</span><span class="o">+@</span><span class="n">id_var</span><span class="o">+</span><span class="s1">&#39;) </span>
+<span class="s1">                        ) cols            </span>
 <span class="s1">                    FOR XML PATH(&#39;&#39;&#39;&#39;), TYPE).value(&#39;&#39;.&#39;&#39;, &#39;&#39;NVARCHAR(MAX)&#39;&#39;),1,1,&#39;&#39;&#39;&#39;)</span>
 <span class="s1">select @cols</span>
 
 <span class="s1">declare @key AS NVARCHAR(MAX)</span>
-<span class="s1">   select @key = STUFF((SELECT &#39;&#39;,&#39;&#39; + QUOTENAME(name)</span>
+<span class="s1">   select @key = STUFF((SELECT &#39;&#39;,&#39;&#39; + QUOTENAME(name) </span>
 <span class="s1">                    FROM (</span>
-<span class="s1">                        select name from ##all_cols</span>
-<span class="s1">                        where name in (&#39;</span><span class="o">+@</span><span class="n">id_var</span><span class="o">+</span><span class="s1">&#39;)</span>
-<span class="s1">                        ) cols</span>
+<span class="s1">                        select name from ##all_cols </span>
+<span class="s1">                        where name in (&#39;</span><span class="o">+@</span><span class="n">id_var</span><span class="o">+</span><span class="s1">&#39;) </span>
+<span class="s1">                        ) cols            </span>
 <span class="s1">                    FOR XML PATH(&#39;&#39;&#39;&#39;), TYPE).value(&#39;&#39;.&#39;&#39;, &#39;&#39;NVARCHAR(MAX)&#39;&#39;),1,1,&#39;&#39;&#39;&#39;)</span>
 <span class="s1">select @key</span>
 
@@ -740,9 +741,9 @@
 
 <span class="s1">declare @sqlstr nvarchar(max)</span>
 <span class="s1">set @sqlstr = N&#39;&#39;</span>
-<span class="s1">            drop table if exists &#39;</span><span class="o">+@</span><span class="n">stored_data</span><span class="o">+</span><span class="s1">&#39;</span>
+<span class="s1">			drop table if exists &#39;</span><span class="o">+@</span><span class="n">stored_data</span><span class="o">+</span><span class="s1">&#39;</span>
 <span class="s1">            select &#39;&#39;+@key+&#39;&#39;, &#39;</span><span class="o">+@</span><span class="n">group_var</span><span class="o">+</span><span class="s1">&#39;, &#39;</span><span class="o">+@</span><span class="n">value_var</span><span class="o">+</span><span class="s1">&#39;</span>
-<span class="s1">            into &#39;</span><span class="o">+@</span><span class="n">stored_data</span><span class="o">+</span><span class="s1">&#39;</span>
+<span class="s1">			into &#39;</span><span class="o">+@</span><span class="n">stored_data</span><span class="o">+</span><span class="s1">&#39;</span>
 <span class="s1">            from(</span>
 <span class="s1">               select *</span>
 <span class="s1">               from &#39;</span><span class="o">+@</span><span class="n">db</span><span class="o">+</span><span class="s1">&#39;.dbo.[&#39;</span><span class="o">+@</span><span class="k">data</span><span class="o">+</span><span class="s1">&#39;]</span>
@@ -751,8 +752,8 @@
 <span class="s1">            (</span>
 <span class="s1">              &#39;</span><span class="o">+@</span><span class="n">value_var</span><span class="o">+</span><span class="s1">&#39; for &#39;</span><span class="o">+@</span><span class="n">group_var</span><span class="o">+</span><span class="s1">&#39; in (&#39;&#39; + @cols + &#39;&#39;)</span>
 <span class="s1">            ) as b</span>
-<span class="s1">            select * from &#39;</span><span class="o">+@</span><span class="n">stored_data</span><span class="o">+</span><span class="s1">&#39;</span>
-<span class="s1">            &#39;&#39;</span>
+<span class="s1">			select * from &#39;</span><span class="o">+@</span><span class="n">stored_data</span><span class="o">+</span><span class="s1">&#39;</span>
+<span class="s1">			&#39;&#39;</span>
 <span class="s1">print @sqlstr</span>
 <span class="s1">exec sp_executesql @sqlstr</span>
 <span class="s1">&#39;</span>
@@ -764,49 +765,49 @@
 <li><p>Procedure</p></li>
 </ul>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">drop</span><span class="w"> </span><span class="k">procedure</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">sql_unpivot</span>
-<span class="k">create</span><span class="w"> </span><span class="k">procedure</span><span class="w"> </span><span class="n">sql_unpivot</span>
+<span class="k">create</span><span class="w"> </span><span class="k">procedure</span><span class="w"> </span><span class="n">sql_unpivot</span><span class="w"> </span>
 <span class="w"> </span><span class="o">@</span><span class="n">db</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;tempdb&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">--Database contains data</span>
 <span class="o">@</span><span class="k">data</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">),</span><span class="w"> </span><span class="c1">-- Name of data</span>
 <span class="o">@</span><span class="n">id_var</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">),</span><span class="w"> </span><span class="c1">-- Key variables</span>
 <span class="o">@</span><span class="n">group_var</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;group_var&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">--Name of groups variable</span>
 <span class="o">@</span><span class="n">value_var</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;value_var&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">-- Name of value variable</span>
 <span class="o">@</span><span class="n">stored_data</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;##unpivot_result&#39;</span><span class="w">  </span><span class="c1">-- Data storage</span>
-<span class="k">as</span>
+<span class="k">as</span><span class="w"> </span>
 <span class="k">begin</span>
-<span class="k">declare</span><span class="w"> </span><span class="o">@</span><span class="k">sql</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)</span>
+<span class="k">declare</span><span class="w"> </span><span class="o">@</span><span class="k">sql</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)</span><span class="w"> </span>
 <span class="k">set</span><span class="w"> </span><span class="o">@</span><span class="k">sql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="s1">&#39;</span>
 <span class="s1">drop table if exists ##all_cols</span>
 <span class="s1">select name into ##all_cols</span>
-<span class="s1">from &#39;</span><span class="o">+@</span><span class="n">db</span><span class="o">+</span><span class="s1">&#39;.sys.columns</span>
+<span class="s1">from &#39;</span><span class="o">+@</span><span class="n">db</span><span class="o">+</span><span class="s1">&#39;.sys.columns </span>
 <span class="s1">where object_id in (select object_id from &#39;</span><span class="o">+@</span><span class="n">db</span><span class="o">+</span><span class="s1">&#39;.sys.tables where name like &#39;&#39;%&#39;</span><span class="o">+@</span><span class="k">data</span><span class="o">+</span><span class="s1">&#39;&#39;&#39;)</span>
 
 <span class="s1">declare @cols AS NVARCHAR(MAX)</span>
-<span class="s1">   select @cols = STUFF((SELECT &#39;&#39;,&#39;&#39; + QUOTENAME(name)</span>
+<span class="s1">   select @cols = STUFF((SELECT &#39;&#39;,&#39;&#39; + QUOTENAME(name) </span>
 <span class="s1">                    FROM (</span>
-<span class="s1">                        select name from ##all_cols</span>
-<span class="s1">                        where name not in (&#39;</span><span class="o">+@</span><span class="n">id_var</span><span class="o">+</span><span class="s1">&#39;)</span>
-<span class="s1">                        ) cols</span>
+<span class="s1">                        select name from ##all_cols </span>
+<span class="s1">                        where name not in (&#39;</span><span class="o">+@</span><span class="n">id_var</span><span class="o">+</span><span class="s1">&#39;) </span>
+<span class="s1">                        ) cols            </span>
 <span class="s1">                    FOR XML PATH(&#39;&#39;&#39;&#39;), TYPE).value(&#39;&#39;.&#39;&#39;, &#39;&#39;NVARCHAR(MAX)&#39;&#39;),1,1,&#39;&#39;&#39;&#39;)</span>
 <span class="s1">-- Show columns</span>
-<span class="s1">print @cols</span>
+<span class="s1">print @cols </span>
 
 <span class="s1">declare @key AS NVARCHAR(MAX)</span>
-<span class="s1">   select @key = STUFF((SELECT &#39;&#39;,&#39;&#39; + QUOTENAME(name)</span>
+<span class="s1">   select @key = STUFF((SELECT &#39;&#39;,&#39;&#39; + QUOTENAME(name) </span>
 <span class="s1">                    FROM (</span>
-<span class="s1">                        select name from ##all_cols</span>
-<span class="s1">                        where name in (&#39;</span><span class="o">+@</span><span class="n">id_var</span><span class="o">+</span><span class="s1">&#39;)</span>
-<span class="s1">                        ) cols</span>
+<span class="s1">                        select name from ##all_cols </span>
+<span class="s1">                        where name in (&#39;</span><span class="o">+@</span><span class="n">id_var</span><span class="o">+</span><span class="s1">&#39;) </span>
+<span class="s1">                        ) cols            </span>
 <span class="s1">                    FOR XML PATH(&#39;&#39;&#39;&#39;), TYPE).value(&#39;&#39;.&#39;&#39;, &#39;&#39;NVARCHAR(MAX)&#39;&#39;),1,1,&#39;&#39;&#39;&#39;)</span>
 <span class="s1">-- Show key</span>
-<span class="s1">print @key</span>
+<span class="s1">print @key </span>
 
 <span class="s1">--Run procedure</span>
 
 <span class="s1">declare @sqlstr nvarchar(max)</span>
 <span class="s1">set @sqlstr = N&#39;&#39;</span>
-<span class="s1">            drop table if exists &#39;</span><span class="o">+@</span><span class="n">stored_data</span><span class="o">+</span><span class="s1">&#39;</span>
+<span class="s1">			drop table if exists &#39;</span><span class="o">+@</span><span class="n">stored_data</span><span class="o">+</span><span class="s1">&#39;</span>
 <span class="s1">            select &#39;&#39;+@key+&#39;&#39;, &#39;</span><span class="o">+@</span><span class="n">group_var</span><span class="o">+</span><span class="s1">&#39;, &#39;</span><span class="o">+@</span><span class="n">value_var</span><span class="o">+</span><span class="s1">&#39;</span>
-<span class="s1">            into &#39;</span><span class="o">+@</span><span class="n">stored_data</span><span class="o">+</span><span class="s1">&#39;</span>
+<span class="s1">			into &#39;</span><span class="o">+@</span><span class="n">stored_data</span><span class="o">+</span><span class="s1">&#39;</span>
 <span class="s1">            from(</span>
 <span class="s1">               select *</span>
 <span class="s1">               from &#39;</span><span class="o">+@</span><span class="n">db</span><span class="o">+</span><span class="s1">&#39;.dbo.[&#39;</span><span class="o">+@</span><span class="k">data</span><span class="o">+</span><span class="s1">&#39;]</span>
@@ -815,8 +816,8 @@
 <span class="s1">            (</span>
 <span class="s1">              &#39;</span><span class="o">+@</span><span class="n">value_var</span><span class="o">+</span><span class="s1">&#39; for &#39;</span><span class="o">+@</span><span class="n">group_var</span><span class="o">+</span><span class="s1">&#39; in (&#39;&#39; + @cols + &#39;&#39;)</span>
 <span class="s1">            ) as b</span>
-<span class="s1">            select * from &#39;</span><span class="o">+@</span><span class="n">stored_data</span><span class="o">+</span><span class="s1">&#39;</span>
-<span class="s1">            &#39;&#39;</span>
+<span class="s1">			select * from &#39;</span><span class="o">+@</span><span class="n">stored_data</span><span class="o">+</span><span class="s1">&#39;</span>
+<span class="s1">			&#39;&#39;</span>
 <span class="s1">print @sqlstr</span>
 <span class="s1">exec sp_executesql @sqlstr</span>
 <span class="s1">&#39;</span>
@@ -824,7 +825,7 @@
 <span class="k">end</span>
 </pre></div>
 </div>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">exec</span><span class="w"> </span><span class="n">sql_unpivot</span><span class="w"> </span><span class="o">@</span><span class="n">db</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;loan_db&#39;</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="k">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;MONTHLY_LCY_AMOUNT - M74 - BICDATA&#39;</span><span class="p">,</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">exec</span><span class="w"> </span><span class="n">sql_unpivot</span><span class="w"> </span><span class="o">@</span><span class="n">db</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;loan_db&#39;</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="k">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;MONTHLY_LCY_AMOUNT - M74 - BICDATA&#39;</span><span class="p">,</span><span class="w"> </span>
 <span class="o">@</span><span class="n">id_var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;&#39;id&#39;&#39;, &#39;&#39;YEARMONTH&#39;&#39;, &#39;&#39;APP&#39;&#39;,&#39;&#39;ACCTNO&#39;&#39;, &#39;&#39;CIF&#39;&#39;, &#39;&#39;AVERAGE_BAL&#39;&#39;, &#39;&#39;BI_SEGMENT&#39;&#39;&#39;</span>
 </pre></div>
 </div>
@@ -834,12 +835,12 @@
 </ul>
 </section>
 </section>
-<section id="Chia-một-cột-thành-nhiều-cột">
-<h2><span class="section-number">2.7. </span>Chia một cột thành nhiều cột<a class="headerlink" href="#Chia-một-cột-thành-nhiều-cột" title="Link to this heading"></a></h2>
+<section id="chia-mot-cot-thanh-nhieu-cot">
+<h2><span class="section-number">2.7. </span>Chia một cột thành nhiều cột<a class="headerlink" href="#chia-mot-cot-thanh-nhieu-cot" title="Link to this heading"></a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">tbl_SplitColumns</span><span class="w"> </span><span class="p">(</span><span class="n">col1</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="k">max</span><span class="p">))</span>
 <span class="k">GO</span>
-
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">tbl_SplitColumns</span>
+<span class="w"> </span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">tbl_SplitColumns</span><span class="w"> </span>
 <span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;part1 part2 part3&#39;</span><span class="p">),(</span><span class="s1">&#39;abc xyz pqr&#39;</span><span class="p">),(</span><span class="s1">&#39;one two three&#39;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Hello man nua nha&#39;</span><span class="p">)</span>
 <span class="k">GO</span>
 
@@ -847,21 +848,21 @@
 <span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">tbl_SplitColumns</span>
 
 <span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="k">delimiter</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="k">delimiter</span><span class="o">=</span><span class="s1">&#39; &#39;</span>
+<span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="k">delimiter</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="w">  </span>
 <span class="p">;</span><span class="k">WITH</span><span class="w"> </span><span class="n">CTE</span><span class="w"> </span><span class="k">AS</span>
-<span class="p">(</span>
+<span class="p">(</span><span class="w"> </span>
 <span class="w">    </span><span class="k">SELECT</span>
 <span class="w">        </span><span class="n">col1</span><span class="p">,</span>
 <span class="w">        </span><span class="k">CAST</span><span class="p">(</span><span class="s1">&#39;&lt;A&gt;&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">REPLACE</span><span class="p">(</span><span class="n">col1</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="k">delimiter</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&lt;/A&gt;&lt;A&gt;&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;&lt;/A&gt;&#39;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">XML</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">XMLString</span>
-<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">tbl_SplitColumns</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">tbl_SplitColumns</span><span class="w"> </span>
 <span class="p">)</span>
 <span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">CTE</span>
 <span class="k">SELECT</span>
 <span class="w">     </span><span class="n">XMLString</span><span class="p">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;/A[1]&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;varchar(10)&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">As</span><span class="w"> </span><span class="n">C1</span>
 <span class="w">     </span><span class="p">,</span><span class="n">XMLString</span><span class="p">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;/A[2]&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;varchar(10)&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">As</span><span class="w"> </span><span class="n">C2</span>
 <span class="w">     </span><span class="p">,</span><span class="n">XMLString</span><span class="p">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;/A[3]&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;varchar(10)&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">As</span><span class="w"> </span><span class="n">C3</span>
-<span class="w">     </span><span class="p">,</span><span class="n">XMLString</span><span class="p">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;/A[4]&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;varchar(10)&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">As</span><span class="w"> </span><span class="n">C4</span>
-<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">CTE</span>
+<span class="w">	 </span><span class="p">,</span><span class="n">XMLString</span><span class="p">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;/A[4]&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;varchar(10)&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">As</span><span class="w"> </span><span class="n">C4</span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">CTE</span><span class="w"> </span>
 <span class="k">GO</span>
 </pre></div>
 </div>

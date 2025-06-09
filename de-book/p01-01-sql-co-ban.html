@@ -1,31 +1,32 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="vi" data-content_root="./">
+<html class="writer-html5" lang="vn" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>1. SQL cơ bản &mdash; Tài liệu Khai thác dữ liệu với SQL 2019</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+  <title>1. SQL cơ bản &mdash; Data Engineer book 2025 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0cebd926" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=33847982"></script>
+      <script src="_static/documentation_options.js?v=6c11a7b2"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="_static/copybutton.js?v=f281be69"></script>
-      <script src="_static/translations.js?v=4c1d55b0"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Tìm Kiếm" href="search.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="2. SQL nâng cao" href="p01-02-sql-nang-cao.html" />
     <link rel="prev" title="SQL cơ bản" href="index.html" /> 
 </head>
@@ -39,7 +40,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            Khai thác dữ liệu với SQL
+            Data Engineer book
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -52,48 +53,48 @@
               <p class="caption" role="heading"><span class="caption-text">SQL cơ bản</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. SQL cơ bản</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Giới-thiệu-về-SQL">1.1. Giới thiệu về SQL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Các-nhóm-câu-lệnh-truy-vấn,-tổng-hợp">1.2. Các nhóm câu lệnh truy vấn, tổng hợp</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Select">1.2.1. Select</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Where">1.2.2. Where</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Case-when">1.2.3. Case when</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Having">1.2.4. Having</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Union">1.2.5. Union</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Window-function">1.2.6. Window function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gioi-thieu-ve-sql">1.1. Giới thiệu về SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cac-nhom-cau-lenh-truy-van-tong-hop">1.2. Các nhóm câu lệnh truy vấn, tổng hợp</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#select">1.2.1. Select</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#where">1.2.2. Where</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#case-when">1.2.3. Case when</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#having">1.2.4. Having</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#union">1.2.5. Union</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#window-function">1.2.6. Window function</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Các-nhóm-câu-lệnh-tính-toán">1.3. Các nhóm câu lệnh tính toán</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Join">1.4. Join</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Làm-việc-với-string">1.5. Làm việc với string</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Làm-việc-với-date">1.6. Làm việc với date</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Datediff">1.6.1. Datediff</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Dateadd">1.6.2. Dateadd</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Mẹo-với-dữ-liệu-thời-gian">1.6.3. Mẹo với dữ liệu thời gian</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cac-nhom-cau-lenh-tinh-toan">1.3. Các nhóm câu lệnh tính toán</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#join">1.4. Join</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lam-viec-voi-string">1.5. Làm việc với string</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lam-viec-voi-date">1.6. Làm việc với date</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#datediff">1.6.1. Datediff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dateadd">1.6.2. Dateadd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#meo-voi-du-lieu-thoi-gian">1.6.3. Mẹo với dữ liệu thời gian</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Các-nhóm-câu-lệnh-thay-đổi-dữ-liệu">1.7. Các nhóm câu lệnh thay đổi dữ liệu</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Tạo-bảng-mới">1.7.1. Tạo bảng mới</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Xóa-bảng-Drop-Table">1.7.2. Xóa bảng Drop Table</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#INSERT-INTO">1.7.3. INSERT INTO</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Update">1.7.4. Update</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Delete-from">1.7.5. Delete from</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Alter-table">1.7.6. Alter table</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Đổi-tên-bảng,-tên-cột">1.7.7. Đổi tên bảng, tên cột</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Truncate">1.7.8. Truncate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ALTER---Thay-đổi-định-dạng-dữ-liệu-của-cột">1.7.9. ALTER - Thay đổi định dạng dữ liệu của cột</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cac-nhom-cau-lenh-thay-doi-du-lieu">1.7. Các nhóm câu lệnh thay đổi dữ liệu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tao-bang-moi">1.7.1. Tạo bảng mới</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#xoa-bang-drop-table">1.7.2. Xóa bảng Drop Table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#insert-into">1.7.3. INSERT INTO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update">1.7.4. Update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#delete-from">1.7.5. Delete from</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alter-table">1.7.6. Alter table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#doi-ten-bang-ten-cot">1.7.7. Đổi tên bảng, tên cột</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#truncate">1.7.8. Truncate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alter-thay-doi-dinh-dang-du-lieu-cua-cot">1.7.9. ALTER - Thay đổi định dạng dữ liệu của cột</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Sub-Query">1.8. Sub Query</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Sub-Query-cơ-bản">1.8.1. Sub Query cơ bản</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#With-&amp;-CTE">1.8.2. With &amp; CTE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sub-query">1.8. Sub Query</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sub-query-co-ban">1.8.1. Sub Query cơ bản</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#with-cte">1.8.2. With &amp; CTE</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Các-nhóm-câu-lệnh-cơ-bản-khác">1.9. Các nhóm câu lệnh cơ bản khác</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Exists">1.9.1. Exists</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Any-vs.-All">1.9.2. Any vs. All</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#View">1.9.3. View</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Index">1.9.4. Index</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Bảng-tạm">1.9.5. Bảng tạm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cac-nhom-cau-lenh-co-ban-khac">1.9. Các nhóm câu lệnh cơ bản khác</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#exists">1.9.1. Exists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#any-vs-all">1.9.2. Any vs. All</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#view">1.9.3. View</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#index">1.9.4. Index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bang-tam">1.9.5. Bảng tạm</a></li>
 </ul>
 </li>
 </ul>
@@ -113,7 +114,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Khai thác dữ liệu với SQL</a>
+          <a href="index.html">Data Engineer book</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -131,10 +132,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="SQL-cơ-bản">
-<h1><span class="section-number">1. </span>SQL cơ bản<a class="headerlink" href="#SQL-cơ-bản" title="Link to this heading"></a></h1>
-<section id="Giới-thiệu-về-SQL">
-<h2><span class="section-number">1.1. </span>Giới thiệu về SQL<a class="headerlink" href="#Giới-thiệu-về-SQL" title="Link to this heading"></a></h2>
+  <section id="sql-co-ban">
+<h1><span class="section-number">1. </span>SQL cơ bản<a class="headerlink" href="#sql-co-ban" title="Link to this heading"></a></h1>
+<section id="gioi-thieu-ve-sql">
+<h2><span class="section-number">1.1. </span>Giới thiệu về SQL<a class="headerlink" href="#gioi-thieu-ve-sql" title="Link to this heading"></a></h2>
 <p>SQL là viết tắt của <em>Structured Language Query</em>, là một ngôn ngữ truy vấn, xử lý và làm việc với database.</p>
 <p>SQL được cấu thành từ 3 nhóm câu lệnh lớn:</p>
 <ul class="simple">
@@ -173,9 +174,9 @@
 </ul>
 <p>Ngoài ra, khi làm việc với các ngôn ngữ phân tích dữ liệu như R hoặc Python, cần nắm vững cách thức truy vấn dữ liệu từ SQL sang các công cụ phân tích.</p>
 </section>
-<section id="Các-nhóm-câu-lệnh-truy-vấn,-tổng-hợp">
-<h2><span class="section-number">1.2. </span>Các nhóm câu lệnh truy vấn, tổng hợp<a class="headerlink" href="#Các-nhóm-câu-lệnh-truy-vấn,-tổng-hợp" title="Link to this heading"></a></h2>
-<p><strong>Cách viết comment</strong>: Sử dụng dấu <code class="docutils literal notranslate"><span class="pre">--</span></code> hoặc trong block <code class="docutils literal notranslate"><span class="pre">/*.....*/</span></code></p>
+<section id="cac-nhom-cau-lenh-truy-van-tong-hop">
+<h2><span class="section-number">1.2. </span>Các nhóm câu lệnh truy vấn, tổng hợp<a class="headerlink" href="#cac-nhom-cau-lenh-truy-van-tong-hop" title="Link to this heading"></a></h2>
+<p><strong>Cách viết comment</strong>: Sử dụng  dấu <code class="docutils literal notranslate"><span class="pre">--</span></code> hoặc trong block <code class="docutils literal notranslate"><span class="pre">/*.....*/</span></code></p>
 <p><strong>Khái quát các câu lệnh truy vấn trong SQL</strong></p>
 <p>Các câu lệnh SQL diễn ra theo thứ tự sau:</p>
 <p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">&gt;&gt;</span> <span class="pre">FROM</span> <span class="pre">&gt;&gt;</span> <span class="pre">WHERE</span> <span class="pre">&gt;&gt;</span> <span class="pre">GROUP</span> <span class="pre">BY</span> <span class="pre">&gt;&gt;</span> <span class="pre">HAVING</span> <span class="pre">&gt;&gt;</span> <span class="pre">ORDER</span> <span class="pre">BY</span></code></p>
@@ -191,7 +192,7 @@
 </pre></div>
 </div>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
-<span class="cm">Cách 1: This is</span>
+<span class="cm">Cách 1: This is </span>
 <span class="cm">my block of comment</span>
 <span class="cm">*/</span>
 
@@ -199,8 +200,8 @@
 <span class="c1">--Khó dùng hơn</span>
 </pre></div>
 </div>
-<section id="Select">
-<h3><span class="section-number">1.2.1. </span>Select<a class="headerlink" href="#Select" title="Link to this heading"></a></h3>
+<section id="select">
+<h3><span class="section-number">1.2.1. </span>Select<a class="headerlink" href="#select" title="Link to this heading"></a></h3>
 <p><strong>Lưu ý</strong>: Các bảng thường bắt đầu bằng <strong>.dbo</strong>, gọi là <em>schema</em>. Thông thường, schema này là default. Tuy nhiên, nếu DB admin đổi schema, ta cần phải đổi câu lệnh</p>
 <ul class="simple">
 <li><p>Lấy tất cả các biến</p></li>
@@ -219,8 +220,8 @@
 <ul class="simple">
 <li><p>Lấy top n dòng đầu tiên hoặc n phần trăm đầu tiên</p></li>
 </ul>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">learnsql</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">product</span>
-<span class="k">select</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="n">percent</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">learnsql</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">product</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">learnsql</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">product</span>
+<span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="n">percent</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">learnsql</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">product</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -230,9 +231,9 @@
 <span class="k">select</span><span class="w"> </span><span class="n">Product_CD</span><span class="p">,</span><span class="w"> </span><span class="n">Date_offered</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">learnsql</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">product</span>
 
 <span class="c1">-- Cách 2</span>
-<span class="k">select</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">Product_CD</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">Date_offered</span>
+<span class="k">select</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">Product_CD</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">Date_offered</span><span class="w"> </span>
 <span class="w">        </span><span class="k">from</span><span class="w"> </span><span class="n">learnsql</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">product</span><span class="w"> </span><span class="n">A</span>
-
+<span class="w">        </span>
 <span class="c1">-- Cách 3: Dùng Aliases</span>
 <span class="k">select</span><span class="w"> </span><span class="n">Product_CD</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">[</span><span class="n">Product</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CD</span><span class="p">]</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">learnsql</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">product</span>
 </pre></div>
@@ -262,19 +263,19 @@
 </pre></div>
 </div>
 </section>
-<section id="Where">
-<h3><span class="section-number">1.2.2. </span>Where<a class="headerlink" href="#Where" title="Link to this heading"></a></h3>
+<section id="where">
+<h3><span class="section-number">1.2.2. </span>Where<a class="headerlink" href="#where" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><strong>Where</strong>: Tìm điều kiện theo dòng</p></li>
 </ul>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">Select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">From</span>
-<span class="w">      </span><span class="n">learnsql</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">Product</span><span class="w"> </span><span class="n">Pro</span>
-<span class="w">      </span><span class="k">Where</span><span class="w"> </span><span class="n">Pro</span><span class="p">.</span><span class="n">Product_Type_Cd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;LOAN&#39;</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">Select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">From</span><span class="w"> </span>
+<span class="w">      </span><span class="n">learnsql</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">Product</span><span class="w"> </span><span class="n">Pro</span><span class="w"> </span>
+<span class="w">      </span><span class="k">Where</span><span class="w"> </span><span class="n">Pro</span><span class="p">.</span><span class="n">Product_Type_Cd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;LOAN&#39;</span><span class="w">  </span>
 
-<span class="c1">--- Dấu khác</span>
-<span class="k">Select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">From</span>
-<span class="w">      </span><span class="n">learnsql</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">Product</span><span class="w"> </span><span class="n">Pro</span>
-<span class="w">      </span><span class="k">Where</span><span class="w"> </span><span class="n">Pro</span><span class="p">.</span><span class="n">Product_Type_Cd</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s1">&#39;LOAN&#39;</span>
+<span class="c1">--- Dấu khác      </span>
+<span class="k">Select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">From</span><span class="w"> </span>
+<span class="w">      </span><span class="n">learnsql</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">Product</span><span class="w"> </span><span class="n">Pro</span><span class="w"> </span>
+<span class="w">      </span><span class="k">Where</span><span class="w"> </span><span class="n">Pro</span><span class="p">.</span><span class="n">Product_Type_Cd</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s1">&#39;LOAN&#39;</span><span class="w">        </span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -287,7 +288,7 @@
 <span class="w">     </span><span class="p">,</span><span class="n">Emp</span><span class="p">.</span><span class="n">Dept_Id</span>
 <span class="w">    </span><span class="k">From</span><span class="w">  </span><span class="n">learnsql</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">Employee</span><span class="w"> </span><span class="n">Emp</span>
 <span class="w">    </span><span class="k">Where</span><span class="w">  </span><span class="n">Emp</span><span class="p">.</span><span class="n">First_Name</span><span class="w"> </span><span class="k">In</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Susan&#39;</span><span class="p">,</span><span class="s1">&#39;Paula&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">OR</span>
-<span class="w">           </span><span class="p">(</span><span class="n">Emp</span><span class="p">.</span><span class="n">Last_Name</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">In</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Fleming&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Roberts&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AND</span>
+<span class="w">           </span><span class="p">(</span><span class="n">Emp</span><span class="p">.</span><span class="n">Last_Name</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">In</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Fleming&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Roberts&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span>
 <span class="w">           </span><span class="n">Emp</span><span class="p">.</span><span class="n">Emp_Id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;6&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -295,9 +296,9 @@
 <ul class="simple">
 <li><p>Kết hợp toán tử AND, OR</p></li>
 </ul>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">Select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">From</span>
-<span class="w">      </span><span class="n">learnsql</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">Product</span><span class="w"> </span><span class="n">Pro</span>
-<span class="w">      </span><span class="k">Where</span><span class="w"> </span><span class="p">(</span><span class="n">Pro</span><span class="p">.</span><span class="n">Product_Type_Cd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;LOAN&#39;</span><span class="w"> </span><span class="k">AND</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">Select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">From</span><span class="w"> </span>
+<span class="w">      </span><span class="n">learnsql</span><span class="p">.</span><span class="n">dbo</span><span class="p">.</span><span class="n">Product</span><span class="w"> </span><span class="n">Pro</span><span class="w"> </span>
+<span class="w">      </span><span class="k">Where</span><span class="w"> </span><span class="p">(</span><span class="n">Pro</span><span class="p">.</span><span class="n">Product_Type_Cd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;LOAN&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span>
 <span class="w">      </span><span class="n">Pro</span><span class="p">.</span><span class="n">Product_CD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;AUT&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">OR</span>
 <span class="w">      </span><span class="p">(</span><span class="n">Pro</span><span class="p">.</span><span class="n">NAME</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%dep%&#39;</span><span class="p">)</span>
 </pre></div>
@@ -325,7 +326,7 @@
 <li><p>Các toán tử với <strong>Wild Card</strong>: LIKE, NOT LIKE</p>
 <ul>
 <li><p>Ký tự <strong>%ANH</strong>: tìm các character bắt đầu bằng bất cứ thứ gì nhưng sau đó đi kèm chuỗi ký tự ANH</p></li>
-<li><p>Ký tự **_** (underscore): tìm các ký tự đơn.</p></li>
+<li><p>Ký tự <strong>_</strong> (underscore): tìm các ký tự đơn.</p></li>
 </ul>
 </li>
 </ul>
@@ -367,13 +368,13 @@
 </pre></div>
 </div>
 </section>
-<section id="Case-when">
-<h3><span class="section-number">1.2.3. </span>Case when<a class="headerlink" href="#Case-when" title="Link to this heading"></a></h3>
+<section id="case-when">
+<h3><span class="section-number">1.2.3. </span>Case when<a class="headerlink" href="#case-when" title="Link to this heading"></a></h3>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="n">AVAIL_BALANCE</span><span class="p">,</span>
 <span class="p">(</span><span class="k">CASE</span><span class="w">  </span><span class="k">when</span><span class="w"> </span><span class="n">AVAIL_BALANCE</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5000</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">N</span><span class="s1">&#39;small&#39;</span>
-<span class="w">      </span><span class="k">when</span><span class="w"> </span><span class="n">AVAIL_BALANCE</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">5000</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">AVAIL_BALANCE</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10000</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">N</span><span class="s1">&#39;medium&#39;</span>
-<span class="w">      </span><span class="k">else</span><span class="w"> </span><span class="n">N</span><span class="s1">&#39;high&#39;</span>
-<span class="w">      </span><span class="k">END</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">category</span>
+<span class="w">	  </span><span class="k">when</span><span class="w"> </span><span class="n">AVAIL_BALANCE</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">5000</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">AVAIL_BALANCE</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10000</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">N</span><span class="s1">&#39;medium&#39;</span>
+<span class="w">	  </span><span class="k">else</span><span class="w"> </span><span class="n">N</span><span class="s1">&#39;high&#39;</span>
+<span class="w">	  </span><span class="k">END</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">category</span><span class="w">	</span>
 <span class="k">from</span><span class="w"> </span><span class="n">account</span>
 </pre></div>
 </div>
@@ -382,24 +383,24 @@
 <li><p>N trong câu lệnh trên viết tắt của NVARCHAR để khai báo dạng lệnh</p></li>
 </ul>
 </section>
-<section id="Having">
-<h3><span class="section-number">1.2.4. </span>Having<a class="headerlink" href="#Having" title="Link to this heading"></a></h3>
+<section id="having">
+<h3><span class="section-number">1.2.4. </span>Having<a class="headerlink" href="#having" title="Link to this heading"></a></h3>
 <p><strong>Having</strong>: Tìm điều kiện sau khi có kết quả. Lưu ý: Câu lệnh Having không hoạt động với ALIAS, phải hiển thị điều kiện từ bảng gốc</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span>
 <span class="w"> </span><span class="n">OPEN_BRANCH_ID</span>
 <span class="p">,</span><span class="k">sum</span><span class="p">(</span><span class="n">AVAIL_BALANCE</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">new</span>
 <span class="k">from</span><span class="w"> </span><span class="n">account</span>
-<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">OPEN_BRANCH_ID</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">OPEN_BRANCH_ID</span><span class="w"> </span>
 <span class="k">having</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">AVAIL_BALANCE</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">500000</span>
 
 <span class="c1">-- Câu lệnh sau sẽ không chạy với where</span>
 
-<span class="k">select</span>
+<span class="k">select</span><span class="w"> </span>
 <span class="w"> </span><span class="n">OPEN_BRANCH_ID</span>
 <span class="p">,</span><span class="k">sum</span><span class="p">(</span><span class="n">AVAIL_BALANCE</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">new</span>
 <span class="k">where</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">AVAIL_BALANCE</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">500000</span>
 <span class="k">from</span><span class="w"> </span><span class="n">account</span>
-<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">OPEN_BRANCH_ID</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">OPEN_BRANCH_ID</span><span class="w"> </span>
 </pre></div>
 </div>
 <p><strong>Lưu ý</strong>: Ký tự trong SQL cần đặt trong 1 dấu nháy đơn ''</p>
@@ -411,31 +412,31 @@
 </pre></div>
 </div>
 </section>
-<section id="Union">
-<h3><span class="section-number">1.2.5. </span>Union<a class="headerlink" href="#Union" title="Link to this heading"></a></h3>
+<section id="union">
+<h3><span class="section-number">1.2.5. </span>Union<a class="headerlink" href="#union" title="Link to this heading"></a></h3>
 <p>Nhóm câu lệnh Union có 2 câu lệnh chính:</p>
 <ul class="simple">
 <li><p>UNION: Loại bỏ các giá trị trùng của các dòng</p></li>
 <li><p>UNION ALL: Hiển thị tất cả các giá trị</p></li>
 </ul>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="mi">10</span>
-<span class="p">[</span><span class="n">CUSTOMER_NAME</span><span class="p">]</span>
-<span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">SERVER74</span><span class="p">].[</span><span class="n">BICDATA</span><span class="p">].[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">CARD_HIS</span><span class="p">]</span>
-<span class="k">where</span><span class="w"> </span><span class="p">[</span><span class="n">CUSTOMER_NAME</span><span class="p">]</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%HƯƠNG&#39;</span><span class="p">)</span>
-<span class="k">UNION</span><span class="w"> </span><span class="k">ALL</span>
-<span class="k">SELECT</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="mi">10</span>
-<span class="p">[</span><span class="n">CUSTOMER_NAME</span><span class="p">]</span>
-<span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">SERVER74</span><span class="p">].[</span><span class="n">BICDATA</span><span class="p">].[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">BALANCE_HIS</span><span class="p">]</span>
-<span class="k">where</span><span class="w"> </span><span class="p">[</span><span class="n">CUSTOMER_NAME</span><span class="p">]</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%HƯƠNG&#39;</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span>
+<span class="w">  </span><span class="p">[</span><span class="n">CUSTOMER_NAME</span><span class="p">]</span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">SERVER74</span><span class="p">].[</span><span class="n">BICDATA</span><span class="p">].[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">CARD_HIS</span><span class="p">]</span>
+<span class="w">  </span><span class="k">where</span><span class="w"> </span><span class="p">[</span><span class="n">CUSTOMER_NAME</span><span class="p">]</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%HƯƠNG&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="k">UNION</span><span class="w"> </span><span class="k">ALL</span>
+<span class="w">  </span><span class="k">SELECT</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span>
+<span class="w">  </span><span class="p">[</span><span class="n">CUSTOMER_NAME</span><span class="p">]</span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">SERVER74</span><span class="p">].[</span><span class="n">BICDATA</span><span class="p">].[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">BALANCE_HIS</span><span class="p">]</span>
+<span class="w">  </span><span class="k">where</span><span class="w"> </span><span class="p">[</span><span class="n">CUSTOMER_NAME</span><span class="p">]</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%HƯƠNG&#39;</span>
 </pre></div>
 </div>
 </section>
-<section id="Window-function">
-<h3><span class="section-number">1.2.6. </span>Window function<a class="headerlink" href="#Window-function" title="Link to this heading"></a></h3>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="n">CUST_ID</span><span class="p">,</span>
-<span class="w">        </span><span class="n">AVAIL_BALANCE</span><span class="p">,</span>
-<span class="w">        </span><span class="n">ROW_NUMBER</span><span class="p">()</span><span class="w"> </span><span class="n">over</span><span class="p">(</span><span class="n">partition</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">cust_id</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">AVAIL_BALANCE</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">[</span><span class="k">ORDER</span><span class="p">],</span>
-<span class="w">        </span><span class="k">avg</span><span class="p">(</span><span class="n">AVAIL_BALANCE</span><span class="p">)</span><span class="w"> </span><span class="n">over</span><span class="p">(</span><span class="n">partition</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">cust_id</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">AVG_BALANCE_ID</span>
+<section id="window-function">
+<h3><span class="section-number">1.2.6. </span>Window function<a class="headerlink" href="#window-function" title="Link to this heading"></a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="n">CUST_ID</span><span class="p">,</span><span class="w"> </span>
+<span class="w">		</span><span class="n">AVAIL_BALANCE</span><span class="p">,</span>
+<span class="w">		</span><span class="n">ROW_NUMBER</span><span class="p">()</span><span class="w"> </span><span class="n">over</span><span class="p">(</span><span class="n">partition</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">cust_id</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">AVAIL_BALANCE</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">[</span><span class="k">ORDER</span><span class="p">],</span>
+<span class="w">		</span><span class="k">avg</span><span class="p">(</span><span class="n">AVAIL_BALANCE</span><span class="p">)</span><span class="w"> </span><span class="n">over</span><span class="p">(</span><span class="n">partition</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">cust_id</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">AVG_BALANCE_ID</span>
 <span class="k">from</span><span class="w"> </span><span class="n">ACCOUNT</span>
 </pre></div>
 </div>
@@ -458,7 +459,7 @@
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">gap</span>
 <span class="k">GO</span>
 
-<span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">gap</span>
+<span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">gap</span><span class="w"> </span>
 <span class="p">(</span><span class="n">cusid</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"> </span><span class="n">booking_id</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"> </span><span class="n">start_time</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"> </span><span class="n">end_time</span><span class="w"> </span><span class="nb">int</span><span class="p">)</span>
 
 
@@ -481,53 +482,53 @@
 <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">23</span><span class="p">)</span>
 
 
-<span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="o">#</span><span class="n">final_results</span><span class="p">,</span><span class="w"> </span><span class="o">#</span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span>
+<span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="o">#</span><span class="n">final_results</span><span class="p">,</span><span class="w"> </span><span class="o">#</span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span><span class="w"> </span>
 
-<span class="k">SELECT</span><span class="w">  </span><span class="o">*</span><span class="p">,</span>
-<span class="w">    </span><span class="k">MAX</span><span class="p">(</span><span class="n">end_time</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="p">(</span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">cusid</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">start_time</span><span class="p">,</span><span class="w"> </span><span class="n">end_time</span>
-<span class="w">    </span><span class="k">ROWS</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="n">UNBOUNDED</span><span class="w"> </span><span class="n">PRECEDING</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">PRECEDING</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">prev_end</span>
-<span class="k">into</span><span class="w"> </span><span class="o">#</span><span class="n">t1</span>
+<span class="k">SELECT</span><span class="w"> 	</span><span class="o">*</span><span class="p">,</span>
+<span class="w">	</span><span class="k">MAX</span><span class="p">(</span><span class="n">end_time</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="p">(</span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">cusid</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">start_time</span><span class="p">,</span><span class="w"> </span><span class="n">end_time</span>
+<span class="w">	</span><span class="k">ROWS</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="n">UNBOUNDED</span><span class="w"> </span><span class="n">PRECEDING</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">PRECEDING</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">prev_end</span>
+<span class="k">into</span><span class="w"> </span><span class="o">#</span><span class="n">t1</span><span class="w"> </span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">GAP</span>
 
 
-<span class="k">select</span>
-<span class="w">    </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">is_start</span><span class="p">)</span><span class="w"> </span><span class="n">over</span><span class="p">(</span><span class="n">partition</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">cusid</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">start_time</span><span class="p">,</span><span class="w"> </span><span class="n">end_time</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">[</span><span class="k">group</span><span class="p">]</span>
-<span class="k">into</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span>
-<span class="k">from</span>
-<span class="w">    </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="p">,</span>
-<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">Start_time</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">prev_end</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">is_start</span>
-<span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="o">#</span><span class="n">t1</span>
-<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">;</span>
+<span class="k">select</span><span class="w"> </span>
+<span class="w">	</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">is_start</span><span class="p">)</span><span class="w"> </span><span class="n">over</span><span class="p">(</span><span class="n">partition</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">cusid</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">start_time</span><span class="p">,</span><span class="w"> </span><span class="n">end_time</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">[</span><span class="k">group</span><span class="p">]</span>
+<span class="k">into</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span><span class="w"> </span>
+<span class="k">from</span><span class="w"> </span>
+<span class="w">	</span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span>
+<span class="w">		</span><span class="k">case</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">Start_time</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">prev_end</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">is_start</span>
+<span class="w">	</span><span class="k">from</span><span class="w"> </span><span class="o">#</span><span class="n">t1</span>
+<span class="w">	</span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">;</span>
 
-<span class="k">with</span><span class="w"> </span><span class="n">T3</span><span class="w"> </span><span class="k">AS</span>
-<span class="w">    </span><span class="p">(</span><span class="k">selecT</span><span class="w"> </span><span class="n">CUSID</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">group</span><span class="p">]</span>
-<span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span><span class="w"> </span><span class="n">A</span>
-<span class="w">    </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Cusid</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">group</span><span class="p">]</span>
-<span class="w">    </span><span class="k">HAVING</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">    </span><span class="p">)</span>
-<span class="k">SELECT</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="p">,</span>
-<span class="w">    </span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">T3</span><span class="p">.[</span><span class="k">group</span><span class="p">]</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;Multi booking&#39;</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">&#39;Single Booking&#39;</span><span class="w"> </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">BOOKING_TYPE</span>
+<span class="k">with</span><span class="w"> </span><span class="n">T3</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span>
+<span class="w">	</span><span class="p">(</span><span class="k">selecT</span><span class="w"> </span><span class="n">CUSID</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">group</span><span class="p">]</span>
+<span class="w">	</span><span class="k">from</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span><span class="w"> </span><span class="n">A</span><span class="w"> </span>
+<span class="w">	</span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Cusid</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">group</span><span class="p">]</span><span class="w"> </span>
+<span class="w">	</span><span class="k">HAVING</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>
+<span class="w">	</span><span class="p">)</span><span class="w"> </span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="p">,</span><span class="w"> </span>
+<span class="w">	</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">T3</span><span class="p">.[</span><span class="k">group</span><span class="p">]</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;Multi booking&#39;</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">&#39;Single Booking&#39;</span><span class="w"> </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">BOOKING_TYPE</span>
 <span class="k">INTO</span><span class="w"> </span><span class="o">#</span><span class="n">final_results</span>
-<span class="k">FROM</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span>
-<span class="w">    </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">T3</span>
-<span class="w">        </span><span class="k">ON</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span><span class="p">.</span><span class="n">CUSID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T3</span><span class="p">.</span><span class="n">CUSID</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span><span class="p">.[</span><span class="k">group</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T3</span><span class="p">.[</span><span class="k">group</span><span class="p">]</span>
+<span class="k">FROM</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span><span class="w"> </span>
+<span class="w">	</span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">T3</span><span class="w"> </span>
+<span class="w">		</span><span class="k">ON</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span><span class="p">.</span><span class="n">CUSID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T3</span><span class="p">.</span><span class="n">CUSID</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span><span class="p">.[</span><span class="k">group</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T3</span><span class="p">.[</span><span class="k">group</span><span class="p">]</span>
 
-<span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
 <span class="k">from</span><span class="w"> </span><span class="o">#</span><span class="n">final_results</span>
 </pre></div>
 </div>
 </section>
 </section>
-<section id="Các-nhóm-câu-lệnh-tính-toán">
-<h2><span class="section-number">1.3. </span>Các nhóm câu lệnh tính toán<a class="headerlink" href="#Các-nhóm-câu-lệnh-tính-toán" title="Link to this heading"></a></h2>
+<section id="cac-nhom-cau-lenh-tinh-toan">
+<h2><span class="section-number">1.3. </span>Các nhóm câu lệnh tính toán<a class="headerlink" href="#cac-nhom-cau-lenh-tinh-toan" title="Link to this heading"></a></h2>
 <p>Các phép tính toán cơ bản: COUNT, AGV, MIN, MAX, VARIANCE, STDDEV</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="n">AMOUNT</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">n</span>
-<span class="p">,</span><span class="w"> </span><span class="k">max</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">max</span>
-<span class="p">,</span><span class="w"> </span><span class="k">min</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">min</span>
-<span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">sum</span>
-<span class="p">,</span><span class="w"> </span><span class="n">var</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">var</span>
-<span class="p">,</span><span class="w"> </span><span class="n">STDEV</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">std_dev</span>
-<span class="k">from</span><span class="w"> </span><span class="p">[</span><span class="n">learnsql</span><span class="p">].[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">ACC_TRANSACTION</span><span class="p">]</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="n">AMOUNT</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">n</span>
+<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">max</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">max</span>
+<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">min</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">min</span>
+<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">sum</span>
+<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">var</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">var</span>
+<span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">STDEV</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">std_dev</span>
+<span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="p">[</span><span class="n">learnsql</span><span class="p">].[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">ACC_TRANSACTION</span><span class="p">]</span>
 </pre></div>
 </div>
 <p><strong>Các phép tính hay dùng khác</strong>:</p>
@@ -544,22 +545,22 @@
 </pre></div>
 </div>
 </section>
-<section id="Join">
-<h2><span class="section-number">1.4. </span>Join<a class="headerlink" href="#Join" title="Link to this heading"></a></h2>
+<section id="join">
+<h2><span class="section-number">1.4. </span>Join<a class="headerlink" href="#join" title="Link to this heading"></a></h2>
 <p><strong>Trường hợp 1 - Select tất cả các dòng không theo điều kiện</strong>: SQL sẽ nối mỗi dòng ở bảng 1 với mỗi dòng ở bảng</p>
 <p>Tổng số dòng trong bảng mới sẽ là m*n dòng (m dòng ở bảng 1 và n dòng ở bảng 2)</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">--Trường hợp 1: Không có where</span>
-<span class="k">select</span>
+<span class="k">select</span><span class="w"> </span>
 <span class="n">A</span><span class="p">.</span><span class="n">ACCOUNT_ID</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">AVAIL_BALANCE</span><span class="p">,</span>
-<span class="n">B</span><span class="p">.</span><span class="n">ADDRESS</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">CITY</span>
+<span class="n">B</span><span class="p">.</span><span class="n">ADDRESS</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">CITY</span><span class="w"> </span>
 <span class="k">from</span>
 <span class="p">[</span><span class="n">learnsql</span><span class="p">].[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">ACCOUNT</span><span class="p">]</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">learnsql</span><span class="p">].[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">CUSTOMER</span><span class="p">]</span><span class="w"> </span><span class="n">B</span>
 <span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">CITY</span>
 
 <span class="c1">--Trường hợp 2: Sử dụng where</span>
-<span class="k">select</span>
+<span class="k">select</span><span class="w"> </span>
 <span class="n">A</span><span class="p">.</span><span class="n">ACCOUNT_ID</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">AVAIL_BALANCE</span><span class="p">,</span>
-<span class="n">B</span><span class="p">.</span><span class="n">ADDRESS</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">CITY</span>
+<span class="n">B</span><span class="p">.</span><span class="n">ADDRESS</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">CITY</span><span class="w"> </span>
 <span class="k">from</span>
 <span class="p">[</span><span class="n">learnsql</span><span class="p">].[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">ACCOUNT</span><span class="p">]</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">learnsql</span><span class="p">].[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">CUSTOMER</span><span class="p">]</span><span class="w"> </span><span class="n">B</span>
 <span class="k">where</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">ACCOUNT_ID</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">CUST_ID</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Woburn&#39;</span>
@@ -569,13 +570,13 @@
 <ul class="simple">
 <li><p><strong>Trường hợp 2 - Left join, right join</strong>: Các cột từ các bảng khác nhau thì cần phải xác định alias</p></li>
 </ul>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span>
-<span class="n">B</span><span class="p">.</span><span class="n">BRANCH_ID</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">ADDRESS</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">CITY</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">NAME</span><span class="p">,</span>
-<span class="n">A</span><span class="p">.</span><span class="n">ACCOUNT_ID</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">AVAIL_BALANCE</span>
-<span class="k">from</span><span class="w"> </span><span class="n">branch</span><span class="w"> </span><span class="n">B</span>
-<span class="k">left</span><span class="w"> </span><span class="k">outer</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="n">A</span>
-<span class="k">on</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">BRANCH_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">OPEN_BRANCH_ID</span>
-<span class="k">where</span><span class="w"> </span><span class="n">BRANCH_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;2&#39;</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="k">select</span><span class="w"> </span>
+<span class="w">  </span><span class="n">B</span><span class="p">.</span><span class="n">BRANCH_ID</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">ADDRESS</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">CITY</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">NAME</span><span class="p">,</span>
+<span class="w">  </span><span class="n">A</span><span class="p">.</span><span class="n">ACCOUNT_ID</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">AVAIL_BALANCE</span>
+<span class="w">  </span><span class="k">from</span><span class="w"> </span><span class="n">branch</span><span class="w"> </span><span class="n">B</span>
+<span class="w">  </span><span class="k">left</span><span class="w"> </span><span class="k">outer</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">account</span><span class="w"> </span><span class="n">A</span>
+<span class="w">  </span><span class="k">on</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">BRANCH_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">OPEN_BRANCH_ID</span>
+<span class="w">  </span><span class="k">where</span><span class="w"> </span><span class="n">BRANCH_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;2&#39;</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -597,9 +598,9 @@
 <ul class="simple">
 <li><p><strong>Trường hợp 3: Inner join</strong></p></li>
 </ul>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="n">EnglishProductName</span><span class="p">,</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="n">EnglishProductName</span><span class="p">,</span><span class="w"> </span>
 <span class="w">  </span><span class="n">EnglishProductSubcategoryName</span>
-<span class="w">  </span><span class="p">,</span><span class="n">EnglishProductCategoryName</span>
+<span class="w">  </span><span class="p">,</span><span class="n">EnglishProductCategoryName</span><span class="w"> </span>
 <span class="k">from</span><span class="w"> </span><span class="n">DimProduct</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="k">inner</span><span class="w"> </span><span class="k">join</span>
 <span class="w">  </span><span class="n">DimProductSubcategory</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">S</span>
 <span class="w">  </span><span class="k">on</span><span class="w"> </span><span class="n">P</span><span class="p">.</span><span class="n">ProductSubcategoryKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="n">ProductSubcategoryKey</span>
@@ -615,18 +616,18 @@
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="o">##</span><span class="n">Cus</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span>
 <span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Anh&#39;</span><span class="p">)</span>
 <span class="w">      </span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;B&#39;</span><span class="p">)</span>
-<span class="w">      </span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
-<span class="w">      </span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
+<span class="w">	  </span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
+<span class="w">	  </span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
 
 <span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="o">##</span><span class="n">grade</span>
 <span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="o">##</span><span class="n">grade</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"> </span><span class="n">mon_hoc</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 <span class="k">GO</span>
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="o">##</span><span class="n">grade</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">mon_hoc</span><span class="p">)</span>
 <span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;toan&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;van&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;toan&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;anh&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;hoa&#39;</span><span class="p">)</span>
+<span class="w">		</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;van&#39;</span><span class="p">)</span>
+<span class="w">		</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;toan&#39;</span><span class="p">)</span>
+<span class="w">		</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;anh&#39;</span><span class="p">)</span>
+<span class="w">		</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;hoa&#39;</span><span class="p">)</span>
 
 <span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">##</span><span class="n">Cus</span>
 <span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="o">##</span><span class="n">grade</span>
@@ -634,56 +635,56 @@
 
 <span class="c1">-- Inner Join</span>
 <span class="k">select</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="o">*</span>
-<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="o">*</span>
+<span class="w">	</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="o">*</span>
 <span class="k">from</span><span class="w"> </span><span class="o">##</span><span class="n">Cus</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="o">##</span><span class="n">grade</span><span class="w"> </span><span class="n">B</span>
 <span class="k">where</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">id</span>
 
 <span class="c1">-- Inner Join (2)</span>
 <span class="k">select</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="o">*</span>
-<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="o">*</span>
+<span class="w">	</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="o">*</span>
 <span class="k">from</span><span class="w"> </span><span class="o">##</span><span class="n">Cus</span><span class="w"> </span><span class="n">A</span>
 <span class="k">inner</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="o">##</span><span class="n">grade</span><span class="w"> </span><span class="n">B</span>
 <span class="k">on</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">id</span>
 
 <span class="c1">-- Left Join</span>
 <span class="k">select</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="o">*</span>
-<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="o">*</span>
+<span class="w">	</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="o">*</span>
 <span class="k">from</span><span class="w"> </span><span class="o">##</span><span class="n">Cus</span><span class="w"> </span><span class="n">A</span>
 <span class="k">left</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="o">##</span><span class="n">grade</span><span class="w"> </span><span class="n">B</span>
 <span class="k">on</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">id</span>
 
-<span class="c1">-- Right Join</span>
+<span class="c1">-- Right Join </span>
 
 <span class="k">select</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="o">*</span>
-<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="o">*</span>
+<span class="w">	</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="o">*</span>
 <span class="k">from</span><span class="w"> </span><span class="o">##</span><span class="n">Cus</span><span class="w"> </span><span class="n">A</span>
 <span class="k">right</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="o">##</span><span class="n">grade</span><span class="w"> </span><span class="n">B</span>
 <span class="k">on</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">id</span>
 </pre></div>
 </div>
 </section>
-<section id="Làm-việc-với-string">
-<h2><span class="section-number">1.5. </span>Làm việc với string<a class="headerlink" href="#Làm-việc-với-string" title="Link to this heading"></a></h2>
+<section id="lam-viec-voi-string">
+<h2><span class="section-number">1.5. </span>Làm việc với string<a class="headerlink" href="#lam-viec-voi-string" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">CONCAT</span></code>: Nối các string</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">LOWER</span></code>, <code class="docutils literal notranslate"><span class="pre">UPPER</span></code>: Viết hoa, viết thường các biến</p></li>
 </ul>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="mi">10</span>
-<span class="w">      </span><span class="p">[</span><span class="n">ID</span><span class="p">]</span>
-<span class="w"> </span><span class="p">,[</span><span class="n">BUSINESS_DATE</span><span class="p">]</span>
-<span class="w"> </span><span class="p">,</span><span class="k">LOWER</span><span class="p">([</span><span class="n">CUSTOMER_NAME</span><span class="p">])</span>
-<span class="w">   </span><span class="p">,</span><span class="w"> </span><span class="n">CONCAT</span><span class="p">(</span><span class="n">CUSTOMER_NAME</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">ID</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">new_var</span>
-<span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">SERVER74</span><span class="p">].[</span><span class="n">BICDATA</span><span class="p">].[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">BALANCE_HIS</span><span class="p">]</span>
-<span class="k">where</span><span class="w"> </span><span class="n">customer_name</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="k">SELECT</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span>
+<span class="w">		</span><span class="p">[</span><span class="n">ID</span><span class="p">]</span>
+<span class="w">   </span><span class="p">,[</span><span class="n">BUSINESS_DATE</span><span class="p">]</span>
+<span class="w">   </span><span class="p">,</span><span class="k">LOWER</span><span class="p">([</span><span class="n">CUSTOMER_NAME</span><span class="p">])</span>
+<span class="w">	 </span><span class="p">,</span><span class="w"> </span><span class="n">CONCAT</span><span class="p">(</span><span class="n">CUSTOMER_NAME</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;_&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">ID</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">new_var</span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">SERVER74</span><span class="p">].[</span><span class="n">BICDATA</span><span class="p">].[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">BALANCE_HIS</span><span class="p">]</span>
+<span class="w">  </span><span class="k">where</span><span class="w"> </span><span class="n">customer_name</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>REPLACE: Thay thế các ký tự trong biến</p></li>
 </ul>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="mi">10</span>
-<span class="w">     </span><span class="p">[</span><span class="n">ID</span><span class="p">]</span>
-<span class="w">  </span><span class="p">,[</span><span class="n">CUSTOMER_NAME</span><span class="p">]</span>
-<span class="w">    </span><span class="p">,</span><span class="k">REPLACE</span><span class="p">(</span><span class="n">CUSTOMER_NAME</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;THI&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;***&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">new_name</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span>
+<span class="w">	 </span><span class="p">[</span><span class="n">ID</span><span class="p">]</span>
+<span class="w">  </span><span class="p">,[</span><span class="n">CUSTOMER_NAME</span><span class="p">]</span><span class="w"> </span>
+<span class="w">	</span><span class="p">,</span><span class="k">REPLACE</span><span class="p">(</span><span class="n">CUSTOMER_NAME</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;THI&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;***&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">new_name</span>
 <span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">SERVER74</span><span class="p">].[</span><span class="n">BICDATA</span><span class="p">].[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">BALANCE_HIS</span><span class="p">]</span>
 <span class="k">where</span><span class="w"> </span><span class="n">customer_name</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span>
 </pre></div>
@@ -691,16 +692,16 @@
 <ul class="simple">
 <li><p>SUBSTRING(var, a, b): Hiển thị b ký tự từ ký tự thứ a của var</p></li>
 </ul>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="mi">10</span>
-<span class="w">    </span><span class="n">CUSTOMER_NAME</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span>
+<span class="w">	</span><span class="n">CUSTOMER_NAME</span>
 <span class="w">    </span><span class="p">,</span><span class="k">substring</span><span class="p">(</span><span class="n">CUSTOMER_NAME</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">SERVER74</span><span class="p">].[</span><span class="n">BICDATA</span><span class="p">].[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">BALANCE_HIS</span><span class="p">]</span>
 <span class="w">  </span><span class="k">where</span><span class="w"> </span><span class="n">customer_name</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span>
 </pre></div>
 </div>
 </section>
-<section id="Làm-việc-với-date">
-<h2><span class="section-number">1.6. </span>Làm việc với date<a class="headerlink" href="#Làm-việc-với-date" title="Link to this heading"></a></h2>
+<section id="lam-viec-voi-date">
+<h2><span class="section-number">1.6. </span>Làm việc với date<a class="headerlink" href="#lam-viec-voi-date" title="Link to this heading"></a></h2>
 <p>Dữ liệu date là dữ liệu rất quan trọng cần nắm vững khi làm việc với dữ liệu. Dữ liệu thời gian có các định dạng thường dùng:</p>
 <ul class="simple">
 <li><p>101 (mm/dd/yyyy)</p></li>
@@ -711,18 +712,18 @@
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Lấy ngày hiện tại</span>
 
 <span class="k">select</span><span class="w"> </span><span class="k">convert</span><span class="p">(</span><span class="nb">varchar</span><span class="p">,</span><span class="n">birthdate</span><span class="p">,</span><span class="mi">101</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Date1</span><span class="p">,</span>
-<span class="w">       </span><span class="k">convert</span><span class="p">(</span><span class="nb">varchar</span><span class="p">,</span><span class="w"> </span><span class="n">BirthDate</span><span class="p">,</span><span class="w"> </span><span class="mi">102</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Date2</span><span class="p">,</span>
-<span class="w">       </span><span class="k">convert</span><span class="p">(</span><span class="nb">varchar</span><span class="p">,</span><span class="w"> </span><span class="n">birthdate</span><span class="p">,</span><span class="w"> </span><span class="mi">103</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Date3</span>
+<span class="w">	   </span><span class="k">convert</span><span class="p">(</span><span class="nb">varchar</span><span class="p">,</span><span class="w"> </span><span class="n">BirthDate</span><span class="p">,</span><span class="w"> </span><span class="mi">102</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Date2</span><span class="p">,</span>
+<span class="w">	   </span><span class="k">convert</span><span class="p">(</span><span class="nb">varchar</span><span class="p">,</span><span class="w"> </span><span class="n">birthdate</span><span class="p">,</span><span class="w"> </span><span class="mi">103</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Date3</span>
 
 
 <span class="k">select</span><span class="w"> </span><span class="k">convert</span><span class="p">(</span><span class="nb">varchar</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="n">getdate</span><span class="p">(),</span><span class="mi">101</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Date1</span><span class="p">,</span>
 <span class="w">       </span><span class="k">convert</span><span class="p">(</span><span class="nb">varchar</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="n">getdate</span><span class="p">(),</span><span class="w"> </span><span class="mi">102</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Date2</span><span class="p">,</span>
 <span class="w">       </span><span class="k">convert</span><span class="p">(</span><span class="nb">varchar</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="n">getdate</span><span class="p">(),</span><span class="w"> </span><span class="mi">103</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Date3</span><span class="p">,</span>
-<span class="w">       </span><span class="k">convert</span><span class="p">(</span><span class="nb">varchar</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="n">getdate</span><span class="p">(),</span><span class="w"> </span><span class="mi">112</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Date4</span>
+<span class="w">	   </span><span class="k">convert</span><span class="p">(</span><span class="nb">varchar</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="n">getdate</span><span class="p">(),</span><span class="w"> </span><span class="mi">112</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Date4</span>
 </pre></div>
 </div>
-<section id="Datediff">
-<h3><span class="section-number">1.6.1. </span>Datediff<a class="headerlink" href="#Datediff" title="Link to this heading"></a></h3>
+<section id="datediff">
+<h3><span class="section-number">1.6.1. </span>Datediff<a class="headerlink" href="#datediff" title="Link to this heading"></a></h3>
 <p>Dùng để tính toán khoảng thời gian giữa hai điểm</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">DATEDIFF</span><span class="p">(</span><span class="nb">interval</span><span class="p">,</span><span class="w"> </span><span class="n">date1</span><span class="p">,</span><span class="w"> </span><span class="n">date2</span><span class="p">)</span>
 </pre></div>
@@ -742,13 +743,13 @@
 <li><p>millisecond, ms = Millisecond</p></li>
 </ul>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="n">datediff</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">getdate</span><span class="p">(),</span><span class="w"> </span><span class="s1">&#39;20200101&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">day</span><span class="p">,</span>
-<span class="w">        </span><span class="n">datediff</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">getdate</span><span class="p">(),</span><span class="w"> </span><span class="s1">&#39;20160101&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">month</span><span class="p">,</span>
-<span class="w">        </span><span class="n">datediff</span><span class="p">(</span><span class="n">yy</span><span class="p">,</span><span class="w"> </span><span class="n">getdate</span><span class="p">(),</span><span class="w"> </span><span class="s1">&#39;20160101&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">year</span>
+<span class="w">		</span><span class="n">datediff</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">getdate</span><span class="p">(),</span><span class="w"> </span><span class="s1">&#39;20160101&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">month</span><span class="p">,</span>
+<span class="w">		</span><span class="n">datediff</span><span class="p">(</span><span class="n">yy</span><span class="p">,</span><span class="w"> </span><span class="n">getdate</span><span class="p">(),</span><span class="w"> </span><span class="s1">&#39;20160101&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">year</span>
 </pre></div>
 </div>
 </section>
-<section id="Dateadd">
-<h3><span class="section-number">1.6.2. </span>Dateadd<a class="headerlink" href="#Dateadd" title="Link to this heading"></a></h3>
+<section id="dateadd">
+<h3><span class="section-number">1.6.2. </span>Dateadd<a class="headerlink" href="#dateadd" title="Link to this heading"></a></h3>
 <p>Dùng để cộng ngày</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">DATEADD</span><span class="p">(</span><span class="nb">interval</span><span class="p">,</span><span class="w"> </span><span class="n">number_to_add</span><span class="p">,</span><span class="w"> </span><span class="n">start_date</span><span class="p">)</span>
 
@@ -756,26 +757,26 @@
 </pre></div>
 </div>
 </section>
-<section id="Mẹo-với-dữ-liệu-thời-gian">
-<h3><span class="section-number">1.6.3. </span>Mẹo với dữ liệu thời gian<a class="headerlink" href="#Mẹo-với-dữ-liệu-thời-gian" title="Link to this heading"></a></h3>
+<section id="meo-voi-du-lieu-thoi-gian">
+<h3><span class="section-number">1.6.3. </span>Mẹo với dữ liệu thời gian<a class="headerlink" href="#meo-voi-du-lieu-thoi-gian" title="Link to this heading"></a></h3>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Ngày đầu trong thaáng</span>
 <span class="k">select</span><span class="w"> </span><span class="k">convert</span><span class="p">(</span><span class="nb">varchar</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="n">dateadd</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">datediff</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">getdate</span><span class="p">()),</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="mi">112</span><span class="p">)</span>
 
 <span class="c1">-- Ngày đầu tháng này</span>
-<span class="k">select</span><span class="w"> </span><span class="k">convert</span><span class="p">(</span><span class="nb">varchar</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span>
+<span class="k">select</span><span class="w"> </span><span class="k">convert</span><span class="p">(</span><span class="nb">varchar</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span>
 <span class="n">dateadd</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">datediff</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">getdate</span><span class="p">()),</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="mi">112</span><span class="p">)</span>
 
 <span class="c1">-- Ngày đầu tháng trước</span>
-<span class="k">select</span><span class="w"> </span><span class="k">convert</span><span class="p">(</span><span class="nb">varchar</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span>
+<span class="k">select</span><span class="w"> </span><span class="k">convert</span><span class="p">(</span><span class="nb">varchar</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span>
 <span class="n">dateadd</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">datediff</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">getdate</span><span class="p">())</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="mi">112</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 </section>
-<section id="Các-nhóm-câu-lệnh-thay-đổi-dữ-liệu">
-<h2><span class="section-number">1.7. </span>Các nhóm câu lệnh thay đổi dữ liệu<a class="headerlink" href="#Các-nhóm-câu-lệnh-thay-đổi-dữ-liệu" title="Link to this heading"></a></h2>
-<section id="Tạo-bảng-mới">
-<h3><span class="section-number">1.7.1. </span>Tạo bảng mới<a class="headerlink" href="#Tạo-bảng-mới" title="Link to this heading"></a></h3>
+<section id="cac-nhom-cau-lenh-thay-doi-du-lieu">
+<h2><span class="section-number">1.7. </span>Các nhóm câu lệnh thay đổi dữ liệu<a class="headerlink" href="#cac-nhom-cau-lenh-thay-doi-du-lieu" title="Link to this heading"></a></h2>
+<section id="tao-bang-moi">
+<h3><span class="section-number">1.7.1. </span>Tạo bảng mới<a class="headerlink" href="#tao-bang-moi" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><strong>Create table</strong>: Tạo bảng mới</p></li>
 </ul>
@@ -793,8 +794,8 @@
 </pre></div>
 </div>
 </section>
-<section id="Xóa-bảng-Drop-Table">
-<h3><span class="section-number">1.7.2. </span>Xóa bảng Drop Table<a class="headerlink" href="#Xóa-bảng-Drop-Table" title="Link to this heading"></a></h3>
+<section id="xoa-bang-drop-table">
+<h3><span class="section-number">1.7.2. </span>Xóa bảng Drop Table<a class="headerlink" href="#xoa-bang-drop-table" title="Link to this heading"></a></h3>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">TABLE_NAME</span>
 </pre></div>
 </div>
@@ -808,11 +809,11 @@
 
 <span class="c1">-- Kiểm tra điều kiện khi insert</span>
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">test2</span><span class="w"> </span><span class="k">values</span>
-<span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
+<span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;M&#39;</span><span class="p">)</span><span class="w"> </span>
 <span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;F&#39;</span><span class="p">)</span>
 
 <span class="c1">-- Alter điều kiện check</span>
-<span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">test2</span>
+<span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">test2</span><span class="w"> </span>
 <span class="k">add</span><span class="w"> </span><span class="k">check</span><span class="w"> </span><span class="p">(</span><span class="n">gender</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;MF&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;MF2&#39;</span><span class="p">))</span>
 
 <span class="c1">-- Drop điều kiện check</span>
@@ -821,8 +822,8 @@
 </pre></div>
 </div>
 </section>
-<section id="INSERT-INTO">
-<h3><span class="section-number">1.7.3. </span>INSERT INTO<a class="headerlink" href="#INSERT-INTO" title="Link to this heading"></a></h3>
+<section id="insert-into">
+<h3><span class="section-number">1.7.3. </span>INSERT INTO<a class="headerlink" href="#insert-into" title="Link to this heading"></a></h3>
 <p><strong>Chức năng</strong>: Chèn dòng vào dữ liệu</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="p">[</span><span class="k">table</span><span class="p">]</span>
 <span class="p">(</span><span class="n">Column_1</span><span class="p">,</span><span class="w"> </span><span class="n">Column_2</span><span class="p">,...,</span><span class="w"> </span><span class="n">Column_n</span><span class="p">)</span>
@@ -837,7 +838,7 @@
 <span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">new_2</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="n">columns</span><span class="p">)</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">bills</span>
 
 <span class="c1">--Thêm một số giá trị của 1 bảng vào một bảng khác</span>
-<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">new_2</span><span class="w"> </span><span class="p">(</span><span class="n">NAME</span><span class="p">,</span><span class="w"> </span><span class="k">comment</span><span class="p">)</span>
+<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">new_2</span><span class="w"> </span><span class="p">(</span><span class="n">NAME</span><span class="p">,</span><span class="w"> </span><span class="k">comment</span><span class="p">)</span><span class="w"> </span>
 <span class="k">select</span><span class="w"> </span><span class="k">comment</span><span class="p">,</span><span class="w"> </span><span class="k">comment</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">bills</span>
 </pre></div>
 </div>
@@ -847,18 +848,18 @@
 <li><p>Khi viết tiếng Việt hoặc chèn ký tự tiếng Việt của Database cần có N ở phía trước. <code class="docutils literal notranslate"><span class="pre">N</span></code> cho phép SQL hiểu là <code class="docutils literal notranslate"><span class="pre">NVARCHAR</span></code>, cho phép nhóm ký tự UTF8</p></li>
 </ul>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">r2test</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="n">mychar</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">NVARCHAR</span><span class="p">](</span><span class="mi">16</span><span class="p">),</span><span class="w"> </span><span class="p">[</span><span class="n">mynum</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="nb">FLOAT</span><span class="p">])</span>
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">r2test</span><span class="w"> </span><span class="p">(</span><span class="n">mychar</span><span class="p">,</span><span class="n">mynum</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">r2test</span><span class="w"> </span><span class="p">(</span><span class="n">mychar</span><span class="p">,</span><span class="n">mynum</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span>
 <span class="w">  </span><span class="p">(</span><span class="n">N</span><span class="s1">&#39;Đức Việt&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">.</span><span class="mi">141593</span><span class="p">)</span><span class="w"> </span><span class="c1">--Không lỗi</span>
 <span class="w">  </span><span class="p">,(</span><span class="s1">&#39;Đức Việt&#39;</span><span class="p">,</span><span class="mi">6</span><span class="p">.</span><span class="mi">283185</span><span class="p">)</span><span class="w"> </span><span class="c1">--Lỗi font</span>
-
+<span class="w">  </span>
 <span class="w">  </span><span class="n">Hải</span><span class="w"> </span><span class="n">Hoàng</span>
 </pre></div>
 </div>
 </section>
-<section id="Update">
-<h3><span class="section-number">1.7.4. </span>Update<a class="headerlink" href="#Update" title="Link to this heading"></a></h3>
+<section id="update">
+<h3><span class="section-number">1.7.4. </span>Update<a class="headerlink" href="#update" title="Link to this heading"></a></h3>
 <p><strong>Chức năng</strong>: Thay đổi giá trị trong bảng</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">update</span><span class="w"> </span><span class="k">TABLE</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">update</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span>
 <span class="k">set</span><span class="w"> </span><span class="n">CONDITION_1</span>
 <span class="k">where</span><span class="w"> </span><span class="n">CONDTION_2</span>
 
@@ -868,8 +869,8 @@
 </pre></div>
 </div>
 </section>
-<section id="Delete-from">
-<h3><span class="section-number">1.7.5. </span>Delete from<a class="headerlink" href="#Delete-from" title="Link to this heading"></a></h3>
+<section id="delete-from">
+<h3><span class="section-number">1.7.5. </span>Delete from<a class="headerlink" href="#delete-from" title="Link to this heading"></a></h3>
 <p><strong>Chức năng</strong>: Xóa giá trị</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DELETE</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="k">TABLE</span>
 <span class="k">where</span><span class="w"> </span><span class="n">CONDITION</span>
@@ -880,14 +881,14 @@
 </pre></div>
 </div>
 </section>
-<section id="Alter-table">
-<h3><span class="section-number">1.7.6. </span>Alter table<a class="headerlink" href="#Alter-table" title="Link to this heading"></a></h3>
+<section id="alter-table">
+<h3><span class="section-number">1.7.6. </span>Alter table<a class="headerlink" href="#alter-table" title="Link to this heading"></a></h3>
 <p><strong>Chức năng</strong>: Thêm xóa thêm cột mới</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">BILLS</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">BILLS</span><span class="w"> </span>
 <span class="k">add</span><span class="o">/</span><span class="k">drop</span><span class="w"> </span><span class="n">NEW_VAR</span><span class="w"> </span><span class="k">TYPE</span>
 
 <span class="c1">-- Thêm cột</span>
-<span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">BILLS</span>
+<span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">BILLS</span><span class="w"> </span>
 <span class="k">add</span><span class="w"> </span><span class="k">comment</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
 
 <span class="c1">-- Xóa cột</span>
@@ -897,7 +898,7 @@
 <span class="c1">-- ALTER nhiều điều kiện</span>
 <span class="k">UPDATE</span><span class="w"> </span><span class="n">TABLE1</span>
 <span class="k">set</span><span class="w"> </span><span class="n">column_in_TABLE1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="k">column</span>
-<span class="k">from</span><span class="w"> </span><span class="n">table1</span><span class="w"> </span><span class="n">A</span>
+<span class="k">from</span><span class="w"> </span><span class="n">table1</span><span class="w"> </span><span class="n">A</span><span class="w"> </span>
 <span class="w">  </span><span class="k">inner</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">table2</span><span class="w"> </span><span class="n">B</span>
 <span class="w">  </span><span class="k">on</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">id</span>
 
@@ -905,13 +906,13 @@
 
 <span class="k">UPDATE</span><span class="w"> </span><span class="n">AVG_CASA_BAL_BY_CIF_2018_201902</span>
 <span class="k">set</span><span class="w"> </span><span class="n">BI_CHANNEL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">BI_CHANNEL</span>
-<span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="n">AVG_CASA_BAL_BY_CIF_2018_201902</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="o">##</span><span class="n">B</span><span class="w"> </span><span class="n">B</span>
-<span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">CIF</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">RECID</span>
+<span class="w">	</span><span class="k">from</span><span class="w"> </span><span class="n">AVG_CASA_BAL_BY_CIF_2018_201902</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="o">##</span><span class="n">B</span><span class="w"> </span><span class="n">B</span>
+<span class="w">	</span><span class="k">ON</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="n">CIF</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">.</span><span class="n">RECID</span>
 </pre></div>
 </div>
 </section>
-<section id="Đổi-tên-bảng,-tên-cột">
-<h3><span class="section-number">1.7.7. </span>Đổi tên bảng, tên cột<a class="headerlink" href="#Đổi-tên-bảng,-tên-cột" title="Link to this heading"></a></h3>
+<section id="doi-ten-bang-ten-cot">
+<h3><span class="section-number">1.7.7. </span>Đổi tên bảng, tên cột<a class="headerlink" href="#doi-ten-bang-ten-cot" title="Link to this heading"></a></h3>
 <p>SQL Server không hỗ trợ trực tiếp rename bằng các hàm thông thường, phải dùng <code class="docutils literal notranslate"><span class="pre">sp_rename</span></code></p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Rename tên bảng</span>
 <span class="n">sp_rename</span><span class="w"> </span><span class="s1">&#39;old_table&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;new_table&#39;</span>
@@ -925,42 +926,42 @@
 </pre></div>
 </div>
 </section>
-<section id="Truncate">
-<h3><span class="section-number">1.7.8. </span>Truncate<a class="headerlink" href="#Truncate" title="Link to this heading"></a></h3>
+<section id="truncate">
+<h3><span class="section-number">1.7.8. </span>Truncate<a class="headerlink" href="#truncate" title="Link to this heading"></a></h3>
 <p><strong>Chức năng</strong>: Xóa toàn bộ dữ liệu trong bảng, dữ nguyên bảng</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">TRUNCATE</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="o">##</span><span class="n">A</span>
 </pre></div>
 </div>
 </section>
-<section id="ALTER---Thay-đổi-định-dạng-dữ-liệu-của-cột">
-<h3><span class="section-number">1.7.9. </span>ALTER - Thay đổi định dạng dữ liệu của cột<a class="headerlink" href="#ALTER---Thay-đổi-định-dạng-dữ-liệu-của-cột" title="Link to this heading"></a></h3>
+<section id="alter-thay-doi-dinh-dang-du-lieu-cua-cot">
+<h3><span class="section-number">1.7.9. </span>ALTER - Thay đổi định dạng dữ liệu của cột<a class="headerlink" href="#alter-thay-doi-dinh-dang-du-lieu-cua-cot" title="Link to this heading"></a></h3>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">CARD_LIVE_NEW</span>
 <span class="k">ALTER</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">BUSINESS_DATE</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 </section>
-<section id="Sub-Query">
-<h2><span class="section-number">1.8. </span>Sub Query<a class="headerlink" href="#Sub-Query" title="Link to this heading"></a></h2>
-<section id="Sub-Query-cơ-bản">
-<h3><span class="section-number">1.8.1. </span>Sub Query cơ bản<a class="headerlink" href="#Sub-Query-cơ-bản" title="Link to this heading"></a></h3>
+<section id="sub-query">
+<h2><span class="section-number">1.8. </span>Sub Query<a class="headerlink" href="#sub-query" title="Link to this heading"></a></h2>
+<section id="sub-query-co-ban">
+<h3><span class="section-number">1.8.1. </span>Sub Query cơ bản<a class="headerlink" href="#sub-query-co-ban" title="Link to this heading"></a></h3>
 <p>Sub query thường được sử dụng sau điều kiện WHERE khi lọc điều kiện giữa nhiều bảng. Phần sub-queries được gọi là inner query. Xem lưu đồ dưới đây:</p>
-<p><img alt="image1" src="_images/btree.png" /></p>
+<p><img alt="" src="_images/Plot1.gif" /></p>
 <ul class="simple">
 <li><p><strong>Trưởng hợp 1</strong>: Subquery sau WHERE</p></li>
 </ul>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">--Biến thể 1</span>
 <span class="w">  </span><span class="k">select</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">TXN_ID</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">AMOUNT</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">AVAIL_BALANCE</span>
 <span class="w">  </span><span class="k">from</span><span class="w"> </span><span class="p">[</span><span class="n">learnsql</span><span class="p">].[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">ACC_TRANSACTION</span><span class="p">]</span><span class="w"> </span><span class="n">a</span><span class="p">,</span>
-<span class="w">        </span><span class="p">[</span><span class="n">learnsql</span><span class="p">].[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">ACCOUNT</span><span class="p">]</span><span class="w"> </span><span class="n">b</span>
-<span class="w">  </span><span class="k">where</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">TXN_ID</span><span class="w"> </span><span class="o">&gt;=</span>
+<span class="w">		</span><span class="p">[</span><span class="n">learnsql</span><span class="p">].[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">ACCOUNT</span><span class="p">]</span><span class="w"> </span><span class="n">b</span>
+<span class="w">  </span><span class="k">where</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">TXN_ID</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span>
 <span class="w">  </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="p">(</span><span class="k">max</span><span class="p">(</span><span class="n">ACCOUNT_ID</span><span class="p">)</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">5</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="p">[</span><span class="n">learnsql</span><span class="p">].[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">ACCOUNT</span><span class="p">])</span>
-
+<span class="w">  </span>
 <span class="c1">--Biến thể 2</span>
 <span class="w">  </span><span class="k">select</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">TXN_ID</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">AMOUNT</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">AVAIL_BALANCE</span>
 <span class="w">  </span><span class="k">from</span><span class="w"> </span><span class="p">[</span><span class="n">learnsql</span><span class="p">].[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">ACC_TRANSACTION</span><span class="p">]</span><span class="w"> </span><span class="n">a</span><span class="p">,</span>
-<span class="w">        </span><span class="p">[</span><span class="n">learnsql</span><span class="p">].[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">ACCOUNT</span><span class="p">]</span><span class="w"> </span><span class="n">b</span>
-<span class="w">  </span><span class="k">where</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">TXN_ID</span><span class="w"> </span><span class="k">in</span>
+<span class="w">		</span><span class="p">[</span><span class="n">learnsql</span><span class="p">].[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">ACCOUNT</span><span class="p">]</span><span class="w"> </span><span class="n">b</span>
+<span class="w">  </span><span class="k">where</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">TXN_ID</span><span class="w"> </span><span class="k">in</span><span class="w"> </span>
 <span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">ACCOUNT_ID</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="p">[</span><span class="n">learnsql</span><span class="p">].[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">ACCOUNT</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -968,7 +969,7 @@
 <li><p><strong>Trường hợp 2</strong>: Subquery sau from</p></li>
 </ul>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="k">min</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">min</span>
-<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="k">max</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">max</span>
+<span class="w">	</span><span class="p">,</span><span class="w"> </span><span class="k">max</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">max</span>
 <span class="k">from</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">acc_transaction</span><span class="p">)</span><span class="w"> </span><span class="n">a</span>
 </pre></div>
 </div>
@@ -995,59 +996,59 @@
 </li>
 </ul>
 </section>
-<section id="With-&amp;-CTE">
-<h3><span class="section-number">1.8.2. </span>With &amp; CTE<a class="headerlink" href="#With-&-CTE" title="Link to this heading"></a></h3>
+<section id="with-cte">
+<h3><span class="section-number">1.8.2. </span>With &amp; CTE<a class="headerlink" href="#with-cte" title="Link to this heading"></a></h3>
 <p>Ta có thể dùng with để thay thế cho việc tạo bảng tạm sub query</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Khi dùng subquery</span>
 <span class="k">select</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span><span class="p">.</span><span class="o">*</span><span class="p">,</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">t3</span><span class="p">.[</span><span class="k">group</span><span class="p">]</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;Multi Booking&#39;</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;Single Booking&#39;</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">booking_type</span>
+<span class="w">	</span><span class="k">case</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">t3</span><span class="p">.[</span><span class="k">group</span><span class="p">]</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">&#39;Multi Booking&#39;</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;Single Booking&#39;</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">booking_type</span>
 <span class="k">from</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span>
-<span class="w">    </span><span class="k">left</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">cusid</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">group</span><span class="p">]</span>
-<span class="w">                </span><span class="k">from</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span><span class="w"> </span><span class="n">A</span>
-<span class="w">                </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">cusid</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">group</span><span class="p">]</span>
-<span class="w">                </span><span class="k">having</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">t3</span>
-<span class="w">        </span><span class="k">on</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span><span class="p">.</span><span class="n">cusid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T3</span><span class="p">.</span><span class="n">cusid</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span><span class="p">.[</span><span class="k">group</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t3</span><span class="p">.[</span><span class="k">group</span><span class="p">]</span>
-
+<span class="w">	</span><span class="k">left</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">cusid</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">group</span><span class="p">]</span><span class="w"> </span>
+<span class="w">				</span><span class="k">from</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span><span class="w"> </span><span class="n">A</span><span class="w"> </span>
+<span class="w">				</span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">cusid</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">group</span><span class="p">]</span>
+<span class="w">				</span><span class="k">having</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">t3</span>
+<span class="w">		</span><span class="k">on</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span><span class="p">.</span><span class="n">cusid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T3</span><span class="p">.</span><span class="n">cusid</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span><span class="p">.[</span><span class="k">group</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t3</span><span class="p">.[</span><span class="k">group</span><span class="p">]</span>
+<span class="w">		</span>
 <span class="c1">-- Khi dùng with</span>
-<span class="k">with</span><span class="w"> </span><span class="n">T3</span><span class="w"> </span><span class="k">AS</span>
-<span class="w">    </span><span class="p">(</span><span class="k">selecT</span><span class="w"> </span><span class="n">CUSID</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">group</span><span class="p">]</span>
-<span class="w">    </span><span class="k">from</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span><span class="w"> </span><span class="n">A</span>
-<span class="w">    </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Cusid</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">group</span><span class="p">]</span>
-<span class="w">    </span><span class="k">HAVING</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">    </span><span class="p">)</span>
-<span class="k">SELECT</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="p">,</span>
-<span class="w">    </span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">T3</span><span class="p">.[</span><span class="k">group</span><span class="p">]</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;Multi booking&#39;</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">&#39;Single Booking&#39;</span><span class="w"> </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">BOOKING_TYPE</span>
+<span class="k">with</span><span class="w"> </span><span class="n">T3</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span>
+<span class="w">	</span><span class="p">(</span><span class="k">selecT</span><span class="w"> </span><span class="n">CUSID</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">group</span><span class="p">]</span>
+<span class="w">	</span><span class="k">from</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span><span class="w"> </span><span class="n">A</span><span class="w"> </span>
+<span class="w">	</span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">Cusid</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="k">group</span><span class="p">]</span><span class="w"> </span>
+<span class="w">	</span><span class="k">HAVING</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>
+<span class="w">	</span><span class="p">)</span><span class="w"> </span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="p">,</span><span class="w"> </span>
+<span class="w">	</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">T3</span><span class="p">.[</span><span class="k">group</span><span class="p">]</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;Multi booking&#39;</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">&#39;Single Booking&#39;</span><span class="w"> </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">BOOKING_TYPE</span>
 <span class="c1">--INTO #final_results</span>
-<span class="k">FROM</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span>
-<span class="w">    </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">T3</span>
-<span class="w">        </span><span class="k">ON</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span><span class="p">.</span><span class="n">CUSID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T3</span><span class="p">.</span><span class="n">CUSID</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span><span class="p">.[</span><span class="k">group</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T3</span><span class="p">.[</span><span class="k">group</span><span class="p">]</span>
+<span class="k">FROM</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span><span class="w"> </span>
+<span class="w">	</span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">T3</span><span class="w"> </span>
+<span class="w">		</span><span class="k">ON</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span><span class="p">.</span><span class="n">CUSID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T3</span><span class="p">.</span><span class="n">CUSID</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span><span class="p">.[</span><span class="k">group</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T3</span><span class="p">.[</span><span class="k">group</span><span class="p">]</span>
 </pre></div>
 </div>
 </section>
 </section>
-<section id="Các-nhóm-câu-lệnh-cơ-bản-khác">
-<h2><span class="section-number">1.9. </span>Các nhóm câu lệnh cơ bản khác<a class="headerlink" href="#Các-nhóm-câu-lệnh-cơ-bản-khác" title="Link to this heading"></a></h2>
-<section id="Exists">
-<h3><span class="section-number">1.9.1. </span>Exists<a class="headerlink" href="#Exists" title="Link to this heading"></a></h3>
+<section id="cac-nhom-cau-lenh-co-ban-khac">
+<h2><span class="section-number">1.9. </span>Các nhóm câu lệnh cơ bản khác<a class="headerlink" href="#cac-nhom-cau-lenh-co-ban-khac" title="Link to this heading"></a></h2>
+<section id="exists">
+<h3><span class="section-number">1.9.1. </span>Exists<a class="headerlink" href="#exists" title="Link to this heading"></a></h3>
 <p><strong>Chức năng</strong>: Kiểm tra điều kiện tồn tại</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">---Exist</span>
-<span class="k">select</span><span class="w"> </span><span class="n">FirstName</span><span class="p">,</span>
-<span class="w">           </span><span class="n">LastName</span>
+<span class="k">select</span><span class="w"> </span><span class="n">FirstName</span><span class="p">,</span><span class="w"> </span>
+<span class="w">		   </span><span class="n">LastName</span><span class="w"> </span>
 <span class="k">from</span><span class="w"> </span><span class="n">DimEmployee</span>
 <span class="k">where</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">LastName</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">DimCustomer</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">LastName</span><span class="w"> </span><span class="o">=</span>
 <span class="s1">&#39;Zimmerman&#39;</span><span class="p">)</span>
 
 <span class="c1">---Not exist</span>
-<span class="k">select</span><span class="w"> </span><span class="n">FirstName</span><span class="p">,</span>
-<span class="w">        </span><span class="n">LastName</span>
+<span class="k">select</span><span class="w"> </span><span class="n">FirstName</span><span class="p">,</span><span class="w"> </span>
+<span class="w">		</span><span class="n">LastName</span><span class="w"> </span>
 <span class="k">from</span><span class="w"> </span><span class="n">DimEmployee</span>
 <span class="k">where</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">LastName</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">DimCustomer</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">LastName</span><span class="w"> </span><span class="o">=</span>
 <span class="s1">&#39;Anh&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
-<section id="Any-vs.-All">
-<h3><span class="section-number">1.9.2. </span>Any vs. All<a class="headerlink" href="#Any-vs.-All" title="Link to this heading"></a></h3>
+<section id="any-vs-all">
+<h3><span class="section-number">1.9.2. </span>Any vs. All<a class="headerlink" href="#any-vs-all" title="Link to this heading"></a></h3>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">---TH1: ANY</span>
 <span class="k">select</span><span class="w"> </span><span class="n">EnglishProductName</span><span class="p">,</span><span class="w"> </span><span class="n">ListPrice</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">DimProduct</span>
 <span class="k">where</span><span class="w"> </span><span class="n">ListPrice</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">all</span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="k">any</span><span class="p">(</span><span class="n">ListPrice</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">DimProduct</span>
@@ -1075,14 +1076,14 @@
 <li><p>Với TH3, sử dụng having giúp loại đi điều kiện NULL</p></li>
 </ul>
 </section>
-<section id="View">
-<h3><span class="section-number">1.9.3. </span>View<a class="headerlink" href="#View" title="Link to this heading"></a></h3>
+<section id="view">
+<h3><span class="section-number">1.9.3. </span>View<a class="headerlink" href="#view" title="Link to this heading"></a></h3>
 <p>View là hình thức tạo một bảng cho phép hiển thị, không tốn bộ nhớ thật của máy tính</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">Create</span><span class="w"> </span><span class="k">View</span><span class="w"> </span><span class="p">(</span><span class="n">COL_1</span><span class="p">,</span><span class="w"> </span><span class="n">COL_2</span><span class="p">...)</span><span class="w"> </span><span class="k">as</span>
 <span class="k">select</span><span class="w"> </span><span class="n">COL_1</span><span class="p">,</span><span class="n">COL_2</span><span class="p">...</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="k">TABLE</span>
 
 <span class="c1">--Ví dụ</span>
-<span class="k">create</span><span class="w"> </span><span class="k">view</span><span class="w"> </span><span class="n">ducanh4</span><span class="w"> </span><span class="p">(</span><span class="n">CUS_ID</span><span class="p">,</span><span class="w"> </span><span class="n">MAIL</span><span class="p">)</span><span class="w"> </span><span class="k">as</span>
+<span class="k">create</span><span class="w"> </span><span class="k">view</span><span class="w"> </span><span class="n">ducanh4</span><span class="w"> </span><span class="p">(</span><span class="n">CUS_ID</span><span class="p">,</span><span class="w"> </span><span class="n">MAIL</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span>
 <span class="k">select</span><span class="w"> </span><span class="n">CUST_ID</span><span class="p">,</span><span class="w"> </span><span class="n">ADDRESS</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39; ,&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">CITY</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">customer</span>
 
 <span class="c1">--Lưu ý: Khi update trong View, ta sẽ update luôn thông tin từ bảng gốc</span>
@@ -1096,14 +1097,14 @@
 </pre></div>
 </div>
 </section>
-<section id="Index">
-<h3><span class="section-number">1.9.4. </span>Index<a class="headerlink" href="#Index" title="Link to this heading"></a></h3>
+<section id="index">
+<h3><span class="section-number">1.9.4. </span>Index<a class="headerlink" href="#index" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Để tăng performance của query, ta có thể sử dụng Index. Index áp dụng B-Tree để tìm kiếm dữ liệu. Khi được đánh index, bảng sẽ là một bảng có cấu trúc, VD - theo thứ tự ABC. Nếu không đánh index, bảng sẽ được gọi là HEAP (nonsequential).</p></li>
 <li><p>Khi đặt điều kiện unique key hoặc primary key, bảng sẽ tự động tạo index.</p></li>
 <li><p>Khi tạo index, tốc độ truy vấn sẽ nhanh hơn tuy nhiên sẽ tốn dung lượng của ổ cứng lưu trữ</p></li>
 </ul>
-<p><img alt="image1" src="_images/btree.png" /></p>
+<p><img alt="" src="_images/btree.png" /></p>
 <p><strong>Cơ chế hoạt động</strong>:</p>
 <ul class="simple">
 <li><p>Nếu cột customer_name được sử dụng làm index, sẽ chia làm 3 nhóm A, Q, T. Nếu tên khách hàng bắt đầu là R, sẽ nhảy luôn đến nhóm index Q &gt;&gt; R &gt;&gt; Tìm tên</p></li>
@@ -1141,8 +1142,8 @@
 </li>
 </ul>
 </section>
-<section id="Bảng-tạm">
-<h3><span class="section-number">1.9.5. </span>Bảng tạm<a class="headerlink" href="#Bảng-tạm" title="Link to this heading"></a></h3>
+<section id="bang-tam">
+<h3><span class="section-number">1.9.5. </span>Bảng tạm<a class="headerlink" href="#bang-tam" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Bảng tạm là bảng chỉ tồn tại trong 1 session của SQL. Sau khi log out hoặc khởi động lại, bảng này sẽ tự động biến mấ.</p></li>
 <li><p>Bảng tạm bắt đầu bằng dấu #</p></li>
@@ -1152,7 +1153,7 @@
 <span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="o">#</span><span class="n">da</span><span class="w"> </span><span class="p">(</span><span class="n">VAr1</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"> </span><span class="n">var2</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span>
 
 <span class="c1">--Vừa tạo bảng vừa insert</span>
-<span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
 <span class="k">into</span><span class="w"> </span><span class="o">#</span><span class="n">ducanh</span>
 <span class="k">from</span><span class="w"> </span><span class="n">account</span>
 </pre></div>

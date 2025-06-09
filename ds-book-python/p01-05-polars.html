@@ -10,8 +10,9 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
       <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0cebd926" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -197,7 +198,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
 <span class="c1"># Series 1</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1071,7 +1072,7 @@ shape: (2, 2)
   white-space: pre-wrap;
 }
 </style>
-<small>shape: (4, 4)</small><table border="1" class="dataframe"><thead><tr><th>am</th><th>vs</th><th>mean_mpg</th><th>sum_wt</th></tr><tr><td>i64</td><td>i64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>1</td><td>0</td><td>19.75</td><td>17.145</td></tr><tr><td>0</td><td>1</td><td>20.742857</td><td>22.36</td></tr><tr><td>1</td><td>1</td><td>28.371429</td><td>14.198</td></tr><tr><td>0</td><td>0</td><td>15.05</td><td>49.249</td></tr></tbody></table></div></div></div>
+<small>shape: (4, 4)</small><table border="1" class="dataframe"><thead><tr><th>am</th><th>vs</th><th>mean_mpg</th><th>sum_wt</th></tr><tr><td>i64</td><td>i64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>0</td><td>0</td><td>15.05</td><td>49.249</td></tr><tr><td>0</td><td>1</td><td>20.742857</td><td>22.36</td></tr><tr><td>1</td><td>0</td><td>19.75</td><td>17.145</td></tr><tr><td>1</td><td>1</td><td>28.371429</td><td>14.198</td></tr></tbody></table></div></div></div>
 </div>
 <p>Bên cạnh đó, <code class="docutils literal notranslate"><span class="pre">polars</span></code> còn cho phép tổng hợp rất linh hoạt theo điều kiện. Quay trở lại ví dụ trên, ta có thể đặt ra yêu cầu như sau:</p>
 <ul class="simple">
@@ -1099,7 +1100,7 @@ shape: (2, 2)
   white-space: pre-wrap;
 }
 </style>
-<small>shape: (4, 4)</small><table border="1" class="dataframe"><thead><tr><th>am</th><th>vs</th><th>sum_mpg</th><th>mean_wt</th></tr><tr><td>i64</td><td>i64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>0</td><td>0</td><td>0.0</td><td>null</td></tr><tr><td>0</td><td>1</td><td>68.7</td><td>3.38875</td></tr><tr><td>1</td><td>1</td><td>198.6</td><td>null</td></tr><tr><td>1</td><td>0</td><td>26.0</td><td>2.755</td></tr></tbody></table></div></div></div>
+<small>shape: (4, 4)</small><table border="1" class="dataframe"><thead><tr><th>am</th><th>vs</th><th>sum_mpg</th><th>mean_wt</th></tr><tr><td>i64</td><td>i64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>0</td><td>0</td><td>0.0</td><td>null</td></tr><tr><td>1</td><td>0</td><td>26.0</td><td>2.755</td></tr><tr><td>0</td><td>1</td><td>68.7</td><td>3.38875</td></tr><tr><td>1</td><td>1</td><td>198.6</td><td>null</td></tr></tbody></table></div></div></div>
 </div>
 </section>
 </section>
@@ -1205,6 +1206,9 @@ shape: (2, 2)
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Admin\AppData\Local\Temp\ipykernel_18048\3995189149.py:1: DeprecationWarning: `DataFrame.melt` is deprecated. Use `unpivot` instead, with `index` instead of `id_vars` and `on` instead of `value_vars`
+</pre></div>
+</div>
 <div class="output text_html"><div><style>
 .dataframe > thead > tr,
 .dataframe > tbody > tr {
@@ -1222,6 +1226,9 @@ shape: (2, 2)
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Admin\AppData\Local\Temp\ipykernel_18048\1469144872.py:2: DeprecationWarning: `DataFrame.melt` is deprecated. Use `unpivot` instead, with `index` instead of `id_vars` and `on` instead of `value_vars`
+</pre></div>
+</div>
 <div class="output text_html"><div><style>
 .dataframe > thead > tr,
 .dataframe > tbody > tr {
@@ -1241,6 +1248,9 @@ shape: (2, 2)
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Admin\AppData\Local\Temp\ipykernel_18048\2593838140.py:1: DeprecationWarning: `DataFrame.melt` is deprecated. Use `unpivot` instead, with `index` instead of `id_vars` and `on` instead of `value_vars`
+</pre></div>
+</div>
 <div class="output text_html"><div><style>
 .dataframe > thead > tr,
 .dataframe > tbody > tr {
@@ -1258,6 +1268,9 @@ shape: (2, 2)
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Admin\AppData\Local\Temp\ipykernel_18048\2411734178.py:1: DeprecationWarning: The argument `columns` for `DataFrame.pivot` is deprecated. It has been renamed to `on`.
+</pre></div>
+</div>
 <div class="output text_html"><div><style>
 .dataframe > thead > tr,
 .dataframe > tbody > tr {
@@ -1539,9 +1552,11 @@ shape: (2, 2)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>naive plan: (run LazyFrame.explain(optimized=True) to see the optimized plan)
 
 AGGREGATE
-	[col(&quot;mpg&quot;).mean().alias(&quot;mean_mpg&quot;)] BY [col(&quot;am&quot;)] FROM
-  FILTER [(col(&quot;vs&quot;)) == (1)] FROM
-    DF [&quot;name&quot;, &quot;mpg&quot;, &quot;cyl&quot;, &quot;disp&quot;]; PROJECT */12 COLUMNS; SELECTION: None
+  [col(&quot;mpg&quot;).mean().alias(&quot;mean_mpg&quot;)] BY [col(&quot;am&quot;)]
+  FROM
+  FILTER [(col(&quot;vs&quot;)) == (1)]
+  FROM
+    DF [&quot;name&quot;, &quot;mpg&quot;, &quot;cyl&quot;, &quot;disp&quot;, ...]; PROJECT */12 COLUMNS
 </pre></div>
 </div>
 </div>
@@ -1621,7 +1636,7 @@ AGGREGATE
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Hoang Duc Anh\AppData\Local\Temp\ipykernel_6304\3498082010.py:3: PolarsInefficientMapWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Admin\AppData\Local\Temp\ipykernel_18048\3498082010.py:3: PolarsInefficientMapWarning: 
 Expr.map_elements is significantly slower than the native expressions API.
 Only use if you absolutely CANNOT implement your logic otherwise.
 Replace this expression...
@@ -1736,573 +1751,49 @@ pl.read_parquet_schema
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/javascript">(function(root) {
-  function now() {
-    return new Date();
-  }
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleUpgradeRequiredError</span><span class="g g-Whitespace">                </span>Traceback (most recent call last)
+<span class="nn">File ~\AppData\Roaming\Python\Python313\site-packages\IPython\core\oinspect.py:1169,</span> in <span class="ni">Inspector.psearch</span><span class="nt">(self, pattern, ns_table, ns_search, ignore_case, show_all, list_types)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1167</span>         <span class="k">continue</span>
+<span class="g g-Whitespace">   </span><span class="mi">1168</span>     <span class="n">namespaces_seen</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">ns</span><span class="p">))</span>
+<span class="ne">-&gt; </span><span class="mi">1169</span>     <span class="n">tmp_res</span> <span class="o">=</span> <span class="n">list_namespace</span><span class="p">(</span><span class="n">ns</span><span class="p">,</span> <span class="n">type_pattern</span><span class="p">,</span> <span class="nb">filter</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1170</span>                             <span class="n">ignore_case</span><span class="o">=</span><span class="n">ignore_case</span><span class="p">,</span> <span class="n">show_all</span><span class="o">=</span><span class="n">show_all</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1171</span>     <span class="n">search_result</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">tmp_res</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1173</span> <span class="n">page</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">search_result</span><span class="p">)))</span>
 
-  var force = true;
-  var py_version = '3.4.1'.replace('rc', '-rc.').replace('.dev', '-dev.');
-  var reloading = false;
-  var Bokeh = root.Bokeh;
+<span class="nn">File ~\AppData\Roaming\Python\Python313\site-packages\IPython\utils\wildcard.py:106,</span> in <span class="ni">list_namespace</span><span class="nt">(namespace, type_pattern, filter, ignore_case, show_all)</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span> <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">filtered</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="ne">--&gt; </span><span class="mi">106</span>     <span class="n">ns</span> <span class="o">=</span> <span class="n">list_namespace</span><span class="p">(</span><span class="n">dict_dir</span><span class="p">(</span><span class="n">obj</span><span class="p">),</span> <span class="n">type_pattern</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">107</span>                         <span class="s2">&quot;.&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pattern_list</span><span class="p">[</span><span class="mi">1</span><span class="p">:]),</span>
+<span class="g g-Whitespace">    </span><span class="mi">108</span>                         <span class="n">ignore_case</span><span class="o">=</span><span class="n">ignore_case</span><span class="p">,</span> <span class="n">show_all</span><span class="o">=</span><span class="n">show_all</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">109</span>     <span class="k">for</span> <span class="n">inner_name</span><span class="p">,</span> <span class="n">inner_obj</span> <span class="ow">in</span> <span class="n">ns</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span>         <span class="n">results</span><span class="p">[</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.</span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">inner_name</span><span class="p">)]</span> <span class="o">=</span> <span class="n">inner_obj</span>
 
-  if (typeof (root._bokeh_timeout) === "undefined" || force) {
-    root._bokeh_timeout = Date.now() + 5000;
-    root._bokeh_failed_load = false;
-  }
+<span class="nn">File ~\AppData\Roaming\Python\Python313\site-packages\IPython\utils\wildcard.py:70,</span> in <span class="ni">dict_dir</span><span class="nt">(obj)</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dir2</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">63</span>    <span class="c1"># This seemingly unnecessary try/except is actually needed</span>
+<span class="g g-Whitespace">     </span><span class="mi">64</span>    <span class="c1"># because there is code out there with metaclasses that</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>     <span class="mi">67</span>    <span class="c1"># object&#39;s dictionary.  Properties can actually do the same</span>
+<span class="g g-Whitespace">     </span><span class="mi">68</span>    <span class="c1"># thing.  In particular, Traits use this pattern</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>    <span class="k">try</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">70</span>        <span class="n">ns</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>    <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>        <span class="k">pass</span>
 
-  function run_callbacks() {
-    try {
-      root._bokeh_onload_callbacks.forEach(function(callback) {
-        if (callback != null)
-          callback();
-      });
-    } finally {
-      delete root._bokeh_onload_callbacks;
-    }
-    console.debug("Bokeh: all callbacks have finished");
-  }
+<span class="nn">File c:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\polars\_utils\unstable.py:58,</span> in <span class="ni">unstable.&lt;locals&gt;.decorate.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="nd">@wraps</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">56</span> <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">P</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">P</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="n">issue_unstable_warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;`</span><span class="si">{</span><span class="n">function</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">` is considered unstable.&quot;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">58</span>     <span class="k">return</span> <span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-  function load_libs(css_urls, js_urls, js_modules, js_exports, callback) {
-    if (css_urls == null) css_urls = [];
-    if (js_urls == null) js_urls = [];
-    if (js_modules == null) js_modules = [];
-    if (js_exports == null) js_exports = {};
+<span class="nn">File c:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\polars\dataframe\frame.py:715,</span> in <span class="ni">DataFrame.plot</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">713</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">_ALTAIR_AVAILABLE</span> <span class="ow">or</span> <span class="n">parse_version</span><span class="p">(</span><span class="n">altair</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">714</span>     <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;altair&gt;=5.4.0 is required for `.plot`&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">715</span>     <span class="k">raise</span> <span class="n">ModuleUpgradeRequiredError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">716</span> <span class="k">return</span> <span class="n">DataFramePlot</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
-    root._bokeh_onload_callbacks.push(callback);
-
-    if (root._bokeh_is_loading > 0) {
-      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
-      return null;
-    }
-    if (js_urls.length === 0 && js_modules.length === 0 && Object.keys(js_exports).length === 0) {
-      run_callbacks();
-      return null;
-    }
-    if (!reloading) {
-      console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
-    }
-
-    function on_load() {
-      root._bokeh_is_loading--;
-      if (root._bokeh_is_loading === 0) {
-        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
-        run_callbacks()
-      }
-    }
-    window._bokeh_on_load = on_load
-
-    function on_error() {
-      console.error("failed to load " + url);
-    }
-
-    var skip = [];
-    if (window.requirejs) {
-      window.requirejs.config({'packages': {}, 'paths': {}, 'shim': {}});
-      root._bokeh_is_loading = css_urls.length + 0;
-    } else {
-      root._bokeh_is_loading = css_urls.length + js_urls.length + js_modules.length + Object.keys(js_exports).length;
-    }
-
-    var existing_stylesheets = []
-    var links = document.getElementsByTagName('link')
-    for (var i = 0; i < links.length; i++) {
-      var link = links[i]
-      if (link.href != null) {
-	existing_stylesheets.push(link.href)
-      }
-    }
-    for (var i = 0; i < css_urls.length; i++) {
-      var url = css_urls[i];
-      if (existing_stylesheets.indexOf(url) !== -1) {
-	on_load()
-	continue;
-      }
-      const element = document.createElement("link");
-      element.onload = on_load;
-      element.onerror = on_error;
-      element.rel = "stylesheet";
-      element.type = "text/css";
-      element.href = url;
-      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
-      document.body.appendChild(element);
-    }    var existing_scripts = []
-    var scripts = document.getElementsByTagName('script')
-    for (var i = 0; i < scripts.length; i++) {
-      var script = scripts[i]
-      if (script.src != null) {
-	existing_scripts.push(script.src)
-      }
-    }
-    for (var i = 0; i < js_urls.length; i++) {
-      var url = js_urls[i];
-      if (skip.indexOf(url) !== -1 || existing_scripts.indexOf(url) !== -1) {
-	if (!window.requirejs) {
-	  on_load();
-	}
-	continue;
-      }
-      var element = document.createElement('script');
-      element.onload = on_load;
-      element.onerror = on_error;
-      element.async = false;
-      element.src = url;
-      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
-      document.head.appendChild(element);
-    }
-    for (var i = 0; i < js_modules.length; i++) {
-      var url = js_modules[i];
-      if (skip.indexOf(url) !== -1 || existing_scripts.indexOf(url) !== -1) {
-	if (!window.requirejs) {
-	  on_load();
-	}
-	continue;
-      }
-      var element = document.createElement('script');
-      element.onload = on_load;
-      element.onerror = on_error;
-      element.async = false;
-      element.src = url;
-      element.type = "module";
-      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
-      document.head.appendChild(element);
-    }
-    for (const name in js_exports) {
-      var url = js_exports[name];
-      if (skip.indexOf(url) >= 0 || root[name] != null) {
-	if (!window.requirejs) {
-	  on_load();
-	}
-	continue;
-      }
-      var element = document.createElement('script');
-      element.onerror = on_error;
-      element.async = false;
-      element.type = "module";
-      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
-      element.textContent = `
-      import ${name} from "${url}"
-      window.${name} = ${name}
-      window._bokeh_on_load()
-      `
-      document.head.appendChild(element);
-    }
-    if (!js_urls.length && !js_modules.length) {
-      on_load()
-    }
-  };
-
-  function inject_raw_css(css) {
-    const element = document.createElement("style");
-    element.appendChild(document.createTextNode(css));
-    document.body.appendChild(element);
-  }
-
-  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-3.4.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.4.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.4.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.4.1.min.js", "https://cdn.holoviz.org/panel/1.4.3/dist/panel.min.js"];
-  var js_modules = [];
-  var js_exports = {};
-  var css_urls = [];
-  var inline_js = [    function(Bokeh) {
-      Bokeh.set_log_level("info");
-    },
-function(Bokeh) {} // ensure no trailing comma for IE
-  ];
-
-  function run_inline_js() {
-    if ((root.Bokeh !== undefined) || (force === true)) {
-      for (var i = 0; i < inline_js.length; i++) {
-	try {
-          inline_js[i].call(root, root.Bokeh);
-	} catch(e) {
-	  if (!reloading) {
-	    throw e;
-	  }
-	}
-      }
-      // Cache old bokeh versions
-      if (Bokeh != undefined && !reloading) {
-	var NewBokeh = root.Bokeh;
-	if (Bokeh.versions === undefined) {
-	  Bokeh.versions = new Map();
-	}
-	if (NewBokeh.version !== Bokeh.version) {
-	  Bokeh.versions.set(NewBokeh.version, NewBokeh)
-	}
-	root.Bokeh = Bokeh;
-      }} else if (Date.now() < root._bokeh_timeout) {
-      setTimeout(run_inline_js, 100);
-    } else if (!root._bokeh_failed_load) {
-      console.log("Bokeh: BokehJS failed to load within specified timeout.");
-      root._bokeh_failed_load = true;
-    }
-    root._bokeh_is_initializing = false
-  }
-
-  function load_or_wait() {
-    // Implement a backoff loop that tries to ensure we do not load multiple
-    // versions of Bokeh and its dependencies at the same time.
-    // In recent versions we use the root._bokeh_is_initializing flag
-    // to determine whether there is an ongoing attempt to initialize
-    // bokeh, however for backward compatibility we also try to ensure
-    // that we do not start loading a newer (Panel>=1.0 and Bokeh>3) version
-    // before older versions are fully initialized.
-    if (root._bokeh_is_initializing && Date.now() > root._bokeh_timeout) {
-      root._bokeh_is_initializing = false;
-      root._bokeh_onload_callbacks = undefined;
-      console.log("Bokeh: BokehJS was loaded multiple times but one version failed to initialize.");
-      load_or_wait();
-    } else if (root._bokeh_is_initializing || (typeof root._bokeh_is_initializing === "undefined" && root._bokeh_onload_callbacks !== undefined)) {
-      setTimeout(load_or_wait, 100);
-    } else {
-      root._bokeh_is_initializing = true
-      root._bokeh_onload_callbacks = []
-      var bokeh_loaded = Bokeh != null && (Bokeh.version === py_version || (Bokeh.versions !== undefined && Bokeh.versions.has(py_version)));
-      if (!reloading && !bokeh_loaded) {
-	root.Bokeh = undefined;
-      }
-      load_libs(css_urls, js_urls, js_modules, js_exports, function() {
-	console.debug("Bokeh: BokehJS plotting callback run at", now());
-	run_inline_js();
-      });
-    }
-  }
-  // Give older versions of the autoload script a head-start to ensure
-  // they initialize before we start loading newer version.
-  setTimeout(load_or_wait, 100)
-}(window));</script><script type="application/javascript">
-if ((window.PyViz === undefined) || (window.PyViz instanceof HTMLElement)) {
-  window.PyViz = {comms: {}, comm_status:{}, kernels:{}, receivers: {}, plot_index: []}
-}
-
-
-    function JupyterCommManager() {
-    }
-
-    JupyterCommManager.prototype.register_target = function(plot_id, comm_id, msg_handler) {
-      if (window.comm_manager || ((window.Jupyter !== undefined) && (Jupyter.notebook.kernel != null))) {
-        var comm_manager = window.comm_manager || Jupyter.notebook.kernel.comm_manager;
-        comm_manager.register_target(comm_id, function(comm) {
-          comm.on_msg(msg_handler);
-        });
-      } else if ((plot_id in window.PyViz.kernels) && (window.PyViz.kernels[plot_id])) {
-        window.PyViz.kernels[plot_id].registerCommTarget(comm_id, function(comm) {
-          comm.onMsg = msg_handler;
-        });
-      } else if (typeof google != 'undefined' && google.colab.kernel != null) {
-        google.colab.kernel.comms.registerTarget(comm_id, (comm) => {
-          var messages = comm.messages[Symbol.asyncIterator]();
-          function processIteratorResult(result) {
-            var message = result.value;
-            console.log(message)
-            var content = {data: message.data, comm_id};
-            var buffers = []
-            for (var buffer of message.buffers || []) {
-              buffers.push(new DataView(buffer))
-            }
-            var metadata = message.metadata || {};
-            var msg = {content, buffers, metadata}
-            msg_handler(msg);
-            return messages.next().then(processIteratorResult);
-          }
-          return messages.next().then(processIteratorResult);
-        })
-      }
-    }
-
-    JupyterCommManager.prototype.get_client_comm = function(plot_id, comm_id, msg_handler) {
-      if (comm_id in window.PyViz.comms) {
-        return window.PyViz.comms[comm_id];
-      } else if (window.comm_manager || ((window.Jupyter !== undefined) && (Jupyter.notebook.kernel != null))) {
-        var comm_manager = window.comm_manager || Jupyter.notebook.kernel.comm_manager;
-        var comm = comm_manager.new_comm(comm_id, {}, {}, {}, comm_id);
-        if (msg_handler) {
-          comm.on_msg(msg_handler);
-        }
-      } else if ((plot_id in window.PyViz.kernels) && (window.PyViz.kernels[plot_id])) {
-        var comm = window.PyViz.kernels[plot_id].connectToComm(comm_id);
-        comm.open();
-        if (msg_handler) {
-          comm.onMsg = msg_handler;
-        }
-      } else if (typeof google != 'undefined' && google.colab.kernel != null) {
-        var comm_promise = google.colab.kernel.comms.open(comm_id)
-        comm_promise.then((comm) => {
-          window.PyViz.comms[comm_id] = comm;
-          if (msg_handler) {
-            var messages = comm.messages[Symbol.asyncIterator]();
-            function processIteratorResult(result) {
-              var message = result.value;
-              var content = {data: message.data};
-              var metadata = message.metadata || {comm_id};
-              var msg = {content, metadata}
-              msg_handler(msg);
-              return messages.next().then(processIteratorResult);
-            }
-            return messages.next().then(processIteratorResult);
-          }
-        }) 
-        var sendClosure = (data, metadata, buffers, disposeOnDone) => {
-          return comm_promise.then((comm) => {
-            comm.send(data, metadata, buffers, disposeOnDone);
-          });
-        };
-        var comm = {
-          send: sendClosure
-        };
-      }
-      window.PyViz.comms[comm_id] = comm;
-      return comm;
-    }
-    window.PyViz.comm_manager = new JupyterCommManager();
-    
-
-
-var JS_MIME_TYPE = 'application/javascript';
-var HTML_MIME_TYPE = 'text/html';
-var EXEC_MIME_TYPE = 'application/vnd.holoviews_exec.v0+json';
-var CLASS_NAME = 'output';
-
-/**
- * Render data to the DOM node
- */
-function render(props, node) {
-  var div = document.createElement("div");
-  var script = document.createElement("script");
-  node.appendChild(div);
-  node.appendChild(script);
-}
-
-/**
- * Handle when a new output is added
- */
-function handle_add_output(event, handle) {
-  var output_area = handle.output_area;
-  var output = handle.output;
-  if ((output.data == undefined) || (!output.data.hasOwnProperty(EXEC_MIME_TYPE))) {
-    return
-  }
-  var id = output.metadata[EXEC_MIME_TYPE]["id"];
-  var toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
-  if (id !== undefined) {
-    var nchildren = toinsert.length;
-    var html_node = toinsert[nchildren-1].children[0];
-    html_node.innerHTML = output.data[HTML_MIME_TYPE];
-    var scripts = [];
-    var nodelist = html_node.querySelectorAll("script");
-    for (var i in nodelist) {
-      if (nodelist.hasOwnProperty(i)) {
-        scripts.push(nodelist[i])
-      }
-    }
-
-    scripts.forEach( function (oldScript) {
-      var newScript = document.createElement("script");
-      var attrs = [];
-      var nodemap = oldScript.attributes;
-      for (var j in nodemap) {
-        if (nodemap.hasOwnProperty(j)) {
-          attrs.push(nodemap[j])
-        }
-      }
-      attrs.forEach(function(attr) { newScript.setAttribute(attr.name, attr.value) });
-      newScript.appendChild(document.createTextNode(oldScript.innerHTML));
-      oldScript.parentNode.replaceChild(newScript, oldScript);
-    });
-    if (JS_MIME_TYPE in output.data) {
-      toinsert[nchildren-1].children[1].textContent = output.data[JS_MIME_TYPE];
-    }
-    output_area._hv_plot_id = id;
-    if ((window.Bokeh !== undefined) && (id in Bokeh.index)) {
-      window.PyViz.plot_index[id] = Bokeh.index[id];
-    } else {
-      window.PyViz.plot_index[id] = null;
-    }
-  } else if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
-    var bk_div = document.createElement("div");
-    bk_div.innerHTML = output.data[HTML_MIME_TYPE];
-    var script_attrs = bk_div.children[0].attributes;
-    for (var i = 0; i < script_attrs.length; i++) {
-      toinsert[toinsert.length - 1].childNodes[1].setAttribute(script_attrs[i].name, script_attrs[i].value);
-    }
-    // store reference to server id on output_area
-    output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
-  }
-}
-
-/**
- * Handle when an output is cleared or removed
- */
-function handle_clear_output(event, handle) {
-  var id = handle.cell.output_area._hv_plot_id;
-  var server_id = handle.cell.output_area._bokeh_server_id;
-  if (((id === undefined) || !(id in PyViz.plot_index)) && (server_id !== undefined)) { return; }
-  var comm = window.PyViz.comm_manager.get_client_comm("hv-extension-comm", "hv-extension-comm", function () {});
-  if (server_id !== null) {
-    comm.send({event_type: 'server_delete', 'id': server_id});
-    return;
-  } else if (comm !== null) {
-    comm.send({event_type: 'delete', 'id': id});
-  }
-  delete PyViz.plot_index[id];
-  if ((window.Bokeh !== undefined) & (id in window.Bokeh.index)) {
-    var doc = window.Bokeh.index[id].model.document
-    doc.clear();
-    const i = window.Bokeh.documents.indexOf(doc);
-    if (i > -1) {
-      window.Bokeh.documents.splice(i, 1);
-    }
-  }
-}
-
-/**
- * Handle kernel restart event
- */
-function handle_kernel_cleanup(event, handle) {
-  delete PyViz.comms["hv-extension-comm"];
-  window.PyViz.plot_index = {}
-}
-
-/**
- * Handle update_display_data messages
- */
-function handle_update_output(event, handle) {
-  handle_clear_output(event, {cell: {output_area: handle.output_area}})
-  handle_add_output(event, handle)
-}
-
-function register_renderer(events, OutputArea) {
-  function append_mime(data, metadata, element) {
-    // create a DOM node to render to
-    var toinsert = this.create_output_subarea(
-    metadata,
-    CLASS_NAME,
-    EXEC_MIME_TYPE
-    );
-    this.keyboard_manager.register_events(toinsert);
-    // Render to node
-    var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
-    render(props, toinsert[0]);
-    element.append(toinsert);
-    return toinsert
-  }
-
-  events.on('output_added.OutputArea', handle_add_output);
-  events.on('output_updated.OutputArea', handle_update_output);
-  events.on('clear_output.CodeCell', handle_clear_output);
-  events.on('delete.Cell', handle_clear_output);
-  events.on('kernel_ready.Kernel', handle_kernel_cleanup);
-
-  OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
-    safe: true,
-    index: 0
-  });
-}
-
-if (window.Jupyter !== undefined) {
-  try {
-    var events = require('base/js/events');
-    var OutputArea = require('notebook/js/outputarea').OutputArea;
-    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
-      register_renderer(events, OutputArea);
-    }
-  } catch(err) {
-  }
-}
-</script><div class="output text_html"><style>*[data-root-id],
-*[data-root-id] > * {
-  box-sizing: border-box;
-  font-family: var(--jp-ui-font-family);
-  font-size: var(--jp-ui-font-size1);
-  color: var(--vscode-editor-foreground, var(--jp-ui-font-color1));
-}
-
-/* Override VSCode background color */
-.cell-output-ipywidget-background:has(
-    > .cell-output-ipywidget-background > .lm-Widget > *[data-root-id]
-  ),
-.cell-output-ipywidget-background:has(> .lm-Widget > *[data-root-id]) {
-  background-color: transparent !important;
-}
-</style></div><div class="output text_html"><div id='p1002'>
-  <div id="dbb26849-d2fb-4261-b4ce-615106d715c2" data-root-id="p1002" style="display: contents;"></div>
-</div>
-<script type="application/javascript">(function(root) {
-  var docs_json = {"5c9f6b61-cc5c-4f40-b841-f72b96c5dc2b":{"version":"3.4.1","title":"Bokeh Application","roots":[{"type":"object","name":"panel.models.browser.BrowserInfo","id":"p1002"},{"type":"object","name":"panel.models.comm_manager.CommManager","id":"p1003","attributes":{"plot_id":"p1002","comm_id":"73c94640cc66463bbf93ca7ac5df4436","client_comm_id":"b11ec995ede346b78a53aca7c4c049e1"}}],"defs":[{"type":"model","name":"ReactiveHTML1"},{"type":"model","name":"FlexBox1","properties":[{"name":"align_content","kind":"Any","default":"flex-start"},{"name":"align_items","kind":"Any","default":"flex-start"},{"name":"flex_direction","kind":"Any","default":"row"},{"name":"flex_wrap","kind":"Any","default":"wrap"},{"name":"gap","kind":"Any","default":""},{"name":"justify_content","kind":"Any","default":"flex-start"}]},{"type":"model","name":"FloatPanel1","properties":[{"name":"config","kind":"Any","default":{"type":"map"}},{"name":"contained","kind":"Any","default":true},{"name":"position","kind":"Any","default":"right-top"},{"name":"offsetx","kind":"Any","default":null},{"name":"offsety","kind":"Any","default":null},{"name":"theme","kind":"Any","default":"primary"},{"name":"status","kind":"Any","default":"normalized"}]},{"type":"model","name":"GridStack1","properties":[{"name":"mode","kind":"Any","default":"warn"},{"name":"ncols","kind":"Any","default":null},{"name":"nrows","kind":"Any","default":null},{"name":"allow_resize","kind":"Any","default":true},{"name":"allow_drag","kind":"Any","default":true},{"name":"state","kind":"Any","default":[]}]},{"type":"model","name":"drag1","properties":[{"name":"slider_width","kind":"Any","default":5},{"name":"slider_color","kind":"Any","default":"black"},{"name":"value","kind":"Any","default":50}]},{"type":"model","name":"click1","properties":[{"name":"terminal_output","kind":"Any","default":""},{"name":"debug_name","kind":"Any","default":""},{"name":"clears","kind":"Any","default":0}]},{"type":"model","name":"FastWrapper1","properties":[{"name":"object","kind":"Any","default":null},{"name":"style","kind":"Any","default":null}]},{"type":"model","name":"NotificationAreaBase1","properties":[{"name":"js_events","kind":"Any","default":{"type":"map"}},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0}]},{"type":"model","name":"NotificationArea1","properties":[{"name":"js_events","kind":"Any","default":{"type":"map"}},{"name":"notifications","kind":"Any","default":[]},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0},{"name":"types","kind":"Any","default":[{"type":"map","entries":[["type","warning"],["background","#ffc107"],["icon",{"type":"map","entries":[["className","fas fa-exclamation-triangle"],["tagName","i"],["color","white"]]}]]},{"type":"map","entries":[["type","info"],["background","#007bff"],["icon",{"type":"map","entries":[["className","fas fa-info-circle"],["tagName","i"],["color","white"]]}]]}]}]},{"type":"model","name":"Notification","properties":[{"name":"background","kind":"Any","default":null},{"name":"duration","kind":"Any","default":3000},{"name":"icon","kind":"Any","default":null},{"name":"message","kind":"Any","default":""},{"name":"notification_type","kind":"Any","default":null},{"name":"_destroyed","kind":"Any","default":false}]},{"type":"model","name":"TemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"BootstrapTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"TemplateEditor1","properties":[{"name":"layout","kind":"Any","default":[]}]},{"type":"model","name":"MaterialTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"copy_to_clipboard1","properties":[{"name":"fill","kind":"Any","default":"none"},{"name":"value","kind":"Any","default":null}]}]}};
-  var render_items = [{"docid":"5c9f6b61-cc5c-4f40-b841-f72b96c5dc2b","roots":{"p1002":"dbb26849-d2fb-4261-b4ce-615106d715c2"},"root_ids":["p1002"]}];
-  var docs = Object.values(docs_json)
-  if (!docs) {
-    return
-  }
-  const py_version = docs[0].version.replace('rc', '-rc.').replace('.dev', '-dev.')
-  async function embed_document(root) {
-    var Bokeh = get_bokeh(root)
-    await Bokeh.embed.embed_items_notebook(docs_json, render_items);
-    for (const render_item of render_items) {
-      for (const root_id of render_item.root_ids) {
-	const id_el = document.getElementById(root_id)
-	if (id_el.children.length && id_el.children[0].hasAttribute('data-root-id')) {
-	  const root_el = id_el.children[0]
-	  root_el.id = root_el.id + '-rendered'
-	  for (const child of root_el.children) {
-            // Ensure JupyterLab does not capture keyboard shortcuts
-            // see: https://jupyterlab.readthedocs.io/en/4.1.x/extension/notebook.html#keyboard-interaction-model
-	    child.setAttribute('data-lm-suppress-shortcuts', 'true')
-	  }
-	}
-      }
-    }
-  }
-  function get_bokeh(root) {
-    if (root.Bokeh === undefined) {
-      return null
-    } else if (root.Bokeh.version !== py_version) {
-      if (root.Bokeh.versions === undefined || !root.Bokeh.versions.has(py_version)) {
-	return null
-      }
-      return root.Bokeh.versions.get(py_version);
-    } else if (root.Bokeh.version === py_version) {
-      return root.Bokeh
-    }
-    return null
-  }
-  function is_loaded(root) {
-    var Bokeh = get_bokeh(root)
-    return (Bokeh != null && Bokeh.Panel !== undefined)
-  }
-  if (is_loaded(root)) {
-    embed_document(root);
-  } else {
-    var attempts = 0;
-    var timer = setInterval(function(root) {
-      if (is_loaded(root)) {
-        clearInterval(timer);
-        embed_document(root);
-      } else if (document.readyState == "complete") {
-        attempts++;
-        if (attempts > 200) {
-          clearInterval(timer);
-	  var Bokeh = get_bokeh(root)
-	  if (Bokeh == null || Bokeh.Panel == null) {
-            console.warn("Panel: ERROR: Unable to run Panel code because Bokeh or Panel library is missing");
-	  } else {
-	    console.warn("Panel: WARNING: Attempting to render but not all required libraries could be resolved.")
-	    embed_document(root)
-	  }
-        }
-      }
-    }, 25, root)
-  }
-})(window);</script></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>my_df.write_avro
-my_df.write_clipboard
-my_df.write_csv
-my_df.write_database
-my_df.write_delta
-my_df.write_excel
-my_df.write_ipc
-my_df.write_ipc_stream
-my_df.write_json
-my_df.write_ndjson
-my_df.write_parquet
+<span class="ne">ModuleUpgradeRequiredError</span>: altair&gt;=5.4.0 is required for `.plot`
 </pre></div>
 </div>
 </div>
@@ -2383,7 +1874,7 @@ my_df.write_parquet
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ColumnNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">72</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">76</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Trường hợp 2: Tính toán điều kiện when</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># Không sử dụng pl.lit sẽ không chạy</span>
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">mtcars_pl</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;mpg&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
@@ -2391,26 +1882,35 @@ my_df.write_parquet
 <span class="g g-Whitespace">      </span><span class="mi">5</span>         <span class="o">.</span><span class="n">otherwise</span><span class="p">(</span><span class="s2">&quot;&lt;20&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="p">)</span>
 
-<span class="nn">File c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages\polars\dataframe\frame.py:8642,</span> in <span class="ni">DataFrame.with_columns</span><span class="nt">(self, *exprs, **named_exprs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">8496</span> <span class="k">def</span><span class="w"> </span><span class="nf">with_columns</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">8497</span>     <span class="bp">self</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">8498</span>     <span class="o">*</span><span class="n">exprs</span><span class="p">:</span> <span class="n">IntoExpr</span> <span class="o">|</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">IntoExpr</span><span class="p">],</span>
-<span class="g g-Whitespace">   </span><span class="mi">8499</span>     <span class="o">**</span><span class="n">named_exprs</span><span class="p">:</span> <span class="n">IntoExpr</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">8500</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">8501</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">8502</span><span class="sd">     Add columns to this DataFrame.</span>
-<span class="g g-Whitespace">   </span><span class="mi">8503</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">   </span><span class="mi">8640</span><span class="sd">     └─────┴──────┴─────────────┘</span>
-<span class="g g-Whitespace">   </span><span class="mi">8641</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">8642</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">lazy</span><span class="p">()</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="o">*</span><span class="n">exprs</span><span class="p">,</span> <span class="o">**</span><span class="n">named_exprs</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">(</span><span class="n">_eager</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nn">File c:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\polars\dataframe\frame.py:9830,</span> in <span class="ni">DataFrame.with_columns</span><span class="nt">(self, *exprs, **named_exprs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">9684</span> <span class="k">def</span><span class="w"> </span><span class="nf">with_columns</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">9685</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">9686</span>     <span class="o">*</span><span class="n">exprs</span><span class="p">:</span> <span class="n">IntoExpr</span> <span class="o">|</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">IntoExpr</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">9687</span>     <span class="o">**</span><span class="n">named_exprs</span><span class="p">:</span> <span class="n">IntoExpr</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">9688</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">9689</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">9690</span><span class="sd">     Add columns to this DataFrame.</span>
+<span class="g g-Whitespace">   </span><span class="mi">9691</span><span class="sd"> </span>
+<span class="sd">   (...)   9828     └─────┴──────┴─────────────┘</span>
+<span class="g g-Whitespace">   </span><span class="mi">9829</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">9830</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">lazy</span><span class="p">()</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="o">*</span><span class="n">exprs</span><span class="p">,</span> <span class="o">**</span><span class="n">named_exprs</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">(</span><span class="n">_eager</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="nn">File c:\Users\Hoang Duc Anh\AppData\Local\Programs\Python\Python311\Lib\site-packages\polars\lazyframe\frame.py:1837,</span> in <span class="ni">LazyFrame.collect</span><span class="nt">(self, type_coercion, predicate_pushdown, projection_pushdown, simplify_expression, slice_pushdown, comm_subplan_elim, comm_subexpr_elim, cluster_with_columns, no_optimization, streaming, background, _eager, **_kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1834</span> <span class="c1"># Only for testing purposes atm.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1835</span> <span class="n">callback</span> <span class="o">=</span> <span class="n">_kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;post_opt_callback&quot;</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1837</span> <span class="k">return</span> <span class="n">wrap_df</span><span class="p">(</span><span class="n">ldf</span><span class="o">.</span><span class="n">collect</span><span class="p">(</span><span class="n">callback</span><span class="p">))</span>
+<span class="nn">File c:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\polars\_utils\deprecation.py:93,</span> in <span class="ni">deprecate_streaming_parameter.&lt;locals&gt;.decorate.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">89</span>         <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;engine&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;in-memory&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">91</span>     <span class="k">del</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;streaming&quot;</span><span class="p">]</span>
+<span class="ne">---&gt; </span><span class="mi">93</span> <span class="k">return</span> <span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File c:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\polars\lazyframe\frame.py:2224,</span> in <span class="ni">LazyFrame.collect</span><span class="nt">(self, type_coercion, _type_check, predicate_pushdown, projection_pushdown, simplify_expression, slice_pushdown, comm_subplan_elim, comm_subexpr_elim, cluster_with_columns, collapse_joins, no_optimization, engine, background, _check_order, _eager, **_kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2222</span> <span class="c1"># Only for testing purposes</span>
+<span class="g g-Whitespace">   </span><span class="mi">2223</span> <span class="n">callback</span> <span class="o">=</span> <span class="n">_kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;post_opt_callback&quot;</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">2224</span> <span class="k">return</span> <span class="n">wrap_df</span><span class="p">(</span><span class="n">ldf</span><span class="o">.</span><span class="n">collect</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">callback</span><span class="p">))</span>
 
 <span class="ne">ColumnNotFoundError</span>: &gt;20
+
+<span class="n">Resolved</span> <span class="n">plan</span> <span class="n">until</span> <span class="n">failure</span><span class="p">:</span>
+
+	<span class="o">---&gt;</span> <span class="n">FAILED</span> <span class="n">HERE</span> <span class="n">RESOLVING</span> <span class="s1">&#39;sink&#39;</span> <span class="o">&lt;---</span>
+<span class="n">DF</span> <span class="p">[</span><span class="s2">&quot;mpg&quot;</span><span class="p">];</span> <span class="n">PROJECT</span> <span class="o">*/</span><span class="mi">1</span> <span class="n">COLUMNS</span>
 </pre></div>
 </div>
 </div>
