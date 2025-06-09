@@ -3,21 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beautiful Index Page</title>
-    <!-- Add your CSS styles or link to an external stylesheet for styling -->
-    <link rel="stylesheet" href="styles.css">
+    <title>Anh Hoang Duc | Data Science Books</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            background: #f5f5f5;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 800px;
+            text-align: center;
+            margin: 2rem auto;
+        }
+        header {
+            margin-bottom: 3rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        .subtitle {
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .books {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .book-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .book-card:hover {
+            transform: translateY(-5px);
+        }
+        .book-card h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        .book-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: #2980b9;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to my page</h1>
-    </header>
+    <div class="container">
+        <header>
+            <h1>Data Science Books</h1>
+            <p class="subtitle">My personal note for Data Science with R and Python</p>
+        </header>
 
-    <nav>
-        <ul>
-            <li><a href="ds-book-r">anhhd.github.io/ds-book-r</a></li>
-            <li><a href="ds-book-python">anhhd.github.io/ds-book-python</a></li>
-        </ul>
-    </nav>
+        <div class="books">
+            <div class="book-card">
+                <h2>Data Science with R</h2>
+                <p>Learn data analysis, visualization, and machine learning using R programming language.</p>
+                <a href="ds-book-r" class="btn">Read Book <i class="fas fa-arrow-right"></i></a>
+            </div>
 
+            <div class="book-card">
+                <h2>Data Science with Python</h2>
+                <p>Data Science book with python, tidyverse approached</p>
+                <a href="ds-book-python" class="btn">Read Book <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
