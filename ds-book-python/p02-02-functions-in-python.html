@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
       <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0cebd926" />
 
@@ -24,6 +24,8 @@
       <script src="_static/copybutton.js?v=f281be69"></script>
       <script src="_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "displayMath": [["$$", "$$"], ["\\[", "\\]"]]}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -124,7 +126,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="viet-ham-trong-python">
+  <section class="tex2jax_ignore mathjax_ignore" id="viet-ham-trong-python">
 <h1><span class="section-number">2. </span>Viết hàm trong Python<a class="headerlink" href="#viet-ham-trong-python" title="Link to this heading"></a></h1>
 <section id="gioi-thieu-ve-ham">
 <h2><span class="section-number">2.1. </span>Giới thiệu về hàm<a class="headerlink" href="#gioi-thieu-ve-ham" title="Link to this heading"></a></h2>
@@ -521,8 +523,8 @@ wrap
 <p><code class="docutils literal notranslate"><span class="pre">Decorator</span></code> thường được dùng khi không muốn viết 1 hàm mới nhưng vẫn đảm bảo các chức năng mới sau khi được điều chỉnh.</p>
 <p>Ta xem ví dụ sau:</p>
 <ul class="simple">
-<li><p>Tạo hàm đơn giản <code class="docutils literal notranslate"><span class="pre">divide</span></code> cho phép tính $\frac{a}{b}$</p></li>
-<li><p>Bổ sung thêm cảnh báo và bỏ qua nếu $b=0$ với decorator</p></li>
+<li><p>Tạo hàm đơn giản <code class="docutils literal notranslate"><span class="pre">divide</span></code> cho phép tính <span class="math notranslate nohighlight">\(\frac{a}{b}\)</span></p></li>
+<li><p>Bổ sung thêm cảnh báo và bỏ qua nếu <span class="math notranslate nohighlight">\(b=0\)</span> với decorator</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

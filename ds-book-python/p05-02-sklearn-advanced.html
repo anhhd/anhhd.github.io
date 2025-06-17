@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
       <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0cebd926" />
 
@@ -24,6 +24,8 @@
       <script src="_static/copybutton.js?v=f281be69"></script>
       <script src="_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "displayMath": [["$$", "$$"], ["\\[", "\\]"]]}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -130,7 +132,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="sklearn-nang-cao">
+  <section class="tex2jax_ignore mathjax_ignore" id="sklearn-nang-cao">
 <h1><span class="section-number">2. </span>sklearn nâng cao<a class="headerlink" href="#sklearn-nang-cao" title="Link to this heading"></a></h1>
 <section id="feature-engineering">
 <h2><span class="section-number">2.1. </span>Feature engineering<a class="headerlink" href="#feature-engineering" title="Link to this heading"></a></h2>
@@ -352,7 +354,7 @@
 <h4><span class="section-number">2.1.1.2. </span>Binning<a class="headerlink" href="#binning" title="Link to this heading"></a></h4>
 <p>Binning trong KBinsDiscretizer có 3 cách chính:</p>
 <ul class="simple">
-<li><p>uniforms: Chía thành n phần có độ rộng bằng nhau $\frac{x_{max} - x_{min}}{n_{bins}}$</p></li>
+<li><p>uniforms: Chía thành n phần có độ rộng bằng nhau <span class="math notranslate nohighlight">\(\frac{x_{max} - x_{min}}{n_{bins}}\)</span></p></li>
 <li><p>quantile: Chia them n quantile</p></li>
 <li><p>kmeans: Chia theo tâm gần nhất sử dụng k-means</p></li>
 </ul>

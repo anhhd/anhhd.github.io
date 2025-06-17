@@ -89,7 +89,7 @@
           "data": {
             "text/html": [
               "\n",
-              "            <div id=\"IEME2I\"></div>\n",
+              "            <div id=\"GUoQBo\"></div>\n",
               "            <script type=\"text/javascript\" data-lets-plot-script=\"library\">\n",
               "                if(!window.letsPlotCallQueue) {\n",
               "                    window.letsPlotCallQueue = [];\n",
@@ -113,9 +113,9 @@
               "                        var div = document.createElement(\"div\");\n",
               "                        div.style.color = 'darkred';\n",
               "                        div.textContent = 'Error loading Lets-Plot JS';\n",
-              "                        document.getElementById(\"IEME2I\").appendChild(div);\n",
+              "                        document.getElementById(\"GUoQBo\").appendChild(div);\n",
               "                    };\n",
-              "                    var e = document.getElementById(\"IEME2I\");\n",
+              "                    var e = document.getElementById(\"GUoQBo\");\n",
               "                    e.appendChild(script);\n",
               "                })()\n",
               "            </script>\n",
@@ -276,7 +276,7 @@
         {
           "data": {
             "text/html": [
-              "   <div id=\"AhmOs5\"></div>\n",
+              "   <div id=\"fWByXQ\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -301,7 +301,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"AhmOs5\");\n",
+              "   const containerDiv = document.getElementById(\"fWByXQ\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -410,7 +410,7 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af262eb110>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d3b2990>"
             ]
           },
           "execution_count": 3,
@@ -444,7 +444,7 @@
         {
           "data": {
             "text/html": [
-              "   <div id=\"FBV8Q6\"></div>\n",
+              "   <div id=\"03wZ9y\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -469,7 +469,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"FBV8Q6\");\n",
+              "   const containerDiv = document.getElementById(\"03wZ9y\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -580,7 +580,7 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af268a1e00>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a49866c40>"
             ]
           },
           "execution_count": 4,
@@ -631,7 +631,7 @@
         {
           "data": {
             "text/html": [
-              "   <div id=\"SOtJP6\"></div>\n",
+              "   <div id=\"IKdNUL\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -656,7 +656,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"SOtJP6\");\n",
+              "   const containerDiv = document.getElementById(\"IKdNUL\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -776,7 +776,7 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af26934f30>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d94c160>"
             ]
           },
           "execution_count": 5,
@@ -809,7 +809,7 @@
         {
           "data": {
             "text/html": [
-              "   <div id=\"adkxYd\"></div>\n",
+              "   <div id=\"qjKzsu\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -834,7 +834,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"adkxYd\");\n",
+              "   const containerDiv = document.getElementById(\"qjKzsu\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -954,7 +954,7 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2689f3e0>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d86e3f0>"
             ]
           },
           "execution_count": 6,
@@ -995,7 +995,7 @@
         {
           "data": {
             "text/html": [
-              "   <div id=\"bdEQys\"></div>\n",
+              "   <div id=\"e1luBl\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -1020,7 +1020,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"bdEQys\");\n",
+              "   const containerDiv = document.getElementById(\"e1luBl\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -1143,7 +1143,7 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af268d1570>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d82e340>"
             ]
           },
           "execution_count": 7,
@@ -1175,7 +1175,7 @@
         {
           "data": {
             "text/html": [
-              "   <div id=\"j6JQSe\"></div>\n",
+              "   <div id=\"7bDklD\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -1200,7 +1200,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"j6JQSe\");\n",
+              "   const containerDiv = document.getElementById(\"7bDklD\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -1325,7 +1325,7 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2682af10>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d7cb490>"
             ]
           },
           "execution_count": 8,
@@ -1364,7 +1364,7 @@
         {
           "data": {
             "text/html": [
-              "   <div id=\"XOFy75\"></div>\n",
+              "   <div id=\"F8rki4\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -1389,7 +1389,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"XOFy75\");\n",
+              "   const containerDiv = document.getElementById(\"F8rki4\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -1520,7 +1520,7 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2689b5c0>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d83f5c0>"
             ]
           },
           "execution_count": 9,
@@ -1542,7 +1542,7 @@
         {
           "data": {
             "text/html": [
-              "   <div id=\"a2LffW\"></div>\n",
+              "   <div id=\"OA4vE0\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -1567,7 +1567,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"a2LffW\");\n",
+              "   const containerDiv = document.getElementById(\"OA4vE0\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -1675,7 +1675,7 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2689b6e0>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d83f6e0>"
             ]
           },
           "execution_count": 10,
@@ -1697,7 +1697,7 @@
         {
           "data": {
             "text/html": [
-              "   <div id=\"BT8aYB\"></div>\n",
+              "   <div id=\"6BWFVT\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -1722,7 +1722,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"BT8aYB\");\n",
+              "   const containerDiv = document.getElementById(\"6BWFVT\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -1831,7 +1831,7 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2689b920>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d83f9b0>"
             ]
           },
           "execution_count": 11,
@@ -1853,7 +1853,7 @@
         {
           "data": {
             "text/html": [
-              "   <div id=\"omHgII\"></div>\n",
+              "   <div id=\"l7pf19\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -1878,7 +1878,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"omHgII\");\n",
+              "   const containerDiv = document.getElementById(\"l7pf19\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -1986,7 +1986,7 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2689ba40>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d83fad0>"
             ]
           },
           "execution_count": 12,
@@ -2004,12 +2004,14 @@
       "cell_type": "markdown",
       "metadata": {},
       "source": [
-        "\n",
-        "### Tính toán thống kê - statistical transformations\n",
-        "\n",
-        "Đối với lớp *tính toán thống kê* (statistical transformation), biểu đồ không được vẽ trực tiếp với 2 trục tung và trục hoành mà sẽ phải trải qua bước tính toán thống kê trước.\n",
-        "\n",
-        "Xem ví dụ biểu đồ cột dưới đây."
+        "---"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Bên cạnh các geom thông thường, `lets_plot` còn hỗ trợ trực tiếp `geom_pie` để xây dựng biểu đồ tròn"
       ]
     },
     {
@@ -2020,7 +2022,7 @@
         {
           "data": {
             "text/html": [
-              "   <div id=\"O1eW5X\"></div>\n",
+              "   <div id=\"B3trif\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -2045,7 +2047,196 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"O1eW5X\");\n",
+              "   const containerDiv = document.getElementById(\"B3trif\");\n",
+              "   let fig = null;\n",
+              "   \n",
+              "   function renderPlot() {\n",
+              "       if (fig === null) {\n",
+              "           const plotSpec = {\n",
+              "\"data\":{\n",
+              "},\n",
+              "\"mapping\":{\n",
+              "},\n",
+              "\"data_meta\":{\n",
+              "\"series_annotations\":[{\n",
+              "\"type\":\"str\",\n",
+              "\"column\":\"manufacturer\"\n",
+              "},{\n",
+              "\"type\":\"str\",\n",
+              "\"column\":\"model\"\n",
+              "},{\n",
+              "\"type\":\"float\",\n",
+              "\"column\":\"displ\"\n",
+              "},{\n",
+              "\"type\":\"int\",\n",
+              "\"column\":\"year\"\n",
+              "},{\n",
+              "\"type\":\"int\",\n",
+              "\"column\":\"cyl\"\n",
+              "},{\n",
+              "\"type\":\"str\",\n",
+              "\"column\":\"trans\"\n",
+              "},{\n",
+              "\"type\":\"str\",\n",
+              "\"column\":\"drv\"\n",
+              "},{\n",
+              "\"type\":\"int\",\n",
+              "\"column\":\"cty\"\n",
+              "},{\n",
+              "\"type\":\"int\",\n",
+              "\"column\":\"hwy\"\n",
+              "},{\n",
+              "\"type\":\"str\",\n",
+              "\"column\":\"fl\"\n",
+              "},{\n",
+              "\"type\":\"str\",\n",
+              "\"column\":\"class\"\n",
+              "}]\n",
+              "},\n",
+              "\"theme\":{\n",
+              "\"name\":\"classic\",\n",
+              "\"line\":\"blank\",\n",
+              "\"axis\":\"blank\"\n",
+              "},\n",
+              "\"kind\":\"plot\",\n",
+              "\"scales\":[],\n",
+              "\"layers\":[{\n",
+              "\"geom\":\"pie\",\n",
+              "\"mapping\":{\n",
+              "\"fill\":\"class\",\n",
+              "\"slice\":\"hwy\"\n",
+              "},\n",
+              "\"data_meta\":{\n",
+              "},\n",
+              "\"labels\":{\n",
+              "\"formats\":[{\n",
+              "\"field\":\"..proppct..\",\n",
+              "\"format\":\"{.1f}%\"\n",
+              "}],\n",
+              "\"variables\":[\"..proppct..\"]\n",
+              "},\n",
+              "\"hole\":0.2,\n",
+              "\"size\":30.0,\n",
+              "\"data\":{\n",
+              "\"..x..\":[0.0,0.0,0.0,0.0,0.0,0.0,0.0],\n",
+              "\"..y..\":[0.0,0.0,0.0,0.0,0.0,0.0,0.0],\n",
+              "\"hwy\":[47.0,41.0,62.0,5.0,11.0,33.0,35.0],\n",
+              "\"class\":[\"compact\",\"midsize\",\"suv\",\"2seater\",\"minivan\",\"pickup\",\"subcompact\"],\n",
+              "\"..proppct..\":[20.085470085470085,17.52136752136752,26.495726495726498,2.1367521367521367,4.700854700854701,14.102564102564102,14.957264957264957]\n",
+              "}\n",
+              "}],\n",
+              "\"metainfo_list\":[],\n",
+              "\"spec_id\":\"11\"\n",
+              "};\n",
+              "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
+              "       } else {\n",
+              "           fig.updateView({});\n",
+              "       }\n",
+              "   }\n",
+              "   \n",
+              "   const renderImmediately = \n",
+              "       forceImmediateRender || (\n",
+              "           sizing.width_mode === 'FIXED' && \n",
+              "           (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')\n",
+              "       );\n",
+              "   \n",
+              "   if (renderImmediately) {\n",
+              "       renderPlot();\n",
+              "   }\n",
+              "   \n",
+              "   if (!renderImmediately || responsive) {\n",
+              "       // Set up observer for initial sizing or continuous monitoring\n",
+              "       var observer = new ResizeObserver(function(entries) {\n",
+              "           for (let entry of entries) {\n",
+              "               if (entry.contentBoxSize && \n",
+              "                   entry.contentBoxSize[0].inlineSize > 0) {\n",
+              "                   if (!responsive && observer) {\n",
+              "                       observer.disconnect();\n",
+              "                       observer = null;\n",
+              "                   }\n",
+              "                   renderPlot();\n",
+              "                   if (!responsive) {\n",
+              "                       break;\n",
+              "                   }\n",
+              "               }\n",
+              "           }\n",
+              "       });\n",
+              "       \n",
+              "       observer.observe(containerDiv);\n",
+              "   }\n",
+              "   \n",
+              "   // ----------\n",
+              "   })();\n",
+              "   \n",
+              "   </script>"
+            ],
+            "text/plain": [
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d575640>"
+            ]
+          },
+          "execution_count": 13,
+          "metadata": {},
+          "output_type": "execute_result"
+        }
+      ],
+      "source": [
+        "(\n",
+        "    ggplot(mpg)\n",
+        "    + geom_pie(aes(fill = 'class',\n",
+        "                   slice = 'hwy'),\n",
+        "                   size = 30,\n",
+        "                   hole = 0.2,\n",
+        "                   labels=layer_labels(['..proppct..']).format('..proppct..', '{.1f}%'))\n",
+        "    + theme_void()\n",
+        ")"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "\n",
+        "### Tính toán thống kê - statistical transformations\n",
+        "\n",
+        "Đối với lớp *tính toán thống kê* (statistical transformation), biểu đồ không được vẽ trực tiếp với 2 trục tung và trục hoành mà sẽ phải trải qua bước tính toán thống kê trước.\n",
+        "\n",
+        "Xem ví dụ biểu đồ cột dưới đây."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 14,
+      "metadata": {},
+      "outputs": [
+        {
+          "data": {
+            "text/html": [
+              "   <div id=\"b6AFLw\"></div>\n",
+              "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
+              "   \n",
+              "   (function() {\n",
+              "   // ----------\n",
+              "   \n",
+              "   const forceImmediateRender = false;\n",
+              "   const responsive = false;\n",
+              "   \n",
+              "   let sizing = {\n",
+              "       width_mode: \"MIN\",\n",
+              "       height_mode: \"SCALED\",\n",
+              "       width: null, \n",
+              "       height: null \n",
+              "   };\n",
+              "   \n",
+              "   const preferredWidth = document.body.dataset.letsPlotPreferredWidth;\n",
+              "   if (preferredWidth !== undefined) {\n",
+              "       sizing = {\n",
+              "           width_mode: 'FIXED',\n",
+              "           height_mode: 'SCALED',\n",
+              "           width: parseFloat(preferredWidth)\n",
+              "       };\n",
+              "   }\n",
+              "   \n",
+              "   const containerDiv = document.getElementById(\"b6AFLw\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -2116,7 +2307,7 @@
               "}\n",
               "}],\n",
               "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"11\"\n",
+              "\"spec_id\":\"12\"\n",
               "};\n",
               "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
               "       } else {\n",
@@ -2161,10 +2352,10 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2689bbf0>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d83fda0>"
             ]
           },
-          "execution_count": 13,
+          "execution_count": 14,
           "metadata": {},
           "output_type": "execute_result"
         }
@@ -2190,13 +2381,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 14,
+      "execution_count": 15,
       "metadata": {},
       "outputs": [
         {
           "data": {
             "text/html": [
-              "   <div id=\"Lx842h\"></div>\n",
+              "   <div id=\"AlqJJS\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -2221,7 +2412,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"Lx842h\");\n",
+              "   const containerDiv = document.getElementById(\"AlqJJS\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -2294,7 +2485,7 @@
               "}\n",
               "}],\n",
               "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"12\",\n",
+              "\"spec_id\":\"13\",\n",
               "\"computation_messages\":[\"sampling_systematic(n=5000) was applied to [bar/identity stat] layer\"]\n",
               "};\n",
               "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
@@ -2340,10 +2531,10 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2689bc80>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d83ff50>"
             ]
           },
-          "execution_count": 14,
+          "execution_count": 15,
           "metadata": {},
           "output_type": "execute_result"
         }
@@ -2370,13 +2561,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 15,
+      "execution_count": 16,
       "metadata": {},
       "outputs": [
         {
           "data": {
             "text/html": [
-              "   <div id=\"qiohKq\"></div>\n",
+              "   <div id=\"TOoT6n\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -2401,7 +2592,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"qiohKq\");\n",
+              "   const containerDiv = document.getElementById(\"TOoT6n\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -2474,7 +2665,7 @@
               "}\n",
               "}],\n",
               "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"13\"\n",
+              "\"spec_id\":\"14\"\n",
               "};\n",
               "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
               "       } else {\n",
@@ -2519,10 +2710,10 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2b45c0e0>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d9d4290>"
             ]
           },
-          "execution_count": 15,
+          "execution_count": 16,
           "metadata": {},
           "output_type": "execute_result"
         }
@@ -2535,13 +2726,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 16,
+      "execution_count": 17,
       "metadata": {},
       "outputs": [
         {
           "data": {
             "text/html": [
-              "   <div id=\"yzDNnb\"></div>\n",
+              "   <div id=\"2wSRmZ\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -2566,7 +2757,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"yzDNnb\");\n",
+              "   const containerDiv = document.getElementById(\"2wSRmZ\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -2640,7 +2831,7 @@
               "}\n",
               "}],\n",
               "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"14\"\n",
+              "\"spec_id\":\"15\"\n",
               "};\n",
               "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
               "       } else {\n",
@@ -2685,10 +2876,10 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2689bf50>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d9d4050>"
             ]
           },
-          "execution_count": 16,
+          "execution_count": 17,
           "metadata": {},
           "output_type": "execute_result"
         }
@@ -2702,13 +2893,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 17,
+      "execution_count": 18,
       "metadata": {},
       "outputs": [
         {
           "data": {
             "text/html": [
-              "   <div id=\"Wi1cju\"></div>\n",
+              "   <div id=\"PMiir8\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -2733,7 +2924,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"Wi1cju\");\n",
+              "   const containerDiv = document.getElementById(\"PMiir8\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -2807,7 +2998,7 @@
               "}\n",
               "}],\n",
               "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"15\"\n",
+              "\"spec_id\":\"16\"\n",
               "};\n",
               "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
               "       } else {\n",
@@ -2852,10 +3043,10 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2b45c170>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d9d4170>"
             ]
           },
-          "execution_count": 17,
+          "execution_count": 18,
           "metadata": {},
           "output_type": "execute_result"
         }
@@ -2877,13 +3068,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 18,
+      "execution_count": 19,
       "metadata": {},
       "outputs": [
         {
           "data": {
             "text/html": [
-              "   <div id=\"TxYUOj\"></div>\n",
+              "   <div id=\"1n22Xc\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -2908,7 +3099,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"TxYUOj\");\n",
+              "   const containerDiv = document.getElementById(\"1n22Xc\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -2973,7 +3164,7 @@
               "}\n",
               "}],\n",
               "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"16\"\n",
+              "\"spec_id\":\"17\"\n",
               "};\n",
               "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
               "       } else {\n",
@@ -3018,10 +3209,10 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2b45c200>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d9d40e0>"
             ]
           },
-          "execution_count": 18,
+          "execution_count": 19,
           "metadata": {},
           "output_type": "execute_result"
         }
@@ -3034,13 +3225,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 19,
+      "execution_count": 20,
       "metadata": {},
       "outputs": [
         {
           "data": {
             "text/html": [
-              "   <div id=\"ZGKhkO\"></div>\n",
+              "   <div id=\"jX4b4M\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -3065,7 +3256,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"ZGKhkO\");\n",
+              "   const containerDiv = document.getElementById(\"jX4b4M\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -3131,261 +3322,6 @@
               "}\n",
               "}],\n",
               "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"17\"\n",
-              "};\n",
-              "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
-              "       } else {\n",
-              "           fig.updateView({});\n",
-              "       }\n",
-              "   }\n",
-              "   \n",
-              "   const renderImmediately = \n",
-              "       forceImmediateRender || (\n",
-              "           sizing.width_mode === 'FIXED' && \n",
-              "           (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')\n",
-              "       );\n",
-              "   \n",
-              "   if (renderImmediately) {\n",
-              "       renderPlot();\n",
-              "   }\n",
-              "   \n",
-              "   if (!renderImmediately || responsive) {\n",
-              "       // Set up observer for initial sizing or continuous monitoring\n",
-              "       var observer = new ResizeObserver(function(entries) {\n",
-              "           for (let entry of entries) {\n",
-              "               if (entry.contentBoxSize && \n",
-              "                   entry.contentBoxSize[0].inlineSize > 0) {\n",
-              "                   if (!responsive && observer) {\n",
-              "                       observer.disconnect();\n",
-              "                       observer = null;\n",
-              "                   }\n",
-              "                   renderPlot();\n",
-              "                   if (!responsive) {\n",
-              "                       break;\n",
-              "                   }\n",
-              "               }\n",
-              "           }\n",
-              "       });\n",
-              "       \n",
-              "       observer.observe(containerDiv);\n",
-              "   }\n",
-              "   \n",
-              "   // ----------\n",
-              "   })();\n",
-              "   \n",
-              "   </script>"
-            ],
-            "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2689be30>"
-            ]
-          },
-          "execution_count": 19,
-          "metadata": {},
-          "output_type": "execute_result"
-        }
-      ],
-      "source": [
-        "ggplot(data = mpg) + \\\n",
-        "  geom_point(mapping = aes(x = \"displ\", y = \"hwy\"), \n",
-        "             position = \"jitter\") + \\\n",
-        "  labs(title = \"Position jitter\")"
-      ]
-    },
-    {
-      "cell_type": "markdown",
-      "metadata": {},
-      "source": [
-        "\n",
-        "<center><font size=4>&sect;</font></center>"
-      ]
-    },
-    {
-      "cell_type": "markdown",
-      "metadata": {},
-      "source": [
-        "\n",
-        "Đối với biểu đồ miền (area chart), ta có thể sử dụng option `position = \"fill\"` để thể hiện dạng phần trăm."
-      ]
-    },
-    {
-      "cell_type": "code",
-      "execution_count": 20,
-      "metadata": {},
-      "outputs": [
-        {
-          "data": {
-            "text/html": [
-              "<div>\n",
-              "<style scoped>\n",
-              "    .dataframe tbody tr th:only-of-type {\n",
-              "        vertical-align: middle;\n",
-              "    }\n",
-              "\n",
-              "    .dataframe tbody tr th {\n",
-              "        vertical-align: top;\n",
-              "    }\n",
-              "\n",
-              "    .dataframe thead th {\n",
-              "        text-align: right;\n",
-              "    }\n",
-              "</style>\n",
-              "<table border=\"1\" class=\"dataframe\">\n",
-              "  <thead>\n",
-              "    <tr style=\"text-align: right;\">\n",
-              "      <th></th>\n",
-              "      <th>year</th>\n",
-              "      <th>group</th>\n",
-              "      <th>level</th>\n",
-              "    </tr>\n",
-              "  </thead>\n",
-              "  <tbody>\n",
-              "    <tr>\n",
-              "      <th>0</th>\n",
-              "      <td>1875.0</td>\n",
-              "      <td>A</td>\n",
-              "      <td>81.653053</td>\n",
-              "    </tr>\n",
-              "    <tr>\n",
-              "      <th>1</th>\n",
-              "      <td>1876.0</td>\n",
-              "      <td>A</td>\n",
-              "      <td>49.785435</td>\n",
-              "    </tr>\n",
-              "    <tr>\n",
-              "      <th>2</th>\n",
-              "      <td>1877.0</td>\n",
-              "      <td>A</td>\n",
-              "      <td>55.580410</td>\n",
-              "    </tr>\n",
-              "    <tr>\n",
-              "      <th>3</th>\n",
-              "      <td>1878.0</td>\n",
-              "      <td>A</td>\n",
-              "      <td>48.747688</td>\n",
-              "    </tr>\n",
-              "    <tr>\n",
-              "      <th>4</th>\n",
-              "      <td>1879.0</td>\n",
-              "      <td>A</td>\n",
-              "      <td>73.698781</td>\n",
-              "    </tr>\n",
-              "  </tbody>\n",
-              "</table>\n",
-              "</div>"
-            ],
-            "text/plain": [
-              "     year group      level\n",
-              "0  1875.0     A  81.653053\n",
-              "1  1876.0     A  49.785435\n",
-              "2  1877.0     A  55.580410\n",
-              "3  1878.0     A  48.747688\n",
-              "4  1879.0     A  73.698781"
-            ]
-          },
-          "execution_count": 20,
-          "metadata": {},
-          "output_type": "execute_result"
-        }
-      ],
-      "source": [
-        "import pandas as pd\n",
-        "import numpy as np\n",
-        "\n",
-        "# Tạo dữ liệu giả lập\n",
-        "year = np.arange(1875, 1973)\n",
-        "group = [\"A\", \"B\", \"C\"]\n",
-        "df = np.array(np.meshgrid(year, group)).\\\n",
-        "    reshape(2, len(year) * len(group))\n",
-        "# Convert sang data frame\n",
-        "df = pd.DataFrame({\n",
-        "    'year' : df[0],\n",
-        "    'group' : df[1]\n",
-        "})\n",
-        "# Tạo biến level\n",
-        "df['level'] = np.random.normal(50, 10, df.shape[0])\n",
-        "\n",
-        "# Chỉnh sửa category\n",
-        "df['year'] = df['year'].astype('float')\n",
-        "df['group'] = df['group'].astype('category')\n",
-        "\n",
-        "df.head()"
-      ]
-    },
-    {
-      "cell_type": "code",
-      "execution_count": 21,
-      "metadata": {},
-      "outputs": [
-        {
-          "data": {
-            "text/html": [
-              "   <div id=\"OWAdyW\"></div>\n",
-              "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
-              "   \n",
-              "   (function() {\n",
-              "   // ----------\n",
-              "   \n",
-              "   const forceImmediateRender = false;\n",
-              "   const responsive = false;\n",
-              "   \n",
-              "   let sizing = {\n",
-              "       width_mode: \"MIN\",\n",
-              "       height_mode: \"SCALED\",\n",
-              "       width: null, \n",
-              "       height: null \n",
-              "   };\n",
-              "   \n",
-              "   const preferredWidth = document.body.dataset.letsPlotPreferredWidth;\n",
-              "   if (preferredWidth !== undefined) {\n",
-              "       sizing = {\n",
-              "           width_mode: 'FIXED',\n",
-              "           height_mode: 'SCALED',\n",
-              "           width: parseFloat(preferredWidth)\n",
-              "       };\n",
-              "   }\n",
-              "   \n",
-              "   const containerDiv = document.getElementById(\"OWAdyW\");\n",
-              "   let fig = null;\n",
-              "   \n",
-              "   function renderPlot() {\n",
-              "       if (fig === null) {\n",
-              "           const plotSpec = {\n",
-              "\"data\":{\n",
-              "\"year\":[1875.0,1876.0,1877.0,1878.0,1879.0,1880.0,1881.0,1882.0,1883.0,1884.0,1885.0,1886.0,1887.0,1888.0,1889.0,1890.0,1891.0,1892.0,1893.0,1894.0,1895.0,1896.0,1897.0,1898.0,1899.0,1900.0,1901.0,1902.0,1903.0,1904.0,1905.0,1906.0,1907.0,1908.0,1909.0,1910.0,1911.0,1912.0,1913.0,1914.0,1915.0,1916.0,1917.0,1918.0,1919.0,1920.0,1921.0,1922.0,1923.0,1924.0,1925.0,1926.0,1927.0,1928.0,1929.0,1930.0,1931.0,1932.0,1933.0,1934.0,1935.0,1936.0,1937.0,1938.0,1939.0,1940.0,1941.0,1942.0,1943.0,1944.0,1945.0,1946.0,1947.0,1948.0,1949.0,1950.0,1951.0,1952.0,1953.0,1954.0,1955.0,1956.0,1957.0,1958.0,1959.0,1960.0,1961.0,1962.0,1963.0,1964.0,1965.0,1966.0,1967.0,1968.0,1969.0,1970.0,1971.0,1972.0,1875.0,1876.0,1877.0,1878.0,1879.0,1880.0,1881.0,1882.0,1883.0,1884.0,1885.0,1886.0,1887.0,1888.0,1889.0,1890.0,1891.0,1892.0,1893.0,1894.0,1895.0,1896.0,1897.0,1898.0,1899.0,1900.0,1901.0,1902.0,1903.0,1904.0,1905.0,1906.0,1907.0,1908.0,1909.0,1910.0,1911.0,1912.0,1913.0,1914.0,1915.0,1916.0,1917.0,1918.0,1919.0,1920.0,1921.0,1922.0,1923.0,1924.0,1925.0,1926.0,1927.0,1928.0,1929.0,1930.0,1931.0,1932.0,1933.0,1934.0,1935.0,1936.0,1937.0,1938.0,1939.0,1940.0,1941.0,1942.0,1943.0,1944.0,1945.0,1946.0,1947.0,1948.0,1949.0,1950.0,1951.0,1952.0,1953.0,1954.0,1955.0,1956.0,1957.0,1958.0,1959.0,1960.0,1961.0,1962.0,1963.0,1964.0,1965.0,1966.0,1967.0,1968.0,1969.0,1970.0,1971.0,1972.0,1875.0,1876.0,1877.0,1878.0,1879.0,1880.0,1881.0,1882.0,1883.0,1884.0,1885.0,1886.0,1887.0,1888.0,1889.0,1890.0,1891.0,1892.0,1893.0,1894.0,1895.0,1896.0,1897.0,1898.0,1899.0,1900.0,1901.0,1902.0,1903.0,1904.0,1905.0,1906.0,1907.0,1908.0,1909.0,1910.0,1911.0,1912.0,1913.0,1914.0,1915.0,1916.0,1917.0,1918.0,1919.0,1920.0,1921.0,1922.0,1923.0,1924.0,1925.0,1926.0,1927.0,1928.0,1929.0,1930.0,1931.0,1932.0,1933.0,1934.0,1935.0,1936.0,1937.0,1938.0,1939.0,1940.0,1941.0,1942.0,1943.0,1944.0,1945.0,1946.0,1947.0,1948.0,1949.0,1950.0,1951.0,1952.0,1953.0,1954.0,1955.0,1956.0,1957.0,1958.0,1959.0,1960.0,1961.0,1962.0,1963.0,1964.0,1965.0,1966.0,1967.0,1968.0,1969.0,1970.0,1971.0,1972.0],\n",
-              "\"group\":[\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\"],\n",
-              "\"level\":[81.65305260952911,49.7854349472669,55.580409593517295,48.74768772575764,73.69878058551075,63.622382433182906,52.16476483929357,57.04563759497269,37.637661267698164,50.077459354660256,44.20912952613279,64.30457195191788,55.39131399875739,47.199042223001605,65.26007468367881,62.297180941956015,52.265516103890256,57.20747511727881,57.72371582806017,49.59760007941955,46.354649009075565,52.26406504283158,44.385015540029414,49.882420661330656,52.20888385368085,46.31747329101932,51.87161517243606,39.4790031171751,40.17210526636917,40.509810777741194,53.691781162603114,38.462106000147095,42.1999505042496,48.06413772400406,75.34171913445965,61.564700380789716,48.97551565524903,55.08247369029576,48.51797957882002,53.58121224840529,43.404045044642984,45.16928006642377,41.23577056214196,54.614708603267125,61.04365244792078,61.77657957577616,46.335187794211464,53.106636545715425,56.43421009050384,51.569273068304945,64.72009871870007,51.47656385073068,39.6772024318575,57.71244121539675,42.002216601594945,48.66802105911075,30.061757473840952,59.55744760574413,41.03251984675668,47.982886644314384,36.28049072027002,60.20940600309693,58.550199076094216,46.43143317104363,30.841933831354336,52.047240571964664,60.70207940917064,22.8325344179868,59.45523068344508,41.50365235449975,58.89246039842943,62.001398188925414,40.1764614184916,55.39973841210278,71.18984866764158,41.54532490550865,51.580822770145986,71.38359506726819,54.583369587373014,52.58838248230066,75.430621796116,58.860485259636306,24.774369783385474,51.63730606212204,60.64386089477427,42.45126808519285,45.74108509380057,34.5284195208438,50.74851788871427,65.9843168979667,42.62756771722535,46.92893444112532,29.012868446178395,60.824320285581905,49.81005999581539,63.47337975769065,39.21484630319958,44.09394851558388,33.211470979686915,58.97235142307429,56.46837603104575,56.95758556103757,46.40129779533484,53.37396501252416,60.08384374334763,36.45640889347213,32.64058688259521,35.91390340094421,53.907521358620706,47.310730588714165,53.43497475030826,71.94232470317021,55.56000067548531,55.68350271794721,52.607721316200504,53.83303212676296,58.017233171243085,59.20195620594093,44.21803932280011,41.23371677354547,59.71013145851181,37.48521855478928,53.724252243591884,59.561105431103314,52.79357825241841,37.780249776257264,48.8430125125518,50.81573493242091,54.32318785621147,43.109854497791915,49.29756315880126,35.90912677528401,49.89980708828493,44.593139781114004,44.83993952878572,38.39289521853195,47.43954309908307,55.13723661416713,44.160121596038294,48.94666395637772,45.8156945545291,39.785126721577214,59.234632773175136,36.37127033064654,47.19756752405892,51.61224552316375,40.97280654428954,37.94940531276721,39.33811436764521,55.500227744749296,38.19395486007967,20.801430024731044,60.001832377897614,63.14560364656726,39.088221041264056,42.438568742269865,25.082334369290468,46.2705019826228,71.56987245046676,56.7478306785645,51.49763350870492,30.181685004380352,37.10445189586548,57.26296835477986,36.95047489534495,44.432776534685175,49.07405200946629,42.93228300368623,48.26070376070165,35.44202474372766,59.90230527595619,46.81240310946174,40.177899386245976,59.60316850714573,54.46602456752895,48.663496465756864,43.46323669373541,44.40489238816713,67.64736986128126,53.768341683333674,44.05408331831772,56.21216409852884,50.4105576760637,51.75145300712198,48.96771684923796,47.18112324071923,55.9704569039192,55.86771231190013,47.36377383863894,42.31307551659823,40.860879787262306,41.10995188833347,28.248965846284232,49.28834963794848,41.11646066391967,51.30769438742135,43.71490417048261,40.99048293937138,33.32254211886034,49.92489739293736,47.40303643820218,46.42329689250555,43.05655425847116,51.730553795170735,46.39184710598126,55.94558490033231,52.29672978791008,50.47887118954587,43.65356472974799,49.21103229911795,40.18895299365573,49.866446283693904,63.91941368667045,52.71352589668879,29.009869770578423,42.07574083826295,43.721484458243594,36.910953254867636,52.11401432470318,41.449845775809266,47.87872064061754,44.4036986758638,43.98748449893273,52.41146623883102,49.47331907836134,46.02025292262886,50.87107436786544,30.999260140157915,63.56029423905436,50.08824221423871,45.183930901147356,38.979422776915555,42.48896725593827,64.13600766191126,68.97963251222954,42.747496629517784,53.81715354584328,43.50110237334812,53.65190942029653,65.72034733562796,53.1203796781707,54.20267451243982,50.24425336501723,46.49885741039316,36.72950182470381,63.621536074920535,48.864792655773215,42.43434886124063,36.63421359741189,31.42770317116032,33.67232587868459,46.927443567784124,37.697927819442214,34.46581335172846,66.57861665857136,33.68653842658962,42.97465329669429,43.68062269461691,49.87990794113282,64.05952383543368,63.498123516659135,59.9273213231163,50.72616289759643,55.29113937755808,66.30457932555319,55.19380219352937,61.014888267563904,50.18114305290763,53.9881255416256,40.50815362744912,56.39181463537178,59.599817130339204,50.00988139531089,39.87103866825154,48.394667567429906,46.582122035522836,43.29259220040692,57.84806570878625,41.73331291137755,41.74420343011161,53.59681201779249,53.350085370425646,51.055999079679275,57.851749757797485,50.992383679878785,49.37243457880281,69.17056417320421,55.02930001672959,57.573310435341405,43.23073061459952,45.162443153403444,40.64829628389556,72.20482668800535,70.77217116592354]\n",
-              "},\n",
-              "\"mapping\":{\n",
-              "\"x\":\"year\",\n",
-              "\"y\":\"level\"\n",
-              "},\n",
-              "\"data_meta\":{\n",
-              "\"series_annotations\":[{\n",
-              "\"type\":\"float\",\n",
-              "\"column\":\"year\"\n",
-              "},{\n",
-              "\"type\":\"str\",\n",
-              "\"column\":\"group\"\n",
-              "},{\n",
-              "\"type\":\"float\",\n",
-              "\"column\":\"level\"\n",
-              "}]\n",
-              "},\n",
-              "\"kind\":\"plot\",\n",
-              "\"scales\":[],\n",
-              "\"layers\":[{\n",
-              "\"geom\":\"area\",\n",
-              "\"mapping\":{\n",
-              "\"fill\":\"group\"\n",
-              "},\n",
-              "\"data_meta\":{\n",
-              "},\n",
-              "\"alpha\":0.8,\n",
-              "\"color\":\"\",\n",
-              "\"data\":{\n",
-              "}\n",
-              "}],\n",
-              "\"metainfo_list\":[],\n",
               "\"spec_id\":\"18\"\n",
               "};\n",
               "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
@@ -3431,7 +3367,110 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2b45c290>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4971bda0>"
+            ]
+          },
+          "execution_count": 20,
+          "metadata": {},
+          "output_type": "execute_result"
+        }
+      ],
+      "source": [
+        "ggplot(data = mpg) + \\\n",
+        "  geom_point(mapping = aes(x = \"displ\", y = \"hwy\"), \n",
+        "             position = \"jitter\") + \\\n",
+        "  labs(title = \"Position jitter\")"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "\n",
+        "<center><font size=4>&sect;</font></center>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "\n",
+        "Đối với biểu đồ miền (area chart), ta có thể sử dụng option `position = \"fill\"` để thể hiện dạng phần trăm."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 21,
+      "metadata": {},
+      "outputs": [
+        {
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>year</th>\n",
+              "      <th>group</th>\n",
+              "      <th>level</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>1875.0</td>\n",
+              "      <td>A</td>\n",
+              "      <td>53.949604</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>1876.0</td>\n",
+              "      <td>A</td>\n",
+              "      <td>49.972598</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>1877.0</td>\n",
+              "      <td>A</td>\n",
+              "      <td>39.616668</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3</th>\n",
+              "      <td>1878.0</td>\n",
+              "      <td>A</td>\n",
+              "      <td>51.301774</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>4</th>\n",
+              "      <td>1879.0</td>\n",
+              "      <td>A</td>\n",
+              "      <td>52.144795</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "     year group      level\n",
+              "0  1875.0     A  53.949604\n",
+              "1  1876.0     A  49.972598\n",
+              "2  1877.0     A  39.616668\n",
+              "3  1878.0     A  51.301774\n",
+              "4  1879.0     A  52.144795"
             ]
           },
           "execution_count": 21,
@@ -3440,9 +3479,27 @@
         }
       ],
       "source": [
-        "# Lấy theo số tuyệt đối\n",
-        "ggplot(df, aes(\"year\", \"level\")) +\\\n",
-        "  geom_area(aes(fill = \"group\"), alpha = 0.8, color = \"\")\n"
+        "import pandas as pd\n",
+        "import numpy as np\n",
+        "\n",
+        "# Tạo dữ liệu giả lập\n",
+        "year = np.arange(1875, 1973)\n",
+        "group = [\"A\", \"B\", \"C\"]\n",
+        "df = np.array(np.meshgrid(year, group)).\\\n",
+        "    reshape(2, len(year) * len(group))\n",
+        "# Convert sang data frame\n",
+        "df = pd.DataFrame({\n",
+        "    'year' : df[0],\n",
+        "    'group' : df[1]\n",
+        "})\n",
+        "# Tạo biến level\n",
+        "df['level'] = np.random.normal(50, 10, df.shape[0])\n",
+        "\n",
+        "# Chỉnh sửa category\n",
+        "df['year'] = df['year'].astype('float')\n",
+        "df['group'] = df['group'].astype('category')\n",
+        "\n",
+        "df.head()"
       ]
     },
     {
@@ -3453,7 +3510,7 @@
         {
           "data": {
             "text/html": [
-              "   <div id=\"MWbCKA\"></div>\n",
+              "   <div id=\"NaQpib\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -3478,7 +3535,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"MWbCKA\");\n",
+              "   const containerDiv = document.getElementById(\"NaQpib\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -3487,7 +3544,7 @@
               "\"data\":{\n",
               "\"year\":[1875.0,1876.0,1877.0,1878.0,1879.0,1880.0,1881.0,1882.0,1883.0,1884.0,1885.0,1886.0,1887.0,1888.0,1889.0,1890.0,1891.0,1892.0,1893.0,1894.0,1895.0,1896.0,1897.0,1898.0,1899.0,1900.0,1901.0,1902.0,1903.0,1904.0,1905.0,1906.0,1907.0,1908.0,1909.0,1910.0,1911.0,1912.0,1913.0,1914.0,1915.0,1916.0,1917.0,1918.0,1919.0,1920.0,1921.0,1922.0,1923.0,1924.0,1925.0,1926.0,1927.0,1928.0,1929.0,1930.0,1931.0,1932.0,1933.0,1934.0,1935.0,1936.0,1937.0,1938.0,1939.0,1940.0,1941.0,1942.0,1943.0,1944.0,1945.0,1946.0,1947.0,1948.0,1949.0,1950.0,1951.0,1952.0,1953.0,1954.0,1955.0,1956.0,1957.0,1958.0,1959.0,1960.0,1961.0,1962.0,1963.0,1964.0,1965.0,1966.0,1967.0,1968.0,1969.0,1970.0,1971.0,1972.0,1875.0,1876.0,1877.0,1878.0,1879.0,1880.0,1881.0,1882.0,1883.0,1884.0,1885.0,1886.0,1887.0,1888.0,1889.0,1890.0,1891.0,1892.0,1893.0,1894.0,1895.0,1896.0,1897.0,1898.0,1899.0,1900.0,1901.0,1902.0,1903.0,1904.0,1905.0,1906.0,1907.0,1908.0,1909.0,1910.0,1911.0,1912.0,1913.0,1914.0,1915.0,1916.0,1917.0,1918.0,1919.0,1920.0,1921.0,1922.0,1923.0,1924.0,1925.0,1926.0,1927.0,1928.0,1929.0,1930.0,1931.0,1932.0,1933.0,1934.0,1935.0,1936.0,1937.0,1938.0,1939.0,1940.0,1941.0,1942.0,1943.0,1944.0,1945.0,1946.0,1947.0,1948.0,1949.0,1950.0,1951.0,1952.0,1953.0,1954.0,1955.0,1956.0,1957.0,1958.0,1959.0,1960.0,1961.0,1962.0,1963.0,1964.0,1965.0,1966.0,1967.0,1968.0,1969.0,1970.0,1971.0,1972.0,1875.0,1876.0,1877.0,1878.0,1879.0,1880.0,1881.0,1882.0,1883.0,1884.0,1885.0,1886.0,1887.0,1888.0,1889.0,1890.0,1891.0,1892.0,1893.0,1894.0,1895.0,1896.0,1897.0,1898.0,1899.0,1900.0,1901.0,1902.0,1903.0,1904.0,1905.0,1906.0,1907.0,1908.0,1909.0,1910.0,1911.0,1912.0,1913.0,1914.0,1915.0,1916.0,1917.0,1918.0,1919.0,1920.0,1921.0,1922.0,1923.0,1924.0,1925.0,1926.0,1927.0,1928.0,1929.0,1930.0,1931.0,1932.0,1933.0,1934.0,1935.0,1936.0,1937.0,1938.0,1939.0,1940.0,1941.0,1942.0,1943.0,1944.0,1945.0,1946.0,1947.0,1948.0,1949.0,1950.0,1951.0,1952.0,1953.0,1954.0,1955.0,1956.0,1957.0,1958.0,1959.0,1960.0,1961.0,1962.0,1963.0,1964.0,1965.0,1966.0,1967.0,1968.0,1969.0,1970.0,1971.0,1972.0],\n",
               "\"group\":[\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\"],\n",
-              "\"level\":[81.65305260952911,49.7854349472669,55.580409593517295,48.74768772575764,73.69878058551075,63.622382433182906,52.16476483929357,57.04563759497269,37.637661267698164,50.077459354660256,44.20912952613279,64.30457195191788,55.39131399875739,47.199042223001605,65.26007468367881,62.297180941956015,52.265516103890256,57.20747511727881,57.72371582806017,49.59760007941955,46.354649009075565,52.26406504283158,44.385015540029414,49.882420661330656,52.20888385368085,46.31747329101932,51.87161517243606,39.4790031171751,40.17210526636917,40.509810777741194,53.691781162603114,38.462106000147095,42.1999505042496,48.06413772400406,75.34171913445965,61.564700380789716,48.97551565524903,55.08247369029576,48.51797957882002,53.58121224840529,43.404045044642984,45.16928006642377,41.23577056214196,54.614708603267125,61.04365244792078,61.77657957577616,46.335187794211464,53.106636545715425,56.43421009050384,51.569273068304945,64.72009871870007,51.47656385073068,39.6772024318575,57.71244121539675,42.002216601594945,48.66802105911075,30.061757473840952,59.55744760574413,41.03251984675668,47.982886644314384,36.28049072027002,60.20940600309693,58.550199076094216,46.43143317104363,30.841933831354336,52.047240571964664,60.70207940917064,22.8325344179868,59.45523068344508,41.50365235449975,58.89246039842943,62.001398188925414,40.1764614184916,55.39973841210278,71.18984866764158,41.54532490550865,51.580822770145986,71.38359506726819,54.583369587373014,52.58838248230066,75.430621796116,58.860485259636306,24.774369783385474,51.63730606212204,60.64386089477427,42.45126808519285,45.74108509380057,34.5284195208438,50.74851788871427,65.9843168979667,42.62756771722535,46.92893444112532,29.012868446178395,60.824320285581905,49.81005999581539,63.47337975769065,39.21484630319958,44.09394851558388,33.211470979686915,58.97235142307429,56.46837603104575,56.95758556103757,46.40129779533484,53.37396501252416,60.08384374334763,36.45640889347213,32.64058688259521,35.91390340094421,53.907521358620706,47.310730588714165,53.43497475030826,71.94232470317021,55.56000067548531,55.68350271794721,52.607721316200504,53.83303212676296,58.017233171243085,59.20195620594093,44.21803932280011,41.23371677354547,59.71013145851181,37.48521855478928,53.724252243591884,59.561105431103314,52.79357825241841,37.780249776257264,48.8430125125518,50.81573493242091,54.32318785621147,43.109854497791915,49.29756315880126,35.90912677528401,49.89980708828493,44.593139781114004,44.83993952878572,38.39289521853195,47.43954309908307,55.13723661416713,44.160121596038294,48.94666395637772,45.8156945545291,39.785126721577214,59.234632773175136,36.37127033064654,47.19756752405892,51.61224552316375,40.97280654428954,37.94940531276721,39.33811436764521,55.500227744749296,38.19395486007967,20.801430024731044,60.001832377897614,63.14560364656726,39.088221041264056,42.438568742269865,25.082334369290468,46.2705019826228,71.56987245046676,56.7478306785645,51.49763350870492,30.181685004380352,37.10445189586548,57.26296835477986,36.95047489534495,44.432776534685175,49.07405200946629,42.93228300368623,48.26070376070165,35.44202474372766,59.90230527595619,46.81240310946174,40.177899386245976,59.60316850714573,54.46602456752895,48.663496465756864,43.46323669373541,44.40489238816713,67.64736986128126,53.768341683333674,44.05408331831772,56.21216409852884,50.4105576760637,51.75145300712198,48.96771684923796,47.18112324071923,55.9704569039192,55.86771231190013,47.36377383863894,42.31307551659823,40.860879787262306,41.10995188833347,28.248965846284232,49.28834963794848,41.11646066391967,51.30769438742135,43.71490417048261,40.99048293937138,33.32254211886034,49.92489739293736,47.40303643820218,46.42329689250555,43.05655425847116,51.730553795170735,46.39184710598126,55.94558490033231,52.29672978791008,50.47887118954587,43.65356472974799,49.21103229911795,40.18895299365573,49.866446283693904,63.91941368667045,52.71352589668879,29.009869770578423,42.07574083826295,43.721484458243594,36.910953254867636,52.11401432470318,41.449845775809266,47.87872064061754,44.4036986758638,43.98748449893273,52.41146623883102,49.47331907836134,46.02025292262886,50.87107436786544,30.999260140157915,63.56029423905436,50.08824221423871,45.183930901147356,38.979422776915555,42.48896725593827,64.13600766191126,68.97963251222954,42.747496629517784,53.81715354584328,43.50110237334812,53.65190942029653,65.72034733562796,53.1203796781707,54.20267451243982,50.24425336501723,46.49885741039316,36.72950182470381,63.621536074920535,48.864792655773215,42.43434886124063,36.63421359741189,31.42770317116032,33.67232587868459,46.927443567784124,37.697927819442214,34.46581335172846,66.57861665857136,33.68653842658962,42.97465329669429,43.68062269461691,49.87990794113282,64.05952383543368,63.498123516659135,59.9273213231163,50.72616289759643,55.29113937755808,66.30457932555319,55.19380219352937,61.014888267563904,50.18114305290763,53.9881255416256,40.50815362744912,56.39181463537178,59.599817130339204,50.00988139531089,39.87103866825154,48.394667567429906,46.582122035522836,43.29259220040692,57.84806570878625,41.73331291137755,41.74420343011161,53.59681201779249,53.350085370425646,51.055999079679275,57.851749757797485,50.992383679878785,49.37243457880281,69.17056417320421,55.02930001672959,57.573310435341405,43.23073061459952,45.162443153403444,40.64829628389556,72.20482668800535,70.77217116592354]\n",
+              "\"level\":[53.949604434975406,49.97259751573149,39.616667662231606,51.30177430925768,52.14479452641684,41.22731193159167,62.804288553420946,47.03216619085272,53.81503663044298,41.828709338085005,43.20681462777653,38.29256289217371,50.110903236074066,43.75234489575969,52.73649983982451,54.34052723343102,67.53953435756341,59.19188794782516,50.39171341937401,42.07669369596172,54.193579658402,61.53927100899147,32.227980178898086,42.98666569695917,53.35814065418365,59.74542615109931,65.59549352728496,41.28167271496454,59.360234913002024,54.81040557169816,36.733369373715135,47.01410295708234,51.11129708753885,44.553444365600015,44.9930951876193,50.538370816641056,56.624928234796805,73.81133829225789,42.29480443602862,60.61790929596282,56.583085198669316,65.42532116912092,45.593665723519486,49.61030847319169,51.93963363891913,43.7561557662609,52.08609390949747,52.87572841117458,32.85532821893691,38.271675060688,59.03479103143492,46.591172665866495,42.78960652865062,80.73524867605741,32.0103757689799,45.062168277768365,56.35308282901615,63.04789173378274,36.83658427689557,45.434582218547106,33.685193405456936,63.28912473225221,47.99978196054288,38.583783209075044,35.37802625400645,61.98163483490959,49.389744021847925,52.789796023739285,45.26034555679974,61.02143049258279,87.35234517899792,41.37558246935534,36.9304938005542,49.693986569437364,46.321788242765074,53.102775852429346,63.03150092318652,42.78128783062891,49.03412338360843,73.74233753906867,35.30044693752182,34.93366042388102,49.55917428363882,53.617440680850656,42.61542527908481,46.885672620741516,39.575273229988,33.882964867563906,36.12221113865863,67.65485959004187,41.39793919206784,30.445851495917644,45.90613786716132,43.66633446401769,65.08329377193755,35.74548430270666,49.2682441669135,62.118620142399365,54.00913388170897,61.32725499789093,46.11035016478321,59.46676632769726,43.59060071616617,63.9013754484982,53.88050401011016,55.82414053306667,46.06557551106882,53.15240047740538,62.34569884741669,47.83511915316482,53.634477098439824,43.144943779388285,48.531872127959076,40.38962345721431,44.42781500591866,55.108197219413434,59.08278529799676,56.876388287186366,36.74450750715032,60.13408336159811,57.33443269563432,64.17057935644162,52.39883722661723,53.345758097885934,52.72327489980187,38.806426463735974,49.8192732645872,45.63481475745766,36.192142079256456,40.399504632021404,48.33014162046305,38.393206156555024,57.043342029257474,56.034678671724535,49.05332521793911,35.04932084315848,57.16550658964265,59.59059746923049,44.579748416555226,44.575389825504786,44.32809651901557,66.07965813407719,49.32333029586463,40.59225632008529,38.404516457667604,61.68914178512179,43.556501382267776,50.52444865367366,45.72062430895439,46.5639930360071,36.64093493488743,48.29165720018748,37.055084337271694,44.56543779541434,50.63875614568054,50.84803544492422,58.20259390590793,63.27379046272492,58.11436920850757,39.325387433066616,54.57711484929831,67.4855407450581,56.333346404166356,43.163377144215644,55.95359014956892,38.32537606297322,54.279286530932794,45.98080136212276,38.49373028828585,56.28271903106725,39.081215002275705,40.28865257727462,39.53666410743052,68.55089693512177,32.81004812648492,41.81730470947198,46.0434019241475,45.03848203020061,48.6563002236582,33.88389665824633,47.642063818001304,52.442888400600886,63.73446554297573,56.326401604625275,60.62430878486788,55.784099958000574,51.54795833519645,45.87708588300582,35.68640636487584,47.727345525034956,71.18543093545418,54.72698159459647,57.04418855075896,48.746082725294244,46.87555924615624,57.16847534185213,35.721729118729506,54.726050560064124,66.29523744698028,62.57589750110597,41.159537410992336,37.01739706373495,43.22848336833168,43.32292807386648,46.350046741745004,66.70257256336629,55.2771647330236,59.327558861667896,59.16142505934347,58.21681557714619,48.80786287215226,63.40112293151921,42.65300825839705,53.81823335930939,42.11322887261657,43.719290384572744,55.24276217194012,59.56337925146417,39.57446405181642,43.578016522562805,53.632819113911005,56.425981933999964,58.01734534080602,33.629828916789535,65.68598850239938,60.093628044474556,36.24820206073281,54.72189926822437,56.8053475020221,38.138780817809334,58.763131801496925,60.15806540516647,68.26208195789107,58.75084761668261,54.894066272556095,69.67418971312537,55.64389050855053,57.4630126127223,55.59547278968658,45.890968561731725,57.644116747312154,50.660186270683646,47.4910378502894,58.25282724496479,51.357311546878506,53.12445039720215,48.64855338981429,51.3316599136598,55.72842016473154,63.02257661101684,53.9357316476433,47.474261023981356,54.10970707757198,26.776116939728134,60.51398881301316,37.80525334166743,45.30919462330258,60.742256067077626,65.30748363320451,56.46065588508839,34.69568623504406,46.2417779847633,59.77551692131381,56.62766320372275,75.64525799832712,54.33673764963201,51.6986132673356,56.57234233811275,43.04977699377878,57.70210108610516,51.149762820791736,45.543786931108755,36.49480500906464,55.601796204364774,62.79159526218578,55.40823930061681,64.40882564490879,58.84568632117579,56.3480374236717,81.875717486317,53.28800820644561,44.456771373208134,56.9319123807697,75.16707779588182,37.627103980620916,54.246738977635935,54.445470854140666,46.170019278116385,60.42971933718118,35.409302886831014,45.847680503733365,53.42753574242659,25.743512287916314,40.455010805818866]\n",
               "},\n",
               "\"mapping\":{\n",
               "\"x\":\"year\",\n",
@@ -3505,9 +3562,6 @@
               "\"column\":\"level\"\n",
               "}]\n",
               "},\n",
-              "\"ggtitle\":{\n",
-              "\"text\":\"Position fill\"\n",
-              "},\n",
               "\"kind\":\"plot\",\n",
               "\"scales\":[],\n",
               "\"layers\":[{\n",
@@ -3515,11 +3569,9 @@
               "\"mapping\":{\n",
               "\"fill\":\"group\"\n",
               "},\n",
-              "\"position\":{\n",
-              "\"name\":\"fill\"\n",
-              "},\n",
               "\"data_meta\":{\n",
               "},\n",
+              "\"alpha\":0.8,\n",
               "\"color\":\"\",\n",
               "\"data\":{\n",
               "}\n",
@@ -3570,7 +3622,7 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2b45c320>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d9d44d0>"
             ]
           },
           "execution_count": 22,
@@ -3579,20 +3631,9 @@
         }
       ],
       "source": [
-        "# Lấy theo tỷ lệ\n",
+        "# Lấy theo số tuyệt đối\n",
         "ggplot(df, aes(\"year\", \"level\")) +\\\n",
-        "  geom_area(aes(fill = \"group\"), \n",
-        "            position = position_fill(), color = \"\") +\\\n",
-        "  labs(title = \"Position fill\")"
-      ]
-    },
-    {
-      "cell_type": "markdown",
-      "metadata": {},
-      "source": [
-        "### Hệ trục tọa độ\n",
-        "\n",
-        "Biểu đồ thông thường được xây trên hệ trục tọa độ Đề-các với tỷ lệ 1-1. Bên cạnh hệ trục này, `ggplot2` hỗ trợ các hệ trục tọa độ khác nhưng thông dụng nhất là `coord_flip`, cho phép đổi vị trí hai trục tọa độ cho nhau"
+        "  geom_area(aes(fill = \"group\"), alpha = 0.8, color = \"\")\n"
       ]
     },
     {
@@ -3603,7 +3644,7 @@
         {
           "data": {
             "text/html": [
-              "   <div id=\"g9jURp\"></div>\n",
+              "   <div id=\"X7qgdT\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -3628,7 +3669,157 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"g9jURp\");\n",
+              "   const containerDiv = document.getElementById(\"X7qgdT\");\n",
+              "   let fig = null;\n",
+              "   \n",
+              "   function renderPlot() {\n",
+              "       if (fig === null) {\n",
+              "           const plotSpec = {\n",
+              "\"data\":{\n",
+              "\"year\":[1875.0,1876.0,1877.0,1878.0,1879.0,1880.0,1881.0,1882.0,1883.0,1884.0,1885.0,1886.0,1887.0,1888.0,1889.0,1890.0,1891.0,1892.0,1893.0,1894.0,1895.0,1896.0,1897.0,1898.0,1899.0,1900.0,1901.0,1902.0,1903.0,1904.0,1905.0,1906.0,1907.0,1908.0,1909.0,1910.0,1911.0,1912.0,1913.0,1914.0,1915.0,1916.0,1917.0,1918.0,1919.0,1920.0,1921.0,1922.0,1923.0,1924.0,1925.0,1926.0,1927.0,1928.0,1929.0,1930.0,1931.0,1932.0,1933.0,1934.0,1935.0,1936.0,1937.0,1938.0,1939.0,1940.0,1941.0,1942.0,1943.0,1944.0,1945.0,1946.0,1947.0,1948.0,1949.0,1950.0,1951.0,1952.0,1953.0,1954.0,1955.0,1956.0,1957.0,1958.0,1959.0,1960.0,1961.0,1962.0,1963.0,1964.0,1965.0,1966.0,1967.0,1968.0,1969.0,1970.0,1971.0,1972.0,1875.0,1876.0,1877.0,1878.0,1879.0,1880.0,1881.0,1882.0,1883.0,1884.0,1885.0,1886.0,1887.0,1888.0,1889.0,1890.0,1891.0,1892.0,1893.0,1894.0,1895.0,1896.0,1897.0,1898.0,1899.0,1900.0,1901.0,1902.0,1903.0,1904.0,1905.0,1906.0,1907.0,1908.0,1909.0,1910.0,1911.0,1912.0,1913.0,1914.0,1915.0,1916.0,1917.0,1918.0,1919.0,1920.0,1921.0,1922.0,1923.0,1924.0,1925.0,1926.0,1927.0,1928.0,1929.0,1930.0,1931.0,1932.0,1933.0,1934.0,1935.0,1936.0,1937.0,1938.0,1939.0,1940.0,1941.0,1942.0,1943.0,1944.0,1945.0,1946.0,1947.0,1948.0,1949.0,1950.0,1951.0,1952.0,1953.0,1954.0,1955.0,1956.0,1957.0,1958.0,1959.0,1960.0,1961.0,1962.0,1963.0,1964.0,1965.0,1966.0,1967.0,1968.0,1969.0,1970.0,1971.0,1972.0,1875.0,1876.0,1877.0,1878.0,1879.0,1880.0,1881.0,1882.0,1883.0,1884.0,1885.0,1886.0,1887.0,1888.0,1889.0,1890.0,1891.0,1892.0,1893.0,1894.0,1895.0,1896.0,1897.0,1898.0,1899.0,1900.0,1901.0,1902.0,1903.0,1904.0,1905.0,1906.0,1907.0,1908.0,1909.0,1910.0,1911.0,1912.0,1913.0,1914.0,1915.0,1916.0,1917.0,1918.0,1919.0,1920.0,1921.0,1922.0,1923.0,1924.0,1925.0,1926.0,1927.0,1928.0,1929.0,1930.0,1931.0,1932.0,1933.0,1934.0,1935.0,1936.0,1937.0,1938.0,1939.0,1940.0,1941.0,1942.0,1943.0,1944.0,1945.0,1946.0,1947.0,1948.0,1949.0,1950.0,1951.0,1952.0,1953.0,1954.0,1955.0,1956.0,1957.0,1958.0,1959.0,1960.0,1961.0,1962.0,1963.0,1964.0,1965.0,1966.0,1967.0,1968.0,1969.0,1970.0,1971.0,1972.0],\n",
+              "\"group\":[\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"B\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\",\"C\"],\n",
+              "\"level\":[53.949604434975406,49.97259751573149,39.616667662231606,51.30177430925768,52.14479452641684,41.22731193159167,62.804288553420946,47.03216619085272,53.81503663044298,41.828709338085005,43.20681462777653,38.29256289217371,50.110903236074066,43.75234489575969,52.73649983982451,54.34052723343102,67.53953435756341,59.19188794782516,50.39171341937401,42.07669369596172,54.193579658402,61.53927100899147,32.227980178898086,42.98666569695917,53.35814065418365,59.74542615109931,65.59549352728496,41.28167271496454,59.360234913002024,54.81040557169816,36.733369373715135,47.01410295708234,51.11129708753885,44.553444365600015,44.9930951876193,50.538370816641056,56.624928234796805,73.81133829225789,42.29480443602862,60.61790929596282,56.583085198669316,65.42532116912092,45.593665723519486,49.61030847319169,51.93963363891913,43.7561557662609,52.08609390949747,52.87572841117458,32.85532821893691,38.271675060688,59.03479103143492,46.591172665866495,42.78960652865062,80.73524867605741,32.0103757689799,45.062168277768365,56.35308282901615,63.04789173378274,36.83658427689557,45.434582218547106,33.685193405456936,63.28912473225221,47.99978196054288,38.583783209075044,35.37802625400645,61.98163483490959,49.389744021847925,52.789796023739285,45.26034555679974,61.02143049258279,87.35234517899792,41.37558246935534,36.9304938005542,49.693986569437364,46.321788242765074,53.102775852429346,63.03150092318652,42.78128783062891,49.03412338360843,73.74233753906867,35.30044693752182,34.93366042388102,49.55917428363882,53.617440680850656,42.61542527908481,46.885672620741516,39.575273229988,33.882964867563906,36.12221113865863,67.65485959004187,41.39793919206784,30.445851495917644,45.90613786716132,43.66633446401769,65.08329377193755,35.74548430270666,49.2682441669135,62.118620142399365,54.00913388170897,61.32725499789093,46.11035016478321,59.46676632769726,43.59060071616617,63.9013754484982,53.88050401011016,55.82414053306667,46.06557551106882,53.15240047740538,62.34569884741669,47.83511915316482,53.634477098439824,43.144943779388285,48.531872127959076,40.38962345721431,44.42781500591866,55.108197219413434,59.08278529799676,56.876388287186366,36.74450750715032,60.13408336159811,57.33443269563432,64.17057935644162,52.39883722661723,53.345758097885934,52.72327489980187,38.806426463735974,49.8192732645872,45.63481475745766,36.192142079256456,40.399504632021404,48.33014162046305,38.393206156555024,57.043342029257474,56.034678671724535,49.05332521793911,35.04932084315848,57.16550658964265,59.59059746923049,44.579748416555226,44.575389825504786,44.32809651901557,66.07965813407719,49.32333029586463,40.59225632008529,38.404516457667604,61.68914178512179,43.556501382267776,50.52444865367366,45.72062430895439,46.5639930360071,36.64093493488743,48.29165720018748,37.055084337271694,44.56543779541434,50.63875614568054,50.84803544492422,58.20259390590793,63.27379046272492,58.11436920850757,39.325387433066616,54.57711484929831,67.4855407450581,56.333346404166356,43.163377144215644,55.95359014956892,38.32537606297322,54.279286530932794,45.98080136212276,38.49373028828585,56.28271903106725,39.081215002275705,40.28865257727462,39.53666410743052,68.55089693512177,32.81004812648492,41.81730470947198,46.0434019241475,45.03848203020061,48.6563002236582,33.88389665824633,47.642063818001304,52.442888400600886,63.73446554297573,56.326401604625275,60.62430878486788,55.784099958000574,51.54795833519645,45.87708588300582,35.68640636487584,47.727345525034956,71.18543093545418,54.72698159459647,57.04418855075896,48.746082725294244,46.87555924615624,57.16847534185213,35.721729118729506,54.726050560064124,66.29523744698028,62.57589750110597,41.159537410992336,37.01739706373495,43.22848336833168,43.32292807386648,46.350046741745004,66.70257256336629,55.2771647330236,59.327558861667896,59.16142505934347,58.21681557714619,48.80786287215226,63.40112293151921,42.65300825839705,53.81823335930939,42.11322887261657,43.719290384572744,55.24276217194012,59.56337925146417,39.57446405181642,43.578016522562805,53.632819113911005,56.425981933999964,58.01734534080602,33.629828916789535,65.68598850239938,60.093628044474556,36.24820206073281,54.72189926822437,56.8053475020221,38.138780817809334,58.763131801496925,60.15806540516647,68.26208195789107,58.75084761668261,54.894066272556095,69.67418971312537,55.64389050855053,57.4630126127223,55.59547278968658,45.890968561731725,57.644116747312154,50.660186270683646,47.4910378502894,58.25282724496479,51.357311546878506,53.12445039720215,48.64855338981429,51.3316599136598,55.72842016473154,63.02257661101684,53.9357316476433,47.474261023981356,54.10970707757198,26.776116939728134,60.51398881301316,37.80525334166743,45.30919462330258,60.742256067077626,65.30748363320451,56.46065588508839,34.69568623504406,46.2417779847633,59.77551692131381,56.62766320372275,75.64525799832712,54.33673764963201,51.6986132673356,56.57234233811275,43.04977699377878,57.70210108610516,51.149762820791736,45.543786931108755,36.49480500906464,55.601796204364774,62.79159526218578,55.40823930061681,64.40882564490879,58.84568632117579,56.3480374236717,81.875717486317,53.28800820644561,44.456771373208134,56.9319123807697,75.16707779588182,37.627103980620916,54.246738977635935,54.445470854140666,46.170019278116385,60.42971933718118,35.409302886831014,45.847680503733365,53.42753574242659,25.743512287916314,40.455010805818866]\n",
+              "},\n",
+              "\"mapping\":{\n",
+              "\"x\":\"year\",\n",
+              "\"y\":\"level\"\n",
+              "},\n",
+              "\"data_meta\":{\n",
+              "\"series_annotations\":[{\n",
+              "\"type\":\"float\",\n",
+              "\"column\":\"year\"\n",
+              "},{\n",
+              "\"type\":\"str\",\n",
+              "\"column\":\"group\"\n",
+              "},{\n",
+              "\"type\":\"float\",\n",
+              "\"column\":\"level\"\n",
+              "}]\n",
+              "},\n",
+              "\"ggtitle\":{\n",
+              "\"text\":\"Position fill\"\n",
+              "},\n",
+              "\"kind\":\"plot\",\n",
+              "\"scales\":[],\n",
+              "\"layers\":[{\n",
+              "\"geom\":\"area\",\n",
+              "\"mapping\":{\n",
+              "\"fill\":\"group\"\n",
+              "},\n",
+              "\"position\":{\n",
+              "\"name\":\"fill\"\n",
+              "},\n",
+              "\"data_meta\":{\n",
+              "},\n",
+              "\"color\":\"\",\n",
+              "\"data\":{\n",
+              "}\n",
+              "}],\n",
+              "\"metainfo_list\":[],\n",
+              "\"spec_id\":\"20\"\n",
+              "};\n",
+              "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
+              "       } else {\n",
+              "           fig.updateView({});\n",
+              "       }\n",
+              "   }\n",
+              "   \n",
+              "   const renderImmediately = \n",
+              "       forceImmediateRender || (\n",
+              "           sizing.width_mode === 'FIXED' && \n",
+              "           (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')\n",
+              "       );\n",
+              "   \n",
+              "   if (renderImmediately) {\n",
+              "       renderPlot();\n",
+              "   }\n",
+              "   \n",
+              "   if (!renderImmediately || responsive) {\n",
+              "       // Set up observer for initial sizing or continuous monitoring\n",
+              "       var observer = new ResizeObserver(function(entries) {\n",
+              "           for (let entry of entries) {\n",
+              "               if (entry.contentBoxSize && \n",
+              "                   entry.contentBoxSize[0].inlineSize > 0) {\n",
+              "                   if (!responsive && observer) {\n",
+              "                       observer.disconnect();\n",
+              "                       observer = null;\n",
+              "                   }\n",
+              "                   renderPlot();\n",
+              "                   if (!responsive) {\n",
+              "                       break;\n",
+              "                   }\n",
+              "               }\n",
+              "           }\n",
+              "       });\n",
+              "       \n",
+              "       observer.observe(containerDiv);\n",
+              "   }\n",
+              "   \n",
+              "   // ----------\n",
+              "   })();\n",
+              "   \n",
+              "   </script>"
+            ],
+            "text/plain": [
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d9d43b0>"
+            ]
+          },
+          "execution_count": 23,
+          "metadata": {},
+          "output_type": "execute_result"
+        }
+      ],
+      "source": [
+        "# Lấy theo tỷ lệ\n",
+        "ggplot(df, aes(\"year\", \"level\")) +\\\n",
+        "  geom_area(aes(fill = \"group\"), \n",
+        "            position = position_fill(), color = \"\") +\\\n",
+        "  labs(title = \"Position fill\")"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### Hệ trục tọa độ\n",
+        "\n",
+        "Biểu đồ thông thường được xây trên hệ trục tọa độ Đề-các với tỷ lệ 1-1. Bên cạnh hệ trục này, `ggplot2` hỗ trợ các hệ trục tọa độ khác nhưng thông dụng nhất là `coord_flip`, cho phép đổi vị trí hai trục tọa độ cho nhau"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 24,
+      "metadata": {},
+      "outputs": [
+        {
+          "data": {
+            "text/html": [
+              "   <div id=\"3MaxNs\"></div>\n",
+              "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
+              "   \n",
+              "   (function() {\n",
+              "   // ----------\n",
+              "   \n",
+              "   const forceImmediateRender = false;\n",
+              "   const responsive = false;\n",
+              "   \n",
+              "   let sizing = {\n",
+              "       width_mode: \"MIN\",\n",
+              "       height_mode: \"SCALED\",\n",
+              "       width: null, \n",
+              "       height: null \n",
+              "   };\n",
+              "   \n",
+              "   const preferredWidth = document.body.dataset.letsPlotPreferredWidth;\n",
+              "   if (preferredWidth !== undefined) {\n",
+              "       sizing = {\n",
+              "           width_mode: 'FIXED',\n",
+              "           height_mode: 'SCALED',\n",
+              "           width: parseFloat(preferredWidth)\n",
+              "       };\n",
+              "   }\n",
+              "   \n",
+              "   const containerDiv = document.getElementById(\"3MaxNs\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -3720,7 +3911,7 @@
               "}\n",
               "}],\n",
               "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"20\"\n",
+              "\"spec_id\":\"21\"\n",
               "};\n",
               "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
               "       } else {\n",
@@ -3765,10 +3956,10 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2b45c710>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d83f920>"
             ]
           },
-          "execution_count": 23,
+          "execution_count": 24,
           "metadata": {},
           "output_type": "execute_result"
         }
@@ -3816,13 +4007,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 24,
+      "execution_count": 25,
       "metadata": {},
       "outputs": [
         {
           "data": {
             "text/html": [
-              "   <div id=\"guk6Ic\"></div>\n",
+              "   <div id=\"2vNREy\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -3847,7 +4038,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"guk6Ic\");\n",
+              "   const containerDiv = document.getElementById(\"2vNREy\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -3942,7 +4133,7 @@
               "}\n",
               "}],\n",
               "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"21\"\n",
+              "\"spec_id\":\"22\"\n",
               "};\n",
               "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
               "       } else {\n",
@@ -3987,10 +4178,10 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2b45c560>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d9d4560>"
             ]
           },
-          "execution_count": 24,
+          "execution_count": 25,
           "metadata": {},
           "output_type": "execute_result"
         }
@@ -4017,13 +4208,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 25,
+      "execution_count": 26,
       "metadata": {},
       "outputs": [
         {
           "data": {
             "text/html": [
-              "   <div id=\"OkdPba\"></div>\n",
+              "   <div id=\"lfVlOZ\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -4048,7 +4239,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"OkdPba\");\n",
+              "   const containerDiv = document.getElementById(\"lfVlOZ\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -4116,7 +4307,7 @@
               "}\n",
               "}],\n",
               "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"22\"\n",
+              "\"spec_id\":\"23\"\n",
               "};\n",
               "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
               "       } else {\n",
@@ -4161,10 +4352,10 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af265bd5b0>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d9d4440>"
             ]
           },
-          "execution_count": 25,
+          "execution_count": 26,
           "metadata": {},
           "output_type": "execute_result"
         }
@@ -4179,13 +4370,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 26,
+      "execution_count": 27,
       "metadata": {},
       "outputs": [
         {
           "data": {
             "text/html": [
-              "   <div id=\"pWcXXx\"></div>\n",
+              "   <div id=\"oShNDt\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -4210,7 +4401,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"pWcXXx\");\n",
+              "   const containerDiv = document.getElementById(\"oShNDt\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -4281,7 +4472,7 @@
               "}\n",
               "}],\n",
               "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"23\"\n",
+              "\"spec_id\":\"24\"\n",
               "};\n",
               "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
               "       } else {\n",
@@ -4326,10 +4517,10 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2b45c830>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d9d49e0>"
             ]
           },
-          "execution_count": 26,
+          "execution_count": 27,
           "metadata": {},
           "output_type": "execute_result"
         }
@@ -4340,13 +4531,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 27,
+      "execution_count": 28,
       "metadata": {},
       "outputs": [
         {
           "data": {
             "text/html": [
-              "   <div id=\"b6kM5n\"></div>\n",
+              "   <div id=\"0JDqjF\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -4371,7 +4562,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"b6kM5n\");\n",
+              "   const containerDiv = document.getElementById(\"0JDqjF\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -4442,7 +4633,7 @@
               "}\n",
               "}],\n",
               "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"24\"\n",
+              "\"spec_id\":\"25\"\n",
               "};\n",
               "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
               "       } else {\n",
@@ -4487,10 +4678,10 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2b45c8c0>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d9d4a70>"
             ]
           },
-          "execution_count": 27,
+          "execution_count": 28,
           "metadata": {},
           "output_type": "execute_result"
         }
@@ -4501,13 +4692,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 28,
+      "execution_count": 29,
       "metadata": {},
       "outputs": [
         {
           "data": {
             "text/html": [
-              "   <div id=\"unocSN\"></div>\n",
+              "   <div id=\"NcQl6N\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -4532,7 +4723,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"unocSN\");\n",
+              "   const containerDiv = document.getElementById(\"NcQl6N\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -4603,7 +4794,7 @@
               "}\n",
               "}],\n",
               "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"25\"\n",
+              "\"spec_id\":\"26\"\n",
               "};\n",
               "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
               "       } else {\n",
@@ -4648,10 +4839,10 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2b45c9e0>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d9d4b90>"
             ]
           },
-          "execution_count": 28,
+          "execution_count": 29,
           "metadata": {},
           "output_type": "execute_result"
         }
@@ -4669,13 +4860,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 29,
+      "execution_count": 30,
       "metadata": {},
       "outputs": [
         {
           "data": {
             "text/html": [
-              "   <div id=\"cLwjth\"></div>\n",
+              "   <div id=\"FhZeio\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -4700,7 +4891,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"cLwjth\");\n",
+              "   const containerDiv = document.getElementById(\"FhZeio\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -4793,7 +4984,7 @@
               "}\n",
               "}],\n",
               "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"26\"\n",
+              "\"spec_id\":\"27\"\n",
               "};\n",
               "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
               "       } else {\n",
@@ -4838,10 +5029,10 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2b45c950>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d9d47a0>"
             ]
           },
-          "execution_count": 29,
+          "execution_count": 30,
           "metadata": {},
           "output_type": "execute_result"
         }
@@ -4893,13 +5084,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 30,
+      "execution_count": 31,
       "metadata": {},
       "outputs": [
         {
           "data": {
             "text/html": [
-              "   <div id=\"fnJSup\"></div>\n",
+              "   <div id=\"Ry1jH6\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -4924,7 +5115,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"fnJSup\");\n",
+              "   const containerDiv = document.getElementById(\"Ry1jH6\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -5013,7 +5204,7 @@
               "}\n",
               "}],\n",
               "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"27\"\n",
+              "\"spec_id\":\"28\"\n",
               "};\n",
               "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
               "       } else {\n",
@@ -5058,10 +5249,10 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2b45cb90>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d9d4dd0>"
             ]
           },
-          "execution_count": 30,
+          "execution_count": 31,
           "metadata": {},
           "output_type": "execute_result"
         }
@@ -5076,13 +5267,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 31,
+      "execution_count": 32,
       "metadata": {},
       "outputs": [
         {
           "data": {
             "text/html": [
-              "   <div id=\"agyC6K\"></div>\n",
+              "   <div id=\"vOqFnx\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -5107,7 +5298,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"agyC6K\");\n",
+              "   const containerDiv = document.getElementById(\"vOqFnx\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -5200,7 +5391,7 @@
               "}\n",
               "}],\n",
               "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"28\"\n",
+              "\"spec_id\":\"29\"\n",
               "};\n",
               "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
               "       } else {\n",
@@ -5245,10 +5436,10 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af21104560>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d9d4cb0>"
             ]
           },
-          "execution_count": 31,
+          "execution_count": 32,
           "metadata": {},
           "output_type": "execute_result"
         }
@@ -5273,13 +5464,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 32,
+      "execution_count": 33,
       "metadata": {},
       "outputs": [
         {
           "data": {
             "text/html": [
-              "   <div id=\"ferR7Y\"></div>\n",
+              "   <div id=\"lMERZh\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -5304,7 +5495,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"ferR7Y\");\n",
+              "   const containerDiv = document.getElementById(\"lMERZh\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -5387,7 +5578,7 @@
               "}\n",
               "}],\n",
               "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"29\"\n",
+              "\"spec_id\":\"30\"\n",
               "};\n",
               "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
               "       } else {\n",
@@ -5432,10 +5623,10 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2b45ccb0>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d9d4e60>"
             ]
           },
-          "execution_count": 32,
+          "execution_count": 33,
           "metadata": {},
           "output_type": "execute_result"
         }
@@ -5451,13 +5642,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 33,
+      "execution_count": 34,
       "metadata": {},
       "outputs": [
         {
           "data": {
             "text/html": [
-              "   <div id=\"kFQ9bq\"></div>\n",
+              "   <div id=\"m3uSWS\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -5482,7 +5673,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"kFQ9bq\");\n",
+              "   const containerDiv = document.getElementById(\"m3uSWS\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -5566,7 +5757,7 @@
               "}\n",
               "}],\n",
               "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"30\"\n",
+              "\"spec_id\":\"31\"\n",
               "};\n",
               "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
               "       } else {\n",
@@ -5611,10 +5802,10 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2b45cc20>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d9d45f0>"
             ]
           },
-          "execution_count": 33,
+          "execution_count": 34,
           "metadata": {},
           "output_type": "execute_result"
         }
@@ -5638,14 +5829,14 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 34,
+      "execution_count": 35,
       "metadata": {},
       "outputs": [
         {
           "name": "stderr",
           "output_type": "stream",
           "text": [
-            "C:\\Users\\Admin\\AppData\\Local\\Temp\\ipykernel_5828\\179534537.py:1: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.\n"
+            "C:\\Users\\Admin\\AppData\\Local\\Temp\\ipykernel_9708\\179534537.py:1: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.\n"
           ]
         },
         {
@@ -5724,7 +5915,7 @@
               "6         suv  62"
             ]
           },
-          "execution_count": 34,
+          "execution_count": 35,
           "metadata": {},
           "output_type": "execute_result"
         }
@@ -5738,13 +5929,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 35,
+      "execution_count": 36,
       "metadata": {},
       "outputs": [
         {
           "data": {
             "text/html": [
-              "   <div id=\"G1ARLc\"></div>\n",
+              "   <div id=\"n4w1P3\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -5769,7 +5960,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"G1ARLc\");\n",
+              "   const containerDiv = document.getElementById(\"n4w1P3\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -5821,7 +6012,7 @@
               "}\n",
               "}],\n",
               "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"31\"\n",
+              "\"spec_id\":\"32\"\n",
               "};\n",
               "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
               "       } else {\n",
@@ -5866,10 +6057,10 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2b45cf80>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d9d5130>"
             ]
           },
-          "execution_count": 35,
+          "execution_count": 36,
           "metadata": {},
           "output_type": "execute_result"
         }
@@ -5889,13 +6080,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 36,
+      "execution_count": 37,
       "metadata": {},
       "outputs": [
         {
           "data": {
             "text/html": [
-              "   <div id=\"ZUdJ1d\"></div>\n",
+              "   <div id=\"0XyJ2A\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -5920,7 +6111,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"ZUdJ1d\");\n",
+              "   const containerDiv = document.getElementById(\"0XyJ2A\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -5989,7 +6180,7 @@
               "}\n",
               "}],\n",
               "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"32\"\n",
+              "\"spec_id\":\"33\"\n",
               "};\n",
               "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
               "       } else {\n",
@@ -6034,10 +6225,10 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2b45d130>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d9d5250>"
             ]
           },
-          "execution_count": 36,
+          "execution_count": 37,
           "metadata": {},
           "output_type": "execute_result"
         }
@@ -6062,13 +6253,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 37,
+      "execution_count": 38,
       "metadata": {},
       "outputs": [
         {
           "data": {
             "text/html": [
-              "   <div id=\"gkCWAK\"></div>\n",
+              "   <div id=\"jAmz5o\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -6093,7 +6284,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"gkCWAK\");\n",
+              "   const containerDiv = document.getElementById(\"jAmz5o\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -6177,7 +6368,7 @@
               "}\n",
               "}],\n",
               "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"33\"\n",
+              "\"spec_id\":\"34\"\n",
               "};\n",
               "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
               "       } else {\n",
@@ -6222,10 +6413,10 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2b45c7a0>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d9d4b00>"
             ]
           },
-          "execution_count": 37,
+          "execution_count": 38,
           "metadata": {},
           "output_type": "execute_result"
         }
@@ -6253,7 +6444,7 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 38,
+      "execution_count": 39,
       "metadata": {},
       "outputs": [],
       "source": [
@@ -6265,13 +6456,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 39,
+      "execution_count": 40,
       "metadata": {},
       "outputs": [
         {
           "data": {
             "text/html": [
-              "   <div id=\"sb0JhY\"></div>\n",
+              "   <div id=\"iGv9kN\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -6296,7 +6487,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"sb0JhY\");\n",
+              "   const containerDiv = document.getElementById(\"iGv9kN\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -6369,7 +6560,7 @@
               "}\n",
               "}],\n",
               "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"34\"\n",
+              "\"spec_id\":\"35\"\n",
               "},{\n",
               "\"data\":{\n",
               "},\n",
@@ -6428,7 +6619,7 @@
               "}\n",
               "}],\n",
               "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"35\"\n",
+              "\"spec_id\":\"36\"\n",
               "},{\n",
               "\"data\":{\n",
               "\"displ\":[1.8,1.8,2.0,2.0,2.8,2.8,3.1,1.8,1.8,2.0,2.0,2.8,2.8,3.1,3.1,2.8,3.1,4.2,5.3,5.3,5.3,5.7,6.0,5.7,5.7,6.2,6.2,7.0,5.3,5.3,5.7,6.5,2.4,2.4,3.1,3.5,3.6,2.4,3.0,3.3,3.3,3.3,3.3,3.3,3.8,3.8,3.8,4.0,3.7,3.7,3.9,3.9,4.7,4.7,4.7,5.2,5.2,3.9,4.7,4.7,4.7,5.2,5.7,5.9,4.7,4.7,4.7,4.7,4.7,4.7,5.2,5.2,5.7,5.9,4.6,5.4,5.4,4.0,4.0,4.0,4.0,4.6,5.0,4.2,4.2,4.6,4.6,4.6,5.4,5.4,3.8,3.8,4.0,4.0,4.6,4.6,4.6,4.6,5.4,1.6,1.6,1.6,1.6,1.6,1.8,1.8,1.8,2.0,2.4,2.4,2.4,2.4,2.5,2.5,3.3,2.0,2.0,2.0,2.0,2.7,2.7,2.7,3.0,3.7,4.0,4.7,4.7,4.7,5.7,6.1,4.0,4.2,4.4,4.6,5.4,5.4,5.4,4.0,4.0,4.6,5.0,2.4,2.4,2.5,2.5,3.5,3.5,3.0,3.0,3.5,3.3,3.3,4.0,5.6,3.1,3.8,3.8,3.8,5.3,2.5,2.5,2.5,2.5,2.5,2.5,2.2,2.2,2.5,2.5,2.5,2.5,2.5,2.5,2.7,2.7,3.4,3.4,4.0,4.7,2.2,2.2,2.4,2.4,3.0,3.0,3.5,2.2,2.2,2.4,2.4,3.0,3.0,3.3,1.8,1.8,1.8,1.8,1.8,4.7,5.7,2.7,2.7,2.7,3.4,3.4,4.0,4.0,2.0,2.0,2.0,2.0,2.8,1.9,2.0,2.0,2.0,2.0,2.5,2.5,2.8,2.8,1.9,1.9,2.0,2.0,2.5,2.5,1.8,1.8,2.0,2.0,2.8,2.8,3.6],\n",
@@ -6487,7 +6678,7 @@
               "}\n",
               "}],\n",
               "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"36\"\n",
+              "\"spec_id\":\"37\"\n",
               "}]\n",
               "};\n",
               "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
@@ -6533,10 +6724,10 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.subplots.SupPlotsSpec at 0x1af2685a990>"
+              "<lets_plot.plot.subplots.SupPlotsSpec at 0x21a4d829f90>"
             ]
           },
-          "execution_count": 39,
+          "execution_count": 40,
           "metadata": {},
           "output_type": "execute_result"
         }
@@ -6551,13 +6742,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 40,
+      "execution_count": 41,
       "metadata": {},
       "outputs": [
         {
           "data": {
             "text/html": [
-              "   <div id=\"knGc9a\"></div>\n",
+              "   <div id=\"cimDWw\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -6582,7 +6773,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"knGc9a\");\n",
+              "   const containerDiv = document.getElementById(\"cimDWw\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -6670,7 +6861,7 @@
               "}\n",
               "}],\n",
               "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"37\"\n",
+              "\"spec_id\":\"38\"\n",
               "},{\n",
               "\"data\":{\n",
               "},\n",
@@ -6729,7 +6920,7 @@
               "}\n",
               "}],\n",
               "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"38\"\n",
+              "\"spec_id\":\"39\"\n",
               "}]\n",
               "},{\n",
               "\"data\":{\n",
@@ -6789,7 +6980,7 @@
               "}\n",
               "}],\n",
               "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"39\"\n",
+              "\"spec_id\":\"40\"\n",
               "}]\n",
               "};\n",
               "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
@@ -6835,10 +7026,10 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.subplots.SupPlotsSpec at 0x1af2688f9b0>"
+              "<lets_plot.plot.subplots.SupPlotsSpec at 0x21a4d847e30>"
             ]
           },
-          "execution_count": 40,
+          "execution_count": 41,
           "metadata": {},
           "output_type": "execute_result"
         }
@@ -6882,7 +7073,7 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 41,
+      "execution_count": 42,
       "metadata": {},
       "outputs": [],
       "source": [
@@ -6891,13 +7082,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 42,
+      "execution_count": 43,
       "metadata": {},
       "outputs": [
         {
           "data": {
             "text/html": [
-              "   <div id=\"1jKkS6\"></div>\n",
+              "   <div id=\"M4HDcw\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -6922,7 +7113,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"1jKkS6\");\n",
+              "   const containerDiv = document.getElementById(\"M4HDcw\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -7051,7 +7242,7 @@
               "\"blank\":false\n",
               "}\n",
               "},\n",
-              "\"spec_id\":\"40\"\n",
+              "\"spec_id\":\"41\"\n",
               "};\n",
               "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
               "       } else {\n",
@@ -7096,10 +7287,10 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2b45cef0>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d9d4710>"
             ]
           },
-          "execution_count": 42,
+          "execution_count": 43,
           "metadata": {},
           "output_type": "execute_result"
         }
@@ -7115,13 +7306,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 43,
+      "execution_count": 44,
       "metadata": {},
       "outputs": [
         {
           "data": {
             "text/html": [
-              "   <div id=\"NWCp5S\"></div>\n",
+              "   <div id=\"Pwojac\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -7146,7 +7337,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"NWCp5S\");\n",
+              "   const containerDiv = document.getElementById(\"Pwojac\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -7279,7 +7470,7 @@
               "\"xlim\":[-0.6,4.6],\n",
               "\"ylim\":[-0.6,4.6]\n",
               "},\n",
-              "\"spec_id\":\"41\"\n",
+              "\"spec_id\":\"42\"\n",
               "};\n",
               "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
               "       } else {\n",
@@ -7324,10 +7515,10 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2b45d010>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d9d60f0>"
             ]
           },
-          "execution_count": 43,
+          "execution_count": 44,
           "metadata": {},
           "output_type": "execute_result"
         }
@@ -7358,7 +7549,7 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 44,
+      "execution_count": 45,
       "metadata": {},
       "outputs": [],
       "source": [
@@ -7374,13 +7565,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 45,
+      "execution_count": 46,
       "metadata": {},
       "outputs": [
         {
           "data": {
             "text/html": [
-              "   <div id=\"DrGZwG\"></div>\n",
+              "   <div id=\"pXUOdv\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -7405,7 +7596,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"DrGZwG\");\n",
+              "   const containerDiv = document.getElementById(\"pXUOdv\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -7498,7 +7689,7 @@
               "}\n",
               "}],\n",
               "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"42\"\n",
+              "\"spec_id\":\"43\"\n",
               "};\n",
               "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
               "       } else {\n",
@@ -7543,10 +7734,10 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2b45dfd0>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d9d6210>"
             ]
           },
-          "execution_count": 45,
+          "execution_count": 46,
           "metadata": {},
           "output_type": "execute_result"
         }
@@ -7559,13 +7750,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 46,
+      "execution_count": 47,
       "metadata": {},
       "outputs": [
         {
           "data": {
             "text/html": [
-              "   <div id=\"A8fZGO\"></div>\n",
+              "   <div id=\"iekgpN\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -7590,7 +7781,7 @@
               "       };\n",
               "   }\n",
               "   \n",
-              "   const containerDiv = document.getElementById(\"A8fZGO\");\n",
+              "   const containerDiv = document.getElementById(\"iekgpN\");\n",
               "   let fig = null;\n",
               "   \n",
               "   function renderPlot() {\n",
@@ -7760,7 +7951,7 @@
               "}\n",
               "}],\n",
               "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"43\"\n",
+              "\"spec_id\":\"44\"\n",
               "};\n",
               "           window.letsPlotCall(function() { fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing); });\n",
               "       } else {\n",
@@ -7805,10 +7996,10 @@
               "   </script>"
             ],
             "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x1af2b45de20>"
+              "<lets_plot.plot.core.PlotSpec at 0x21a4d9d50a0>"
             ]
           },
-          "execution_count": 46,
+          "execution_count": 47,
           "metadata": {},
           "output_type": "execute_result"
         }

@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
       <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0cebd926" />
 
@@ -24,6 +24,8 @@
       <script src="_static/copybutton.js?v=f281be69"></script>
       <script src="_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "displayMath": [["$$", "$$"], ["\\[", "\\]"]]}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -117,7 +119,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="cac-chi-so-thong-ke-mo-ta-co-ban">
+  <section class="tex2jax_ignore mathjax_ignore" id="cac-chi-so-thong-ke-mo-ta-co-ban">
 <h1><span class="section-number">10. </span>Các chỉ số thống kê mô tả cơ bản<a class="headerlink" href="#cac-chi-so-thong-ke-mo-ta-co-ban" title="Link to this heading"></a></h1>
 <p>Trong quá trình phân tích dữ liệu, việc nắm vững các chỉ số thống kê cơ bản là rất quan trọng. Tuy nhiên, vấn đề còn nằm ở khả năng diễn đạt các chỉ số thống kê thành các ngôn ngữ thân thuộc trong kinh doanh. Các chỉ số thống kê mô tả cho 1 biến có tính thực tiễn cao bao gồm:</p>
 <ul class="simple">
@@ -279,7 +281,7 @@ Series: &#39;&#39; [i32]
 </div>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Outlier</span></code>: Là các quan sát có giá trị quá cao hoặc quá thấp. Về mặt thống kê, các outlier được định nghĩa là các giá trị nằm ngoài khoảng $(\text{Q}_1 - 1.5\times \text{IQR}, \text{Q}_3 + 1.5\times \text{IQR})$</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Outlier</span></code>: Là các quan sát có giá trị quá cao hoặc quá thấp. Về mặt thống kê, các outlier được định nghĩa là các giá trị nằm ngoài khoảng <span class="math notranslate nohighlight">\((\text{Q}_1 - 1.5\times \text{IQR}, \text{Q}_3 + 1.5\times \text{IQR})\)</span></p></li>
 </ul>
 <hr class="docutils" />
 <p>Bên cạnh đó, do việc xuất hiện các quan sát ngoại lại (<code class="docutils literal notranslate"><span class="pre">outlier</span></code>) là thường xuyên và có thể gây méo các chỉ số, ta cần quan tâm thêm 2 chỉ số sau</p>
@@ -980,8 +982,8 @@ Phương pháp ANOVA được sử dụng khi chúng ta muốn so sánh giữa 2
 </div>
 <p>Kiểm định ANOVA sẽ giúp chung ta so sánh chiều dài đài hoa trung bình giữa các loài hoa, sau đó tính toán chênh lệch chiều dài đài hoa trung bình giữa các loài hoa, và cuối cùng sẽ kiểm định xem những sự chênh lệch đó thực sự có ý nghĩa về mặt thống kê hay không. Hay nói cách khác, phương pháp ANOVA kiểm định cặp giả thuyết sau:</p>
 <ul class="simple">
-<li><p>$H_0$: Không có sự khác biệt giữa chiều dài đài hoa của các loài hoa (tức chênh lệch chiều dài đài hoa trung bình  = 0)</p></li>
-<li><p>$H_1$: Có sự khác biệt giữa chiều dài đài hoa của các loài hoa (chênh lệch chiều dài đài hoa trung bình khác 0)</p></li>
+<li><p><span class="math notranslate nohighlight">\(H_0\)</span>: Không có sự khác biệt giữa chiều dài đài hoa của các loài hoa (tức chênh lệch chiều dài đài hoa trung bình  = 0)</p></li>
+<li><p><span class="math notranslate nohighlight">\(H_1\)</span>: Có sự khác biệt giữa chiều dài đài hoa của các loài hoa (chênh lệch chiều dài đài hoa trung bình khác 0)</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1032,10 +1034,10 @@ versicolor  virginica    0.652   0.0 0.4082 0.8958   True
 <p>Để thực hiện phân tích mối quan hệ này, ta cần thực hiện ba bước:</p>
 <ul class="simple">
 <li><p><strong>Bước một</strong>, xây dựng bảng phân phối tần xuất hai chiều.</p></li>
-<li><p><strong>Bước hai</strong>, tính toán chỉ số $\chi^2$ để kiểm định giả thuyết độc lập giữa hai biến</p></li>
+<li><p><strong>Bước hai</strong>, tính toán chỉ số <span class="math notranslate nohighlight">\(\chi^2\)</span> để kiểm định giả thuyết độc lập giữa hai biến</p></li>
 <li><p><strong>Bước ba</strong>, đưa ra kết luận về mối quan hệ vừa được kiểm định</p></li>
 </ul>
-<p>Để hiểu hơn về kiểm định $\chi^2$, ta xem xét ví dụ dưới đây.</p>
+<p>Để hiểu hơn về kiểm định <span class="math notranslate nohighlight">\(\chi^2\)</span>, ta xem xét ví dụ dưới đây.</p>
 <p><strong>Ví dụ</strong>: Một trang web quảng cáo muốn phân tích về mối quan hệ giữa <strong>phương thức quảng cáo</strong> và <strong>thiết bị sử dụng</strong>. Dữ liệu trong một tháng về số lượt người dùng truy cập website được thể hiện như bảng dưới đây (đơn vị <em>nghìn user</em>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1071,15 +1073,16 @@ versicolor  virginica    0.652   0.0 0.4082 0.8958   True
 </div>
 <p>Để phân tích mối quan hệ giữa hai biến, ta có giả thuyết như sau:</p>
 <ul class="simple">
-<li><p>$H_0$: Phương thức quảng cáo và thiết bị sử dụng không có mối liên hệ với nhau (hai biến độc lập)</p></li>
-<li><p>$H_1$: Phương thức quảng cáo và thiết bị sử dụng có mối liên hệ với nhau (tồn tại mối quan hệ giữa hai biến)</p></li>
+<li><p><span class="math notranslate nohighlight">\(H_0\)</span>: Phương thức quảng cáo và thiết bị sử dụng không có mối liên hệ với nhau (hai biến độc lập)</p></li>
+<li><p><span class="math notranslate nohighlight">\(H_1\)</span>: Phương thức quảng cáo và thiết bị sử dụng có mối liên hệ với nhau (tồn tại mối quan hệ giữa hai biến)</p></li>
 </ul>
-<p>Chỉ số $\chi^2$ được tính như sau:</p>
-<p>$$\chi^2 = \sum\frac{(O_i - E_i)^2}{E_i}$$</p>
+<p>Chỉ số <span class="math notranslate nohighlight">\(\chi^2\)</span> được tính như sau:</p>
+<div class="math notranslate nohighlight">
+\[\chi^2 = \sum\frac{(O_i - E_i)^2}{E_i}\]</div>
 <p>Trong đó:</p>
 <ul class="simple">
-<li><p>$O$ là giá trị quan sát được thực tế (ví dụ: Desktop/Organic Search có 25 ngàn user)</p></li>
-<li><p>$E$ là giá trị kỳ vọng của mỗi cặp giá trị.</p></li>
+<li><p><span class="math notranslate nohighlight">\(O\)</span> là giá trị quan sát được thực tế (ví dụ: Desktop/Organic Search có 25 ngàn user)</p></li>
+<li><p><span class="math notranslate nohighlight">\(E\)</span> là giá trị kỳ vọng của mỗi cặp giá trị.</p></li>
 </ul>
 <p>Ta tính giá trị <em>kỳ vọng</em> như sau:</p>
 <ul class="simple">
@@ -1087,15 +1090,16 @@ versicolor  virginica    0.652   0.0 0.4082 0.8958   True
 <li><p>Nhân từng dòng với từng hàng và chia cho tổng số quan sát</p></li>
 </ul>
 <p><strong>Ví dụ</strong>: Giá trị kỳ vọng của <em>Desktop</em> và <em>Organic Search</em> có thể được tính như sau:</p>
-<p>$$
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{aligned}
-\text{Users}_{expected} &amp;= \frac{r_1}{T} \times \frac{c_1}{T} \times T \
-&amp;= \frac{100}{300} \times \frac{80}{300} \times 300 \
-&amp;= .33 \times .27 \times 300 \
-&amp;= 26.67 \
+\text{Users}_{expected} &amp;= \frac{r_1}{T} \times \frac{c_1}{T} \times T \\
+&amp;= \frac{100}{300} \times \frac{80}{300} \times 300 \\
+&amp;= .33 \times .27 \times 300 \\
+&amp;= 26.67 \\
 &amp;= 27
 \end{aligned}
-$$</p>
+\end{split}\]</div>
 <p>Giá trị kỳ vọng của tất cả các giá trị có kết quả như sau</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1127,25 +1131,28 @@ $$</p>
 </div>
 </div>
 </div>
-<p>Tiếp đó, ta tính toán sự khác biệt giữa giá trị kỳ vọng và giá trị thực tế. Sau đó tính $\chi^2$ như sau:</p>
+<p>Tiếp đó, ta tính toán sự khác biệt giữa giá trị kỳ vọng và giá trị thực tế. Sau đó tính <span class="math notranslate nohighlight">\(\chi^2\)</span> như sau:</p>
 <ul class="simple">
 <li><p>Tính độ sai lệch</p></li>
 </ul>
-<p>$$
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{aligned}
-\text{Difference}&amp;= \text{User}_o - \text{User}_e \
-&amp;= 25 - 26.67 \
+\text{Difference}&amp;= \text{User}_o - \text{User}_e \\
+&amp;= 25 - 26.67 \\
 &amp;= -1.67
 \end{aligned}
-$$</p>
+\end{split}\]</div>
 <ul class="simple">
 <li><p>Tính giá trị bình phương</p></li>
 </ul>
-<p>$$-1.67^2=2.78$$</p>
+<div class="math notranslate nohighlight">
+\[-1.67^2=2.78\]</div>
 <ul class="simple">
 <li><p>Chia giá trị vừa tính được cho giá trị kỳ vọng:</p></li>
 </ul>
-<p>$$\frac{2.78}{27} = 0.10$$</p>
+<div class="math notranslate nohighlight">
+\[\frac{2.78}{27} = 0.10\]</div>
 <p>Tương tự, ta tính được cho tất cả các biến như sau</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1169,9 +1176,9 @@ $$</p>
 </style>
 <small>shape: (3, 5)</small><table border="1" class="dataframe"><thead><tr><th>device_category</th><th>organic_search</th><th>paid_search</th><th>email</th><th>display</th></tr><tr><td>str</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>&quot;Desktop&quot;</td><td>0.1</td><td>0.13</td><td>5.83</td><td>2.45</td></tr><tr><td>&quot;Tablet&quot;</td><td>1.67</td><td>3.2</td><td>0.12</td><td>0.39</td></tr><tr><td>&quot;Phone&quot;</td><td>2.6</td><td>2.05</td><td>7.62</td><td>4.8</td></tr></tbody></table></div></div></div>
 </div>
-<p>$\chi^2$ thực tế được tính bằng tổng các giá trị trên $\chi^2 = 30.96$</p>
-<p>Với dữ liệu trên, ta có 4 cột và 3 hàng. Như vậy, bậc tự do trong phân phôi $\chi^2$ là $(4-1)*(3-1) = 6$. Ta có thể so sánh giá trị vừa tìm được với giá trị $\chi^2$ tại
-<a class="reference external" href="http://www.danielsoper.com/statcalc/calculator.aspx?id=12">đây</a>. Với $\alpha$ bằng .1 và 6 bậc tự do, giá trị của $\chi$^2^ là 10.64. Với giá trị thực tế lớn hơn giá trị lý thuyết, ta bác bỏ $H_0$. Như vậy, về mặt thống kê, tồn tại mối quan hệ giữa phương thức marketing và thiết bị sử dụng.</p>
+<p><span class="math notranslate nohighlight">\(\chi^2\)</span> thực tế được tính bằng tổng các giá trị trên <span class="math notranslate nohighlight">\(\chi^2 = 30.96\)</span></p>
+<p>Với dữ liệu trên, ta có 4 cột và 3 hàng. Như vậy, bậc tự do trong phân phôi <span class="math notranslate nohighlight">\(\chi^2\)</span> là <span class="math notranslate nohighlight">\((4-1)*(3-1) = 6\)</span>. Ta có thể so sánh giá trị vừa tìm được với giá trị <span class="math notranslate nohighlight">\(\chi^2\)</span> tại
+<a class="reference external" href="http://www.danielsoper.com/statcalc/calculator.aspx?id=12">đây</a>. Với <span class="math notranslate nohighlight">\(\alpha\)</span> bằng .1 và 6 bậc tự do, giá trị của <span class="math notranslate nohighlight">\(\chi\)</span>^2^ là 10.64. Với giá trị thực tế lớn hơn giá trị lý thuyết, ta bác bỏ <span class="math notranslate nohighlight">\(H_0\)</span>. Như vậy, về mặt thống kê, tồn tại mối quan hệ giữa phương thức marketing và thiết bị sử dụng.</p>
 <p><strong>Ví dụ với Python</strong></p>
 <p>Trong thực tế, khi phân tích dữ liệu, ta có thể ra quyết định nhanh chóng về mối quan hệ giữa hai biến rời rạc thông qua <code class="docutils literal notranslate"><span class="pre">p-value</span></code>.</p>
 <div class="cell docutils container">
@@ -1203,11 +1210,11 @@ $$</p>
 </div>
 </div>
 </div>
-<p>Với $p-value &lt; 0.05$, ta bác bỏ $H_0$, chấp nhận $H_1$. Nghĩa là tồn tại mối quan hệ giữa phương thức quảng cáo và thiết bị sử dụng.</p>
+<p>Với <span class="math notranslate nohighlight">\(p-value &lt; 0.05\)</span>, ta bác bỏ <span class="math notranslate nohighlight">\(H_0\)</span>, chấp nhận <span class="math notranslate nohighlight">\(H_1\)</span>. Nghĩa là tồn tại mối quan hệ giữa phương thức quảng cáo và thiết bị sử dụng.</p>
 </section>
 <section id="prop-test">
 <h2><span class="section-number">10.5. </span>Prop test<a class="headerlink" href="#prop-test" title="Link to this heading"></a></h2>
-<p>Nếu Anova được sử dụng để đánh giá ảnh hưởng của 1 biến rời rạc lên 1 biến liên tục, prop test là một trường hợp đặc biệt của $\chi^2$ dùng để đánh giá ảnh hưởng của 1 biến rời rạc lên phân bổ của 1 biến khác.</p>
+<p>Nếu Anova được sử dụng để đánh giá ảnh hưởng của 1 biến rời rạc lên 1 biến liên tục, prop test là một trường hợp đặc biệt của <span class="math notranslate nohighlight">\(\chi^2\)</span> dùng để đánh giá ảnh hưởng của 1 biến rời rạc lên phân bổ của 1 biến khác.</p>
 <p>Ví dụ: Thử nghiệm đánh giá khả năng phản hồi của 2 thông điệp quảng cáo đến các nhóm đối tượng tương tự nhau.</p>
 <table class="docutils align-default">
 <thead>
@@ -1252,7 +1259,7 @@ P-value: 0.7228
 </div>
 </div>
 </div>
-<p>Trong trường hợp trên, ta không đủ kết luận rằng quảng cáo A tốt hơn quảng cáo B do $\text{p-value} &gt; 0.05$</p>
+<p>Trong trường hợp trên, ta không đủ kết luận rằng quảng cáo A tốt hơn quảng cáo B do <span class="math notranslate nohighlight">\(\text{p-value} &gt; 0.05\)</span></p>
 <p><strong>Lưu ý</strong>: <code class="docutils literal notranslate"><span class="pre">prop.test</span></code> chỉ được dùng khi đo lường tỷ lệ chuyển đổi, ảnh hưởng của các biến rời rạc (factor) lên đối tượng (<code class="docutils literal notranslate"><span class="pre">discrete</span> <span class="pre">number</span></code>). Do đó, nếu dùng prop.test để đánh giá trên biến giá trị, đặc biệt sau khi chuyển đổi đơn vị tiền tệ sẽ gây ra các nhận định sai lầm.</p>
 <p>VD: Đánh giá về tỷ lệ bảo hiểm tái tục năm 2 nếu khách hàng buộc phải mua bảo hiểm (không phải do tự nguyện), ta có bảng sau</p>
 <table class="docutils align-default">
@@ -1302,7 +1309,7 @@ P-value: 0.7228
 </div>
 </div>
 </div>
-<p>Kết quả cho thấy $p-value &gt; 0.05$, việc bắt buộc mua bảo hiểm không ảnh hưởng đến tỷ lệ huỷ năm 2!</p>
+<p>Kết quả cho thấy <span class="math notranslate nohighlight">\(p-value &gt; 0.05\)</span>, việc bắt buộc mua bảo hiểm không ảnh hưởng đến tỷ lệ huỷ năm 2!</p>
 <p>Đây là kết quả sai lầm do bị đi nhầm vào bản chất. Do mỗi hợp đồng trị giá trung bình 20 triêu VND, kết quả đúng phải như sau.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
