@@ -1,59 +1,165 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="vn" data-content_root="./">
-<head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>10. Các chỉ số thống kê mô tả cơ bản &mdash; Phân tích dữ liệu với Python 2022 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0cebd926" />
+
+<html lang="vn" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>10. Các chỉ số thống kê mô tả cơ bản &#8212; Phân tích dữ liệu với Python 2022 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-      <script src="_static/jquery.js?v=5d32c60e"></script>
-      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=a798377f"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-      <script src="_static/copybutton.js?v=f281be69"></script>
-      <script src="_static/design-tabs.js?v=f930bc37"></script>
-      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "displayMath": [["$$", "$$"], ["\\[", "\\]"]]}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="_static/js/theme.js"></script>
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0cebd926" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9ef1825d"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "displayMath": [["$$", "$$"], ["\\[", "\\]"]]}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'p01-10-thong-ke-co-ban';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="11. Bản đồ với folium" href="p01-11-map-folium.html" />
-    <link rel="prev" title="9. Numpy" href="p01-09-numpy.html" /> 
-</head>
+    <link rel="prev" title="9. Numpy" href="p01-09-numpy.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="vn"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-          
-          
-          <a href="index.html" class="icon icon-home">
-            Phân tích dữ liệu với Python
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Python cơ bản</span></p>
-<ul class="current">
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Phân tích dữ liệu với Python 2022 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python cơ bản</span></p>
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="p01-01-gioi-thieu-python.html">1. Giới thiệu về Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-02-python-ide.html">2. Python IDE - Jupyter lab &amp; Visual Studio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-03-cau-truc-du-lieu-python.html">3. Các cấu trúc cơ bản trong Python</a></li>
@@ -63,64 +169,147 @@
 <li class="toctree-l1"><a class="reference internal" href="p01-07-datetime.html">7. Dữ liệu thời gian trong Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-08-lam-viec-voi-text.html">8. Biến đổi dữ liệu text trong python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-09-numpy.html">9. Numpy</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">10. Các chỉ số thống kê mô tả cơ bản</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#cac-chi-so-thong-ke-co-ban">10.1. Các chỉ số thống kê cơ bản</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#phan-tich-moi-quan-he-2-bien-lien-tuc-correlation">10.2. Phân tích mối quan hệ 2 biến liên tục - correlation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#anova">10.3. ANOVA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#kiem-dinh-quan-he-chi-binh-phuong">10.4. Kiểm định quan hệ Chi-bình phương</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#prop-test">10.5. Prop test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#simpson-paradox">10.6. Simpson paradox</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Các chỉ số thống kê mô tả cơ bản</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-11-map-folium.html">11. Bản đồ với <code class="docutils literal notranslate"><span class="pre">folium</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-99-tricks-python.html">12. Các mẹo trong Python</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Lập trình trong Python</span></p>
-<ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lập trình trong Python</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="p02-01-lap-trinh-doi-tuong-python.html">1. Lập trình hướng - đối tượng với Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p02-02-functions-in-python.html">2. Viết hàm trong Python</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Machine learning với sklearn</span></p>
-<ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Machine learning với sklearn</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="p05-01-sklearn.html">1. Giới thiệu cơ bản về Scikit learn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p05-02-sklearn-advanced.html">2. sklearn nâng cao</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p05-03-xgboost.html">3. Xgboost với sklearn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p05-07-machine-learning-h2o.html">4. Machine learning với <code class="docutils literal notranslate"><span class="pre">H2O</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="p05-20-api-flask.html">5. Xây dựng API dự báo với Flask</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Kiến thức bổ trợ</span></p>
-<ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Kiến thức bổ trợ</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="p06-01-so-sanh-python-r.html">1. So sánh R với Python cơ bản</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p06-02-matplotlib.html">2. Trực quan hóa với Matplotlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p06-03-seaborn.html">3. Trực quan hóa với Seaborn</a></li>
 </ul>
 
-        </div>
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
       </div>
-    </nav>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Phân tích dữ liệu với Python</a>
-      </nav>
+<div class="sbt-scroll-pixel-helper"></div>
 
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">10. </span>Các chỉ số thống kê mô tả cơ bản</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="_sources/p01-10-thong-ke-co-ban.ipynb.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Các chỉ số thống kê mô tả cơ bản</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Mục lục </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-chi-so-thong-ke-co-ban">10.1. Các chỉ số thống kê cơ bản</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phan-tich-moi-quan-he-2-bien-lien-tuc-correlation">10.2. Phân tích mối quan hệ 2 biến liên tục - correlation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anova">10.3. ANOVA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kiem-dinh-quan-he-chi-binh-phuong">10.4. Kiểm định quan hệ Chi-bình phương</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prop-test">10.5. Prop test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simpson-paradox">10.6. Simpson paradox</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="cac-chi-so-thong-ke-mo-ta-co-ban">
-<h1><span class="section-number">10. </span>Các chỉ số thống kê mô tả cơ bản<a class="headerlink" href="#cac-chi-so-thong-ke-mo-ta-co-ban" title="Link to this heading"></a></h1>
+<h1><span class="section-number">10. </span>Các chỉ số thống kê mô tả cơ bản<a class="headerlink" href="#cac-chi-so-thong-ke-mo-ta-co-ban" title="Link to this heading">#</a></h1>
 <p>Trong quá trình phân tích dữ liệu, việc nắm vững các chỉ số thống kê cơ bản là rất quan trọng. Tuy nhiên, vấn đề còn nằm ở khả năng diễn đạt các chỉ số thống kê thành các ngôn ngữ thân thuộc trong kinh doanh. Các chỉ số thống kê mô tả cho 1 biến có tính thực tiễn cao bao gồm:</p>
 <ul class="simple">
 <li><p>Giá trị trung bình</p></li>
@@ -143,7 +332,7 @@
 <p>Đây là chương rất quan trọng và tổng hợp phần lớn các kỹ thuật thống kê thường dùng khi phân tích dữ liệu thực tế. Thành thạo ứng dụng các kỹ thuật này có thể giúp phân tích và tìm kiếm insight nhanh chóng với khoảng 80%-85% các bài toán phân tích ứng dụng thực tế.</p>
 </div>
 <section id="cac-chi-so-thong-ke-co-ban">
-<h2><span class="section-number">10.1. </span>Các chỉ số thống kê cơ bản<a class="headerlink" href="#cac-chi-so-thong-ke-co-ban" title="Link to this heading"></a></h2>
+<h2><span class="section-number">10.1. </span>Các chỉ số thống kê cơ bản<a class="headerlink" href="#cac-chi-so-thong-ke-co-ban" title="Link to this heading">#</a></h2>
 <p>Giả sử ta có 1 tập hơn 1000 khách hàng với thu nhập như sau.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -419,7 +608,7 @@ Series: &#39;&#39; [i32]
 </div>
 </section>
 <section id="phan-tich-moi-quan-he-2-bien-lien-tuc-correlation">
-<h2><span class="section-number">10.2. </span>Phân tích mối quan hệ 2 biến liên tục - correlation<a class="headerlink" href="#phan-tich-moi-quan-he-2-bien-lien-tuc-correlation" title="Link to this heading"></a></h2>
+<h2><span class="section-number">10.2. </span>Phân tích mối quan hệ 2 biến liên tục - correlation<a class="headerlink" href="#phan-tich-moi-quan-he-2-bien-lien-tuc-correlation" title="Link to this heading">#</a></h2>
 <p><strong>Hệ số tương quan</strong></p>
 <p>Hệ số tương quan (correlation coefficient) là một chỉ số thống kê, được sử dụng để đo lường mối liên hệ tương quan tuyến tính giữa 2 biến định lượng hay còn gọi là biến liên tục (quantitative/continuous variables). Hay nói một cách dễ hiểu hơn, hệ số tương quan cho ta biết rằng giữa 2 biến liên tục có mối liên hệ <em>tuyến tính</em> nào hay không.</p>
 <p>Thể hiện quan hệ tuyến tính giữa hai hay nhiều biến. Có giá trị nằm trong khoảng [-1,1]</p>
@@ -798,7 +987,7 @@ Series: &#39;&#39; [i32]
 </div>
 </section>
 <section id="anova">
-<h2><span class="section-number">10.3. </span>ANOVA<a class="headerlink" href="#anova" title="Link to this heading"></a></h2>
+<h2><span class="section-number">10.3. </span>ANOVA<a class="headerlink" href="#anova" title="Link to this heading">#</a></h2>
 <p><strong>ANOVA</strong> viết tắt của từ <em>analysis of variance</em>, tức phân tích phương sai.
 Phương pháp ANOVA được sử dụng khi chúng ta muốn so sánh giữa 2 hoặc nhiều nhóm đối tượng khác nhau dựa vào 1 tiêu chí nhất định nào đó, ví dụ như so sánh <em>độ tuổi của nhóm khách hàng thường và khách VIP</em>, hay so sánh <em>thu nhập của nhóm khách hàng nam và khách hàng nữ</em>... Để giải thích một cách dễ hiểu hơn, chúng ta sẽ làm ví dụ sau với tập dữ liệu <code class="docutils literal notranslate"><span class="pre">iris</span></code></p>
 <div class="cell docutils container">
@@ -1029,7 +1218,7 @@ versicolor  virginica    0.652   0.0 0.4082 0.8958   True
 </div>
 </section>
 <section id="kiem-dinh-quan-he-chi-binh-phuong">
-<h2><span class="section-number">10.4. </span>Kiểm định quan hệ Chi-bình phương<a class="headerlink" href="#kiem-dinh-quan-he-chi-binh-phuong" title="Link to this heading"></a></h2>
+<h2><span class="section-number">10.4. </span>Kiểm định quan hệ Chi-bình phương<a class="headerlink" href="#kiem-dinh-quan-he-chi-binh-phuong" title="Link to this heading">#</a></h2>
 <p>Một trong những câu hỏi ta thường xuyên phải giải quyết trong quá trình phân tích dữ liệu là tìm kiếm mối quan hệ giữa các biến rời rạc. Một trong những kỹ thuật phổ biến để tìm kiếm mối quan hệ này là sử dụng kiểm định Chi-square (Khi bình phương).</p>
 <p>Để thực hiện phân tích mối quan hệ này, ta cần thực hiện ba bước:</p>
 <ul class="simple">
@@ -1213,10 +1402,10 @@ versicolor  virginica    0.652   0.0 0.4082 0.8958   True
 <p>Với <span class="math notranslate nohighlight">\(p-value &lt; 0.05\)</span>, ta bác bỏ <span class="math notranslate nohighlight">\(H_0\)</span>, chấp nhận <span class="math notranslate nohighlight">\(H_1\)</span>. Nghĩa là tồn tại mối quan hệ giữa phương thức quảng cáo và thiết bị sử dụng.</p>
 </section>
 <section id="prop-test">
-<h2><span class="section-number">10.5. </span>Prop test<a class="headerlink" href="#prop-test" title="Link to this heading"></a></h2>
+<h2><span class="section-number">10.5. </span>Prop test<a class="headerlink" href="#prop-test" title="Link to this heading">#</a></h2>
 <p>Nếu Anova được sử dụng để đánh giá ảnh hưởng của 1 biến rời rạc lên 1 biến liên tục, prop test là một trường hợp đặc biệt của <span class="math notranslate nohighlight">\(\chi^2\)</span> dùng để đánh giá ảnh hưởng của 1 biến rời rạc lên phân bổ của 1 biến khác.</p>
 <p>Ví dụ: Thử nghiệm đánh giá khả năng phản hồi của 2 thông điệp quảng cáo đến các nhóm đối tượng tương tự nhau.</p>
-<table class="docutils align-default">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Quảng cáo</p></th>
 <th class="head"><p>Số lượt xem</p></th>
@@ -1237,6 +1426,7 @@ versicolor  virginica    0.652   0.0 0.4082 0.8958   True
 </tr>
 </tbody>
 </table>
+</div>
 <p>Để đánh giá chính xác quảng cáo A có thực sự tốt hơn B hay không, ta có test sau.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1262,7 +1452,7 @@ P-value: 0.7228
 <p>Trong trường hợp trên, ta không đủ kết luận rằng quảng cáo A tốt hơn quảng cáo B do <span class="math notranslate nohighlight">\(\text{p-value} &gt; 0.05\)</span></p>
 <p><strong>Lưu ý</strong>: <code class="docutils literal notranslate"><span class="pre">prop.test</span></code> chỉ được dùng khi đo lường tỷ lệ chuyển đổi, ảnh hưởng của các biến rời rạc (factor) lên đối tượng (<code class="docutils literal notranslate"><span class="pre">discrete</span> <span class="pre">number</span></code>). Do đó, nếu dùng prop.test để đánh giá trên biến giá trị, đặc biệt sau khi chuyển đổi đơn vị tiền tệ sẽ gây ra các nhận định sai lầm.</p>
 <p>VD: Đánh giá về tỷ lệ bảo hiểm tái tục năm 2 nếu khách hàng buộc phải mua bảo hiểm (không phải do tự nguyện), ta có bảng sau</p>
-<table class="docutils align-default">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Tiêu chí</p></th>
 <th class="head"><p>Bắt buộc</p></th>
@@ -1292,6 +1482,7 @@ P-value: 0.7228
 </tr>
 </tbody>
 </table>
+</div>
 <p>Bước tiếp theo, ta dùng <code class="docutils literal notranslate"><span class="pre">proportion</span> <span class="pre">test</span></code> để đánh giá hiệu ứng thực sự của việc bắt buộc phải mua bảo hiểm đến tỷ lệ huỷ năm 2.</p>
 <p>Nếu dùng giá trị là tỷ đồng, ta có kết quả sau.</p>
 <div class="cell docutils container">
@@ -1334,11 +1525,11 @@ P-value: 0.7228
 </div>
 </section>
 <section id="simpson-paradox">
-<h2><span class="section-number">10.6. </span>Simpson paradox<a class="headerlink" href="#simpson-paradox" title="Link to this heading"></a></h2>
+<h2><span class="section-number">10.6. </span>Simpson paradox<a class="headerlink" href="#simpson-paradox" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Simpson</span> <span class="pre">paradox</span></code> là hiện tượng xảy ra khi xu hướng/ kết luận tổng thể lại khác biệt so với khi so sánh từ nhóm riêng biệt.</p>
 <p><img alt="" src="_images/simpson-paradox.png" /></p>
 <p>Xem ví dụ sau - Có khảo sát nghiên cứu thị trường về tỷ lệ quan tâm đến uống trà sữa buổi trưa. Kết quả như sau</p>
-<table class="docutils align-default">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Nhóm</strong></p></th>
 <th class="head"><p><strong>Nam</strong></p></th>
@@ -1368,6 +1559,7 @@ P-value: 0.7228
 </tr>
 </tbody>
 </table>
+</div>
 <p>Khi quan sát riêng lẻ từng phân khúc, ta thấy kết quả như sau:</p>
 <ul class="simple">
 <li><p><strong>Với nhóm dưới 30 tuổi</strong> - Nữ quan tâm nhiều hơn nam (80% &gt; 70%)</p></li>
@@ -1384,34 +1576,108 @@ P-value: 0.7228
 </section>
 
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="p01-09-numpy.html" class="btn btn-neutral float-left" title="9. Numpy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="p01-11-map-folium.html" class="btn btn-neutral float-right" title="11. Bản đồ với folium" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+                </article>
+              
 
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2022, Anh Hoang Duc.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="p01-09-numpy.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Numpy</p>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+    </a>
+    <a class="right-next"
+       href="p01-11-map-folium.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Bản đồ với <code class="docutils literal notranslate"><span class="pre">folium</span></code></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-</body>
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Mục lục
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-chi-so-thong-ke-co-ban">10.1. Các chỉ số thống kê cơ bản</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phan-tich-moi-quan-he-2-bien-lien-tuc-correlation">10.2. Phân tích mối quan hệ 2 biến liên tục - correlation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anova">10.3. ANOVA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kiem-dinh-quan-he-chi-binh-phuong">10.4. Kiểm định quan hệ Chi-bình phương</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prop-test">10.5. Prop test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simpson-paradox">10.6. Simpson paradox</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Anh Hoang Duc
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Anh Hoang Duc.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
 </html>

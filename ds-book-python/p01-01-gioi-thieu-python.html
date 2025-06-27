@@ -1,79 +1,164 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="vn" data-content_root="./">
-<head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>1. Giới thiệu về Python &mdash; Phân tích dữ liệu với Python 2022 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0cebd926" />
+
+<html lang="vn" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1. Giới thiệu về Python &#8212; Phân tích dữ liệu với Python 2022 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-      <script src="_static/jquery.js?v=5d32c60e"></script>
-      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=a798377f"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-      <script src="_static/copybutton.js?v=f281be69"></script>
-      <script src="_static/design-tabs.js?v=f930bc37"></script>
-      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="_static/js/theme.js"></script>
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0cebd926" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9ef1825d"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'p01-01-gioi-thieu-python';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="2. Python IDE - Jupyter lab &amp; Visual Studio" href="p01-02-python-ide.html" />
-    <link rel="prev" title="Python cơ bản" href="index.html" /> 
-</head>
+    <link rel="prev" title="Python cơ bản" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="vn"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-          
-          
-          <a href="index.html" class="icon icon-home">
-            Phân tích dữ liệu với Python
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Python cơ bản</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Giới thiệu về Python</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#gioi-thieu">1.1. Giới thiệu</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#anaconda-pip">1.2. Anaconda &amp; Pip</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#thu-vien-trong-python">1.3. Thư viện trong Python</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#cai-dat-library-trong-python">1.3.1. Cài đặt library trong Python</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cai-dat-packages-offline">1.3.2. Cài đặt packages offline</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#kiem-tra-thu-vien-python">1.3.3. Kiểm tra thư viện Python</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#mot-so-cau-lenh-co-ban">1.4. Một số câu lệnh cơ bản</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#thu-muc-dang-lam-viec">1.4.1. Thư mục đang làm việc</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cach-xuong-dong">1.4.2. Cách xuống dòng</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#help-trong-python">1.4.3. Help trong python</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#chay-external-code-tren-notebook">1.4.4. Chạy external code trên notebook</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#hien-thi-code-da-chay">1.4.5. Hiển thị code đã chạy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#lam-viec-voi-shell">1.4.6. Làm việc với shell</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#kiem-tra-thoi-gian-chay-code">1.4.7. Kiểm tra thời gian chạy code</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#tai-lieu-tham-khao">1.5. Tài liệu tham khảo</a></li>
-</ul>
-</li>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Phân tích dữ liệu với Python 2022 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python cơ bản</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Giới thiệu về Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-02-python-ide.html">2. Python IDE - Jupyter lab &amp; Visual Studio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-03-cau-truc-du-lieu-python.html">3. Các cấu trúc cơ bản trong Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-04-pandas.html">4. Pandas</a></li>
@@ -86,54 +171,158 @@
 <li class="toctree-l1"><a class="reference internal" href="p01-11-map-folium.html">11. Bản đồ với <code class="docutils literal notranslate"><span class="pre">folium</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-99-tricks-python.html">12. Các mẹo trong Python</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Lập trình trong Python</span></p>
-<ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lập trình trong Python</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="p02-01-lap-trinh-doi-tuong-python.html">1. Lập trình hướng - đối tượng với Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p02-02-functions-in-python.html">2. Viết hàm trong Python</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Machine learning với sklearn</span></p>
-<ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Machine learning với sklearn</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="p05-01-sklearn.html">1. Giới thiệu cơ bản về Scikit learn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p05-02-sklearn-advanced.html">2. sklearn nâng cao</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p05-03-xgboost.html">3. Xgboost với sklearn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p05-07-machine-learning-h2o.html">4. Machine learning với <code class="docutils literal notranslate"><span class="pre">H2O</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="p05-20-api-flask.html">5. Xây dựng API dự báo với Flask</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Kiến thức bổ trợ</span></p>
-<ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Kiến thức bổ trợ</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="p06-01-so-sanh-python-r.html">1. So sánh R với Python cơ bản</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p06-02-matplotlib.html">2. Trực quan hóa với Matplotlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p06-03-seaborn.html">3. Trực quan hóa với Seaborn</a></li>
 </ul>
 
-        </div>
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
       </div>
-    </nav>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Phân tích dữ liệu với Python</a>
-      </nav>
+<div class="sbt-scroll-pixel-helper"></div>
 
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">1. </span>Giới thiệu về Python</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="_sources/p01-01-gioi-thieu-python.ipynb.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Giới thiệu về Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Mục lục </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gioi-thieu">1.1. Giới thiệu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anaconda-pip">1.2. Anaconda &amp; Pip</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thu-vien-trong-python">1.3. Thư viện trong Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cai-dat-library-trong-python">1.3.1. Cài đặt library trong Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cai-dat-packages-offline">1.3.2. Cài đặt packages offline</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kiem-tra-thu-vien-python">1.3.3. Kiểm tra thư viện Python</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mot-so-cau-lenh-co-ban">1.4. Một số câu lệnh cơ bản</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thu-muc-dang-lam-viec">1.4.1. Thư mục đang làm việc</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cach-xuong-dong">1.4.2. Cách xuống dòng</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#help-trong-python">1.4.3. Help trong python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chay-external-code-tren-notebook">1.4.4. Chạy external code trên notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hien-thi-code-da-chay">1.4.5. Hiển thị code đã chạy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lam-viec-voi-shell">1.4.6. Làm việc với shell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kiem-tra-thoi-gian-chay-code">1.4.7. Kiểm tra thời gian chạy code</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tai-lieu-tham-khao">1.5. Tài liệu tham khảo</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="gioi-thieu-ve-python">
-<h1><span class="section-number">1. </span>Giới thiệu về Python<a class="headerlink" href="#gioi-thieu-ve-python" title="Link to this heading"></a></h1>
+<h1><span class="section-number">1. </span>Giới thiệu về Python<a class="headerlink" href="#gioi-thieu-ve-python" title="Link to this heading">#</a></h1>
 <section id="gioi-thieu">
-<h2><span class="section-number">1.1. </span>Giới thiệu<a class="headerlink" href="#gioi-thieu" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.1. </span>Giới thiệu<a class="headerlink" href="#gioi-thieu" title="Link to this heading">#</a></h2>
 <p>Python là ngôn ngữ phổ biến nhất cho Machine Learning nói chung và Data Science nói riêng bởi tính đơn giản gọn nhẹ. Python cũng đồng thời được coi là ngôn ngữ tốt thứ 2 trong rất nhiều lĩnh vực.</p>
 <p>Do độ phổ cập rộng rãi của Python cũng như tính hữu dụng khi làm việc, tương tác với mô trường điện toán đám mấy (cloud) và thiết kế API/deployment cho lĩnh vực AI, bên cạnh các ngôn ngữ phân tích thống kê, khám phá như R, Stata,..., ta cần làm quen và sử dụng Python để có thể mở rộng phạm vi làm việc cũng như tương tác cho các lĩnh vực khác nhau.</p>
 <p>Tài liệu này được viết riêng dành cho nhóm phân tích dữ liệu từ R dịch chuyển sang Python để có thể dễ dàng tiếp cận, đơn giản hóa quá trình học và sử dụng một ngôn ngữ phân tích mới. Lộ trình học nên bám sát theo:</p>
@@ -156,7 +345,7 @@
 </div>
 </section>
 <section id="anaconda-pip">
-<h2><span class="section-number">1.2. </span>Anaconda &amp; Pip<a class="headerlink" href="#anaconda-pip" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.2. </span>Anaconda &amp; Pip<a class="headerlink" href="#anaconda-pip" title="Link to this heading">#</a></h2>
 <p>Có nhiều cách để cài đặt và sử dụng Python.</p>
 <p><strong>Cách 1</strong>: Đi tới trực tiếp trang <a class="reference internal" href="#"><span class="xref myst">https://www.python.org/downloads/</span></a> để download cho Windows (hoặc Mac). Sau khi download xong, ta có thể dùng trực tiếp python cũng như cài đặt các thư viện đi kèm qua cmd</p>
 <p><strong>Cách 2</strong>: Sử dụng <strong>Anaconda</strong>, đây là 1 Platform khá nổi tiếng trong Data Science, khi cài <strong>Anaconda</strong> ta sẽ có:</p>
@@ -169,7 +358,7 @@
 <p><img alt="" src="_images/anaconda.png" /></p>
 </section>
 <section id="thu-vien-trong-python">
-<h2><span class="section-number">1.3. </span>Thư viện trong Python<a class="headerlink" href="#thu-vien-trong-python" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.3. </span>Thư viện trong Python<a class="headerlink" href="#thu-vien-trong-python" title="Link to this heading">#</a></h2>
 <p>Tương tự như <code class="docutils literal notranslate"><span class="pre">R</span></code>, các library trong Python rất đa dạng và hỗ trợ giải quyết nhiều vấn đề khác nhau.</p>
 <p>Các thư viện thường dùng trong Python khi phân tích dữ liệu:</p>
 <ul class="simple">
@@ -180,7 +369,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">scikit</span> <span class="pre">Learn</span></code>: Machine learning</p></li>
 </ul>
 <section id="cai-dat-library-trong-python">
-<h3><span class="section-number">1.3.1. </span>Cài đặt library trong Python<a class="headerlink" href="#cai-dat-library-trong-python" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.3.1. </span>Cài đặt library trong Python<a class="headerlink" href="#cai-dat-library-trong-python" title="Link to this heading">#</a></h3>
 <p>Phần lớn các library đều đã được cài đặt cùng với Anaconda, các library khác khi cần chúng ta có thể cài bằng <code class="docutils literal notranslate"><span class="pre">pip</span></code>.</p>
 <p>VD, sử dụng Jupyter Notebook console</p>
 <p><code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">seaborn</span></code></p>
@@ -232,7 +421,7 @@
 </div>
 </section>
 <section id="cai-dat-packages-offline">
-<h3><span class="section-number">1.3.2. </span>Cài đặt packages offline<a class="headerlink" href="#cai-dat-packages-offline" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.3.2. </span>Cài đặt packages offline<a class="headerlink" href="#cai-dat-packages-offline" title="Link to this heading">#</a></h3>
 <p><strong>Cài đặt với conda</strong></p>
 <ul class="simple">
 <li><p>Download package từ trang web: https://anaconda.org</p></li>
@@ -248,7 +437,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">nbextensions</span></code></p>
 </section>
 <section id="kiem-tra-thu-vien-python">
-<h3><span class="section-number">1.3.3. </span>Kiểm tra thư viện Python<a class="headerlink" href="#kiem-tra-thu-vien-python" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.3.3. </span>Kiểm tra thư viện Python<a class="headerlink" href="#kiem-tra-thu-vien-python" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">site</span>
@@ -269,9 +458,9 @@
 </section>
 </section>
 <section id="mot-so-cau-lenh-co-ban">
-<h2><span class="section-number">1.4. </span>Một số câu lệnh cơ bản<a class="headerlink" href="#mot-so-cau-lenh-co-ban" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.4. </span>Một số câu lệnh cơ bản<a class="headerlink" href="#mot-so-cau-lenh-co-ban" title="Link to this heading">#</a></h2>
 <section id="thu-muc-dang-lam-viec">
-<h3><span class="section-number">1.4.1. </span>Thư mục đang làm việc<a class="headerlink" href="#thu-muc-dang-lam-viec" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.4.1. </span>Thư mục đang làm việc<a class="headerlink" href="#thu-muc-dang-lam-viec" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Kiểm tra thư mục đang làm việc</p></li>
 </ul>
@@ -327,7 +516,7 @@
 </div>
 </section>
 <section id="cach-xuong-dong">
-<h3><span class="section-number">1.4.2. </span>Cách xuống dòng<a class="headerlink" href="#cach-xuong-dong" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.4.2. </span>Cách xuống dòng<a class="headerlink" href="#cach-xuong-dong" title="Link to this heading">#</a></h3>
 <p>Ta có thể xuống dòng với dấu <code class="docutils literal notranslate"><span class="pre">\</span></code> và <strong>không có dấu cách</strong> đằng sau</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -359,7 +548,7 @@
 </div>
 </section>
 <section id="help-trong-python">
-<h3><span class="section-number">1.4.3. </span>Help trong python<a class="headerlink" href="#help-trong-python" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.4.3. </span>Help trong python<a class="headerlink" href="#help-trong-python" title="Link to this heading">#</a></h3>
 <p>Tương tự như R, ta có thể truy cập và tìm kiếm các tài liệu sẵn có trong một hàm. Các tài liệu đó được viết dưới dạng đặc biệt được gọi là <code class="docutils literal notranslate"><span class="pre">docs</span> <span class="pre">string</span></code>, viết trong <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;...&quot;&quot;&quot;</span></code></p>
 <p>Ta có thể đọc tài liệu với cấu trúc câu lệnh <code class="docutils literal notranslate"><span class="pre">function??</span></code></p>
 <div class="cell docutils container">
@@ -473,7 +662,7 @@ r : ndarray or tuple of ndarray
 <p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn</span> <span class="pre">import</span> <span class="pre">da&lt;TAB&gt;</span></code></p>
 </section>
 <section id="chay-external-code-tren-notebook">
-<h3><span class="section-number">1.4.4. </span>Chạy external code trên notebook<a class="headerlink" href="#chay-external-code-tren-notebook" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.4.4. </span>Chạy external code trên notebook<a class="headerlink" href="#chay-external-code-tren-notebook" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Chạy file .py</p></li>
 </ul>
@@ -488,7 +677,7 @@ r : ndarray or tuple of ndarray
 </div>
 </section>
 <section id="hien-thi-code-da-chay">
-<h3><span class="section-number">1.4.5. </span>Hiển thị code đã chạy<a class="headerlink" href="#hien-thi-code-da-chay" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.4.5. </span>Hiển thị code đã chạy<a class="headerlink" href="#hien-thi-code-da-chay" title="Link to this heading">#</a></h3>
 <p>Jupyter notebook cho phép hiển thị các đoạn cell đã chạy trong cùng notebook</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -504,7 +693,7 @@ r : ndarray or tuple of ndarray
 </div>
 </section>
 <section id="lam-viec-voi-shell">
-<h3><span class="section-number">1.4.6. </span>Làm việc với shell<a class="headerlink" href="#lam-viec-voi-shell" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.4.6. </span>Làm việc với shell<a class="headerlink" href="#lam-viec-voi-shell" title="Link to this heading">#</a></h3>
 <p>Python cho phép làm việc với shell trong Python</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span>
 </pre></div>
@@ -516,7 +705,7 @@ len(my_content)
 </div>
 </section>
 <section id="kiem-tra-thoi-gian-chay-code">
-<h3><span class="section-number">1.4.7. </span>Kiểm tra thời gian chạy code<a class="headerlink" href="#kiem-tra-thoi-gian-chay-code" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.4.7. </span>Kiểm tra thời gian chạy code<a class="headerlink" href="#kiem-tra-thoi-gian-chay-code" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">time</span> sum(range(100))
@@ -536,7 +725,7 @@ Wall time: 8.58 μs
 </section>
 </section>
 <section id="tai-lieu-tham-khao">
-<h2><span class="section-number">1.5. </span>Tài liệu tham khảo<a class="headerlink" href="#tai-lieu-tham-khao" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.5. </span>Tài liệu tham khảo<a class="headerlink" href="#tai-lieu-tham-khao" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/</p></li>
 <li><p>https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html</p></li>
@@ -547,34 +736,121 @@ Wall time: 8.58 μs
 </section>
 
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Python cơ bản" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="p01-02-python-ide.html" class="btn btn-neutral float-right" title="2. Python IDE - Jupyter lab &amp; Visual Studio" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+                </article>
+              
 
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2022, Anh Hoang Duc.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Python cơ bản</p>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+    </a>
+    <a class="right-next"
+       href="p01-02-python-ide.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Python IDE - Jupyter lab &amp; Visual Studio</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-</body>
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Mục lục
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gioi-thieu">1.1. Giới thiệu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anaconda-pip">1.2. Anaconda &amp; Pip</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thu-vien-trong-python">1.3. Thư viện trong Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cai-dat-library-trong-python">1.3.1. Cài đặt library trong Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cai-dat-packages-offline">1.3.2. Cài đặt packages offline</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kiem-tra-thu-vien-python">1.3.3. Kiểm tra thư viện Python</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mot-so-cau-lenh-co-ban">1.4. Một số câu lệnh cơ bản</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thu-muc-dang-lam-viec">1.4.1. Thư mục đang làm việc</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cach-xuong-dong">1.4.2. Cách xuống dòng</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#help-trong-python">1.4.3. Help trong python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chay-external-code-tren-notebook">1.4.4. Chạy external code trên notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hien-thi-code-da-chay">1.4.5. Hiển thị code đã chạy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lam-viec-voi-shell">1.4.6. Làm việc với shell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kiem-tra-thoi-gian-chay-code">1.4.7. Kiểm tra thời gian chạy code</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tai-lieu-tham-khao">1.5. Tài liệu tham khảo</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Anh Hoang Duc
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Anh Hoang Duc.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
 </html>

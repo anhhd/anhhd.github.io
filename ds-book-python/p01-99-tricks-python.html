@@ -1,57 +1,163 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="vn" data-content_root="./">
-<head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>12. Các mẹo trong Python &mdash; Phân tích dữ liệu với Python 2022 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0cebd926" />
+
+<html lang="vn" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>12. Các mẹo trong Python &#8212; Phân tích dữ liệu với Python 2022 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-      <script src="_static/jquery.js?v=5d32c60e"></script>
-      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=a798377f"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-      <script src="_static/copybutton.js?v=f281be69"></script>
-      <script src="_static/design-tabs.js?v=f930bc37"></script>
-      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="_static/js/theme.js"></script>
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0cebd926" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9ef1825d"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'p01-99-tricks-python';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="1. Lập trình hướng - đối tượng với Python" href="p02-01-lap-trinh-doi-tuong-python.html" />
-    <link rel="prev" title="11. Bản đồ với folium" href="p01-11-map-folium.html" /> 
-</head>
+    <link rel="prev" title="11. Bản đồ với folium" href="p01-11-map-folium.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="vn"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-          
-          
-          <a href="index.html" class="icon icon-home">
-            Phân tích dữ liệu với Python
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Python cơ bản</span></p>
-<ul class="current">
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Phân tích dữ liệu với Python 2022 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python cơ bản</span></p>
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="p01-01-gioi-thieu-python.html">1. Giới thiệu về Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-02-python-ide.html">2. Python IDE - Jupyter lab &amp; Visual Studio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-03-cau-truc-du-lieu-python.html">3. Các cấu trúc cơ bản trong Python</a></li>
@@ -63,95 +169,178 @@
 <li class="toctree-l1"><a class="reference internal" href="p01-09-numpy.html">9. Numpy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-10-thong-ke-co-ban.html">10. Các chỉ số thống kê mô tả cơ bản</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-11-map-folium.html">11. Bản đồ với <code class="docutils literal notranslate"><span class="pre">folium</span></code></a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">12. Các mẹo trong Python</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#cau-lenh-trong-dieu-kien">12.1. Câu lệnh trong điều kiện</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#any-vs-all">12.2. Any vs All</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#debug">12.3. Debug</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#kiem-tra-thoi-gian-chay-code">12.4. Kiểm tra thời gian chạy code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#profiling-voi-memory">12.5. Profiling với memory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#phan-biet-cac-dau-gach-duoi-trong-python">12.6. Phân biệt các dấu gạch dưới trong Python</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#luu-gia-tri-tu-truoc">12.6.1. Lưu giá trị từ trước</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#bo-qua-gia-tri-khong-can-thiet">12.6.2. Bỏ qua giá trị không cần thiết</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#su-dung-trong-loop">12.6.3. Sử dụng trong loop</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#phan-cach-hang-nghin">12.6.4. Phân cách hàng nghìn</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#dat-ten-co-chua">12.6.5. Đặt tên có chứa <code class="docutils literal notranslate"><span class="pre">_</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#mot-dau-dang-truoc">12.6.5.1. Một dấu đằng trước</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gach-duoi-cuoi-ten">12.6.5.2. Gạch dưới cuối tên</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#hai-dau-gach-truoc-va-sau">12.6.5.3. Hai dấu gạch trước và sau</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Các mẹo trong Python</a></li>
 </ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#list-object-trong-moi-truong-lam-viec">12.7. List object trong môi trường làm việc</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#hien-thi-nhieu-ket-qua-trong-1-cell">12.8. Hiển thị nhiều kết quả trong 1 cell</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#assign-string-thanh-object">12.9. Assign string thành object</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#evaluation">12.10. Evaluation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#xoa-toan-bo-environment">12.11. Xóa toàn bộ environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#luu-code-tu-cell-thanh-file">12.12. Lưu code từ cell thành file</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mo-mot-loat-file-text-va-sua-noi-dung">12.13. Mở một loạt file text và sửa nội dung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#chay-file-python-tu-bat">12.14. Chạy file python từ bat</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#auto-format">12.15. Auto format</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lam-viec-voi-cac-file-trong-may-tinh">12.16. Làm việc với các file trong máy tính</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#liet-ke-cac-file-theo-dinh-dang">12.16.1. Liệt kê các file theo định dạng</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#chen-them-prefix-vao-tat-ca-file-name">12.16.2. Chèn thêm prefix vào tất cả file_name</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#rename-1-file">12.16.3. Rename 1 file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mo-1-file-text-thay-doi-va-save">12.16.4. Mở 1 file text, thay đổi và save</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#gia-lap-du-lieu">12.17. Giả lập dữ liệu</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#enumerate">12.18. Enumerate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#chay-tat-ca-cac-cells-trong-notebook-bo-qua-loi">12.19. Chạy tất cả các cells trong notebook, bỏ qua lỗi</a></li>
-</ul>
-</li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Lập trình trong Python</span></p>
-<ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lập trình trong Python</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="p02-01-lap-trinh-doi-tuong-python.html">1. Lập trình hướng - đối tượng với Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p02-02-functions-in-python.html">2. Viết hàm trong Python</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Machine learning với sklearn</span></p>
-<ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Machine learning với sklearn</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="p05-01-sklearn.html">1. Giới thiệu cơ bản về Scikit learn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p05-02-sklearn-advanced.html">2. sklearn nâng cao</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p05-03-xgboost.html">3. Xgboost với sklearn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p05-07-machine-learning-h2o.html">4. Machine learning với <code class="docutils literal notranslate"><span class="pre">H2O</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="p05-20-api-flask.html">5. Xây dựng API dự báo với Flask</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Kiến thức bổ trợ</span></p>
-<ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Kiến thức bổ trợ</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="p06-01-so-sanh-python-r.html">1. So sánh R với Python cơ bản</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p06-02-matplotlib.html">2. Trực quan hóa với Matplotlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p06-03-seaborn.html">3. Trực quan hóa với Seaborn</a></li>
 </ul>
 
-        </div>
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
       </div>
-    </nav>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Phân tích dữ liệu với Python</a>
-      </nav>
+<div class="sbt-scroll-pixel-helper"></div>
 
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">12. </span>Các mẹo trong Python</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="_sources/p01-99-tricks-python.ipynb.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Các mẹo trong Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Mục lục </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cau-lenh-trong-dieu-kien">12.1. Câu lệnh trong điều kiện</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#any-vs-all">12.2. Any vs All</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debug">12.3. Debug</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kiem-tra-thoi-gian-chay-code">12.4. Kiểm tra thời gian chạy code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#profiling-voi-memory">12.5. Profiling với memory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phan-biet-cac-dau-gach-duoi-trong-python">12.6. Phân biệt các dấu gạch dưới trong Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#luu-gia-tri-tu-truoc">12.6.1. Lưu giá trị từ trước</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bo-qua-gia-tri-khong-can-thiet">12.6.2. Bỏ qua giá trị không cần thiết</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#su-dung-trong-loop">12.6.3. Sử dụng trong loop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phan-cach-hang-nghin">12.6.4. Phân cách hàng nghìn</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dat-ten-co-chua">12.6.5. Đặt tên có chứa <code class="docutils literal notranslate"><span class="pre">_</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mot-dau-dang-truoc">12.6.5.1. Một dấu đằng trước</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gach-duoi-cuoi-ten">12.6.5.2. Gạch dưới cuối tên</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hai-dau-gach-truoc-va-sau">12.6.5.3. Hai dấu gạch trước và sau</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-object-trong-moi-truong-lam-viec">12.7. List object trong môi trường làm việc</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hien-thi-nhieu-ket-qua-trong-1-cell">12.8. Hiển thị nhiều kết quả trong 1 cell</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assign-string-thanh-object">12.9. Assign string thành object</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation">12.10. Evaluation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xoa-toan-bo-environment">12.11. Xóa toàn bộ environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#luu-code-tu-cell-thanh-file">12.12. Lưu code từ cell thành file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mo-mot-loat-file-text-va-sua-noi-dung">12.13. Mở một loạt file text và sửa nội dung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chay-file-python-tu-bat">12.14. Chạy file python từ bat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auto-format">12.15. Auto format</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lam-viec-voi-cac-file-trong-may-tinh">12.16. Làm việc với các file trong máy tính</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#liet-ke-cac-file-theo-dinh-dang">12.16.1. Liệt kê các file theo định dạng</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chen-them-prefix-vao-tat-ca-file-name">12.16.2. Chèn thêm prefix vào tất cả file_name</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rename-1-file">12.16.3. Rename 1 file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mo-1-file-text-thay-doi-va-save">12.16.4. Mở 1 file text, thay đổi và save</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gia-lap-du-lieu">12.17. Giả lập dữ liệu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerate">12.18. Enumerate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chay-tat-ca-cac-cells-trong-notebook-bo-qua-loi">12.19. Chạy tất cả các cells trong notebook, bỏ qua lỗi</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="cac-meo-trong-python">
-<h1><span class="section-number">12. </span>Các mẹo trong Python<a class="headerlink" href="#cac-meo-trong-python" title="Link to this heading"></a></h1>
+<h1><span class="section-number">12. </span>Các mẹo trong Python<a class="headerlink" href="#cac-meo-trong-python" title="Link to this heading">#</a></h1>
 <section id="cau-lenh-trong-dieu-kien">
-<h2><span class="section-number">12.1. </span>Câu lệnh trong điều kiện<a class="headerlink" href="#cau-lenh-trong-dieu-kien" title="Link to this heading"></a></h2>
+<h2><span class="section-number">12.1. </span>Câu lệnh trong điều kiện<a class="headerlink" href="#cau-lenh-trong-dieu-kien" title="Link to this heading">#</a></h2>
 <p>Trong python, các câu lệnh điều kiện if...else có thể viết ngắn gọn và đơn giản như sau:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Don&#39;t</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -180,7 +369,7 @@
 </div>
 </section>
 <section id="any-vs-all">
-<h2><span class="section-number">12.2. </span>Any vs All<a class="headerlink" href="#any-vs-all" title="Link to this heading"></a></h2>
+<h2><span class="section-number">12.2. </span>Any vs All<a class="headerlink" href="#any-vs-all" title="Link to this heading">#</a></h2>
 <p>Hàm <code class="docutils literal notranslate"><span class="pre">any</span></code> trong trong python cho phép trả ra kết quả nếu 1 trong các điều kiện là <code class="docutils literal notranslate"><span class="pre">TRUE</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -209,7 +398,7 @@
 </div>
 </section>
 <section id="debug">
-<h2><span class="section-number">12.3. </span>Debug<a class="headerlink" href="#debug" title="Link to this heading"></a></h2>
+<h2><span class="section-number">12.3. </span>Debug<a class="headerlink" href="#debug" title="Link to this heading">#</a></h2>
 <p>Sử dụng <code class="docutils literal notranslate"><span class="pre">%xmode</span></code> hoặc <code class="docutils literal notranslate"><span class="pre">%debug</span></code> để tìm lỗi. Xem ví dụ dưới đây</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -290,7 +479,7 @@
 </div>
 </section>
 <section id="kiem-tra-thoi-gian-chay-code">
-<h2><span class="section-number">12.4. </span>Kiểm tra thời gian chạy code<a class="headerlink" href="#kiem-tra-thoi-gian-chay-code" title="Link to this heading"></a></h2>
+<h2><span class="section-number">12.4. </span>Kiểm tra thời gian chạy code<a class="headerlink" href="#kiem-tra-thoi-gian-chay-code" title="Link to this heading">#</a></h2>
 <p>Python cho phép sử dụng profiling. Hai <code class="docutils literal notranslate"><span class="pre">magic</span> <span class="pre">command</span></code> hay dùng nhất là <code class="docutils literal notranslate"><span class="pre">%time</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">%timeit</span></code>.
 <code class="docutils literal notranslate"><span class="pre">%timeit</span></code> cho phép hiển thị thông tin chính xác với nhiều thông số hơn.</p>
 <div class="cell docutils container">
@@ -323,7 +512,7 @@ Wall time: 0 ns
 </div>
 </section>
 <section id="profiling-voi-memory">
-<h2><span class="section-number">12.5. </span>Profiling với memory<a class="headerlink" href="#profiling-voi-memory" title="Link to this heading"></a></h2>
+<h2><span class="section-number">12.5. </span>Profiling với memory<a class="headerlink" href="#profiling-voi-memory" title="Link to this heading">#</a></h2>
 <p>cài đặt <code class="docutils literal notranslate"><span class="pre">memory_profiler</span></code> trên với <code class="docutils literal notranslate"><span class="pre">anaconda</span> <span class="pre">prompt</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">memory_profiler</span></code></p>
 <div class="cell docutils container">
@@ -371,10 +560,10 @@ Wall time: 0 ns
 </div>
 </section>
 <section id="phan-biet-cac-dau-gach-duoi-trong-python">
-<h2><span class="section-number">12.6. </span>Phân biệt các dấu gạch dưới trong Python<a class="headerlink" href="#phan-biet-cac-dau-gach-duoi-trong-python" title="Link to this heading"></a></h2>
+<h2><span class="section-number">12.6. </span>Phân biệt các dấu gạch dưới trong Python<a class="headerlink" href="#phan-biet-cac-dau-gach-duoi-trong-python" title="Link to this heading">#</a></h2>
 <p>Dâu gạch dưới <code class="docutils literal notranslate"><span class="pre">_</span></code> có nhiều ý nghĩa khác nhau trong Python và có nhiều cách sử dụng. Ta cần phải nắm vững để có thể hiểu cách sử dụng của python</p>
 <section id="luu-gia-tri-tu-truoc">
-<h3><span class="section-number">12.6.1. </span>Lưu giá trị từ trước<a class="headerlink" href="#luu-gia-tri-tu-truoc" title="Link to this heading"></a></h3>
+<h3><span class="section-number">12.6.1. </span>Lưu giá trị từ trước<a class="headerlink" href="#luu-gia-tri-tu-truoc" title="Link to this heading">#</a></h3>
 <p>Cách này chỉ sử dụng với Ipython - dấu <code class="docutils literal notranslate"><span class="pre">-</span></code> cho phép hiển thị lại giá trị gần nhất trên Python REPL</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -397,7 +586,7 @@ Wall time: 0 ns
 </div>
 </section>
 <section id="bo-qua-gia-tri-khong-can-thiet">
-<h3><span class="section-number">12.6.2. </span>Bỏ qua giá trị không cần thiết<a class="headerlink" href="#bo-qua-gia-tri-khong-can-thiet" title="Link to this heading"></a></h3>
+<h3><span class="section-number">12.6.2. </span>Bỏ qua giá trị không cần thiết<a class="headerlink" href="#bo-qua-gia-tri-khong-can-thiet" title="Link to this heading">#</a></h3>
 <p>Ta có thể dùng <code class="docutils literal notranslate"><span class="pre">_</span></code> để bỏ qua các giá trị không muốn gán</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -435,7 +624,7 @@ Wall time: 0 ns
 </div>
 </section>
 <section id="su-dung-trong-loop">
-<h3><span class="section-number">12.6.3. </span>Sử dụng trong loop<a class="headerlink" href="#su-dung-trong-loop" title="Link to this heading"></a></h3>
+<h3><span class="section-number">12.6.3. </span>Sử dụng trong loop<a class="headerlink" href="#su-dung-trong-loop" title="Link to this heading">#</a></h3>
 <p>Sử dụng như một biến tạm</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -472,7 +661,7 @@ Scala
 </div>
 </section>
 <section id="phan-cach-hang-nghin">
-<h3><span class="section-number">12.6.4. </span>Phân cách hàng nghìn<a class="headerlink" href="#phan-cach-hang-nghin" title="Link to this heading"></a></h3>
+<h3><span class="section-number">12.6.4. </span>Phân cách hàng nghìn<a class="headerlink" href="#phan-cach-hang-nghin" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1_000_000</span>
@@ -488,7 +677,7 @@ Scala
 </div>
 </section>
 <section id="dat-ten-co-chua">
-<h3><span class="section-number">12.6.5. </span>Đặt tên có chứa <code class="docutils literal notranslate"><span class="pre">_</span></code><a class="headerlink" href="#dat-ten-co-chua" title="Link to this heading"></a></h3>
+<h3><span class="section-number">12.6.5. </span>Đặt tên có chứa <code class="docutils literal notranslate"><span class="pre">_</span></code><a class="headerlink" href="#dat-ten-co-chua" title="Link to this heading">#</a></h3>
 <p>Trong Python, có 4 cách đặt tên chứa <code class="docutils literal notranslate"><span class="pre">_</span></code>:</p>
 <ul class="simple">
 <li><p>Một dấu đằng trước: <code class="docutils literal notranslate"><span class="pre">_name</span></code></p></li>
@@ -497,7 +686,7 @@ Scala
 <li><p>Hai dấu ở hai bên: <code class="docutils literal notranslate"><span class="pre">__name__</span></code></p></li>
 </ul>
 <section id="mot-dau-dang-truoc">
-<h4><span class="section-number">12.6.5.1. </span>Một dấu đằng trước<a class="headerlink" href="#mot-dau-dang-truoc" title="Link to this heading"></a></h4>
+<h4><span class="section-number">12.6.5.1. </span>Một dấu đằng trước<a class="headerlink" href="#mot-dau-dang-truoc" title="Link to this heading">#</a></h4>
 <p>Cho phép bỏ qua hàm khi import</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -573,7 +762,7 @@ Scala
 </div>
 </section>
 <section id="gach-duoi-cuoi-ten">
-<h4><span class="section-number">12.6.5.2. </span>Gạch dưới cuối tên<a class="headerlink" href="#gach-duoi-cuoi-ten" title="Link to this heading"></a></h4>
+<h4><span class="section-number">12.6.5.2. </span>Gạch dưới cuối tên<a class="headerlink" href="#gach-duoi-cuoi-ten" title="Link to this heading">#</a></h4>
 <p>Với cách dùng này, ta sử dụng <code class="docutils literal notranslate"><span class="pre">_</span></code> khi dùng làm keyword</p>
 <p>Câu lệnh dưới đây sẽ hiển thị tên lỗi</p>
 <div class="cell tag_raises-exception docutils container">
@@ -614,7 +803,7 @@ Scala
 </div>
 </section>
 <section id="hai-dau-gach-truoc-va-sau">
-<h4><span class="section-number">12.6.5.3. </span>Hai dấu gạch trước và sau<a class="headerlink" href="#hai-dau-gach-truoc-va-sau" title="Link to this heading"></a></h4>
+<h4><span class="section-number">12.6.5.3. </span>Hai dấu gạch trước và sau<a class="headerlink" href="#hai-dau-gach-truoc-va-sau" title="Link to this heading">#</a></h4>
 <p>Python sử dụng 2 dấu gạch dưới trước và sau với các hàm đặc biệt khi khai báo class như <code class="docutils literal notranslate"><span class="pre">__init__</span></code>.
 Trong trường hợp sử dụng 2 dấu gạch dưới, sẽ khai báo các <code class="docutils literal notranslate"><span class="pre">method</span></code> hoặc <code class="docutils literal notranslate"><span class="pre">attribute</span></code> sẽ mang tính cá nhân và bảo mật hơn</p>
 <div class="cell docutils container">
@@ -703,7 +892,7 @@ Trong trường hợp sử dụng 2 dấu gạch dưới, sẽ khai báo các <c
 </section>
 </section>
 <section id="list-object-trong-moi-truong-lam-viec">
-<h2><span class="section-number">12.7. </span>List object trong môi trường làm việc<a class="headerlink" href="#list-object-trong-moi-truong-lam-viec" title="Link to this heading"></a></h2>
+<h2><span class="section-number">12.7. </span>List object trong môi trường làm việc<a class="headerlink" href="#list-object-trong-moi-truong-lam-viec" title="Link to this heading">#</a></h2>
 <p>Hiển thị tất cả các biến trong môi trường: sử dụng <code class="docutils literal notranslate"><span class="pre">%whos</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -783,7 +972,7 @@ y              str         test
 </div>
 </section>
 <section id="hien-thi-nhieu-ket-qua-trong-1-cell">
-<h2><span class="section-number">12.8. </span>Hiển thị nhiều kết quả trong 1 cell<a class="headerlink" href="#hien-thi-nhieu-ket-qua-trong-1-cell" title="Link to this heading"></a></h2>
+<h2><span class="section-number">12.8. </span>Hiển thị nhiều kết quả trong 1 cell<a class="headerlink" href="#hien-thi-nhieu-ket-qua-trong-1-cell" title="Link to this heading">#</a></h2>
 <p>Trong jupyter notebook, kết quả trong 1 cell chỉ được hiển thị 1 lần. ta có thể khắc phục như sau</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -822,7 +1011,7 @@ y              str         test
 </div>
 </section>
 <section id="assign-string-thanh-object">
-<h2><span class="section-number">12.9. </span>Assign string thành object<a class="headerlink" href="#assign-string-thanh-object" title="Link to this heading"></a></h2>
+<h2><span class="section-number">12.9. </span>Assign string thành object<a class="headerlink" href="#assign-string-thanh-object" title="Link to this heading">#</a></h2>
 <p><strong>Problem</strong>: Tạo cùng lúc nhiều object, gán mỗi object với 1 giá trị</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -862,7 +1051,7 @@ df3
 </div>
 </section>
 <section id="evaluation">
-<h2><span class="section-number">12.10. </span>Evaluation<a class="headerlink" href="#evaluation" title="Link to this heading"></a></h2>
+<h2><span class="section-number">12.10. </span>Evaluation<a class="headerlink" href="#evaluation" title="Link to this heading">#</a></h2>
 <p>Tương tự như R, Python có thể sử dụng evaluation để thực hiện lập trình đơn giản</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -885,7 +1074,7 @@ df3
 </div>
 </section>
 <section id="xoa-toan-bo-environment">
-<h2><span class="section-number">12.11. </span>Xóa toàn bộ environment<a class="headerlink" href="#xoa-toan-bo-environment" title="Link to this heading"></a></h2>
+<h2><span class="section-number">12.11. </span>Xóa toàn bộ environment<a class="headerlink" href="#xoa-toan-bo-environment" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Xóa dataframe</span>
@@ -960,7 +1149,7 @@ df3
 </div>
 </section>
 <section id="luu-code-tu-cell-thanh-file">
-<h2><span class="section-number">12.12. </span>Lưu code từ cell thành file<a class="headerlink" href="#luu-code-tu-cell-thanh-file" title="Link to this heading"></a></h2>
+<h2><span class="section-number">12.12. </span>Lưu code từ cell thành file<a class="headerlink" href="#luu-code-tu-cell-thanh-file" title="Link to this heading">#</a></h2>
 <p>Sử dụng magic command %%writefile</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">writefile</span> <span class="mf">09.</span><span class="n">test_script</span><span class="o">/</span><span class="mi">03</span><span class="n">_test_script</span><span class="o">.</span><span class="n">py</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">joke</span><span class="p">():</span>
@@ -969,7 +1158,7 @@ df3
 </div>
 </section>
 <section id="mo-mot-loat-file-text-va-sua-noi-dung">
-<h2><span class="section-number">12.13. </span>Mở một loạt file text và sửa nội dung<a class="headerlink" href="#mo-mot-loat-file-text-va-sua-noi-dung" title="Link to this heading"></a></h2>
+<h2><span class="section-number">12.13. </span>Mở một loạt file text và sửa nội dung<a class="headerlink" href="#mo-mot-loat-file-text-va-sua-noi-dung" title="Link to this heading">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">replace_md</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">find</span><span class="p">,</span> <span class="n">replace</span><span class="p">):</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">s</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
@@ -986,13 +1175,13 @@ df3
 </div>
 </section>
 <section id="chay-file-python-tu-bat">
-<h2><span class="section-number">12.14. </span>Chạy file python từ bat<a class="headerlink" href="#chay-file-python-tu-bat" title="Link to this heading"></a></h2>
+<h2><span class="section-number">12.14. </span>Chạy file python từ bat<a class="headerlink" href="#chay-file-python-tu-bat" title="Link to this heading">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">script</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 </section>
 <section id="auto-format">
-<h2><span class="section-number">12.15. </span>Auto format<a class="headerlink" href="#auto-format" title="Link to this heading"></a></h2>
+<h2><span class="section-number">12.15. </span>Auto format<a class="headerlink" href="#auto-format" title="Link to this heading">#</a></h2>
 <p>Ta có thể sử dụng package <code class="docutils literal notranslate"><span class="pre">black</span></code> để auto format lại các file trong python.</p>
 <ul class="simple">
 <li><p>Tất cả string để lại dưới dạng ngoặc kép (double quoted)</p></li>
@@ -1004,7 +1193,7 @@ df3
 </div>
 </section>
 <section id="lam-viec-voi-cac-file-trong-may-tinh">
-<h2><span class="section-number">12.16. </span>Làm việc với các file trong máy tính<a class="headerlink" href="#lam-viec-voi-cac-file-trong-may-tinh" title="Link to this heading"></a></h2>
+<h2><span class="section-number">12.16. </span>Làm việc với các file trong máy tính<a class="headerlink" href="#lam-viec-voi-cac-file-trong-may-tinh" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Python</span></code> rất mạnh trong việc xử lý các vấn đề liên quan đến các file trong máy tính. Hai thư viện được dùng nhiều khi xử lý các file trong máy tính là <code class="docutils literal notranslate"><span class="pre">glob</span></code> và <code class="docutils literal notranslate"><span class="pre">os</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1014,7 +1203,7 @@ df3
 </div>
 </div>
 <section id="liet-ke-cac-file-theo-dinh-dang">
-<h3><span class="section-number">12.16.1. </span>Liệt kê các file theo định dạng<a class="headerlink" href="#liet-ke-cac-file-theo-dinh-dang" title="Link to this heading"></a></h3>
+<h3><span class="section-number">12.16.1. </span>Liệt kê các file theo định dạng<a class="headerlink" href="#liet-ke-cac-file-theo-dinh-dang" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_name</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1039,7 +1228,7 @@ df3
 </div>
 </section>
 <section id="chen-them-prefix-vao-tat-ca-file-name">
-<h3><span class="section-number">12.16.2. </span>Chèn thêm prefix vào tất cả file_name<a class="headerlink" href="#chen-them-prefix-vao-tat-ca-file-name" title="Link to this heading"></a></h3>
+<h3><span class="section-number">12.16.2. </span>Chèn thêm prefix vào tất cả file_name<a class="headerlink" href="#chen-them-prefix-vao-tat-ca-file-name" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">change_name</span><span class="p">(</span><span class="n">file_extension</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;*.PNG&#39;</span><span class="p">,</span> <span class="s1">&#39;*.JPG&#39;</span><span class="p">,</span> <span class="s1">&#39;*.JPEG&#39;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">):</span>
@@ -1082,13 +1271,13 @@ df3
 </div>
 </section>
 <section id="rename-1-file">
-<h3><span class="section-number">12.16.3. </span>Rename 1 file<a class="headerlink" href="#rename-1-file" title="Link to this heading"></a></h3>
+<h3><span class="section-number">12.16.3. </span>Rename 1 file<a class="headerlink" href="#rename-1-file" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">old_name</span><span class="p">,</span> <span class="n">new_name</span><span class="p">)</span> <span class="k">for</span> <span class="n">old_name</span><span class="p">,</span> <span class="n">new_name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">file_name_full</span><span class="p">,</span> <span class="n">new_name</span><span class="p">)]</span>
 </pre></div>
 </div>
 </section>
 <section id="mo-1-file-text-thay-doi-va-save">
-<h3><span class="section-number">12.16.4. </span>Mở 1 file text, thay đổi và save<a class="headerlink" href="#mo-1-file-text-thay-doi-va-save" title="Link to this heading"></a></h3>
+<h3><span class="section-number">12.16.4. </span>Mở 1 file text, thay đổi và save<a class="headerlink" href="#mo-1-file-text-thay-doi-va-save" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="s2">&quot;my_file.txt&quot;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -1101,7 +1290,7 @@ df3
 </section>
 </section>
 <section id="gia-lap-du-lieu">
-<h2><span class="section-number">12.17. </span>Giả lập dữ liệu<a class="headerlink" href="#gia-lap-du-lieu" title="Link to this heading"></a></h2>
+<h2><span class="section-number">12.17. </span>Giả lập dữ liệu<a class="headerlink" href="#gia-lap-du-lieu" title="Link to this heading">#</a></h2>
 <p>Trong quá trình phân tích, ta có thể tạo thêm các dữ liệu giả lập nhanh chóng từ package <code class="docutils literal notranslate"><span class="pre">faker</span></code></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">faker</span>
 </pre></div>
@@ -1294,7 +1483,7 @@ df3
 </div>
 </section>
 <section id="enumerate">
-<h2><span class="section-number">12.18. </span>Enumerate<a class="headerlink" href="#enumerate" title="Link to this heading"></a></h2>
+<h2><span class="section-number">12.18. </span>Enumerate<a class="headerlink" href="#enumerate" title="Link to this heading">#</a></h2>
 <p>Trong <code class="docutils literal notranslate"><span class="pre">python</span></code>, ta có thể sử dụng hàm <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> để liệt kê thay vì dùng vòng lặp và trả về các <code class="docutils literal notranslate"><span class="pre">counter</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1337,7 +1526,7 @@ Index: 4  Value: e
 </div>
 </section>
 <section id="chay-tat-ca-cac-cells-trong-notebook-bo-qua-loi">
-<h2><span class="section-number">12.19. </span>Chạy tất cả các cells trong notebook, bỏ qua lỗi<a class="headerlink" href="#chay-tat-ca-cac-cells-trong-notebook-bo-qua-loi" title="Link to this heading"></a></h2>
+<h2><span class="section-number">12.19. </span>Chạy tất cả các cells trong notebook, bỏ qua lỗi<a class="headerlink" href="#chay-tat-ca-cac-cells-trong-notebook-bo-qua-loi" title="Link to this heading">#</a></h2>
 <p>Khi chạy lại code trong notebook, ta sẽ gặp trường hợp có 1 cell bị lỗi (có thể do cố tình để lỗi), thì các cell ở dưới sẽ không chạy tiếp được</p>
 <p>Để giải quyết, ta có thể add thêm tags: <code class="docutils literal notranslate"><span class="pre">raises-exception</span></code> vào trong cell. Khi đó, <code class="docutils literal notranslate"><span class="pre">kernel</span></code> sẽ tiếp tuc thực hiện câu lệnh dù có lỗi tại 1 cells</p>
 <p><img alt="" src="_images/exception.gif" />{width=&quot;80%&quot;}</p>
@@ -1345,34 +1534,139 @@ Index: 4  Value: e
 </section>
 
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="p01-11-map-folium.html" class="btn btn-neutral float-left" title="11. Bản đồ với folium" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="p02-01-lap-trinh-doi-tuong-python.html" class="btn btn-neutral float-right" title="1. Lập trình hướng - đối tượng với Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+                </article>
+              
 
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2022, Anh Hoang Duc.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="p01-11-map-folium.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Bản đồ với <code class="docutils literal notranslate"><span class="pre">folium</span></code></p>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+    </a>
+    <a class="right-next"
+       href="p02-01-lap-trinh-doi-tuong-python.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Lập trình hướng - đối tượng với Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-</body>
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Mục lục
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cau-lenh-trong-dieu-kien">12.1. Câu lệnh trong điều kiện</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#any-vs-all">12.2. Any vs All</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debug">12.3. Debug</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kiem-tra-thoi-gian-chay-code">12.4. Kiểm tra thời gian chạy code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#profiling-voi-memory">12.5. Profiling với memory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phan-biet-cac-dau-gach-duoi-trong-python">12.6. Phân biệt các dấu gạch dưới trong Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#luu-gia-tri-tu-truoc">12.6.1. Lưu giá trị từ trước</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bo-qua-gia-tri-khong-can-thiet">12.6.2. Bỏ qua giá trị không cần thiết</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#su-dung-trong-loop">12.6.3. Sử dụng trong loop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phan-cach-hang-nghin">12.6.4. Phân cách hàng nghìn</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dat-ten-co-chua">12.6.5. Đặt tên có chứa <code class="docutils literal notranslate"><span class="pre">_</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mot-dau-dang-truoc">12.6.5.1. Một dấu đằng trước</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gach-duoi-cuoi-ten">12.6.5.2. Gạch dưới cuối tên</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hai-dau-gach-truoc-va-sau">12.6.5.3. Hai dấu gạch trước và sau</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-object-trong-moi-truong-lam-viec">12.7. List object trong môi trường làm việc</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hien-thi-nhieu-ket-qua-trong-1-cell">12.8. Hiển thị nhiều kết quả trong 1 cell</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assign-string-thanh-object">12.9. Assign string thành object</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation">12.10. Evaluation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xoa-toan-bo-environment">12.11. Xóa toàn bộ environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#luu-code-tu-cell-thanh-file">12.12. Lưu code từ cell thành file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mo-mot-loat-file-text-va-sua-noi-dung">12.13. Mở một loạt file text và sửa nội dung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chay-file-python-tu-bat">12.14. Chạy file python từ bat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auto-format">12.15. Auto format</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lam-viec-voi-cac-file-trong-may-tinh">12.16. Làm việc với các file trong máy tính</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#liet-ke-cac-file-theo-dinh-dang">12.16.1. Liệt kê các file theo định dạng</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chen-them-prefix-vao-tat-ca-file-name">12.16.2. Chèn thêm prefix vào tất cả file_name</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rename-1-file">12.16.3. Rename 1 file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mo-1-file-text-thay-doi-va-save">12.16.4. Mở 1 file text, thay đổi và save</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gia-lap-du-lieu">12.17. Giả lập dữ liệu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerate">12.18. Enumerate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chay-tat-ca-cac-cells-trong-notebook-bo-qua-loi">12.19. Chạy tất cả các cells trong notebook, bỏ qua lỗi</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Anh Hoang Duc
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Anh Hoang Duc.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
 </html>

@@ -1,91 +1,169 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="vn" data-content_root="./">
-<head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>6. Ngữ pháp của biểu đồ &mdash; Phân tích dữ liệu với Python 2022 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0cebd926" />
+
+<html lang="vn" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>6. Ngữ pháp của biểu đồ &#8212; Phân tích dữ liệu với Python 2022 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-      <script src="_static/jquery.js?v=5d32c60e"></script>
-      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=a798377f"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-      <script src="_static/copybutton.js?v=f281be69"></script>
-      <script src="_static/design-tabs.js?v=f930bc37"></script>
-      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="_static/js/theme.js"></script>
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0cebd926" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9ef1825d"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'p01-06-ngu-phap-bieu-do';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="7. Dữ liệu thời gian trong Python" href="p01-07-datetime.html" />
-    <link rel="prev" title="5. Polars" href="p01-05-polars.html" /> 
-</head>
+    <link rel="prev" title="5. Polars" href="p01-05-polars.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="vn"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-          
-          
-          <a href="index.html" class="icon icon-home">
-            Phân tích dữ liệu với Python
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Python cơ bản</span></p>
-<ul class="current">
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Phân tích dữ liệu với Python 2022 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python cơ bản</span></p>
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="p01-01-gioi-thieu-python.html">1. Giới thiệu về Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-02-python-ide.html">2. Python IDE - Jupyter lab &amp; Visual Studio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-03-cau-truc-du-lieu-python.html">3. Các cấu trúc cơ bản trong Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-04-pandas.html">4. Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-05-polars.html">5. Polars</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Ngữ pháp của biểu đồ</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#gioi-thieu">6.1. Giới thiệu</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#xay-dung-bieu-do">6.2. Xây dựng biểu đồ</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#bieu-do-co-ban">6.2.1. Biểu đồ cơ bản</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#facet">6.2.2. Facet</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#thuoc-tinh-hinh-hoc-geom">6.2.3. Thuộc tính hình học - geom</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tinh-toan-thong-ke-statistical-transformations">6.2.4. Tính toán thống kê - statistical transformations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#vi-tri-trong-bieu-do">6.2.5. Vị trí trong biểu đồ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#he-truc-toa-do">6.2.6. Hệ trục tọa độ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cac-yeu-to-khac">6.2.7. Các yếu tố khác</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#labs">6.2.7.1. Labs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#theme">6.2.7.2. Theme</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#thay-doi-mau-trong-bieu-do">6.2.8. Thay đổi màu trong biểu đồ</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#cac-meo-voi-lets-plots">6.3. Các mẹo với <code class="docutils literal notranslate"><span class="pre">lets_plots</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#loai-bo-legend-trong-1-lop">6.3.1. Loại bỏ legend trong 1 lớp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#hien-thi-text-bieu-do-o-giua-bar-chart">6.3.2. Hiển thị text biểu đồ ở giữa bar chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tao-bieu-do-geom-area-ridges">6.3.3. Tạo biểu đồ <code class="docutils literal notranslate"><span class="pre">geom_area_ridges</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tao-toolbar-cho-bieu-do">6.3.4. Tạo toolbar cho biểu đồ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ket-hop-nhieu-bieu-do-voi-ggrid">6.3.5. Kết hợp nhiều biểu đồ với ggrid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#bieu-do-nang-cao">6.3.6. Biểu đồ nâng cao</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#tai-lieu-tham-khao">6.4. Tài liệu tham khảo</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Ngữ pháp của biểu đồ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-07-datetime.html">7. Dữ liệu thời gian trong Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-08-lam-viec-voi-text.html">8. Biến đổi dữ liệu text trong python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-09-numpy.html">9. Numpy</a></li>
@@ -93,54 +171,165 @@
 <li class="toctree-l1"><a class="reference internal" href="p01-11-map-folium.html">11. Bản đồ với <code class="docutils literal notranslate"><span class="pre">folium</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-99-tricks-python.html">12. Các mẹo trong Python</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Lập trình trong Python</span></p>
-<ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lập trình trong Python</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="p02-01-lap-trinh-doi-tuong-python.html">1. Lập trình hướng - đối tượng với Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p02-02-functions-in-python.html">2. Viết hàm trong Python</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Machine learning với sklearn</span></p>
-<ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Machine learning với sklearn</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="p05-01-sklearn.html">1. Giới thiệu cơ bản về Scikit learn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p05-02-sklearn-advanced.html">2. sklearn nâng cao</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p05-03-xgboost.html">3. Xgboost với sklearn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p05-07-machine-learning-h2o.html">4. Machine learning với <code class="docutils literal notranslate"><span class="pre">H2O</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="p05-20-api-flask.html">5. Xây dựng API dự báo với Flask</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Kiến thức bổ trợ</span></p>
-<ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Kiến thức bổ trợ</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="p06-01-so-sanh-python-r.html">1. So sánh R với Python cơ bản</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p06-02-matplotlib.html">2. Trực quan hóa với Matplotlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p06-03-seaborn.html">3. Trực quan hóa với Seaborn</a></li>
 </ul>
 
-        </div>
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
       </div>
-    </nav>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Phân tích dữ liệu với Python</a>
-      </nav>
+<div class="sbt-scroll-pixel-helper"></div>
 
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">6. </span>Ngữ pháp của biểu đồ</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="_sources/p01-06-ngu-phap-bieu-do.ipynb.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Ngữ pháp của biểu đồ</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Mục lục </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gioi-thieu">6.1. Giới thiệu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xay-dung-bieu-do">6.2. Xây dựng biểu đồ</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bieu-do-co-ban">6.2.1. Biểu đồ cơ bản</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#facet">6.2.2. Facet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thuoc-tinh-hinh-hoc-geom">6.2.3. Thuộc tính hình học - geom</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tinh-toan-thong-ke-statistical-transformations">6.2.4. Tính toán thống kê - statistical transformations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-tri-trong-bieu-do">6.2.5. Vị trí trong biểu đồ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#he-truc-toa-do">6.2.6. Hệ trục tọa độ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-yeu-to-khac">6.2.7. Các yếu tố khác</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#labs">6.2.7.1. Labs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#theme">6.2.7.2. Theme</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thay-doi-mau-trong-bieu-do">6.2.8. Thay đổi màu trong biểu đồ</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-meo-voi-lets-plots">6.3. Các mẹo với <code class="docutils literal notranslate"><span class="pre">lets_plots</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loai-bo-legend-trong-1-lop">6.3.1. Loại bỏ legend trong 1 lớp</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hien-thi-text-bieu-do-o-giua-bar-chart">6.3.2. Hiển thị text biểu đồ ở giữa bar chart</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tao-bieu-do-geom-area-ridges">6.3.3. Tạo biểu đồ <code class="docutils literal notranslate"><span class="pre">geom_area_ridges</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tao-toolbar-cho-bieu-do">6.3.4. Tạo toolbar cho biểu đồ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ket-hop-nhieu-bieu-do-voi-ggrid">6.3.5. Kết hợp nhiều biểu đồ với ggrid</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bieu-do-nang-cao">6.3.6. Biểu đồ nâng cao</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tai-lieu-tham-khao">6.4. Tài liệu tham khảo</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="ngu-phap-cua-bieu-do">
-<h1><span class="section-number">6. </span>Ngữ pháp của biểu đồ<a class="headerlink" href="#ngu-phap-cua-bieu-do" title="Link to this heading"></a></h1>
+<h1><span class="section-number">6. </span>Ngữ pháp của biểu đồ<a class="headerlink" href="#ngu-phap-cua-bieu-do" title="Link to this heading">#</a></h1>
 <section id="gioi-thieu">
-<h2><span class="section-number">6.1. </span>Giới thiệu<a class="headerlink" href="#gioi-thieu" title="Link to this heading"></a></h2>
+<h2><span class="section-number">6.1. </span>Giới thiệu<a class="headerlink" href="#gioi-thieu" title="Link to this heading">#</a></h2>
 <p>Trong lĩnh vực phân tích dữ liệu, bên cạnh việc biến đổi dữ liệu, kỹ năng trực quan hóa biểu đồ là kỹ năng đặc biệt quan trọng, giúp cho người đọc báo cáo, phân tích nắm được kết quả phân tích một cách đơn giản hơn.</p>
 <p>Với python, việc trực quan hóa thường được sử dụng với <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> hoặc <code class="docutils literal notranslate"><span class="pre">searborn</span></code>. Tuy nhiên, trong lĩnh vực trực quan hóa dữ liệu, tư tưởng mang tính đột phá là tư duy <em>ngữ pháp biểu đồ</em> và được phổ biến rộng rãi qua ngôn ngữ R. Với <code class="docutils literal notranslate"><span class="pre">python</span></code>, ta có thể sử dụng package <code class="docutils literal notranslate"><span class="pre">lets_plot</span></code> hoặc <code class="docutils literal notranslate"><span class="pre">plotnine</span></code>. Ra đời từ 2019 và được truyền cảm hứng từ <code class="docutils literal notranslate"><span class="pre">GGPLOT2</span></code>, package <code class="docutils literal notranslate"><span class="pre">lets_plot</span></code> đã phát triển rất đầy đủ và có thể sử dụng thay thế hoàn toàn ggplot2 với python</p>
 <p>Các thư viện khác như <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> hoặc <code class="docutils literal notranslate"><span class="pre">searborn</span></code> sẽ được trình bày trong các chương tiếp theo</p>
@@ -166,9 +355,9 @@
 </div></blockquote>
 </section>
 <section id="xay-dung-bieu-do">
-<h2><span class="section-number">6.2. </span>Xây dựng biểu đồ<a class="headerlink" href="#xay-dung-bieu-do" title="Link to this heading"></a></h2>
+<h2><span class="section-number">6.2. </span>Xây dựng biểu đồ<a class="headerlink" href="#xay-dung-bieu-do" title="Link to this heading">#</a></h2>
 <section id="bieu-do-co-ban">
-<h3><span class="section-number">6.2.1. </span>Biểu đồ cơ bản<a class="headerlink" href="#bieu-do-co-ban" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.2.1. </span>Biểu đồ cơ bản<a class="headerlink" href="#bieu-do-co-ban" title="Link to this heading">#</a></h3>
 <p>Câu lệnh cơ bản của <code class="docutils literal notranslate"><span class="pre">ggplot</span></code> như sau:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -623,7 +812,7 @@
 </div>
 </section>
 <section id="facet">
-<h3><span class="section-number">6.2.2. </span>Facet<a class="headerlink" href="#facet" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.2.2. </span>Facet<a class="headerlink" href="#facet" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">Facet</span></code> cho phép chúng ta chia dữ liệu thành nhiều phần theo từng nhóm và xây dựng biểu đồ cho mỗi nhóm trong đó. Câu lệnh của facet như sau</p>
 <div class="highlight-{python notranslate"><div class="highlight"><pre><span></span>facet_wrap( group_variable,   # Chia nhóm
             nrow = 2,         # Số lượng dòng trong biểu đồ  
@@ -950,7 +1139,7 @@
 </div>
 </section>
 <section id="thuoc-tinh-hinh-hoc-geom">
-<h3><span class="section-number">6.2.3. </span>Thuộc tính hình học - geom<a class="headerlink" href="#thuoc-tinh-hinh-hoc-geom" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.2.3. </span>Thuộc tính hình học - geom<a class="headerlink" href="#thuoc-tinh-hinh-hoc-geom" title="Link to this heading">#</a></h3>
 <p>Các loại biểu đồ khác nhau trong <code class="docutils literal notranslate"><span class="pre">plotnine</span></code> chỉ khác nhau ở <code class="docutils literal notranslate"><span class="pre">geom_</span></code> - thuộc tính hình học của biểu đồ. Mỗi <code class="docutils literal notranslate"><span class="pre">geom</span></code> sẽ có các tham số khác nhau cần được điều chỉnh.</p>
 <p>Trong ví dụ dưới đây, ta vẽ 2 loại biểu đồ chồng lên nhau gồm 1. biểu đồ điểm và 2. biểu đồ thể hiện xu hướng</p>
 <div class="cell docutils container">
@@ -2034,7 +2223,7 @@
 </div>
 </section>
 <section id="tinh-toan-thong-ke-statistical-transformations">
-<h3><span class="section-number">6.2.4. </span>Tính toán thống kê - statistical transformations<a class="headerlink" href="#tinh-toan-thong-ke-statistical-transformations" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.2.4. </span>Tính toán thống kê - statistical transformations<a class="headerlink" href="#tinh-toan-thong-ke-statistical-transformations" title="Link to this heading">#</a></h3>
 <p>Đối với lớp <em>tính toán thống kê</em> (statistical transformation), biểu đồ không được vẽ trực tiếp với 2 trục tung và trục hoành mà sẽ phải trải qua bước tính toán thống kê trước.</p>
 <p>Xem ví dụ biểu đồ cột dưới đây.</p>
 <div class="cell docutils container">
@@ -2343,7 +2532,7 @@
 </div>
 </section>
 <section id="vi-tri-trong-bieu-do">
-<h3><span class="section-number">6.2.5. </span>Vị trí trong biểu đồ<a class="headerlink" href="#vi-tri-trong-bieu-do" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.2.5. </span>Vị trí trong biểu đồ<a class="headerlink" href="#vi-tri-trong-bieu-do" title="Link to this heading">#</a></h3>
 <p>Quay lại ví dụ <code class="docutils literal notranslate"><span class="pre">bar</span> <span class="pre">chart</span></code> phía trên, khi xây dựng biểu đồ có 2 hoặc nhiều nhóm, biểu đồ có thể có 3 kiểu vị trí như sau:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">position</span> <span class="pre">=</span> <span class="pre">&quot;identity&quot;</span></code> (default): Giữ nguyên chế độ mặc định, để dạng stack bar với giá trị trục y mặc định</p></li>
@@ -3432,7 +3621,7 @@
 </div>
 </section>
 <section id="he-truc-toa-do">
-<h3><span class="section-number">6.2.6. </span>Hệ trục tọa độ<a class="headerlink" href="#he-truc-toa-do" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.2.6. </span>Hệ trục tọa độ<a class="headerlink" href="#he-truc-toa-do" title="Link to this heading">#</a></h3>
 <p>Biểu đồ thông thường được xây trên hệ trục tọa độ Đề-các với tỷ lệ 1-1. Bên cạnh hệ trục này, <code class="docutils literal notranslate"><span class="pre">ggplot2</span></code> hỗ trợ các hệ trục tọa độ khác nhưng thông dụng nhất là <code class="docutils literal notranslate"><span class="pre">coord_flip</span></code>, cho phép đổi vị trí hai trục tọa độ cho nhau</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3606,14 +3795,14 @@
 </div>
 </section>
 <section id="cac-yeu-to-khac">
-<h3><span class="section-number">6.2.7. </span>Các yếu tố khác<a class="headerlink" href="#cac-yeu-to-khac" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.2.7. </span>Các yếu tố khác<a class="headerlink" href="#cac-yeu-to-khac" title="Link to this heading">#</a></h3>
 <p>Bên cạnh các lớp biểu đồ đã phân tích trên, khi xây dựng biểu đồ với, còn 2 nhóm câu lệnh thường sử dụng:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">labs</span></code>: Đặt tên bản đồ, chú giải, tên các trục</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">theme</span></code>: Sử dụng để có bản đồ đẹp và phù hợp hơn</p></li>
 </ul>
 <section id="labs">
-<h4><span class="section-number">6.2.7.1. </span>Labs<a class="headerlink" href="#labs" title="Link to this heading"></a></h4>
+<h4><span class="section-number">6.2.7.1. </span>Labs<a class="headerlink" href="#labs" title="Link to this heading">#</a></h4>
 <p>Để điều chỉnh tên biểu đồ, chú giải, ta có thể sử dụng câu lệnh <code class="docutils literal notranslate"><span class="pre">labs</span></code></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;title&quot;</span><span class="p">,</span>
      <span class="n">subtitle</span> <span class="o">=</span> <span class="s2">&quot;subtitle&quot;</span><span class="p">,</span>
@@ -3802,7 +3991,7 @@
 </div>
 </section>
 <section id="theme">
-<h4><span class="section-number">6.2.7.2. </span>Theme<a class="headerlink" href="#theme" title="Link to this heading"></a></h4>
+<h4><span class="section-number">6.2.7.2. </span>Theme<a class="headerlink" href="#theme" title="Link to this heading">#</a></h4>
 <p>Khi xây dựng biểu đồ với <code class="docutils literal notranslate"><span class="pre">ggplot2</span></code>, ta có thể sử dụng rất nhiều <code class="docutils literal notranslate"><span class="pre">theme</span></code> có sẵn nhưng được dùng nhiều nhất là <code class="docutils literal notranslate"><span class="pre">theme_bw()</span></code>, <code class="docutils literal notranslate"><span class="pre">theme_classic()</span></code>, <code class="docutils literal notranslate"><span class="pre">theme_minimal()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4580,7 +4769,7 @@
 </section>
 </section>
 <section id="thay-doi-mau-trong-bieu-do">
-<h3><span class="section-number">6.2.8. </span>Thay đổi màu trong biểu đồ<a class="headerlink" href="#thay-doi-mau-trong-bieu-do" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.2.8. </span>Thay đổi màu trong biểu đồ<a class="headerlink" href="#thay-doi-mau-trong-bieu-do" title="Link to this heading">#</a></h3>
 <p>Hệ mã màu trong <code class="docutils literal notranslate"><span class="pre">plotnine</span></code> được chia làm 2 nhóm chính:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">color</span></code>: Với các nhóm biểu đồ điểm, đường (<code class="docutils literal notranslate"><span class="pre">point</span></code>, <code class="docutils literal notranslate"><span class="pre">line</span></code>)</p></li>
@@ -4933,9 +5122,9 @@
 </section>
 </section>
 <section id="cac-meo-voi-lets-plots">
-<h2><span class="section-number">6.3. </span>Các mẹo với <code class="docutils literal notranslate"><span class="pre">lets_plots</span></code><a class="headerlink" href="#cac-meo-voi-lets-plots" title="Link to this heading"></a></h2>
+<h2><span class="section-number">6.3. </span>Các mẹo với <code class="docutils literal notranslate"><span class="pre">lets_plots</span></code><a class="headerlink" href="#cac-meo-voi-lets-plots" title="Link to this heading">#</a></h2>
 <section id="loai-bo-legend-trong-1-lop">
-<h3><span class="section-number">6.3.1. </span>Loại bỏ legend trong 1 lớp<a class="headerlink" href="#loai-bo-legend-trong-1-lop" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.3.1. </span>Loại bỏ legend trong 1 lớp<a class="headerlink" href="#loai-bo-legend-trong-1-lop" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Để cả 2 legend</span>
@@ -5265,7 +5454,7 @@
 </div>
 </section>
 <section id="hien-thi-text-bieu-do-o-giua-bar-chart">
-<h3><span class="section-number">6.3.2. </span>Hiển thị text biểu đồ ở giữa bar chart<a class="headerlink" href="#hien-thi-text-bieu-do-o-giua-bar-chart" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.3.2. </span>Hiển thị text biểu đồ ở giữa bar chart<a class="headerlink" href="#hien-thi-text-bieu-do-o-giua-bar-chart" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Sử dụng option <code class="docutils literal notranslate"><span class="pre">position</span> <span class="pre">=</span> <span class="pre">position_stack(vjust</span> <span class="pre">=</span> <span class="pre">0.5)</span></code></p></li>
 </ul>
@@ -5476,7 +5665,7 @@
 </div>
 </section>
 <section id="tao-bieu-do-geom-area-ridges">
-<h3><span class="section-number">6.3.3. </span>Tạo biểu đồ <code class="docutils literal notranslate"><span class="pre">geom_area_ridges</span></code><a class="headerlink" href="#tao-bieu-do-geom-area-ridges" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.3.3. </span>Tạo biểu đồ <code class="docutils literal notranslate"><span class="pre">geom_area_ridges</span></code><a class="headerlink" href="#tao-bieu-do-geom-area-ridges" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
@@ -5631,7 +5820,7 @@
 </div>
 </section>
 <section id="tao-toolbar-cho-bieu-do">
-<h3><span class="section-number">6.3.4. </span>Tạo toolbar cho biểu đồ<a class="headerlink" href="#tao-toolbar-cho-bieu-do" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.3.4. </span>Tạo toolbar cho biểu đồ<a class="headerlink" href="#tao-toolbar-cho-bieu-do" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo toolbar</span>
@@ -5804,7 +5993,7 @@
 </div>
 </section>
 <section id="ket-hop-nhieu-bieu-do-voi-ggrid">
-<h3><span class="section-number">6.3.5. </span>Kết hợp nhiều biểu đồ với ggrid<a class="headerlink" href="#ket-hop-nhieu-bieu-do-voi-ggrid" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.3.5. </span>Kết hợp nhiều biểu đồ với ggrid<a class="headerlink" href="#ket-hop-nhieu-bieu-do-voi-ggrid" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tạo các biểu đồ riêng rẽ</span>
@@ -6385,7 +6574,7 @@
 </div>
 </section>
 <section id="bieu-do-nang-cao">
-<h3><span class="section-number">6.3.6. </span>Biểu đồ nâng cao<a class="headerlink" href="#bieu-do-nang-cao" title="Link to this heading"></a></h3>
+<h3><span class="section-number">6.3.6. </span>Biểu đồ nâng cao<a class="headerlink" href="#bieu-do-nang-cao" title="Link to this heading">#</a></h3>
 <p>Bên cạnh các biểu đồ cơ bản có thể xây dựng nhanh chóng, <code class="docutils literal notranslate"><span class="pre">lets-plot</span></code> cũng hỗ trợ rất tốt các biểu đồ phức tạp với module <code class="docutils literal notranslate"><span class="pre">bistro</span></code>, hỗ trợ rất tốt phần <code class="docutils literal notranslate"><span class="pre">correlation</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">joinplot</span></code>. Các nhóm biểu đồ này sẽ trả về kết quả là 1 objects của lets-plot và ta có thể thêm các thuộc tính như biểu đồ thường.</p>
 <p><strong>Biểu đồ correlation</strong></p>
 <div class="cell docutils container">
@@ -7263,7 +7452,7 @@
 </section>
 </section>
 <section id="tai-lieu-tham-khao">
-<h2><span class="section-number">6.4. </span>Tài liệu tham khảo<a class="headerlink" href="#tai-lieu-tham-khao" title="Link to this heading"></a></h2>
+<h2><span class="section-number">6.4. </span>Tài liệu tham khảo<a class="headerlink" href="#tai-lieu-tham-khao" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>https://aeturrell.github.io/python4DS/data-visualise.html</p></li>
 <li><p>https://lets-plot.org/python/index.html</p></li>
@@ -7273,34 +7462,128 @@
 </section>
 
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="p01-05-polars.html" class="btn btn-neutral float-left" title="5. Polars" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="p01-07-datetime.html" class="btn btn-neutral float-right" title="7. Dữ liệu thời gian trong Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+                </article>
+              
 
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2022, Anh Hoang Duc.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="p01-05-polars.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Polars</p>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+    </a>
+    <a class="right-next"
+       href="p01-07-datetime.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Dữ liệu thời gian trong Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-</body>
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Mục lục
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gioi-thieu">6.1. Giới thiệu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xay-dung-bieu-do">6.2. Xây dựng biểu đồ</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bieu-do-co-ban">6.2.1. Biểu đồ cơ bản</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#facet">6.2.2. Facet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thuoc-tinh-hinh-hoc-geom">6.2.3. Thuộc tính hình học - geom</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tinh-toan-thong-ke-statistical-transformations">6.2.4. Tính toán thống kê - statistical transformations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-tri-trong-bieu-do">6.2.5. Vị trí trong biểu đồ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#he-truc-toa-do">6.2.6. Hệ trục tọa độ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-yeu-to-khac">6.2.7. Các yếu tố khác</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#labs">6.2.7.1. Labs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#theme">6.2.7.2. Theme</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thay-doi-mau-trong-bieu-do">6.2.8. Thay đổi màu trong biểu đồ</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-meo-voi-lets-plots">6.3. Các mẹo với <code class="docutils literal notranslate"><span class="pre">lets_plots</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loai-bo-legend-trong-1-lop">6.3.1. Loại bỏ legend trong 1 lớp</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hien-thi-text-bieu-do-o-giua-bar-chart">6.3.2. Hiển thị text biểu đồ ở giữa bar chart</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tao-bieu-do-geom-area-ridges">6.3.3. Tạo biểu đồ <code class="docutils literal notranslate"><span class="pre">geom_area_ridges</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tao-toolbar-cho-bieu-do">6.3.4. Tạo toolbar cho biểu đồ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ket-hop-nhieu-bieu-do-voi-ggrid">6.3.5. Kết hợp nhiều biểu đồ với ggrid</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bieu-do-nang-cao">6.3.6. Biểu đồ nâng cao</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tai-lieu-tham-khao">6.4. Tài liệu tham khảo</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Anh Hoang Duc
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Anh Hoang Duc.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
 </html>
