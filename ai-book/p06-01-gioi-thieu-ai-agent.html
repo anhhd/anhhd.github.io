@@ -1,0 +1,429 @@
+
+<!DOCTYPE html>
+
+
+<html lang="vn" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1. Giới thiệu về AI Agent &#8212; AI with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0cebd926" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=b0188291"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'p06-01-gioi-thieu-ai-agent';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="2. Use case - truy vấn &amp; phân tích dữ liệu" href="p05-04-phan-tich-du-lieu.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="vn"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">AI with Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cơ bản về Deep Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="p01-01-gioi-thieu-deep-learning.html">1. Giới thiệu về học sâu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-02-toan-co-ban.html">2. Toán cơ bản với DL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-03-dl-co-ban.html">3. Tensorflow &amp; Keras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html">4. Chuỗi thời gian</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">LLM &amp; GenAI</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="p02-01-gioi-thieu-llm.html">1. Giới thiệu về mô hình ngôn ngữ lớn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p02-02-xu-ly-text.html">2. Xử lý dữ liệu text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p02-03-co-che-tu-chu-y.html">3. Cơ chế tự chú ý</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">GenAI</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="p05-01-gioi-thieu-langchain.html">1. Giới thiệu langchain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p05-04-phan-tich-du-lieu.html">2. Use case - truy vấn &amp; phân tích dữ liệu</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">AI Agent</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Giới thiệu về AI Agent</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Giới thiệu về AI Agent</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Mục lục </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gioi-thieu">1.1. Giới thiệu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#llm-openai-api">1.2. LLM &amp; OpenAI API</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="gioi-thieu-ve-ai-agent">
+<h1><span class="section-number">1. </span>Giới thiệu về AI Agent<a class="headerlink" href="#gioi-thieu-ve-ai-agent" title="Link to this heading">#</a></h1>
+<section id="gioi-thieu">
+<h2><span class="section-number">1.1. </span>Giới thiệu<a class="headerlink" href="#gioi-thieu" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Agent</span></code> (tác nhân) không phải là một thuật ngữ mới, khi nói về Agent, ta thường  sử dụng để mô tả một phần mềm hoặc ứng dụng thực hiện một nhiệm vụ cụ thể thay cho người dùng.</p>
+<p>Có thể chia làm 4 loại Agent như sau:</p>
+<ul class="simple">
+<li><p><strong>No agent</strong>: Người dùng tương tác trực tiếp với LLM và kết quả trả ra chỉ là các đoạn text được tạo ra từ LLM. Ví dụ - Chatbot trực tiếp từ ChatGPT ở giai đoạn đầu tiên. Loại Agent này không thể thực hiện tác vụ mà chỉ có thể tự tạo sinh ra kết quả tạo ra từ LLM.</p></li>
+<li><p><strong>Agent/Assistant proxy</strong>: Người dùng tương tác với proxy và AI sẽ trả ra 1 kết quả cụ thể. Ví dụ - Ứng dụng tạo ảnh từ Dalle hay Bing Imange Creator. Loại Agent này chỉ có thể làm 1 tác vụ duy nhất.</p></li>
+<li><p><strong>Agent/Assitant</strong>: Người dùng tương tác với Agent và AI có thể thực hiện kết quả nhưng đòi hỏi sự phê duyệt từ người dùng. Sau khi được phê duyệt, AI sẽ thực hiện 1 số tác vụ cụ thể, trả lại kết quả để LLM có thể đưa ra câu trả lời thân thiện với người dùng. Ví dụ - các agent có truy cập được với MCP (Model Context Protocol) như Claude</p></li>
+<li><p><strong>Autonomous Agent</strong>: Tự động hóa hoàn toàn các công việc thay cho con người, tư bước phân nhỏ các tác vụ,đánh giá và thực thi.</p></li>
+</ul>
+<p><img alt="" src="_images/p06-2025-07-21-11-15-12.png" /></p>
+<hr class="docutils" />
+<p>Multi-agent system có thể có nhiều agent độc lập làm việc và tương tác với nhau. VD - viết code vs tester</p>
+<p><img alt="" src="_images/p06-2025-07-21-11-36-52.png" /></p>
+<p>Mỗi agent cơ bản có 5 đặc điểm sau:</p>
+<ul class="simple">
+<li><p><strong>Profile &amp; Persona</strong>: Đặc điểm của Agent, còn được gọi là <code class="docutils literal notranslate"><span class="pre">system</span> <span class="pre">prompt</span></code>, là các hướng dẫn cho agent cách thức hoàn thành nhiệm vụ, phản hồi yêu cầu người dùng,...</p></li>
+<li><p><strong>Actions &amp; Tools</strong>: Các công cụ mà Agent có thể truy cập và sử dụng - ví dụ - khả năng tạo ảnh, thực hiện code, truy cập và tìm kiếm internet,...</p></li>
+<li><p><strong>Memory &amp; Knowledge</strong>: Bộ nhớ và tri thức, bao gồm khả năng ghi nhớ lịch sử tương tác (bộ nhớ) và kho thông tin được quyền truy cập với các định dạng khác nhau như word, pdf, ...</p></li>
+<li><p><strong>Reasoning &amp; Evaluation</strong>: Khả năng <em>suy nghĩ</em> và đánh giá giải pháp khác nhau</p></li>
+<li><p><strong>Planning &amp; Feedback</strong>: Khả năng lập kế hoạch - có thể bao gồm cả việc yêu cầu feedback từ con người hoặc hoàn toàn tự động từ Agent.</p></li>
+</ul>
+<p><img alt="" src="_images/p06-2025-07-21-11-38-57.png" /></p>
+<p><img alt="" src="_images/p06-2025-07-21-11-39-36.png" /></p>
+<p><img alt="" src="_images/p06-2025-07-21-11-40-12.png" /></p>
+<p><img alt="" src="_images/p06-2025-07-21-11-40-47.png" /></p>
+<p><img alt="" src="_images/p06-2025-07-21-11-41-00.png" /></p>
+<p><img alt="" src="_images/p06-2025-07-21-11-48-48.png" /></p>
+<hr class="docutils" />
+<p>Với AI Agent, rất nhiều mảng công việc như dữ liệu, phát triển phần mềm có thể sẽ cần điều chỉnh và tái cấu trúc lại để cho phép sử dụng ngôn ngữ tự nhiên như là interface, cho phép tương tác với người dùng. Quá trình này sẽ tương tác với AI Interface (data, function &amp; tool - external agent) để hoàn thành tác vụ cho người dùng.</p>
+<p><img alt="" src="_images/p06-2025-07-21-12-01-55.png" /></p>
+</section>
+<section id="llm-openai-api">
+<h2><span class="section-number">1.2. </span>LLM &amp; OpenAI API<a class="headerlink" href="#llm-openai-api" title="Link to this heading">#</a></h2>
+<p>Các mô hình ngôn ngữ lớn (<code class="docutils literal notranslate"><span class="pre">Large</span> <span class="pre">Language</span> <span class="pre">Model</span></code>) được phát triển bằng cách sử dụng các thuật toán GPT (Generative Pretrained Transformers). Các mô hình hình sẽ được sử dụng để tạo ra các content mới từ các content trước đó. Các kết quả dự báo này có sự khác biệt so với các mô hình predictive/classification thông thường.</p>
+<p><img alt="" src="_images/p06-2025-07-21-12-08-33.png" /></p>
+<p>Bên cạnh đó, các mô hình LLM cũng có thể được tuning để tối ưu hóa hiệu quả sử dụng với một bộ dataset nhất đinh.</p>
+<p><img alt="" src="_images/p06-2025-07-21-12-11-05.png" /></p>
+<p><img alt="" src="_images/p06-2025-07-21-12-13-42.png" /></p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="p05-04-phan-tich-du-lieu.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Use case - truy vấn &amp; phân tích dữ liệu</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Mục lục
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gioi-thieu">1.1. Giới thiệu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#llm-openai-api">1.2. LLM &amp; OpenAI API</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Anh Hoang Duc
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Anh Hoang Duc.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

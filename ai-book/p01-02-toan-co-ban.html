@@ -1,115 +1,310 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="vn" data-content_root="./">
-<head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2. Toán cơ bản với DL &mdash; AI book 2025 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0cebd926" />
+
+<html lang="vn" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2. Toán cơ bản với DL &#8212; AI with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-      <script src="_static/jquery.js?v=5d32c60e"></script>
-      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=6c11a7b2"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-      <script src="_static/copybutton.js?v=f281be69"></script>
-      <script src="_static/design-tabs.js?v=f930bc37"></script>
-      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="_static/js/theme.js"></script>
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0cebd926" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=b0188291"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "displayMath": [["$$", "$$"], ["\\[", "\\]"]]}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'p01-02-toan-co-ban';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="3. Tensorflow &amp; Keras" href="p01-03-dl-co-ban.html" />
-    <link rel="prev" title="1. Giới thiệu về học sâu" href="p01-01-gioi-thieu-deep-learning.html" /> 
-</head>
+    <link rel="prev" title="1. Giới thiệu về học sâu" href="p01-01-gioi-thieu-deep-learning.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="vn"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-          
-          
-          <a href="index.html" class="icon icon-home">
-            AI book
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Cơ bản về Deep Learning</span></p>
-<ul class="current">
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">AI with Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cơ bản về Deep Learning</span></p>
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="p01-01-gioi-thieu-deep-learning.html">1. Giới thiệu về học sâu</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Toán cơ bản với DL</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#tensor">2.1. Tensor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cac-phep-toan-co-ban-voi-tensor">2.2. Các phép toán cơ bản với tensor</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#phep-tinh-tung-phan-tu-element-wise-operator">2.2.1. Phép tính từng phần tử (<code class="docutils literal notranslate"><span class="pre">element</span> <span class="pre">wise</span> <span class="pre">operator</span></code>)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#phep-tinh-giua-cac-ma-tran-khac-chieu">2.2.2. Phép tính giữa các ma trận khác chiều</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#phep-nhan-tensor">2.2.3. Phép nhân tensor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#thay-doi-dinh-dang-tensor">2.2.4. Thay đổi định dạng tensor</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#y-nghia-hinh-hoc-cac-phep-bien-doi-tensor">2.3. Ý nghĩa hình học các phép biến đổi tensor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#toi-uu-hoa">2.4. Tối ưu hóa</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Toán cơ bản với DL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-03-dl-co-ban.html">3. Tensorflow &amp; Keras</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html">4. Chuỗi thời gian</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html#gioi-thieu">5. Giới thiệu</a></li>
+
 </ul>
-<p class="caption" role="heading"><span class="caption-text">LLM &amp; GenAI</span></p>
-<ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">LLM &amp; GenAI</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="p02-01-gioi-thieu-llm.html">1. Giới thiệu về mô hình ngôn ngữ lớn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p02-02-xu-ly-text.html">2. Xử lý dữ liệu text</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p02-03-co-che-tu-chu-y.html">3. Cơ chế tự chú ý</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">LLM &amp; GenAI</span></p>
-<ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">GenAI</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="p05-01-gioi-thieu-langchain.html">1. Giới thiệu langchain</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p05-04-phan-tich-du-lieu.html">2. Use case - truy vấn &amp; phân tích dữ liệu</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">AI Agent</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="p06-01-gioi-thieu-ai-agent.html">1. Giới thiệu về AI Agent</a></li>
+</ul>
 
-        </div>
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
       </div>
-    </nav>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">AI book</a>
-      </nav>
+<div class="sbt-scroll-pixel-helper"></div>
 
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">2. </span>Toán cơ bản với DL</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="_sources/p01-02-toan-co-ban.ipynb.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
-  <section id="toan-co-ban-voi-dl">
-<h1><span class="section-number">2. </span>Toán cơ bản với DL<a class="headerlink" href="#toan-co-ban-voi-dl" title="Link to this heading"></a></h1>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Toán cơ bản với DL</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Mục lục </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor">2.1. Tensor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-phep-toan-co-ban-voi-tensor">2.2. Các phép toán cơ bản với tensor</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phep-tinh-tung-phan-tu-element-wise-operator">2.2.1. Phép tính từng phần tử (<code class="docutils literal notranslate"><span class="pre">element</span> <span class="pre">wise</span> <span class="pre">operator</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phep-tinh-giua-cac-ma-tran-khac-chieu">2.2.2. Phép tính giữa các ma trận khác chiều</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phep-nhan-tensor">2.2.3. Phép nhân tensor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thay-doi-dinh-dang-tensor">2.2.4. Thay đổi định dạng tensor</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#y-nghia-hinh-hoc-cac-phep-bien-doi-tensor">2.3. Ý nghĩa hình học các phép biến đổi tensor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#toi-uu-hoa">2.4. Tối ưu hóa</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="toan-co-ban-voi-dl">
+<h1><span class="section-number">2. </span>Toán cơ bản với DL<a class="headerlink" href="#toan-co-ban-voi-dl" title="Link to this heading">#</a></h1>
 <section id="tensor">
-<h2><span class="section-number">2.1. </span>Tensor<a class="headerlink" href="#tensor" title="Link to this heading"></a></h2>
+<h2><span class="section-number">2.1. </span>Tensor<a class="headerlink" href="#tensor" title="Link to this heading">#</a></h2>
 <p>Dư liệu đầu vào của mạng neural thần kinh là dữ liệu định dạng mảng, chỉ chứa số và được gọi là <code class="docutils literal notranslate"><span class="pre">tensor</span></code>. Một tensor có thể có từ 0 đến nhiều chiều khác nhau và có cơ bản các thuộc tính sau:</p>
 <ul class="simple">
 <li><p>Số chiều (dimension, <code class="docutils literal notranslate"><span class="pre">axes</span></code>)</p></li>
@@ -292,23 +487,27 @@ channels, height, width)</p></li>
 </div>
 </section>
 <section id="cac-phep-toan-co-ban-voi-tensor">
-<h2><span class="section-number">2.2. </span>Các phép toán cơ bản với tensor<a class="headerlink" href="#cac-phep-toan-co-ban-voi-tensor" title="Link to this heading"></a></h2>
+<h2><span class="section-number">2.2. </span>Các phép toán cơ bản với tensor<a class="headerlink" href="#cac-phep-toan-co-ban-voi-tensor" title="Link to this heading">#</a></h2>
 <p>Khi thực hiện các phép toán ma trận của tensor, có các phép tính cơ bản sau</p>
 <ul class="simple">
-<li><p>Phép tính max với 0: $relu(x) = max(x, 0)$. Ví dụ: $relu(2) = 2$ &amp; $relu(-1) = max(-1, 0) = 0$</p></li>
-<li><p>Phép $dot(w, x) = \sum_{i=1..n}w_i*x_i$. Ví dụ</p></li>
+<li><p>Phép tính max với 0: <span class="math notranslate nohighlight">\(relu(x) = max(x, 0)\)</span>.</p></li>
 </ul>
-<p>$x= [1, 2, 3]$ và $w = [0.2, 0.8, -0.5]$ với $b = 2$. Phép tính dot sẽ như sau:</p>
-<p>$$
+<p>Ví dụ: <span class="math notranslate nohighlight">\(relu(2) = 2\)</span> &amp; <span class="math notranslate nohighlight">\(relu(-1) = max(-1, 0) = 0\)</span></p>
+<ul class="simple">
+<li><p>Phép <span class="math notranslate nohighlight">\(dot(w, x) = \sum_{i=1..n}w_i*x_i\)</span>. Ví dụ</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(x= [1, 2, 3]\)</span> và <span class="math notranslate nohighlight">\(w = [0.2, 0.8, -0.5]\)</span> với <span class="math notranslate nohighlight">\(b = 2\)</span>. Phép tính dot sẽ như sau:</p>
+<div class="math notranslate nohighlight">
+\[
 z = (1 \cdot 0.2) + (2 \cdot 0.8) + (3 \cdot -0.5) + 2 = 2.3
-$$</p>
+\]</div>
 <section id="phep-tinh-tung-phan-tu-element-wise-operator">
-<h3><span class="section-number">2.2.1. </span>Phép tính từng phần tử (<code class="docutils literal notranslate"><span class="pre">element</span> <span class="pre">wise</span> <span class="pre">operator</span></code>)<a class="headerlink" href="#phep-tinh-tung-phan-tu-element-wise-operator" title="Link to this heading"></a></h3>
+<h3><span class="section-number">2.2.1. </span>Phép tính từng phần tử (<code class="docutils literal notranslate"><span class="pre">element</span> <span class="pre">wise</span> <span class="pre">operator</span></code>)<a class="headerlink" href="#phep-tinh-tung-phan-tu-element-wise-operator" title="Link to this heading">#</a></h3>
 <p>Element-wise operator (phép toán từng phần tử) là các phép toán được thực hiện trên từng phần tử tương ứng của hai hoặc nhiều mảng (arrays) hoặc ma trận (matrices). Điều này có nghĩa là mỗi phần tử trong mảng đầu tiên sẽ được kết hợp với phần tử tương ứng tại cùng vị trí trong mảng thứ hai (hoặc các mảng khác) để tạo ra kết quả. Các phép toán không phụ thuộc vào nhau. Các toán tử này có thể được tính toán rất nhanh khi thực hiện tính toán đa nhân.</p>
 <p>Có ba toán tử chính trong element wise operator là relu, phép cộng và phép nhân ma trận</p>
 </section>
 <section id="phep-tinh-giua-cac-ma-tran-khac-chieu">
-<h3><span class="section-number">2.2.2. </span>Phép tính giữa các ma trận khác chiều<a class="headerlink" href="#phep-tinh-giua-cac-ma-tran-khac-chieu" title="Link to this heading"></a></h3>
+<h3><span class="section-number">2.2.2. </span>Phép tính giữa các ma trận khác chiều<a class="headerlink" href="#phep-tinh-giua-cac-ma-tran-khac-chieu" title="Link to this heading">#</a></h3>
 <p>Đối với các ma trận khác chiều, khi tính toán có thể mở rộng chiều của các <code class="docutils literal notranslate"><span class="pre">tensor</span></code> có số chiều nhỏ hơn để phù hợp với các tensor lớn hơn.</p>
 <p>Xem ví dụ đơn giản sau</p>
 <div class="cell docutils container">
@@ -383,9 +582,9 @@ $$</p>
 </div>
 </section>
 <section id="phep-nhan-tensor">
-<h3><span class="section-number">2.2.3. </span>Phép nhân tensor<a class="headerlink" href="#phep-nhan-tensor" title="Link to this heading"></a></h3>
+<h3><span class="section-number">2.2.3. </span>Phép nhân tensor<a class="headerlink" href="#phep-nhan-tensor" title="Link to this heading">#</a></h3>
 <p>Phép nhân vector, cho phép nhân 2 tensor lại và tạo thành 1 tensor mới.</p>
-<p>$x(a, b) \times y(b, c) = z(a, c)$</p>
+<p><span class="math notranslate nohighlight">\(x(a, b) \times y(b, c) = z(a, c)\)</span></p>
 <p><img alt="" src="_images/p01-02-dot.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -414,7 +613,7 @@ $$</p>
 </div>
 </section>
 <section id="thay-doi-dinh-dang-tensor">
-<h3><span class="section-number">2.2.4. </span>Thay đổi định dạng tensor<a class="headerlink" href="#thay-doi-dinh-dang-tensor" title="Link to this heading"></a></h3>
+<h3><span class="section-number">2.2.4. </span>Thay đổi định dạng tensor<a class="headerlink" href="#thay-doi-dinh-dang-tensor" title="Link to this heading">#</a></h3>
 <p>Tensor reshaping là các sắp xếp lại các hàng và cột để về định dạng mong muốn</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -464,7 +663,7 @@ $$</p>
 </section>
 </section>
 <section id="y-nghia-hinh-hoc-cac-phep-bien-doi-tensor">
-<h2><span class="section-number">2.3. </span>Ý nghĩa hình học các phép biến đổi tensor<a class="headerlink" href="#y-nghia-hinh-hoc-cac-phep-bien-doi-tensor" title="Link to this heading"></a></h2>
+<h2><span class="section-number">2.3. </span>Ý nghĩa hình học các phép biến đổi tensor<a class="headerlink" href="#y-nghia-hinh-hoc-cac-phep-bien-doi-tensor" title="Link to this heading">#</a></h2>
 <p>Các phép biến đổi của tensor có thể chuyển đổi sang hình ảnh của các phép biến đổi như sau</p>
 <ul class="simple">
 <li><p>Phép cộng tensor: cho phép dịch chuyển đối tượng</p></li>
@@ -477,15 +676,16 @@ $$</p>
 <p><img alt="" src="_images/p01-02-tensor-scale.png" /></p>
 </section>
 <section id="toi-uu-hoa">
-<h2><span class="section-number">2.4. </span>Tối ưu hóa<a class="headerlink" href="#toi-uu-hoa" title="Link to this heading"></a></h2>
+<h2><span class="section-number">2.4. </span>Tối ưu hóa<a class="headerlink" href="#toi-uu-hoa" title="Link to this heading">#</a></h2>
 <p>Các phép tính trong neural network để tính toán ra các bộ tham số đều được dựa trên việc tính toán đạo hàm (<code class="docutils literal notranslate"><span class="pre">derivatives</span></code>). Với hàm đơn biến và liên tục, ta có:</p>
-<p>$$f(x + \epsilon) = f(x) + f'(x) \times \epsilon$$</p>
+<div class="math notranslate nohighlight">
+\[f(x + \epsilon) = f(x) + f'(x) \times \epsilon\]</div>
 <p><img alt="" src="_images/p01-02-derivative.png" /></p>
 <p><strong>Ý nghĩa</strong>: Khi muốn tìm điểm cực tiểu của một hàm, ta có thể đi qua ba bước:</p>
 <ul class="simple">
 <li><p>Bắt đầu tại 1 điểm bất kỳ</p></li>
 <li><p>Tính toán đạo hàm tại điểm đó</p></li>
-<li><p>Cập nhật tham số mới: W1 = W0 - step * grad(f(W0), W0)</p></li>
+<li><p>Cập nhật tham số mới: <span class="math notranslate nohighlight">\(w_1 = w_0 - \text{step} \times \text{grad}(f(w_0), w_0)\)</span></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -493,13 +693,20 @@ $$</p>
 <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mf">0.</span><span class="p">)</span>
 <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span>
     <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Variable &#39;Variable:0&#39; shape=() dtype=float32, numpy=0.0&gt;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grad_of_y_wrt_x</span> <span class="o">=</span> <span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># gradient of y with respect to x</span>
+<span class="n">grad_of_y_wrt_x</span> <span class="o">=</span> <span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">grad_of_y_wrt_x</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -513,6 +720,7 @@ $$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span>
     <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">3</span>
 <span class="n">grad_of_y_wrt_x</span> <span class="o">=</span> <span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
@@ -521,7 +729,10 @@ $$</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tf.Tensor(
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Variable &#39;Variable:0&#39; shape=(2, 2) dtype=float32, numpy=
+array([[0.2638389 , 0.5519146 ],
+       [0.20859087, 0.6119733 ]], dtype=float32)&gt;
+tf.Tensor(
 [[2. 2.]
  [2. 2.]], shape=(2, 2), dtype=float32)
 </pre></div>
@@ -552,34 +763,112 @@ array([[0.90537345, 0.90537345],
 </section>
 
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="p01-01-gioi-thieu-deep-learning.html" class="btn btn-neutral float-left" title="1. Giới thiệu về học sâu" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="p01-03-dl-co-ban.html" class="btn btn-neutral float-right" title="3. Tensorflow &amp; Keras" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+                </article>
+              
 
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2024, Anh Hoang Duc.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="p01-01-gioi-thieu-deep-learning.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Giới thiệu về học sâu</p>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+    </a>
+    <a class="right-next"
+       href="p01-03-dl-co-ban.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Tensorflow &amp; Keras</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-</body>
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Mục lục
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor">2.1. Tensor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-phep-toan-co-ban-voi-tensor">2.2. Các phép toán cơ bản với tensor</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phep-tinh-tung-phan-tu-element-wise-operator">2.2.1. Phép tính từng phần tử (<code class="docutils literal notranslate"><span class="pre">element</span> <span class="pre">wise</span> <span class="pre">operator</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phep-tinh-giua-cac-ma-tran-khac-chieu">2.2.2. Phép tính giữa các ma trận khác chiều</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phep-nhan-tensor">2.2.3. Phép nhân tensor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#thay-doi-dinh-dang-tensor">2.2.4. Thay đổi định dạng tensor</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#y-nghia-hinh-hoc-cac-phep-bien-doi-tensor">2.3. Ý nghĩa hình học các phép biến đổi tensor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#toi-uu-hoa">2.4. Tối ưu hóa</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Anh Hoang Duc
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Anh Hoang Duc.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
 </html>

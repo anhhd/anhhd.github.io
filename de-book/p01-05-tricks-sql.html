@@ -1,127 +1,316 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="vn" data-content_root="./">
-<head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5. Mẹo với SQL &mdash; Data Engineer book 2025 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0cebd926" />
+
+<html lang="vn" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>5. Mẹo với SQL &#8212; Data Engineer</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-      <script src="_static/jquery.js?v=5d32c60e"></script>
-      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=6c11a7b2"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-      <script src="_static/copybutton.js?v=f281be69"></script>
-      <script src="_static/design-tabs.js?v=f930bc37"></script>
-      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="_static/js/theme.js"></script>
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0cebd926" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=f2f0b1f9"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'p01-05-tricks-sql';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="6. SQLCMD" href="p01-06-sqlcmd.html" />
-    <link rel="prev" title="4. SQL style guide" href="p01-04-sql-style.html" /> 
-</head>
+    <link rel="prev" title="4. SQL style guide" href="p01-04-sql-style.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="vn"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-          
-          
-          <a href="index.html" class="icon icon-home">
-            Data Engineer book
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">SQL cơ bản</span></p>
-<ul class="current">
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Data Engineer</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Kiến thức cơ bản với MSSQL Server</span></p>
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="p01-01-sql-co-ban.html">1. SQL cơ bản</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-02-sql-nang-cao.html">2. SQL nâng cao</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-03-sql-tuning.html">3. SQL tuning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-04-sql-style.html">4. SQL style guide</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Mẹo với SQL</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#kiem-tra-kieu-du-lieu-trong-bang">5.1. Kiểm tra kiểu dữ liệu trong bảng</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#du-lieu-bi-collate">5.2. Dữ liệu bị collate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#drop-nhieu-bang-theo-dieu-kien">5.3. Drop nhiều bảng theo điều kiện</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#auto-wrap-in-mssql">5.4. Auto Wrap in MSSQL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#format-dinh-dang-them-ky-tu-00-truoc-so">5.5. Format định dạng thêm ký tự 00 trước số</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#kiem-tra-dinh-dang-du-lieu-mot-bang">5.6. Kiểm tra định dạng dữ liệu một bảng</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#convert-tu-tieng-viet-co-dau-sang-khong-dau">5.7. Convert từ tiếng Việt có dấu sang không dấu</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#functions-chon-gia-tri-lon-hon">5.8. Functions chọn giá trị lớn hơn</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#procedure-pivot-vs-unpivot">5.9. Procedure pivot vs. unpivot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#doi-ten-bang-va-ten-cot">5.10. Đổi tên bảng và tên cột</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#viet-hoa-chu-dau">5.11. Viết hoa chữ đầu</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#tao-floor-date">5.12. Tạo floor date</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#clean-city">5.13. Clean city</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#kiem-tra-chat-luong-du-lieu-hang-ngay">5.14. Kiểm tra chất lượng dữ liệu hàng ngày</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#sua-default-template-trong-sql">5.15. Sửa default template trong SQL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bat-dau-tem-bang-voi-dim">5.16. Bắt đầu têm bảng với DIM</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#xoa-bang-neu-ton-tai">5.17. Xóa bảng nếu tồn tại</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#tim-kiem-kieu-du-lieu-trong-bang-cua-db">5.18. Tìm kiếm kiểu dữ liệu trong bảng của db</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#su-dung-drop-va-create-trong-cung-batch">5.19. Sử dụng drop và create trong cùng batch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#phan-biet-dinh-dang-integer">5.20. Phân biệt định dạng integer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#varchar-vs-nvarchar">5.21. VARCHAR vs. NVARCHAR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#primary-key-vs-unique-key">5.22. Primary key vs. Unique key</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#exec-vs-exec">5.23. EXEC vs. EXEC()</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#xem-tat-ca-cac-user-defined-procedure">5.24. Xem tất cả các user-defined procedure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lam-viec-voi-link-server">5.25. Làm việc với link server</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#procedure-tao-nhieu-link-server">5.25.1. Procedure tạo nhiều link server</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#tim-tat-ca-cac-bang-cot-trong-database">5.26. Tìm tất cả các bảng, cột trong Database</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#chay-file-bat-tu-t-sql">5.27. Chạy file .BAT từ T-SQL</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Mẹo với SQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-06-sqlcmd.html">6. SQLCMD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-07-sql-project.html">7. SQL prọject</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-08-sql-va-excel.html">8. Kết nối SQL với Excel phục vụ báo cáo tự động</a></li>
 </ul>
 
-        </div>
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
       </div>
-    </nav>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Data Engineer book</a>
-      </nav>
+<div class="sbt-scroll-pixel-helper"></div>
 
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">5. </span>Mẹo với SQL</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="_sources/p01-05-tricks-sql.ipynb.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
-  <section id="meo-voi-sql">
-<h1><span class="section-number">5. </span>Mẹo với SQL<a class="headerlink" href="#meo-voi-sql" title="Link to this heading"></a></h1>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Mẹo với SQL</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Mục lục </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kiem-tra-kieu-du-lieu-trong-bang">5.1. Kiểm tra kiểu dữ liệu trong bảng</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#du-lieu-bi-collate">5.2. Dữ liệu bị collate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drop-nhieu-bang-theo-dieu-kien">5.3. Drop nhiều bảng theo điều kiện</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auto-wrap-in-mssql">5.4. Auto Wrap in MSSQL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-dinh-dang-them-ky-tu-00-truoc-so">5.5. Format định dạng thêm ký tự 00 trước số</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kiem-tra-dinh-dang-du-lieu-mot-bang">5.6. Kiểm tra định dạng dữ liệu một bảng</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-tu-tieng-viet-co-dau-sang-khong-dau">5.7. Convert từ tiếng Việt có dấu sang không dấu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-chon-gia-tri-lon-hon">5.8. Functions chọn giá trị lớn hơn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure-pivot-vs-unpivot">5.9. Procedure pivot vs. unpivot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#doi-ten-bang-va-ten-cot">5.10. Đổi tên bảng và tên cột</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viet-hoa-chu-dau">5.11. Viết hoa chữ đầu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tao-floor-date">5.12. Tạo floor date</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-city">5.13. Clean city</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kiem-tra-chat-luong-du-lieu-hang-ngay">5.14. Kiểm tra chất lượng dữ liệu hàng ngày</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sua-default-template-trong-sql">5.15. Sửa default template trong SQL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bat-dau-tem-bang-voi-dim">5.16. Bắt đầu têm bảng với DIM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xoa-bang-neu-ton-tai">5.17. Xóa bảng nếu tồn tại</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tim-kiem-kieu-du-lieu-trong-bang-cua-db">5.18. Tìm kiếm kiểu dữ liệu trong bảng của db</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#su-dung-drop-va-create-trong-cung-batch">5.19. Sử dụng drop và create trong cùng batch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phan-biet-dinh-dang-integer">5.20. Phân biệt định dạng integer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#varchar-vs-nvarchar">5.21. VARCHAR vs. NVARCHAR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#primary-key-vs-unique-key">5.22. Primary key vs. Unique key</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exec-vs-exec">5.23. EXEC vs. EXEC()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xem-tat-ca-cac-user-defined-procedure">5.24. Xem tất cả các user-defined procedure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lam-viec-voi-link-server">5.25. Làm việc với link server</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure-tao-nhieu-link-server">5.25.1. Procedure tạo nhiều link server</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tim-tat-ca-cac-bang-cot-trong-database">5.26. Tìm tất cả các bảng, cột trong Database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chay-file-bat-tu-t-sql">5.27. Chạy file .BAT từ T-SQL</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="meo-voi-sql">
+<h1><span class="section-number">5. </span>Mẹo với SQL<a class="headerlink" href="#meo-voi-sql" title="Link to this heading">#</a></h1>
 <section id="kiem-tra-kieu-du-lieu-trong-bang">
-<h2><span class="section-number">5.1. </span>Kiểm tra kiểu dữ liệu trong bảng<a class="headerlink" href="#kiem-tra-kieu-du-lieu-trong-bang" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.1. </span>Kiểm tra kiểu dữ liệu trong bảng<a class="headerlink" href="#kiem-tra-kieu-du-lieu-trong-bang" title="Link to this heading">#</a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">COLUMN_NAME</span><span class="p">,</span><span class="w"> </span><span class="n">DATA_TYPE</span><span class="w"> </span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">INFORMATION_SCHEMA</span><span class="p">.</span><span class="n">COLUMNS</span><span class="w"> </span>
 <span class="k">WHERE</span><span class="w"> </span><span class="k">TABLE_NAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;ACCOUNT&#39;</span><span class="w"> </span><span class="c1">-- Điền tên bảng</span>
@@ -129,7 +318,7 @@
 </div>
 </section>
 <section id="du-lieu-bi-collate">
-<h2><span class="section-number">5.2. </span>Dữ liệu bị collate<a class="headerlink" href="#du-lieu-bi-collate" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.2. </span>Dữ liệu bị collate<a class="headerlink" href="#du-lieu-bi-collate" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Khi làm việc, dữ liệu các bảng có thể bị convert định dạng khác nhau. Trong trường hợp này, phải dùng <code class="docutils literal notranslate"><span class="pre">COLLATE</span> <span class="pre">DATABASE_DEFAULT</span></code></p></li>
 </ul>
@@ -142,7 +331,7 @@
 </div>
 </section>
 <section id="drop-nhieu-bang-theo-dieu-kien">
-<h2><span class="section-number">5.3. </span>Drop nhiều bảng theo điều kiện<a class="headerlink" href="#drop-nhieu-bang-theo-dieu-kien" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.3. </span>Drop nhiều bảng theo điều kiện<a class="headerlink" href="#drop-nhieu-bang-theo-dieu-kien" title="Link to this heading">#</a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">declare</span><span class="w"> </span><span class="o">@</span><span class="n">string</span><span class="w"> </span><span class="n">nvarchar</span><span class="p">(</span><span class="k">max</span><span class="p">)</span><span class="w"> </span>
 <span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">STRING</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
 <span class="k">SELECT</span><span class="w"> </span><span class="o">@</span><span class="n">STRING</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">STRING</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;DROP TABLE ANALYTICS.DBO.&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">TABLE_NAME</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;;&#39;</span><span class="w"> </span>
@@ -153,17 +342,17 @@
 </div>
 </section>
 <section id="auto-wrap-in-mssql">
-<h2><span class="section-number">5.4. </span>Auto Wrap in MSSQL<a class="headerlink" href="#auto-wrap-in-mssql" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.4. </span>Auto Wrap in MSSQL<a class="headerlink" href="#auto-wrap-in-mssql" title="Link to this heading">#</a></h2>
 <p>Tools &gt;&gt; Options &gt;&gt; Text Editor &gt;&gt; Transact SQL &gt;&gt; General &gt;&gt; WordWrap</p>
 </section>
 <section id="format-dinh-dang-them-ky-tu-00-truoc-so">
-<h2><span class="section-number">5.5. </span>Format định dạng thêm ký tự 00 trước số<a class="headerlink" href="#format-dinh-dang-them-ky-tu-00-truoc-so" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.5. </span>Format định dạng thêm ký tự 00 trước số<a class="headerlink" href="#format-dinh-dang-them-ky-tu-00-truoc-so" title="Link to this heading">#</a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="n">FORMAT</span><span class="p">(</span><span class="mi">01</span><span class="p">,</span><span class="s1">&#39;00#&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">index</span>
 </pre></div>
 </div>
 </section>
 <section id="kiem-tra-dinh-dang-du-lieu-mot-bang">
-<h2><span class="section-number">5.6. </span>Kiểm tra định dạng dữ liệu một bảng<a class="headerlink" href="#kiem-tra-dinh-dang-du-lieu-mot-bang" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.6. </span>Kiểm tra định dạng dữ liệu một bảng<a class="headerlink" href="#kiem-tra-dinh-dang-du-lieu-mot-bang" title="Link to this heading">#</a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Với Link server</span>
 <span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">ANHNT67</span><span class="p">.</span><span class="k">DATA</span><span class="p">.</span><span class="n">INFORMATION_SCHEMA</span><span class="p">.</span><span class="n">COLUMNS</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="k">TABLE_NAME</span><span class="o">=</span><span class="s1">&#39;CARD_LIVE&#39;</span>
 
@@ -177,7 +366,7 @@
 </div>
 </section>
 <section id="convert-tu-tieng-viet-co-dau-sang-khong-dau">
-<h2><span class="section-number">5.7. </span>Convert từ tiếng Việt có dấu sang không dấu<a class="headerlink" href="#convert-tu-tieng-viet-co-dau-sang-khong-dau" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.7. </span>Convert từ tiếng Việt có dấu sang không dấu<a class="headerlink" href="#convert-tu-tieng-viet-co-dau-sang-khong-dau" title="Link to this heading">#</a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">fChuyenCoDauThanhKhongDau</span><span class="p">](</span><span class="o">@</span><span class="n">inputVar</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
 <span class="k">RETURNS</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">)</span>
 <span class="k">AS</span>
@@ -225,7 +414,7 @@
 </div>
 </section>
 <section id="functions-chon-gia-tri-lon-hon">
-<h2><span class="section-number">5.8. </span>Functions chọn giá trị lớn hơn<a class="headerlink" href="#functions-chon-gia-tri-lon-hon" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.8. </span>Functions chọn giá trị lớn hơn<a class="headerlink" href="#functions-chon-gia-tri-lon-hon" title="Link to this heading">#</a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="cm">/********************************</span>
 <span class="cm">Script:         Function lấy giá trị lớn hơn</span>
 <span class="cm">Author:         TrangTQ2</span>
@@ -249,7 +438,7 @@
 </div>
 </section>
 <section id="procedure-pivot-vs-unpivot">
-<h2><span class="section-number">5.9. </span>Procedure pivot vs. unpivot<a class="headerlink" href="#procedure-pivot-vs-unpivot" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.9. </span>Procedure pivot vs. unpivot<a class="headerlink" href="#procedure-pivot-vs-unpivot" title="Link to this heading">#</a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="cm">/********************************</span>
 <span class="cm">Script:         Procedure pivot và unpivot</span>
 <span class="cm">Author:         TrangTQ2</span>
@@ -413,7 +602,7 @@
 </div>
 </section>
 <section id="doi-ten-bang-va-ten-cot">
-<h2><span class="section-number">5.10. </span>Đổi tên bảng và tên cột<a class="headerlink" href="#doi-ten-bang-va-ten-cot" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.10. </span>Đổi tên bảng và tên cột<a class="headerlink" href="#doi-ten-bang-va-ten-cot" title="Link to this heading">#</a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="cm">/********************************</span>
 <span class="cm">Script:         Đổi tên bảng và cột</span>
 <span class="cm">Author:         TrangTQ2</span>
@@ -451,7 +640,7 @@
 </div>
 </section>
 <section id="viet-hoa-chu-dau">
-<h2><span class="section-number">5.11. </span>Viết hoa chữ đầu<a class="headerlink" href="#viet-hoa-chu-dau" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.11. </span>Viết hoa chữ đầu<a class="headerlink" href="#viet-hoa-chu-dau" title="Link to this heading">#</a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="cm">/********************************</span>
 <span class="cm">Script:         Function viết hoa chữ đầu</span>
 <span class="cm">Author:         TrangTQ2</span>
@@ -499,7 +688,7 @@
 </div>
 </section>
 <section id="tao-floor-date">
-<h2><span class="section-number">5.12. </span>Tạo floor date<a class="headerlink" href="#tao-floor-date" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.12. </span>Tạo floor date<a class="headerlink" href="#tao-floor-date" title="Link to this heading">#</a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="cm">/********************************</span>
 <span class="cm">Script:         Floor Date trong SQL</span>
 <span class="cm">Author:         AnhHD3</span>
@@ -544,7 +733,7 @@
 </div>
 </section>
 <section id="clean-city">
-<h2><span class="section-number">5.13. </span>Clean city<a class="headerlink" href="#clean-city" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.13. </span>Clean city<a class="headerlink" href="#clean-city" title="Link to this heading">#</a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="cm">/********************************</span>
 <span class="cm">Script:         Function clean city</span>
 <span class="cm">Author:         Hoangnb3</span>
@@ -758,7 +947,7 @@
 </div>
 </section>
 <section id="kiem-tra-chat-luong-du-lieu-hang-ngay">
-<h2><span class="section-number">5.14. </span>Kiểm tra chất lượng dữ liệu hàng ngày<a class="headerlink" href="#kiem-tra-chat-luong-du-lieu-hang-ngay" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.14. </span>Kiểm tra chất lượng dữ liệu hàng ngày<a class="headerlink" href="#kiem-tra-chat-luong-du-lieu-hang-ngay" title="Link to this heading">#</a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="cm">/********************************</span>
 <span class="cm">Script: Tạo bảng kiểm tra chất lượng dữ liệu (nrow) hàng ngày</span>
 <span class="cm">Author:         AnhHD3</span>
@@ -793,7 +982,7 @@
 </div>
 </section>
 <section id="sua-default-template-trong-sql">
-<h2><span class="section-number">5.15. </span>Sửa default template trong SQL<a class="headerlink" href="#sua-default-template-trong-sql" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.15. </span>Sửa default template trong SQL<a class="headerlink" href="#sua-default-template-trong-sql" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Sửa file <code class="docutils literal notranslate"><span class="pre">SQLfile.sql</span></code> tại đường dẫn sau <code class="docutils literal notranslate"><span class="pre">C:\Program</span> <span class="pre">Files</span> <span class="pre">(x86)\Microsoft</span> <span class="pre">SQL</span> <span class="pre">Server\130\Tools\Binn\ManagementStudio\SqlWorkbenchProjectItems\Sql</span></code></p></li>
 <li><p>Nội dung default script</p></li>
@@ -821,26 +1010,26 @@
 </div>
 </section>
 <section id="bat-dau-tem-bang-voi-dim">
-<h2><span class="section-number">5.16. </span>Bắt đầu têm bảng với DIM<a class="headerlink" href="#bat-dau-tem-bang-voi-dim" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.16. </span>Bắt đầu têm bảng với DIM<a class="headerlink" href="#bat-dau-tem-bang-voi-dim" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Tên các bảng thường bắt đầu bằng Dim - viết tắt của Dimension</p></li>
 </ul>
 </section>
 <section id="xoa-bang-neu-ton-tai">
-<h2><span class="section-number">5.17. </span>Xóa bảng nếu tồn tại<a class="headerlink" href="#xoa-bang-neu-ton-tai" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.17. </span>Xóa bảng nếu tồn tại<a class="headerlink" href="#xoa-bang-neu-ton-tai" title="Link to this heading">#</a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">CROSS_SELLING_RESULTS</span>
 </pre></div>
 </div>
 </section>
 <section id="tim-kiem-kieu-du-lieu-trong-bang-cua-db">
-<h2><span class="section-number">5.18. </span>Tìm kiếm kiểu dữ liệu trong bảng của db<a class="headerlink" href="#tim-kiem-kieu-du-lieu-trong-bang-cua-db" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.18. </span>Tìm kiếm kiểu dữ liệu trong bảng của db<a class="headerlink" href="#tim-kiem-kieu-du-lieu-trong-bang-cua-db" title="Link to this heading">#</a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Kiểm tra thông tin kiểu dữ liệu trong bảng</span>
 <span class="k">select</span><span class="w"> </span><span class="k">table_name</span><span class="p">,</span><span class="w"> </span><span class="k">column_name</span><span class="p">,</span><span class="w"> </span><span class="n">data_type</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="p">[</span><span class="n">learningsql</span><span class="p">].[</span><span class="n">INFORMATION_SCHEMA</span><span class="p">].[</span><span class="n">columns</span><span class="p">]</span>
 </pre></div>
 </div>
 </section>
 <section id="su-dung-drop-va-create-trong-cung-batch">
-<h2><span class="section-number">5.19. </span>Sử dụng drop và create trong cùng batch<a class="headerlink" href="#su-dung-drop-va-create-trong-cung-batch" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.19. </span>Sử dụng drop và create trong cùng batch<a class="headerlink" href="#su-dung-drop-va-create-trong-cung-batch" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>DROP và CREATE không thể chạy cùng trong 1 batch, khi muốn sử dụng phải thêm câu lệnh GO</p></li>
 </ul>
@@ -855,7 +1044,7 @@
 </div>
 </section>
 <section id="phan-biet-dinh-dang-integer">
-<h2><span class="section-number">5.20. </span>Phân biệt định dạng integer<a class="headerlink" href="#phan-biet-dinh-dang-integer" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.20. </span>Phân biệt định dạng integer<a class="headerlink" href="#phan-biet-dinh-dang-integer" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>SQL không phân biệt được định dạng numeric &amp; integer ngay lập tức</p></li>
 </ul>
@@ -868,7 +1057,7 @@
 </div>
 </section>
 <section id="varchar-vs-nvarchar">
-<h2><span class="section-number">5.21. </span>VARCHAR vs. NVARCHAR<a class="headerlink" href="#varchar-vs-nvarchar" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.21. </span>VARCHAR vs. NVARCHAR<a class="headerlink" href="#varchar-vs-nvarchar" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>varchar vs. nvarchar: nvarchar cho phép lưu trữ ký tự Unicode, varchar không cho phép</p></li>
 <li><p>varchar(n) vs. varchar(max):</p></li>
@@ -903,7 +1092,7 @@
 </div>
 </section>
 <section id="primary-key-vs-unique-key">
-<h2><span class="section-number">5.22. </span>Primary key vs. Unique key<a class="headerlink" href="#primary-key-vs-unique-key" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.22. </span>Primary key vs. Unique key<a class="headerlink" href="#primary-key-vs-unique-key" title="Link to this heading">#</a></h2>
 <p>+----------+----------------------------+-------------------------------------+
 | Tiêu chí |        Primary key         |             Unique key              |
 +==========+============================+=====================================+
@@ -915,7 +1104,7 @@
 +----------+----------------------------+-------------------------------------+</p>
 </section>
 <section id="exec-vs-exec">
-<h2><span class="section-number">5.23. </span>EXEC vs. EXEC()<a class="headerlink" href="#exec-vs-exec" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.23. </span>EXEC vs. EXEC()<a class="headerlink" href="#exec-vs-exec" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Exec dùng để thực hiện các procedure. VD: <code class="docutils literal notranslate"><span class="pre">exec</span> <span class="pre">sp_pivot</span></code></p></li>
 <li><p>Exec() dùng để thực hiện dinamic SQL.</p></li>
@@ -925,7 +1114,7 @@
 </div>
 </section>
 <section id="xem-tat-ca-cac-user-defined-procedure">
-<h2><span class="section-number">5.24. </span>Xem tất cả các user-defined procedure<a class="headerlink" href="#xem-tat-ca-cac-user-defined-procedure" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.24. </span>Xem tất cả các user-defined procedure<a class="headerlink" href="#xem-tat-ca-cac-user-defined-procedure" title="Link to this heading">#</a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span>
 <span class="w">       </span><span class="k">type</span>
 <span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">sysobjects</span>
@@ -935,7 +1124,7 @@
 </div>
 </section>
 <section id="lam-viec-voi-link-server">
-<h2><span class="section-number">5.25. </span>Làm việc với link server<a class="headerlink" href="#lam-viec-voi-link-server" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.25. </span>Làm việc với link server<a class="headerlink" href="#lam-viec-voi-link-server" title="Link to this heading">#</a></h2>
 <p><strong>Vấn đề</strong>: Cách link server thủ công (GUI) có thể sẽ gặp vấn đề khi cùng lúc làm việc với nhiều server. Ta có thể sử dụng T-SQL để làm việc với link server như sau</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Bước 1: Tạo link server </span>
 
@@ -962,7 +1151,7 @@
 </pre></div>
 </div>
 <section id="procedure-tao-nhieu-link-server">
-<h3><span class="section-number">5.25.1. </span>Procedure tạo nhiều link server<a class="headerlink" href="#procedure-tao-nhieu-link-server" title="Link to this heading"></a></h3>
+<h3><span class="section-number">5.25.1. </span>Procedure tạo nhiều link server<a class="headerlink" href="#procedure-tao-nhieu-link-server" title="Link to this heading">#</a></h3>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">drop</span><span class="w"> </span><span class="k">procedure</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">u_createlinkserver</span>
 <span class="k">GO</span>
 <span class="k">create</span><span class="w"> </span><span class="k">procedure</span><span class="w"> </span><span class="n">u_createlinkserver</span><span class="w"> </span>
@@ -998,7 +1187,7 @@
 </section>
 </section>
 <section id="tim-tat-ca-cac-bang-cot-trong-database">
-<h2><span class="section-number">5.26. </span>Tìm tất cả các bảng, cột trong Database<a class="headerlink" href="#tim-tat-ca-cac-bang-cot-trong-database" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.26. </span>Tìm tất cả các bảng, cột trong Database<a class="headerlink" href="#tim-tat-ca-cac-bang-cot-trong-database" title="Link to this heading">#</a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="s1">&#39;SERVER_74&#39;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">SERVER</span><span class="p">,</span>
 <span class="w">		</span><span class="s1">&#39;BICDATA&#39;</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">DATA_BASE</span><span class="p">,</span>
 <span class="w">		</span><span class="n">lst</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">Table_Name</span><span class="p">,</span><span class="w"> </span>
@@ -1021,7 +1210,7 @@
 </div>
 </section>
 <section id="chay-file-bat-tu-t-sql">
-<h2><span class="section-number">5.27. </span>Chạy file .BAT từ T-SQL<a class="headerlink" href="#chay-file-bat-tu-t-sql" title="Link to this heading"></a></h2>
+<h2><span class="section-number">5.27. </span>Chạy file .BAT từ T-SQL<a class="headerlink" href="#chay-file-bat-tu-t-sql" title="Link to this heading">#</a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">sp_configure</span><span class="w"> </span><span class="s1">&#39;show advanced options&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1&#39;</span>
 <span class="n">RECONFIGURE</span>
 <span class="n">sp_configure</span><span class="w"> </span><span class="s1">&#39;xp_cmdshell&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="w"> </span>
@@ -1036,34 +1225,132 @@
 </section>
 
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="p01-04-sql-style.html" class="btn btn-neutral float-left" title="4. SQL style guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="p01-06-sqlcmd.html" class="btn btn-neutral float-right" title="6. SQLCMD" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+                </article>
+              
 
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2019, Anh Hoang Duc.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="p01-04-sql-style.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>SQL style guide</p>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+    </a>
+    <a class="right-next"
+       href="p01-06-sqlcmd.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>SQLCMD</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-</body>
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Mục lục
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kiem-tra-kieu-du-lieu-trong-bang">5.1. Kiểm tra kiểu dữ liệu trong bảng</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#du-lieu-bi-collate">5.2. Dữ liệu bị collate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drop-nhieu-bang-theo-dieu-kien">5.3. Drop nhiều bảng theo điều kiện</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auto-wrap-in-mssql">5.4. Auto Wrap in MSSQL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-dinh-dang-them-ky-tu-00-truoc-so">5.5. Format định dạng thêm ký tự 00 trước số</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kiem-tra-dinh-dang-du-lieu-mot-bang">5.6. Kiểm tra định dạng dữ liệu một bảng</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-tu-tieng-viet-co-dau-sang-khong-dau">5.7. Convert từ tiếng Việt có dấu sang không dấu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-chon-gia-tri-lon-hon">5.8. Functions chọn giá trị lớn hơn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure-pivot-vs-unpivot">5.9. Procedure pivot vs. unpivot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#doi-ten-bang-va-ten-cot">5.10. Đổi tên bảng và tên cột</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viet-hoa-chu-dau">5.11. Viết hoa chữ đầu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tao-floor-date">5.12. Tạo floor date</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-city">5.13. Clean city</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kiem-tra-chat-luong-du-lieu-hang-ngay">5.14. Kiểm tra chất lượng dữ liệu hàng ngày</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sua-default-template-trong-sql">5.15. Sửa default template trong SQL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bat-dau-tem-bang-voi-dim">5.16. Bắt đầu têm bảng với DIM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xoa-bang-neu-ton-tai">5.17. Xóa bảng nếu tồn tại</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tim-kiem-kieu-du-lieu-trong-bang-cua-db">5.18. Tìm kiếm kiểu dữ liệu trong bảng của db</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#su-dung-drop-va-create-trong-cung-batch">5.19. Sử dụng drop và create trong cùng batch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phan-biet-dinh-dang-integer">5.20. Phân biệt định dạng integer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#varchar-vs-nvarchar">5.21. VARCHAR vs. NVARCHAR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#primary-key-vs-unique-key">5.22. Primary key vs. Unique key</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exec-vs-exec">5.23. EXEC vs. EXEC()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xem-tat-ca-cac-user-defined-procedure">5.24. Xem tất cả các user-defined procedure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lam-viec-voi-link-server">5.25. Làm việc với link server</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure-tao-nhieu-link-server">5.25.1. Procedure tạo nhiều link server</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tim-tat-ca-cac-bang-cot-trong-database">5.26. Tìm tất cả các bảng, cột trong Database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chay-file-bat-tu-t-sql">5.27. Chạy file .BAT từ T-SQL</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Anh Hoang Duc
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2018, Anh Hoang Duc.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
 </html>

@@ -1,104 +1,302 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="vn" data-content_root="./">
-<head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4. Chuỗi thời gian &mdash; AI book 2025 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0cebd926" />
+
+<html lang="vn" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4. Chuỗi thời gian &#8212; AI with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-      <script src="_static/jquery.js?v=5d32c60e"></script>
-      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=6c11a7b2"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-      <script src="_static/copybutton.js?v=f281be69"></script>
-      <script src="_static/design-tabs.js?v=f930bc37"></script>
-      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="_static/js/theme.js"></script>
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0cebd926" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=b0188291"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'p01-04-dl-timeseries';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="1. Giới thiệu về mô hình ngôn ngữ lớn" href="p02-01-gioi-thieu-llm.html" />
-    <link rel="prev" title="3. Tensorflow &amp; Keras" href="p01-03-dl-co-ban.html" /> 
-</head>
+    <link rel="prev" title="3. Tensorflow &amp; Keras" href="p01-03-dl-co-ban.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="vn"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-          
-          
-          <a href="index.html" class="icon icon-home">
-            AI book
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Cơ bản về Deep Learning</span></p>
-<ul class="current">
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">AI with Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cơ bản về Deep Learning</span></p>
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="p01-01-gioi-thieu-deep-learning.html">1. Giới thiệu về học sâu</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-02-toan-co-ban.html">2. Toán cơ bản với DL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-03-dl-co-ban.html">3. Tensorflow &amp; Keras</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Chuỗi thời gian</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#gioi-thieu">5. Giới thiệu</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Chuỗi thời gian</a></li>
+
 </ul>
-<p class="caption" role="heading"><span class="caption-text">LLM &amp; GenAI</span></p>
-<ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">LLM &amp; GenAI</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="p02-01-gioi-thieu-llm.html">1. Giới thiệu về mô hình ngôn ngữ lớn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p02-02-xu-ly-text.html">2. Xử lý dữ liệu text</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p02-03-co-che-tu-chu-y.html">3. Cơ chế tự chú ý</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">LLM &amp; GenAI</span></p>
-<ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">GenAI</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="p05-01-gioi-thieu-langchain.html">1. Giới thiệu langchain</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p05-04-phan-tich-du-lieu.html">2. Use case - truy vấn &amp; phân tích dữ liệu</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">AI Agent</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="p06-01-gioi-thieu-ai-agent.html">1. Giới thiệu về AI Agent</a></li>
+</ul>
 
-        </div>
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
       </div>
-    </nav>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">AI book</a>
-      </nav>
+<div class="sbt-scroll-pixel-helper"></div>
 
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">4. </span>Chuỗi thời gian</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="_sources/p01-04-dl-timeseries.ipynb.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chuỗi thời gian</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Mục lục </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">4. Chuỗi thời gian</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gioi-thieu">5. Giới thiệu</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section id="chuoi-thoi-gian">
-<h1><span class="section-number">4. </span>Chuỗi thời gian<a class="headerlink" href="#chuoi-thoi-gian" title="Link to this heading"></a></h1>
+<h1><span class="section-number">4. </span>Chuỗi thời gian<a class="headerlink" href="#chuoi-thoi-gian" title="Link to this heading">#</a></h1>
 </section>
 <section id="gioi-thieu">
-<h1><span class="section-number">5. </span>Giới thiệu<a class="headerlink" href="#gioi-thieu" title="Link to this heading"></a></h1>
+<h1><span class="section-number">5. </span>Giới thiệu<a class="headerlink" href="#gioi-thieu" title="Link to this heading">#</a></h1>
 <p>Khi dự báo với deep learning, ta có thể chia dữ liệu thành các minibatch khác nhau. Với mỗi <code class="docutils literal notranslate"><span class="pre">sequence_length</span></code> là <code class="docutils literal notranslate"><span class="pre">m</span></code>, sẽ lấy <code class="docutils literal notranslate"><span class="pre">m</span></code> điểm thời gian trước đó để làm input dự báo cho thời gian hiện tại</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -118,23 +316,11 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-09 08:58:39.914367: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-E0000 00:00:1736413119.935517    6514 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-E0000 00:00:1736413119.941639    6514 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-2025-01-09 08:58:39.961974: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
-To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2] 3
 [1, 2, 3] 4
 [2, 3, 4] 5
 [3, 4, 5] 6
 [4, 5, 6] 7
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-09 08:58:45.840487: E external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:152] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
-2025-01-09 08:58:46.060166: I tensorflow/core/framework/local_rendezvous.cc:405] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
 </pre></div>
 </div>
 </div>
@@ -144,11 +330,45 @@ To enable the following instructions: AVX2 AVX512F FMA, in other operations, reb
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">plotnine</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span> 
+<span class="kn">from</span><span class="w"> </span><span class="nn">lets_plot</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="n">LetsPlot</span><span class="o">.</span><span class="n">setup_html</span><span class="p">()</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <div id="nas0f6"></div>
+            <script type="text/javascript" data-lets-plot-script="library">
+                if(!window.letsPlotCallQueue) {
+                    window.letsPlotCallQueue = [];
+                }; 
+                window.letsPlotCall = function(f) {
+                    window.letsPlotCallQueue.push(f);
+                };
+                (function() {
+                    var script = document.createElement("script");
+                    script.type = "text/javascript";
+                    script.src = "https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.7.0/js-package/distr/lets-plot.min.js";
+                    script.onload = function() {
+                        window.letsPlotCall = function(f) {f();};
+                        window.letsPlotCallQueue.forEach(function(f) {f();});
+                        window.letsPlotCallQueue = [];
+                        
+                    };
+                    script.onerror = function(event) {
+                        window.letsPlotCall = function(f) {};    // noop
+                        window.letsPlotCallQueue = [];
+                        var div = document.createElement("div");
+                        div.style.color = 'darkred';
+                        div.textContent = 'Error loading Lets-Plot JS';
+                        document.getElementById("nas0f6").appendChild(div);
+                    };
+                    var e = document.getElementById("nas0f6");
+                    e.appendChild(script);
+                })()
+            </script>
+            </div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -157,7 +377,7 @@ To enable the following instructions: AVX2 AVX512F FMA, in other operations, reb
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/home/jovyan/workspace/ai-book/_source&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;d:\\01-github\\ai-book\\_source&#39;
 </pre></div>
 </div>
 </div>
@@ -224,7 +444,38 @@ To enable the following instructions: AVX2 AVX512F FMA, in other operations, reb
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+    <span class="n">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">df</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span>
+    <span class="o">+</span> <span class="n">geom_line</span><span class="p">()</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="p">(</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="n">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">df</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="o">+</span> <span class="n">geom_line</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="p">)</span>
+
+<span class="nn">File c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\lets_plot\plot\plot.py:88,</span> in <span class="ni">ggplot</span><span class="nt">(data, mapping)</span>
+<span class="g g-Whitespace">     </span><span class="mi">84</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get_geocodes</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">86</span> <span class="n">data</span> <span class="o">=</span> <span class="n">key_int2str</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">88</span> <span class="n">data</span><span class="p">,</span> <span class="n">mapping</span><span class="p">,</span> <span class="n">data_meta</span> <span class="o">=</span> <span class="n">as_annotated_data</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">mapping</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">90</span> <span class="n">plot_spec</span> <span class="o">=</span> <span class="n">PlotSpec</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">mapping</span><span class="p">,</span> <span class="n">scales</span><span class="o">=</span><span class="p">[],</span> <span class="n">layers</span><span class="o">=</span><span class="p">[],</span> <span class="o">**</span><span class="n">data_meta</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">92</span> <span class="k">if</span> <span class="n">_get_global_theme</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\lets_plot\plot\util.py:43,</span> in <span class="ni">as_annotated_data</span><span class="nt">(data, mapping_spec)</span>
+<span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="c1"># fill mapping_meta_by_var, mappings and data_type_by_var.</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="k">if</span> <span class="n">mapping_spec</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">43</span>     <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">spec</span> <span class="ow">in</span> <span class="n">mapping_spec</span><span class="o">.</span><span class="n">props</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span>         <span class="c1"># the key is either an aesthetic name or &#39;name&#39; (FeatureSpec.name property)</span>
+<span class="g g-Whitespace">     </span><span class="mi">45</span>         <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span>  <span class="c1"># ignore FeatureSpec.name property</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span>             <span class="k">continue</span>
+
+<span class="ne">AttributeError</span>: &#39;Series&#39; object has no attribute &#39;props&#39;
 </pre></div>
 </div>
 </div>
@@ -439,20 +690,15 @@ To enable the following instructions: AVX2 AVX512F FMA, in other operations, reb
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/10
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-01-09 08:59:34.091344: W tensorflow/core/framework/op_kernel.cc:1841] OP_REQUIRES failed at reshape_op.h:65 : INVALID_ARGUMENT: Only one input size may be -1, not both 0 and 1
-2025-01-09 08:59:34.091423: I tensorflow/core/framework/local_rendezvous.cc:405] Local rendezvous is aborting with status: INVALID_ARGUMENT: Only one input size may be -1, not both 0 and 1
-	 [[{{function_node __inference_one_step_on_data_1180}}{{node functional_1/flatten_1/Reshape}}]]
-</pre></div>
-</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">InvalidArgumentError</span><span class="g g-Whitespace">                      </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">validation_data</span><span class="o">=</span><span class="n">val_dataset</span><span class="p">,</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">callbacks</span><span class="o">=</span><span class="n">callbacks</span><span class="p">)</span>
 
-<span class="nn">File /opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py:122,</span> in <span class="ni">filter_traceback.&lt;locals&gt;.error_handler</span><span class="nt">(*args, **kwargs)</span>
+<span class="nn">File c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\utils\traceback_utils.py:122,</span> in <span class="ni">filter_traceback.&lt;locals&gt;.error_handler</span><span class="nt">(*args, **kwargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">119</span>     <span class="n">filtered_tb</span> <span class="o">=</span> <span class="n">_process_traceback_frames</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">__traceback__</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">120</span>     <span class="c1"># To get the full stack trace, call:</span>
 <span class="g g-Whitespace">    </span><span class="mi">121</span>     <span class="c1"># `keras.config.disable_traceback_filtering()`</span>
@@ -460,7 +706,7 @@ To enable the following instructions: AVX2 AVX512F FMA, in other operations, reb
 <span class="g g-Whitespace">    </span><span class="mi">123</span> <span class="k">finally</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">124</span>     <span class="k">del</span> <span class="n">filtered_tb</span>
 
-<span class="nn">File /opt/saturncloud/envs/saturn/lib/python3.11/site-packages/tensorflow/python/eager/execute.py:53,</span> in <span class="ni">quick_execute</span><span class="nt">(op_name, num_outputs, inputs, attrs, ctx, name)</span>
+<span class="nn">File c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\tensorflow\python\eager\execute.py:53,</span> in <span class="ni">quick_execute</span><span class="nt">(op_name, num_outputs, inputs, attrs, ctx, name)</span>
 <span class="g g-Whitespace">     </span><span class="mi">51</span> <span class="k">try</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">52</span>   <span class="n">ctx</span><span class="o">.</span><span class="n">ensure_initialized</span><span class="p">()</span>
 <span class="ne">---&gt; </span><span class="mi">53</span>   <span class="n">tensors</span> <span class="o">=</span> <span class="n">pywrap_tfe</span><span class="o">.</span><span class="n">TFE_Py_Execute</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">_handle</span><span class="p">,</span> <span class="n">device_name</span><span class="p">,</span> <span class="n">op_name</span><span class="p">,</span>
@@ -471,95 +717,95 @@ To enable the following instructions: AVX2 AVX512F FMA, in other operations, reb
 <span class="ne">InvalidArgumentError</span>: Graph execution error:
 
 <span class="n">Detected</span> <span class="n">at</span> <span class="n">node</span> <span class="n">functional_1</span><span class="o">/</span><span class="n">flatten_1</span><span class="o">/</span><span class="n">Reshape</span> <span class="n">defined</span> <span class="n">at</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/runpy.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">198</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_run_module_as_main</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;frozen runpy&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">198</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_run_module_as_main</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/runpy.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">88</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_run_code</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;frozen runpy&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">88</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_run_code</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel_launcher.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">18</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\ipykernel_launcher.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">18</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/traitlets/config/application.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1075</span><span class="p">,</span> <span class="ow">in</span> <span class="n">launch_instance</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages</span><span class="se">\t</span><span class="s2">raitlets\config</span><span class="se">\a</span><span class="s2">pplication.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1075</span><span class="p">,</span> <span class="ow">in</span> <span class="n">launch_instance</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelapp.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">739</span><span class="p">,</span> <span class="ow">in</span> <span class="n">start</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\ipykernel\kernelapp.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">739</span><span class="p">,</span> <span class="ow">in</span> <span class="n">start</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/tornado/platform/asyncio.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">205</span><span class="p">,</span> <span class="ow">in</span> <span class="n">start</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages</span><span class="se">\t</span><span class="s2">ornado\platform</span><span class="se">\a</span><span class="s2">syncio.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">211</span><span class="p">,</span> <span class="ow">in</span> <span class="n">start</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/asyncio/base_events.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">608</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_forever</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib</span><span class="se">\a</span><span class="s2">syncio</span><span class="se">\b</span><span class="s2">ase_events.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">608</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_forever</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/asyncio/base_events.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1936</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_run_once</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib</span><span class="se">\a</span><span class="s2">syncio</span><span class="se">\b</span><span class="s2">ase_events.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1936</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_run_once</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/asyncio/events.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">84</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_run</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib</span><span class="se">\a</span><span class="s2">syncio\events.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">84</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_run</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">545</span><span class="p">,</span> <span class="ow">in</span> <span class="n">dispatch_queue</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\ipykernel\kernelbase.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">545</span><span class="p">,</span> <span class="ow">in</span> <span class="n">dispatch_queue</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">534</span><span class="p">,</span> <span class="ow">in</span> <span class="n">process_one</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\ipykernel\kernelbase.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">534</span><span class="p">,</span> <span class="ow">in</span> <span class="n">process_one</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">437</span><span class="p">,</span> <span class="ow">in</span> <span class="n">dispatch_shell</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\ipykernel\kernelbase.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">437</span><span class="p">,</span> <span class="ow">in</span> <span class="n">dispatch_shell</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/ipkernel.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">362</span><span class="p">,</span> <span class="ow">in</span> <span class="n">execute_request</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\ipykernel\ipkernel.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">362</span><span class="p">,</span> <span class="ow">in</span> <span class="n">execute_request</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">778</span><span class="p">,</span> <span class="ow">in</span> <span class="n">execute_request</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\ipykernel\kernelbase.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">778</span><span class="p">,</span> <span class="ow">in</span> <span class="n">execute_request</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/ipkernel.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">449</span><span class="p">,</span> <span class="ow">in</span> <span class="n">do_execute</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\ipykernel\ipkernel.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">449</span><span class="p">,</span> <span class="ow">in</span> <span class="n">do_execute</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/ipykernel/zmqshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">549</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_cell</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\ipykernel\zmqshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">549</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_cell</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3075</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_cell</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\IPython\core\interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3116</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_cell</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3130</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_run_cell</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\IPython\core\interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3171</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_run_cell</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/async_helpers.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">128</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_pseudo_sync_runner</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\IPython\core</span><span class="se">\a</span><span class="s2">sync_helpers.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">128</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_pseudo_sync_runner</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3334</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_cell_async</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\IPython\core\interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3394</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_cell_async</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3517</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_ast_nodes</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\IPython\core\interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3639</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_ast_nodes</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3577</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_code</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\IPython\core\interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3699</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_code</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/tmp/ipykernel_6514/2161284880.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+  <span class="n">File</span> <span class="s2">&quot;C:\Users\Admin\AppData\Local\Temp\ipykernel_19008</span><span class="se">\216</span><span class="s2">1284880.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">117</span><span class="p">,</span> <span class="ow">in</span> <span class="n">error_handler</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\utils</span><span class="se">\t</span><span class="s2">raceback_utils.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">117</span><span class="p">,</span> <span class="ow">in</span> <span class="n">error_handler</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">371</span><span class="p">,</span> <span class="ow">in</span> <span class="n">fit</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src</span><span class="se">\b</span><span class="s2">ackend</span><span class="se">\t</span><span class="s2">ensorflow</span><span class="se">\t</span><span class="s2">rainer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">377</span><span class="p">,</span> <span class="ow">in</span> <span class="n">fit</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">219</span><span class="p">,</span> <span class="ow">in</span> <span class="n">function</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src</span><span class="se">\b</span><span class="s2">ackend</span><span class="se">\t</span><span class="s2">ensorflow</span><span class="se">\t</span><span class="s2">rainer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">220</span><span class="p">,</span> <span class="ow">in</span> <span class="n">function</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">132</span><span class="p">,</span> <span class="ow">in</span> <span class="n">multi_step_on_iterator</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src</span><span class="se">\b</span><span class="s2">ackend</span><span class="se">\t</span><span class="s2">ensorflow</span><span class="se">\t</span><span class="s2">rainer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">133</span><span class="p">,</span> <span class="ow">in</span> <span class="n">multi_step_on_iterator</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">113</span><span class="p">,</span> <span class="ow">in</span> <span class="n">one_step_on_data</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src</span><span class="se">\b</span><span class="s2">ackend</span><span class="se">\t</span><span class="s2">ensorflow</span><span class="se">\t</span><span class="s2">rainer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">114</span><span class="p">,</span> <span class="ow">in</span> <span class="n">one_step_on_data</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/trainer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">57</span><span class="p">,</span> <span class="ow">in</span> <span class="n">train_step</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src</span><span class="se">\b</span><span class="s2">ackend</span><span class="se">\t</span><span class="s2">ensorflow</span><span class="se">\t</span><span class="s2">rainer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">58</span><span class="p">,</span> <span class="ow">in</span> <span class="n">train_step</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">117</span><span class="p">,</span> <span class="ow">in</span> <span class="n">error_handler</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\utils</span><span class="se">\t</span><span class="s2">raceback_utils.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">117</span><span class="p">,</span> <span class="ow">in</span> <span class="n">error_handler</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/layers/layer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">908</span><span class="p">,</span> <span class="ow">in</span> <span class="fm">__call__</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\layers\layer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">936</span><span class="p">,</span> <span class="ow">in</span> <span class="fm">__call__</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">117</span><span class="p">,</span> <span class="ow">in</span> <span class="n">error_handler</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\utils</span><span class="se">\t</span><span class="s2">raceback_utils.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">117</span><span class="p">,</span> <span class="ow">in</span> <span class="n">error_handler</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/operation.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">46</span><span class="p">,</span> <span class="ow">in</span> <span class="fm">__call__</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\ops\operation.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">58</span><span class="p">,</span> <span class="ow">in</span> <span class="fm">__call__</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">156</span><span class="p">,</span> <span class="ow">in</span> <span class="n">error_handler</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\utils</span><span class="se">\t</span><span class="s2">raceback_utils.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">156</span><span class="p">,</span> <span class="ow">in</span> <span class="n">error_handler</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/models/functional.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">182</span><span class="p">,</span> <span class="ow">in</span> <span class="n">call</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\models</span><span class="se">\f</span><span class="s2">unctional.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">183</span><span class="p">,</span> <span class="ow">in</span> <span class="n">call</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/function.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">171</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_run_through_graph</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\ops</span><span class="se">\f</span><span class="s2">unction.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">177</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_run_through_graph</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/models/functional.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">637</span><span class="p">,</span> <span class="ow">in</span> <span class="n">call</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\models</span><span class="se">\f</span><span class="s2">unctional.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">648</span><span class="p">,</span> <span class="ow">in</span> <span class="n">call</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">117</span><span class="p">,</span> <span class="ow">in</span> <span class="n">error_handler</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\utils</span><span class="se">\t</span><span class="s2">raceback_utils.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">117</span><span class="p">,</span> <span class="ow">in</span> <span class="n">error_handler</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/layers/layer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">908</span><span class="p">,</span> <span class="ow">in</span> <span class="fm">__call__</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\layers\layer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">936</span><span class="p">,</span> <span class="ow">in</span> <span class="fm">__call__</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">117</span><span class="p">,</span> <span class="ow">in</span> <span class="n">error_handler</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\utils</span><span class="se">\t</span><span class="s2">raceback_utils.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">117</span><span class="p">,</span> <span class="ow">in</span> <span class="n">error_handler</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/operation.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">46</span><span class="p">,</span> <span class="ow">in</span> <span class="fm">__call__</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\ops\operation.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">58</span><span class="p">,</span> <span class="ow">in</span> <span class="fm">__call__</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/utils/traceback_utils.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">156</span><span class="p">,</span> <span class="ow">in</span> <span class="n">error_handler</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\utils</span><span class="se">\t</span><span class="s2">raceback_utils.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">156</span><span class="p">,</span> <span class="ow">in</span> <span class="n">error_handler</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/layers/reshaping/flatten.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">54</span><span class="p">,</span> <span class="ow">in</span> <span class="n">call</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\layers</span><span class="se">\r</span><span class="s2">eshaping</span><span class="se">\f</span><span class="s2">latten.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">54</span><span class="p">,</span> <span class="ow">in</span> <span class="n">call</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/ops/numpy.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">4868</span><span class="p">,</span> <span class="ow">in</span> <span class="n">reshape</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\ops</span><span class="se">\n</span><span class="s2">umpy.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">5074</span><span class="p">,</span> <span class="ow">in</span> <span class="n">reshape</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/saturncloud/envs/saturn/lib/python3.11/site-packages/keras/src/backend/tensorflow/numpy.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1915</span><span class="p">,</span> <span class="ow">in</span> <span class="n">reshape</span>
+  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src</span><span class="se">\b</span><span class="s2">ackend</span><span class="se">\t</span><span class="s2">ensorflow</span><span class="se">\n</span><span class="s2">umpy.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2068</span><span class="p">,</span> <span class="ow">in</span> <span class="n">reshape</span>
 
 <span class="n">Only</span> <span class="n">one</span> <span class="nb">input</span> <span class="n">size</span> <span class="n">may</span> <span class="n">be</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="ow">not</span> <span class="n">both</span> <span class="mi">0</span> <span class="ow">and</span> <span class="mi">1</span>
 	 <span class="p">[[{{</span><span class="n">node</span> <span class="n">functional_1</span><span class="o">/</span><span class="n">flatten_1</span><span class="o">/</span><span class="n">Reshape</span><span class="p">}}]]</span> <span class="p">[</span><span class="n">Op</span><span class="p">:</span><span class="n">__inference_multi_step_on_iterator_1213</span><span class="p">]</span>
@@ -578,34 +824,105 @@ To enable the following instructions: AVX2 AVX512F FMA, in other operations, reb
 </section>
 
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="p01-03-dl-co-ban.html" class="btn btn-neutral float-left" title="3. Tensorflow &amp; Keras" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="p02-01-gioi-thieu-llm.html" class="btn btn-neutral float-right" title="1. Giới thiệu về mô hình ngôn ngữ lớn" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+                </article>
+              
 
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2024, Anh Hoang Duc.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="p01-03-dl-co-ban.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Tensorflow &amp; Keras</p>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+    </a>
+    <a class="right-next"
+       href="p02-01-gioi-thieu-llm.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Giới thiệu về mô hình ngôn ngữ lớn</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-</body>
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Mục lục
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">4. Chuỗi thời gian</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gioi-thieu">5. Giới thiệu</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Anh Hoang Duc
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Anh Hoang Duc.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
 </html>

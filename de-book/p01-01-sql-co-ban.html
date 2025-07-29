@@ -1,141 +1,338 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="vn" data-content_root="./">
-<head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>1. SQL cơ bản &mdash; Data Engineer book 2025 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0cebd926" />
+
+<html lang="vn" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1. SQL cơ bản &#8212; Data Engineer</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-      <script src="_static/jquery.js?v=5d32c60e"></script>
-      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=6c11a7b2"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-      <script src="_static/copybutton.js?v=f281be69"></script>
-      <script src="_static/design-tabs.js?v=f930bc37"></script>
-      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="_static/js/theme.js"></script>
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0cebd926" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=f2f0b1f9"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'p01-01-sql-co-ban';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="2. SQL nâng cao" href="p01-02-sql-nang-cao.html" />
-    <link rel="prev" title="SQL cơ bản" href="index.html" /> 
-</head>
+    <link rel="prev" title="Data Engineer" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="vn"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-          
-          
-          <a href="index.html" class="icon icon-home">
-            Data Engineer book
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">SQL cơ bản</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">1. SQL cơ bản</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#gioi-thieu-ve-sql">1.1. Giới thiệu về SQL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cac-nhom-cau-lenh-truy-van-tong-hop">1.2. Các nhóm câu lệnh truy vấn, tổng hợp</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#select">1.2.1. Select</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#where">1.2.2. Where</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#case-when">1.2.3. Case when</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#having">1.2.4. Having</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#union">1.2.5. Union</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#window-function">1.2.6. Window function</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#cac-nhom-cau-lenh-tinh-toan">1.3. Các nhóm câu lệnh tính toán</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#join">1.4. Join</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lam-viec-voi-string">1.5. Làm việc với string</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lam-viec-voi-date">1.6. Làm việc với date</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#datediff">1.6.1. Datediff</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#dateadd">1.6.2. Dateadd</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#meo-voi-du-lieu-thoi-gian">1.6.3. Mẹo với dữ liệu thời gian</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#cac-nhom-cau-lenh-thay-doi-du-lieu">1.7. Các nhóm câu lệnh thay đổi dữ liệu</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#tao-bang-moi">1.7.1. Tạo bảng mới</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#xoa-bang-drop-table">1.7.2. Xóa bảng Drop Table</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#insert-into">1.7.3. INSERT INTO</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#update">1.7.4. Update</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#delete-from">1.7.5. Delete from</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#alter-table">1.7.6. Alter table</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#doi-ten-bang-ten-cot">1.7.7. Đổi tên bảng, tên cột</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#truncate">1.7.8. Truncate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#alter-thay-doi-dinh-dang-du-lieu-cua-cot">1.7.9. ALTER - Thay đổi định dạng dữ liệu của cột</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#sub-query">1.8. Sub Query</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#sub-query-co-ban">1.8.1. Sub Query cơ bản</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#with-cte">1.8.2. With &amp; CTE</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#cac-nhom-cau-lenh-co-ban-khac">1.9. Các nhóm câu lệnh cơ bản khác</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#exists">1.9.1. Exists</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#any-vs-all">1.9.2. Any vs. All</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#view">1.9.3. View</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#index">1.9.4. Index</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#bang-tam">1.9.5. Bảng tạm</a></li>
-</ul>
-</li>
-</ul>
-</li>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Data Engineer</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Kiến thức cơ bản với MSSQL Server</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. SQL cơ bản</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-02-sql-nang-cao.html">2. SQL nâng cao</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-03-sql-tuning.html">3. SQL tuning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-04-sql-style.html">4. SQL style guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-05-tricks-sql.html">5. Mẹo với SQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-06-sqlcmd.html">6. SQLCMD</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-07-sql-project.html">7. SQL prọject</a></li>
-<li class="toctree-l1"><a class="reference internal" href="p01-08-sql-va-excel.html">8. Kết nối SQL với Excel phục vụ báo cáo tự động</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">DE nâng cao</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="p02-08-data-api.html">1. Serving data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Xây dựng Lake &amp; House</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="p09-01-dwh.html">1. Data Warehouse Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p09-13-ibm-dwh.html">2. IBM Banking Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p09-79-tai-lieu-tham-khao.html">3. Tài liệu tham khảo</a></li>
 </ul>
 
-        </div>
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
       </div>
-    </nav>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Data Engineer book</a>
-      </nav>
+<div class="sbt-scroll-pixel-helper"></div>
 
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">1. </span>SQL cơ bản</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="_sources/p01-01-sql-co-ban.ipynb.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
-  <section id="sql-co-ban">
-<h1><span class="section-number">1. </span>SQL cơ bản<a class="headerlink" href="#sql-co-ban" title="Link to this heading"></a></h1>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>SQL cơ bản</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Mục lục </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gioi-thieu-ve-sql">1.1. Giới thiệu về SQL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-nhom-cau-lenh-truy-van-tong-hop">1.2. Các nhóm câu lệnh truy vấn, tổng hợp</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select">1.2.1. Select</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#where">1.2.2. Where</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-when">1.2.3. Case when</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#having">1.2.4. Having</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#union">1.2.5. Union</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#window-function">1.2.6. Window function</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-nhom-cau-lenh-tinh-toan">1.3. Các nhóm câu lệnh tính toán</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#join">1.4. Join</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lam-viec-voi-string">1.5. Làm việc với string</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lam-viec-voi-date">1.6. Làm việc với date</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datediff">1.6.1. Datediff</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dateadd">1.6.2. Dateadd</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meo-voi-du-lieu-thoi-gian">1.6.3. Mẹo với dữ liệu thời gian</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-nhom-cau-lenh-thay-doi-du-lieu">1.7. Các nhóm câu lệnh thay đổi dữ liệu</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tao-bang-moi">1.7.1. Tạo bảng mới</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xoa-bang-drop-table">1.7.2. Xóa bảng Drop Table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#insert-into">1.7.3. INSERT INTO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#update">1.7.4. Update</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-from">1.7.5. Delete from</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alter-table">1.7.6. Alter table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#doi-ten-bang-ten-cot">1.7.7. Đổi tên bảng, tên cột</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#truncate">1.7.8. Truncate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alter-thay-doi-dinh-dang-du-lieu-cua-cot">1.7.9. ALTER - Thay đổi định dạng dữ liệu của cột</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sub-query">1.8. Sub Query</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sub-query-co-ban">1.8.1. Sub Query cơ bản</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-cte">1.8.2. With &amp; CTE</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-nhom-cau-lenh-co-ban-khac">1.9. Các nhóm câu lệnh cơ bản khác</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exists">1.9.1. Exists</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#any-vs-all">1.9.2. Any vs. All</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#view">1.9.3. View</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#index">1.9.4. Index</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-tam">1.9.5. Bảng tạm</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="sql-co-ban">
+<h1><span class="section-number">1. </span>SQL cơ bản<a class="headerlink" href="#sql-co-ban" title="Link to this heading">#</a></h1>
 <section id="gioi-thieu-ve-sql">
-<h2><span class="section-number">1.1. </span>Giới thiệu về SQL<a class="headerlink" href="#gioi-thieu-ve-sql" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.1. </span>Giới thiệu về SQL<a class="headerlink" href="#gioi-thieu-ve-sql" title="Link to this heading">#</a></h2>
 <p>SQL là viết tắt của <em>Structured Language Query</em>, là một ngôn ngữ truy vấn, xử lý và làm việc với database.</p>
 <p>SQL được cấu thành từ 3 nhóm câu lệnh lớn:</p>
 <ul class="simple">
@@ -175,7 +372,7 @@
 <p>Ngoài ra, khi làm việc với các ngôn ngữ phân tích dữ liệu như R hoặc Python, cần nắm vững cách thức truy vấn dữ liệu từ SQL sang các công cụ phân tích.</p>
 </section>
 <section id="cac-nhom-cau-lenh-truy-van-tong-hop">
-<h2><span class="section-number">1.2. </span>Các nhóm câu lệnh truy vấn, tổng hợp<a class="headerlink" href="#cac-nhom-cau-lenh-truy-van-tong-hop" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.2. </span>Các nhóm câu lệnh truy vấn, tổng hợp<a class="headerlink" href="#cac-nhom-cau-lenh-truy-van-tong-hop" title="Link to this heading">#</a></h2>
 <p><strong>Cách viết comment</strong>: Sử dụng  dấu <code class="docutils literal notranslate"><span class="pre">--</span></code> hoặc trong block <code class="docutils literal notranslate"><span class="pre">/*.....*/</span></code></p>
 <p><strong>Khái quát các câu lệnh truy vấn trong SQL</strong></p>
 <p>Các câu lệnh SQL diễn ra theo thứ tự sau:</p>
@@ -201,7 +398,7 @@
 </pre></div>
 </div>
 <section id="select">
-<h3><span class="section-number">1.2.1. </span>Select<a class="headerlink" href="#select" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.2.1. </span>Select<a class="headerlink" href="#select" title="Link to this heading">#</a></h3>
 <p><strong>Lưu ý</strong>: Các bảng thường bắt đầu bằng <strong>.dbo</strong>, gọi là <em>schema</em>. Thông thường, schema này là default. Tuy nhiên, nếu DB admin đổi schema, ta cần phải đổi câu lệnh</p>
 <ul class="simple">
 <li><p>Lấy tất cả các biến</p></li>
@@ -264,7 +461,7 @@
 </div>
 </section>
 <section id="where">
-<h3><span class="section-number">1.2.2. </span>Where<a class="headerlink" href="#where" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.2.2. </span>Where<a class="headerlink" href="#where" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Where</strong>: Tìm điều kiện theo dòng</p></li>
 </ul>
@@ -369,7 +566,7 @@
 </div>
 </section>
 <section id="case-when">
-<h3><span class="section-number">1.2.3. </span>Case when<a class="headerlink" href="#case-when" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.2.3. </span>Case when<a class="headerlink" href="#case-when" title="Link to this heading">#</a></h3>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="n">AVAIL_BALANCE</span><span class="p">,</span>
 <span class="p">(</span><span class="k">CASE</span><span class="w">  </span><span class="k">when</span><span class="w"> </span><span class="n">AVAIL_BALANCE</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5000</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">N</span><span class="s1">&#39;small&#39;</span>
 <span class="w">	  </span><span class="k">when</span><span class="w"> </span><span class="n">AVAIL_BALANCE</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">5000</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">AVAIL_BALANCE</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">10000</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">N</span><span class="s1">&#39;medium&#39;</span>
@@ -384,7 +581,7 @@
 </ul>
 </section>
 <section id="having">
-<h3><span class="section-number">1.2.4. </span>Having<a class="headerlink" href="#having" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.2.4. </span>Having<a class="headerlink" href="#having" title="Link to this heading">#</a></h3>
 <p><strong>Having</strong>: Tìm điều kiện sau khi có kết quả. Lưu ý: Câu lệnh Having không hoạt động với ALIAS, phải hiển thị điều kiện từ bảng gốc</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span>
 <span class="w"> </span><span class="n">OPEN_BRANCH_ID</span>
@@ -413,7 +610,7 @@
 </div>
 </section>
 <section id="union">
-<h3><span class="section-number">1.2.5. </span>Union<a class="headerlink" href="#union" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.2.5. </span>Union<a class="headerlink" href="#union" title="Link to this heading">#</a></h3>
 <p>Nhóm câu lệnh Union có 2 câu lệnh chính:</p>
 <ul class="simple">
 <li><p>UNION: Loại bỏ các giá trị trùng của các dòng</p></li>
@@ -432,7 +629,7 @@
 </div>
 </section>
 <section id="window-function">
-<h3><span class="section-number">1.2.6. </span>Window function<a class="headerlink" href="#window-function" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.2.6. </span>Window function<a class="headerlink" href="#window-function" title="Link to this heading">#</a></h3>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="n">CUST_ID</span><span class="p">,</span><span class="w"> </span>
 <span class="w">		</span><span class="n">AVAIL_BALANCE</span><span class="p">,</span>
 <span class="w">		</span><span class="n">ROW_NUMBER</span><span class="p">()</span><span class="w"> </span><span class="n">over</span><span class="p">(</span><span class="n">partition</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">cust_id</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">AVAIL_BALANCE</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">[</span><span class="k">ORDER</span><span class="p">],</span>
@@ -520,7 +717,7 @@
 </section>
 </section>
 <section id="cac-nhom-cau-lenh-tinh-toan">
-<h2><span class="section-number">1.3. </span>Các nhóm câu lệnh tính toán<a class="headerlink" href="#cac-nhom-cau-lenh-tinh-toan" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.3. </span>Các nhóm câu lệnh tính toán<a class="headerlink" href="#cac-nhom-cau-lenh-tinh-toan" title="Link to this heading">#</a></h2>
 <p>Các phép tính toán cơ bản: COUNT, AGV, MIN, MAX, VARIANCE, STDDEV</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="n">AMOUNT</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">n</span>
 <span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">max</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="k">max</span>
@@ -546,7 +743,7 @@
 </div>
 </section>
 <section id="join">
-<h2><span class="section-number">1.4. </span>Join<a class="headerlink" href="#join" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.4. </span>Join<a class="headerlink" href="#join" title="Link to this heading">#</a></h2>
 <p><strong>Trường hợp 1 - Select tất cả các dòng không theo điều kiện</strong>: SQL sẽ nối mỗi dòng ở bảng 1 với mỗi dòng ở bảng</p>
 <p>Tổng số dòng trong bảng mới sẽ là m*n dòng (m dòng ở bảng 1 và n dòng ở bảng 2)</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">--Trường hợp 1: Không có where</span>
@@ -664,7 +861,7 @@
 </div>
 </section>
 <section id="lam-viec-voi-string">
-<h2><span class="section-number">1.5. </span>Làm việc với string<a class="headerlink" href="#lam-viec-voi-string" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.5. </span>Làm việc với string<a class="headerlink" href="#lam-viec-voi-string" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">CONCAT</span></code>: Nối các string</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">LOWER</span></code>, <code class="docutils literal notranslate"><span class="pre">UPPER</span></code>: Viết hoa, viết thường các biến</p></li>
@@ -701,7 +898,7 @@
 </div>
 </section>
 <section id="lam-viec-voi-date">
-<h2><span class="section-number">1.6. </span>Làm việc với date<a class="headerlink" href="#lam-viec-voi-date" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.6. </span>Làm việc với date<a class="headerlink" href="#lam-viec-voi-date" title="Link to this heading">#</a></h2>
 <p>Dữ liệu date là dữ liệu rất quan trọng cần nắm vững khi làm việc với dữ liệu. Dữ liệu thời gian có các định dạng thường dùng:</p>
 <ul class="simple">
 <li><p>101 (mm/dd/yyyy)</p></li>
@@ -723,7 +920,7 @@
 </pre></div>
 </div>
 <section id="datediff">
-<h3><span class="section-number">1.6.1. </span>Datediff<a class="headerlink" href="#datediff" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.6.1. </span>Datediff<a class="headerlink" href="#datediff" title="Link to this heading">#</a></h3>
 <p>Dùng để tính toán khoảng thời gian giữa hai điểm</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">DATEDIFF</span><span class="p">(</span><span class="nb">interval</span><span class="p">,</span><span class="w"> </span><span class="n">date1</span><span class="p">,</span><span class="w"> </span><span class="n">date2</span><span class="p">)</span>
 </pre></div>
@@ -749,7 +946,7 @@
 </div>
 </section>
 <section id="dateadd">
-<h3><span class="section-number">1.6.2. </span>Dateadd<a class="headerlink" href="#dateadd" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.6.2. </span>Dateadd<a class="headerlink" href="#dateadd" title="Link to this heading">#</a></h3>
 <p>Dùng để cộng ngày</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">DATEADD</span><span class="p">(</span><span class="nb">interval</span><span class="p">,</span><span class="w"> </span><span class="n">number_to_add</span><span class="p">,</span><span class="w"> </span><span class="n">start_date</span><span class="p">)</span>
 
@@ -758,7 +955,7 @@
 </div>
 </section>
 <section id="meo-voi-du-lieu-thoi-gian">
-<h3><span class="section-number">1.6.3. </span>Mẹo với dữ liệu thời gian<a class="headerlink" href="#meo-voi-du-lieu-thoi-gian" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.6.3. </span>Mẹo với dữ liệu thời gian<a class="headerlink" href="#meo-voi-du-lieu-thoi-gian" title="Link to this heading">#</a></h3>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Ngày đầu trong thaáng</span>
 <span class="k">select</span><span class="w"> </span><span class="k">convert</span><span class="p">(</span><span class="nb">varchar</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="n">dateadd</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">datediff</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">getdate</span><span class="p">()),</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="mi">112</span><span class="p">)</span>
 
@@ -774,9 +971,9 @@
 </section>
 </section>
 <section id="cac-nhom-cau-lenh-thay-doi-du-lieu">
-<h2><span class="section-number">1.7. </span>Các nhóm câu lệnh thay đổi dữ liệu<a class="headerlink" href="#cac-nhom-cau-lenh-thay-doi-du-lieu" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.7. </span>Các nhóm câu lệnh thay đổi dữ liệu<a class="headerlink" href="#cac-nhom-cau-lenh-thay-doi-du-lieu" title="Link to this heading">#</a></h2>
 <section id="tao-bang-moi">
-<h3><span class="section-number">1.7.1. </span>Tạo bảng mới<a class="headerlink" href="#tao-bang-moi" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.7.1. </span>Tạo bảng mới<a class="headerlink" href="#tao-bang-moi" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Create table</strong>: Tạo bảng mới</p></li>
 </ul>
@@ -795,7 +992,7 @@
 </div>
 </section>
 <section id="xoa-bang-drop-table">
-<h3><span class="section-number">1.7.2. </span>Xóa bảng Drop Table<a class="headerlink" href="#xoa-bang-drop-table" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.7.2. </span>Xóa bảng Drop Table<a class="headerlink" href="#xoa-bang-drop-table" title="Link to this heading">#</a></h3>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">drop</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">TABLE_NAME</span>
 </pre></div>
 </div>
@@ -823,7 +1020,7 @@
 </div>
 </section>
 <section id="insert-into">
-<h3><span class="section-number">1.7.3. </span>INSERT INTO<a class="headerlink" href="#insert-into" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.7.3. </span>INSERT INTO<a class="headerlink" href="#insert-into" title="Link to this heading">#</a></h3>
 <p><strong>Chức năng</strong>: Chèn dòng vào dữ liệu</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="p">[</span><span class="k">table</span><span class="p">]</span>
 <span class="p">(</span><span class="n">Column_1</span><span class="p">,</span><span class="w"> </span><span class="n">Column_2</span><span class="p">,...,</span><span class="w"> </span><span class="n">Column_n</span><span class="p">)</span>
@@ -857,7 +1054,7 @@
 </div>
 </section>
 <section id="update">
-<h3><span class="section-number">1.7.4. </span>Update<a class="headerlink" href="#update" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.7.4. </span>Update<a class="headerlink" href="#update" title="Link to this heading">#</a></h3>
 <p><strong>Chức năng</strong>: Thay đổi giá trị trong bảng</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">update</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span>
 <span class="k">set</span><span class="w"> </span><span class="n">CONDITION_1</span>
@@ -870,7 +1067,7 @@
 </div>
 </section>
 <section id="delete-from">
-<h3><span class="section-number">1.7.5. </span>Delete from<a class="headerlink" href="#delete-from" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.7.5. </span>Delete from<a class="headerlink" href="#delete-from" title="Link to this heading">#</a></h3>
 <p><strong>Chức năng</strong>: Xóa giá trị</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DELETE</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="k">TABLE</span>
 <span class="k">where</span><span class="w"> </span><span class="n">CONDITION</span>
@@ -882,7 +1079,7 @@
 </div>
 </section>
 <section id="alter-table">
-<h3><span class="section-number">1.7.6. </span>Alter table<a class="headerlink" href="#alter-table" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.7.6. </span>Alter table<a class="headerlink" href="#alter-table" title="Link to this heading">#</a></h3>
 <p><strong>Chức năng</strong>: Thêm xóa thêm cột mới</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">alter</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">BILLS</span><span class="w"> </span>
 <span class="k">add</span><span class="o">/</span><span class="k">drop</span><span class="w"> </span><span class="n">NEW_VAR</span><span class="w"> </span><span class="k">TYPE</span>
@@ -912,7 +1109,7 @@
 </div>
 </section>
 <section id="doi-ten-bang-ten-cot">
-<h3><span class="section-number">1.7.7. </span>Đổi tên bảng, tên cột<a class="headerlink" href="#doi-ten-bang-ten-cot" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.7.7. </span>Đổi tên bảng, tên cột<a class="headerlink" href="#doi-ten-bang-ten-cot" title="Link to this heading">#</a></h3>
 <p>SQL Server không hỗ trợ trực tiếp rename bằng các hàm thông thường, phải dùng <code class="docutils literal notranslate"><span class="pre">sp_rename</span></code></p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Rename tên bảng</span>
 <span class="n">sp_rename</span><span class="w"> </span><span class="s1">&#39;old_table&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;new_table&#39;</span>
@@ -927,14 +1124,14 @@
 </div>
 </section>
 <section id="truncate">
-<h3><span class="section-number">1.7.8. </span>Truncate<a class="headerlink" href="#truncate" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.7.8. </span>Truncate<a class="headerlink" href="#truncate" title="Link to this heading">#</a></h3>
 <p><strong>Chức năng</strong>: Xóa toàn bộ dữ liệu trong bảng, dữ nguyên bảng</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">TRUNCATE</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="o">##</span><span class="n">A</span>
 </pre></div>
 </div>
 </section>
 <section id="alter-thay-doi-dinh-dang-du-lieu-cua-cot">
-<h3><span class="section-number">1.7.9. </span>ALTER - Thay đổi định dạng dữ liệu của cột<a class="headerlink" href="#alter-thay-doi-dinh-dang-du-lieu-cua-cot" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.7.9. </span>ALTER - Thay đổi định dạng dữ liệu của cột<a class="headerlink" href="#alter-thay-doi-dinh-dang-du-lieu-cua-cot" title="Link to this heading">#</a></h3>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">CARD_LIVE_NEW</span>
 <span class="k">ALTER</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">BUSINESS_DATE</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 </pre></div>
@@ -942,11 +1139,11 @@
 </section>
 </section>
 <section id="sub-query">
-<h2><span class="section-number">1.8. </span>Sub Query<a class="headerlink" href="#sub-query" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.8. </span>Sub Query<a class="headerlink" href="#sub-query" title="Link to this heading">#</a></h2>
 <section id="sub-query-co-ban">
-<h3><span class="section-number">1.8.1. </span>Sub Query cơ bản<a class="headerlink" href="#sub-query-co-ban" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.8.1. </span>Sub Query cơ bản<a class="headerlink" href="#sub-query-co-ban" title="Link to this heading">#</a></h3>
 <p>Sub query thường được sử dụng sau điều kiện WHERE khi lọc điều kiện giữa nhiều bảng. Phần sub-queries được gọi là inner query. Xem lưu đồ dưới đây:</p>
-<p><img alt="" src="_images/Plot1.gif" /></p>
+<p><img alt="" src="Images/Plot1.gif" /></p>
 <ul class="simple">
 <li><p><strong>Trưởng hợp 1</strong>: Subquery sau WHERE</p></li>
 </ul>
@@ -997,7 +1194,7 @@
 </ul>
 </section>
 <section id="with-cte">
-<h3><span class="section-number">1.8.2. </span>With &amp; CTE<a class="headerlink" href="#with-cte" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.8.2. </span>With &amp; CTE<a class="headerlink" href="#with-cte" title="Link to this heading">#</a></h3>
 <p>Ta có thể dùng with để thay thế cho việc tạo bảng tạm sub query</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Khi dùng subquery</span>
 <span class="k">select</span><span class="w"> </span><span class="o">#</span><span class="n">t2</span><span class="p">.</span><span class="o">*</span><span class="p">,</span>
@@ -1027,9 +1224,9 @@
 </section>
 </section>
 <section id="cac-nhom-cau-lenh-co-ban-khac">
-<h2><span class="section-number">1.9. </span>Các nhóm câu lệnh cơ bản khác<a class="headerlink" href="#cac-nhom-cau-lenh-co-ban-khac" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.9. </span>Các nhóm câu lệnh cơ bản khác<a class="headerlink" href="#cac-nhom-cau-lenh-co-ban-khac" title="Link to this heading">#</a></h2>
 <section id="exists">
-<h3><span class="section-number">1.9.1. </span>Exists<a class="headerlink" href="#exists" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.9.1. </span>Exists<a class="headerlink" href="#exists" title="Link to this heading">#</a></h3>
 <p><strong>Chức năng</strong>: Kiểm tra điều kiện tồn tại</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">---Exist</span>
 <span class="k">select</span><span class="w"> </span><span class="n">FirstName</span><span class="p">,</span><span class="w"> </span>
@@ -1048,7 +1245,7 @@
 </div>
 </section>
 <section id="any-vs-all">
-<h3><span class="section-number">1.9.2. </span>Any vs. All<a class="headerlink" href="#any-vs-all" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.9.2. </span>Any vs. All<a class="headerlink" href="#any-vs-all" title="Link to this heading">#</a></h3>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">---TH1: ANY</span>
 <span class="k">select</span><span class="w"> </span><span class="n">EnglishProductName</span><span class="p">,</span><span class="w"> </span><span class="n">ListPrice</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">DimProduct</span>
 <span class="k">where</span><span class="w"> </span><span class="n">ListPrice</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">all</span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="k">any</span><span class="p">(</span><span class="n">ListPrice</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">DimProduct</span>
@@ -1077,7 +1274,7 @@
 </ul>
 </section>
 <section id="view">
-<h3><span class="section-number">1.9.3. </span>View<a class="headerlink" href="#view" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.9.3. </span>View<a class="headerlink" href="#view" title="Link to this heading">#</a></h3>
 <p>View là hình thức tạo một bảng cho phép hiển thị, không tốn bộ nhớ thật của máy tính</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">Create</span><span class="w"> </span><span class="k">View</span><span class="w"> </span><span class="p">(</span><span class="n">COL_1</span><span class="p">,</span><span class="w"> </span><span class="n">COL_2</span><span class="p">...)</span><span class="w"> </span><span class="k">as</span>
 <span class="k">select</span><span class="w"> </span><span class="n">COL_1</span><span class="p">,</span><span class="n">COL_2</span><span class="p">...</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="k">TABLE</span>
@@ -1098,13 +1295,13 @@
 </div>
 </section>
 <section id="index">
-<h3><span class="section-number">1.9.4. </span>Index<a class="headerlink" href="#index" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.9.4. </span>Index<a class="headerlink" href="#index" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Để tăng performance của query, ta có thể sử dụng Index. Index áp dụng B-Tree để tìm kiếm dữ liệu. Khi được đánh index, bảng sẽ là một bảng có cấu trúc, VD - theo thứ tự ABC. Nếu không đánh index, bảng sẽ được gọi là HEAP (nonsequential).</p></li>
 <li><p>Khi đặt điều kiện unique key hoặc primary key, bảng sẽ tự động tạo index.</p></li>
 <li><p>Khi tạo index, tốc độ truy vấn sẽ nhanh hơn tuy nhiên sẽ tốn dung lượng của ổ cứng lưu trữ</p></li>
 </ul>
-<p><img alt="" src="_images/btree.png" /></p>
+<p><img alt="" src="Images/btree.png" /></p>
 <p><strong>Cơ chế hoạt động</strong>:</p>
 <ul class="simple">
 <li><p>Nếu cột customer_name được sử dụng làm index, sẽ chia làm 3 nhóm A, Q, T. Nếu tên khách hàng bắt đầu là R, sẽ nhảy luôn đến nhóm index Q &gt;&gt; R &gt;&gt; Tìm tên</p></li>
@@ -1143,7 +1340,7 @@
 </ul>
 </section>
 <section id="bang-tam">
-<h3><span class="section-number">1.9.5. </span>Bảng tạm<a class="headerlink" href="#bang-tam" title="Link to this heading"></a></h3>
+<h3><span class="section-number">1.9.5. </span>Bảng tạm<a class="headerlink" href="#bang-tam" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Bảng tạm là bảng chỉ tồn tại trong 1 session của SQL. Sau khi log out hoặc khởi động lại, bảng này sẽ tự động biến mấ.</p></li>
 <li><p>Bảng tạm bắt đầu bằng dấu #</p></li>
@@ -1163,34 +1360,146 @@
 </section>
 
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="SQL cơ bản" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="p01-02-sql-nang-cao.html" class="btn btn-neutral float-right" title="2. SQL nâng cao" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+                </article>
+              
 
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2019, Anh Hoang Duc.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Data Engineer</p>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+    </a>
+    <a class="right-next"
+       href="p01-02-sql-nang-cao.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>SQL nâng cao</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-</body>
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Mục lục
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gioi-thieu-ve-sql">1.1. Giới thiệu về SQL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-nhom-cau-lenh-truy-van-tong-hop">1.2. Các nhóm câu lệnh truy vấn, tổng hợp</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select">1.2.1. Select</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#where">1.2.2. Where</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#case-when">1.2.3. Case when</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#having">1.2.4. Having</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#union">1.2.5. Union</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#window-function">1.2.6. Window function</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-nhom-cau-lenh-tinh-toan">1.3. Các nhóm câu lệnh tính toán</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#join">1.4. Join</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lam-viec-voi-string">1.5. Làm việc với string</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lam-viec-voi-date">1.6. Làm việc với date</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datediff">1.6.1. Datediff</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dateadd">1.6.2. Dateadd</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meo-voi-du-lieu-thoi-gian">1.6.3. Mẹo với dữ liệu thời gian</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-nhom-cau-lenh-thay-doi-du-lieu">1.7. Các nhóm câu lệnh thay đổi dữ liệu</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tao-bang-moi">1.7.1. Tạo bảng mới</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xoa-bang-drop-table">1.7.2. Xóa bảng Drop Table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#insert-into">1.7.3. INSERT INTO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#update">1.7.4. Update</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-from">1.7.5. Delete from</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alter-table">1.7.6. Alter table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#doi-ten-bang-ten-cot">1.7.7. Đổi tên bảng, tên cột</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#truncate">1.7.8. Truncate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alter-thay-doi-dinh-dang-du-lieu-cua-cot">1.7.9. ALTER - Thay đổi định dạng dữ liệu của cột</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sub-query">1.8. Sub Query</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sub-query-co-ban">1.8.1. Sub Query cơ bản</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-cte">1.8.2. With &amp; CTE</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cac-nhom-cau-lenh-co-ban-khac">1.9. Các nhóm câu lệnh cơ bản khác</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exists">1.9.1. Exists</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#any-vs-all">1.9.2. Any vs. All</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#view">1.9.3. View</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#index">1.9.4. Index</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bang-tam">1.9.5. Bảng tạm</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Anh Hoang Duc
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2018, Anh Hoang Duc.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
 </html>
