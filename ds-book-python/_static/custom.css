@@ -1,0 +1,15 @@
+/*
+ * Make the container for HTML outputs like pandas DataFrames
+ * scrollable horizontally and responsive
+ */
+.cell_output.docutils.container {
+    overflow-x: auto;
+    padding-bottom: 8px; /* Add some space for the scrollbar */
+    max-width: 100%;
+}
+
+/* Make table text smaller and maintain responsive layout */
+.cell_output.docutils.container table {
+    font-size: 0.8em; /* Reduce font size */
+    line-height: 1.2; /* Adjust line height for better readability */
+}

@@ -1,0 +1,1321 @@
+
+<!DOCTYPE html>
+
+
+<html lang="vn" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4. Machine learning với H2O &#8212; Phân tích dữ liệu với Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0cebd926" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9ef1825d"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'p05-07-machine-learning-h2o';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5. Xây dựng API dự báo với Flask" href="p05-20-api-flask.html" />
+    <link rel="prev" title="3. Xgboost với sklearn" href="p05-03-xgboost.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="vn"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Phân tích dữ liệu với Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python cơ bản</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="p01-01-gioi-thieu-python.html">1. Giới thiệu về Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-02-python-ide.html">2. Python IDE - Jupyter lab &amp; Visual Studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-03-cau-truc-du-lieu-python.html">3. Các cấu trúc cơ bản trong Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-pandas.html">4. Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-05-polars.html">5. Polars</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-06-ngu-phap-bieu-do.html">6. Ngữ pháp của biểu đồ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-07-datetime.html">7. Dữ liệu thời gian trong Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-08-lam-viec-voi-text.html">8. Biến đổi dữ liệu text trong python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-09-numpy.html">9. Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-10-thong-ke-co-ban.html">10. Các chỉ số thống kê mô tả cơ bản</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-11-map-folium.html">11. Bản đồ với <code class="docutils literal notranslate"><span class="pre">folium</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-99-tricks-python.html">12. Các mẹo trong Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lập trình trong Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="p02-01-lap-trinh-doi-tuong-python.html">1. Lập trình hướng - đối tượng với Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p02-02-functions-in-python.html">2. Viết hàm trong Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Machine learning với sklearn</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="p05-01-sklearn.html">1. Giới thiệu cơ bản về Scikit learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p05-02-sklearn-advanced.html">2. sklearn nâng cao</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p05-03-xgboost.html">3. Xgboost với sklearn</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Machine learning với <code class="docutils literal notranslate"><span class="pre">H2O</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="p05-20-api-flask.html">5. Xây dựng API dự báo với Flask</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Kiến thức bổ trợ</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="p06-01-so-sanh-python-r.html">1. So sánh R với Python cơ bản</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p06-02-matplotlib.html">2. Trực quan hóa với Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p06-03-seaborn.html">3. Trực quan hóa với Seaborn</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Machine learning với H2O</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Mục lục </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gioi-thieu">4.1. Giới thiệu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tai-lieu-tham-khao">4.2. Tài liệu tham khảo</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="machine-learning-voi-h2o">
+<h1><span class="section-number">4. </span>Machine learning với <code class="docutils literal notranslate"><span class="pre">H2O</span></code><a class="headerlink" href="#machine-learning-voi-h2o" title="Link to this heading">#</a></h1>
+<section id="gioi-thieu">
+<h2><span class="section-number">4.1. </span>Giới thiệu<a class="headerlink" href="#gioi-thieu" title="Link to this heading">#</a></h2>
+<p>Tương tự như R, <code class="docutils literal notranslate"><span class="pre">H2O</span></code> phát triển module máy học trên <code class="docutils literal notranslate"><span class="pre">python</span></code>. Từ <code class="docutils literal notranslate"><span class="pre">h2o</span></code> version <code class="docutils literal notranslate"><span class="pre">3.26.0.7</span></code>, H2O cho phép upload ngược lại <code class="docutils literal notranslate"><span class="pre">MOJO</span> <span class="pre">object</span></code> để có thể sử dụng trong mô hình.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">h2o</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">h2o</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h2o</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">nthreads</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_mem_size</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Checking whether there is an H2O instance running at http://localhost:54321..... not found.
+Attempting to start a local H2O server...
+; Java HotSpot(TM) 64-Bit Server VM (build 24.0.2+12-54, mixed mode, sharing)
+  Starting server from C:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\h2o\backend\bin\h2o.jar
+  Ice root: C:\Users\Admin\AppData\Local\Temp\tmpz_iytu4m
+  JVM stdout: C:\Users\Admin\AppData\Local\Temp\tmpz_iytu4m\h2o_Admin_started_from_python.out
+  JVM stderr: C:\Users\Admin\AppData\Local\Temp\tmpz_iytu4m\h2o_Admin_started_from_python.err
+  Server is running at http://127.0.0.1:54321
+Connecting to H2O server at http://127.0.0.1:54321 ... successful.
+Warning: Your H2O cluster version is (4 months and 4 days) old.  There may be a newer version available.
+Please download and install the latest version from: https://h2o-release.s3.amazonaws.com/h2o/latest_stable.html
+</pre></div>
+</div>
+<div class="output text_html">
+<style>
+
+#h2o-table-1.h2o-container {
+  overflow-x: auto;
+}
+#h2o-table-1 .h2o-table {
+  /* width: 100%; */
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+#h2o-table-1 .h2o-table caption {
+  white-space: nowrap;
+  caption-side: top;
+  text-align: left;
+  /* margin-left: 1em; */
+  margin: 0;
+  font-size: larger;
+}
+#h2o-table-1 .h2o-table thead {
+  white-space: nowrap; 
+  position: sticky;
+  top: 0;
+  box-shadow: 0 -1px inset;
+}
+#h2o-table-1 .h2o-table tbody {
+  overflow: auto;
+}
+#h2o-table-1 .h2o-table th,
+#h2o-table-1 .h2o-table td {
+  text-align: right;
+  /* border: 1px solid; */
+}
+#h2o-table-1 .h2o-table tr:nth-child(even) {
+  /* background: #F5F5F5 */
+}
+
+</style>      
+<div id="h2o-table-1" class="h2o-container">
+  <table class="h2o-table">
+    <caption></caption>
+    <thead></thead>
+    <tbody><tr><td>H2O_cluster_uptime:</td>
+<td>01 secs</td></tr>
+<tr><td>H2O_cluster_timezone:</td>
+<td>Asia/Bangkok</td></tr>
+<tr><td>H2O_data_parsing_timezone:</td>
+<td>UTC</td></tr>
+<tr><td>H2O_cluster_version:</td>
+<td>3.46.0.7</td></tr>
+<tr><td>H2O_cluster_version_age:</td>
+<td>4 months and 4 days</td></tr>
+<tr><td>H2O_cluster_name:</td>
+<td>H2O_from_python_Admin_zhb71h</td></tr>
+<tr><td>H2O_cluster_total_nodes:</td>
+<td>1</td></tr>
+<tr><td>H2O_cluster_free_memory:</td>
+<td>3.984 Gb</td></tr>
+<tr><td>H2O_cluster_total_cores:</td>
+<td>16</td></tr>
+<tr><td>H2O_cluster_allowed_cores:</td>
+<td>16</td></tr>
+<tr><td>H2O_cluster_status:</td>
+<td>locked, healthy</td></tr>
+<tr><td>H2O_connection_url:</td>
+<td>http://127.0.0.1:54321</td></tr>
+<tr><td>H2O_connection_proxy:</td>
+<td>{"http": null, "https": null}</td></tr>
+<tr><td>H2O_internal_security:</td>
+<td>False</td></tr>
+<tr><td>Python_version:</td>
+<td>3.11.9 final</td></tr></tbody>
+  </table>
+</div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">airlines_data</span> <span class="o">=</span> <span class="n">h2o</span><span class="o">.</span><span class="n">import_file</span><span class="p">(</span><span class="s2">&quot;./99_dataset/allyears2k.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parse progress: |████████████████████████████████████████████████████████████████| (done) 100%
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">airlines_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class='dataframe'>
+<thead>
+<tr><th style="text-align: right;">  Year</th><th style="text-align: right;">  Month</th><th style="text-align: right;">  DayofMonth</th><th style="text-align: right;">  DayOfWeek</th><th style="text-align: right;">  DepTime</th><th style="text-align: right;">  CRSDepTime</th><th style="text-align: right;">  ArrTime</th><th style="text-align: right;">  CRSArrTime</th><th>UniqueCarrier  </th><th style="text-align: right;">  FlightNum</th><th>TailNum  </th><th style="text-align: right;">  ActualElapsedTime</th><th style="text-align: right;">  CRSElapsedTime</th><th style="text-align: right;">  AirTime</th><th style="text-align: right;">  ArrDelay</th><th style="text-align: right;">  DepDelay</th><th>Origin  </th><th>Dest  </th><th style="text-align: right;">  Distance</th><th style="text-align: right;">  TaxiIn</th><th style="text-align: right;">  TaxiOut</th><th style="text-align: right;">  Cancelled</th><th>CancellationCode  </th><th style="text-align: right;">  Diverted</th><th style="text-align: right;">  CarrierDelay</th><th style="text-align: right;">  WeatherDelay</th><th style="text-align: right;">  NASDelay</th><th style="text-align: right;">  SecurityDelay</th><th style="text-align: right;">  LateAircraftDelay</th><th>IsArrDelayed  </th><th>IsDepDelayed  </th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align: right;">  1987</td><td style="text-align: right;">     10</td><td style="text-align: right;">          14</td><td style="text-align: right;">          3</td><td style="text-align: right;">      741</td><td style="text-align: right;">         730</td><td style="text-align: right;">      912</td><td style="text-align: right;">         849</td><td>PS             </td><td style="text-align: right;">       1451</td><td>NA       </td><td style="text-align: right;">                 91</td><td style="text-align: right;">              79</td><td style="text-align: right;">      nan</td><td style="text-align: right;">        23</td><td style="text-align: right;">        11</td><td>SAN     </td><td>SFO   </td><td style="text-align: right;">       447</td><td style="text-align: right;">     nan</td><td style="text-align: right;">      nan</td><td style="text-align: right;">          0</td><td>NA                </td><td style="text-align: right;">         0</td><td style="text-align: right;">           nan</td><td style="text-align: right;">           nan</td><td style="text-align: right;">       nan</td><td style="text-align: right;">            nan</td><td style="text-align: right;">                nan</td><td>YES           </td><td>YES           </td></tr>
+<tr><td style="text-align: right;">  1987</td><td style="text-align: right;">     10</td><td style="text-align: right;">          15</td><td style="text-align: right;">          4</td><td style="text-align: right;">      729</td><td style="text-align: right;">         730</td><td style="text-align: right;">      903</td><td style="text-align: right;">         849</td><td>PS             </td><td style="text-align: right;">       1451</td><td>NA       </td><td style="text-align: right;">                 94</td><td style="text-align: right;">              79</td><td style="text-align: right;">      nan</td><td style="text-align: right;">        14</td><td style="text-align: right;">        -1</td><td>SAN     </td><td>SFO   </td><td style="text-align: right;">       447</td><td style="text-align: right;">     nan</td><td style="text-align: right;">      nan</td><td style="text-align: right;">          0</td><td>NA                </td><td style="text-align: right;">         0</td><td style="text-align: right;">           nan</td><td style="text-align: right;">           nan</td><td style="text-align: right;">       nan</td><td style="text-align: right;">            nan</td><td style="text-align: right;">                nan</td><td>YES           </td><td>NO            </td></tr>
+<tr><td style="text-align: right;">  1987</td><td style="text-align: right;">     10</td><td style="text-align: right;">          17</td><td style="text-align: right;">          6</td><td style="text-align: right;">      741</td><td style="text-align: right;">         730</td><td style="text-align: right;">      918</td><td style="text-align: right;">         849</td><td>PS             </td><td style="text-align: right;">       1451</td><td>NA       </td><td style="text-align: right;">                 97</td><td style="text-align: right;">              79</td><td style="text-align: right;">      nan</td><td style="text-align: right;">        29</td><td style="text-align: right;">        11</td><td>SAN     </td><td>SFO   </td><td style="text-align: right;">       447</td><td style="text-align: right;">     nan</td><td style="text-align: right;">      nan</td><td style="text-align: right;">          0</td><td>NA                </td><td style="text-align: right;">         0</td><td style="text-align: right;">           nan</td><td style="text-align: right;">           nan</td><td style="text-align: right;">       nan</td><td style="text-align: right;">            nan</td><td style="text-align: right;">                nan</td><td>YES           </td><td>YES           </td></tr>
+<tr><td style="text-align: right;">  1987</td><td style="text-align: right;">     10</td><td style="text-align: right;">          18</td><td style="text-align: right;">          7</td><td style="text-align: right;">      729</td><td style="text-align: right;">         730</td><td style="text-align: right;">      847</td><td style="text-align: right;">         849</td><td>PS             </td><td style="text-align: right;">       1451</td><td>NA       </td><td style="text-align: right;">                 78</td><td style="text-align: right;">              79</td><td style="text-align: right;">      nan</td><td style="text-align: right;">        -2</td><td style="text-align: right;">        -1</td><td>SAN     </td><td>SFO   </td><td style="text-align: right;">       447</td><td style="text-align: right;">     nan</td><td style="text-align: right;">      nan</td><td style="text-align: right;">          0</td><td>NA                </td><td style="text-align: right;">         0</td><td style="text-align: right;">           nan</td><td style="text-align: right;">           nan</td><td style="text-align: right;">       nan</td><td style="text-align: right;">            nan</td><td style="text-align: right;">                nan</td><td>NO            </td><td>NO            </td></tr>
+<tr><td style="text-align: right;">  1987</td><td style="text-align: right;">     10</td><td style="text-align: right;">          19</td><td style="text-align: right;">          1</td><td style="text-align: right;">      749</td><td style="text-align: right;">         730</td><td style="text-align: right;">      922</td><td style="text-align: right;">         849</td><td>PS             </td><td style="text-align: right;">       1451</td><td>NA       </td><td style="text-align: right;">                 93</td><td style="text-align: right;">              79</td><td style="text-align: right;">      nan</td><td style="text-align: right;">        33</td><td style="text-align: right;">        19</td><td>SAN     </td><td>SFO   </td><td style="text-align: right;">       447</td><td style="text-align: right;">     nan</td><td style="text-align: right;">      nan</td><td style="text-align: right;">          0</td><td>NA                </td><td style="text-align: right;">         0</td><td style="text-align: right;">           nan</td><td style="text-align: right;">           nan</td><td style="text-align: right;">       nan</td><td style="text-align: right;">            nan</td><td style="text-align: right;">                nan</td><td>YES           </td><td>YES           </td></tr>
+<tr><td style="text-align: right;">  1987</td><td style="text-align: right;">     10</td><td style="text-align: right;">          21</td><td style="text-align: right;">          3</td><td style="text-align: right;">      728</td><td style="text-align: right;">         730</td><td style="text-align: right;">      848</td><td style="text-align: right;">         849</td><td>PS             </td><td style="text-align: right;">       1451</td><td>NA       </td><td style="text-align: right;">                 80</td><td style="text-align: right;">              79</td><td style="text-align: right;">      nan</td><td style="text-align: right;">        -1</td><td style="text-align: right;">        -2</td><td>SAN     </td><td>SFO   </td><td style="text-align: right;">       447</td><td style="text-align: right;">     nan</td><td style="text-align: right;">      nan</td><td style="text-align: right;">          0</td><td>NA                </td><td style="text-align: right;">         0</td><td style="text-align: right;">           nan</td><td style="text-align: right;">           nan</td><td style="text-align: right;">       nan</td><td style="text-align: right;">            nan</td><td style="text-align: right;">                nan</td><td>NO            </td><td>NO            </td></tr>
+<tr><td style="text-align: right;">  1987</td><td style="text-align: right;">     10</td><td style="text-align: right;">          22</td><td style="text-align: right;">          4</td><td style="text-align: right;">      728</td><td style="text-align: right;">         730</td><td style="text-align: right;">      852</td><td style="text-align: right;">         849</td><td>PS             </td><td style="text-align: right;">       1451</td><td>NA       </td><td style="text-align: right;">                 84</td><td style="text-align: right;">              79</td><td style="text-align: right;">      nan</td><td style="text-align: right;">         3</td><td style="text-align: right;">        -2</td><td>SAN     </td><td>SFO   </td><td style="text-align: right;">       447</td><td style="text-align: right;">     nan</td><td style="text-align: right;">      nan</td><td style="text-align: right;">          0</td><td>NA                </td><td style="text-align: right;">         0</td><td style="text-align: right;">           nan</td><td style="text-align: right;">           nan</td><td style="text-align: right;">       nan</td><td style="text-align: right;">            nan</td><td style="text-align: right;">                nan</td><td>YES           </td><td>NO            </td></tr>
+<tr><td style="text-align: right;">  1987</td><td style="text-align: right;">     10</td><td style="text-align: right;">          23</td><td style="text-align: right;">          5</td><td style="text-align: right;">      731</td><td style="text-align: right;">         730</td><td style="text-align: right;">      902</td><td style="text-align: right;">         849</td><td>PS             </td><td style="text-align: right;">       1451</td><td>NA       </td><td style="text-align: right;">                 91</td><td style="text-align: right;">              79</td><td style="text-align: right;">      nan</td><td style="text-align: right;">        13</td><td style="text-align: right;">         1</td><td>SAN     </td><td>SFO   </td><td style="text-align: right;">       447</td><td style="text-align: right;">     nan</td><td style="text-align: right;">      nan</td><td style="text-align: right;">          0</td><td>NA                </td><td style="text-align: right;">         0</td><td style="text-align: right;">           nan</td><td style="text-align: right;">           nan</td><td style="text-align: right;">       nan</td><td style="text-align: right;">            nan</td><td style="text-align: right;">                nan</td><td>YES           </td><td>YES           </td></tr>
+<tr><td style="text-align: right;">  1987</td><td style="text-align: right;">     10</td><td style="text-align: right;">          24</td><td style="text-align: right;">          6</td><td style="text-align: right;">      744</td><td style="text-align: right;">         730</td><td style="text-align: right;">      908</td><td style="text-align: right;">         849</td><td>PS             </td><td style="text-align: right;">       1451</td><td>NA       </td><td style="text-align: right;">                 84</td><td style="text-align: right;">              79</td><td style="text-align: right;">      nan</td><td style="text-align: right;">        19</td><td style="text-align: right;">        14</td><td>SAN     </td><td>SFO   </td><td style="text-align: right;">       447</td><td style="text-align: right;">     nan</td><td style="text-align: right;">      nan</td><td style="text-align: right;">          0</td><td>NA                </td><td style="text-align: right;">         0</td><td style="text-align: right;">           nan</td><td style="text-align: right;">           nan</td><td style="text-align: right;">       nan</td><td style="text-align: right;">            nan</td><td style="text-align: right;">                nan</td><td>YES           </td><td>YES           </td></tr>
+<tr><td style="text-align: right;">  1987</td><td style="text-align: right;">     10</td><td style="text-align: right;">          25</td><td style="text-align: right;">          7</td><td style="text-align: right;">      729</td><td style="text-align: right;">         730</td><td style="text-align: right;">      851</td><td style="text-align: right;">         849</td><td>PS             </td><td style="text-align: right;">       1451</td><td>NA       </td><td style="text-align: right;">                 82</td><td style="text-align: right;">              79</td><td style="text-align: right;">      nan</td><td style="text-align: right;">         2</td><td style="text-align: right;">        -1</td><td>SAN     </td><td>SFO   </td><td style="text-align: right;">       447</td><td style="text-align: right;">     nan</td><td style="text-align: right;">      nan</td><td style="text-align: right;">          0</td><td>NA                </td><td style="text-align: right;">         0</td><td style="text-align: right;">           nan</td><td style="text-align: right;">           nan</td><td style="text-align: right;">       nan</td><td style="text-align: right;">            nan</td><td style="text-align: right;">                nan</td><td>YES           </td><td>NO            </td></tr>
+</tbody>
+</table><pre style='font-size: smaller; margin-bottom: 1em;'>[10 rows x 31 columns]</pre></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Create a GBM model, only to later export it as a MOJO</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">h2o.estimators</span><span class="w"> </span><span class="kn">import</span> <span class="n">H2OGradientBoostingEstimator</span>
+<span class="n">original_model</span> <span class="o">=</span> <span class="n">H2OGradientBoostingEstimator</span><span class="p">(</span><span class="n">ntrees</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">original_model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Origin&quot;</span><span class="p">,</span> <span class="s2">&quot;Dest&quot;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;IsDepDelayed&quot;</span><span class="p">,</span> <span class="n">training_frame</span><span class="o">=</span><span class="n">airlines_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>gbm Model Build progress: |██████████████████████████████████████████████████████| (done) 100%
+</pre></div>
+</div>
+<div class="output text_html"><pre style='margin: 1em 0 1em 0;'>Model Details
+=============
+H2OGradientBoostingEstimator : Gradient Boosting Machine
+Model Key: GBM_model_python_1753980869731_1
+</pre>
+<div style='margin: 1em 0 1em 0;'>
+<style>
+
+#h2o-table-2.h2o-container {
+  overflow-x: auto;
+}
+#h2o-table-2 .h2o-table {
+  /* width: 100%; */
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+#h2o-table-2 .h2o-table caption {
+  white-space: nowrap;
+  caption-side: top;
+  text-align: left;
+  /* margin-left: 1em; */
+  margin: 0;
+  font-size: larger;
+}
+#h2o-table-2 .h2o-table thead {
+  white-space: nowrap; 
+  position: sticky;
+  top: 0;
+  box-shadow: 0 -1px inset;
+}
+#h2o-table-2 .h2o-table tbody {
+  overflow: auto;
+}
+#h2o-table-2 .h2o-table th,
+#h2o-table-2 .h2o-table td {
+  text-align: right;
+  /* border: 1px solid; */
+}
+#h2o-table-2 .h2o-table tr:nth-child(even) {
+  /* background: #F5F5F5 */
+}
+
+</style>      
+<div id="h2o-table-2" class="h2o-container">
+  <table class="h2o-table">
+    <caption>Model Summary: </caption>
+    <thead><tr><th></th>
+<th>number_of_trees</th>
+<th>number_of_internal_trees</th>
+<th>model_size_in_bytes</th>
+<th>min_depth</th>
+<th>max_depth</th>
+<th>mean_depth</th>
+<th>min_leaves</th>
+<th>max_leaves</th>
+<th>mean_leaves</th></tr></thead>
+    <tbody><tr><td></td>
+<td>1.0</td>
+<td>1.0</td>
+<td>1050.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>32.0</td>
+<td>32.0</td>
+<td>32.0</td></tr></tbody>
+  </table>
+</div>
+</div>
+<div style='margin: 1em 0 1em 0;'><pre style='margin: 1em 0 1em 0;'>ModelMetricsBinomial: gbm
+** Reported on train data. **
+
+MSE: 0.2447292682717408
+RMSE: 0.4947011908937968
+LogLoss: 0.6825726339390924
+Mean Per-Class Error: 0.4195995045566052
+AUC: 0.674679575109205
+AUCPR: 0.6903867273197087
+Gini: 0.3493591502184099</pre>
+<div style='margin: 1em 0 1em 0;'>
+<style>
+
+#h2o-table-3.h2o-container {
+  overflow-x: auto;
+}
+#h2o-table-3 .h2o-table {
+  /* width: 100%; */
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+#h2o-table-3 .h2o-table caption {
+  white-space: nowrap;
+  caption-side: top;
+  text-align: left;
+  /* margin-left: 1em; */
+  margin: 0;
+  font-size: larger;
+}
+#h2o-table-3 .h2o-table thead {
+  white-space: nowrap; 
+  position: sticky;
+  top: 0;
+  box-shadow: 0 -1px inset;
+}
+#h2o-table-3 .h2o-table tbody {
+  overflow: auto;
+}
+#h2o-table-3 .h2o-table th,
+#h2o-table-3 .h2o-table td {
+  text-align: right;
+  /* border: 1px solid; */
+}
+#h2o-table-3 .h2o-table tr:nth-child(even) {
+  /* background: #F5F5F5 */
+}
+
+</style>      
+<div id="h2o-table-3" class="h2o-container">
+  <table class="h2o-table">
+    <caption>Confusion Matrix (Act/Pred) for max f1 @ threshold = 0.5084441442563068</caption>
+    <thead><tr><th></th>
+<th>NO</th>
+<th>YES</th>
+<th>Error</th>
+<th>Rate</th></tr></thead>
+    <tbody><tr><td>NO</td>
+<td>5336.0</td>
+<td>15551.0</td>
+<td>0.7445</td>
+<td> (15551.0/20887.0)</td></tr>
+<tr><td>YES</td>
+<td>2186.0</td>
+<td>20905.0</td>
+<td>0.0947</td>
+<td> (2186.0/23091.0)</td></tr>
+<tr><td>Total</td>
+<td>7522.0</td>
+<td>36456.0</td>
+<td>0.4033</td>
+<td> (17737.0/43978.0)</td></tr></tbody>
+  </table>
+</div>
+</div>
+<div style='margin: 1em 0 1em 0;'>
+<style>
+
+#h2o-table-4.h2o-container {
+  overflow-x: auto;
+}
+#h2o-table-4 .h2o-table {
+  /* width: 100%; */
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+#h2o-table-4 .h2o-table caption {
+  white-space: nowrap;
+  caption-side: top;
+  text-align: left;
+  /* margin-left: 1em; */
+  margin: 0;
+  font-size: larger;
+}
+#h2o-table-4 .h2o-table thead {
+  white-space: nowrap; 
+  position: sticky;
+  top: 0;
+  box-shadow: 0 -1px inset;
+}
+#h2o-table-4 .h2o-table tbody {
+  overflow: auto;
+}
+#h2o-table-4 .h2o-table th,
+#h2o-table-4 .h2o-table td {
+  text-align: right;
+  /* border: 1px solid; */
+}
+#h2o-table-4 .h2o-table tr:nth-child(even) {
+  /* background: #F5F5F5 */
+}
+
+</style>      
+<div id="h2o-table-4" class="h2o-container">
+  <table class="h2o-table">
+    <caption>Maximum Metrics: Maximum metrics at their respective thresholds</caption>
+    <thead><tr><th>metric</th>
+<th>threshold</th>
+<th>value</th>
+<th>idx</th></tr></thead>
+    <tbody><tr><td>max f1</td>
+<td>0.5084441</td>
+<td>0.7021344</td>
+<td>24.0</td></tr>
+<tr><td>max f2</td>
+<td>0.4972701</td>
+<td>0.8475206</td>
+<td>30.0</td></tr>
+<tr><td>max f0point5</td>
+<td>0.5247117</td>
+<td>0.6388698</td>
+<td>15.0</td></tr>
+<tr><td>max accuracy</td>
+<td>0.5230894</td>
+<td>0.6236073</td>
+<td>17.0</td></tr>
+<tr><td>max precision</td>
+<td>0.5691619</td>
+<td>0.9692308</td>
+<td>0.0</td></tr>
+<tr><td>max recall</td>
+<td>0.4840458</td>
+<td>1.0</td>
+<td>31.0</td></tr>
+<tr><td>max specificity</td>
+<td>0.5691619</td>
+<td>0.9999042</td>
+<td>0.0</td></tr>
+<tr><td>max absolute_mcc</td>
+<td>0.5230894</td>
+<td>0.2441196</td>
+<td>17.0</td></tr>
+<tr><td>max min_per_class_accuracy</td>
+<td>0.5252998</td>
+<td>0.6001906</td>
+<td>14.0</td></tr>
+<tr><td>max mean_per_class_accuracy</td>
+<td>0.5252998</td>
+<td>0.6176612</td>
+<td>14.0</td></tr>
+<tr><td>max tns</td>
+<td>0.5691619</td>
+<td>20885.0</td>
+<td>0.0</td></tr>
+<tr><td>max fns</td>
+<td>0.5691619</td>
+<td>23028.0</td>
+<td>0.0</td></tr>
+<tr><td>max fps</td>
+<td>0.4840458</td>
+<td>20887.0</td>
+<td>31.0</td></tr>
+<tr><td>max tps</td>
+<td>0.4840458</td>
+<td>23091.0</td>
+<td>31.0</td></tr>
+<tr><td>max tnr</td>
+<td>0.5691619</td>
+<td>0.9999042</td>
+<td>0.0</td></tr>
+<tr><td>max fnr</td>
+<td>0.5691619</td>
+<td>0.9972717</td>
+<td>0.0</td></tr>
+<tr><td>max fpr</td>
+<td>0.4840458</td>
+<td>1.0</td>
+<td>31.0</td></tr>
+<tr><td>max tpr</td>
+<td>0.4840458</td>
+<td>1.0</td>
+<td>31.0</td></tr></tbody>
+  </table>
+</div>
+</div>
+<div style='margin: 1em 0 1em 0;'>
+<style>
+
+#h2o-table-5.h2o-container {
+  overflow-x: auto;
+}
+#h2o-table-5 .h2o-table {
+  /* width: 100%; */
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+#h2o-table-5 .h2o-table caption {
+  white-space: nowrap;
+  caption-side: top;
+  text-align: left;
+  /* margin-left: 1em; */
+  margin: 0;
+  font-size: larger;
+}
+#h2o-table-5 .h2o-table thead {
+  white-space: nowrap; 
+  position: sticky;
+  top: 0;
+  box-shadow: 0 -1px inset;
+}
+#h2o-table-5 .h2o-table tbody {
+  overflow: auto;
+}
+#h2o-table-5 .h2o-table th,
+#h2o-table-5 .h2o-table td {
+  text-align: right;
+  /* border: 1px solid; */
+}
+#h2o-table-5 .h2o-table tr:nth-child(even) {
+  /* background: #F5F5F5 */
+}
+
+</style>      
+<div id="h2o-table-5" class="h2o-container">
+  <table class="h2o-table">
+    <caption>Gains/Lift Table: Avg response rate: 52.51 %, avg score: 52.50 %</caption>
+    <thead><tr><th>group</th>
+<th>cumulative_data_fraction</th>
+<th>lower_threshold</th>
+<th>lift</th>
+<th>cumulative_lift</th>
+<th>response_rate</th>
+<th>score</th>
+<th>cumulative_response_rate</th>
+<th>cumulative_score</th>
+<th>capture_rate</th>
+<th>cumulative_capture_rate</th>
+<th>gain</th>
+<th>cumulative_gain</th>
+<th>kolmogorov_smirnov</th></tr></thead>
+    <tbody><tr><td>1</td>
+<td>0.0156214</td>
+<td>0.5634836</td>
+<td>1.7465320</td>
+<td>1.7465320</td>
+<td>0.9170306</td>
+<td>0.5640208</td>
+<td>0.9170306</td>
+<td>0.5640208</td>
+<td>0.0272834</td>
+<td>0.0272834</td>
+<td>74.6531995</td>
+<td>74.6531995</td>
+<td>0.0245544</td></tr>
+<tr><td>2</td>
+<td>0.0369503</td>
+<td>0.5509212</td>
+<td>1.5025247</td>
+<td>1.6056835</td>
+<td>0.7889126</td>
+<td>0.5513484</td>
+<td>0.8430769</td>
+<td>0.5567059</td>
+<td>0.0320471</td>
+<td>0.0593305</td>
+<td>50.2524682</td>
+<td>60.5683466</td>
+<td>0.0471219</td></tr>
+<tr><td>3</td>
+<td>0.0505253</td>
+<td>0.5493577</td>
+<td>1.4643035</td>
+<td>1.5676979</td>
+<td>0.7688442</td>
+<td>0.5493577</td>
+<td>0.8231323</td>
+<td>0.5547316</td>
+<td>0.0198779</td>
+<td>0.0792083</td>
+<td>46.4303458</td>
+<td>56.7697929</td>
+<td>0.0603928</td></tr>
+<tr><td>4</td>
+<td>0.1532130</td>
+<td>0.5477943</td>
+<td>1.4343179</td>
+<td>1.4783029</td>
+<td>0.7531001</td>
+<td>0.5477943</td>
+<td>0.7761947</td>
+<td>0.5500820</td>
+<td>0.1472868</td>
+<td>0.2264952</td>
+<td>43.4317946</td>
+<td>47.8302856</td>
+<td>0.1542972</td></tr>
+<tr><td>5</td>
+<td>0.2756833</td>
+<td>0.5352606</td>
+<td>1.2418836</td>
+<td>1.3732753</td>
+<td>0.6520609</td>
+<td>0.5377356</td>
+<td>0.7210492</td>
+<td>0.5445972</td>
+<td>0.1520939</td>
+<td>0.3785891</td>
+<td>24.1883600</td>
+<td>37.3275298</td>
+<td>0.2166702</td></tr>
+<tr><td>6</td>
+<td>0.3187958</td>
+<td>0.5294303</td>
+<td>1.0949162</td>
+<td>1.3356313</td>
+<td>0.5748945</td>
+<td>0.5300388</td>
+<td>0.7012839</td>
+<td>0.5426284</td>
+<td>0.0472045</td>
+<td>0.4257936</td>
+<td>9.4916243</td>
+<td>33.5631306</td>
+<td>0.2252861</td></tr>
+<tr><td>7</td>
+<td>0.4172541</td>
+<td>0.5274246</td>
+<td>1.0450842</td>
+<td>1.2670717</td>
+<td>0.5487298</td>
+<td>0.5274246</td>
+<td>0.6652861</td>
+<td>0.5390408</td>
+<td>0.1028972</td>
+<td>0.5286908</td>
+<td>4.5084180</td>
+<td>26.7071684</td>
+<td>0.2346323</td></tr>
+<tr><td>8</td>
+<td>0.6395243</td>
+<td>0.5247117</td>
+<td>0.9969913</td>
+<td>1.1732038</td>
+<td>0.5234783</td>
+<td>0.5249000</td>
+<td>0.616</td>
+<td>0.5341261</td>
+<td>0.2216015</td>
+<td>0.7502923</td>
+<td>-0.3008663</td>
+<td>17.3203759</td>
+<td>0.2332243</td></tr>
+<tr><td>9</td>
+<td>0.7652917</td>
+<td>0.5170173</td>
+<td>0.8739381</td>
+<td>1.1240227</td>
+<td>0.4588682</td>
+<td>0.5184346</td>
+<td>0.5901771</td>
+<td>0.5315474</td>
+<td>0.1099130</td>
+<td>0.8602053</td>
+<td>-12.6061860</td>
+<td>12.4022688</td>
+<td>0.1998424</td></tr>
+<tr><td>10</td>
+<td>0.8289599</td>
+<td>0.5084441</td>
+<td>0.7087653</td>
+<td>1.0921289</td>
+<td>0.3721429</td>
+<td>0.5097477</td>
+<td>0.5734310</td>
+<td>0.5298730</td>
+<td>0.0451258</td>
+<td>0.9053311</td>
+<td>-29.1234742</td>
+<td>9.2128876</td>
+<td>0.1608010</td></tr>
+<tr><td>11</td>
+<td>0.9272591</td>
+<td>0.5037076</td>
+<td>0.6225148</td>
+<td>1.0423449</td>
+<td>0.3268563</td>
+<td>0.5052087</td>
+<td>0.5472915</td>
+<td>0.5272584</td>
+<td>0.0611927</td>
+<td>0.9665238</td>
+<td>-37.7485230</td>
+<td>4.2344875</td>
+<td>0.0826726</td></tr>
+<tr><td>12</td>
+<td>1.0</td>
+<td>0.4840458</td>
+<td>0.4602121</td>
+<td>1.0</td>
+<td>0.2416380</td>
+<td>0.4966663</td>
+<td>0.5250580</td>
+<td>0.5250331</td>
+<td>0.0334762</td>
+<td>1.0</td>
+<td>-53.9787948</td>
+<td>0.0</td>
+<td>0.0</td></tr></tbody>
+  </table>
+</div>
+</div></div>
+<div style='margin: 1em 0 1em 0;'>
+<style>
+
+#h2o-table-6.h2o-container {
+  overflow-x: auto;
+}
+#h2o-table-6 .h2o-table {
+  /* width: 100%; */
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+#h2o-table-6 .h2o-table caption {
+  white-space: nowrap;
+  caption-side: top;
+  text-align: left;
+  /* margin-left: 1em; */
+  margin: 0;
+  font-size: larger;
+}
+#h2o-table-6 .h2o-table thead {
+  white-space: nowrap; 
+  position: sticky;
+  top: 0;
+  box-shadow: 0 -1px inset;
+}
+#h2o-table-6 .h2o-table tbody {
+  overflow: auto;
+}
+#h2o-table-6 .h2o-table th,
+#h2o-table-6 .h2o-table td {
+  text-align: right;
+  /* border: 1px solid; */
+}
+#h2o-table-6 .h2o-table tr:nth-child(even) {
+  /* background: #F5F5F5 */
+}
+
+</style>      
+<div id="h2o-table-6" class="h2o-container">
+  <table class="h2o-table">
+    <caption>Scoring History: </caption>
+    <thead><tr><th></th>
+<th>timestamp</th>
+<th>duration</th>
+<th>number_of_trees</th>
+<th>training_rmse</th>
+<th>training_logloss</th>
+<th>training_auc</th>
+<th>training_pr_auc</th>
+<th>training_lift</th>
+<th>training_classification_error</th></tr></thead>
+    <tbody><tr><td></td>
+<td>2025-07-31 23:54:47</td>
+<td> 0.031 sec</td>
+<td>0.0</td>
+<td>0.4993717</td>
+<td>0.6918908</td>
+<td>0.5</td>
+<td>0.5250580</td>
+<td>1.0</td>
+<td>0.4749420</td></tr>
+<tr><td></td>
+<td>2025-07-31 23:54:48</td>
+<td> 0.415 sec</td>
+<td>1.0</td>
+<td>0.4947012</td>
+<td>0.6825726</td>
+<td>0.6746796</td>
+<td>0.6903867</td>
+<td>1.7465320</td>
+<td>0.4033153</td></tr></tbody>
+  </table>
+</div>
+</div>
+<div style='margin: 1em 0 1em 0;'>
+<style>
+
+#h2o-table-7.h2o-container {
+  overflow-x: auto;
+}
+#h2o-table-7 .h2o-table {
+  /* width: 100%; */
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+#h2o-table-7 .h2o-table caption {
+  white-space: nowrap;
+  caption-side: top;
+  text-align: left;
+  /* margin-left: 1em; */
+  margin: 0;
+  font-size: larger;
+}
+#h2o-table-7 .h2o-table thead {
+  white-space: nowrap; 
+  position: sticky;
+  top: 0;
+  box-shadow: 0 -1px inset;
+}
+#h2o-table-7 .h2o-table tbody {
+  overflow: auto;
+}
+#h2o-table-7 .h2o-table th,
+#h2o-table-7 .h2o-table td {
+  text-align: right;
+  /* border: 1px solid; */
+}
+#h2o-table-7 .h2o-table tr:nth-child(even) {
+  /* background: #F5F5F5 */
+}
+
+</style>      
+<div id="h2o-table-7" class="h2o-container">
+  <table class="h2o-table">
+    <caption>Variable Importances: </caption>
+    <thead><tr><th>variable</th>
+<th>relative_importance</th>
+<th>scaled_importance</th>
+<th>percentage</th></tr></thead>
+    <tbody><tr><td>Origin</td>
+<td>652.7998657</td>
+<td>1.0</td>
+<td>0.6068756</td></tr>
+<tr><td>Dest</td>
+<td>422.8734741</td>
+<td>0.6477843</td>
+<td>0.3931244</td></tr></tbody>
+  </table>
+</div>
+</div><pre style="font-size: smaller; margin: 1em 0 0 0;">
+
+[tips]
+Use `model.explain()` to inspect the model.
+--
+Use `h2o.display.toggle_user_tips()` to switch on/off this section.</pre></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">original_model</span><span class="o">.</span><span class="n">accuracy</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;bound method H2OBinomialModel.accuracy of H2OGradientBoostingEstimator({&#39;parms&#39;: {&#39;model_id&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;model_id&#39;, &#39;label&#39;: &#39;model_id&#39;, &#39;help&#39;: &#39;Destination id for this model; auto-generated if not specified.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;Key&lt;Model&gt;&#39;, &#39;default_value&#39;: None, &#39;actual_value&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelKeyV3&#39;, &#39;schema_type&#39;: &#39;Key&lt;Model&gt;&#39;}, &#39;name&#39;: &#39;GBM_model_python_1753980869731_1&#39;, &#39;type&#39;: &#39;Key&lt;Model&gt;&#39;, &#39;URL&#39;: &#39;/3/Models/GBM_model_python_1753980869731_1&#39;}, &#39;input_value&#39;: None, &#39;level&#39;: &#39;critical&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: False}, &#39;training_frame&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;training_frame&#39;, &#39;label&#39;: &#39;training_frame&#39;, &#39;help&#39;: &#39;Id of the training data frame.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;Key&lt;Frame&gt;&#39;, &#39;default_value&#39;: None, &#39;actual_value&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;FrameKeyV3&#39;, &#39;schema_type&#39;: &#39;Key&lt;Frame&gt;&#39;}, &#39;name&#39;: &#39;allyears2k.hex&#39;, &#39;type&#39;: &#39;Key&lt;Frame&gt;&#39;, &#39;URL&#39;: &#39;/3/Frames/allyears2k.hex&#39;}, &#39;input_value&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;FrameKeyV3&#39;, &#39;schema_type&#39;: &#39;Key&lt;Frame&gt;&#39;}, &#39;name&#39;: &#39;allyears2k.hex&#39;, &#39;type&#39;: &#39;Key&lt;Frame&gt;&#39;, &#39;URL&#39;: &#39;/3/Frames/allyears2k.hex&#39;}, &#39;level&#39;: &#39;critical&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: False}, &#39;validation_frame&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;validation_frame&#39;, &#39;label&#39;: &#39;validation_frame&#39;, &#39;help&#39;: &#39;Id of the validation data frame.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;Key&lt;Frame&gt;&#39;, &#39;default_value&#39;: None, &#39;actual_value&#39;: None, &#39;input_value&#39;: None, &#39;level&#39;: &#39;critical&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;nfolds&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;nfolds&#39;, &#39;label&#39;: &#39;nfolds&#39;, &#39;help&#39;: &#39;Number of folds for K-fold cross-validation (0 to disable or &gt;= 2).&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;int&#39;, &#39;default_value&#39;: 0, &#39;actual_value&#39;: 0, &#39;input_value&#39;: 0, &#39;level&#39;: &#39;critical&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: False}, &#39;keep_cross_validation_models&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;keep_cross_validation_models&#39;, &#39;label&#39;: &#39;keep_cross_validation_models&#39;, &#39;help&#39;: &#39;Whether to keep the cross-validation models.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;boolean&#39;, &#39;default_value&#39;: True, &#39;actual_value&#39;: True, &#39;input_value&#39;: True, &#39;level&#39;: &#39;expert&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: False}, &#39;keep_cross_validation_predictions&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;keep_cross_validation_predictions&#39;, &#39;label&#39;: &#39;keep_cross_validation_predictions&#39;, &#39;help&#39;: &#39;Whether to keep the predictions of the cross-validation models.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;boolean&#39;, &#39;default_value&#39;: False, &#39;actual_value&#39;: False, &#39;input_value&#39;: False, &#39;level&#39;: &#39;expert&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: False}, &#39;keep_cross_validation_fold_assignment&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;keep_cross_validation_fold_assignment&#39;, &#39;label&#39;: &#39;keep_cross_validation_fold_assignment&#39;, &#39;help&#39;: &#39;Whether to keep the cross-validation fold assignment.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;boolean&#39;, &#39;default_value&#39;: False, &#39;actual_value&#39;: False, &#39;input_value&#39;: False, &#39;level&#39;: &#39;expert&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: False}, &#39;score_each_iteration&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;score_each_iteration&#39;, &#39;label&#39;: &#39;score_each_iteration&#39;, &#39;help&#39;: &#39;Whether to score during each iteration of model training.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;boolean&#39;, &#39;default_value&#39;: False, &#39;actual_value&#39;: False, &#39;input_value&#39;: False, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: False}, &#39;score_tree_interval&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;score_tree_interval&#39;, &#39;label&#39;: &#39;score_tree_interval&#39;, &#39;help&#39;: &#39;Score the model after every so many trees. Disabled if set to 0.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;int&#39;, &#39;default_value&#39;: 0, &#39;actual_value&#39;: 0, &#39;input_value&#39;: 0, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: False}, &#39;fold_assignment&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;fold_assignment&#39;, &#39;label&#39;: &#39;fold_assignment&#39;, &#39;help&#39;: &quot;Cross-validation fold assignment scheme, if fold_column is not specified. The &#39;Stratified&#39; option will stratify the folds based on the response variable, for classification problems.&quot;, &#39;required&#39;: False, &#39;type&#39;: &#39;enum&#39;, &#39;default_value&#39;: &#39;AUTO&#39;, &#39;actual_value&#39;: None, &#39;input_value&#39;: &#39;AUTO&#39;, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [&#39;AUTO&#39;, &#39;Random&#39;, &#39;Modulo&#39;, &#39;Stratified&#39;], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;fold_column&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;fold_column&#39;, &#39;label&#39;: &#39;fold_column&#39;, &#39;help&#39;: &#39;Column with cross-validation fold index assignment per observation.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;VecSpecifier&#39;, &#39;default_value&#39;: None, &#39;actual_value&#39;: None, &#39;input_value&#39;: None, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [&#39;training_frame&#39;], &#39;is_mutually_exclusive_with&#39;: [&#39;response_column&#39;, &#39;weights_column&#39;, &#39;ignored_columns&#39;, &#39;offset_column&#39;], &#39;gridable&#39;: True}, &#39;response_column&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;response_column&#39;, &#39;label&#39;: &#39;response_column&#39;, &#39;help&#39;: &#39;Response variable column.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;VecSpecifier&#39;, &#39;default_value&#39;: None, &#39;actual_value&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ColSpecifierV3&#39;, &#39;schema_type&#39;: &#39;VecSpecifier&#39;}, &#39;column_name&#39;: &#39;IsDepDelayed&#39;, &#39;is_member_of_frames&#39;: None}, &#39;input_value&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ColSpecifierV3&#39;, &#39;schema_type&#39;: &#39;VecSpecifier&#39;}, &#39;column_name&#39;: &#39;IsDepDelayed&#39;, &#39;is_member_of_frames&#39;: None}, &#39;level&#39;: &#39;critical&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [&#39;training_frame&#39;, &#39;validation_frame&#39;], &#39;is_mutually_exclusive_with&#39;: [&#39;weights_column&#39;, &#39;ignored_columns&#39;, &#39;offset_column&#39;, &#39;fold_column&#39;], &#39;gridable&#39;: True}, &#39;ignored_columns&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;ignored_columns&#39;, &#39;label&#39;: &#39;ignored_columns&#39;, &#39;help&#39;: &#39;Names of columns to ignore for training.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;string[]&#39;, &#39;default_value&#39;: None, &#39;actual_value&#39;: [&#39;Diverted&#39;, &#39;LateAircraftDelay&#39;, &#39;CarrierDelay&#39;, &#39;WeatherDelay&#39;, &#39;Cancelled&#39;, &#39;Year&#39;, &#39;CRSArrTime&#39;, &#39;Month&#39;, &#39;AirTime&#39;, &#39;NASDelay&#39;, &#39;FlightNum&#39;, &#39;ActualElapsedTime&#39;, &#39;UniqueCarrier&#39;, &#39;DepTime&#39;, &#39;DayofMonth&#39;, &#39;ArrTime&#39;, &#39;CancellationCode&#39;, &#39;CRSElapsedTime&#39;, &#39;TaxiOut&#39;, &#39;DayOfWeek&#39;, &#39;TaxiIn&#39;, &#39;SecurityDelay&#39;, &#39;CRSDepTime&#39;, &#39;IsArrDelayed&#39;, &#39;Distance&#39;, &#39;DepDelay&#39;, &#39;ArrDelay&#39;, &#39;TailNum&#39;], &#39;input_value&#39;: [&#39;Diverted&#39;, &#39;LateAircraftDelay&#39;, &#39;CarrierDelay&#39;, &#39;WeatherDelay&#39;, &#39;Cancelled&#39;, &#39;Year&#39;, &#39;CRSArrTime&#39;, &#39;Month&#39;, &#39;AirTime&#39;, &#39;NASDelay&#39;, &#39;FlightNum&#39;, &#39;ActualElapsedTime&#39;, &#39;UniqueCarrier&#39;, &#39;DepTime&#39;, &#39;DayofMonth&#39;, &#39;ArrTime&#39;, &#39;CancellationCode&#39;, &#39;CRSElapsedTime&#39;, &#39;TaxiOut&#39;, &#39;DayOfWeek&#39;, &#39;TaxiIn&#39;, &#39;SecurityDelay&#39;, &#39;CRSDepTime&#39;, &#39;IsArrDelayed&#39;, &#39;Distance&#39;, &#39;DepDelay&#39;, &#39;ArrDelay&#39;, &#39;TailNum&#39;], &#39;level&#39;: &#39;critical&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [&#39;training_frame&#39;, &#39;validation_frame&#39;], &#39;is_mutually_exclusive_with&#39;: [&#39;response_column&#39;, &#39;weights_column&#39;, &#39;offset_column&#39;, &#39;fold_column&#39;], &#39;gridable&#39;: False}, &#39;ignore_const_cols&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;ignore_const_cols&#39;, &#39;label&#39;: &#39;ignore_const_cols&#39;, &#39;help&#39;: &#39;Ignore constant columns.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;boolean&#39;, &#39;default_value&#39;: True, &#39;actual_value&#39;: True, &#39;input_value&#39;: True, &#39;level&#39;: &#39;critical&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: False}, &#39;offset_column&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;offset_column&#39;, &#39;label&#39;: &#39;offset_column&#39;, &#39;help&#39;: &#39;Offset column. This will be added to the combination of columns before applying the link function.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;VecSpecifier&#39;, &#39;default_value&#39;: None, &#39;actual_value&#39;: None, &#39;input_value&#39;: None, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [&#39;training_frame&#39;, &#39;validation_frame&#39;], &#39;is_mutually_exclusive_with&#39;: [&#39;response_column&#39;, &#39;weights_column&#39;, &#39;ignored_columns&#39;, &#39;fold_column&#39;], &#39;gridable&#39;: True}, &#39;weights_column&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;weights_column&#39;, &#39;label&#39;: &#39;weights_column&#39;, &#39;help&#39;: &#39;Column with observation weights. Giving some observation a weight of zero is equivalent to excluding it from the dataset; giving an observation a relative weight of 2 is equivalent to repeating that row twice. Negative weights are not allowed. Note: Weights are per-row observation weights and do not increase the size of the data frame. This is typically the number of times a row is repeated, but non-integer values are supported as well. During training, rows with higher weights matter more, due to the larger loss function pre-factor. If you set weight = 0 for a row, the returned prediction frame at that row is zero and this is incorrect. To get an accurate prediction, remove all rows with weight == 0.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;VecSpecifier&#39;, &#39;default_value&#39;: None, &#39;actual_value&#39;: None, &#39;input_value&#39;: None, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [&#39;training_frame&#39;, &#39;validation_frame&#39;], &#39;is_mutually_exclusive_with&#39;: [&#39;response_column&#39;, &#39;ignored_columns&#39;, &#39;offset_column&#39;, &#39;fold_column&#39;], &#39;gridable&#39;: True}, &#39;balance_classes&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;balance_classes&#39;, &#39;label&#39;: &#39;balance_classes&#39;, &#39;help&#39;: &#39;Balance training data class counts via over/under-sampling (for imbalanced data).&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;boolean&#39;, &#39;default_value&#39;: False, &#39;actual_value&#39;: False, &#39;input_value&#39;: False, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;class_sampling_factors&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;class_sampling_factors&#39;, &#39;label&#39;: &#39;class_sampling_factors&#39;, &#39;help&#39;: &#39;Desired over/under-sampling ratios per class (in lexicographic order). If not specified, sampling factors will be automatically computed to obtain class balance during training. Requires balance_classes.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;float[]&#39;, &#39;default_value&#39;: None, &#39;actual_value&#39;: None, &#39;input_value&#39;: None, &#39;level&#39;: &#39;expert&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;max_after_balance_size&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;max_after_balance_size&#39;, &#39;label&#39;: &#39;max_after_balance_size&#39;, &#39;help&#39;: &#39;Maximum relative size of the training data after balancing class counts (can be less than 1.0). Requires balance_classes.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;float&#39;, &#39;default_value&#39;: 5.0, &#39;actual_value&#39;: 5.0, &#39;input_value&#39;: 5.0, &#39;level&#39;: &#39;expert&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;max_confusion_matrix_size&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;max_confusion_matrix_size&#39;, &#39;label&#39;: &#39;max_confusion_matrix_size&#39;, &#39;help&#39;: &#39;[Deprecated] Maximum size (# classes) for confusion matrices to be printed in the Logs&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;int&#39;, &#39;default_value&#39;: 20, &#39;actual_value&#39;: 20, &#39;input_value&#39;: 20, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: False}, &#39;ntrees&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;ntrees&#39;, &#39;label&#39;: &#39;ntrees&#39;, &#39;help&#39;: &#39;Number of trees.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;int&#39;, &#39;default_value&#39;: 50, &#39;actual_value&#39;: 1, &#39;input_value&#39;: 1, &#39;level&#39;: &#39;critical&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;max_depth&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;max_depth&#39;, &#39;label&#39;: &#39;max_depth&#39;, &#39;help&#39;: &#39;Maximum tree depth (0 for unlimited).&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;int&#39;, &#39;default_value&#39;: 5, &#39;actual_value&#39;: 5, &#39;input_value&#39;: 5, &#39;level&#39;: &#39;critical&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;min_rows&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;min_rows&#39;, &#39;label&#39;: &#39;min_rows&#39;, &#39;help&#39;: &#39;Fewest allowed (weighted) observations in a leaf.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;double&#39;, &#39;default_value&#39;: 10.0, &#39;actual_value&#39;: 10.0, &#39;input_value&#39;: 10.0, &#39;level&#39;: &#39;critical&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;nbins&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;nbins&#39;, &#39;label&#39;: &#39;nbins&#39;, &#39;help&#39;: &#39;For numerical columns (real/int), build a histogram of (at least) this many bins, then split at the best point&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;int&#39;, &#39;default_value&#39;: 20, &#39;actual_value&#39;: 20, &#39;input_value&#39;: 20, &#39;level&#39;: &#39;critical&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;nbins_top_level&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;nbins_top_level&#39;, &#39;label&#39;: &#39;nbins_top_level&#39;, &#39;help&#39;: &#39;For numerical columns (real/int), build a histogram of (at most) this many bins at the root level, then decrease by factor of two per level&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;int&#39;, &#39;default_value&#39;: 1024, &#39;actual_value&#39;: 1024, &#39;input_value&#39;: 1024, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;nbins_cats&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;nbins_cats&#39;, &#39;label&#39;: &#39;nbins_cats&#39;, &#39;help&#39;: &#39;For categorical columns (factors), build a histogram of this many bins, then split at the best point. Higher values can lead to more overfitting.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;int&#39;, &#39;default_value&#39;: 1024, &#39;actual_value&#39;: 1024, &#39;input_value&#39;: 1024, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;r2_stopping&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;r2_stopping&#39;, &#39;label&#39;: &#39;r2_stopping&#39;, &#39;help&#39;: &#39;r2_stopping is no longer supported and will be ignored if set - please use stopping_rounds, stopping_metric and stopping_tolerance instead. Previous version of H2O would stop making trees when the R^2 metric equals or exceeds this&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;double&#39;, &#39;default_value&#39;: 1.7976931348623157e+308, &#39;actual_value&#39;: 1.7976931348623157e+308, &#39;input_value&#39;: 1.7976931348623157e+308, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;stopping_rounds&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;stopping_rounds&#39;, &#39;label&#39;: &#39;stopping_rounds&#39;, &#39;help&#39;: &#39;Early stopping based on convergence of stopping_metric. Stop if simple moving average of length k of the stopping_metric does not improve for k:=stopping_rounds scoring events (0 to disable)&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;int&#39;, &#39;default_value&#39;: 0, &#39;actual_value&#39;: 0, &#39;input_value&#39;: 0, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;stopping_metric&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;stopping_metric&#39;, &#39;label&#39;: &#39;stopping_metric&#39;, &#39;help&#39;: &#39;Metric to use for early stopping (AUTO: logloss for classification, deviance for regression and anomaly_score for Isolation Forest). Note that custom and custom_increasing can only be used in GBM and DRF with the Python client.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;enum&#39;, &#39;default_value&#39;: &#39;AUTO&#39;, &#39;actual_value&#39;: None, &#39;input_value&#39;: &#39;AUTO&#39;, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [&#39;AUTO&#39;, &#39;deviance&#39;, &#39;logloss&#39;, &#39;MSE&#39;, &#39;RMSE&#39;, &#39;MAE&#39;, &#39;RMSLE&#39;, &#39;AUC&#39;, &#39;AUCPR&#39;, &#39;lift_top_group&#39;, &#39;misclassification&#39;, &#39;mean_per_class_error&#39;, &#39;anomaly_score&#39;, &#39;AUUC&#39;, &#39;ATE&#39;, &#39;ATT&#39;, &#39;ATC&#39;, &#39;qini&#39;, &#39;custom&#39;, &#39;custom_increasing&#39;], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;stopping_tolerance&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;stopping_tolerance&#39;, &#39;label&#39;: &#39;stopping_tolerance&#39;, &#39;help&#39;: &#39;Relative tolerance for metric-based stopping criterion (stop if relative improvement is not at least this much)&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;double&#39;, &#39;default_value&#39;: 0.001, &#39;actual_value&#39;: 0.001, &#39;input_value&#39;: 0.001, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;max_runtime_secs&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;max_runtime_secs&#39;, &#39;label&#39;: &#39;max_runtime_secs&#39;, &#39;help&#39;: &#39;Maximum allowed runtime in seconds for model training. Use 0 to disable.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;double&#39;, &#39;default_value&#39;: 0.0, &#39;actual_value&#39;: 0.0, &#39;input_value&#39;: 0.0, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;seed&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;seed&#39;, &#39;label&#39;: &#39;seed&#39;, &#39;help&#39;: &#39;Seed for pseudo random number generator (if applicable)&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;long&#39;, &#39;default_value&#39;: -1, &#39;actual_value&#39;: 561615097330083114, &#39;input_value&#39;: -1, &#39;level&#39;: &#39;critical&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;build_tree_one_node&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;build_tree_one_node&#39;, &#39;label&#39;: &#39;build_tree_one_node&#39;, &#39;help&#39;: &#39;Run on one node only; no network overhead but fewer cpus used. Suitable for small datasets.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;boolean&#39;, &#39;default_value&#39;: False, &#39;actual_value&#39;: False, &#39;input_value&#39;: False, &#39;level&#39;: &#39;expert&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: False}, &#39;learn_rate&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;learn_rate&#39;, &#39;label&#39;: &#39;learn_rate&#39;, &#39;help&#39;: &#39;Learning rate (from 0.0 to 1.0)&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;double&#39;, &#39;default_value&#39;: 0.1, &#39;actual_value&#39;: 0.1, &#39;input_value&#39;: 0.1, &#39;level&#39;: &#39;critical&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;learn_rate_annealing&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;learn_rate_annealing&#39;, &#39;label&#39;: &#39;learn_rate_annealing&#39;, &#39;help&#39;: &#39;Scale the learning rate by this factor after each tree (e.g., 0.99 or 0.999) &#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;double&#39;, &#39;default_value&#39;: 1.0, &#39;actual_value&#39;: 1.0, &#39;input_value&#39;: 1.0, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;distribution&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;distribution&#39;, &#39;label&#39;: &#39;distribution&#39;, &#39;help&#39;: &#39;Distribution function&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;enum&#39;, &#39;default_value&#39;: &#39;AUTO&#39;, &#39;actual_value&#39;: &#39;bernoulli&#39;, &#39;input_value&#39;: &#39;AUTO&#39;, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [&#39;AUTO&#39;, &#39;bernoulli&#39;, &#39;quasibinomial&#39;, &#39;ordinal&#39;, &#39;multinomial&#39;, &#39;gaussian&#39;, &#39;poisson&#39;, &#39;gamma&#39;, &#39;tweedie&#39;, &#39;laplace&#39;, &#39;quantile&#39;, &#39;huber&#39;, &#39;custom&#39;], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;quantile_alpha&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;quantile_alpha&#39;, &#39;label&#39;: &#39;quantile_alpha&#39;, &#39;help&#39;: &#39;Desired quantile for Quantile regression, must be between 0 and 1.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;double&#39;, &#39;default_value&#39;: 0.5, &#39;actual_value&#39;: 0.5, &#39;input_value&#39;: 0.5, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;tweedie_power&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;tweedie_power&#39;, &#39;label&#39;: &#39;tweedie_power&#39;, &#39;help&#39;: &#39;Tweedie power for Tweedie regression, must be between 1 and 2.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;double&#39;, &#39;default_value&#39;: 1.5, &#39;actual_value&#39;: 1.5, &#39;input_value&#39;: 1.5, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;huber_alpha&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;huber_alpha&#39;, &#39;label&#39;: &#39;huber_alpha&#39;, &#39;help&#39;: &#39;Desired quantile for Huber/M-regression (threshold between quadratic and linear loss, must be between 0 and 1).&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;double&#39;, &#39;default_value&#39;: 0.9, &#39;actual_value&#39;: 0.9, &#39;input_value&#39;: 0.9, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;checkpoint&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;checkpoint&#39;, &#39;label&#39;: &#39;checkpoint&#39;, &#39;help&#39;: &#39;Model checkpoint to resume training with.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;Key&lt;Model&gt;&#39;, &#39;default_value&#39;: None, &#39;actual_value&#39;: None, &#39;input_value&#39;: None, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: False}, &#39;sample_rate&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;sample_rate&#39;, &#39;label&#39;: &#39;sample_rate&#39;, &#39;help&#39;: &#39;Row sample rate per tree (from 0.0 to 1.0)&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;double&#39;, &#39;default_value&#39;: 1.0, &#39;actual_value&#39;: 1.0, &#39;input_value&#39;: 1.0, &#39;level&#39;: &#39;critical&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;sample_rate_per_class&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;sample_rate_per_class&#39;, &#39;label&#39;: &#39;sample_rate_per_class&#39;, &#39;help&#39;: &#39;A list of row sample rates per class (relative fraction for each class, from 0.0 to 1.0), for each tree&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;double[]&#39;, &#39;default_value&#39;: None, &#39;actual_value&#39;: None, &#39;input_value&#39;: None, &#39;level&#39;: &#39;expert&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;col_sample_rate&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;col_sample_rate&#39;, &#39;label&#39;: &#39;col_sample_rate&#39;, &#39;help&#39;: &#39;Column sample rate (from 0.0 to 1.0)&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;double&#39;, &#39;default_value&#39;: 1.0, &#39;actual_value&#39;: 1.0, &#39;input_value&#39;: 1.0, &#39;level&#39;: &#39;critical&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;col_sample_rate_change_per_level&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;col_sample_rate_change_per_level&#39;, &#39;label&#39;: &#39;col_sample_rate_change_per_level&#39;, &#39;help&#39;: &#39;Relative change of the column sampling rate for every level (must be &gt; 0.0 and &lt;= 2.0)&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;double&#39;, &#39;default_value&#39;: 1.0, &#39;actual_value&#39;: 1.0, &#39;input_value&#39;: 1.0, &#39;level&#39;: &#39;expert&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;col_sample_rate_per_tree&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;col_sample_rate_per_tree&#39;, &#39;label&#39;: &#39;col_sample_rate_per_tree&#39;, &#39;help&#39;: &#39;Column sample rate per tree (from 0.0 to 1.0)&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;double&#39;, &#39;default_value&#39;: 1.0, &#39;actual_value&#39;: 1.0, &#39;input_value&#39;: 1.0, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;min_split_improvement&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;min_split_improvement&#39;, &#39;label&#39;: &#39;min_split_improvement&#39;, &#39;help&#39;: &#39;Minimum relative improvement in squared error reduction for a split to happen&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;double&#39;, &#39;default_value&#39;: 1e-05, &#39;actual_value&#39;: 1e-05, &#39;input_value&#39;: 1e-05, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;histogram_type&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;histogram_type&#39;, &#39;label&#39;: &#39;histogram_type&#39;, &#39;help&#39;: &#39;What type of histogram to use for finding optimal split points&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;enum&#39;, &#39;default_value&#39;: &#39;AUTO&#39;, &#39;actual_value&#39;: &#39;UniformAdaptive&#39;, &#39;input_value&#39;: &#39;AUTO&#39;, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [&#39;AUTO&#39;, &#39;UniformAdaptive&#39;, &#39;Random&#39;, &#39;QuantilesGlobal&#39;, &#39;RoundRobin&#39;, &#39;UniformRobust&#39;], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;max_abs_leafnode_pred&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;max_abs_leafnode_pred&#39;, &#39;label&#39;: &#39;max_abs_leafnode_pred&#39;, &#39;help&#39;: &#39;Maximum absolute value of a leaf node prediction&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;double&#39;, &#39;default_value&#39;: 1.7976931348623157e+308, &#39;actual_value&#39;: 1.7976931348623157e+308, &#39;input_value&#39;: 1.7976931348623157e+308, &#39;level&#39;: &#39;expert&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;pred_noise_bandwidth&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;pred_noise_bandwidth&#39;, &#39;label&#39;: &#39;pred_noise_bandwidth&#39;, &#39;help&#39;: &#39;Bandwidth (sigma) of Gaussian multiplicative noise ~N(1,sigma) for tree node predictions&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;double&#39;, &#39;default_value&#39;: 0.0, &#39;actual_value&#39;: 0.0, &#39;input_value&#39;: 0.0, &#39;level&#39;: &#39;expert&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;categorical_encoding&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;categorical_encoding&#39;, &#39;label&#39;: &#39;categorical_encoding&#39;, &#39;help&#39;: &#39;Encoding scheme for categorical features&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;enum&#39;, &#39;default_value&#39;: &#39;AUTO&#39;, &#39;actual_value&#39;: &#39;Enum&#39;, &#39;input_value&#39;: &#39;AUTO&#39;, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [&#39;AUTO&#39;, &#39;Enum&#39;, &#39;OneHotInternal&#39;, &#39;OneHotExplicit&#39;, &#39;Binary&#39;, &#39;Eigen&#39;, &#39;LabelEncoder&#39;, &#39;SortByResponse&#39;, &#39;EnumLimited&#39;], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;calibrate_model&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;calibrate_model&#39;, &#39;label&#39;: &#39;calibrate_model&#39;, &#39;help&#39;: &#39;Use Platt Scaling (default) or Isotonic Regression to calculate calibrated class probabilities. Calibration can provide more accurate estimates of class probabilities.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;boolean&#39;, &#39;default_value&#39;: False, &#39;actual_value&#39;: False, &#39;input_value&#39;: False, &#39;level&#39;: &#39;expert&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: False}, &#39;calibration_frame&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;calibration_frame&#39;, &#39;label&#39;: &#39;calibration_frame&#39;, &#39;help&#39;: &#39;Data for model calibration&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;Key&lt;Frame&gt;&#39;, &#39;default_value&#39;: None, &#39;actual_value&#39;: None, &#39;input_value&#39;: None, &#39;level&#39;: &#39;expert&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: False}, &#39;calibration_method&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;calibration_method&#39;, &#39;label&#39;: &#39;calibration_method&#39;, &#39;help&#39;: &#39;Calibration method to use&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;enum&#39;, &#39;default_value&#39;: &#39;AUTO&#39;, &#39;actual_value&#39;: &#39;PlattScaling&#39;, &#39;input_value&#39;: &#39;AUTO&#39;, &#39;level&#39;: &#39;expert&#39;, &#39;values&#39;: [&#39;AUTO&#39;, &#39;PlattScaling&#39;, &#39;IsotonicRegression&#39;], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: False}, &#39;custom_metric_func&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;custom_metric_func&#39;, &#39;label&#39;: &#39;custom_metric_func&#39;, &#39;help&#39;: &#39;Reference to custom evaluation function, format: `language:keyName=funcName`&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;string&#39;, &#39;default_value&#39;: None, &#39;actual_value&#39;: None, &#39;input_value&#39;: None, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: False}, &#39;custom_distribution_func&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;custom_distribution_func&#39;, &#39;label&#39;: &#39;custom_distribution_func&#39;, &#39;help&#39;: &#39;Reference to custom distribution, format: `language:keyName=funcName`&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;string&#39;, &#39;default_value&#39;: None, &#39;actual_value&#39;: None, &#39;input_value&#39;: None, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: False}, &#39;export_checkpoints_dir&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;export_checkpoints_dir&#39;, &#39;label&#39;: &#39;export_checkpoints_dir&#39;, &#39;help&#39;: &#39;Automatically export generated models to this directory.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;string&#39;, &#39;default_value&#39;: None, &#39;actual_value&#39;: None, &#39;input_value&#39;: None, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: False}, &#39;in_training_checkpoints_dir&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;in_training_checkpoints_dir&#39;, &#39;label&#39;: &#39;in_training_checkpoints_dir&#39;, &#39;help&#39;: &#39;Create checkpoints into defined directory while training process is still running. In case of cluster shutdown, this checkpoint can be used to restart training.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;string&#39;, &#39;default_value&#39;: None, &#39;actual_value&#39;: None, &#39;input_value&#39;: None, &#39;level&#39;: &#39;expert&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: False}, &#39;in_training_checkpoints_tree_interval&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;in_training_checkpoints_tree_interval&#39;, &#39;label&#39;: &#39;in_training_checkpoints_tree_interval&#39;, &#39;help&#39;: &#39;Checkpoint the model after every so many trees. Parameter is used only when in_training_checkpoints_dir is defined&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;int&#39;, &#39;default_value&#39;: 1, &#39;actual_value&#39;: 1, &#39;input_value&#39;: 1, &#39;level&#39;: &#39;expert&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: False}, &#39;monotone_constraints&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;monotone_constraints&#39;, &#39;label&#39;: &#39;monotone_constraints&#39;, &#39;help&#39;: &#39;A mapping representing monotonic constraints. Use +1 to enforce an increasing constraint and -1 to specify a decreasing constraint.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;KeyValue[]&#39;, &#39;default_value&#39;: None, &#39;actual_value&#39;: None, &#39;input_value&#39;: None, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: False}, &#39;check_constant_response&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;check_constant_response&#39;, &#39;label&#39;: &#39;check_constant_response&#39;, &#39;help&#39;: &#39;Check if response column is constant. If enabled, then an exception is thrown if the response column is a constant value.If disabled, then model will train regardless of the response column being a constant value or not.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;boolean&#39;, &#39;default_value&#39;: True, &#39;actual_value&#39;: True, &#39;input_value&#39;: True, &#39;level&#39;: &#39;expert&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: False}, &#39;gainslift_bins&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;gainslift_bins&#39;, &#39;label&#39;: &#39;gainslift_bins&#39;, &#39;help&#39;: &#39;Gains/Lift table number of bins. 0 means disabled.. Default value -1 means automatic binning.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;int&#39;, &#39;default_value&#39;: -1, &#39;actual_value&#39;: -1, &#39;input_value&#39;: -1, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: False}, &#39;auc_type&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;auc_type&#39;, &#39;label&#39;: &#39;auc_type&#39;, &#39;help&#39;: &#39;Set default multinomial AUC type.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;enum&#39;, &#39;default_value&#39;: &#39;AUTO&#39;, &#39;actual_value&#39;: &#39;AUTO&#39;, &#39;input_value&#39;: &#39;AUTO&#39;, &#39;level&#39;: &#39;secondary&#39;, &#39;values&#39;: [&#39;AUTO&#39;, &#39;NONE&#39;, &#39;MACRO_OVR&#39;, &#39;WEIGHTED_OVR&#39;, &#39;MACRO_OVO&#39;, &#39;WEIGHTED_OVO&#39;], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: True}, &#39;interaction_constraints&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;interaction_constraints&#39;, &#39;label&#39;: &#39;interaction_constraints&#39;, &#39;help&#39;: &#39;A set of allowed column interactions.&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;string[][]&#39;, &#39;default_value&#39;: None, &#39;actual_value&#39;: None, &#39;input_value&#39;: None, &#39;level&#39;: &#39;expert&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: False}, &#39;auto_rebalance&#39;: {&#39;__meta&#39;: {&#39;schema_version&#39;: 3, &#39;schema_name&#39;: &#39;ModelParameterSchemaV3&#39;, &#39;schema_type&#39;: &#39;Iced&#39;}, &#39;name&#39;: &#39;auto_rebalance&#39;, &#39;label&#39;: &#39;auto_rebalance&#39;, &#39;help&#39;: &#39;Allow automatic rebalancing of training and validation datasets&#39;, &#39;required&#39;: False, &#39;type&#39;: &#39;boolean&#39;, &#39;default_value&#39;: True, &#39;actual_value&#39;: True, &#39;input_value&#39;: True, &#39;level&#39;: &#39;expert&#39;, &#39;values&#39;: [], &#39;is_member_of_frames&#39;: [], &#39;is_mutually_exclusive_with&#39;: [], &#39;gridable&#39;: False}}})&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert sang H2o Frame</span>
+<span class="n">test_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Origin&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;SAN&#39;</span><span class="p">],</span> <span class="s1">&#39;Dest&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;SFO&#39;</span><span class="p">]})</span>
+<span class="n">test_data_h2o</span> <span class="o">=</span> <span class="n">h2o</span><span class="o">.</span><span class="n">H2OFrame</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parse progress: |████████████████████████████████████████████████████████████████| (done) 100%
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dự báo</span>
+<span class="n">original_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_data_h2o</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>gbm prediction progress: |███████████████████████████████████████████████████████| (done) 100%
+</pre></div>
+</div>
+<div class="output text_html"><table class='dataframe'>
+<thead>
+<tr><th>predict  </th><th style="text-align: right;">      NO</th><th style="text-align: right;">     YES</th></tr>
+</thead>
+<tbody>
+<tr><td>YES      </td><td style="text-align: right;">0.475288</td><td style="text-align: right;">0.524712</td></tr>
+</tbody>
+</table><pre style='font-size: smaller; margin-bottom: 1em;'>[1 row x 3 columns]</pre></div></div>
+</div>
+<p><strong>Cách download file MOJO</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">original_model_filename</span> <span class="o">=</span> <span class="n">original_model</span><span class="o">.</span><span class="n">download_mojo</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;../datasets/model/&quot;</span><span class="p">,</span> <span class="n">get_genmodel_jar</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">original_model_filename</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;d:\\01-github\\ds-book-python\\datasets\\model\\GBM_model_python_1753980869731_1.zip&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Upload mojo back</span>
+<span class="n">mojo_model</span> <span class="o">=</span> <span class="n">h2o</span><span class="o">.</span><span class="n">upload_mojo</span><span class="p">(</span><span class="n">original_model_filename</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>generic Model Build progress: |██████████████████████████████████████████████████| (done) 100%
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">mojo_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">airlines_data</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>generic prediction progress: |███████████████████████████████████████████████████| (done) 100%
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert từ H2oFrame sang DataFrame</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">h2o</span><span class="o">.</span><span class="n">as_list</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\h2o\frame.py:1983: H2ODependencyWarning: Converting H2O frame to pandas dataframe using single-thread.  For faster conversion using multi-thread, install polars and pyarrow and use it as pandas_df = h2o_df.as_data_frame(use_multi_thread=True)
+
+  warnings.warn(&quot;Converting H2O frame to pandas dataframe using single-thread.  For faster conversion using&quot;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Lưu ý</strong>:</p>
+<ul class="simple">
+<li><p>Mô hình <code class="docutils literal notranslate"><span class="pre">MOJO</span></code> có thể load ngược lại vào R và sử dụng cho production</p></li>
+</ul>
+</section>
+<section id="tai-lieu-tham-khao">
+<h2><span class="section-number">4.2. </span>Tài liệu tham khảo<a class="headerlink" href="#tai-lieu-tham-khao" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>http://docs.h2o.ai/h2o-tutorials/latest-stable/</p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="p05-03-xgboost.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Xgboost với sklearn</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="p05-20-api-flask.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Xây dựng API dự báo với Flask</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Mục lục
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gioi-thieu">4.1. Giới thiệu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tai-lieu-tham-khao">4.2. Tài liệu tham khảo</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Anh Hoang Duc
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022, Anh Hoang Duc.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
