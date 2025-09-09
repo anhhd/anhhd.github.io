@@ -164,10 +164,6 @@
 <li class="toctree-l1"><a class="reference internal" href="p01-02-toan-co-ban.html">2. Toán cơ bản với DL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-03-dl-co-ban.html">3. Tensorflow &amp; Keras</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Chuỗi thời gian</a></li>
-
-
-
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">LLM &amp; GenAI</span></p>
 <ul class="nav bd-sidenav">
@@ -284,17 +280,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">4. Chuỗi thời gian</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gioi-thieu">5. Giới thiệu</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#recurrent-neural-network">6. Recurrent Neural Network</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#long-short-term-memory">7. Long Short Term Memory</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">7.1. Giới thiệu</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-du-mo-hinh">7.2. Ví dụ mô hình</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gioi-thieu">4.1. Giới thiệu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recurrent-neural-network">4.2. Recurrent Neural Network</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#long-short-term-memory">4.3. Long Short Term Memory</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.3.1. Giới thiệu</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-du-mo-hinh">4.3.2. Ví dụ mô hình</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tai-lieu-tham-khao">8. Tài liệu tham khảo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tai-lieu-tham-khao">4.4. Tài liệu tham khảo</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -305,11 +299,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="chuoi-thoi-gian">
+  <section class="tex2jax_ignore mathjax_ignore" id="chuoi-thoi-gian">
 <h1><span class="section-number">4. </span>Chuỗi thời gian<a class="headerlink" href="#chuoi-thoi-gian" title="Link to this heading">#</a></h1>
-</section>
 <section id="gioi-thieu">
-<h1><span class="section-number">5. </span>Giới thiệu<a class="headerlink" href="#gioi-thieu" title="Link to this heading">#</a></h1>
+<h2><span class="section-number">4.1. </span>Giới thiệu<a class="headerlink" href="#gioi-thieu" title="Link to this heading">#</a></h2>
 <p>Khi dự báo với deep learning, ta có thể chia dữ liệu thành các minibatch khác nhau. Với mỗi <code class="docutils literal notranslate"><span class="pre">sequence_length</span></code> là <code class="docutils literal notranslate"><span class="pre">m</span></code>, sẽ lấy <code class="docutils literal notranslate"><span class="pre">m</span></code> điểm thời gian trước đó để làm input dự báo cho thời gian hiện tại</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -755,7 +748,7 @@ Prediction for the next 5 values in the series:
 </div>
 </section>
 <section id="recurrent-neural-network">
-<h1><span class="section-number">6. </span>Recurrent Neural Network<a class="headerlink" href="#recurrent-neural-network" title="Link to this heading">#</a></h1>
+<h2><span class="section-number">4.2. </span>Recurrent Neural Network<a class="headerlink" href="#recurrent-neural-network" title="Link to this heading">#</a></h2>
 <p>Với ví dụ đơn giản trên, để dự báo các biến tiếp theo, ta cần duỗi tất cả các biến đầu vào và xây dựng mô hình cho tất cả tập dữ liệu <em>cùng một lúc</em>. Nhóm mô hình trên còn gọi là <code class="docutils literal notranslate"><span class="pre">feedforward</span> <span class="pre">neural</span> <span class="pre">network</span></code>. Trong thực tế, với một số bài toán dự báo, 1 yếu tố mới đầu ra sẽ không chỉ phụ thuộc dữ liệu đầu vào mà toàn bộ các thông tin dữ liệu lịch sử (ký ức) như dự báo ECG, dịch thuật. Trong kiểu mô hình trên, ta không cho phép mô hình học tuần tự theo chu kỳ thời gian.</p>
 <p>Để khắc phục nhược điểm trên, người ta xây dựng thêm mô hình <code class="docutils literal notranslate"><span class="pre">Recurrent</span> <span class="pre">Neural</span> <span class="pre">Network</span></code>. Mô hình này dựa trên ý tưởng kết quả dự báo không chỉ dựa trên thông tin mới mà còn dựa vào các thông tin đã được dự báo và lưu trữ từ quá khứ. Như vậy, mô hình có trí nhớ với khả năng lưu trữ các thông tin cũ từ quá khứ.</p>
 <p>Thay vì chỉ nhận dữ liệu đầu vào <span class="math notranslate nohighlight">\(x_t\)</span>, RNN sẽ nhận cả các trạng thái ẩn (hidden state) <span class="math notranslate nohighlight">\(h_{t-1}\)</span> từ thời điểm trước đó. Như vậy, ta có thể coi <span class="math notranslate nohighlight">\(h_{t-1}\)</span> như một bộ nhớ lưu trữ các thông tin từ quá khứ.</p>
@@ -793,9 +786,9 @@ Prediction for the next 5 values in the series:
 </ul>
 </section>
 <section id="long-short-term-memory">
-<h1><span class="section-number">7. </span>Long Short Term Memory<a class="headerlink" href="#long-short-term-memory" title="Link to this heading">#</a></h1>
+<h2><span class="section-number">4.3. </span>Long Short Term Memory<a class="headerlink" href="#long-short-term-memory" title="Link to this heading">#</a></h2>
 <section id="id1">
-<h2><span class="section-number">7.1. </span>Giới thiệu<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<h3><span class="section-number">4.3.1. </span>Giới thiệu<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>Về mặt lý thuyết, RNN có khả năng lưu trữ trí nhớ tại các <code class="docutils literal notranslate"><span class="pre">state</span></code>. Tuy nhiên, khi chuỗi thời gian đủ lớn, mô hình sẽ không có khả năng ghi nhớ các trạng thái ẩn ở lâu trước đó. Do đó, RNN chỉ có thể có <em>trí nhớ ngắn hạn</em>. Để giải quyết nhược điểm đó, người ta phát triển thêm mô hình LSTM - Long Short Term Memory, cho phép mô hình Neural Network có thể ghi nhớ các trạng thái dài hạn.</p>
 <p>Ý tưởng chính của LSTM là để tạo ra và cho phép ghi nhớ ký ức được tốt hơn. Thay vì chỉ có 1 trạng thái ẩn, LSTM cho phép tạo ra các <code class="docutils literal notranslate"><span class="pre">cell</span> <span class="pre">state</span></code> (bộ nhớ dài hạn). Thông tin trong bộ nhơ dài hạn được quyết định và điều chỉnh từ các cổng (gates). Các cổng này cho phép mô hình quyết định giữ lại, quên đi hoặc bổ sung các thông tin mới.</p>
 <p><img alt="" src="_images/p01-2025-09-01-16-12-17.png" /></p>
@@ -820,7 +813,7 @@ Prediction for the next 5 values in the series:
 </ul>
 </section>
 <section id="vi-du-mo-hinh">
-<h2><span class="section-number">7.2. </span>Ví dụ mô hình<a class="headerlink" href="#vi-du-mo-hinh" title="Link to this heading">#</a></h2>
+<h3><span class="section-number">4.3.2. </span>Ví dụ mô hình<a class="headerlink" href="#vi-du-mo-hinh" title="Link to this heading">#</a></h3>
 <p>Với mô hình đã xây dựng với Dense Layer, ta có thể xây dựng mô hình LSTM như sau</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1068,10 +1061,11 @@ Prediction for the next 5 values in the series:
 </section>
 </section>
 <section id="tai-lieu-tham-khao">
-<h1><span class="section-number">8. </span>Tài liệu tham khảo<a class="headerlink" href="#tai-lieu-tham-khao" title="Link to this heading">#</a></h1>
+<h2><span class="section-number">4.4. </span>Tài liệu tham khảo<a class="headerlink" href="#tai-lieu-tham-khao" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/">Understanding LSTM Networks</a></p></li>
 </ul>
+</section>
 </section>
 
 
@@ -1119,17 +1113,15 @@ Prediction for the next 5 values in the series:
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">4. Chuỗi thời gian</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gioi-thieu">5. Giới thiệu</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#recurrent-neural-network">6. Recurrent Neural Network</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#long-short-term-memory">7. Long Short Term Memory</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">7.1. Giới thiệu</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-du-mo-hinh">7.2. Ví dụ mô hình</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gioi-thieu">4.1. Giới thiệu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recurrent-neural-network">4.2. Recurrent Neural Network</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#long-short-term-memory">4.3. Long Short Term Memory</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.3.1. Giới thiệu</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-du-mo-hinh">4.3.2. Ví dụ mô hình</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tai-lieu-tham-khao">8. Tài liệu tham khảo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tai-lieu-tham-khao">4.4. Tài liệu tham khảo</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
