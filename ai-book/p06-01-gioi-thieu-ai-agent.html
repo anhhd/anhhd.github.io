@@ -51,6 +51,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'p06-01-gioi-thieu-ai-agent';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. Tools với AI Agent" href="p06-02-actions.html" />
     <link rel="prev" title="2. Use case - truy vấn &amp; phân tích dữ liệu" href="p05-04-phan-tich-du-lieu.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="vn"/>
@@ -162,6 +163,7 @@
 <li class="toctree-l1"><a class="reference internal" href="p01-03-dl-co-ban.html">3. Tensorflow &amp; Keras</a></li>
 <li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html">4. Chuỗi thời gian</a></li>
 
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">LLM &amp; GenAI</span></p>
 <ul class="nav bd-sidenav">
@@ -177,6 +179,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">AI Agent</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Giới thiệu về AI Agent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p06-02-actions.html">2. Tools với AI Agent</a></li>
 </ul>
 
     </div>
@@ -278,7 +281,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gioi-thieu">1.1. Giới thiệu</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#llm-openai-api">1.2. LLM &amp; OpenAI API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#llm">1.2. LLM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-api">1.3. OpenAI API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prompt-engineer">1.4. Prompt Engineer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tai-lieu-tham-khao">1.5. Tài liệu tham khảo</a></li>
 </ul>
             </nav>
         </div>
@@ -324,13 +330,118 @@ document.write(`
 <p>Với AI Agent, rất nhiều mảng công việc như dữ liệu, phát triển phần mềm có thể sẽ cần điều chỉnh và tái cấu trúc lại để cho phép sử dụng ngôn ngữ tự nhiên như là interface, cho phép tương tác với người dùng. Quá trình này sẽ tương tác với AI Interface (data, function &amp; tool - external agent) để hoàn thành tác vụ cho người dùng.</p>
 <p><img alt="" src="_images/p06-2025-07-21-12-01-55.png" /></p>
 </section>
-<section id="llm-openai-api">
-<h2><span class="section-number">1.2. </span>LLM &amp; OpenAI API<a class="headerlink" href="#llm-openai-api" title="Link to this heading">#</a></h2>
+<section id="llm">
+<h2><span class="section-number">1.2. </span>LLM<a class="headerlink" href="#llm" title="Link to this heading">#</a></h2>
 <p>Các mô hình ngôn ngữ lớn (<code class="docutils literal notranslate"><span class="pre">Large</span> <span class="pre">Language</span> <span class="pre">Model</span></code>) được phát triển bằng cách sử dụng các thuật toán GPT (Generative Pretrained Transformers). Các mô hình hình sẽ được sử dụng để tạo ra các content mới từ các content trước đó. Các kết quả dự báo này có sự khác biệt so với các mô hình predictive/classification thông thường.</p>
 <p><img alt="" src="_images/p06-2025-07-21-12-08-33.png" /></p>
 <p>Bên cạnh đó, các mô hình LLM cũng có thể được tuning để tối ưu hóa hiệu quả sử dụng với một bộ dataset nhất đinh.</p>
-<p><img alt="" src="_images/p06-2025-07-21-12-11-05.png" /></p>
 <p><img alt="" src="_images/p06-2025-07-21-12-13-42.png" /></p>
+</section>
+<section id="openai-api">
+<h2><span class="section-number">1.3. </span>OpenAI API<a class="headerlink" href="#openai-api" title="Link to this heading">#</a></h2>
+<p>Với các mô hình ngôn ngữ lớn, việc tự xây dựng mô hình gần như là bất khả thi. Ta có thể sử dụng 2 cách chính:</p>
+<ul class="simple">
+<li><p>Sử dụng mô hình mã nguồn mở và host tại local - các mô hình có thể sử dụng như Llama, Qwen, etc.</p></li>
+<li><p>Sử dụng API dưới dạng SaaS - ví dụ OpenAI, Bedrock,...</p></li>
+</ul>
+<p>Với sự phát triển mạnh mẽ của các công ty công nghệ, đặc biệt là OpenAI, ngày càng có nhiều đơn vị sử đụng OpenAI.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">openai</span><span class="w"> </span><span class="kn">import</span> <span class="n">OpenAI</span>
+<span class="c1"># Package load environemnt variables from a .env file</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dotenv</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dotenv</span>
+<span class="n">load_dotenv</span><span class="p">()</span>
+
+<span class="c1"># Load the OpenAI API key from the environment variable</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;OPENAI_API_KEY&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">api_key</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No API key found. Please check your .env file.&quot;</span><span class="p">)</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ask_chatgpt</span><span class="p">(</span><span class="n">user_message</span><span class="p">):</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o&quot;</span><span class="p">,</span>
+        <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;You are a helpful assistant.&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">user_message</span><span class="p">}],</span>
+    <span class="n">temperature</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user</span> <span class="o">=</span> <span class="s2">&quot;What is the capital of Vietnam?&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">ask_chatgpt</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The capital of Vietnam is Hanoi.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Trong ví dụ trên, message có chứa 3 nhóm chức năng:</p>
+<ul class="simple">
+<li><p><strong>System role</strong>: Thông tin chứa các nguyên tắc và hướng dẫn cho AI</p></li>
+<li><p><strong>User role</strong>: Người dùng cuối &amp; các câu hỏi (message) của người dùng</p></li>
+<li><p><strong>Assistant role</strong>: Câu trả lời của AI và tương tác với người dùng</p></li>
+</ul>
+<p>Các thông tin về lịch sử tương tác có thể thể hiện như sau</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>[
+<span class="w">    </span>{
+<span class="w">    </span>&quot;role&quot;:<span class="w"> </span>&quot;system&quot;,
+<span class="w">    </span>&quot;content&quot;:<span class="w"> </span>&quot;You<span class="w"> </span>are<span class="w"> </span>a<span class="w"> </span>helpful<span class="w"> </span>assistant.&quot;
+<span class="w">    </span>},
+<span class="w">    </span>{
+<span class="w">    </span>&quot;role&quot;:<span class="w"> </span>&quot;user&quot;,
+<span class="w">    </span>&quot;content&quot;:<span class="w"> </span>&quot;What<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>capital<span class="w"> </span>of<span class="w"> </span>France?&quot;
+<span class="w">    </span>},
+<span class="w">    </span>{
+<span class="w">    </span>&quot;role&quot;:<span class="w"> </span>&quot;assistant&quot;,
+<span class="w">    </span>&quot;content&quot;:<span class="w"> </span>&quot;The<span class="w"> </span>capital<span class="w"> </span>of<span class="w"> </span>France<span class="w"> </span>is<span class="w"> </span>Paris.&quot;
+<span class="w">    </span>},
+<span class="w">    </span>{
+<span class="w">    </span>&quot;role&quot;:<span class="w"> </span>&quot;user&quot;,
+<span class="w">    </span>&quot;content&quot;:<span class="w"> </span>&quot;What<span class="w"> </span>is<span class="w"> </span>an<span class="w"> </span>interesting<span class="w"> </span>fact<span class="w"> </span>of<span class="w"> </span>Paris.&quot;
+<span class="w">    </span>}
+],
+</pre></div>
+</div>
+</section>
+<section id="prompt-engineer">
+<h2><span class="section-number">1.4. </span>Prompt Engineer<a class="headerlink" href="#prompt-engineer" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Prompt</span> <span class="pre">Engineer</span></code> là các kỹ thuật cho phép mô tả và hướng dẫn AI trả ra kết quả phù hợp nhất.
+Khi viết prompt, cần lưu ý các điểm sau:</p>
+<ul class="simple">
+<li><p>Thông tin cụ thể</p></li>
+<li><p>Có kèm ngữ cảnh chi tiết</p></li>
+<li><p>Mô tả các kết quả kỳ vọng</p></li>
+<li><p>Thêm các ví dụ và độ dài, phong cách mong muốn</p></li>
+</ul>
+<p><img alt="" src="_images/p06-2025-07-21-13-34-08.png" /></p>
+<p>Các lưu ý hi viết prompt kèm ví dụ</p>
+<p><img alt="" src="_images/p06-2025-07-21-13-37-02.png" /></p>
+<hr class="docutils" />
+<p>Khi sử dụng mô hình LLM, ta cần cân nhắc các yếu tố chính sau:</p>
+<p><img alt="" src="_images/p06-2025-07-21-19-56-13.png" /></p>
+<p>Trong thực tế, trước khi đi vào bước production, ta nên sử dụng các mô hình có hiệu năng cao để đảm bảo khả năng giải quyết đúng mục tiêu</p>
+</section>
+<section id="tai-lieu-tham-khao">
+<h2><span class="section-number">1.5. </span>Tài liệu tham khảo<a class="headerlink" href="#tai-lieu-tham-khao" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>AI agent in actions - chương 1, 2, 3</p></li>
+</ul>
 </section>
 </section>
 
@@ -354,6 +465,15 @@ document.write(`
         <p class="prev-next-title"><span class="section-number">2. </span>Use case - truy vấn &amp; phân tích dữ liệu</p>
       </div>
     </a>
+    <a class="right-next"
+       href="p06-02-actions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Tools với AI Agent</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -371,7 +491,10 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gioi-thieu">1.1. Giới thiệu</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#llm-openai-api">1.2. LLM &amp; OpenAI API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#llm">1.2. LLM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openai-api">1.3. OpenAI API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prompt-engineer">1.4. Prompt Engineer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tai-lieu-tham-khao">1.5. Tài liệu tham khảo</a></li>
 </ul>
   </nav></div>
 

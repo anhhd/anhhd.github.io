@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0cebd926" />
   
@@ -48,6 +48,8 @@
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "displayMath": [["$$", "$$"], ["\\[", "\\]"]]}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'p01-04-dl-timeseries';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -163,6 +165,9 @@
 <li class="toctree-l1"><a class="reference internal" href="p01-03-dl-co-ban.html">3. Tensorflow &amp; Keras</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Chuỗi thời gian</a></li>
 
+
+
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">LLM &amp; GenAI</span></p>
 <ul class="nav bd-sidenav">
@@ -178,6 +183,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">AI Agent</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="p06-01-gioi-thieu-ai-agent.html">1. Giới thiệu về AI Agent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p06-02-actions.html">2. Tools với AI Agent</a></li>
 </ul>
 
     </div>
@@ -280,6 +286,13 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">4. Chuỗi thời gian</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gioi-thieu">5. Giới thiệu</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#recurrent-neural-network">6. Recurrent Neural Network</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#long-short-term-memory">7. Long Short Term Memory</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">7.1. Giới thiệu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-du-mo-hinh">7.2. Ví dụ mô hình</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tai-lieu-tham-khao">8. Tài liệu tham khảo</a></li>
 </ul>
 
             </nav>
@@ -300,7 +313,7 @@ document.write(`
 <p>Khi dự báo với deep learning, ta có thể chia dữ liệu thành các minibatch khác nhau. Với mỗi <code class="docutils literal notranslate"><span class="pre">sequence_length</span></code> là <code class="docutils literal notranslate"><span class="pre">m</span></code>, sẽ lấy <code class="docutils literal notranslate"><span class="pre">m</span></code> điểm thời gian trước đó để làm input dự báo cho thời gian hiện tại</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="kn">import</span> <span class="n">keras</span>
 <span class="n">int_sequence</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">dummy_dataset</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">timeseries_dataset_from_array</span><span class="p">(</span>
@@ -309,6 +322,13 @@ document.write(`
     <span class="n">sequence_length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
     <span class="n">batch_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
 <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 <span class="k">for</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">targets</span> <span class="ow">in</span> <span class="n">dummy_dataset</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
         <span class="nb">print</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">inputs</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="nb">int</span><span class="p">(</span><span class="n">targets</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
@@ -325,71 +345,56 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Deep Learning có thể sử dụng để dự báo chuỗi thời gian. Trong chương này, ta sẽ dùng dữ liệu dự báo về thông số thời tiết với dữ liệu từ 2009-2016.</p>
-<p><a class="reference internal" href="#"><span class="xref myst">https://s3.amazonaws.com/keras-datasets/jena_climate_2009_2016.csv.zip</span></a></p>
+<p>Với mô hình <code class="docutils literal notranslate"><span class="pre">DL</span></code> cơ bản, ta có thể sử dụng các <code class="docutils literal notranslate"><span class="pre">dense</span> <span class="pre">layer</span></code> để sử dụng các feature tại n điểm thời gian gần nhất dự báo cho điểm thời gian tiếp theo. Xem ví dụ đơn giản dưới đây</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="kn">import</span> <span class="n">keras</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras.layers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dense</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">lets_plot</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 <span class="n">LetsPlot</span><span class="o">.</span><span class="n">setup_html</span><span class="p">()</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="c1"># Set a seed for reproducibility</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># --- 1. Generate Synthetic Data with Multiple Features ---</span>
+<span class="c1"># We&#39;ll create a primary time series and five additional features that are</span>
+<span class="c1"># correlated with the main series.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_time_series_with_features</span><span class="p">(</span><span class="n">num_points</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">noise_level</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generates a synthetic time series as a Polars DataFrame with multiple features.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_points</span><span class="p">)</span>
+    
+    <span class="c1"># Primary time series</span>
+    <span class="n">series_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">*</span> <span class="n">time</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">noise_level</span><span class="p">,</span> <span class="n">noise_level</span><span class="p">,</span> <span class="n">num_points</span><span class="p">)</span>
+    
+    <span class="c1"># Generate five additional correlated features</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+        <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="n">time</span><span class="p">,</span>
+        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">series_values</span><span class="p">,</span>
+        <span class="s2">&quot;x1&quot;</span><span class="p">:</span> <span class="n">series_values</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">noise_level</span><span class="p">,</span> <span class="n">noise_level</span><span class="p">,</span> <span class="n">num_points</span><span class="p">),</span>
+        <span class="s2">&quot;x2&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">0.15</span> <span class="o">*</span> <span class="n">time</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">noise_level</span><span class="p">,</span> <span class="n">noise_level</span><span class="p">,</span> <span class="n">num_points</span><span class="p">),</span>
+        <span class="s2">&quot;x3&quot;</span><span class="p">:</span> <span class="n">series_values</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">noise_level</span><span class="p">,</span> <span class="n">noise_level</span><span class="p">,</span> <span class="n">num_points</span><span class="p">),</span>
+        <span class="s2">&quot;x4&quot;</span><span class="p">:</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">0.08</span> <span class="o">*</span> <span class="n">time</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">noise_level</span><span class="p">,</span> <span class="n">noise_level</span><span class="p">,</span> <span class="n">num_points</span><span class="p">),</span>
+        <span class="s2">&quot;x5&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">0.2</span> <span class="o">*</span> <span class="n">time</span><span class="p">)</span> <span class="o">-</span> <span class="n">series_values</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">noise_level</span><span class="p">,</span> <span class="n">noise_level</span><span class="p">,</span> <span class="n">num_points</span><span class="p">)</span>
+    <span class="p">})</span>
+    <span class="k">return</span> <span class="n">df</span>
+
+<span class="n">data_df</span> <span class="o">=</span> <span class="n">generate_time_series_with_features</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Generated a Polars DataFrame with </span><span class="si">{</span><span class="n">data_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> data points and multiple features.&quot;</span><span class="p">)</span>
+<span class="n">data_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
-            <div id="nas0f6"></div>
-            <script type="text/javascript" data-lets-plot-script="library">
-                if(!window.letsPlotCallQueue) {
-                    window.letsPlotCallQueue = [];
-                }; 
-                window.letsPlotCall = function(f) {
-                    window.letsPlotCallQueue.push(f);
-                };
-                (function() {
-                    var script = document.createElement("script");
-                    script.type = "text/javascript";
-                    script.src = "https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.7.0/js-package/distr/lets-plot.min.js";
-                    script.onload = function() {
-                        window.letsPlotCall = function(f) {f();};
-                        window.letsPlotCallQueue.forEach(function(f) {f();});
-                        window.letsPlotCallQueue = [];
-                        
-                    };
-                    script.onerror = function(event) {
-                        window.letsPlotCall = function(f) {};    // noop
-                        window.letsPlotCallQueue = [];
-                        var div = document.createElement("div");
-                        div.style.color = 'darkred';
-                        div.textContent = 'Error loading Lets-Plot JS';
-                        document.getElementById("nas0f6").appendChild(div);
-                    };
-                    var e = document.getElementById("nas0f6");
-                    e.appendChild(script);
-                })()
-            </script>
-            </div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generated a Polars DataFrame with 1000 data points and multiple features.
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;d:\\01-github\\ai-book\\_source&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/climate_2009_2016.csv&quot;</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
 <div class="output text_html"><div><style>
 .dataframe > thead > tr,
 .dataframe > tbody > tr {
@@ -397,430 +402,676 @@ document.write(`
   white-space: pre-wrap;
 }
 </style>
-<small>shape: (5, 15)</small><table border="1" class="dataframe"><thead><tr><th>Date Time</th><th>p (mbar)</th><th>T (degC)</th><th>Tpot (K)</th><th>Tdew (degC)</th><th>rh (%)</th><th>VPmax (mbar)</th><th>VPact (mbar)</th><th>VPdef (mbar)</th><th>sh (g/kg)</th><th>H2OC (mmol/mol)</th><th>rho (g/m**3)</th><th>wv (m/s)</th><th>max. wv (m/s)</th><th>wd (deg)</th></tr><tr><td>str</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>&quot;01.01.2009 00:10:00&quot;</td><td>996.52</td><td>-8.02</td><td>265.4</td><td>-8.9</td><td>93.3</td><td>3.33</td><td>3.11</td><td>0.22</td><td>1.94</td><td>3.12</td><td>1307.75</td><td>1.03</td><td>1.75</td><td>152.3</td></tr><tr><td>&quot;01.01.2009 00:20:00&quot;</td><td>996.57</td><td>-8.41</td><td>265.01</td><td>-9.28</td><td>93.4</td><td>3.23</td><td>3.02</td><td>0.21</td><td>1.89</td><td>3.03</td><td>1309.8</td><td>0.72</td><td>1.5</td><td>136.1</td></tr><tr><td>&quot;01.01.2009 00:30:00&quot;</td><td>996.53</td><td>-8.51</td><td>264.91</td><td>-9.31</td><td>93.9</td><td>3.21</td><td>3.01</td><td>0.2</td><td>1.88</td><td>3.02</td><td>1310.24</td><td>0.19</td><td>0.63</td><td>171.6</td></tr><tr><td>&quot;01.01.2009 00:40:00&quot;</td><td>996.51</td><td>-8.31</td><td>265.12</td><td>-9.07</td><td>94.2</td><td>3.26</td><td>3.07</td><td>0.19</td><td>1.92</td><td>3.08</td><td>1309.19</td><td>0.34</td><td>0.5</td><td>198.0</td></tr><tr><td>&quot;01.01.2009 00:50:00&quot;</td><td>996.51</td><td>-8.27</td><td>265.15</td><td>-9.04</td><td>94.1</td><td>3.27</td><td>3.08</td><td>0.19</td><td>1.92</td><td>3.09</td><td>1309.0</td><td>0.32</td><td>0.63</td><td>214.3</td></tr></tbody></table></div></div></div>
+<small>shape: (5, 7)</small><table border="1" class="dataframe"><thead><tr><th>time</th><th>value</th><th>x1</th><th>x2</th><th>x3</th><th>x4</th><th>x5</th></tr><tr><td>i64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>0</td><td>-0.025092</td><td>-0.075519</td><td>0.952341</td><td>0.009449</td><td>0.014399</td><td>0.991273</td></tr><tr><td>1</td><td>0.189976</td><td>0.103368</td><td>0.938167</td><td>0.249313</td><td>-0.018828</td><td>0.879766</td></tr><tr><td>2</td><td>0.245068</td><td>0.197123</td><td>1.036587</td><td>0.195162</td><td>-0.107286</td><td>0.869436</td></tr><tr><td>3</td><td>0.315252</td><td>0.204071</td><td>0.850356</td><td>0.340227</td><td>-0.306923</td><td>0.635711</td></tr><tr><td>4</td><td>0.320622</td><td>0.221623</td><td>0.779726</td><td>0.334971</td><td>-0.384717</td><td>0.610326</td></tr></tbody></table></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Date Time&#39;,
- &#39;p (mbar)&#39;,
- &#39;T (degC)&#39;,
- &#39;Tpot (K)&#39;,
- &#39;Tdew (degC)&#39;,
- &#39;rh (%)&#39;,
- &#39;VPmax (mbar)&#39;,
- &#39;VPact (mbar)&#39;,
- &#39;VPdef (mbar)&#39;,
- &#39;sh (g/kg)&#39;,
- &#39;H2OC (mmol/mol)&#39;,
- &#39;rho (g/m**3)&#39;,
- &#39;wv (m/s)&#39;,
- &#39;max. wv (m/s)&#39;,
- &#39;wd (deg)&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Thống kê nhanh chuỗi thời gian</span>
-<span class="n">df</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div><style>
-.dataframe > thead > tr,
-.dataframe > tbody > tr {
-  text-align: right;
-  white-space: pre-wrap;
-}
-</style>
-<small>shape: (9, 2)</small><table border="1" class="dataframe"><thead><tr><th>statistic</th><th>value</th></tr><tr><td>str</td><td>f64</td></tr></thead><tbody><tr><td>&quot;count&quot;</td><td>420451.0</td></tr><tr><td>&quot;null_count&quot;</td><td>0.0</td></tr><tr><td>&quot;mean&quot;</td><td>9.448567</td></tr><tr><td>&quot;std&quot;</td><td>8.423685</td></tr><tr><td>&quot;min&quot;</td><td>-23.01</td></tr><tr><td>&quot;25%&quot;</td><td>3.36</td></tr><tr><td>&quot;50%&quot;</td><td>9.41</td></tr><tr><td>&quot;75%&quot;</td><td>15.47</td></tr><tr><td>&quot;max&quot;</td><td>37.28</td></tr></tbody></table></div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="n">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">df</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+    <span class="n">ggplot</span><span class="p">(</span><span class="n">data_df</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">))</span>
     <span class="o">+</span> <span class="n">geom_line</span><span class="p">()</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="p">(</span>
-<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="n">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">df</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="o">+</span> <span class="n">geom_line</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="p">)</span>
+<div class="output text_html"><html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <style> html, body { margin: 0; padding: 0; } </style>
+       <script type="text/javascript" data-lets-plot-script="library" src="https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.7.0/js-package/distr/lets-plot.min.js"></script>
+   </head>
+   <body>
+          <div id="6iPYd1"></div>
+   <script type="text/javascript" data-lets-plot-script="plot">
+   
+   (function() {
+   // ----------
+   
+   const forceImmediateRender = false;
+   const responsive = false;
+   
+   let sizing = {
+       width_mode: "MIN",
+       height_mode: "SCALED",
+       width: null, 
+       height: null 
+   };
+   
+   const preferredWidth = document.body.dataset.letsPlotPreferredWidth;
+   if (preferredWidth !== undefined) {
+       sizing = {
+           width_mode: 'FIXED',
+           height_mode: 'SCALED',
+           width: parseFloat(preferredWidth)
+       };
+   }
+   
+   const containerDiv = document.getElementById("6iPYd1");
+   let fig = null;
+   
+   function renderPlot() {
+       if (fig === null) {
+           const plotSpec = {
+"data":{
+"time":[0.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0,17.0,18.0,19.0,20.0,21.0,22.0,23.0,24.0,25.0,26.0,27.0,28.0,29.0,30.0,31.0,32.0,33.0,34.0,35.0,36.0,37.0,38.0,39.0,40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0,63.0,64.0,65.0,66.0,67.0,68.0,69.0,70.0,71.0,72.0,73.0,74.0,75.0,76.0,77.0,78.0,79.0,80.0,81.0,82.0,83.0,84.0,85.0,86.0,87.0,88.0,89.0,90.0,91.0,92.0,93.0,94.0,95.0,96.0,97.0,98.0,99.0,100.0,101.0,102.0,103.0,104.0,105.0,106.0,107.0,108.0,109.0,110.0,111.0,112.0,113.0,114.0,115.0,116.0,117.0,118.0,119.0,120.0,121.0,122.0,123.0,124.0,125.0,126.0,127.0,128.0,129.0,130.0,131.0,132.0,133.0,134.0,135.0,136.0,137.0,138.0,139.0,140.0,141.0,142.0,143.0,144.0,145.0,146.0,147.0,148.0,149.0,150.0,151.0,152.0,153.0,154.0,155.0,156.0,157.0,158.0,159.0,160.0,161.0,162.0,163.0,164.0,165.0,166.0,167.0,168.0,169.0,170.0,171.0,172.0,173.0,174.0,175.0,176.0,177.0,178.0,179.0,180.0,181.0,182.0,183.0,184.0,185.0,186.0,187.0,188.0,189.0,190.0,191.0,192.0,193.0,194.0,195.0,196.0,197.0,198.0,199.0,200.0,201.0,202.0,203.0,204.0,205.0,206.0,207.0,208.0,209.0,210.0,211.0,212.0,213.0,214.0,215.0,216.0,217.0,218.0,219.0,220.0,221.0,222.0,223.0,224.0,225.0,226.0,227.0,228.0,229.0,230.0,231.0,232.0,233.0,234.0,235.0,236.0,237.0,238.0,239.0,240.0,241.0,242.0,243.0,244.0,245.0,246.0,247.0,248.0,249.0,250.0,251.0,252.0,253.0,254.0,255.0,256.0,257.0,258.0,259.0,260.0,261.0,262.0,263.0,264.0,265.0,266.0,267.0,268.0,269.0,270.0,271.0,272.0,273.0,274.0,275.0,276.0,277.0,278.0,279.0,280.0,281.0,282.0,283.0,284.0,285.0,286.0,287.0,288.0,289.0,290.0,291.0,292.0,293.0,294.0,295.0,296.0,297.0,298.0,299.0,300.0,301.0,302.0,303.0,304.0,305.0,306.0,307.0,308.0,309.0,310.0,311.0,312.0,313.0,314.0,315.0,316.0,317.0,318.0,319.0,320.0,321.0,322.0,323.0,324.0,325.0,326.0,327.0,328.0,329.0,330.0,331.0,332.0,333.0,334.0,335.0,336.0,337.0,338.0,339.0,340.0,341.0,342.0,343.0,344.0,345.0,346.0,347.0,348.0,349.0,350.0,351.0,352.0,353.0,354.0,355.0,356.0,357.0,358.0,359.0,360.0,361.0,362.0,363.0,364.0,365.0,366.0,367.0,368.0,369.0,370.0,371.0,372.0,373.0,374.0,375.0,376.0,377.0,378.0,379.0,380.0,381.0,382.0,383.0,384.0,385.0,386.0,387.0,388.0,389.0,390.0,391.0,392.0,393.0,394.0,395.0,396.0,397.0,398.0,399.0,400.0,401.0,402.0,403.0,404.0,405.0,406.0,407.0,408.0,409.0,410.0,411.0,412.0,413.0,414.0,415.0,416.0,417.0,418.0,419.0,420.0,421.0,422.0,423.0,424.0,425.0,426.0,427.0,428.0,429.0,430.0,431.0,432.0,433.0,434.0,435.0,436.0,437.0,438.0,439.0,440.0,441.0,442.0,443.0,444.0,445.0,446.0,447.0,448.0,449.0,450.0,451.0,452.0,453.0,454.0,455.0,456.0,457.0,458.0,459.0,460.0,461.0,462.0,463.0,464.0,465.0,466.0,467.0,468.0,469.0,470.0,471.0,472.0,473.0,474.0,475.0,476.0,477.0,478.0,479.0,480.0,481.0,482.0,483.0,484.0,485.0,486.0,487.0,488.0,489.0,490.0,491.0,492.0,493.0,494.0,495.0,496.0,497.0,498.0,499.0,500.0,501.0,502.0,503.0,504.0,505.0,506.0,507.0,508.0,509.0,510.0,511.0,512.0,513.0,514.0,515.0,516.0,517.0,518.0,519.0,520.0,521.0,522.0,523.0,524.0,525.0,526.0,527.0,528.0,529.0,530.0,531.0,532.0,533.0,534.0,535.0,536.0,537.0,538.0,539.0,540.0,541.0,542.0,543.0,544.0,545.0,546.0,547.0,548.0,549.0,550.0,551.0,552.0,553.0,554.0,555.0,556.0,557.0,558.0,559.0,560.0,561.0,562.0,563.0,564.0,565.0,566.0,567.0,568.0,569.0,570.0,571.0,572.0,573.0,574.0,575.0,576.0,577.0,578.0,579.0,580.0,581.0,582.0,583.0,584.0,585.0,586.0,587.0,588.0,589.0,590.0,591.0,592.0,593.0,594.0,595.0,596.0,597.0,598.0,599.0,600.0,601.0,602.0,603.0,604.0,605.0,606.0,607.0,608.0,609.0,610.0,611.0,612.0,613.0,614.0,615.0,616.0,617.0,618.0,619.0,620.0,621.0,622.0,623.0,624.0,625.0,626.0,627.0,628.0,629.0,630.0,631.0,632.0,633.0,634.0,635.0,636.0,637.0,638.0,639.0,640.0,641.0,642.0,643.0,644.0,645.0,646.0,647.0,648.0,649.0,650.0,651.0,652.0,653.0,654.0,655.0,656.0,657.0,658.0,659.0,660.0,661.0,662.0,663.0,664.0,665.0,666.0,667.0,668.0,669.0,670.0,671.0,672.0,673.0,674.0,675.0,676.0,677.0,678.0,679.0,680.0,681.0,682.0,683.0,684.0,685.0,686.0,687.0,688.0,689.0,690.0,691.0,692.0,693.0,694.0,695.0,696.0,697.0,698.0,699.0,700.0,701.0,702.0,703.0,704.0,705.0,706.0,707.0,708.0,709.0,710.0,711.0,712.0,713.0,714.0,715.0,716.0,717.0,718.0,719.0,720.0,721.0,722.0,723.0,724.0,725.0,726.0,727.0,728.0,729.0,730.0,731.0,732.0,733.0,734.0,735.0,736.0,737.0,738.0,739.0,740.0,741.0,742.0,743.0,744.0,745.0,746.0,747.0,748.0,749.0,750.0,751.0,752.0,753.0,754.0,755.0,756.0,757.0,758.0,759.0,760.0,761.0,762.0,763.0,764.0,765.0,766.0,767.0,768.0,769.0,770.0,771.0,772.0,773.0,774.0,775.0,776.0,777.0,778.0,779.0,780.0,781.0,782.0,783.0,784.0,785.0,786.0,787.0,788.0,789.0,790.0,791.0,792.0,793.0,794.0,795.0,796.0,797.0,798.0,799.0,800.0,801.0,802.0,803.0,804.0,805.0,806.0,807.0,808.0,809.0,810.0,811.0,812.0,813.0,814.0,815.0,816.0,817.0,818.0,819.0,820.0,821.0,822.0,823.0,824.0,825.0,826.0,827.0,828.0,829.0,830.0,831.0,832.0,833.0,834.0,835.0,836.0,837.0,838.0,839.0,840.0,841.0,842.0,843.0,844.0,845.0,846.0,847.0,848.0,849.0,850.0,851.0,852.0,853.0,854.0,855.0,856.0,857.0,858.0,859.0,860.0,861.0,862.0,863.0,864.0,865.0,866.0,867.0,868.0,869.0,870.0,871.0,872.0,873.0,874.0,875.0,876.0,877.0,878.0,879.0,880.0,881.0,882.0,883.0,884.0,885.0,886.0,887.0,888.0,889.0,890.0,891.0,892.0,893.0,894.0,895.0,896.0,897.0,898.0,899.0,900.0,901.0,902.0,903.0,904.0,905.0,906.0,907.0,908.0,909.0,910.0,911.0,912.0,913.0,914.0,915.0,916.0,917.0,918.0,919.0,920.0,921.0,922.0,923.0,924.0,925.0,926.0,927.0,928.0,929.0,930.0,931.0,932.0,933.0,934.0,935.0,936.0,937.0,938.0,939.0,940.0,941.0,942.0,943.0,944.0,945.0,946.0,947.0,948.0,949.0,950.0,951.0,952.0,953.0,954.0,955.0,956.0,957.0,958.0,959.0,960.0,961.0,962.0,963.0,964.0,965.0,966.0,967.0,968.0,969.0,970.0,971.0,972.0,973.0,974.0,975.0,976.0,977.0,978.0,979.0,980.0,981.0,982.0,983.0,984.0,985.0,986.0,987.0,988.0,989.0,990.0,991.0,992.0,993.0,994.0,995.0,996.0,997.0,998.0,999.0],
+"value":[-0.025091976230527502,0.1899762779288114,0.24506811915734222,0.31525190350074694,0.3206220703971378,0.41062444267144355,0.4762591958286754,0.7174529163926782,0.7375790932481645,0.8249414251866924,0.745587883667057,0.9851893304938343,0.9985276141273107,0.9060260075528482,0.9218147234298804,0.9341758885747412,0.9604220516334127,0.9966160967789162,0.9602366346066183,0.9045459157270228,0.9316680057701576,0.7911081387792821,0.7669253335266337,0.7189775808354584,0.6666771773945578,0.6555073363825592,0.4554361282531361,0.4302267679165521,0.3534710639283132,0.14853941175798152,0.1626289784401549,-0.024314512829251206,-0.14536382483052418,-0.06796858669258199,-0.1624146954119198,-0.2891037580663276,-0.48159768946017834,-0.6103017181072167,-0.5750112856402878,-0.6997356604360538,-0.8323948483389725,-0.8192417290421568,-0.9646980681905445,-0.8343018563336985,-0.9998460775695127,-0.9450256607943006,-1.0313487884155823,-0.9959096533285386,-0.9868225529671847,-1.0454817215192271,-0.8650073491102267,-0.8707881176555092,-0.7955548674073153,-0.753301972138371,-0.7531844917937701,-0.6211654785657685,-0.7135681374619369,-0.6114889701138085,-0.555556721631649,-0.4088105986775832,-0.30168004026102946,-0.22789269791731584,-0.017341900987110512,-0.011835434176931552,0.0727361067879698,0.2236592047194652,0.2397262085083312,0.46528931676740626,0.4090234798745631,0.6758171517083036,0.7114355525781205,0.668712176432711,0.6947722872738735,0.9135289063195317,0.9400795645811504,0.9838014103829363,1.0221737413686758,0.9029771642238185,0.9702364910834596,0.9221151537447979,1.0619789317985004,0.9945494362105979,0.9069101616503024,0.8148835038134981,0.816795372431413,0.7635237770288397,0.7803183335417261,0.6904807243532246,0.662359741407027,0.4954638414902745,0.3360373344294169,0.36174731979395114,0.2750469238236254,0.13670986302096094,0.07896886144426996,-0.07639200118893115,-0.16978021534658258,-0.28625242273923424,-0.46139530390310934,-0.5359576083766604,-0.637735273752023,-0.5977885666401274,-0.7370034913782784,-0.7659716715306419,-0.7463131743004351,-0.9298373141418951,-0.9406988370056814,-0.9055247885615787,-1.035176596968167,-1.0800402713406188,-1.0420399159679499,-1.0623083307531882,-0.8932381986828023,-0.8923951739892055,-0.892647774362591,-0.801160056650885,-0.7620941795888849,-0.8246695721418249,-0.6150132850791268,-0.6102686638539031,-0.4750848869676224,-0.37042920454990125,-0.39462858724245425,-0.3412214064602656,-0.22001714293992108,-0.08090033962594942,0.0972260004056371,0.20537815807121265,0.1329002512077771,0.32962389965320615,0.4036492374563967,0.4530830264665213,0.516046588173961,0.637092796477328,0.8289578307349524,0.768425012955772,0.86291993920517,0.9465585340874982,0.9164215899199636,1.0663639179391682,1.0830968146832927,0.9496658479129906,0.9974763538948387,0.9469476262379672,0.9226258754247709,0.8422724449955895,0.9167040389364828,0.8462826357887057,0.6985478176253141,0.6786106423592984,0.7319410173504476,0.5191092477933816,0.41537766327204273,0.39463112518612464,0.4002484475678224,0.15487853624009668,0.142180761780618,0.06028710685167908,-0.1443793414292017,-0.14521531165181745,-0.31434669012121463,-0.3556102510652932,-0.4457160442462872,-0.5508973344718276,-0.7200487283370686,-0.6447248432512754,-0.8141960655399513,-0.8998380759397759,-0.9794120052705518,-0.9109454240967214,-0.9258846195111003,-1.080747439296072,-0.9944814543817398,-1.0544752760334235,-0.9636248223887427,-1.0407527196671593,-0.9106569502976307,-0.935235380531077,-0.7798561817382343,-0.8856529228322878,-0.7827739765616245,-0.7586190613073821,-0.5198940987505716,-0.44684071895053534,-0.4829772965288624,-0.31048380926277674,-0.18352922169637773,-0.13795886349430633,-0.04360552520716612,-0.0012068540130949004,0.06849776322413217,0.3272773595736252,0.42339854025256485,0.4619856518275468,0.49087172336743956,0.5753817846421332,0.7271547558421835,0.830995467342666,0.8910910223601288,0.9236192098131939,0.9413515799584853,0.8659525466469044,0.9081462605858991,1.072477243541323,1.0210787120745872,0.8986692046021252,0.9042010031918225,0.9938530783237267,0.8298075508464842,0.8193191389758492,0.8464023964093733,0.8161732013396314,0.7415534748065,0.5822764580423508,0.5997508977871656,0.4190888205935562,0.34633043128679364,0.3363509323513299,0.21991325560488068,0.16086709829867993,0.022671269169664797,-0.09497487475698543,-0.28860146704114376,-0.3304214481991603,-0.44451520958509105,-0.5383765837846928,-0.47732354415907474,-0.6723427607328974,-0.6450854450088223,-0.762570560775966,-0.787258143466841,-0.8946599491986433,-0.9198291382692684,-0.9673846154722977,-1.0478669605610405,-0.9535916049270952,-1.0431215196484565,-1.0856223276108652,-0.9427039865624298,-1.0079793458731445,-0.817486645136041,-0.767921287209412,-0.7202828486498629,-0.7657468450268046,-0.7658184970722481,-0.5056938173475792,-0.5222597607271592,-0.32602995226449416,-0.23391113068687167,-0.16004381483392022,-0.1734619716838559,-0.05571583361046027,0.13743540682884986,0.12986440456841478,0.19798707072169136,0.3704186065138383,0.5376715491075454,0.5765281403414694,0.6328472561379123,0.6135999670063983,0.7855598958194366,0.9213437707589343,0.8038978828581959,0.9233435751347672,1.029759708878289,1.027511366654758,1.0340479220768917,1.0404905596544425,0.9672493351555101,0.9394816165980507,1.0182481595002058,0.9844554958589219,0.9526875253667434,0.9099760111066729,0.7693848324077154,0.6995432905925376,0.6840361712097465,0.5732684553877979,0.4971393475957335,0.4248111541698383,0.3489068566713823,0.14105118661619925,0.04938203611234657,-0.10686691189238569,-0.10967959789719785,-0.316567185427448,-0.32682035825770606,-0.404398622299028,-0.5444810505949171,-0.5674706878604983,-0.7575338342251576,-0.8275299802989348,-0.7345013665276843,-0.8830216524948177,-0.97714250567981,-0.9365827563319926,-0.9161070230874632,-1.046322877755167,-0.9744037097831494,-1.081425537665061,-1.0776952798591404,-0.9614252058201757,-0.9295647159782586,-0.8708322622577134,-0.8047507791347939,-0.6979568235647782,-0.7251006981713544,-0.6917254615895385,-0.5186778054919909,-0.5391745447043603,-0.41624336118193783,-0.395006008825919,-0.3091823916127927,-0.023137372001651904,0.05127016150234291,0.12316929691048642,0.16482631786344198,0.2149270337831921,0.3059876721836792,0.41543705598787767,0.5612720141829147,0.6748743975468974,0.7382089325238806,0.7293146689554136,0.9237325414404186,0.9314498068849844,0.9370208311828087,0.9815199821999508,0.9665378898496988,0.9457881266550952,0.9711063958375195,1.0451602247732688,0.8802212101182099,0.8745432668881638,0.8250101312951695,0.7792857606329704,0.8888583713286433,0.7969532306620677,0.6819559120222042,0.5307219783927963,0.5274058611433903,0.4364181608253369,0.2845917429386652,0.2414526626916228,0.13656954192788467,0.08065749771536786,-0.015449304543422755,-0.23293841901959278,-0.26518907502848715,-0.3106528760742946,-0.4275554177801335,-0.4449642518422625,-0.5674447228904762,-0.7435309499714835,-0.8321829261648304,-0.7805349105706434,-0.9583551465846317,-0.8925115555788355,-0.8585407979999712,-0.9589542022931506,-1.0141448682018115,-0.9709414988643323,-1.0057811893553446,-0.9761750259780156,-0.8750272627184559,-0.9544963602945506,-0.7985660313120785,-0.7599206513608888,-0.8436162865927906,-0.8028647629856244,-0.7233825330815142,-0.6602648581199526,-0.5597573264372293,-0.35199878744406543,-0.3804338718082118,-0.23400367357771001,-0.02997459535639864,-0.09445745604711724,0.16361079351029478,0.1559106601934674,0.22000154423371657,0.4295836683807763,0.5059933497942357,0.6408696808424393,0.6919109417056499,0.7786707788486138,0.7402856023125542,0.7774384348482495,0.9417328233696156,0.9937274967196443,1.0618964146842225,0.9681238341729184,0.9719610360663617,1.054829867192291,0.9597106932647437,1.059796920815691,1.0176951329955104,0.8947262700184174,0.9129348572439746,0.8588819784839175,0.6657379342465354,0.7553185742297802,0.5988108413948262,0.5800316101453804,0.3905866740506891,0.4132558225476607,0.2162272074957247,0.04240821412313128,0.1217696526337105,-0.14100342734616672,-0.19475994128662602,-0.16638727622285704,-0.2614933803293051,-0.42862915322566997,-0.5042217353162498,-0.6228710485798059,-0.7297684752980576,-0.7916498257728475,-0.78428363091144,-0.8215359512517412,-0.858205739170464,-0.8939510297880539,-1.059475731230283,-0.9949061598000303,-1.0884221142554749,-0.9861807266548469,-0.9939804726289592,-0.8811311234003326,-0.9552956111609122,-0.9596247877198943,-0.9031764062180312,-0.7198983496281128,-0.6812670247509959,-0.7103530295557645,-0.6331226083373422,-0.42362168969200337,-0.4585001698157834,-0.214190594361479,-0.14004069043838857,-0.16593452827205638,-0.06533053207754805,0.21475917852733084,0.19084142533944815,0.2865136255948757,0.4682217900068429,0.5843350330293998,0.676364240808845,0.7083315600656578,0.7048286544990415,0.710908005517557,0.9063329077196058,0.910778090091743,0.9231518751829496,1.0494133254311384,0.9105435606328683,0.9971158932699423,0.9011708196985049,0.9829607579628424,0.8809337780482864,0.8641925462006179,0.8252935970042302,0.8839794216957134,0.8471610925757156,0.7504677514098012,0.7547385626811459,0.5591707003180264,0.45739443393495915,0.48502892179245916,0.262975678806372,0.3146685200811977,0.02600401768318726,0.11786329684426668,-0.16740475366823834,-0.0969726469475399,-0.26707502832582064,-0.26871238991033125,-0.5435661415446861,-0.5339952665300469,-0.5319031621756594,-0.6958892226209445,-0.7423749336966143,-0.789174646770722,-0.8892095514151073,-0.8976056823795469,-0.9400304871358697,-0.9008768365048992,-1.086431340410224,-1.0437932435109984,-0.9043773211892029,-0.9009442860229451,-0.9626213022023292,-0.8949521619198447,-0.9195463423932202,-0.8846993081887349,-0.7686684353005397,-0.7222145086284851,-0.6007074923832874,-0.620276304340518,-0.3539750185684649,-0.2601577789761841,-0.22274251089997973,-0.15750894345830813,-0.1035301466034414,0.09726969253019958,0.17105846215644005,0.1648971495244628,0.4104989307501719,0.48548027472740496,0.5993859197688202,0.6379329341859904,0.6929122150305327,0.7246212180598434,0.8908581890367168,0.9328287272768314,0.8153741419939046,0.8492625076245697,0.9475084636801488,1.0528390752354149,1.0967972229442995,0.9280538684079864,1.0054537351109123,0.9416048084559461,1.0285623379513353,0.9628180552569078,0.9129383319086506,0.781443858943112,0.705231273222046,0.604294276072337,0.4817427329675577,0.5585669568157833,0.4585053520078497,0.40221540023095304,0.30492574781738224,0.11795696529680694,0.06087253503602593,-0.0038380657808230884,-0.12180085826388354,-0.3392841345491039,-0.39278321426446505,-0.5473727140152721,-0.46797884339987184,-0.6175553383024678,-0.7666803392591615,-0.7445692444045703,-0.8140016090554523,-0.9163432947310952,-1.0067405400374903,-0.9273268617663046,-0.9801609991111301,-0.9425058730798967,-0.9957224731362212,-0.9221152720094307,-0.9650493558185339,-0.9363760994112286,-0.8368882084573473,-0.8860630010182798,-0.8858367986889798,-0.8446439505327709,-0.6296359224723989,-0.5800633877164285,-0.48073504846706716,-0.49117270867390184,-0.41437174284549755,-0.343203987538283,-0.17800321267030994,-0.030665017504160647,0.02975850398064596,0.13825025968991492,0.32952629763080754,0.3138000617602471,0.4389626530797871,0.580553130630761,0.5855549958335997,0.7070302766779842,0.8246317328238282,0.9040938462399629,0.797500033566229,0.9986248565444635,0.947827119302611,0.9276631379762434,0.9846997993321894,1.0958170956101208,0.9952823549926391,0.9494979300851875,0.9875873698089637,0.8764948465210173,0.8019199896149609,0.7619447834615609,0.7028447993177764,0.6409170811652031,0.5645034416690199,0.5847523450864365,0.40723166463021565,0.34956272205161415,0.36555944153794917,0.183906948403466,0.1236494580756709,-0.0752754535724346,-0.17106164909197413,-0.30003147247076384,-0.37102360848778376,-0.44265241170493097,-0.5525478549175749,-0.6549134826598089,-0.72750908346144,-0.7319518382609044,-0.8480771386723926,-0.8738393374799576,-0.8948994031838018,-0.8974450714237447,-1.0582553420401732,-0.9271762936835135,-0.9725565380345222,-1.0828900008840099,-0.9156471799606558,-0.8874141434097466,-1.0308909579175591,-0.9498257377346049,-0.7970112570372019,-0.753074455133228,-0.8022764927779473,-0.726379486240873,-0.6165466579885225,-0.5102267187303217,-0.3949035102123598,-0.35201282750060725,-0.23727446158805846,-0.08197716674678851,-0.12451104504002336,0.018581583553309376,0.2100256174797174,0.3439864106215694,0.3622226309972759,0.4576560657514909,0.459505422428554,0.6090149172166421,0.7013271574455439,0.7116268162437297,0.7776854032335979,0.8517661266394286,0.824040277752336,0.9189660194382304,0.9218263859163184,0.9602356453889261,0.9239489167094568,1.0733706275092068,0.9993079824863409,0.9919365499567044,0.9799237323189198,0.878538109525065,0.7442127371075882,0.7739675987524133,0.7159730477444397,0.6727710242539338,0.5288617082728934,0.3814717507806027,0.32158100403797407,0.2426671957878927,0.20176084071213837,0.08753537305842174,-0.05533180884439755,-0.0289136800596283,-0.20346622589845037,-0.37333595069594616,-0.49337979298863865,-0.5719855219236208,-0.6371654794159319,-0.7321617402023928,-0.7982881536288182,-0.8425361806707182,-0.9208452599163713,-0.8235835857832637,-1.0252847685669013,-0.9654186134138399,-1.0075357739579172,-0.9025457566529137,-1.0760381478839,-1.0083231151178336,-0.8735777422404077,-0.8642813389745254,-0.8345132664994352,-0.897920235246248,-0.858408471950658,-0.6940232770049449,-0.5697711980937352,-0.5656372901857567,-0.47824571172239894,-0.4472292325834194,-0.2559543749519232,-0.27597617378518796,-0.1500489665023385,-0.029950524429877574,0.08638151806193681,0.132390755789359,0.20408798520507554,0.39764757538495155,0.4239005168352358,0.5684150291924027,0.5635158326956881,0.7030260521187657,0.7804085680682062,0.7436155788565917,0.8516063497932685,0.8533675638529882,0.8721016287179372,1.0807744134706818,0.9607892318106167,1.06187456306822,0.944418348912974,1.0134546806142788,1.003100225232312,0.9345802947423738,0.8650187784598166,0.799622935745372,0.7254138790480109,0.7723814200583408,0.6765758010469773,0.621334196112439,0.36578626629895794,0.39529272921486114,0.3414914541262438,0.09223798544518888,-0.030099979091803925,0.004868756357153434,-0.12798369923994957,-0.17260792193644667,-0.4087068280468706,-0.3699316586263013,-0.5766971970894946,-0.6671630931019467,-0.743918797301109,-0.6839726063711095,-0.7765010462926434,-0.8594916845106709,-0.9382691024509839,-0.8714327500307258,-0.9957606550219732,-0.9285722262018075,-1.0117969118435952,-1.021978875621473,-0.9926103033343261,-1.0028059288086686,-0.8818720787475332,-0.8898561473872934,-0.8940673722743532,-0.7023065853486287,-0.7393391457687317,-0.6341474996160412,-0.48188110608820744,-0.45301832182307844,-0.46440202726775764,-0.2058563391728311,-0.17138650183540027,-0.1310846974686066,-0.07036927255648559,0.1604057357443087,0.22442447346678493,0.3039089353704454,0.4698323370902402,0.5387030857208055,0.49644261284473057,0.607919683502001,0.6682903562520275,0.8332191061423573,0.7491358901742097,0.9059896196736338,0.985173013446159,1.039384954239686,0.9541664398721323,1.0618705252500547,0.9216465059717727,1.0607248361656116,0.8989402449445516,0.9251817894423038,0.9680158584344698,0.7922947256270837,0.7533000452131665,0.7889710346984382,0.7181595802419506,0.6252776447566857,0.5527681448809552,0.43431817963141267,0.2836737517363015,0.2066634249396094,0.0756807923295309,0.12149593243339533,-0.043468976279747114,-0.17932923498828773,-0.26485687425651516,-0.2629894464599177,-0.5134423880842923,-0.5140958296477939,-0.612084196029996,-0.6667637099705347,-0.8543403401808962,-0.7448721055224505,-0.7860215975063124,-0.9038497993910001,-0.9128163271687307,-0.893403138534192,-0.9524409270606955,-1.0694358776001551,-0.9807499396343724,-0.9607767490564494,-0.9735927547581973,-0.8778529678514739,-0.795747626776335,-0.7461676843291676,-0.7814679809771563,-0.7816327840404642,-0.5329197544819869,-0.4814223454255926,-0.5380959504450493,-0.28806020655104364,-0.20373022209125105,-0.17664801303709438,-0.06306401398979018,-0.001609523463173619,0.029265555935670956,0.18389382224216144,0.3737994721526875,0.3073999170997211,0.46235672792812305,0.5595215735608242,0.6658038491226351,0.814154982435719,0.76401643289052,0.8207603976069316,0.9469859248712078,0.9290578179121277,0.9132854256881817,0.9789270180961661,0.9268090158137807,0.9341354489964806,0.9887717867265825,0.9532407599795245,1.0230958075961725,0.8738829300135605,0.8697928107494137,0.8238693489629605,0.6358092113909589,0.694345827853187,0.5190827084812492,0.5916968457830426,0.34023192816806197,0.3003392335530741,0.138227868764062,0.22206657487529197,0.023438620775333274,-0.05784528821138814,-0.2626603244709016,-0.22347756475029096,-0.4261501606585552,-0.37950379578256804,-0.6044827781109845,-0.6883186519567693,-0.7938324091695715,-0.7744095178450626,-0.8158534199960688,-0.967397346623141,-0.8683529236650577,-0.9664931610020211,-0.9764018193536119,-1.0074516449737807,-1.0198281553215902,-0.9824377970911093,-1.047767535009739,-1.017099677176088,-0.8462709881817069,-0.7853692006260937,-0.8471559733748719,-0.8066831134133498,-0.6634443684791057,-0.6349929960006103,-0.629995851665015,-0.5168296221293711,-0.3133758458127401,-0.22973292069279103,-0.2584329295638983,-0.12015495836648371,-0.018386737948725043,0.1693708568003632,0.13717962245861598,0.24997400598091105,0.4817615004606317,0.4458989404126298,0.6240533042743601,0.618524617007529,0.6614570257068746,0.7534743619201726,0.904522792183585,0.9778446523241576,1.0103257842795237,0.9518600182319422,1.0244657082683295,0.9403706761942479,0.9565430864886588,1.065749605236372,0.8677951208619361,0.8513648302055791,0.8355739146297633,0.7501041247944982,0.7234448522511389,0.7382611384501069,0.633222280904424,0.6482722898323581,0.5483346035534158,0.3634728852578953,0.2533098226491023,0.18066759832019635,0.1240465002541184,-0.04020035720247227,-0.06884571852130132,-0.2107196097450676,-0.27919452918451837,-0.3964870576079672,-0.515093682509777,-0.4698347242385569,-0.5867521853131527,-0.7850092612330056,-0.7057724744362222,-0.8406258358850444,-0.8094734972595363,-0.8698083198581514,-0.9768420504317119,-1.079885435461061,-1.043302778503283,-0.9914082840825128,-0.9657473367632357,-1.023657135150199,-1.0204109264553824,-0.8448686412480214,-0.7694358491756258,-0.8069838996074566,-0.8154772757166278,-0.725550979432179,-0.6997391617107394,-0.43793324182373694,-0.5094149011373457,-0.32550789285510084,-0.29044094133021314,-0.13640670570491975,-0.017477352826347915,0.11814502238178477,0.0929174763403282,0.15175387903693988,0.27235986243252974,0.5169675344357354,0.5993568933167939,0.6264351512322188,0.7033650868228516,0.7857513083859974,0.749779318983148,0.9514082785387801,0.8974227968375912,0.9263101244641239,0.9799907740203226,0.9023713004877282,0.9330841460413487,1.0442936151287203,0.9001474790193702,0.9812913372970198,0.877205300994972,0.8641955426161079,0.7934201273880123,0.7478110314432617,0.7537204825690271,0.5954772589792962,0.5691202277524332,0.46528200142478926,0.4123419721000513,0.3727165898882848,0.23475683517049264,0.032241409158400444,-0.10439091164017889,-0.15794941503193782,-0.1900582204643282,-0.3953712302550126,-0.39991171221730765,-0.4693564363959787,-0.6065330938270307,-0.5981272549222556,-0.8034002058714204,-0.8748612997321819,-0.8015277960723793,-0.8968793771925636,-0.8981569418565819,-0.9793811559643711,-1.0379200035481562,-0.9343699529983837,-0.9393236583925578,-0.9513002132752733,-1.0169490074312324,-0.9247647407048646,-0.9326286792901839,-0.9394789317081282,-0.7187337114247436,-0.8112184989542691,-0.5775408835440047,-0.6007230067258115]
+},
+"mapping":{
+"x":"time",
+"y":"value"
+},
+"data_meta":{
+"series_annotations":[{
+"type":"int",
+"column":"time"
+},{
+"type":"float",
+"column":"value"
+},{
+"type":"float",
+"column":"x1"
+},{
+"type":"float",
+"column":"x2"
+},{
+"type":"float",
+"column":"x3"
+},{
+"type":"float",
+"column":"x4"
+},{
+"type":"float",
+"column":"x5"
+}]
+},
+"kind":"plot",
+"scales":[],
+"layers":[{
+"geom":"line",
+"mapping":{
+},
+"data_meta":{
+},
+"data":{
+}
+}],
+"metainfo_list":[],
+"spec_id":"1"
+};
+           fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing);
+       } else {
+           fig.updateView({});
+       }
+   }
+   
+   const renderImmediately = 
+       forceImmediateRender || (
+           sizing.width_mode === 'FIXED' && 
+           (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')
+       );
+   
+   if (renderImmediately) {
+       renderPlot();
+   }
+   
+   if (!renderImmediately || responsive) {
+       // Set up observer for initial sizing or continuous monitoring
+       var observer = new ResizeObserver(function(entries) {
+           for (let entry of entries) {
+               if (entry.contentBoxSize && 
+                   entry.contentBoxSize[0].inlineSize > 0) {
+                   if (!responsive && observer) {
+                       observer.disconnect();
+                       observer = null;
+                   }
+                   renderPlot();
+                   if (!responsive) {
+                       break;
+                   }
+               }
+           }
+       });
+       
+       observer.observe(containerDiv);
+   }
+   
+   // ----------
+   })();
+   
+   </script>
+   </body>
+</html></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># --- 2. Tao tập dữ liệu phục vụ cho dự báo với x steps</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_dataset_with_features</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">feature_columns</span><span class="p">,</span> <span class="n">target_column</span><span class="p">,</span> <span class="n">n_steps_in</span><span class="p">,</span> <span class="n">n_steps_out</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Converts a time series stored in a Polars DataFrame into a</span>
+<span class="sd">    supervised learning dataset for multi-variate, multi-step forecasting.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        dataframe (pl.DataFrame): The input time series data.</span>
+<span class="sd">        feature_columns (list): The names of the columns to use as input features.</span>
+<span class="sd">        target_column (str): The name of the column containing the target values (Y).</span>
+<span class="sd">        n_steps_in (int): The number of past time steps to use as input (the window size).</span>
+<span class="sd">        n_steps_out (int): The number of future time steps to predict.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple: A tuple of (X, y) where X are the input sequences</span>
+<span class="sd">               and y are the target sequences, both as NumPy arrays.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Extract features and target into a single NumPy array</span>
+    <span class="n">features</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">feature_columns</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">target_column</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    
+    <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">features</span><span class="p">)</span> <span class="o">-</span> <span class="n">n_steps_in</span> <span class="o">-</span> <span class="n">n_steps_out</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="c1"># The input is the window of n_steps_in for all features</span>
+        <span class="n">X_input</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">n_steps_in</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">X_input</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span> <span class="c1"># Flatten the 2D input window to a 1D vector</span>
+        
+        <span class="c1"># The output is the sequence of n_steps_out future target values</span>
+        <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">target</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">n_steps_in</span> <span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="n">n_steps_in</span> <span class="o">+</span> <span class="n">n_steps_out</span><span class="p">])</span>
 
-<span class="nn">File c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\lets_plot\plot\plot.py:88,</span> in <span class="ni">ggplot</span><span class="nt">(data, mapping)</span>
-<span class="g g-Whitespace">     </span><span class="mi">84</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get_geocodes</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">86</span> <span class="n">data</span> <span class="o">=</span> <span class="n">key_int2str</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">88</span> <span class="n">data</span><span class="p">,</span> <span class="n">mapping</span><span class="p">,</span> <span class="n">data_meta</span> <span class="o">=</span> <span class="n">as_annotated_data</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">mapping</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">90</span> <span class="n">plot_spec</span> <span class="o">=</span> <span class="n">PlotSpec</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">mapping</span><span class="p">,</span> <span class="n">scales</span><span class="o">=</span><span class="p">[],</span> <span class="n">layers</span><span class="o">=</span><span class="p">[],</span> <span class="o">**</span><span class="n">data_meta</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">92</span> <span class="k">if</span> <span class="n">_get_global_theme</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 
-<span class="nn">File c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\lets_plot\plot\util.py:43,</span> in <span class="ni">as_annotated_data</span><span class="nt">(data, mapping_spec)</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="c1"># fill mapping_meta_by_var, mappings and data_type_by_var.</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="k">if</span> <span class="n">mapping_spec</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">43</span>     <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">spec</span> <span class="ow">in</span> <span class="n">mapping_spec</span><span class="o">.</span><span class="n">props</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span>         <span class="c1"># the key is either an aesthetic name or &#39;name&#39; (FeatureSpec.name property)</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span>         <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span>  <span class="c1"># ignore FeatureSpec.name property</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span>             <span class="k">continue</span>
+<span class="c1"># Define the features and target</span>
+<span class="n">feature_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;x1&quot;</span><span class="p">,</span> <span class="s2">&quot;x2&quot;</span><span class="p">,</span> <span class="s2">&quot;x3&quot;</span><span class="p">,</span> <span class="s2">&quot;x4&quot;</span><span class="p">,</span> <span class="s2">&quot;x5&quot;</span><span class="p">]</span>
+<span class="n">target_col</span> <span class="o">=</span> <span class="s2">&quot;value&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># We&#39;ll use the last 10 data points to predict the next 5.</span>
+<span class="n">n_steps_in</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">n_steps_out</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">create_dataset_with_features</span><span class="p">(</span><span class="n">data_df</span><span class="p">,</span> <span class="n">feature_cols</span><span class="p">,</span> <span class="n">target_col</span><span class="p">,</span> <span class="n">n_steps_in</span><span class="p">,</span> <span class="n">n_steps_out</span><span class="p">)</span>
 
-<span class="ne">AttributeError</span>: &#39;Series&#39; object has no attribute &#39;props&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fb8c6b7b750&gt;]
-</pre></div>
-</div>
-<img alt="_images/f3e9935e0eb0f97d2dfefdb6c2cfa824119a6d6a00ab0233581a0f2c42ddaf58.png" src="_images/f3e9935e0eb0f97d2dfefdb6c2cfa824119a6d6a00ab0233581a0f2c42ddaf58.png" />
-</div>
-</div>
-<p>Khi xây dựng mô hình DL, ta cần chuẩn bị dữ liệu dưới dạng array</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;data/climate_2009_2016.csv&quot;</span><span class="p">)</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">lines</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="c1"># Tên các cột</span>
-<span class="n">header</span> <span class="o">=</span> <span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
-<span class="c1"># Giá trị của các biến (từ dòng số 1)</span>
-<span class="n">lines</span> <span class="o">=</span> <span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">))</span>
+<span class="c1"># Determine the number of features for the model input shape</span>
+<span class="n">n_features</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">feature_cols</span><span class="p">)</span>
+
+<span class="c1"># Split the data into training and testing sets</span>
+<span class="n">train_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.8</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:</span><span class="n">train_size</span><span class="p">],</span> <span class="n">y</span><span class="p">[:</span><span class="n">train_size</span><span class="p">]</span>
+<span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">train_size</span><span class="p">:],</span> <span class="n">y</span><span class="p">[</span><span class="n">train_size</span><span class="p">:]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dataset prepared with </span><span class="si">{</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> training examples and </span><span class="si">{</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> test examples.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dataset prepared with </span><span class="si">{</span><span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> training examples and </span><span class="si">{</span><span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> test examples.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Each input example has </span><span class="si">{</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> features (</span><span class="si">{</span><span class="n">n_steps_in</span><span class="si">}</span><span class="s2"> steps * </span><span class="si">{</span><span class="n">n_features</span><span class="si">}</span><span class="s2"> features).&quot;</span><span class="p">)</span>
+
+<span class="c1"># --- 3. Build the Keras Model ---</span>
+<span class="c1"># The input layer now expects a flattened vector of all features and all time steps.</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">Dense</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">n_steps_in</span> <span class="o">*</span> <span class="n">n_features</span><span class="p">,)),</span>
+    <span class="n">Dense</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+    <span class="n">Dense</span><span class="p">(</span><span class="n">n_steps_out</span><span class="p">)</span> <span class="c1"># The output layer has `n_steps_out` neurons</span>
+<span class="p">])</span>
+
+<span class="c1"># --- 4. Compile the Model ---</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mean_squared_error&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;&quot;Date Time&quot;&#39;, &#39;&quot;p (mbar)&quot;&#39;, &#39;&quot;T (degC)&quot;&#39;, &#39;&quot;Tpot (K)&quot;&#39;, &#39;&quot;Tdew (degC)&quot;&#39;, &#39;&quot;rh (%)&quot;&#39;, &#39;&quot;VPmax (mbar)&quot;&#39;, &#39;&quot;VPact (mbar)&quot;&#39;, &#39;&quot;VPdef (mbar)&quot;&#39;, &#39;&quot;sh (g/kg)&quot;&#39;, &#39;&quot;H2OC (mmol/mol)&quot;&#39;, &#39;&quot;rho (g/m**3)&quot;&#39;, &#39;&quot;wv (m/s)&quot;&#39;, &#39;&quot;max. wv (m/s)&quot;&#39;, &#39;&quot;wd (deg)&quot;&#39;]
-420451
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset prepared with 788 training examples and 198 test examples.
+Dataset prepared with 788 training examples and 198 test examples.
+Each input example has 50 features (10 steps * 5 features).
 </pre></div>
 </div>
-</div>
-</div>
-<p>Phân tách giá trị của dữ liệu dựa vào dựa vào <code class="docutils literal notranslate"><span class="pre">temperature</span></code> và các biến đầu vào</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="n">temperature</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">),))</span>
-<span class="n">raw_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">header</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lines</span><span class="p">):</span>
-    <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]]</span>
-    <span class="n">temperature</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">raw_data</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">values</span><span class="p">[:]</span>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\layers\core\dense.py:93: UserWarning: Do not pass an `input_shape`/`input_dim` argument to a layer. When using Sequential models, prefer using an `Input(shape)` object as the first layer in the model instead.
+  super().__init__(activity_regularizer=activity_regularizer, **kwargs)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># Print a summary of the model architecture</span>
+<span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-8.02, -8.41, -8.51, ..., -3.16, -4.23, -4.82])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Model: &quot;sequential&quot;</span>
+┌─────────────────────────────────┬────────────────────────┬───────────────┐
+│<span class=" -Color -Color-Bold"> Layer (type)                    </span>│<span class=" -Color -Color-Bold"> Output Shape           </span>│<span class=" -Color -Color-Bold">       Param # </span>│
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense (Dense)                   │ (None, <span class=" -Color -Color-Green">50</span>)             │         <span class=" -Color -Color-Green">2,550</span> │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_1 (Dense)                 │ (None, <span class=" -Color -Color-Green">50</span>)             │         <span class=" -Color -Color-Green">2,550</span> │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_2 (Dense)                 │ (None, <span class=" -Color -Color-Green">5</span>)              │           <span class=" -Color -Color-Green">255</span> │
+└─────────────────────────────────┴────────────────────────┴───────────────┘
+<span class=" -Color -Color-Bold"> Total params: </span><span class=" -Color -Color-Green">5,355</span> (20.92 KB)
+<span class=" -Color -Color-Bold"> Trainable params: </span><span class=" -Color -Color-Green">5,355</span> (20.92 KB)
+<span class=" -Color -Color-Bold"> Non-trainable params: </span><span class=" -Color -Color-Green">0</span> (0.00 B)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raw_data</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># --- 5. Train the Model ---</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 9.9652e+02, -8.0200e+00,  2.6540e+02, ...,  1.0300e+00,
-         1.7500e+00,  1.5230e+02],
-       [ 9.9657e+02, -8.4100e+00,  2.6501e+02, ...,  7.2000e-01,
-         1.5000e+00,  1.3610e+02],
-       [ 9.9653e+02, -8.5100e+00,  2.6491e+02, ...,  1.9000e-01,
-         6.3000e-01,  1.7160e+02],
-       ...,
-       [ 9.9982e+02, -3.1600e+00,  2.7001e+02, ...,  1.0800e+00,
-         2.0000e+00,  2.1520e+02],
-       [ 9.9981e+02, -4.2300e+00,  2.6894e+02, ...,  1.4900e+00,
-         2.1600e+00,  2.2580e+02],
-       [ 9.9982e+02, -4.8200e+00,  2.6836e+02, ...,  1.2300e+00,
-         1.9600e+00,  1.8490e+02]])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">2s</span> 17ms/step - loss: 0.4680 - val_loss: 0.2384
+Epoch 2/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 6ms/step - loss: 0.2117 - val_loss: 0.1195
+Epoch 3/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 6ms/step - loss: 0.1109 - val_loss: 0.0527
+Epoch 4/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 7ms/step - loss: 0.0429 - val_loss: 0.0205
+Epoch 5/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 6ms/step - loss: 0.0178 - val_loss: 0.0131
+Epoch 6/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 6ms/step - loss: 0.0120 - val_loss: 0.0106
+Epoch 7/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 8ms/step - loss: 0.0099 - val_loss: 0.0095
+Epoch 8/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 6ms/step - loss: 0.0088 - val_loss: 0.0089
+Epoch 9/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 6ms/step - loss: 0.0080 - val_loss: 0.0086
+Epoch 10/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 8ms/step - loss: 0.0075 - val_loss: 0.0083
+Epoch 11/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 7ms/step - loss: 0.0072 - val_loss: 0.0082
+Epoch 12/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 7ms/step - loss: 0.0069 - val_loss: 0.0080
+Epoch 13/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 6ms/step - loss: 0.0066 - val_loss: 0.0080
+Epoch 14/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 7ms/step - loss: 0.0064 - val_loss: 0.0079
+Epoch 15/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 8ms/step - loss: 0.0062 - val_loss: 0.0079
+Epoch 16/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 8ms/step - loss: 0.0060 - val_loss: 0.0078
+Epoch 17/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 7ms/step - loss: 0.0059 - val_loss: 0.0078
+Epoch 18/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 7ms/step - loss: 0.0058 - val_loss: 0.0077
+Epoch 19/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 7ms/step - loss: 0.0056 - val_loss: 0.0077
+Epoch 20/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 6ms/step - loss: 0.0055 - val_loss: 0.0076
 </pre></div>
 </div>
 </div>
 </div>
-<p>Phân chia train &amp; test</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_train_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw_data</span><span class="p">))</span>
-<span class="n">num_val_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.25</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw_data</span><span class="p">))</span>
-<span class="n">num_test_samples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw_data</span><span class="p">)</span> <span class="o">-</span> <span class="n">num_train_samples</span> <span class="o">-</span> <span class="n">num_val_samples</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- 6. Dự báo trên tập test &amp; đánh giá chất lượng mô hình ---</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+
+<span class="n">mae</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">predictions</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span> <span class="o">-</span> <span class="n">y_test</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Mean Absolute Error on the test set for all predictions: </span><span class="si">{</span><span class="n">mae</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">7/7</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 11ms/step
+
+Mean Absolute Error on the test set for all predictions: 0.0702
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chuẩn hóa dữ liệu</span>
-<span class="n">mean</span> <span class="o">=</span> <span class="n">raw_data</span><span class="p">[:</span><span class="n">num_train_samples</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">raw_data</span> <span class="o">-=</span> <span class="n">mean</span>
-<span class="n">std</span> <span class="o">=</span> <span class="n">raw_data</span><span class="p">[:</span><span class="n">num_train_samples</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">raw_data</span> <span class="o">/=</span> <span class="n">std</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dự báo với các điểm dữ liệu</span>
+<span class="n">last_window</span> <span class="o">=</span> <span class="n">data_df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">feature_cols</span><span class="p">)</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="n">n_steps_in</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">input_for_prediction</span> <span class="o">=</span> <span class="n">last_window</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> 
+
+<span class="n">next_values_prediction</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">input_for_prediction</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Prediction for the next 5 values in the series:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">pred</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">next_values_prediction</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Step </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">pred</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">1/1</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 49ms/step
+
+Prediction for the next 5 values in the series:
+  Step 1: -0.5801
+  Step 2: -0.4782
+  Step 3: -0.3557
+  Step 4: -0.3337
+  Step 5: -0.1604
 </pre></div>
 </div>
 </div>
 </div>
-<p>Với tập dữ liệu về nhiệt độ, mục tiêu dự báo nhiệt độ theo mỗi giờ. Dữ liệu gốc được ghi nhận mỗi 10 phút 1 lần. Do đó, ta chỉ cần lấy sample của mỗi giờ trong dữ liệu dự báo.</p>
+</section>
+<section id="recurrent-neural-network">
+<h1><span class="section-number">6. </span>Recurrent Neural Network<a class="headerlink" href="#recurrent-neural-network" title="Link to this heading">#</a></h1>
+<p>Với ví dụ đơn giản trên, để dự báo các biến tiếp theo, ta cần duỗi tất cả các biến đầu vào và xây dựng mô hình cho tất cả tập dữ liệu <em>cùng một lúc</em>. Nhóm mô hình trên còn gọi là <code class="docutils literal notranslate"><span class="pre">feedforward</span> <span class="pre">neural</span> <span class="pre">network</span></code>. Trong thực tế, với một số bài toán dự báo, 1 yếu tố mới đầu ra sẽ không chỉ phụ thuộc dữ liệu đầu vào mà toàn bộ các thông tin dữ liệu lịch sử (ký ức) như dự báo ECG, dịch thuật. Trong kiểu mô hình trên, ta không cho phép mô hình học tuần tự theo chu kỳ thời gian.</p>
+<p>Để khắc phục nhược điểm trên, người ta xây dựng thêm mô hình <code class="docutils literal notranslate"><span class="pre">Recurrent</span> <span class="pre">Neural</span> <span class="pre">Network</span></code>. Mô hình này dựa trên ý tưởng kết quả dự báo không chỉ dựa trên thông tin mới mà còn dựa vào các thông tin đã được dự báo và lưu trữ từ quá khứ. Như vậy, mô hình có trí nhớ với khả năng lưu trữ các thông tin cũ từ quá khứ.</p>
+<p>Thay vì chỉ nhận dữ liệu đầu vào <span class="math notranslate nohighlight">\(x_t\)</span>, RNN sẽ nhận cả các trạng thái ẩn (hidden state) <span class="math notranslate nohighlight">\(h_{t-1}\)</span> từ thời điểm trước đó. Như vậy, ta có thể coi <span class="math notranslate nohighlight">\(h_{t-1}\)</span> như một bộ nhớ lưu trữ các thông tin từ quá khứ.</p>
+<div class="math notranslate nohighlight">
+\[h_t = f(W_{x} x_t + W_{h} h_{t-1} + b_h)\]</div>
+<div class="math notranslate nohighlight">
+\[y_t = g(W_yh_t + c)\]</div>
+<p>Trong đó:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">sampling_rate</span> <span class="pre">=</span> <span class="pre">6</span></code>: Với mỗi khung giờ lấy 1 quan sát</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sequence_length</span> <span class="pre">=</span> <span class="pre">120</span></code>: Sử dụng 120 quan sát trước để dự báo (5 ngày dữ liệu = 24 * 5)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">delay</span> <span class="pre">=</span> <span class="pre">sampling_rate</span> <span class="pre">*</span> <span class="pre">(sequence_length</span> <span class="pre">+</span> <span class="pre">24</span> <span class="pre">-</span> <span class="pre">1)</span></code>: Dự báo 24h sau khi sequence kết thúc</p></li>
+<li><p><span class="math notranslate nohighlight">\(h_t\)</span>: Trạng thái ẩn tại thời điểm <span class="math notranslate nohighlight">\(t\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x_t\)</span>: Đầu vào tại thời điểm <span class="math notranslate nohighlight">\(t\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(y_t\)</span>: Output</p></li>
+<li><p><span class="math notranslate nohighlight">\(f, g\)</span>: Hàm kích hoạt (activation function) như <code class="docutils literal notranslate"><span class="pre">tanh</span></code>, <code class="docutils literal notranslate"><span class="pre">relu</span></code>, <code class="docutils literal notranslate"><span class="pre">sigmoid</span></code></p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sampling_rate</span> <span class="o">=</span> <span class="mi">6</span>
-<span class="n">sequence_length</span> <span class="o">=</span> <span class="mi">120</span>
-<span class="n">delay</span> <span class="o">=</span> <span class="n">sampling_rate</span> <span class="o">*</span> <span class="p">(</span><span class="n">sequence_length</span> <span class="o">+</span> <span class="mi">24</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">256</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pseudo code</span>
+<span class="n">state_t</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">input_t</span> <span class="ow">in</span> <span class="n">input_sequence</span><span class="p">:</span>
+    <span class="n">output_t</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">input_t</span><span class="p">,</span> <span class="n">state_t</span><span class="p">)</span>
+    <span class="n">state_t</span> <span class="o">=</span> <span class="n">output_t</span>
+
+<span class="c1"># Detail implementation</span>
+<span class="n">state_t</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">input_t</span> <span class="ow">in</span> <span class="n">input_sequence</span><span class="p">:</span>
+    <span class="n">output_t</span> <span class="o">=</span> <span class="n">activation</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">input_t</span><span class="p">)</span> <span class="o">+</span> <span class="n">dot</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">state_t</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+    <span class="n">state_t</span> <span class="o">=</span> <span class="n">output_t</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train data</span>
-<span class="n">train_dataset</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">timeseries_dataset_from_array</span><span class="p">(</span>
-    <span class="n">raw_data</span><span class="p">[:</span><span class="o">-</span><span class="n">delay</span><span class="p">],</span>
-    <span class="n">targets</span><span class="o">=</span><span class="n">temperature</span><span class="p">[</span><span class="n">delay</span><span class="p">:],</span>
-    <span class="n">sampling_rate</span><span class="o">=</span><span class="n">sampling_rate</span><span class="p">,</span>
-    <span class="n">sequence_length</span><span class="o">=</span><span class="n">sequence_length</span><span class="p">,</span>
-    <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
-    <span class="n">start_index</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-    <span class="n">end_index</span><span class="o">=</span><span class="n">num_train_samples</span><span class="p">)</span>
-<span class="n">val_dataset</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">timeseries_dataset_from_array</span><span class="p">(</span>
-    <span class="n">raw_data</span><span class="p">[:</span><span class="o">-</span><span class="n">delay</span><span class="p">],</span>
-    <span class="n">targets</span><span class="o">=</span><span class="n">temperature</span><span class="p">[</span><span class="n">delay</span><span class="p">:],</span>
-    <span class="n">sampling_rate</span><span class="o">=</span><span class="n">sampling_rate</span><span class="p">,</span>
-    <span class="n">sequence_length</span><span class="o">=</span><span class="n">sequence_length</span><span class="p">,</span>
-    <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
-    <span class="n">start_index</span><span class="o">=</span><span class="n">num_train_samples</span><span class="p">,</span>
-    <span class="n">end_index</span><span class="o">=</span><span class="n">num_train_samples</span> <span class="o">+</span> <span class="n">num_val_samples</span><span class="p">)</span>
-<span class="n">test_dataset</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">timeseries_dataset_from_array</span><span class="p">(</span>
-    <span class="n">raw_data</span><span class="p">[:</span><span class="o">-</span><span class="n">delay</span><span class="p">],</span>
-    <span class="n">targets</span><span class="o">=</span><span class="n">temperature</span><span class="p">[</span><span class="n">delay</span><span class="p">:],</span>
-    <span class="n">sampling_rate</span><span class="o">=</span><span class="n">sampling_rate</span><span class="p">,</span>
-    <span class="n">sequence_length</span><span class="o">=</span><span class="n">sequence_length</span><span class="p">,</span>
-    <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
-    <span class="n">start_index</span><span class="o">=</span><span class="n">num_train_samples</span> <span class="o">+</span> <span class="n">num_val_samples</span><span class="p">)</span>
+<p><img alt="" src="_images/p01-2025-09-01-15-56-15.png" /></p>
+<p><strong>Trực quan hóa</strong>: Giả sử ta đang dự đoán một câu tiếng Việt. Câu bắt đầu với cụm từ</p>
+<p>“Hôm nay trời rất…”</p>
+<ul class="simple">
+<li><p>Đến đây ta có thể dự đoán từ tiếp theo → có thể là “đẹp”, “nắng”, “lạnh”…</p></li>
+<li><p>Dự đoán phụ thuộc vào tất cả từ trước đó.</p></li>
+<li><p>RNN giống như một “bộ nhớ tạm thời” để lưu lại ngữ cảnh trước khi sinh tiếp từ sau.</p></li>
+</ul>
+</section>
+<section id="long-short-term-memory">
+<h1><span class="section-number">7. </span>Long Short Term Memory<a class="headerlink" href="#long-short-term-memory" title="Link to this heading">#</a></h1>
+<section id="id1">
+<h2><span class="section-number">7.1. </span>Giới thiệu<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>Về mặt lý thuyết, RNN có khả năng lưu trữ trí nhớ tại các <code class="docutils literal notranslate"><span class="pre">state</span></code>. Tuy nhiên, khi chuỗi thời gian đủ lớn, mô hình sẽ không có khả năng ghi nhớ các trạng thái ẩn ở lâu trước đó. Do đó, RNN chỉ có thể có <em>trí nhớ ngắn hạn</em>. Để giải quyết nhược điểm đó, người ta phát triển thêm mô hình LSTM - Long Short Term Memory, cho phép mô hình Neural Network có thể ghi nhớ các trạng thái dài hạn.</p>
+<p>Ý tưởng chính của LSTM là để tạo ra và cho phép ghi nhớ ký ức được tốt hơn. Thay vì chỉ có 1 trạng thái ẩn, LSTM cho phép tạo ra các <code class="docutils literal notranslate"><span class="pre">cell</span> <span class="pre">state</span></code> (bộ nhớ dài hạn). Thông tin trong bộ nhơ dài hạn được quyết định và điều chỉnh từ các cổng (gates). Các cổng này cho phép mô hình quyết định giữ lại, quên đi hoặc bổ sung các thông tin mới.</p>
+<p><img alt="" src="_images/p01-2025-09-01-16-12-17.png" /></p>
+<p>Với mô hình LSTM, mạng neural sẽ mang theo thông tin <code class="docutils literal notranslate"><span class="pre">C</span></code> &amp; được tính toán, điều chỉnh 1 chút theo thời gian.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pseudo code</span>
+<span class="n">output_t</span> <span class="o">=</span> <span class="n">activation</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">state_t</span><span class="p">,</span> <span class="n">Uo</span><span class="p">)</span> <span class="o">+</span> <span class="n">dot</span><span class="p">(</span><span class="n">input_t</span><span class="p">,</span> <span class="n">Wo</span><span class="p">)</span> <span class="o">+</span> <span class="n">dot</span><span class="p">(</span><span class="n">c_t</span><span class="p">,</span> <span class="n">Vo</span><span class="p">)</span> <span class="o">+</span> <span class="n">bo</span><span class="p">)</span>
+<span class="n">i_t</span> <span class="o">=</span> <span class="n">activation</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">state_t</span><span class="p">,</span> <span class="n">Ui</span><span class="p">)</span> <span class="o">+</span> <span class="n">dot</span><span class="p">(</span><span class="n">input_t</span><span class="p">,</span> <span class="n">Wi</span><span class="p">)</span> <span class="o">+</span> <span class="n">bi</span><span class="p">)</span>
+<span class="n">f_t</span> <span class="o">=</span> <span class="n">activation</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">state_t</span><span class="p">,</span> <span class="n">Uf</span><span class="p">)</span> <span class="o">+</span> <span class="n">dot</span><span class="p">(</span><span class="n">input_t</span><span class="p">,</span> <span class="n">Wf</span><span class="p">)</span> <span class="o">+</span> <span class="n">bf</span><span class="p">)</span>
+<span class="n">k_t</span> <span class="o">=</span> <span class="n">activation</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">state_t</span><span class="p">,</span> <span class="n">Uk</span><span class="p">)</span> <span class="o">+</span> <span class="n">dot</span><span class="p">(</span><span class="n">input_t</span><span class="p">,</span> <span class="n">Wk</span><span class="p">)</span> <span class="o">+</span> <span class="n">bk</span><span class="p">)</span>
+
+<span class="c1"># Trong đó</span>
+<span class="n">c_t</span><span class="o">+</span><span class="mi">1</span> <span class="o">=</span> <span class="n">i_t</span> <span class="o">*</span> <span class="n">k_t</span> <span class="o">+</span> <span class="n">c_t</span> <span class="o">*</span> <span class="n">f_t</span>
 </pre></div>
 </div>
-</div>
-</div>
+<p><strong>Trực quan hóa</strong>: RNN có thể coi như người có trí nhớ ngắn hạn nhưng khi câu chuyện dài quá sẽ quên mất các nội dung chính. LSTM giống như người có trí nhớ dài hạn tốt để có thể tập trung vào trọng tâm.</p>
+<p>Quay trở lại ví dụ dự đoán câu tiếng Việt. Giả sử ta có câu:&quot;Hôm nay trời rất đẹp, tôi đi dạo công viên...&quot;</p>
+<p>Trong LSTM, mô hình sẽ cập nhật thông qua 3 cánh cửa:</p>
+<ul class="simple">
+<li><p>Forget gate: Quên đi các thông tin không cần thiết như &quot;hôm nay&quot;</p></li>
+<li><p>Input gate: Bổ sung các thông tin mới như &quot;đẹp&quot; hay &quot;công viên&quot;</p></li>
+<li><p>Output gate: Quyết định thông tin nào sẽ được đưa vào trạng thái ẩn để dự đoán từ tiếp theo.</p></li>
+</ul>
+</section>
+<section id="vi-du-mo-hinh">
+<h2><span class="section-number">7.2. </span>Ví dụ mô hình<a class="headerlink" href="#vi-du-mo-hinh" title="Link to this heading">#</a></h2>
+<p>Với mô hình đã xây dựng với Dense Layer, ta có thể xây dựng mô hình LSTM như sau</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_dataset</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="kn">import</span> <span class="n">keras</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras.layers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">LSTM</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+
+<span class="c1"># Set a seed for reproducibility</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># --- 1. Generate Synthetic Data with Multiple Features ---</span>
+<span class="c1"># We&#39;ll create a primary time series and five additional features that are</span>
+<span class="c1"># correlated with the main series.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_time_series_with_features</span><span class="p">(</span><span class="n">num_points</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">noise_level</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generates a synthetic time series as a Polars DataFrame with multiple features.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_points</span><span class="p">)</span>
+    
+    <span class="c1"># Primary time series</span>
+    <span class="n">series_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">*</span> <span class="n">time</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">noise_level</span><span class="p">,</span> <span class="n">noise_level</span><span class="p">,</span> <span class="n">num_points</span><span class="p">)</span>
+    
+    <span class="c1"># Generate five additional correlated features</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+        <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="n">time</span><span class="p">,</span>
+        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">series_values</span><span class="p">,</span>
+        <span class="s2">&quot;x1&quot;</span><span class="p">:</span> <span class="n">series_values</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">noise_level</span><span class="p">,</span> <span class="n">noise_level</span><span class="p">,</span> <span class="n">num_points</span><span class="p">),</span>
+        <span class="s2">&quot;x2&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">0.15</span> <span class="o">*</span> <span class="n">time</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">noise_level</span><span class="p">,</span> <span class="n">noise_level</span><span class="p">,</span> <span class="n">num_points</span><span class="p">),</span>
+        <span class="s2">&quot;x3&quot;</span><span class="p">:</span> <span class="n">series_values</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">noise_level</span><span class="p">,</span> <span class="n">noise_level</span><span class="p">,</span> <span class="n">num_points</span><span class="p">),</span>
+        <span class="s2">&quot;x4&quot;</span><span class="p">:</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">0.08</span> <span class="o">*</span> <span class="n">time</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">noise_level</span><span class="p">,</span> <span class="n">noise_level</span><span class="p">,</span> <span class="n">num_points</span><span class="p">),</span>
+        <span class="s2">&quot;x5&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">0.2</span> <span class="o">*</span> <span class="n">time</span><span class="p">)</span> <span class="o">-</span> <span class="n">series_values</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">noise_level</span><span class="p">,</span> <span class="n">noise_level</span><span class="p">,</span> <span class="n">num_points</span><span class="p">)</span>
+    <span class="p">})</span>
+    <span class="k">return</span> <span class="n">df</span>
+
+<span class="n">data_df</span> <span class="o">=</span> <span class="n">generate_time_series_with_features</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Generated a Polars DataFrame with </span><span class="si">{</span><span class="n">data_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> data points and multiple features.&quot;</span><span class="p">)</span>
+
+<span class="c1"># --- 2. Prepare Data for Supervised Learning with Multiple Features ---</span>
+<span class="c1"># We&#39;ll create a dataset where the model learns to predict the next `n_steps_out` values</span>
+<span class="c1"># of the primary time series based on a fixed window of all features.</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_dataset_with_features</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">feature_columns</span><span class="p">,</span> <span class="n">target_column</span><span class="p">,</span> <span class="n">n_steps_in</span><span class="p">,</span> <span class="n">n_steps_out</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Converts a time series stored in a Polars DataFrame into a</span>
+<span class="sd">    supervised learning dataset for multi-variate, multi-step forecasting.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        dataframe (pl.DataFrame): The input time series data.</span>
+<span class="sd">        feature_columns (list): The names of the columns to use as input features.</span>
+<span class="sd">        target_column (str): The name of the column containing the target values (Y).</span>
+<span class="sd">        n_steps_in (int): The number of past time steps to use as input (the window size).</span>
+<span class="sd">        n_steps_out (int): The number of future time steps to predict.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple: A tuple of (X, y) where X are the input sequences</span>
+<span class="sd">               and y are the target sequences, both as NumPy arrays.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Extract features and target into a single NumPy array</span>
+    <span class="n">features</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">feature_columns</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">target_column</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    
+    <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">features</span><span class="p">)</span> <span class="o">-</span> <span class="n">n_steps_in</span> <span class="o">-</span> <span class="n">n_steps_out</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="c1"># The input is the window of n_steps_in for all features</span>
+        <span class="n">X_input</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">n_steps_in</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">X_input</span><span class="p">)</span> <span class="c1"># We now append the 2D window directly</span>
+        
+        <span class="c1"># The output is the sequence of n_steps_out future target values</span>
+        <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">target</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">n_steps_in</span> <span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="n">n_steps_in</span> <span class="o">+</span> <span class="n">n_steps_out</span><span class="p">])</span>
+
+    <span class="c1"># LSTM models expect a 3D input: [samples, timesteps, features]</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Define the features and target</span>
+<span class="n">feature_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="s2">&quot;x1&quot;</span><span class="p">,</span> <span class="s2">&quot;x2&quot;</span><span class="p">,</span> <span class="s2">&quot;x3&quot;</span><span class="p">,</span> <span class="s2">&quot;x4&quot;</span><span class="p">,</span> <span class="s2">&quot;x5&quot;</span><span class="p">]</span>
+<span class="n">target_col</span> <span class="o">=</span> <span class="s2">&quot;value&quot;</span>
+
+<span class="c1"># We&#39;ll use the last 10 data points to predict the next 5.</span>
+<span class="n">n_steps_in</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">n_steps_out</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">create_dataset_with_features</span><span class="p">(</span><span class="n">data_df</span><span class="p">,</span> <span class="n">feature_cols</span><span class="p">,</span> <span class="n">target_col</span><span class="p">,</span> <span class="n">n_steps_in</span><span class="p">,</span> <span class="n">n_steps_out</span><span class="p">)</span>
+
+<span class="c1"># Determine the number of features for the model input shape</span>
+<span class="n">n_features</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">feature_cols</span><span class="p">)</span>
+
+<span class="c1"># Split the data into training and testing sets</span>
+<span class="n">train_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.8</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:</span><span class="n">train_size</span><span class="p">],</span> <span class="n">y</span><span class="p">[:</span><span class="n">train_size</span><span class="p">]</span>
+<span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">train_size</span><span class="p">:],</span> <span class="n">y</span><span class="p">[</span><span class="n">train_size</span><span class="p">:]</span> <span class="c1"># Fixed the bug here</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dataset prepared with </span><span class="si">{</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> training examples and </span><span class="si">{</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> test examples.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Each input example has shape: </span><span class="si">{</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;_BatchDataset element_spec=(TensorSpec(shape=(None, None, 14), dtype=tf.float64, name=None), TensorSpec(shape=(None,), dtype=tf.float64, name=None))&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<p>Xây dựng mô hình đơn giản</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="kn">import</span> <span class="n">keras</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras</span><span class="w"> </span><span class="kn">import</span> <span class="n">layers</span>
-<span class="n">inputs</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">sequence_length</span><span class="p">,</span> <span class="n">raw_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">()(</span><span class="n">inputs</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="n">outputs</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">)</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generated a Polars DataFrame with 1000 data points and multiple features.
+Dataset prepared with 788 training examples and 198 test examples.
+Each input example has shape: (10, 6).
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">callbacks</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">ModelCheckpoint</span><span class="p">(</span><span class="s2">&quot;jena_dense.keras&quot;</span><span class="p">,</span>
-    <span class="n">save_best_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- 3. Build the Keras Model with LSTM ---</span>
+<span class="c1"># The LSTM layer expects a 3D input: [samples, timesteps, features]</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">([</span>
+    <span class="c1"># The LSTM layer processes the sequence data</span>
+    <span class="n">LSTM</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">n_steps_in</span><span class="p">,</span> <span class="n">n_features</span><span class="p">)),</span>
+    <span class="c1"># The final dense layer predicts the n_steps_out values</span>
+    <span class="n">Dense</span><span class="p">(</span><span class="n">n_steps_out</span><span class="p">)</span>
+<span class="p">])</span>
 
-<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s2">&quot;rmsprop&quot;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s2">&quot;mse&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;mae&quot;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span>
-    <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-    <span class="n">validation_data</span><span class="o">=</span><span class="n">val_dataset</span><span class="p">,</span>
-    <span class="n">callbacks</span><span class="o">=</span><span class="n">callbacks</span><span class="p">)</span>
+<span class="c1"># --- 4. Compile the Model ---</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mean_squared_error&#39;</span><span class="p">)</span>
+
+<span class="c1"># Print a summary of the model architecture</span>
+<span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/10
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Model: &quot;sequential_1&quot;</span>
+┌─────────────────────────────────┬────────────────────────┬───────────────┐
+│<span class=" -Color -Color-Bold"> Layer (type)                    </span>│<span class=" -Color -Color-Bold"> Output Shape           </span>│<span class=" -Color -Color-Bold">       Param # </span>│
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ lstm (LSTM)                     │ (None, <span class=" -Color -Color-Green">50</span>)             │        <span class=" -Color -Color-Green">11,400</span> │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_3 (Dense)                 │ (None, <span class=" -Color -Color-Green">5</span>)              │           <span class=" -Color -Color-Green">255</span> │
+└─────────────────────────────────┴────────────────────────┴───────────────┘
+<span class=" -Color -Color-Bold"> Total params: </span><span class=" -Color -Color-Green">11,655</span> (45.53 KB)
+<span class=" -Color -Color-Bold"> Trainable params: </span><span class=" -Color -Color-Green">11,655</span> (45.53 KB)
+<span class=" -Color -Color-Bold"> Non-trainable params: </span><span class=" -Color -Color-Green">0</span> (0.00 B)
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">InvalidArgumentError</span><span class="g g-Whitespace">                      </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">validation_data</span><span class="o">=</span><span class="n">val_dataset</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">callbacks</span><span class="o">=</span><span class="n">callbacks</span><span class="p">)</span>
-
-<span class="nn">File c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\utils\traceback_utils.py:122,</span> in <span class="ni">filter_traceback.&lt;locals&gt;.error_handler</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">119</span>     <span class="n">filtered_tb</span> <span class="o">=</span> <span class="n">_process_traceback_frames</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">__traceback__</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">120</span>     <span class="c1"># To get the full stack trace, call:</span>
-<span class="g g-Whitespace">    </span><span class="mi">121</span>     <span class="c1"># `keras.config.disable_traceback_filtering()`</span>
-<span class="ne">--&gt; </span><span class="mi">122</span>     <span class="k">raise</span> <span class="n">e</span><span class="o">.</span><span class="n">with_traceback</span><span class="p">(</span><span class="n">filtered_tb</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">123</span> <span class="k">finally</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">124</span>     <span class="k">del</span> <span class="n">filtered_tb</span>
-
-<span class="nn">File c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\tensorflow\python\eager\execute.py:53,</span> in <span class="ni">quick_execute</span><span class="nt">(op_name, num_outputs, inputs, attrs, ctx, name)</span>
-<span class="g g-Whitespace">     </span><span class="mi">51</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span>   <span class="n">ctx</span><span class="o">.</span><span class="n">ensure_initialized</span><span class="p">()</span>
-<span class="ne">---&gt; </span><span class="mi">53</span>   <span class="n">tensors</span> <span class="o">=</span> <span class="n">pywrap_tfe</span><span class="o">.</span><span class="n">TFE_Py_Execute</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">_handle</span><span class="p">,</span> <span class="n">device_name</span><span class="p">,</span> <span class="n">op_name</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">54</span>                                       <span class="n">inputs</span><span class="p">,</span> <span class="n">attrs</span><span class="p">,</span> <span class="n">num_outputs</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="k">except</span> <span class="n">core</span><span class="o">.</span><span class="n">_NotOkStatusException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">56</span>   <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-
-<span class="ne">InvalidArgumentError</span>: Graph execution error:
-
-<span class="n">Detected</span> <span class="n">at</span> <span class="n">node</span> <span class="n">functional_1</span><span class="o">/</span><span class="n">flatten_1</span><span class="o">/</span><span class="n">Reshape</span> <span class="n">defined</span> <span class="n">at</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s2">&quot;&lt;frozen runpy&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">198</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_run_module_as_main</span>
-
-  <span class="n">File</span> <span class="s2">&quot;&lt;frozen runpy&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">88</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_run_code</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\ipykernel_launcher.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">18</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages</span><span class="se">\t</span><span class="s2">raitlets\config</span><span class="se">\a</span><span class="s2">pplication.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1075</span><span class="p">,</span> <span class="ow">in</span> <span class="n">launch_instance</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\ipykernel\kernelapp.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">739</span><span class="p">,</span> <span class="ow">in</span> <span class="n">start</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages</span><span class="se">\t</span><span class="s2">ornado\platform</span><span class="se">\a</span><span class="s2">syncio.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">211</span><span class="p">,</span> <span class="ow">in</span> <span class="n">start</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib</span><span class="se">\a</span><span class="s2">syncio</span><span class="se">\b</span><span class="s2">ase_events.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">608</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_forever</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib</span><span class="se">\a</span><span class="s2">syncio</span><span class="se">\b</span><span class="s2">ase_events.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1936</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_run_once</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib</span><span class="se">\a</span><span class="s2">syncio\events.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">84</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_run</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\ipykernel\kernelbase.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">545</span><span class="p">,</span> <span class="ow">in</span> <span class="n">dispatch_queue</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\ipykernel\kernelbase.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">534</span><span class="p">,</span> <span class="ow">in</span> <span class="n">process_one</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\ipykernel\kernelbase.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">437</span><span class="p">,</span> <span class="ow">in</span> <span class="n">dispatch_shell</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\ipykernel\ipkernel.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">362</span><span class="p">,</span> <span class="ow">in</span> <span class="n">execute_request</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\ipykernel\kernelbase.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">778</span><span class="p">,</span> <span class="ow">in</span> <span class="n">execute_request</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\ipykernel\ipkernel.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">449</span><span class="p">,</span> <span class="ow">in</span> <span class="n">do_execute</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\ipykernel\zmqshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">549</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_cell</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\IPython\core\interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3116</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_cell</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\IPython\core\interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3171</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_run_cell</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\IPython\core</span><span class="se">\a</span><span class="s2">sync_helpers.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">128</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_pseudo_sync_runner</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\IPython\core\interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3394</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_cell_async</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\IPython\core\interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3639</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_ast_nodes</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\IPython\core\interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3699</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_code</span>
-
-  <span class="n">File</span> <span class="s2">&quot;C:\Users\Admin\AppData\Local\Temp\ipykernel_19008</span><span class="se">\216</span><span class="s2">1284880.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\utils</span><span class="se">\t</span><span class="s2">raceback_utils.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">117</span><span class="p">,</span> <span class="ow">in</span> <span class="n">error_handler</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src</span><span class="se">\b</span><span class="s2">ackend</span><span class="se">\t</span><span class="s2">ensorflow</span><span class="se">\t</span><span class="s2">rainer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">377</span><span class="p">,</span> <span class="ow">in</span> <span class="n">fit</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src</span><span class="se">\b</span><span class="s2">ackend</span><span class="se">\t</span><span class="s2">ensorflow</span><span class="se">\t</span><span class="s2">rainer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">220</span><span class="p">,</span> <span class="ow">in</span> <span class="n">function</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src</span><span class="se">\b</span><span class="s2">ackend</span><span class="se">\t</span><span class="s2">ensorflow</span><span class="se">\t</span><span class="s2">rainer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">133</span><span class="p">,</span> <span class="ow">in</span> <span class="n">multi_step_on_iterator</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src</span><span class="se">\b</span><span class="s2">ackend</span><span class="se">\t</span><span class="s2">ensorflow</span><span class="se">\t</span><span class="s2">rainer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">114</span><span class="p">,</span> <span class="ow">in</span> <span class="n">one_step_on_data</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src</span><span class="se">\b</span><span class="s2">ackend</span><span class="se">\t</span><span class="s2">ensorflow</span><span class="se">\t</span><span class="s2">rainer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">58</span><span class="p">,</span> <span class="ow">in</span> <span class="n">train_step</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\utils</span><span class="se">\t</span><span class="s2">raceback_utils.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">117</span><span class="p">,</span> <span class="ow">in</span> <span class="n">error_handler</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\layers\layer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">936</span><span class="p">,</span> <span class="ow">in</span> <span class="fm">__call__</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\utils</span><span class="se">\t</span><span class="s2">raceback_utils.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">117</span><span class="p">,</span> <span class="ow">in</span> <span class="n">error_handler</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\ops\operation.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">58</span><span class="p">,</span> <span class="ow">in</span> <span class="fm">__call__</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\utils</span><span class="se">\t</span><span class="s2">raceback_utils.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">156</span><span class="p">,</span> <span class="ow">in</span> <span class="n">error_handler</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\models</span><span class="se">\f</span><span class="s2">unctional.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">183</span><span class="p">,</span> <span class="ow">in</span> <span class="n">call</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\ops</span><span class="se">\f</span><span class="s2">unction.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">177</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_run_through_graph</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\models</span><span class="se">\f</span><span class="s2">unctional.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">648</span><span class="p">,</span> <span class="ow">in</span> <span class="n">call</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\utils</span><span class="se">\t</span><span class="s2">raceback_utils.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">117</span><span class="p">,</span> <span class="ow">in</span> <span class="n">error_handler</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\layers\layer.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">936</span><span class="p">,</span> <span class="ow">in</span> <span class="fm">__call__</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\utils</span><span class="se">\t</span><span class="s2">raceback_utils.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">117</span><span class="p">,</span> <span class="ow">in</span> <span class="n">error_handler</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\ops\operation.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">58</span><span class="p">,</span> <span class="ow">in</span> <span class="fm">__call__</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\utils</span><span class="se">\t</span><span class="s2">raceback_utils.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">156</span><span class="p">,</span> <span class="ow">in</span> <span class="n">error_handler</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\layers</span><span class="se">\r</span><span class="s2">eshaping</span><span class="se">\f</span><span class="s2">latten.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">54</span><span class="p">,</span> <span class="ow">in</span> <span class="n">call</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\ops</span><span class="se">\n</span><span class="s2">umpy.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">5074</span><span class="p">,</span> <span class="ow">in</span> <span class="n">reshape</span>
-
-  <span class="n">File</span> <span class="s2">&quot;c:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src</span><span class="se">\b</span><span class="s2">ackend</span><span class="se">\t</span><span class="s2">ensorflow</span><span class="se">\n</span><span class="s2">umpy.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2068</span><span class="p">,</span> <span class="ow">in</span> <span class="n">reshape</span>
-
-<span class="n">Only</span> <span class="n">one</span> <span class="nb">input</span> <span class="n">size</span> <span class="n">may</span> <span class="n">be</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="ow">not</span> <span class="n">both</span> <span class="mi">0</span> <span class="ow">and</span> <span class="mi">1</span>
-	 <span class="p">[[{{</span><span class="n">node</span> <span class="n">functional_1</span><span class="o">/</span><span class="n">flatten_1</span><span class="o">/</span><span class="n">Reshape</span><span class="p">}}]]</span> <span class="p">[</span><span class="n">Op</span><span class="p">:</span><span class="n">__inference_multi_step_on_iterator_1213</span><span class="p">]</span>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\layers\rnn\rnn.py:199: UserWarning: Do not pass an `input_shape`/`input_dim` argument to a layer. When using Sequential models, prefer using an `Input(shape)` object as the first layer in the model instead.
+  super().__init__(**kwargs)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;jena_dense.keras&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Test MAE: </span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># --- 5. Train the Model ---</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">2s</span> 23ms/step - loss: 0.5300 - val_loss: 0.3779
+Epoch 2/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 9ms/step - loss: 0.3014 - val_loss: 0.2145
+Epoch 3/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 11ms/step - loss: 0.1882 - val_loss: 0.1398
+Epoch 4/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 10ms/step - loss: 0.1298 - val_loss: 0.0666
+Epoch 5/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 8ms/step - loss: 0.0660 - val_loss: 0.0345
+Epoch 6/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 8ms/step - loss: 0.0320 - val_loss: 0.0183
+Epoch 7/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 9ms/step - loss: 0.0165 - val_loss: 0.0108
+Epoch 8/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 11ms/step - loss: 0.0109 - val_loss: 0.0088
+Epoch 9/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 10ms/step - loss: 0.0093 - val_loss: 0.0081
+Epoch 10/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 9ms/step - loss: 0.0087 - val_loss: 0.0076
+Epoch 11/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 10ms/step - loss: 0.0083 - val_loss: 0.0074
+Epoch 12/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 9ms/step - loss: 0.0081 - val_loss: 0.0072
+Epoch 13/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 9ms/step - loss: 0.0079 - val_loss: 0.0070
+Epoch 14/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 9ms/step - loss: 0.0077 - val_loss: 0.0069
+Epoch 15/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 10ms/step - loss: 0.0075 - val_loss: 0.0068
+Epoch 16/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 10ms/step - loss: 0.0074 - val_loss: 0.0068
+Epoch 17/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 9ms/step - loss: 0.0072 - val_loss: 0.0067
+Epoch 18/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 9ms/step - loss: 0.0071 - val_loss: 0.0066
+Epoch 19/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 9ms/step - loss: 0.0070 - val_loss: 0.0066
+Epoch 20/20
+<span class=" -Color -Color-Bold">20/20</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 9ms/step - loss: 0.0068 - val_loss: 0.0065
 </pre></div>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- 6. Make a Forecast and Evaluate ---</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="n">mae</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">predictions</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span> <span class="o">-</span> <span class="n">y_test</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Mean Absolute Error on the test set for all predictions: </span><span class="si">{</span><span class="n">mae</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">7/7</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 35ms/step
+
+Mean Absolute Error on the test set for all predictions: 0.0667
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># You can also make a multi-step forecast on the very last data points</span>
+<span class="c1"># The input for prediction must have the shape [1, n_steps_in, n_features]</span>
+<span class="n">last_window</span> <span class="o">=</span> <span class="n">data_df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">feature_cols</span><span class="p">)</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="n">n_steps_in</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">input_for_prediction</span> <span class="o">=</span> <span class="n">last_window</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_steps_in</span><span class="p">,</span> <span class="n">n_features</span><span class="p">)</span> 
+
+<span class="n">next_values_prediction</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">input_for_prediction</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Prediction for the next 5 values in the series:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">pred</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">next_values_prediction</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Step </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">pred</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">1/1</span> <span class=" -Color -Color-Green">━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Bold">0s</span> 65ms/step
+
+Prediction for the next 5 values in the series:
+  Step 1: -0.5511
+  Step 2: -0.4145
+  Step 3: -0.3618
+  Step 4: -0.2764
+  Step 5: -0.1332
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="tai-lieu-tham-khao">
+<h1><span class="section-number">8. </span>Tài liệu tham khảo<a class="headerlink" href="#tai-lieu-tham-khao" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/">Understanding LSTM Networks</a></p></li>
+</ul>
 </section>
 
 
@@ -870,6 +1121,13 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">4. Chuỗi thời gian</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gioi-thieu">5. Giới thiệu</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#recurrent-neural-network">6. Recurrent Neural Network</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#long-short-term-memory">7. Long Short Term Memory</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">7.1. Giới thiệu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-du-mo-hinh">7.2. Ví dụ mô hình</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tai-lieu-tham-khao">8. Tài liệu tham khảo</a></li>
 </ul>
 
   </nav></div>

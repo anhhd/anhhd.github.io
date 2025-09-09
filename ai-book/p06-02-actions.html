@@ -1,0 +1,623 @@
+
+<!DOCTYPE html>
+
+
+<html lang="vn" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2. Tools với AI Agent &#8212; AI with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0cebd926" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=b0188291"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'p06-02-actions';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="1. Giới thiệu về AI Agent" href="p06-01-gioi-thieu-ai-agent.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="vn"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">AI with Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Cơ bản về Deep Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="p01-01-gioi-thieu-deep-learning.html">1. Giới thiệu về học sâu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-02-toan-co-ban.html">2. Toán cơ bản với DL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-03-dl-co-ban.html">3. Tensorflow &amp; Keras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p01-04-dl-timeseries.html">4. Chuỗi thời gian</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">LLM &amp; GenAI</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="p02-01-gioi-thieu-llm.html">1. Giới thiệu về mô hình ngôn ngữ lớn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p02-02-xu-ly-text.html">2. Xử lý dữ liệu text</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p02-03-co-che-tu-chu-y.html">3. Cơ chế tự chú ý</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">GenAI</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="p05-01-gioi-thieu-langchain.html">1. Giới thiệu langchain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p05-04-phan-tich-du-lieu.html">2. Use case - truy vấn &amp; phân tích dữ liệu</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">AI Agent</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="p06-01-gioi-thieu-ai-agent.html">1. Giới thiệu về AI Agent</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Tools với AI Agent</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tools với AI Agent</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Mục lục </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gioi-thieu">2.1. Giới thiệu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-du-voi-openai">2.2. Ví dụ với OpenAI</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#don-tac-vu">2.2.1. Đơn tác vụ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#da-tac-vu">2.2.2. Đa tác vụ</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tools-voi-ai-agent">
+<h1><span class="section-number">2. </span>Tools với AI Agent<a class="headerlink" href="#tools-voi-ai-agent" title="Link to this heading">#</a></h1>
+<section id="gioi-thieu">
+<h2><span class="section-number">2.1. </span>Giới thiệu<a class="headerlink" href="#gioi-thieu" title="Link to this heading">#</a></h2>
+<p>Với LLM thông thường, ta chỉ có thể tương tác trực tiếp với mô hình đã được huấn luyện mà không có khả năng thực hiện nhiệm vụ. Để khắc phục nhược điểm này, agent cần được tương tác với các công cụ nằm ngoài LLM để có thể thực hiện tác vụ cụ thể.</p>
+<p>Xem ví dụ về quy trình tương tác giữa LLM và các công cụ bên ngoài với yêu cầu tìm kiếm thông tin một bộ phim của ChatGPT</p>
+<p><img alt="" src="_images/p06-02-actions-2025-07-21-20-54-54.png" /></p>
+<p><img alt="" src="_images/p06-02-actions-2025-07-21-20-56-41.png" /></p>
+</section>
+<section id="vi-du-voi-openai">
+<h2><span class="section-number">2.2. </span>Ví dụ với OpenAI<a class="headerlink" href="#vi-du-voi-openai" title="Link to this heading">#</a></h2>
+<section id="don-tac-vu">
+<h3><span class="section-number">2.2.1. </span>Đơn tác vụ<a class="headerlink" href="#don-tac-vu" title="Link to this heading">#</a></h3>
+<p>Khi sử dụng LLM với khả năng tương tác với các công cụ bên ngoài (tools/ actions), LLM sẽ thực hiện các tác vụ với sơ đồ và các bộ tham số bao gồm:</p>
+<ul class="simple">
+<li><p><strong>Model</strong>: Mô hình LLM cụ thể - ví dụ ChatGPT 3.5 turbo, Llama 7B,...</p></li>
+<li><p><strong>Messages</strong>: Prompt &amp; hướng dẫn về system prompt</p></li>
+<li><p><strong>Parameters</strong>: Các bộ tham số của agent như temperature, max tokens</p></li>
+<li><p><strong>Tools</strong>: Công cụ cho phép thương tác với bên ngoài - ví dụ: hàm, api call</p></li>
+</ul>
+<p><img alt="" src="_images/p06-02-actions-2025-07-21-21-00-20.png" /></p>
+<p>Ta có thể xây dựng một tool cho phép trả ra <code class="docutils literal notranslate"><span class="pre">tool</span></code> cần thiết để thực hiện nhiệm vụ mà người dùng yêu cầu.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">openai</span><span class="w"> </span><span class="kn">import</span> <span class="n">OpenAI</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dotenv</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dotenv</span>
+
+<span class="c1"># Load API key from .env file</span>
+<span class="n">load_dotenv</span><span class="p">()</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;OPENAI_API_KEY&#39;</span><span class="p">)</span>
+<span class="c1"># Ensure the API key is available</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">api_key</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No API key found. Please check your .env file.&quot;</span><span class="p">)</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">)</span>
+
+
+<span class="c1"># Example function to query ChatGPT</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">ask_chatgpt</span><span class="p">(</span><span class="n">user_message</span><span class="p">):</span>    
+    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o&quot;</span><span class="p">,</span>  <span class="c1"># gpt-4 turbo or a model of your preference</span>
+        <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;You are a helpful assistant.&quot;</span><span class="p">},</span>
+                  <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">user_message</span><span class="p">}],</span>
+        <span class="n">temperature</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+        <span class="n">tools</span><span class="o">=</span><span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;function&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;recommend&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Provide a recommendation for any topic.&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The topic, a user wants a recommnedation for.&quot;</span><span class="p">,</span>
+                            <span class="p">},</span>
+                            <span class="s2">&quot;rating&quot;</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The rating this recommendation was given.&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;enum&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;good&quot;</span><span class="p">,</span> <span class="s2">&quot;bad&quot;</span><span class="p">,</span> <span class="s2">&quot;terrible&quot;</span><span class="p">]</span>
+                                <span class="p">},</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;topic&quot;</span><span class="p">],</span>
+                    <span class="p">},</span>
+                <span class="p">},</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">tool_calls</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">function</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example usage</span>
+<span class="n">user</span> <span class="o">=</span> <span class="s2">&quot;Can you please recommend me a time travel movie?&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">ask_chatgpt</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="c1"># Example usage with a different user input</span>
+<span class="n">user</span> <span class="o">=</span> <span class="s2">&quot;Can you please recommend me a good fiction book to read?&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">ask_chatgpt</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Function(arguments=&#39;{&quot;topic&quot;:&quot;time travel movie&quot;}&#39;, name=&#39;recommend&#39;)
+Function(arguments=&#39;{&quot;topic&quot;:&quot;fiction book&quot;,&quot;rating&quot;:&quot;good&quot;}&#39;, name=&#39;recommend&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Trong bước trên, hàm <strong>KHÔNG</strong> thực sự chạy mà chỉ trả ra loại actions và các tham số cần thiết để thực hiện tác vụ mà thôi.</p>
+</section>
+<section id="da-tac-vu">
+<h3><span class="section-number">2.2.2. </span>Đa tác vụ<a class="headerlink" href="#da-tac-vu" title="Link to this heading">#</a></h3>
+<p>Tương tự như hàm trên, ta có thể xây dựng cùng lúc nhiều hàm khác nhau để thực hiện các tác vụ khác nhau mà người dùng yêu cầu.</p>
+<p><img alt="" src="_images/p06-02-actions-2025-07-21-21-14-47.png" /></p>
+<p>Ví dụ cho phép thực hiện đa tác vụ</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">openai</span><span class="w"> </span><span class="kn">import</span> <span class="n">OpenAI</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dotenv</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dotenv</span>
+
+<span class="n">load_dotenv</span><span class="p">()</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">recommend</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span> <span class="n">rating</span><span class="o">=</span><span class="s2">&quot;good&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Give a recommendation for any topic&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="s2">&quot;time travel&quot;</span> <span class="ow">in</span> <span class="n">topic</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;time travel&quot;</span><span class="p">,</span>
+                           <span class="s2">&quot;recommendation&quot;</span><span class="p">:</span> <span class="s2">&quot;Back to the Future&quot;</span><span class="p">,</span>
+                           <span class="s2">&quot;rating&quot;</span><span class="p">:</span> <span class="n">rating</span><span class="p">})</span>
+    <span class="k">elif</span> <span class="s2">&quot;recipe&quot;</span> <span class="ow">in</span> <span class="n">topic</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;recipe&quot;</span><span class="p">,</span>
+                           <span class="s2">&quot;recommendation&quot;</span><span class="p">:</span> <span class="s2">&quot;The best thing you ever ate.&quot;</span><span class="p">,</span>
+                           <span class="s2">&quot;rating&quot;</span><span class="p">:</span> <span class="n">rating</span><span class="p">})</span>
+    <span class="k">elif</span> <span class="s2">&quot;gift&quot;</span> <span class="ow">in</span> <span class="n">topic</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;gift&quot;</span><span class="p">,</span>
+                           <span class="s2">&quot;recommendation&quot;</span><span class="p">:</span> <span class="s2">&quot;A glorius new...&quot;</span><span class="p">,</span>
+                           <span class="s2">&quot;rating&quot;</span><span class="p">:</span> <span class="n">rating</span><span class="p">})</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="n">topic</span><span class="p">,</span>
+                           <span class="s2">&quot;recommendation&quot;</span><span class="p">:</span> <span class="s2">&quot;unknown&quot;</span><span class="p">})</span>
+    
+
+<span class="k">def</span><span class="w"> </span><span class="nf">run_conversation</span><span class="p">():</span>
+    <span class="c1"># Step 1: send the conversation and available functions to the model</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Can you please make recommendations for the following:</span>
+<span class="s2">    1. Time travel movies</span>
+<span class="s2">    2. Recipes</span>
+<span class="s2">    3. Gifts&quot;&quot;&quot;</span>
+    <span class="n">messages</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">user</span><span class="p">}]</span>
+    <span class="n">tools</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;function&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;recommend&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Provide a recommendation for any topic.&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;object&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The topic, a user wants a recommnedation for.&quot;</span><span class="p">,</span>
+                            <span class="p">},</span>
+                            <span class="s2">&quot;rating&quot;</span><span class="p">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The rating this recommendation was given.&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;enum&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;good&quot;</span><span class="p">,</span> <span class="s2">&quot;bad&quot;</span><span class="p">,</span> <span class="s2">&quot;terrible&quot;</span><span class="p">]</span>
+                                <span class="p">},</span>
+                            <span class="p">},</span>
+                    <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;topic&quot;</span><span class="p">],</span>
+                    <span class="p">},</span>
+                <span class="p">},</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo-1106&quot;</span><span class="p">,</span>
+        <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
+        <span class="n">tools</span><span class="o">=</span><span class="n">tools</span><span class="p">,</span>
+        <span class="n">tool_choice</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span>  <span class="c1"># auto is default, but we&#39;ll be explicit</span>
+    <span class="p">)</span>
+    <span class="n">response_message</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span>
+    <span class="n">tool_calls</span> <span class="o">=</span> <span class="n">response_message</span><span class="o">.</span><span class="n">tool_calls</span>
+    <span class="c1"># Step 2: check if the model wanted to call a function</span>
+    <span class="k">if</span> <span class="n">tool_calls</span><span class="p">:</span>
+        <span class="c1"># Step 3: call the function</span>
+        <span class="c1"># Note: the JSON response may not always be valid; be sure to handle errors</span>
+        <span class="n">available_functions</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;recommend&quot;</span><span class="p">:</span> <span class="n">recommend</span><span class="p">,</span>
+        <span class="p">}</span>  <span class="c1"># only one function in this example, but you can have multiple</span>
+        <span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response_message</span><span class="p">)</span>  <span class="c1"># extend conversation with assistant&#39;s reply</span>
+        <span class="c1"># Step 4: send the info for each function call and function response to the model</span>
+        <span class="k">for</span> <span class="n">tool_call</span> <span class="ow">in</span> <span class="n">tool_calls</span><span class="p">:</span>
+            <span class="n">function_name</span> <span class="o">=</span> <span class="n">tool_call</span><span class="o">.</span><span class="n">function</span><span class="o">.</span><span class="n">name</span>
+            <span class="n">function_to_call</span> <span class="o">=</span> <span class="n">available_functions</span><span class="p">[</span><span class="n">function_name</span><span class="p">]</span>
+            <span class="n">function_args</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">tool_call</span><span class="o">.</span><span class="n">function</span><span class="o">.</span><span class="n">arguments</span><span class="p">)</span>
+            <span class="n">function_response</span> <span class="o">=</span> <span class="n">function_to_call</span><span class="p">(</span>
+                <span class="n">topic</span><span class="o">=</span><span class="n">function_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;topic&quot;</span><span class="p">),</span>
+                <span class="n">rating</span><span class="o">=</span><span class="n">function_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;rating&quot;</span><span class="p">),</span>
+            <span class="p">)</span>
+            <span class="n">messages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;tool_call_id&quot;</span><span class="p">:</span> <span class="n">tool_call</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;tool&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">function_name</span><span class="p">,</span>
+                    <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">function_response</span><span class="p">,</span>
+                <span class="p">}</span>
+            <span class="p">)</span>  <span class="c1"># extend conversation with function response</span>
+        <span class="n">second_response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+            <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo-1106&quot;</span><span class="p">,</span>
+            <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
+        <span class="p">)</span>  <span class="c1"># get a new response from the model where it can see the function response</span>
+        <span class="k">return</span> <span class="n">second_response</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Thực hiện tác vụ</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">run_conversation</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Based on your request, here are some recommendations:
+
+1. Time travel movies: &quot;Back to the Future&quot;
+2. Recipes: &quot;The best thing you ever ate.&quot;
+3. Gifts: &quot;A glorious new...&quot; (Unfortunately, the full recommendation is not provided)
+
+I hope you find these recommendations helpful!
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="p06-01-gioi-thieu-ai-agent.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Giới thiệu về AI Agent</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Mục lục
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gioi-thieu">2.1. Giới thiệu</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-du-voi-openai">2.2. Ví dụ với OpenAI</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#don-tac-vu">2.2.1. Đơn tác vụ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#da-tac-vu">2.2.2. Đa tác vụ</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Anh Hoang Duc
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Anh Hoang Duc.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
