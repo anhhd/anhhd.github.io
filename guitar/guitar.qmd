@@ -1,20 +1,21 @@
 ---
 title: "Tab guitar"
-output: 
-  html_document: 
-    toc: yes
-    highlight: haddock
-    theme: flatly
-    number_sections: yes
-    toc_float: yes
-    css: style.css
+format:
+  html:
+    mainfont: "Cambria"
+    embed-fonts: true
+    toc: true
+    toc-depth: 3
+    toc-location: left
+    number-sections: true
+    toc-title: "Mục lục"
+    fontcolor: "black"
+    embed-resources: true
+title-block-banner: "#27445C"
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
-# Nhạc cho Dưa
+# Nhạc trẻ em
 
 ## Đàn gà con
 
@@ -1441,6 +1442,8 @@ Về nơi [Am] xa chung sống nguyện ước [Dm] mơ trọn đôi
 
 Suốt [G] đời anh chỉ yêu mãi mình [C] em
 
+&nbsp;
+
 2. Và không [C] tin năm [Em] tháng sẽ trả lời [Am] nhau
 
 Một ngày [C] kia em [F] sẽ hiểu anh [C] rõ hơn
@@ -1464,7 +1467,7 @@ Suốt [G] đời anh chỉ yêu mãi mình [C] em
 
 -------------------
 
-1. Người yêu [C] ơi, em [Em] có thấu chăng lòng [Am] anh
+[1] Người yêu [C] ơi, em [Em] có thấu chăng lòng [Am] anh
 
 Dù năm [C] tháng, xa [F] cách làm ta mất [C] nhau
 
@@ -1472,7 +1475,9 @@ Dù tương [Am] lai còn xa dù khó [Dm] khăn vượt qua
 
 Anh vẫn [G] chờ anh xin yêu mãi mình [C] em
 
-2. Và không [C] tin sóng [Em] gió mãi trao về [Am] anh
+&nbsp;
+
+[2] Và không [C] tin sóng [Em] gió mãi trao về [Am] anh
 
 Ngày nào [C] đó em [F] sẽ hiểu anh rõ [C] hơn
 
@@ -1480,7 +1485,9 @@ Vậy nên [Am] anh phải tin và chỉ [Dm] yêu mình em
 
 Suốt [G] đời anh chỉ yêu mãi mình [C] em
 
-3. Rồi thời gian sẽ không nhạt [Am] phai
+&nbsp;
+
+[3] Rồi thời gian sẽ không nhạt [Am] phai
 
 Rồi thời [C] gian sẽ không xóa [Em] nhòa
 
@@ -1650,6 +1657,52 @@ Hận làm [Bb] chi tất cả rồi cũng [A] đi
 [F] Người có [G] ôn lại ngày [A] xưa
 [Dm] Lệ lại tuôn nhắc chi thêm [G] buồn
 [C] Mai ta sẽ ra đi nơi ngàn [Dm] phương
+
+## Và tôi cũng yêu em
+
+1. Tôi [C] yêu xem một cuốn truyện hay
+
+Tiếng chim hót đầu [F] ngày và yêu biển [C] vắng
+
+Tôi [Dm] yêu ly cafe buổi [G] sáng
+
+Con đường ngập lá [G7] vàng
+
+Tôi [C] yêu hương vị tết ngày xưa
+
+Mái tranh dưới hàng [F] dừa và yêu trẻ [C] thơ
+
+Bữa [Dm] cơm canh cà và điếu [G] thuốc
+
+Giấc ngũ không mộng [G7] mị, và tôi cũng yêu [C] em
+
+&nbsp;
+
+ĐK: Và [C] tôi cũng yêu [Dm] em và [E7] tôi cũng yêu [Am] em
+
+Yêu em rộn [F] ràng yêu em nồng [G7] nàn …
+
+2. Tôi [C] yêu đi bộ dưới hàng cây
+
+Đố vui với bạn [F] bè và ly rượu [C] ngon
+
+Tôi [Dm] yêu trong nhà nhiều cây [G] lá
+
+Và yêu những người [G7] già
+
+Tôi [C] yêu những gì đến tự nhiên
+
+Những câu nói thành [F] thật và yêu ngày [C] nắng
+
+Tôi [Dm] yêu mặc jean và áo [G] trắng
+
+Yêu trăng sáng ngày [G7] rằm và tôi cũng yêu [C] em
+
+&nbsp;
+
+ĐK: Và [C] tôi cũng yêu [Dm] em và [E7] tôi cũng yêu [Am] em
+
+Yêu em rộn [F] ràng yêu em nồng [G7] nàn , yêu em chứa [C] chan
 
 # Nhạc chế
 

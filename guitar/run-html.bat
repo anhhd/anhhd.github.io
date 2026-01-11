@@ -1,0 +1,1 @@
+quarto render guitar.qmd --to html --output index.html
