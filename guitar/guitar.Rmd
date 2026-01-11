@@ -1,0 +1,2268 @@
+---
+title: "Tab guitar"
+output: 
+  html_document: 
+    toc: yes
+    highlight: haddock
+    theme: flatly
+    number_sections: yes
+    toc_float: yes
+    css: style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Nhạc cho Dưa
+
+## Đàn gà con
+
+[F]Trông kia đàn gà [Bb]con lông [F]vàng 
+
+[F]Đi theo mẹ tìm [Bb]ăn trong [F]vườn 
+
+[C]Cùng tìm mồi ăn [F]ngon ngon 
+
+[C]Đàn gà con đi [F]lon ton. 
+
+&nbsp;
+ 
+[F]Thóc vãi rồi nhặt [Bb]ăn cho [F]nhiều 
+
+[F]Uống nước vào là [Bb]no căng [F]diều 
+
+[C]Rồi cùng nhau ta [F]đi chơi 
+
+[C]Đàn gà con xinh [F]kia ơi ! 
+
+## Cả nhà thương nhau
+
+Tone gốc F: Capo 5 
+
+---
+
+&nbsp;
+ 
+Ba thương [C]con vì con giống [Am]mẹ 
+
+Mẹ thương [Dm]con vì [G]con giống [C]ba 
+
+Cả nhà [F]ta cùng thương yêu [C]nhau 
+
+Xa là [G7]nhớ gần nhau là [C]cười. 
+ 
+&nbsp;
+
+Ba thương [C]con vì con giống [Am]mẹ 
+
+Mẹ thương [Dm]con vì [G]con giống [C]ba 
+
+Cả nhà [F]ta cùng thương yêu [C]nhau 
+
+Xa là [G7]nhớ gần nhau là [C]cười. 
+
+Cả nhà [F]ta cùng thương yêu [C]nhau 
+
+Xa là [G7]nhớ gần nhau là [C]cười. 
+
+## Con cò bé bé
+
+Tone gốc F: Capo 5 
+
+---
+ 
+Con [C ]cò bé [Am ]bé nó [F ]đậu cành [Dm ]tre 
+
+Đi không hỏi [F ]mẹ biết [G ]đi đường nào 
+
+Khi [C ]đi em [Am ]hỏi, khi [Dm ]về em [G ]chào 
+
+Miệng [C ]em chúm [Em ]chím mẹ [Dm ]yêu [G ]không [C ]nào. 
+
+## Một gia đình nhỏ một hạnh phúc to
+
+Một nụ cười [C] bé, cha vui cả [Am] ngày
+
+Một vài tiếng [F] khóc, mẹ lo hằng [G] đêm
+
+Thầm cầu mong [Em] cho con sẽ an [Am] lành
+
+Chín tháng sinh [F] thành, một đời yêu [G] thương.
+
+&nbsp;
+
+Một vòng tay [C] lớn ôm con vào [Am] lòng
+
+Một bàn chân [F] to cho con tập [G] đi
+
+Dù ngày mai [Em] kia con lớn nên [Am] người
+
+Nhưng với cha [F] mẹ con mãi bé [G] thơ.
+
+&nbsp;
+
+À ơi à [Am] ơi, con ngủ cho [G] ngoan
+
+Giấc mơ sẽ [C] mang đầy lời mẹ [Am] ru
+
+À ơi à [F] ơi, mãi mãi chúng [G] ta
+
+Một gia đình [E7] nhỏ, một hạnh phúc [Am] to. 
+
+## Twinkle twinkle little star
+
+[Verse 1]
+
+             
+[C] Twinkle, twinkle [F] little [C]star.
+
+[F]How I [C] wonder [G7] what you [C] are.
+
+[C]Up [F]above the [C]world so [G7]high,
+
+[C]Like a [F]diamond [C]in the [G7]sky.
+
+[C]Twinkle, twinkle [F]little [C]star.
+
+[F]How I [C]wonder [G7]what you [C]are.
+
+&nbsp;
+
+[Verse 2]
+
+When the blazing sun is gone,
+
+When he nothing shines upon,
+
+Then you show your little light,
+
+Twinkle, twinkle, all the night. 
+
+Twinkle, twinkle little star.
+
+How I wonder what you are.
+
+&nbsp;
+
+[Verse 3]
+
+In the dark blue sky you keep, 
+
+And often through my curtains peep, 
+
+For you never shut your eye, 
+
+Till the sun is in the sky.
+
+Twinkle, twinkle little star.
+
+How I wonder what you are.
+
+
+## Mary had a little lamb
+
+[A]Mary had a little lamb,
+
+[A]Little lamb, [E]little lamb,
+
+[A]Mary had a little lamb,
+                       
+Its [E]fleece was white [A]as snow
+
+&nbsp;
+
+Everywhere that Mary went,
+
+Mary went, Mary went,
+
+Everywhere that Mary went
+
+The lamb was sure to go
+
+&nbsp;
+
+It followed her to school one day
+
+School one day, school one day
+
+It followed her to school one day
+
+Which was against the rules.
+
+&nbsp;
+
+It made the children laugh and play,
+
+Laugh and play, laugh and play,
+
+It made the children laugh and play
+
+To see a lamb at school
+
+&nbsp;
+
+And so the teacher turned it out,
+
+Turned it out, turned it out,
+
+And so the teacher turned it out,
+
+But still it lingered near
+
+&nbsp;
+
+And waited patiently about,
+
+Patiently about, patiently about,
+
+And waited patiently about
+
+Till Mary did appear
+
+&nbsp;
+
+"Why does the lamb love Mary so?"
+
+Love Mary so? Love Mary so?
+
+"Why does the lamb love Mary so?"
+
+The eager children cry
+
+&nbsp;
+
+"Why, Mary loves the lamb, you know."
+
+Loves the lamb you know, loves the lamb you know
+
+"Why, Mary loves the lamb, you know."
+
+The teacher did reply
+
+&nbsp;
+
+# Nhạc khác
+
+## Ánh trăng nói hộ lòng tôi
+
+Intro:
+
+Sol [C]Mi Rê Đô Sol [Em] Si  
+Si Đô [F]La Si La Sol [C] Mi  
+Sol [C]Mi Rê Đô Sol [Em] Si  
+La Si [F]Đô, Đô Đô Rê Mi [G7]Rê   
+
+Này [C] người yêu hỡi xin [Em] đừng quay bước  
+Vì [Am] em đã [F] trót yêu [C] anh   
+Tiếng yêu [Am] đầu ngại ngùng   
+Dẫu ân [F] tình ngàn trùng   
+Muôn bể [Dm] dâu em nào biết [G7] đâu   
+
+Này [C] người yêu hỡi ân [Em] tình em đó   
+Ngàn [Am] năm như [F] ánh trăng [C] tàn   
+Vẫn muôn [Am] đời dịu dàng   
+Vẫn muôn [F] đời nồng nàn   
+Tha thiết [Dm] yêu dù [G7] tình yêu trái [C] ngang   
+
+ĐK: Ái [C] ân như bọt sóng [Em] trào   
+Tan vỡ [Am] mau bước chân sỏi [C] đá   
+Trái tim em bờ cát [Em] mềm   
+Bàn chân [Am] ai vội vàng in dấu [G7] quên   
+
+Thuyền [C] tình xa bến mê [Em] trời hoang phế   
+Chờ [Am] theo muôn [F] ánh trăng [C] tàn   
+Những đêm [Am] về lạnh lùng   
+Gió mưa [F] nào ngại ngùng   
+Hoen mắt [Dm] em đường [G7] khuya trăng lẻ [C] loi   
+
+---
+
+Version 2: (Lương Bích Hữu)
+
+Từ [C] lâu em đã yêu [Em] thầm anh đó   
+Mà [Am] không dám [F] nói nên [C] lời   
+Nói ra [Am] sợ người cười   
+Lỡ anh [F] chẳng nhận lời   
+Nên cứ [Dm] yêu âm thầm thế [G7] thôi.   
+
+Nhiều [C] khi, em đã mơ [Em] mộng hai đứa   
+Cùng [Am] nhau nghe [F] suối trăng [C] mờ   
+Cả hai [Am] cùng cười đùa   
+Chiếc hôn [F] đầu hẹn hò   
+Dưới ánh [Dm] trăng hẹn [G7] thề với [C] nhau.   
+
+ĐK: Giấc [C] mơ anh là chú [Em] rễ   
+Còn em [Am] là cô dâu rạng [C] rỡ   
+Nắm tay ta cùng ước [Em] nguyện   
+Trọn đời [Am] ta, yêu không cách [G7] xa.   
+
+Từ [C] lâu em đã yêu [Em] thầm anh đó   
+Mà [Am] không dám [F] nói nên [C] lời   
+Ánh trăng [Am] hiểu, được lòng   
+Của em [F] còn ngại ngùng   
+Dẫu đã [Dm] yêu người [G] rồi biết [C] không?   
+
+
+You [C] ask how deep I [Em] feel for you   
+And [Am] how much [F] I love [C] you   
+I am [Am] always true   
+And my [F] love is real   
+The moon [Dm] represents my [G7] heart   
+
+You [C] ask how deep I [Em] feel for you   
+And [Am] how much [F] I love [C] you   
+I won’t [Am] ever change   
+We will [F] be the same   
+The moon [Dm] repre- [G7] sents my [C] heart   
+
+Chorus: Sweet [C] with a gentle [Em] kiss     
+You have [Am] truly won my [C] heart   
+All things and times we [Em] share   
+I re- [Am] member til this [G7] day   
+
+You [C] ask how deep I [Em] feel for you   
+And [Am] how much [F] I love [C] you   
+You can [Am] think of me   
+May be [F] you can see   
+The moon [Dm] repre- [G7] sents my [C] heart   
+
+## Love is blue   
+
+[Dm] Ngát [G] xanh, xanh [C] như khung [F] trời
+
+
+[Dm] Tình yêu màu [Bb] xanh lúc [C] em đã yêu [F] rồi
+
+[Dm] Ấm [G] êm trong [C] đôi tay [F] người
+
+[Dm] Đời bao nồng [Bb] say khi [A7] môi hồng tìm [Dm] môi
+
+&nbsp;
+
+[Dm] Ngát [G] xanh khi [C] em bên [F] chàng
+
+[Dm] Tình yêu màu [Bb] xanh vuốt [C] ve trái tim [F] buồn
+
+[Dm] Đã [G] qua đi [C] cơn mê [F] chiều
+
+[Dm] Mùa xuân vừa [Bb] sang trong [A7] lòng người mình [Dm] yêu
+
+&nbsp;
+
+[D] Tưởng tình [G] ta êm đềm dòng suối [D] mơ
+
+[F#m] Nhưng nắng [Em] lên tình mong [A7] manh như giọt [Dm] sương
+
+&nbsp;
+
+[Dm] Nhớ [G] thương đôi [C] vai rã [F] rời
+
+[Dm] Tình đâu còn [Bb] xanh ngát [C] xanh mắt em [F] cười
+
+[Dm] Tháng [G] năm qua [C] trong âm [F] thầm
+
+[Dm] Đìu hiu đời [Bb] em trong [A7] cơn sầu ngàn [Dm] năm
+
+&nbsp;
+
+[Dm] Xám [G] đen như [C] đêm đông [F] dài
+
+[Dm] Tình sao màu [Bb] đen lúc [C] anh đã đi [F] rồi
+
+[Dm] Khóc [G] lên cho [C] vơi u [F] hoài
+
+[Dm] Trời mưa ngoài [Bb] kia hay [A7] giọt lệ sầu [Dm] rơi
+
+&nbsp;
+
+[Dm] Gió [G] ơi ru [C] chi cơn [F] buồn
+
+[Dm] Tình yêu dở [Bb] dang gẫy [C] đôi cánh thiên [F] thần
+
+[Dm] Xót [G] xa khi [C] đôi tay [F] rời
+
+[Dm] Tình mang màu [Bb] tang chuông [A7] chiều vọng hồn [Dm] em
+
+&nbsp;
+
+[D] Rồi một [G] hôm khi người về lối [D] xưa
+
+[F#m] Nghe ngỡ [Em] ngàng, tình say [A7] xưa vui đại [Dm] dương
+
+&nbsp;
+
+[Dm] Ngát [G] xanh, xanh [C] như trăng [F] thề
+
+[Dm] Tình em lại [Bb] xanh lúc [C] nh đã quay [F] về
+
+[Dm] Cánh [G] tay yêu [C] đương vỗ [F] về
+
+[Dm] Nụ hôn nở [Bb] hoa thay [A7] giọt lệ sầu nhoà [Dm] mi
+
+--------------------------------
+
+[Dm] Sweet, [G] sweet, [C] love is [F] sweet
+
+[Dm] Sweet is my [Bb] life, [C] life in your [F] arms
+
+[Dm] Sweet, [G] sweet, my [C] love is [F] sweet
+
+[Dm] Sweet is my [Bb] life, my [A7] life close to [Dm] you
+
+&nbsp;
+
+[Dm] Blue, [G] blue, [C] love is [F] blue
+
+[Dm] Cradle my [Bb] heart, my [C] loving [F] heart
+
+[Dm] Blue, [G] blue, [C] love is [F] blue
+
+[Dm] Blue like the [Bb] sky which [A7] play in your [Dm] eyes
+
+&nbsp;
+
+[D] Like the [G] water, like the running [D] water
+
+[F#m] Me, my [Em] heart runs [A7] after your [Dm] love
+
+&nbsp;
+
+[Dm] Grey, [G] grey, [C] love is [F] grey
+
+[Dm] My heart [Bb] weeps since [C] you went [F] away
+
+[Dm] Grey, [G] grey, the [C] sky is [F] grey
+
+[Dm] The rain [Bb] falls when you're not [A7] there any [Dm] more
+
+&nbsp;
+
+[Dm] The [G] wind, the [C] wind [F] moans
+
+[Dm] The wind [Bb] weeps since [C] you went [F] away
+
+[Dm] The [G] wind, the [C] cursed [F] wind
+
+[Dm] My heart [Bb] weeps when you're not [A7] there any [Dm] more
+
+&nbsp;
+
+[D] Like the [G] ater, like the running [D] water
+
+[F#m] Me, my [Em] heart runs [A7] after your [Dm] love
+
+&nbsp;
+
+[Dm] Blue, [G] blue, [C] love is [F] blue
+
+[Dm] The sky is [Bb] blue [C] when you [F] return
+
+[Dm] Blue, [G] blue, [C] love is [F] blue
+
+[Dm] Love is [Bb] blue when you [A7] take my [Dm] hand
+
+&nbsp;
+
+[Dm] Mad, [G] mad, [C] love is [F] mad
+
+[Dm] Mad like [Bb] you and [C] mad like [F] me
+
+[Dm] Blue, [G] blue, [C] love is [F] blue
+
+[Dm] Love is [Bb] blue when [A7] I am [Dm] yours
+
+
+## Tình nông cháy (Over and Over)
+
+
+Em không mơ [Am] hoang kiếp sống trên cung [E7] hằng
+
+Em không tham lam diễm phúc trên thiên [Am] đàng
+
+Làm sao em [F] nói cho hết những tâm [C] tình
+
+Ước mơ khiêm [E7] nhường có anh bên [Am] mình
+
+&nbsp;
+
+Anh yêu anh [Am] yêu ơi có những đêm đơn [E7] lạnh
+
+Hôn anh hôn trong mơ thấy xót xa riêng [Am] mình
+
+Tình trong đôi [F] mắt xưa ấy nay đâu [C] rồi
+
+Mất anh đêm [E7] này mất anh muôn [Am] đời
+
+&nbsp;
+
+Anh hay chăng [Am] anh nước mắt em vơi [E7] đầy
+
+Anh nghe chăng anh những tiếng em thở [Am] dài
+
+Gọi tên anh [F] mãi trên gối chăn kỷ [C] niệm
+
+Chỉ nghe trong [E7] lòng tiếc thương âm [Am] thầm
+
+&nbsp;
+
+Như bao cây [Am] xanh trước gió đông cây [E7] vàng
+
+Xa anh hôm nay thấy giấc mơ hoang [Am] tàn
+
+Vòng tay âu [F] yếm em ngỡ như thiên [C] đàng
+
+Đến nay chỉ [E7] là đắng cay bẻ [Am] bàng 
+
+&nbsp;
+
+----------------------------
+
+[Am] I never dare to reach for the [E7] moon
+
+I never tought I'd know heaven so [Am] soon
+
+I couldn't [F] hope to say how I [C] feel
+
+The joy in my [E7] heart no words can [Am] reveal
+
+&nbsp;
+
+[Am] Over and over I whisper your [E7] name
+
+Over and over I kiss you [Am] again
+
+I see the [F] light of love in your [C] eyes
+
+Love is for [E7] ever,no more good [Am] bye
+
+&nbsp;
+
+[Am] Now just a memory the tears that I [E7] cried
+
+Now just a memory the sighs that I [Am] sighed
+
+Dreams that I [F] cherished all have come [C] true
+
+All my[E7] tomorrows I give to [Am] you
+
+&nbsp;
+
+[Am] Life's summer leaves may turn into [E7] gold
+
+The love that we share will never grow [Am] old
+
+Here in your [F] arms no words far [C] away
+
+Here in your [E7] arms forever I'll [Am] stay
+
+## Donna Donna
+
+[Am] Mái nhà [E] xưa yêu dấu,
+
+[Am] Bức tường [E] rêu phong cũ [Am] nơi cậu bé [Dm] qua những [Am] ngày thơ [E] ấu.
+
+[Am] Muốn mình [E] mau khôn lớn, [Am] giữa lụa [E] là yên ấm [Am]
+
+Em ngồi [Dm] ước mơ bước [Am] chân [E] giang [Am] hồ.
+
+&nbsp;
+
+[G] Mơ bay theo cánh [C] chim ngang [Am] trời,
+
+[Dm] biển xa núi chơi [C] vơi.
+
+[G] Mơ bay đi khát [C] khao cuộc [Am] đời. 
+
+Một đêm [E] nhớ tiếng ai ru [Am] hời.
+
+&nbsp;
+
+[E] Donna Donna Donna [Am] ngủ đi nhé.
+
+[Dm] Ngoài trời đường nhiều [G] gió tuyết [C] rơi.
+
+[E] Donna Donna Donna [Am] ngủ đi nhé.
+
+[E] Hãy nằm trong cánh tay của [Am] mẹ.
+
+&nbsp;
+
+Có một [E] người đàn ông, [Am] trước thềm [E] nhà rêu phong
+
+[Am] bỗng ngồi [Dm] khóc nhớ những [Am] ngày thơ [E] ấu.
+
+[Am] Sống đời [E] bao cay đắng, [Am] tóc bạc [E] phai mưa [Am] nắng.
+
+Tay đành [Dm] trắng những giấc [Am] mơ [E] thơ [Am] dại.
+
+&nbsp;
+
+[G] Đi qua bao núi [C] sông gập [Am] ghềnh.
+
+[Dm] Cuộc tình mãi lênh [C] đênh.
+
+[G] Đi qua bao tháng [C] năm vô [Am] tình
+
+Một đêm [E] nhớ tiếng ru mẹ [Am] hiền
+
+&nbsp;
+
+Donna Donna Donna [Am] ngủ đi nhé.
+
+[Dm] Ngoài trời đường nhiều [G] gió tuyết [C] rơi.
+
+[E] Donna Donna Donna [Am] ngủ đi nhé,
+
+[E] Hãy nằm trong cánh tay của [Am] mẹ
+
+&nbsp;
+
+
+---
+
+[Am] On a [E] wagon [Am] bound for [E] market
+
+[Am] There's a [Am] calf with a [Am] mournful [E] eye
+
+[Am] High above [E] him [Am] there's [E] a [Am] swallow
+
+Winging [Dm] swiftly [Am] through [E] the [Am] sky
+
+&nbsp;
+
+[G] How the [C] winds are [Am] laughing
+
+[Dm] They laugh with all their [C] might
+
+[G] Laugh and laugh the [C] whole day [Am] through
+
+And [E] half the summer's [Am] night
+
+&nbsp;
+
+[E] Donna, Donna, Donna, [Am] Donna
+
+[Dm] Donna, Donna, [G] Donna, [C] Don
+
+[E] Donna, Donna, Donna, [Am] Donna
+
+[E] Donna, Donna, Donna, [Am] Don
+
+&nbsp;
+
+"Stop [E] complaining", [Am] said the [E] farmer
+
+[Am] Who told [Dm] you a [Am] calf to [E] be?
+
+[Am] Why don't [E] you [Am] have [E] wings to fly [Am] with
+
+Like the [Dm] swallow so [Am] proud [E] and [Am] free?
+
+&nbsp;
+
+[G] How the [C] winds are [Am] laughing
+
+[Dm] They laugh with all their [C] might
+
+[G] Laugh and laugh the [C] whole day [Am] through
+
+And [E] half the summer's [Am] night
+
+&nbsp;
+
+[E] Donna, Donna, Donna, [Am] Donna
+
+[Dm] Donna, Donna, [G] Donna, [C] Don
+
+[E] Donna, Donna, Donna, [Am] Donna
+
+[E] Donna, Donna, Donna, [Am] Don
+
+&nbsp;
+
+[Am] Calves are [E] easily [Am] bound and [E] slaughtered
+
+[Am] Never [Dm] knowing [Am] the reason [E] why
+
+[Am] But who [E] ever [Am] treasures [E] free [Am] dom
+
+Like the [Dm] swallow [Am] has [E] learned to [Am] fly
+
+&nbsp;
+
+[G] How the [C] winds are [Am] laughing
+
+[Dm] They laugh with all their [C] might
+
+[G] Laugh and laugh the [C] whole day [Am] through
+
+And [E] half the summer's [Am] night
+
+&nbsp;
+
+[E] Donna, Donna, Donna, [Am] Donna
+
+[Dm] Donna, Donna, [G] Donna, [C] Don
+
+[E] Donna, Donna, Donna, [Am] Donna
+
+[E] Donna, Donna, Donna, [Am] Donna
+
+## Người tình mùa đông
+
+Đường vào [C]tim em ôi băng [Em]giá 
+
+Trời mùa [Am]đông mây vẫn hay đi [Em]về 
+
+Vẫn [Dm]mưa mưa rơi trên đường thầm [Am]thì 
+
+Vì [F]đâu mưa em không [G]đến 
+
+&nbsp;
+
+Đường vào [C]tim em mây giăng [Em]kín 
+
+Bàn chân [Am]anh trên lối đi không [Em]thành 
+
+Những [Dm]đêm khuya mưa buồn một [Am]mình 
+
+Có [G]khi cho ta quên cuộc [Am]tình 
+
+&nbsp;
+ 
+Từng cơn [C]mưa hắt hiu bên ngoài song [Em]thưa 
+
+Lắm khi mưa làm hồn [E7]ta nhớ mãi ngày [Am]qua 
+
+Nhớ con [F]phố xưa vẫn âm thầm đợi [C]chờ 
+
+Nhớ đôi vai [Dm]ngoan em sợ trời mưa [Em]gió 
+
+&nbsp;
+ 
+Từng ngày [C]ta vẫn đưa em về qua [Em]phố 
+
+Vẫn chim cao trời mưa [E7]lũ vẫn tiếng buồn [Am]xưa 
+
+Ôi bàn [F]tay ai đã dắt em chiều [G]nay 
+
+&nbsp;
+
+
+## Nhỏ ơi
+
+Lần đầu(Dm) ta gặp nhỏ( C), trong nắng(Am) chiều bay bay(Dm)
+
+Ngập ngừng(Dm) ta hỏi nhỏ( C), nhỏ bảo( C) nhỏ không tên(F)
+
+Ừ thì(Dm) nhỏ không tên( C), bây giờ( C) quen nhé nhỏ(Am), nhỏ ơi(Dm)
+
+&nbsp;
+
+NHỎ ƠI!
+
+&nbsp;
+
+Lần đầu(Dm) ta gặp nhỏ( C), trong nắng(Am) chiều bay bay(Dm)
+
+Ngập ngừng(Dm) ta hỏi nhỏ( C), nhỏ bảo( C) nhỏ không tên(F)
+
+Ừ thì(Dm) nhỏ không tên( C), bây giờ( C) quen nhé nhỏ(Am), nhỏ ơi(Dm)
+
+&nbsp;
+
+Lần này ta gặp nhỏ, trong nắng chiều bay bay
+
+Ngập ngừng ta hỏi nhỏ, nhỏ bảo nhỏ chưa yêu
+
+Ừ thì nhỏ chưa yêu, bây giờ yêu nhé nhỏ, nhỏ ơi
+
+&nbsp;
+
+Lần này(Dm), nhỏ quay đi( C), không thèm( C) nhìn ta nữa(Am)
+
+Giọt sầu(Dm) rơi một mình( C), chỉ còn(Dm) ta một mình( C), nhỏ ơi (Dm)
+
+&nbsp;
+
+Còn gì đâu hỡi người, trong nắng chiều phôi phai
+
+Kỷ niệm ta cùng nhỏ, giờ chỉ là hư vô
+
+Nụ cười là hư vô, xa rồi vẫn nhớ hoài, nhỏ ơi.
+
+&nbsp;
+
+Tình cờ ta gặp nhỏ, trong nắng vàng ban mai
+
+Thẹn thùng ta hỏi nhỏ, nhỏ bảo khờ ghê đi
+
+Ừ thì khờ ghê đi, thương rồi sao chẳng hiểu, nhỏ ơi
+
+&nbsp;
+
+## Chị tôi
+
+[Am] Nhà tôi trên bến [G] sông có chiếc cầu [Am] nhỏ cong cong 
+
+Hàng [C] cau dưới nắng [G] trong lá [Am] trầu không 
+
+[C] Chị tôi trông dễ [Gm] thương bán rau [Dm] chợ cầu Đông í a 
+
+[Am] Chị tôi chưa lấy chồng. 
+
+&nbsp;
+
+[Am] Thời con gái lưng [G] ong có bao người [Am] thầm mong theo 
+
+Mẹ [C] giục con gái [G] yêu lấy [Am] chồng đi 
+
+[C] Chị thương hai đứa [Gm] em thương mẹ [Dm] già con đau í a 
+
+[Am] Chị tôi chưa lấy chồng. 
+
+&nbsp;
+
+[Am] Rồi mẹ tôi khuất [G] xa, chúng tôi không [Am] còn thơ ngây 
+
+Chị [C] lại lo các [G] em chuyện [Am] chồng con 
+
+[C] Ngày chia tay bến [Gm] sông thấy chị [Dm] buồn mà thương í a 
+
+[Am] Chị tôi chưa lấy chồng. 
+
+&nbsp;
+
+[Am] Rồi một đêm sáng [G] trong có một người [Am] đàn ông qua 
+
+Họ [C] về xây chiếc [G] cầu nối [Am] bờ sông 
+
+[C] Gặp chị tôi dễ [Gm] thương mới xin [Dm] lời cầu hôn í a 
+
+[Am] Chị cũng muốn lấy chồng. 
+
+&nbsp;
+
+[Am] Cầu xây xong đã [G] lâu không thấy người [Am] về đưa dâu 
+
+Để [C] chị tôi ngóng [G] chờ mắt lệ [Am] nhòa 
+
+[C] Hàng cau đâu trái [Gm] cau bao lá [Dm] trầu buồn rơi theo 
+
+[Am] Chị tôi chưa lấy chồng. 
+
+&nbsp;
+
+[Am] Nhiều năm xa cách [G] xa tôi trở về làng [Am] quê thăm 
+
+Nhìn [C] hàng cau xác [G] xơ lá trầu [Am] khô 
+
+[C] Mộ chị tôi bé [Gm] xinh đứng bên cầu [Dm] lẻ loi í a
+
+[Am] Mộ người chưa có chồng.
+
+&nbsp;
+
+[F] Chị tôi chưa [G] lấy [Am] chồng.. 
+
+
+## Tình lỡ cách xa
+
+[Am] Một mùa thu [C] qua có [Dm] em bên giấc [E] mộng,
+
+[Am] Tình hồng chưa [C] phai cớ [D] sao em lại [E7] xa
+
+[Am] Từ ng chiếc lá nhẹ [C] rơi đường [D] phố vắng buồn [Am] tênh
+
+Người ra [F] đi khúc biệt [E] ly rất [Am] buồn.
+
+&nbsp;
+
+[Am] Lời nào cho [C] anh phút [Dm] giây ta ấm [E] nồng
+
+[Am] Tình hồng như [C] mơ có [D] em yêu mình [E7] anh,
+
+[Am] Giờ phút cuối nhẹ [C] trôi đường [D] phố vắng mình [Am] em
+
+Người quay [F] lư ng giấc mộng [E] xưa úa [Am] tàn.
+
+&nbsp;
+
+Trời mưa [F] tuôn ngoài đêm [G] vắng nhớ [C] em
+
+Bàn tay [F] anh bao khát [G] khao đợi [E] chờ.
+
+Người [Am] đã đến với [Em] anh thì [F] mãi mãi có [C] nhau
+
+Dù [F] cho bao tháng [G] năm có [C] trôi đi vào quên [E] lãng.
+
+Tình [Am] lỡ nếu cách [Em] xa thì [Dm] mãi mãi nhớ [Am] nhau
+
+Bao câu [F] hát chỉ [G] yêu một [Dm] người [Em] mình [G] em [Am] thôi.
+
+## Hòn đá cô đơn
+
+[C] Có hòn đá cô [G] đơn xa xăm 
+
+[Am] Đứng ở đó cớ [Em] sao một mình
+
+[F] Phải chăng đá cũng [C] thất tình
+
+[Dm] Hòa niềm đau với [G] ta.
+
+ 
+
+[C] Có chị gió bay [G] ngang qua
+
+[Am] Khẽ nhẹ vuốt mát [Em] tâm hồn mình
+
+[F] Này cậu trai [C] thất tình
+
+[G] Buồn làm chi hỡi [C] em.
+
+ 
+
+[C] Có giọt nước rơi [G] trên mi
+
+[Am] Khẽ nhẹ thắm xót [Em] xa trong lòng
+
+[F] Hình như nước cũng [C] biết rằng
+
+[Dm] Nàng đã xa cách [G] ta.
+
+ 
+
+[C] Ôi giọt nước đau [G] thương kia ơi
+
+[Am] Chớ vội khóc khiến [Em] ta thêm buồn
+
+[F] Vì ta cũng đã [C] biết rằng
+
+[G] Nàng đã xa cách [C] ta
+
+ 
+
+[C] Khi người nỡ quay [G] lưng ra đi
+
+[Am] Dẫu còn chút vấn [Em] vương trong lòng
+
+[F] Thì người yêu ơi ta [C] biết rằng
+
+[Dm] Nàng đã xa cách [G] ta.
+
+ 
+
+[C] Ta ôm một chút đau [G] thương thôi
+
+[Am] Dấu thật kín mãi [Em] trong tâm hồn
+
+[F] Vì người yêu ơi ta biết [C] rằng
+
+[G] Nàng sẽ quên mất [C] ta.
+
+
+
+## Vâng trăng khóc
+
+
+
+Đã không [Am] còn người yêu [C] hỡi
+
+Ngày xưa [F] ấy đôi ta bên nhau không [G] rời
+
+Ngồi trên [Am] cát nhìn biển [Dm] đêm
+
+Hát vu [G] vơ mấy câu tình [E7] ca.
+
+ 
+
+Trái tim [Am] buồn vì thương [C] nhớ
+
+Vì đau [F] xót sao đôi ta mau chia [G] lìa 
+
+Đời giông [Am] bão nhiều đắng [Dm] cay
+
+Cuốn trôi [G] mau biết đâu tình [C] nồng.
+
+ 
+
+Thì thôi [Am] em đừng mong [Em] nhớ
+
+Đừng thương [F] tiếc chi [G] thêm đau [C] lòng
+
+Tình chúng [Dm] ta đã phôi [G] pha
+
+Em và [Dm] anh mỗi người một [E7] nơi.
+
+ 
+
+Ngồi nơi [Am] đây mình đơn [Em] côi
+
+Vầng trăng [F] khóc sao [G] rơi sông [C] dài
+
+Tiếc cho [Dm] tôi, tiếc cho [Am] người 
+
+Và cho [F] bao yêu thương đã [G] trao
+
+Gió đông [C] buồn.
+
+ 
+
+Khóc chi [Am] người vì anh [C] biết
+
+Nào ai [F] muốn mai sau chia ly đôi [G] đường
+
+Tình yêu [Am] đến chợt bỏ [Dm] đi
+
+Mấy ai [G] vui với nhau muôn [E7] đời.
+
+ 
+
+Chắc khi [Am] nào tìm duyên [C] mới
+
+Thì anh [F] sẽ mau quên đi bao ân [G] tình
+
+Và em [Am] chúc người mới [Dm] quen
+
+Sẽ bên [G] anh yêu anh thật [C] lòng.
+
+ 
+
+Thì thôi [Am] em đừng mong [Em] nhớ
+
+Đừng thương [F] tiếc chi [G] thêm đau [C] lòng
+
+Tình chúng [Dm] ta đã phôi [G] pha
+
+Em và [Dm] anh mỗi người một [E7] nơi.
+
+ 
+
+Ngồi nơi [Am] đây mình đơn [Em] côi
+
+Vầng trăng [F] khóc sao [G] rơi sông [C] dài
+
+Tiếc cho [Dm] tôi, tiếc cho [Am] người 
+
+Và cho [F] bao yêu thương đã [G] trao
+
+Giấc mơ [C] đầu.
+
+## Cây đàn sinh viên
+
+1. [Em] Đời sinh viên có cây [D] đàn gui-[Em] tar
+
+[C] Đàn ngân lên chúng ta [D] cùng hòa [G] ca  
+
+[Am] Có anh bạn xa [Em] nhà  
+
+[Am] Có cô [D] bạn nhớ [G] cha  
+
+[C] Cất vang [Bm] cùng lời [Em] ca.  
+
+
+2. [Em] Đời sinh viên quý cây [D] đàn [Em] guitar
+
+[C] Nhờ guitar mới quen [D] nàng mời [G] ca
+
+[Am] Buông tiếng đàn, tang [D] tình tang [G] tính
+
+[C] Hát lên [D] bài nhớ [G] thương
+
+[D] Thương mến [Bm] tình đồng [Em] hương.
+
+
+ĐK: [C] Đời sinh viên, sống [D] trong tình bạn [G] thân
+
+[A] Khi anh thấy buồn tôi [D] nâng phím [Em] đàn
+
+[A] Tính tang tình tình [G] tang
+
+[C] Cùng dắt [D] nhau qua những ngày gian [Em] khó
+
+[C] Cùng dắt [D] nhau qua quãng đời sinh [Em] viên
+
+
+[C] Rồi mai đây, bước [D] danh lợi phồn [G] hoa
+
+[A] Khi nghe tiếng đàn ta [D] nhớ năm [Em] nào
+
+[A] Thức suốt đêm dài những [G] ngày thi đến
+
+[C] Giờ nhớ [D] nhau, nhớ nhau thật [G] nhiều
+
+[C] Giờ nhớ [D] nhau, ta ôm đàn [Em] guitar.
+
+## Kiếp ve sầu
+
+1. Từ khi [Am] em không còn về quanh sân
+
+Là lần con [F] phố nghe hoang vắng vô [C] cùng
+
+Ngàn [F] ánh nắng lấp lánh bước [G] theo em đang biến nơi [C] nào. [E7]
+
+
+Ngày chia [Am] ly không còn gì trong tay
+
+Chỉ còn nỗi [F] nhớ với anh suốt đêm [C] dài
+
+Có con [F] sóng ngoài khơi tràn vào thuyền [Em] anh cuốn đi rồi
+
+[F] Những ước [G] mơ sau [Am] cùng.
+
+
+2. Ngày chia [Am] tay anh một đời rêu phong
+
+Một lần sau [F] cuối cho anh thấy mặt [C] người
+
+Cuộc [F] sống vẫn tiếp nối vắng [G] xa nhau anh sống vô [C] chừng. [E7]
+
+
+Còn gì [Am] đâu khi dòng đời chia hai
+
+Chỉ còn nước [F] mắt ôm anh đến muôn [C] đời
+
+Những đêm [F] tối triền miên
+
+Còn một mình [Em] anh tiếc thương hoài
+
+[F] Những dấu [G] yêu trong [Am] đời.
+
+Pre:
+
+[Dm] Anh yêu em yêu say [G] đắm không cần toan [Am] tính nghĩ suy làm [Em] chi
+
+[F] Anh yêu em sao chua [G] xót lãng quên [C] tháng năm. [E7]
+
+
+ĐK:
+Chờ ngày em [Am] đến tiếng hát vút [Em] cao
+
+Chỉ còn tia [Dm] nắng ấm áp bên [Am] đời
+
+Cùng ngàn mây [F] trắng lững lờ vút [G] cao bay lên chốn [C] xa. [E7]
+
+
+Một ngày em [Am] đến góc phố hát [Em] ca
+
+Từng đàn chim [Dm] én chúm chím môi [Am] cười
+
+Là đời anh [F] bớt mệt nhoài hát [G] rong trong kiếp ve [Am] sầu.
+
+## Tình thôi xót xa
+
+1. Từ [G] khi quen em anh đã [Bm] biết bối rối
+
+Vì những [C] lúc thoáng [D] nghe em [G] cười
+
+Anh đã [C] biết con [D] tim yêu [Bm] em mất [Em] rồi
+
+Người yêu [Am] ơi xin em chớ [D7] quên
+
+
+
+2. Ta đang tìm [G] cách quên người, phải [Em] cố quên người
+
+Dù [C] con tim ngu [D7] si vẫn muôn đời [G] nhớ em
+
+Từng [C] chiều qua buồn tênh
+
+Có [Bm] khi tim luôn hỏi [Em] đến em
+
+[Am] Vẫn trông mong mơ ước nay mai sẽ [D7] có em.
+
+
+1. Mùa [G] xuân trên cao ngàn hoa [Bm] lá lấp lánh nắng
+
+Nụ hôn [C] thơ ngây [D] trao em [G] rồi
+
+Em yêu [C] kiều thướt [D] tha cho [Bm] hồn đắm [Em] say
+
+Cuộc [Am] tình ngỡ dài lâu ngủ [C] sâu vòng [A7] tay êm [D7] ái
+
+
+3. Đặt bàn [Em] tay lên khoé môi chiếc [Bm] hôn vẫn xa vời
+
+Đêm [C] vẫn lạnh lùng dù [D] qua phố đông
+
+Người yêu [Em] ơi em biết không vẫn [Bm] say đắm trong lòng
+
+Dù [C] thời gian trôi xa tình [Am] vẫn trao người thiết [D] tha.
+
+
+4. [G] Yêu và chờ, từng [D] giây từng giờ
+
+Người [Em] ơi có nghe lời [Bm] tôi
+
+Để [C] đem thương nhớ gửi [Em] vào trong gió
+
+Gửi [Am] lời này đến [D7] anh
+
+
+3. [G] Khi em thấy cô đơn lòng [D] em nhớ ai
+
+[Em] Anh mong bước chân em về [Bm] trong nắng mai
+
+[C] Đừng mang bóng đêm vô tình [G] về vây kín trong tâm hồn
+
+[Am] Hãy nghe trái [D] tim hát lời yêu [G] thương.
+
+
+5. Vậy thì đành thôi, [Em] Forever, Forever (Forever Alone)
+
+Vậy thì [C] Forever, Forever ([G] Forever Alone) [D]
+
+Vậy thì [Em] Forever, Forever (Forever Alone)
+
+Vậy thì [C] Forever, Forever ([D] Forever [G] Alone)
+
+## Xe đạp ơi
+
+[Dm] Nhớ khi xưa anh chở em [G] trên chiếc xe đạp [Dm] cũ
+
+[Gm] Áo ướt đẫm mồ [C] hôi những [F] trưa [Dm] hè
+
+[Dm] Nhớ khi xưa bao mộng mơ [G] trên chiếc xe đạp [Dm] cũ
+
+[Gm] Dưới cơn mưa cùng [C] nhau dắt [F] qua [Dm] cầu.
+
+
+[Bb] Xe đạp ơi [C] đã xa rồi còn [Dm] đâu
+
+[Bb] Mối tình thơ [C] thoáng như một giấc [F] mơ
+
+[Gm] Xe đạp ơi [Dm] những vất vả ngày ấy
+
+[G] Cho lòng tôi, nhớ thương hoài [A7] chẳng [Dm] nguôi.
+
+
+[Dm] Quay đều [C] quay đều [G] quay đều
+
+[C] Mối tình [F] ngày xưa [A7] yêu dấu
+
+[Dm] Quay đều [C] quay đều [G] quay đều
+
+[C] Nhớ hoài những vòng [Dm] xe.
+
+
+[Dm] Quay đều [C] quay đều [G] quay đều
+
+[C] Mối tình [F] nghèo đơn [A7] sơ quá
+
+[Dm] Quay đều [C] quay đều [G] quay đều
+
+[C] Thương hoài những vòng [Dm] xe.
+
+
+[Dm] Nhớ khi xưa anh chở em [G] trên chiếc xe đạp [Dm] cũ
+
+[Gm] Dưới trăng khuya cùng [C] trao chiếc [F] hôn [Dm] đầu
+
+[Dm] Nhớ khi xưa bao mộng mơ [G] trên chiếc xe đạp [Dm] cũ
+
+[Gm] Ước mong sao tình [C] yêu mãi [F] không [Dm] rời.
+
+## Một nhà
+
+[C] Khi hai ta về [G] một nhà
+
+Khép đôi mi chung [Am] một giường
+
+Đôi khi mơ cùng [F] một giấc
+
+Thức giấc chung một [C] giờ
+
+Khi hai ta chung [G] một đường
+
+Ta vui chung một [Am] nỗi vui
+
+Nước mắt rơi [F] một dòng
+
+Sống chung nhau một [C] đời.
+
+Vẫn ánh mắt ấy sáng long [G] lanh
+
+Như trời cao mây trắng trong [Am] lành
+
+Đến hôm nay anh vẫn chưa thể [F] tin em đã về đây với [C] anh.
+
+
+Nhớ những lúc đứng dưới mái trường [G] xưa
+
+Cùng dừng xe dưới gốc cây trú [Am] mưa
+
+Đến hôm nay ta đã chung một [F] lối
+
+Anh không còn phải đi xa đón [C] đưa.
+
+Ta giờ đây chung trời mây ta cùng đón tương [G] lai
+
+Tay cầm tay ta cùng vui say chân bước đường [Am] dài
+
+Như lời hứa anh đã nói ngay từ phút giây [F] đầu
+
+Chúng ta sẽ về chung một [C] nhà.
+
+Dẫu gian khó dẫu mưa gió ta cùng đón ngày [G] mai
+
+Ta thường nghe sau cơn mưa là trời sẽ nắng [Am] lại
+
+Như lời hứa anh đã nói ngay từ phút giây [F] đầu
+
+Chúng ta đã về chung một [C] nhà.
+
+
+ĐK:
+Khi hai ta về [G] một nhà
+
+Khép đôi mi chung [Am] một giường
+
+Đôi khi mơ cùng [F] một giấc
+
+Thức giấc chung một [C] giờ
+
+Khi hai ta chung [G] một đường
+
+Ta vui chung một [Am] nỗi vui
+
+Nước mắt rơi [F] một dòng
+
+Sống chung nhau một [C] đời.
+
+Rap:
+
+A lô em [C] à anh đang lấy xe, chuẩn bị ra về
+
+Mười tiếng mệt [G] mỏi sau lưng muốn kể với em, ngày dài ghê
+
+Công trường nắng [Am] gió bụi bặm làm anh, mỏi nhừ cả đôi vai
+
+Những chuyện nhỏ [F] to công việc vẫn còn văng vẳng bên tai.
+
+"Này anh hôm [C] nay anh có thể về, về nhà sớm hơn
+
+Buổi tối hôm [G] nay có món anh thích, cả nhà chờ cơm"
+
+Em ơi hôm [Am] nay anh về muộn đang vội đến phòng thu
+
+Bản tin thời [F] sự và mixtape vẫn còn đang ấp ủ.
+
+Anh biết từ [C] khi lấy em anh chẳng mấy khi phụ em được việc nhà
+
+Cuối tuần bận [G] bịu hát hò chẳng cùng em được chuyện gần xa
+
+Đêm ngày lo [Am] viết câu hát về người ta thừa hơi bao đồng
+
+Đi diễn chỗ [F] này chỗ kia tối về với em cũng chỉ có tay không.
+
+Cảm ơn [C] em vì những tháng ngày qua em đã đến bên anh
+
+Cảm ơn [G] em đã là hậu phương cho ước mơ trong anh
+
+Xin lỗi [Am] em vì những tối em thức muộn nhịn đói chờ cơm
+
+Anh rất yêu [F] em và còn bài này anh viết xin tặng hai mẹ con.
+
+## Thần thoại
+
+[Em] [Bm] [C] [Bm]  
+[Em] [D] [C] [D]  
+
+
+1. [Em] Người khuất [D] xa đường [C] về sao thênh thang [G] quá  
+Người [C] gần bước [D] chân vẫn như còn [G] xa  
+Dù [C] lòng nhớ [D] thương người luôn vẫn [G] âm [Em] thầm  
+[C] Mà nói [D] không nên [Em] lời  
+
+2. [Em] Ngày tháng [D] qua, [C] tình trong anh chôn [G] dấu  
+[C] Người biết [D] chăng trái tim này [G] khổ đau  
+Lòng [C] hoài ngóng [D] trông được nghe bước [G] chân em [Em] về  
+[C] Mà cứ [D] như vô [Em] tình.  
+
+ĐK:  
+Người ơi [Em] anh có biết em [Bm] đang chờ, [C] lời yêu [D] anh dấu [G] kín  
+Mà sao [Em] em vẫn thấy anh [Bm] âm thầm [C] mình anh [D] với cô [G] đơn  
+Giờ ta [Em] đây đã đến bên [Bm] nhau rồi [C] mà sao [D] anh chẳng [G] nói  
+Thời gian [Em] trôi em vẫn luôn [Bm] mong chờ [C] mình sẽ [D] mãi bên [G] nhau  
+
+## Hòn đá cô đơn
+
+[C] Có hòn đá cô [G] đơn xa xăm
+[Am] Đứng ở đó cớ [Em] sao một mình
+[F] Phải chăng đá cũng [C] thất tình
+[Dm] Hòa niềm đau với [G] ta.
+
+[C] Có chị gió bay [G] ngang qua
+[Am] Khẽ nhẹ vuốt mát [Em] tâm hồn mình
+[F] Này cậu trai [C] thất tình
+[G] Buồn làm chi hỡi [C] em.
+
+[C] Có giọt nước rơi [G] trên mi
+[Am] Khẽ nhẹ thắm xót [Em] xa trong lòng
+[F] Hình như nước cũng [C] biết rằng
+[Dm] Nàng đã xa cách [G] ta.
+
+[C] Ôi giọt nước đau [G] thương kia ơi
+[Am] Chớ vội khóc khiến [Em] ta thêm buồn
+[F] Vì ta cũng đã [C] biết rằng
+[G] Nàng đã xa cách [C] ta
+
+[C] Khi người nỡ quay [G] lưng ra đi
+[Am] Dẫu còn chút vấn [Em] vương trong lòng
+[F] Thì người yêu ơi ta [C] biết rằng
+[Dm] Nàng đã xa cách [G] ta.
+
+[C] Ta ôm một chút đau [G] thương thôi
+[Am] Dấu thật kín mãi [Em] trong tâm hồn
+[F] Vì người yêu ơi ta biết [C] rằng
+[G] Nàng sẽ quên mất [C] ta.
+
+## Tây vương nữ quốc
+
+1. Người yêu [C] ơi, em [Em] có thấu chăng lòng [Am] anh
+
+
+Dù xa [C] cách, năm [F] tháng làm ta mất [C] nhau
+
+Vậy nên [Am] anh vẫn yêu và mãi [Dm] yêu mình em
+
+Suốt [G] đời anh chỉ yêu mãi mình [C] em
+
+[C] Đường đời ai biết đâu ngày [Am] mai
+
+[G] Dòng đời ai biết đâu sau [C] này
+
+Tình của anh mãi [Em] mãi chỉ trao về [Am] em
+
+Người yêu [C] hỡi xin [F] hãy cùng anh bước [C] đi
+
+Về nơi [Am] xa chung sống nguyện ước [Dm] mơ trọn đôi
+
+Suốt [G] đời anh chỉ yêu mãi mình [C] em
+
+2. Và không [C] tin năm [Em] tháng sẽ trả lời [Am] nhau
+
+Một ngày [C] kia em [F] sẽ hiểu anh [C] rõ hơn
+
+Lời anh [Am] nói yêu em bằng cả trái [Dm] tim nguyện yêu em
+
+Suốt [G] đời anh chỉ yêu mãi mình [C] em
+
+
+[C] Dòng đời ai biết đâu ngày [Am] mai
+
+[G] Cuộc đời ai biết đâu sau [C] này
+
+Tình của anh mãi [Em] mãi chỉ trao về [Am] em
+
+Người yêu [C] hỡi xin [F] hãy cùng anh sánh [C] đôi
+
+Về nơi [Am] xa chung sống nguyên ước [Dm] mơ cùng đôi
+
+Suốt [G] đời anh chỉ yêu mãi mình [C] em
+
+-------------------
+
+1. Người yêu [C] ơi, em [Em] có thấu chăng lòng [Am] anh
+
+Dù năm [C] tháng, xa [F] cách làm ta mất [C] nhau
+
+Dù tương [Am] lai còn xa dù khó [Dm] khăn vượt qua
+
+Anh vẫn [G] chờ anh xin yêu mãi mình [C] em
+
+2. Và không [C] tin sóng [Em] gió mãi trao về [Am] anh
+
+Ngày nào [C] đó em [F] sẽ hiểu anh rõ [C] hơn
+
+Vậy nên [Am] anh phải tin và chỉ [Dm] yêu mình em
+
+Suốt [G] đời anh chỉ yêu mãi mình [C] em
+
+3. Rồi thời gian sẽ không nhạt [Am] phai
+
+Rồi thời [C] gian sẽ không xóa [Em] nhòa
+
+Lời anh [F] nói yêu [C] em bằng cả trái [C] tim
+
+Nguyện yêu em suốt [Em] đời anh [G] chỉ yêu mãi mình [C] em
+
+-------------------
+
+Chiều hoàng [C] hôn, mây [Em] tím lững lờ hồn [Am] vương
+
+Tình lưu [C] luyến ánh [F] mắt gợi bao mến [C] thương
+
+Người sao [Am] nỡ, sao nỡ đành phũ [Dm] phàng để cho
+
+nỗi [G] sầu, ngày đêm buốt giá hồn [C] em
+
+[C] Hẹn từ kiếp trước nay mới gặp [Am] nhau
+
+[G] Dãi dầu năm tháng vẫn trong tim [C] người
+
+Chuyện tình yêu thắp [Em] sáng ước mơ thủy [Am] chung
+
+Nào ngờ [C] đâu duyên [F] kiếp đành dở [C] dang
+
+Người ra [Am] đi tan giấc mộng lứa [Dm] đôi uhm uh
+
+Giọt nước mắt [G] nào rơi xuống trên bến biệt [C] ly
+
+[C] Giờ này hai đứa cách xa mù [Am] khơi
+
+[G] Một lần gặp gỡ không nên duyên [C] nợ
+
+
+Chuyện tình yêu thắp [Em] sáng ước mơ thủy [Am] chung
+
+Nào ngờ [C] đâu duyên [F] kiếp đành dở [C] dang
+
+Người ra [Am] đi tan giấc mộng lứa [Dm] đôi uhm uh
+
+Giọt nước mắt [G] nào rơi xuống trên bến biệt [C] ly
+
+Đành chờ trong giấc [G] mộng, nụ hôn yêu dấu đợi [C] trao
+
+## Tình đơn phương
+
+1. [Em] Nhiều lần ngập ngừng muốn ngỏ ý, tiếng yêu [D] đương sao không thành [Em] câu
+
+[Em] Sợ rằng đường về không còn xa để bên [D] em anh đưa lối [Em] về
+
+2. [Em] Nhiều lần trộm nhìn em thật lâu, nét thơ [D] ngây chưa vương sầu [Em] lo
+
+[Em] Nàng đẹp tựa ngàn muôn ánh sao dịu dàng mong [D] manh em xinh như cánh hoa [Em] đào
+
+Pre:
+
+Tình đơn [G] phương đôi [Am] khi thấy em cười [D] vui lòng anh xao [Em] xuyến
+
+Nàng ơi [C] hay biết chăng [Bm] anh đã yêu từ [Em] lâu
+
+ĐK
+
+[Em] Đôi khi bên em thơ ngây [D] mà dằn lòng đừng nói ra
+
+[Am] E con tim trinh nguyên vương tình [Em] sầu chất ngất
+
+[C] Sợ nụ hồng phai [D] nhanh em hờn em [G] dỗi anh mang cô đơn trên lối [B7] về.
+
+[Em] Anh xin yêu em đơn phương [D] thà rằng mình đừng nói ra
+
+[Bm] Để mai đây bên em ta chung [Em] về lối cũ
+
+[C] Dù lòng nhiều đớn [D] đau yêu em từ [Em] lâu
+
+## Tái sinh
+
+1. [Em] Cơn mưa rơi tưới mát tâm [Bm] hồn
+Nhẹ nhàng và [Am] cơn mưa như đang tái sinh [Bm] ta
+[Em] Cơn mưa mang em đến bên [Bm] đời
+Dịu dàng và [Am] sau cơn mưa tim [B7] cũng nở [Em] hoa.
+
+T-ĐK:
+Bầu trời xanh [Em] đến lạ nắng tưới lên hàng [Bm] lá non
+Ban mai ôm lấy [Am] tâm hồn từ khi em ghé [Bm] qua
+Và tình yêu [Em] bắt đầu khi ta nhìn vào [Bm] mắt nhau
+Anh thấy tim [Am] mình tái [B7] sinh sau nhiều cơn [Em] đau.
+
+ĐK:
+Chìm vào [Em] trong ánh mắt đắm đuối anh ngỡ [Bm] mình như đang đôi mươi
+Người làm [Am] anh biết yêu đắm say như tình [Bm] đầu
+Một vì sao [Em] sáng giữa bóng tối ban mai [Bm] về sau cơn mưa rơi
+Tái sinh [Am] anh từ đống tro [B7] tàn tình [Em] yêu.
+
+2. [Em] Chỉ cần một ánh mắt [Bm] mọi muộn phiền chợt biến mất
+[Am] Dịu dàng và ngây thơ [Bm] như tái sinh linh hồn
+[Em] Thì thầm vào bên tai [Bm] chẳng buồn nào là mãi mãi
+[Am] Cũng sẽ đến [B7] khi mờ [Em] phai.
+
+T-ĐK:
+Bầu trời xanh [Em] đến lạ nắng tưới lên hàng [Bm] lá non
+Ban mai ôm lấy [Am] tâm hồn từ khi em ghé [Bm] qua
+Và tình yêu [Em] bắt đầu khi ta nhìn vào [Bm] mắt nhau
+Anh thấy tim [Am] mình tái [B7] sinh sau nhiều cơn [Em] đau.
+
+ĐK:
+Chìm vào [Em] trong ánh mắt đắm đuối anh ngỡ [Bm] mình như đang đôi mươi
+Người làm [Am] anh biết yêu đắm say như tình [Bm] đầu
+Một vì sao [Em] sáng giữa bóng tối ban mai [Bm] về sau cơn mưa rơi
+Tái sinh [Am] anh từ đống tro [B7] tàn tình [Em] yêu.
+
+## Sầu tím thiệp hồng
+
+1. Từ lúc quen [Dm] em chưa nói một lời [Gm] nào tỏ [C] tình ta [F] mến nhau
+
+Nhiều đêm ngắm [Bb] sao mà ước duyên mình bền [F] lâu suốt [D7] đời tình [Gm] khắc sâu
+
+Nhớ thương đầy [C] vơi, mộng [Am] thấy ai mỉm [Bb] cười làn môi xinh tuyệt [Dm] vời
+
+Để rồi buồn [Gm] ơi, ánh [Dm] trăng soi còn [F] đó và nghe hơi [A7] gió biết rằng mình vừa [Dm] mơ [C][Dm]
+
+ĐK: Khi [Bb] yêu hồn như nở hoa xây [F] mộng tuyệt vời
+
+Nắm tương lai [Bb] trong bàn tay [C] một câu [F] nói thôi
+
+Đôi [Gm] khi gặp nhau, muốn khơi nhưng [F] rồi lại thôi
+
+Nói ra e [A7] lời thoảng theo gió trôi
+
+Hôm [Bb] nay nhìn xe kết hoa xuôi [F] ngược nẻo đường
+
+Gửi thư trao [Bb] cho người thương [C] vài câu [F] luyến thương
+
+Hân [Gm] hoan hồn như nở hoa trông [F] chờ hồi âm
+
+Đắng cay trong [A7] lòng chỉ thấy thiệp [Dm] hồng [C][Dm]
+
+2. Chiều tím không [Dm] mây, đường cũ bước lần [Gm] đi buồn [C] nghe day [F] dứt tim
+
+Nhìn xe kết [Bb] hoa màu trắng ngỡ rằng mình [F] mơ pháo [D7] hồng mừng [Gm] tiễn đưa
+
+Lá thu chậm [C] rơi từng [Am] lá nghe buồn [Bb] buồn tưởng bước ai tìm [Dm] về
+
+Mở rộng vòng [Gm] tay đón [Dm] em nhưng nào [F] thấy sầu dâng lên [A7] tím biết bao giờ cho [Dm] khuây
+
+## Tình xưa nghĩa cũ
+
+[Dm] Đời bể dâu [G] ai biết sao ngày mai
+[Bb] Tình mới [C] đây nhưng vội [Dm] phai
+[F] Ðời phù du [G] tay trắng hay sang giàu
+[F] rồi sẽ [G] đi về [Am] đâu ?
+
+Người [Dm] đi ta còn [Am] đây
+Nhìn [Dm] quanh thế gian đổi [Gm] dời
+Trời [Dm] đất vẫn ngàn [C] năm
+Hận làm [Bb] chi tất cả rồi cũng [A] đi
+
+[Dm] Tiền là giấy [G] ta mất nhau vì đây
+[Bb] Đừng nói [C] chi ân tình [Dm] xưa
+[F] Người giàu sang [G] quên mất khi cơ hàn
+[F] Tình nghĩa [G] thâm sâu vùi [Am] mau
+[Dm] Lòng quặn đau thế [G] nhân xa rồi
+[C] Sao nỡ quên khi xưa ta [Dm] nổi trôi
+
+[Dm] Tình là máu [G] xưa máu rơi vì nhau
+[Bb] Mình khóc [C] nhau khi biệt [Dm] ly
+[F] Người giờ đây [G] vui sướng hay ưu sầu
+[F] Người có [G] ôn lại ngày [A] xưa
+[Dm] Lệ lại tuôn nhắc chi thêm [G] buồn
+[C] Mai ta sẽ ra đi nơi ngàn [Dm] phương
+
+# Nhạc chế
+
+## Huyền thoại rượu
+
+(Em)Ai trên đời chẳng uống (Am)rượu 
+
+mà đã uống rượu là (Em)phải say. 
+
+Rượu mà uống không say(Dm) 
+
+không phải hay uống (Em)rượu,
+
+không phải hay uống rượu (Am)
+
+mà rượu  là rượu mà(Am) bia là bia
+
+&nbsp;
+
+Ai trên đời chẳng sợ vợ, mà chẳng sợ vợ thì sợ ai
+Thủa con bé t hi sợ ma, khi làm cha thì sợ vợ
+Vô sinh viên thì sợ nợ, mà nợ thì nợ mà chơi thì chơi
+
+&nbsp;
+
+Đêm mắc màn ngủ với vợ, nghe đến rượu rồi lại đi
+Vợ mà nói năng chi đây là cho 1 đạp
+Đấy là cho 1 đạp mà vợ là vợ mà ta là ta
+
+&nbsp;
+
+Vợ cầm chén liên tay ta cầm chai ta đập lại
+Trong cuộc chiến điêu tàn mà vợ là vợ mà ta là ta
+Vợ thì vi như cơm em thì ví như hàng phở
+Cơm mà khê thì đi ăn phở, mà phở là phở mà cơm là cơm
+
+&nbsp;
+
+Ai trên đời chẳng uống rượu mà đã uống rượu là phải say
+Rượu thì năm ba chai bia thì vài ba vại
+Ai uống bia thì đừng uống rượu mà đã uống rượu thì đừng uống bia
+
+&nbsp;
+
+Ai trên đời chẳng sợ vợ, mà chẳng sợ vợ thì sợ ai
+Vợ là đấng tối cao hay là con sư tử nhưng mà ta kết bạn cho đời bớt cô đơn
+Vì hạnh phúc quốc gia, ta phải đi cho bằng được
+Ai nói xuôi nói ngược mà vợ là vợ mà ta là ta
+
+&nbsp;
+
+Ai trên đời mà chẳng sợ, chẳng sợ mẹ thì sợ ba, hồi còn bé ngán Ma, sang Balan thì sợ nợ, nhưng mà ta không sợ, nợ nhiều thì (ta) bùng luôn.
+
+---
+
+&nbsp;
+
+Khi vô trường là phải học, mà đã học là phải thi, Bộ quy chế mới ra, “thi lần ba mà chẳng được”, thi lần tư cũng chẳng sợ, đuổi học thì về quê.
+
+&nbsp;
+
+Khi ra trường là bỏ rượu, mà bỏ rượu là tợp bia, mình chỉ uống bia hơi, ai thảnh thơi mà tợp rượu, ta kĩ sư tiền triệu, phải bỏ rượu, tợp bia.
+
+&nbsp;
+
+Bia bao giờ chẳng có bọt, chẳng có bọt chẳng phải bia, và từ rất xưa kia, bia mà ngon là nhờ bọt, không phải chua, không phải ngọt, càng nhiều bọt càng ngon.
+
+&nbsp;
+
+Hôm nay ngồi mà nhớ lại, cuộc tình đầu ngày xưa, tình thì rất đắm say, em lại đi lấy chồng, để mình anh chờ đợi, em làm tội đời anh.
+
+&nbsp;
+
+Đêm chong đèn ngồi nhớ rượu, buộc hai cẳng phải đi, dù vợ có mắng ta, ta phải đi bằng được, ai làm chi cũng mặc, vợ không thể cản ta.
+
+&nbsp;
+
+Vui hay buồn mình cũng nhậu, mà đã nhậu là phải say. Rượu mà uống đếch say, đếch thấy hay của rượu, ai làm chi ta cũng mặc, vì đã nhậu là phải say.
+
+&nbsp;
+
+Đi mua rượu về mới nhậu, vợ cũng nhậu cùng ta, vợ cầm bát ném ta, ta cầm chai đập lại, sau trận chiến tơi bời, vợ gục dưới chân ta.
+
+&nbsp;
+
+Vợ trên đầu, vợ trên cổ, vợ làm khổ đời ta, vợ ngoan ngoãn ta thương, vợ đành hanh ta nện, có gì đâu mà sợ, vợ là vợ của ta.
+
+&nbsp;
+
+Ai trên đời chẳng lấy vợ, vợ là nợ đời ta. Thà rằng cứ như ta, ta thà ly dị vợ, để từng đêm đi nhậu, chẳng sợ vợ rầy la.
+
+&nbsp;
+
+Đêm chong đèn ngồi đếm bạc, tờ năm chục màu xanh, mẹ cầm súng đứng canh, con cầm dao ngồi cạnh, đừa nào vô thì khó chạy, mẹ là mẹ của ta.
+
+## Tính sai
+
+[Em] Ba mươi lăm nhân với năm [Bm] chục
+
+Cộng mười ba [Em] nhân ba nhân hai tám chia [Bm] năm
+
+[Em] Chia ba lăm nhân sáu chia [Bm] mười
+
+Trừ một trăm [Em] nhân hai ba chia [Dm] bảy trừ [Em] ba
+
+Cộng thêm ba [Em] chín trừ sáu tám chia mười [Bm] bốn
+
+Trừ ba mươi nhân bốn [Am] lăm trừ mười hai chia sáu [Bm] ba
+
+Trừ năm nhân cho [Em] sáu trừ hai mươi cộng thêm [Bm] tám chục
+
+Tất cả trong [Am] ngoặc, mũ [B7] hai chia phần một [Em] trăm
+
+Trừ mười [Em] nhân tám mốt chia chín
+
+Nhân một [B7] phần ba lăm chia năm
+
+Cộng thêm [Am] hai sáu chia tám lăm chia một [Bm] trăm
+
+Cộng mười [Am] nhân thêm cho hai lăm
+
+Nhân cho [B7] mười chia cho ba trăm
+
+Tính cho [Am] nhanh đáp [D] án ra được bao [Em] nhiêu
+
+Tính cho [Am] nhanh đáp [D] án ra được bao [Em] nhiêu
+
+Hãy giúp [Am] tôi bằng [D] cách bình luận phía [Em] dưới
+
+# Nhạc nước ngoài
+
+## Sound of silence
+
+Capo 6
+
+[A] Hello darkness my old [G]friend 
+
+I've come to talk with you [Am]again 
+
+Because a [C]vision soft [F]ly [C]creeping 
+
+Left his seeds while I [F]was [C]sleeping 
+
+And the [F]vision that was planted in my [C]brain 
+
+Still re [Am]mains within the [G]sound of [Am]silence.
+ 
+Verse 1:
+
+In restless dreams I walked [G]alone 
+
+Narrow streets of cobbled [Am]stone 
+
+'Neath the [C]halo of a [F]street [C]lamp 
+
+I turned my collar to the [F]cold and [C]damp 
+
+When my [F]eyes were stabbed by the flash of a neon [C]light 
+
+That split the night [Am]
+
+[C]and touched the [F]sound of [Am]silence. 
+ 
+Verse 2:
+
+And in the naked light I [G]saw 
+
+Ten thousand people maybe [Am]more 
+
+People [C]talking with [F]out [C]speaking 
+
+People [C]hearing with [F]out [C]listening 
+
+People writing [F]songs that voices never [C]share 
+
+And no one dare [Am]
+
+[C]disturb the [G]sound of [Am]silence 
+ 
+Verse 3:
+
+Fools said I you do not [G]know 
+
+Silence like a cancer [Am]grow 
+
+Hear my [C]words that I [F]might teach [C]you 
+
+Take my arm that I [F]might reach [C]you 
+
+But my [F]words like silent raindrops [C]fell  [Am]
+
+And [C] echoed in the [G]well of [Am] silence 
+ 
+Verse 4:
+
+And the people bowed and [G]prayed 
+
+To the neon god they [Am]made 
+
+And the [C] sign flashed out [F]its war[C]ning 
+
+In the words that it [F]was [C]forming 
+
+And the sign said
+
+The [F]words of the prophets are written on the subway [C]walls 
+
+And tenement halls [Am]
+
+and [C]whispered in the [C]sound of [A]silence
+
+## Remember when
+
+[G] [Em] [C] [D] (2x)
+
+Remember [G]when [Em]... I was young [C] and so were you [D]  
+
+And time [G]stood [Em]... still and [C] love was all we [D] knew  
+
+You were the [G] first, so was [Em] I  
+We made [C] love and then you [D] cried  
+Remember [G] when [Em]... [C]... [D]...  
+Remember [G] when [Em]... we vowed [C] the vows  
+And walked the [D] walk  
+Gave our [G] hearts, [Em] made [C] the start, and it [D] was hard  
+We lived and [G] learned, life threw [Em] curves  
+There was [C] joy, there was [D] hurt  
+Remember [G] when [D]  
+Remember [G] when [Em] old [C] ones died and new [D] were born  
+And life was [G] changed, [Em] disas [C] sembled, [D] rear ranged  
+We came [G] together, [Em] fell apart  
+And [C] broke each other's [D] hearts  
+Remember [G] when [G7]  
+[G] [G]  
+[G] [E]  
+Remember [A] when [F#m] the [D] sound of [E] little feet  
+Was the [A] music [F#m]  
+We [D] danced to week [E] to week  
+Brought back the [A] love, we found [F#m] trust  
+Vowed we'd [D] never give it [E] up  
+Remember [A] when [E]  
+Remember [A] when [D] thirty seemed so [E] old  
+Now lookin' [A] back, [F#m] it's [D] just a [E] steppin' stone  
+To where we [A] are,  
+Where we've [F#m] been  
+Said we'd [D] do it all [E] again  
+Remember [A] when [E]  
+Remember [A] when [F#m] we [D] said when we [E] turned gray  
+When the [A] children [F#m] grow [D] up and [E] move away  
+We won't be [A] sad, we'll be [F#m] glad  
+For [D] all the life we've [E] had  
+And we'll remember [A] when [E]  
+Remember [A] when [E]
+
+## Proud of you
+
+Intro: [C] [G] [Am] [Em] [F] [C] [Dm7] [G] [G7]
+
+[C] Love in your [G] eyes  
+Sitting [Am] silent by my [Em] side  
+Going [F] on holding [C] hand  
+Walking [Dm7] through the [G] nights  
+
+Hold me [C] up hold me [G] tight  
+Lift me [Am] up to touch the [Em] sky  
+Teaching [F] me to love with [C] heart  
+Helping [Dm] me open my [G] mind  
+
+Chorus:  
+I can [C] fly  
+I'm [G] proud that I can [Am] fly  
+To [Em] give the best of [F] mine  
+Till [C] the end of the [Dm] time  
+
+Be [G7] lieve me I can [C] fly  
+I'm [G] proud that I can [Am] fly  
+To [Em] give the best of [F] mine  
+The [G7] heaven in the [C] sky  
+
+[C] Stars in the [G] sky  
+Wishing [Am] once upon a [Em] time  
+Give me [F] love make me [C] smile  
+Till the [Dm7] end of [G] life.  
+
+Hold me [C] up hold me [G] tight  
+Lift me [Am] up to touch the [Em] sky  
+Teaching [F] me to love with [C] heart  
+Helping [Dm] me open my [G] mind  
+
+I can [C] fly  
+I'm [G] proud that I can [Am] fly  
+To [Em] give the best of [F] mine  
+Till [C] the end of the [Dm] time  
+
+Be [G7] lieve me I can [C] fly  
+I'm [G] proud that I can [Am] fly  
+To [Em] give the best of [F] mine  
+The [G7] heaven in the [C] sky  
+
+Dạo giữa: [C]- [C/Bb]- [F/A]- [G7]- [C]- [C/B]- [F]- [G7]  
+
+[F] Can't you be [G] lieve that you light [Em] up my [Am] way  
+No matter [Dm] how that ease my path  
+I'll [G7] never lose my [G] faith  
+
+Chorus:  
+See me [C] fly  
+I'm [G] proud to fly up [Am] high  
+Show [Em] you the best of [F] mine  
+Till [C] the end of the [Dm] time  
+
+Be [G7] lieve me I can [C] fly  
+I'm [G] singing in the [Am] sky  
+Show [Em] you the best of [F] mine  
+The [G7] heaven in the [C] sky  
+
+[F] Nothing can [C/E] stop me  
+[Dm7] Spread my [G] wings so [C] wide --- [Am]--- [F]--- [G]--- [C]
+
+
+## Forever
+
+1. I [Am] stand a-[Em] lone in the [F] dark-[C] ness
+
+The [Dm] winter of [G] my life [Am] came so [E] fast
+
+[Am] Memories [Em] go back to [F] child-[C] hood
+
+[Dm] Todays I [G] still re-[Am] call
+
+2. [Am] Oh how [Em] happy I [F] was [C] then
+
+[Dm] There was no [G] sorrow [Am] there was no [E] pain
+
+[Am] Walking [Em] through the [F] green [C] fields
+
+[Dm] Sunshine [G] in my [Am] eyes
+
+
+Chorus: I'm still [F] there every-[G] where
+
+I'm the [C] dust [G] in the [Am] wind
+
+I'm the [F] star in the [G] northern [Am] sky
+
+
+I never [F] stayed any-[G] where
+
+I'm the [C] wind [G] in the [Am] trees
+
+Would you [F] wait for [G] me for-[Am] ever ?
+
+[Am] [Em] [F] [C]
+
+[Dm] [G] [Am] [E]
+
+Would you [F] wait for [G] me for-[Am] ever ?
+
+Would you [F] wait for [G] me for-[Am] ever ?
+
+# Nhạc thiền
+
+## Nhất thanh phật hiệu nhất thanh tâm
+
+Intro:
+
+[Am][Em]-[Dm][Am]
+
+[Dm][Am][Em]-[Dm][Am][Em]
+
+[Am][C]-[Am][G][Am]
+
+1. [Am] Dòng thời [Em] gian chẳng chừa một [Am] ai
+
+Rồi tất [F] cả chúng [C] ta sẽ là tích [Am] xưa
+
+[C] Ngồi than thở gió [G] mưa, [C] hờn ganh ghét thêm [Am] thừa
+
+[Dm] Nhìn lại ta chữ [Em] tình có thật lòng [Am] chưa
+
+2. [Am] Dòng thời [Em] gian chẳng chừa một [Am] ai
+
+Lặng im [F] tiếng thế [C] nhân lấy trọn tuổi [Am] xuân
+
+[C] Vòng sinh tử tử [G] sinh, [C] chuyện nhân thế khôn [Am] lường
+
+[Dm] Từ ngày xưa đã [Em] vậy đến vạn đời [Am] sau
+
+3. [Am] Nhìn lại [Em] ta những chặng đường [Am] qua
+
+Nhiều vui [F] sướng sướng [C] vui hay nhiều xót [Am] xa
+
+[C] Mừng cho ai gấm [G] hoa, [C] thầm thương kiếp không [Am] nhà
+
+[Dm] Đời hèn sang đổi [Em] phận nhớ đừng dèm [Am] pha
+
+4. [Am] Nhìn mẹ [Em] cha nắng nhạt màu [Am] da
+
+Bạc phai [F] mái tóc ốm [C] đau cũng vì chúng [Am] ta
+
+[C] Phận làm con hiểu [G] ra, [C] đời chữ hiếu cho [Am] tròn
+
+[Dm] Để còn nghe mỗi [Em] đêm giấc mộng vàng [Am] son
+
+5. [Am] Nhìn lại [Em] ta nửa đoạn đường [Am] đi
+
+Điều sai [F] đúng đúng [C] sai phải thường nghĩ [Am] suy
+
+[C] Lợi danh khi đến [G] đi, [C] đời qua tuổi xuân [Am] thì
+
+[Dm] Trầm ngâm ta ngoảnh [Em] lại kiếp người còn [Am] chi
+
+6. [Am] Nhìn lại [Em] ta ấm một thời [Am] này
+
+Đừng quên [F] nhé sớt [C] chia những điều phước [Am] may
+
+[C] Đời nay ai chẳng [G] sai, [C] nào ai luôn đúng [Am] hoài
+
+[Dm] Lòng vị ta giúp [Em] ta giúp người vượt [Am] qua
+
+7. [Am] Ngồi bên [Em] nhau nhắc chuyện ngày [Am] sau
+
+Đời con [F] cháu lớn [C] lên nghĩa tình với [Am] nhau
+
+[C] Đừng gây ra cách [G] xa, [C] để mình sống chan [Am] hòa
+
+[Dm] Cùng hoa chung khúc [Em] nhạc giữa đời hồng [Am] hoa
+
+8. [Am] Mùa xuân [Em] sang đất trời bình [Am] an
+
+Tình xưa [F] nghĩa cũ hãy [C] thôi khóc hận oán [Am] than
+
+[C] Giận hờn nhau mãi [G] sao? [C] tình thương thắp lên [Am] nào
+
+[Dm] Từ bi cho trái [Em] tim giấc mộng bình [Am] an
+
+## Om mani padme hum
+
+[Dm] Om mani padme hum
+
+[C] Om mani padme hum
+
+[F] Om mani [Dm] padme hum
+
+[G] Om mani [Am] padme hum
+
+## Độ ta độ nàng
+
+Tone chuan Eb.  Capo 3 choi C.   Tone [C]
+
+Vòng hợp âm: [F] [G] [Em] [Am] [Dm] [G] [Am]
+
+Điệu Ballad
+
+Phật từ bi luôn soi [F]sáng, dẫn lối cứu độ muôn [G]loài
+
+Mà vì lòng ta thờ [Em]ơ. Ái ố si mê phủ [Am]mờ
+
+Đường vàng chân lý đón [Dm]chờ, còn mình cứ mãi mộng [G]mơ
+
+Chọn con đường vương sầu [Am]nhớ, ngủ vùi thân tâm xác [Am]xơ
+
+Phật độ mà người không [F]thấy, cứ mãi mê lầm đắm [G]chìm 
+
+Từng lời Kinh thiêng dần [Em]xa, chẳng biết đâu là Chánh [Am]-Tà
+
+Để rồi phật đang rất [Dm]gần, mà mình cứ ngỡ thật [G]xa
+
+Để cho tình thương vụt [Am]qua vội vàng. 
+ 
+Dạo: [F] [G] [Em] [Am] [Dm] [G] [Am]
+ 
+Ngày mình vui trong êm [F]ấm, chẳng nghĩ ơn này do [G]phật
+
+Vậy mà sao trong niềm [Em]đau, cứ khóc than kêu trách [Am]phật
+
+Kìa hồi chuông vang tiếng [Dm]đài, nguyện người tỉnh giấc mộng [G]say
+
+Tìm quay về nơi bờ [Am]giác, một lòng đường Tu bước [Am]đi!
+
+Phật là bậc thầy cao [F]quý, Thế giới muôn loài tôn [G]thờ
+
+Lòng thành ngợi ca ngày [Em]đêm, với trái tim không bến [Am]bờ.
+
+Nguyện người xin chớ hững [Dm]hờ, tìm về chánh Pháp vẹn [G]nguyên
+
+Cùng dâng đời bao lời [Am]ca Thiện lành [Am].
+ 
+Dạo: [F] [G] [Em] [Am] [Dm] [G] [Am]
+
+## Tương tức
+
+Mình là cụm [Am]mây bay   
+Cũng như trời [Em]xanh cao   
+Là cánh chim [Am]ngàn   
+Dang đôi cánh thật [Em]xa   
+ 
+Mình là một [Am]bông hoa   
+Với muôn ngàn [Em]nắng ấm   
+Là đất mẹ [F]hiền   
+Gìn [G]giữ bao mầm [Am]xanh   
+ 
+Và mình tự [C]do   
+Khi trái tim đã [G]mở ra   
+Luôn có thảnh [Am]thơi  
+Vì nguồn tâm trong [Em]sáng   
+ 
+Này hỡi Chị Em [F]thương   
+Cùng với Anh [G]thân yêu   
+Hãy bước trên [F]con đường   
+[G]Hiểu và [Am]thương.   
+ 
+---
+
+I am a [Am]cloud   
+I am the [Em]blue sky   
+I am a [Am]bird   
+Spreading out its [Em]wings   
+ 
+I am a [Am]flower   
+I am the [Em]sunshine    
+I am the [F]earth    
+[G]Receiving a [Am]seed   
+ 
+And I am [C]free   
+When my heart is [G]open   
+Yes I am [Am]free   
+When my mind is [Em]clear   
+ 
+Oh dear [F]brother   
+Oh dear [G]sister    
+Let's walk to- [F]gether   
+[G]Mindful- [Am]ly.  
+
+## Chú đại bi
+
+1. Nam mô đại [Am] bi hội thượng Phật Bồ Tát
+
+Nam mô đại [Am] bi hội thượng Phật Bồ [Dm] Tát
+
+Nam mô đại [G] bi hội thượng Phật Bồ [Am] Tát
+
+Thiên thủ thiên [F] nhãn vô ngại đại [Em] bi tâm Đà La [Am] ni
+
+2. Nam [Am] mô hắc ra đát na đa [Em] ra dạ da
+
+Nam mô a rị [Am] da bà lô [F] yết đế [G] thước bát ra [C] da
+
+Bồ [Am] Đề tát đỏa bà da ma ha tát đỏa bà [Dm] da
+
+Ma ha ca lô ni ca [Em] da án tát bàn ra phạt [Am] duệ
+
+3. Số đát [Am] na đát tỏa Nam mô tất [Em] kiết lật đỏa
+
+y mông a rị [Am] da bà lô [F] kiết đế thất [G] Phật ra lăng đà [C] bà
+
+Nam [Am] mô na ra cẩn trì hê rị, ma ha bàn [Dm] đa sa mế
+
+Tát bà a [E] tha đậu du bằng A thệ [Am] dựng
+
+4. Tát [Am] bà tát đa na [Em] ma bà dà
+
+Ma phạt đạt đậu [Am] đát điệt tha [F] Án. A [G] bà lô [C] hê
+
+Lô ca [Am] đế ca ra đế di hê rị ma [Dm] ha bồ đề tát đỏa
+
+Tát [E] ba tát bà ma ra ma [Am] ra
+
+5.Ma [Am] hê ma hê rị [Em] i đà dựng
+
+Cu lô cu lô yết [Am] mông độ [F] lô độ lô [G] phạt xà da [C] đế
+
+Ma [Am] ha phạt xà da đế dà ra đà ra
+
+[Dm] Địa rị ni Thất Phật ra [E] da giá ra giá [Am] ra
+
+6. Mạ [Am] mạ phạt ma ra mục đế [Em] lệ
+
+Y hê di hê thất na thất [Am] na, A [F] Ra sâm [G] Phật ra xá [C] lợi
+
+Phạt [Am] sa phạt sâm Phật ra xá da
+
+Hô [Dm] lô hô lô ma ra, hô [Em] lô hô lô hê rị ta ra ta [Am] ra
+
+7. Tất [Am] rị tất rị tô [Em] rô tô rô
+
+Bồ Đề [Am] dạ Bồ Đề dạ bồ [F] đà dạ [G] bồ đà [C] dạ
+
+Di [Am] đế rị dạ na ra cẩn trì [Dm] Địa rị sắc ni na
+
+Ba dạ [E] ma na ta bà ha tất đà [Am] dạ
+
+8. Ta bà [Am] ha ma ha tất [Em] đà dạ
+
+Ta bà ha Tất đà du [Am] nghệ thất [F] bàn ra [G] dạ ta bà [C] ha
+
+Na [Am] ra cẩn trì ta bà ha ma ra [Dm] na ra ta bà ha
+
+Tất ra [E] tăng a mục khê da a bà [Am] ha
+
+9. Ta bà [Am] ma ha a tất đà dạ ta [Em] bà ha
+
+Giả kiết ra a tất đà [Am] dạ ta bà [F] ha ba đà [G] ma kiết tất đà [C] dạ
+
+Ta bà [Am] ha na ra cẩn trì bàn đà ra dạ [Dm] ta bà ha
+
+Ma bà rị thắng [E] yết ra dạ ta bà [Am] ha
+
+10 Nam [Am] mô hắc ra đát na đa [Em] ra dạ da
+
+Nam mô a rị [Am] da bà lô [F] kiết đế [G] thước bàn ra [C] dạ
+
+Ta bà [Am] ha. Án. Tất điện [Dm] đô
+
+Mạn đà ra bạt đà [E] gia ta bà [Am] ha.
+
