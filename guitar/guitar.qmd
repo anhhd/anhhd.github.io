@@ -11,6 +11,7 @@ format:
     toc-title: "Mục lục"
     fontcolor: "black"
     embed-resources: true
+self-contained: true
 title-block-banner: "#27445C"
 ---
 
@@ -29,7 +30,7 @@ title-block-banner: "#27445C"
 ## Cả nhà thương nhau  
 
 Tone gốc F: Capo 5  
----
+------------------------------------
 
 Ba thương [C]con vì con giống [Am]mẹ  
 Mẹ thương [Dm]con vì [G]con giống [C]ba  
@@ -45,7 +46,7 @@ Xa là [G7]nhớ gần nhau là [C]cười.
 
 ## Con cò bé bé  
 Tone gốc F: Capo 5  
----
+-------------------------------------
 Con [C ]cò bé [Am ]bé nó [F ]đậu cành [Dm ]tre  
 Đi không hỏi [F ]mẹ biết [G ]đi đường nào  
 Khi [C ]đi em [Am ]hỏi, khi [Dm ]về em [G ]chào  
@@ -167,7 +168,7 @@ Chờ [Am] theo muôn [F] ánh trăng [C] tàn
 Những đêm [Am] về lạnh lùng  
 Gió mưa [F] nào ngại ngùng  
 Hoen mắt [Dm] em đường [G7] khuya trăng lẻ [C] loi  
----
+-----------------------------------------------
 Version 2: (Lương Bích Hữu)  
 Từ [C] lâu em đã yêu [Em] thầm anh đó  
 Mà [Am] không dám [F] nói nên [C] lời  
@@ -192,7 +193,7 @@ Mà [Am] không dám [F] nói nên [C] lời
 Của em [F] còn ngại ngùng  
 Dẫu đã [Dm] yêu người [G] rồi biết [C] không?  
 
----
+---------------------------------------------
 
 You [C] ask how deep I [Em] feel for you  
 And [Am] how much [F] I love [C] you  
@@ -252,7 +253,7 @@ The moon [Dm] repre- [G7] sents my [C] heart
 [Dm] Cánh [G] tay yêu [C] đương vỗ [F] về  
 [Dm] Nụ hôn nở [Bb] hoa thay [A7] giọt lệ sầu nhoà [Dm] mi  
 
----  
+-----------------------------------------------
 
 [Dm] Sweet, [G] sweet, [C] love is [F] sweet  
 [Dm] Sweet is my [Bb] life, [C] life in your [F] arms  
@@ -312,7 +313,7 @@ Xa anh hôm nay thấy giấc mơ hoang [Am] tàn
 Vòng tay âu [F] yếm em ngỡ như thiên [C] đàng  
 Đến nay chỉ [E7] là đắng cay bẻ [Am] bàng  
 
----
+----------------------------------------------
 
 [Am] I never dare to reach for the [E7] moon  
 I never tought I'd know heaven so [Am] soon  
@@ -366,7 +367,7 @@ Donna Donna Donna [Am] ngủ đi nhé.
 [E] Donna Donna Donna [Am] ngủ đi nhé,  
 [E] Hãy nằm trong cánh tay của [Am] mẹ  
 
----
+------------------------------------------------------
 
 [Am] On a [E] wagon [Am] bound for [E] market  
 [Am] There's a [Am] calf with a [Am] mournful [E] eye  
@@ -799,7 +800,7 @@ Người yêu [C] hỡi xin [F] hãy cùng anh bước [C] đi
 Về nơi [Am] xa chung sống nguyện ước [Dm] mơ trọn đôi  
 Suốt [G] đời anh chỉ yêu mãi mình [C] em  
 
----
+---------
 
 Và không [C] tin năm [Em] tháng sẽ trả lời [Am] nhau  
 Một ngày [C] kia em [F] sẽ hiểu anh [C] rõ hơn  
@@ -813,7 +814,7 @@ Người yêu [C] hỡi xin [F] hãy cùng anh sánh [C] đôi
 Về nơi [Am] xa chung sống nguyên ước [Dm] mơ cùng đôi  
 Suốt [G] đời anh chỉ yêu mãi mình [C] em  
 
----
+---------
 
 [1] Người yêu [C] ơi, em [Em] có thấu chăng lòng [Am] anh  
 Dù năm [C] tháng, xa [F] cách làm ta mất [C] nhau  
@@ -830,7 +831,7 @@ Rồi thời [C] gian sẽ không xóa [Em] nhòa
 Lời anh [F] nói yêu [C] em bằng cả trái [C] tim  
 Nguyện yêu em suốt [Em] đời anh [G] chỉ yêu mãi mình [C] em  
 
----
+---------
 
 Chiều hoàng [C] hôn, mây [Em] tím lững lờ hồn [Am] vương  
 Tình lưu [C] luyến ánh [F] mắt gợi bao mến [C] thương  
@@ -1003,7 +1004,7 @@ Vì hạnh phúc quốc gia, ta phải đi cho bằng được
 Ai nói xuôi nói ngược mà vợ là vợ mà ta là ta  
 
 Ai trên đời mà chẳng sợ, chẳng sợ mẹ thì sợ ba, hồi còn bé ngán Ma, sang Balan thì sợ nợ, nhưng mà ta không sợ, nợ nhiều thì (ta) bùng luôn.  
----
+---------
 
 Khi vô trường là phải học, mà đã học là phải thi, Bộ quy chế mới ra, “thi lần ba mà chẳng được”, thi lần tư cũng chẳng sợ, đuổi học thì về quê.  
 
@@ -1187,7 +1188,7 @@ I'm [G] singing in the [Am] sky
 Show [Em] you the best of [F] mine  
 The [G7] heaven in the [C] sky  
 [F] Nothing can [C/E] stop me  
-[Dm7] Spread my [G] wings so [C] wide --- [Am]--- [F]--- [G]--- [C]  
+[Dm7] Spread my [G] wings so [C] wide --------- [Am]--------- [F]--------- [G]--------- [C]  
 
 ## Forever  
 
@@ -1312,7 +1313,7 @@ Này hỡi Chị Em [F]thương
 Cùng với Anh [G]thân yêu  
 Hãy bước trên [F]con đường  
 [G]Hiểu và [Am]thương.  
----
+---------
 I am a [Am]cloud  
 I am the [Em]blue sky  
 I am a [Am]bird  
