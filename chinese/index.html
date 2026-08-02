@@ -35,7 +35,7 @@
     position: fixed;
     top: 14px;
     right: 14px;
-    z-index: 10;
+    z-index: 1000;
     border-radius: 999px;
     width: 40px;
     height: 40px;
@@ -45,6 +45,7 @@
     align-items: center;
     justify-content: center;
     color: var(--muted);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.25);
   }
   .theme-toggle svg {
     width: 19px;
@@ -78,7 +79,7 @@
     position: fixed;
     top: 14px;
     left: 14px;
-    z-index: 10;
+    z-index: 1000;
     border-radius: 999px;
     width: 40px;
     height: 40px;
@@ -88,6 +89,7 @@
     align-items: center;
     justify-content: center;
     color: var(--muted);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.25);
   }
   .sidebar-toggle svg {
     width: 19px;
@@ -286,7 +288,27 @@
   @media (max-width: 640px) {
     .board { grid-template-columns: 1fr; }
     .layout { flex-direction: column; }
-    .sidebar { width: 100%; position: static; }
+    .sidebar {
+      /* Noi len tren cung khung nhin (khong theo dong chay trang) de mo
+         menu ra la thay ngay, khong can cuon len dau trang. */
+      position: fixed;
+      top: 64px;
+      left: 14px;
+      width: calc(100% - 28px);
+      max-width: 320px;
+      max-height: calc(100vh - 90px);
+      overflow-y: auto;
+      z-index: 900;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+    .theme-toggle, .sidebar-toggle {
+      width: 44px;
+      height: 44px;
+    }
+    .theme-toggle svg, .sidebar-toggle svg {
+      width: 21px;
+      height: 21px;
+    }
   }
   footer {
     text-align: center;
