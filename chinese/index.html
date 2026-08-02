@@ -23,12 +23,17 @@
     --accent: #2f6fed;
   }
   * { box-sizing: border-box; }
+  html {
+    scroll-behavior: auto;
+    overflow-anchor: none;
+  }
   body {
     margin: 0;
     font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     background: var(--bg);
     color: var(--text);
     padding: 24px 16px 60px;
+    overflow-anchor: none;
     transition: background 0.2s ease, color 0.2s ease;
   }
   .theme-toggle {
@@ -393,6 +398,20 @@
     markedIds = new Set(savedMarks.map(x => parseInt(x, 10)));
   } catch (e) {}
 
+  // Nhay thang len dau trang, khong hieu ung cuon. Dat truc tiep scrollTop
+  // (thay vi chi goi window.scrollTo) vi mot so trinh duyet mobile (dac biet
+  // Safari) cuon co giat/hoat hinh khi trang co phan tu position:sticky.
+  function scrollToTop() {
+    // Bo focus khoi nut/select vua bam de trinh duyet mobile khong tu cuon
+    // theo phan tu dang focus (co the ghi de len vi tri ta vua dat).
+    if (document.activeElement && document.activeElement.blur) {
+      document.activeElement.blur();
+    }
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    window.scrollTo(0, 0);
+  }
+
   function currentPages() {
     return SECTIONS[currentSection].pages;
   }
@@ -513,7 +532,7 @@
     renderColumns(pg.vi, pg.zh);
     renderPager();
     updateFooter();
-    window.scrollTo({ top: 0, behavior: 'auto' });
+    scrollToTop();
   }
 
   function fillPagerControls(toolbarId, selectId, prevId, nextId, pages) {
@@ -568,7 +587,7 @@
     renderColumns(pg.vi, pg.zh);
     renderPager();
     updateFooter();
-    window.scrollTo({ top: 0, behavior: 'auto' });
+    scrollToTop();
   }
 
   function runSearch(query) {
