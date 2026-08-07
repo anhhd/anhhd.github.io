@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Khong gui Referer khi goi Google Translate TTS: dich vu nay doi khi
+     chan/loi request neu thay Referer la 1 domain la (vd anhhd.github.io).
+     Mo file truc tiep (file://) thi trinh duyet von khong gui Referer nen
+     luon phat duoc; khi host tren web thi can khai bao rieng dong nay. -->
+<meta name="referrer" content="no-referrer">
 <title>Các câu hội thoại song ngữ</title>
 <style>
   :root,
@@ -910,13 +915,16 @@
       const url = 'https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=' +
         encodeURIComponent(lang) + '&q=' + encodeURIComponent(chunks[i]);
       ttsAudio = new Audio(url);
+      ttsAudio.referrerPolicy = 'no-referrer';
       i++;
       ttsAudio.addEventListener('ended', playNext);
-      ttsAudio.addEventListener('error', () => {
+      ttsAudio.addEventListener('error', (ev) => {
+        console.error('TTS loi khi tai am thanh:', url, ev.target && ev.target.error);
         if (btn) btn.classList.remove('speaking');
         ttsAudio = null;
       });
-      ttsAudio.play().catch(() => {
+      ttsAudio.play().catch((err) => {
+        console.error('TTS loi khi phat am thanh:', url, err);
         if (btn) btn.classList.remove('speaking');
         ttsAudio = null;
       });
