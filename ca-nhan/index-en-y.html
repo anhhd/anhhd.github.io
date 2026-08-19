@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Khong gui Referer khi goi Google Translate TTS: dich vu nay doi khi
+     chan/loi request neu thay Referer la 1 domain la (vd anhhd.github.io).
+     Mo file truc tiep (file://) thi trinh duyet von khong gui Referer nen
+     luon phat duoc; khi host tren web thi can khai bao rieng dong nay. -->
+<meta name="referrer" content="no-referrer">
+<title>Các câu hội thoại song ngữ</title>
+<style>
+  :root,
+  html[data-theme="dark"] {
+    --bg: #0f1115;
+    --panel: #171a21;
+    --border: #262b36;
+    --text: #e6e8ec;
+    --muted: #8b92a3;
+    --accent: #3a86ff;
+  }
+  html[data-theme="light"] {
+    --bg: #f4f5f8;
+    --panel: #ffffff;
+    --border: #dfe2e9;
+    --text: #1b1e24;
+    --muted: #6b7280;
+    --accent: #2f6fed;
+  }
+  * { box-sizing: border-box; }
+  html {
+    scroll-behavior: auto;
+    overflow-anchor: none;
+  }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 24px 16px 60px;
+    overflow-anchor: none;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .theme-toggle {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    z-index: 1000;
+    border-radius: 999px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+  }
+  .theme-toggle svg {
+    width: 19px;
+    height: 19px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .font-size-controls {
+    position: fixed;
+    top: 62px;
+    right: 14px;
+    z-index: 1000;
+    display: flex;
+    gap: 6px;
+  }
+  .font-size-controls button {
+    border-radius: 999px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+    font-weight: 700;
+    font-size: 0.86rem;
+  }
+  h1 {
+    text-align: center;
+    font-size: 1.4rem;
+    margin: 0 0 6px;
+  }
+  p.subtitle {
+    text-align: center;
+    color: var(--muted);
+    margin: 0 0 20px;
+    font-size: 0.92rem;
+  }
+  .toolbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .sidebar-toggle {
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 1000;
+    border-radius: 999px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+  }
+  .sidebar-toggle svg {
+    width: 19px;
+    height: 19px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 22px;
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+  .sidebar {
+    width: 200px;
+    flex-shrink: 0;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px;
+    position: sticky;
+    top: 14px;
+  }
+  .sidebar.collapsed {
+    display: none;
+  }
+  .sidebar h3 {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    margin: 4px 4px 8px;
+  }
+  .sidebar button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 6px;
+    background: transparent;
+    border-color: transparent;
+    font-size: 0.86rem;
+  }
+  .sidebar button:hover { border-color: var(--accent); }
+  .sidebar button.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .section-group { margin-bottom: 6px; }
+  .section-group:last-child { margin-bottom: 0; }
+  .topic-list {
+    margin: 2px 0 6px 8px;
+    padding-left: 8px;
+    border-left: 2px solid var(--border);
+  }
+  .topic-item {
+    font-size: 0.78rem;
+    padding: 6px 10px;
+    margin-bottom: 4px;
+  }
+  .topic-item:last-child { margin-bottom: 0; }
+  .main-content {
+    flex: 1;
+    min-width: 0;
+  }
+  .searchbar {
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 500;
+    background: var(--bg);
+    padding: 10px 58px;
+    margin: 0 -16px 20px;
+    box-sizing: border-box;
+  }
+  .searchbar input {
+    width: 100%;
+    max-width: 420px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 9px 14px;
+    border-radius: 8px;
+    font-size: 0.92rem;
+  }
+  .searchbar input:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  button, select {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.86rem;
+  }
+  button:hover, select:hover { border-color: var(--accent); }
+  button.active { background: var(--accent); border-color: var(--accent); }
+  button:disabled { opacity: 0.4; cursor: not-allowed; }
+  .board {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  .col h2 {
+    font-size: 1rem;
+    color: var(--muted);
+    text-transform: capitalize;
+    letter-spacing: 0.04em;
+    margin: 0 0 10px 4px;
+  }
+  .item {
+    position: relative;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 64px 12px 14px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    transition: transform 0.15s ease, background 0.25s ease, border-color 0.25s ease;
+  }
+  .item:hover {
+    transform: translateX(2px);
+    border-color: var(--accent);
+  }
+  .item .stt {
+    color: var(--muted);
+    font-size: 0.78rem;
+    min-width: 1.4em;
+  }
+  .item .txt { line-height: 1.4; white-space: pre-line; }
+  .item .txt .hanzi {
+    display: block;
+    font-size: 1.08rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    margin-bottom: 2px;
+  }
+  .item .txt .pinyin {
+    display: block;
+    font-size: 0.96rem;
+    color: var(--muted);
+  }
+  body.hide-phonetic .item .txt .pinyin {
+    display: none;
+  }
+  .item.active-self .txt .pinyin,
+  .item[style*="background"] .txt .pinyin {
+    color: inherit;
+    opacity: 0.75;
+  }
+  .item.active-self {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent) inset;
+  }
+  .item.pulse {
+    animation: pulse 1.4s ease;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.5); }
+    100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+  }
+  .mark-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border-radius: 5px;
+    border: 1.5px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mark-btn:hover {
+    border-color: #ef476f;
+    color: #ef476f;
+  }
+  .mark-btn.marked {
+    background: #ef476f;
+    border-color: #ef476f;
+    color: #fff;
+  }
+  .mark-btn svg {
+    width: 12px;
+    height: 12px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0;
+  }
+  .mark-btn.marked svg {
+    opacity: 1;
+  }
+  .speak-btn {
+    position: absolute;
+    top: 6px;
+    right: 36px;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border-radius: 5px;
+    border: 1.5px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .speak-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .speak-btn.speaking {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .speak-btn svg {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .empty {
+    color: var(--muted);
+    font-size: 0.88rem;
+    padding: 10px 4px;
+  }
+  @media (max-width: 640px) {
+    .board { grid-template-columns: 1fr; }
+    .layout { flex-direction: column; }
+    .sidebar {
+      /* Noi len tren cung khung nhin (khong theo dong chay trang) de mo
+         menu ra la thay ngay, khong can cuon len dau trang. */
+      position: fixed;
+      top: 64px;
+      left: 14px;
+      width: calc(100% - 28px);
+      max-width: 320px;
+      max-height: calc(100vh - 90px);
+      overflow-y: auto;
+      z-index: 900;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+    .theme-toggle, .sidebar-toggle {
+      width: 44px;
+      height: 44px;
+    }
+    .theme-toggle svg, .sidebar-toggle svg {
+      width: 21px;
+      height: 21px;
+    }
+    .font-size-controls {
+      top: 66px;
+    }
+    .font-size-controls button {
+      width: 44px;
+      height: 44px;
+    }
+    /* Nut loa to hon tren dien thoai cho de bam. */
+    .item {
+      padding-right: 70px;
+    }
+    .speak-btn {
+      top: 2px;
+      right: 32px;
+      width: 32px;
+      height: 32px;
+    }
+    .speak-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.78rem;
+    margin-top: 36px;
+  }
+</style>
+</head>
+<body>
+
+<button id="themeToggleBtn" class="theme-toggle" onclick="toggleTheme()" aria-label="Doi giao dien sang/toi"></button>
+<button id="sidebarToggleBtn" class="sidebar-toggle" onclick="toggleSidebar()" aria-label="An/hien danh sach bai"></button>
+<div class="font-size-controls">
+  <button id="fontDecBtn" onclick="adjustFontSize(-1)" aria-label="Giam co chu">A-</button>
+  <button id="fontIncBtn" onclick="adjustFontSize(1)" aria-label="Tang co chu">A+</button>
+  <button id="phoneticToggleBtn" onclick="togglePhonetic()" title="An/hien phien am" aria-label="An/hien phien am">PA</button>
+</div>
+
+<h1>Các câu hội thoại song ngữ</h1>
+<p class="subtitle">Nhan vao mot cau de xem cau dich tuong ung</p>
+
+<div class="layout">
+  <aside class="sidebar collapsed" id="sidebar">
+    <h3>Menu</h3>
+    <div id="sectionList"></div>
+  </aside>
+
+  <div class="main-content">
+    <div class="searchbar">
+      <input id="searchInput" type="text" placeholder="Tim cau (khong dau) o ca 2 cot...">
+    </div>
+
+    <div class="toolbar" id="pagerToolbar">
+      <button id="prevBtn" onclick="gotoPage(currentPage - 1)">&larr; Trang truoc</button>
+      <select id="pageSelect" onchange="gotoPage(parseInt(this.value, 10))"></select>
+      <button id="nextBtn" onclick="gotoPage(currentPage + 1)">Trang sau &rarr;</button>
+    </div>
+
+    <div class="toolbar">
+      <button onclick="clearHighlight()">Xoa highlight</button>
+      <button id="markFilterBtn" onclick="toggleMarkFilter()">Cau chua nam vung (<span id="markCount">0</span>)</button>
+      <button id="clearMarksBtn" onclick="clearAllMarks()">Xoa danh dau</button>
+    </div>
+
+    <div class="board">
+      <div class="col">
+        <h2>Tiếng Việt</h2>
+        <div id="viCol"></div>
+      </div>
+      <div class="col">
+        <h2 id="zhColLabel">Ngôn ngữ đích</h2>
+        <div id="zhCol"></div>
+      </div>
+    </div>
+
+    <div class="toolbar" id="pagerToolbarBottom">
+      <button id="prevBtnBottom" onclick="gotoPage(currentPage - 1)">&larr; Trang truoc</button>
+      <select id="pageSelectBottom" onchange="gotoPage(parseInt(this.value, 10))"></select>
+      <button id="nextBtnBottom" onclick="gotoPage(currentPage + 1)">Trang sau &rarr;</button>
+    </div>
+
+    <footer id="footerInfo"></footer>
+  </div>
+</div>
+
+<script>
+  const SECTIONS = [{"title": "Câu thông dụng", "lang_label": "Tiếng Anh", "pages": [{"label": "Trang 1 (STT 1–50)", "vi": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50], "zh": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50]}, {"label": "Trang 2 (STT 51–100)", "vi": [51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100], "zh": [51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100]}], "has_topic": false, "tts_lang": "en"}, {"title": "Từ vựng", "lang_label": "Tiếng Anh", "pages": [{"label": "Giải phẫu", "vi": [101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120], "zh": [101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120]}, {"label": "Triệu chứng", "vi": [121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140], "zh": [121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140]}, {"label": "Bệnh lý", "vi": [141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160], "zh": [141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160]}, {"label": "Xét nghiệm", "vi": [161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180], "zh": [161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180]}, {"label": "Chẩn đoán hình ảnh", "vi": [181, 182, 183, 184, 185, 186, 187], "zh": [181, 182, 183, 184, 185, 186, 187]}, {"label": "Thủ thuật", "vi": [188, 189, 190, 191, 192, 193, 194, 195, 196], "zh": [188, 189, 190, 191, 192, 193, 194, 195, 196]}, {"label": "Điều trị", "vi": [197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210], "zh": [197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210]}, {"label": "Thuốc", "vi": [211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230], "zh": [211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230]}, {"label": "Biến chứng", "vi": [231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250], "zh": [231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250]}, {"label": "Giao tiếp lâm sàng", "vi": [251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270], "zh": [251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270]}, {"label": "Dinh dưỡng và lối sống", "vi": [271, 272, 273, 274, 275, 276, 277, 278, 279, 280], "zh": [271, 272, 273, 274, 275, 276, 277, 278, 279, 280]}, {"label": "Bệnh viện", "vi": [281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300], "zh": [281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300]}], "has_topic": true, "tts_lang": "en"}];
+  const PAIRS = {"1": {"stt": "1", "vi": "Xin chào, tôi là bác sĩ chuyên khoa nội thận tiết niệu của anh/chị hôm nay.", "zh": "/həˈloʊ, aɪ æm jʊr nəˈfrɑːlədʒi ænd jʊˈrɑːlədʒi ˈdɑːktər təˈdeɪ/", "han": "Hello, I am your nephrology and urology doctor today.", "color": "#3a86ff", "nvi": "xin chao, toi la bac si chuyen khoa noi than tiet nieu cua anh/chi hom nay.", "nzh": "/həˈloʊ, aɪ æm jʊr nəˈfrɑːlədʒi ænd jʊˈrɑːlədʒi ˈdɑːktər təˈdeɪ/ hello, i am your nephrology and urology doctor today.", "word_plain": "Hello, I am your nephrology and urology doctor today.", "tts_lang": "en"}, "2": {"stt": "2", "vi": "Tôi muốn hỏi một số thông tin về triệu chứng của anh/chị.", "zh": "/aɪ wʊd laɪk tə æsk sʌm ˈkwestʃənz əˈbaʊt jʊr ˈsɪmptəmz/", "han": "I would like to ask some questions about your symptoms.", "color": "#06d6a0", "nvi": "toi muon hoi mot so thong tin ve trieu chung cua anh/chi.", "nzh": "/aɪ wʊd laɪk tə æsk sʌm ˈkwestʃənz əˈbaʊt jʊr ˈsɪmptəmz/ i would like to ask some questions about your symptoms.", "word_plain": "I would like to ask some questions about your symptoms.", "tts_lang": "en"}, "3": {"stt": "3", "vi": "Anh/chị bắt đầu đau hoặc khó chịu từ khi nào?", "zh": "/wen dɪd ðə peɪn ɔːr dɪsˈkʌmfərt stɑːrt/", "han": "When did the pain or discomfort start?", "color": "#ffb703", "nvi": "anh/chi bat dau dau hoac kho chiu tu khi nao?", "nzh": "/wen dɪd ðə peɪn ɔːr dɪsˈkʌmfərt stɑːrt/ when did the pain or discomfort start?", "word_plain": "When did the pain or discomfort start?", "tts_lang": "en"}, "4": {"stt": "4", "vi": "Cơn đau nằm ở vùng hông lưng hay vùng bụng dưới?", "zh": "/ɪz ðə peɪn ɪn jʊr flæŋk ɔːr ˈloʊər ˈæbdəmən/", "han": "Is the pain in your flank or lower abdomen?", "color": "#3a86ff", "nvi": "con dau nam o vung hong lung hay vung bung duoi?", "nzh": "/ɪz ðə peɪn ɪn jʊr flæŋk ɔːr ˈloʊər ˈæbdəmən/ is the pain in your flank or lower abdomen?", "word_plain": "Is the pain in your flank or lower abdomen?", "tts_lang": "en"}, "5": {"stt": "5", "vi": "Cơn đau có lan xuống bẹn hoặc cơ quan sinh dục không?", "zh": "/dʌz ðə peɪn ˈreɪdieɪt tə ðə ɡrɔɪn ɔːr ˈdʒenɪtəl ˈeriə/", "han": "Does the pain radiate to the groin or genital area?", "color": "#06d6a0", "nvi": "con dau co lan xuong ben hoac co quan sinh duc khong?", "nzh": "/dʌz ðə peɪn ˈreɪdieɪt tə ðə ɡrɔɪn ɔːr ˈdʒenɪtəl ˈeriə/ does the pain radiate to the groin or genital area?", "word_plain": "Does the pain radiate to the groin or genital area?", "tts_lang": "en"}, "6": {"stt": "6", "vi": "Anh/chị có sốt, rét run hoặc ớn lạnh không?", "zh": "/duː ju hæv ˈfiːvər, tʃɪlz, ɔːr ˈʃɪvərɪŋ/", "han": "Do you have fever, chills, or shivering?", "color": "#ffb703", "nvi": "anh/chi co sot, ret run hoac on lanh khong?", "nzh": "/duː ju hæv ˈfiːvər, tʃɪlz, ɔːr ˈʃɪvərɪŋ/ do you have fever, chills, or shivering?", "word_plain": "Do you have fever, chills, or shivering?", "tts_lang": "en"}, "7": {"stt": "7", "vi": "Anh/chị có buồn nôn hoặc nôn không?", "zh": "/duː ju hæv ˈnɔːziə ɔːr ˈvɑːmɪtɪŋ/", "han": "Do you have nausea or vomiting?", "color": "#3a86ff", "nvi": "anh/chi co buon non hoac non khong?", "nzh": "/duː ju hæv ˈnɔːziə ɔːr ˈvɑːmɪtɪŋ/ do you have nausea or vomiting?", "word_plain": "Do you have nausea or vomiting?", "tts_lang": "en"}, "8": {"stt": "8", "vi": "Anh/chị có đi tiểu nhiều lần hơn bình thường không?", "zh": "/ɑːr ju ˈjʊrəneɪtɪŋ mɔːr ˈɔːfən ðæn ˈjuːʒuəl/", "han": "Are you urinating more often than usual?", "color": "#06d6a0", "nvi": "anh/chi co di tieu nhieu lan hon binh thuong khong?", "nzh": "/ɑːr ju ˈjʊrəneɪtɪŋ mɔːr ˈɔːfən ðæn ˈjuːʒuəl/ are you urinating more often than usual?", "word_plain": "Are you urinating more often than usual?", "tts_lang": "en"}, "9": {"stt": "9", "vi": "Anh/chị có cảm giác tiểu gấp, không nhịn được không?", "zh": "/duː ju fiːl ˈɜːrdʒənsi ænd ˈdɪfɪkəlti ˈhoʊldɪŋ ˈjʊrɪn/", "han": "Do you feel urgency and difficulty holding urine?", "color": "#ffb703", "nvi": "anh/chi co cam giac tieu gap, khong nhin duoc khong?", "nzh": "/duː ju fiːl ˈɜːrdʒənsi ænd ˈdɪfɪkəlti ˈhoʊldɪŋ ˈjʊrɪn/ do you feel urgency and difficulty holding urine?", "word_plain": "Do you feel urgency and difficulty holding urine?", "tts_lang": "en"}, "10": {"stt": "10", "vi": "Anh/chị có tiểu buốt hoặc nóng rát khi đi tiểu không?", "zh": "/duː ju hæv peɪn ɔːr ˈbɜːrnɪŋ wen ju ˈjʊrəneɪt/", "han": "Do you have pain or burning when you urinate?", "color": "#3a86ff", "nvi": "anh/chi co tieu buot hoac nong rat khi di tieu khong?", "nzh": "/duː ju hæv peɪn ɔːr ˈbɜːrnɪŋ wen ju ˈjʊrəneɪt/ do you have pain or burning when you urinate?", "word_plain": "Do you have pain or burning when you urinate?", "tts_lang": "en"}, "11": {"stt": "11", "vi": "Anh/chị có thấy máu trong nước tiểu không?", "zh": "/hæv ju ˈnoʊtɪst blʌd ɪn jʊr ˈjʊrɪn/", "han": "Have you noticed blood in your urine?", "color": "#06d6a0", "nvi": "anh/chi co thay mau trong nuoc tieu khong?", "nzh": "/hæv ju ˈnoʊtɪst blʌd ɪn jʊr ˈjʊrɪn/ have you noticed blood in your urine?", "word_plain": "Have you noticed blood in your urine?", "tts_lang": "en"}, "12": {"stt": "12", "vi": "Nước tiểu của anh/chị có đục hoặc có mùi hôi không?", "zh": "/ɪz jʊr ˈjʊrɪn ˈklaʊdi ɔːr faʊl ˈsmelɪŋ/", "han": "Is your urine cloudy or foul-smelling?", "color": "#ffb703", "nvi": "nuoc tieu cua anh/chi co duc hoac co mui hoi khong?", "nzh": "/ɪz jʊr ˈjʊrɪn ˈklaʊdi ɔːr faʊl ˈsmelɪŋ/ is your urine cloudy or foul-smelling?", "word_plain": "Is your urine cloudy or foul-smelling?", "tts_lang": "en"}, "13": {"stt": "13", "vi": "Lượng nước tiểu trong ngày của anh/chị có giảm không?", "zh": "/hæz jʊr ˈjʊrɪn ˈaʊtpʊt dɪˈkriːst ˈdʊrɪŋ ðə deɪ/", "han": "Has your urine output decreased during the day?", "color": "#3a86ff", "nvi": "luong nuoc tieu trong ngay cua anh/chi co giam khong?", "nzh": "/hæz jʊr ˈjʊrɪn ˈaʊtpʊt dɪˈkriːst ˈdʊrɪŋ ðə deɪ/ has your urine output decreased during the day?", "word_plain": "Has your urine output decreased during the day?", "tts_lang": "en"}, "14": {"stt": "14", "vi": "Anh/chị có tiểu đêm nhiều lần không?", "zh": "/duː ju weɪk ʌp ˈɔːfən æt naɪt tə ˈjʊrəneɪt/", "han": "Do you wake up often at night to urinate?", "color": "#06d6a0", "nvi": "anh/chi co tieu dem nhieu lan khong?", "nzh": "/duː ju weɪk ʌp ˈɔːfən æt naɪt tə ˈjʊrəneɪt/ do you wake up often at night to urinate?", "word_plain": "Do you wake up often at night to urinate?", "tts_lang": "en"}, "15": {"stt": "15", "vi": "Anh/chị có bị phù mặt, phù chân hoặc tăng cân nhanh không?", "zh": "/duː ju hæv ˈfeɪʃəl ɔːr leɡ ˈswelɪŋ, ɔːr ˈræpɪd weɪt ɡeɪn/", "han": "Do you have facial or leg swelling, or rapid weight gain?", "color": "#ffb703", "nvi": "anh/chi co bi phu mat, phu chan hoac tang can nhanh khong?", "nzh": "/duː ju hæv ˈfeɪʃəl ɔːr leɡ ˈswelɪŋ, ɔːr ˈræpɪd weɪt ɡeɪn/ do you have facial or leg swelling, or rapid weight gain?", "word_plain": "Do you have facial or leg swelling, or rapid weight gain?", "tts_lang": "en"}, "16": {"stt": "16", "vi": "Anh/chị có bị khó thở khi nằm hoặc khi gắng sức không?", "zh": "/duː ju fiːl ʃɔːrt əv breθ wen ˈlaɪɪŋ daʊn ɔːr ɪɡˈzɜːrtɪŋ jɔːrˈself/", "han": "Do you feel short of breath when lying down or exerting yourself?", "color": "#3a86ff", "nvi": "anh/chi co bi kho tho khi nam hoac khi gang suc khong?", "nzh": "/duː ju fiːl ʃɔːrt əv breθ wen ˈlaɪɪŋ daʊn ɔːr ɪɡˈzɜːrtɪŋ jɔːrˈself/ do you feel short of breath when lying down or exerting yourself?", "word_plain": "Do you feel short of breath when lying down or exerting yourself?", "tts_lang": "en"}, "17": {"stt": "17", "vi": "Anh/chị có tiền sử tăng huyết áp không?", "zh": "/duː ju hæv ə ˈhɪstəri əv haɪ blʌd ˈpreʃər/", "han": "Do you have a history of high blood pressure?", "color": "#06d6a0", "nvi": "anh/chi co tien su tang huyet ap khong?", "nzh": "/duː ju hæv ə ˈhɪstəri əv haɪ blʌd ˈpreʃər/ do you have a history of high blood pressure?", "word_plain": "Do you have a history of high blood pressure?", "tts_lang": "en"}, "18": {"stt": "18", "vi": "Anh/chị có bị đái tháo đường không?", "zh": "/duː ju hæv ˌdaɪəˈbiːtiːz/", "han": "Do you have diabetes?", "color": "#ffb703", "nvi": "anh/chi co bi dai thao duong khong?", "nzh": "/duː ju hæv ˌdaɪəˈbiːtiːz/ do you have diabetes?", "word_plain": "Do you have diabetes?", "tts_lang": "en"}, "19": {"stt": "19", "vi": "Anh/chị đã từng bị sỏi thận hoặc sỏi tiết niệu chưa?", "zh": "/hæv ju ˈevər hæd ˈkɪdni stoʊnz ɔːr ˈjʊrəneri stoʊnz/", "han": "Have you ever had kidney stones or urinary stones?", "color": "#3a86ff", "nvi": "anh/chi da tung bi soi than hoac soi tiet nieu chua?", "nzh": "/hæv ju ˈevər hæd ˈkɪdni stoʊnz ɔːr ˈjʊrəneri stoʊnz/ have you ever had kidney stones or urinary stones?", "word_plain": "Have you ever had kidney stones or urinary stones?", "tts_lang": "en"}, "20": {"stt": "20", "vi": "Anh/chị có từng bị nhiễm trùng đường tiết niệu tái phát không?", "zh": "/hæv ju hæd rɪˈkɜːrənt ˈjʊrəneri trækt ɪnˈfekʃənz/", "han": "Have you had recurrent urinary tract infections?", "color": "#06d6a0", "nvi": "anh/chi co tung bi nhiem trung duong tiet nieu tai phat khong?", "nzh": "/hæv ju hæd rɪˈkɜːrənt ˈjʊrəneri trækt ɪnˈfekʃənz/ have you had recurrent urinary tract infections?", "word_plain": "Have you had recurrent urinary tract infections?", "tts_lang": "en"}, "21": {"stt": "21", "vi": "Anh/chị đang dùng thuốc gì hằng ngày?", "zh": "/wʌt ˈmedɪsɪnz duː ju teɪk ˈevri deɪ/", "han": "What medicines do you take every day?", "color": "#ffb703", "nvi": "anh/chi dang dung thuoc gi hang ngay?", "nzh": "/wʌt ˈmedɪsɪnz duː ju teɪk ˈevri deɪ/ what medicines do you take every day?", "word_plain": "What medicines do you take every day?", "tts_lang": "en"}, "22": {"stt": "22", "vi": "Anh/chị có dùng thuốc giảm đau hoặc thuốc chống viêm gần đây không?", "zh": "/hæv ju ˈriːsəntli ˈteɪkən ˈpeɪnˌkɪlərz ɔːr ˌænti ɪnˈflæmətɔːri ˈmedɪsɪnz/", "han": "Have you recently taken painkillers or anti-inflammatory medicines?", "color": "#3a86ff", "nvi": "anh/chi co dung thuoc giam dau hoac thuoc chong viem gan day khong?", "nzh": "/hæv ju ˈriːsəntli ˈteɪkən ˈpeɪnˌkɪlərz ɔːr ˌænti ɪnˈflæmətɔːri ˈmedɪsɪnz/ have you recently taken painkillers or anti-inflammatory medicines?", "word_plain": "Have you recently taken painkillers or anti-inflammatory medicines?", "tts_lang": "en"}, "23": {"stt": "23", "vi": "Anh/chị có dị ứng với thuốc hoặc thức ăn nào không?", "zh": "/ɑːr ju əˈlɜːrdʒɪk tə ˈeni ˈmedɪsɪnz ɔːr fuːdz/", "han": "Are you allergic to any medicines or foods?", "color": "#06d6a0", "nvi": "anh/chi co di ung voi thuoc hoac thuc an nao khong?", "nzh": "/ɑːr ju əˈlɜːrdʒɪk tə ˈeni ˈmedɪsɪnz ɔːr fuːdz/ are you allergic to any medicines or foods?", "word_plain": "Are you allergic to any medicines or foods?", "tts_lang": "en"}, "24": {"stt": "24", "vi": "Trong gia đình anh/chị có ai mắc bệnh thận không?", "zh": "/dʌz ˈeniwʌn ɪn jʊr ˈfæməli hæv ˈkɪdni dɪˈziːz/", "han": "Does anyone in your family have kidney disease?", "color": "#ffb703", "nvi": "trong gia dinh anh/chi co ai mac benh than khong?", "nzh": "/dʌz ˈeniwʌn ɪn jʊr ˈfæməli hæv ˈkɪdni dɪˈziːz/ does anyone in your family have kidney disease?", "word_plain": "Does anyone in your family have kidney disease?", "tts_lang": "en"}, "25": {"stt": "25", "vi": "Anh/chị thường uống khoảng bao nhiêu nước mỗi ngày?", "zh": "/əˈbaʊt haʊ mʌtʃ ˈwɔːtər duː ju ˈjuːʒuəli drɪŋk iːtʃ deɪ/", "han": "About how much water do you usually drink each day?", "color": "#3a86ff", "nvi": "anh/chi thuong uong khoang bao nhieu nuoc moi ngay?", "nzh": "/əˈbaʊt haʊ mʌtʃ ˈwɔːtər duː ju ˈjuːʒuəli drɪŋk iːtʃ deɪ/ about how much water do you usually drink each day?", "word_plain": "About how much water do you usually drink each day?", "tts_lang": "en"}, "26": {"stt": "26", "vi": "Tôi sẽ khám bụng và vùng hông lưng của anh/chị.", "zh": "/aɪ wɪl ɪɡˈzæmɪn jʊr ˈæbdəmən ænd flæŋk ˈeriə/", "han": "I will examine your abdomen and flank area.", "color": "#06d6a0", "nvi": "toi se kham bung va vung hong lung cua anh/chi.", "nzh": "/aɪ wɪl ɪɡˈzæmɪn jʊr ˈæbdəmən ænd flæŋk ˈeriə/ i will examine your abdomen and flank area.", "word_plain": "I will examine your abdomen and flank area.", "tts_lang": "en"}, "27": {"stt": "27", "vi": "Anh/chị vui lòng nằm ngửa và thả lỏng.", "zh": "/pliːz laɪ ɑːn jʊr bæk ænd rɪˈlæks/", "han": "Please lie on your back and relax.", "color": "#ffb703", "nvi": "anh/chi vui long nam ngua va tha long.", "nzh": "/pliːz laɪ ɑːn jʊr bæk ænd rɪˈlæks/ please lie on your back and relax.", "word_plain": "Please lie on your back and relax.", "tts_lang": "en"}, "28": {"stt": "28", "vi": "Nếu thấy đau, anh/chị hãy nói ngay cho tôi biết.", "zh": "/ɪf ju fiːl peɪn, pliːz tel mi raɪt əˈweɪ/", "han": "If you feel pain, please tell me right away.", "color": "#3a86ff", "nvi": "neu thay dau, anh/chi hay noi ngay cho toi biet.", "nzh": "/ɪf ju fiːl peɪn, pliːz tel mi raɪt əˈweɪ/ if you feel pain, please tell me right away.", "word_plain": "If you feel pain, please tell me right away.", "tts_lang": "en"}, "29": {"stt": "29", "vi": "Tôi sẽ gõ nhẹ vùng lưng để kiểm tra đau vùng thận.", "zh": "/aɪ wɪl ˈdʒentli tæp jʊr bæk tə tʃek fər ˈkɪdni ˈtendərnəs/", "han": "I will gently tap your back to check for kidney tenderness.", "color": "#06d6a0", "nvi": "toi se go nhe vung lung de kiem tra dau vung than.", "nzh": "/aɪ wɪl ˈdʒentli tæp jʊr bæk tə tʃek fər ˈkɪdni ˈtendərnəs/ i will gently tap your back to check for kidney tenderness.", "word_plain": "I will gently tap your back to check for kidney tenderness.", "tts_lang": "en"}, "30": {"stt": "30", "vi": "Tôi sẽ kiểm tra huyết áp, mạch và nhiệt độ của anh/chị.", "zh": "/aɪ wɪl tʃek jʊr blʌd ˈpreʃər, pʌls, ænd ˈtemprətʃər/", "han": "I will check your blood pressure, pulse, and temperature.", "color": "#ffb703", "nvi": "toi se kiem tra huyet ap, mach va nhiet do cua anh/chi.", "nzh": "/aɪ wɪl tʃek jʊr blʌd ˈpreʃər, pʌls, ænd ˈtemprətʃər/ i will check your blood pressure, pulse, and temperature.", "word_plain": "I will check your blood pressure, pulse, and temperature.", "tts_lang": "en"}, "31": {"stt": "31", "vi": "Chúng tôi cần lấy mẫu nước tiểu để xét nghiệm.", "zh": "/wi niːd tə kəˈlekt ə ˈjʊrɪn ˈsæmpəl fər ˈtestɪŋ/", "han": "We need to collect a urine sample for testing.", "color": "#3a86ff", "nvi": "chung toi can lay mau nuoc tieu de xet nghiem.", "nzh": "/wi niːd tə kəˈlekt ə ˈjʊrɪn ˈsæmpəl fər ˈtestɪŋ/ we need to collect a urine sample for testing.", "word_plain": "We need to collect a urine sample for testing.", "tts_lang": "en"}, "32": {"stt": "32", "vi": "Anh/chị vui lòng lấy mẫu nước tiểu giữa dòng.", "zh": "/pliːz kəˈlekt ə ˈmɪdstriːm ˈjʊrɪn ˈsæmpəl/", "han": "Please collect a midstream urine sample.", "color": "#06d6a0", "nvi": "anh/chi vui long lay mau nuoc tieu giua dong.", "nzh": "/pliːz kəˈlekt ə ˈmɪdstriːm ˈjʊrɪn ˈsæmpəl/ please collect a midstream urine sample.", "word_plain": "Please collect a midstream urine sample.", "tts_lang": "en"}, "33": {"stt": "33", "vi": "Xét nghiệm nước tiểu giúp phát hiện nhiễm trùng, máu hoặc protein.", "zh": "/ðə ˈjʊrɪn test helps dɪˈtekt ɪnˈfekʃən, blʌd, ɔːr ˈproʊtiːn/", "han": "The urine test helps detect infection, blood, or protein.", "color": "#ffb703", "nvi": "xet nghiem nuoc tieu giup phat hien nhiem trung, mau hoac protein.", "nzh": "/ðə ˈjʊrɪn test helps dɪˈtekt ɪnˈfekʃən, blʌd, ɔːr ˈproʊtiːn/ the urine test helps detect infection, blood, or protein.", "word_plain": "The urine test helps detect infection, blood, or protein.", "tts_lang": "en"}, "34": {"stt": "34", "vi": "Chúng tôi sẽ xét nghiệm máu để đánh giá chức năng thận.", "zh": "/wi wɪl duː ə blʌd test tə əˈses ˈkɪdni ˈfʌŋkʃən/", "han": "We will do a blood test to assess kidney function.", "color": "#3a86ff", "nvi": "chung toi se xet nghiem mau de danh gia chuc nang than.", "nzh": "/wi wɪl duː ə blʌd test tə əˈses ˈkɪdni ˈfʌŋkʃən/ we will do a blood test to assess kidney function.", "word_plain": "We will do a blood test to assess kidney function.", "tts_lang": "en"}, "35": {"stt": "35", "vi": "Creatinine là chỉ số quan trọng để đánh giá chức năng thận.", "zh": "/kriˈætɪniːn ɪz ən ɪmˈpɔːrtənt ˈmɑːrkər əv ˈkɪdni ˈfʌŋkʃən/", "han": "Creatinine is an important marker of kidney function.", "color": "#06d6a0", "nvi": "creatinine la chi so quan trong de danh gia chuc nang than.", "nzh": "/kriˈætɪniːn ɪz ən ɪmˈpɔːrtənt ˈmɑːrkər əv ˈkɪdni ˈfʌŋkʃən/ creatinine is an important marker of kidney function.", "word_plain": "Creatinine is an important marker of kidney function.", "tts_lang": "en"}, "36": {"stt": "36", "vi": "eGFR cho biết mức lọc ước tính của thận.", "zh": "/ði ˌiː dʒiː ef ˈɑːr ʃoʊz ði ˈestɪmeɪtɪd fɪlˈtreɪʃən reɪt əv ðə ˈkɪdniz/", "han": "The eGFR shows the estimated filtration rate of the kidneys.", "color": "#ffb703", "nvi": "egfr cho biet muc loc uoc tinh cua than.", "nzh": "/ði ˌiː dʒiː ef ˈɑːr ʃoʊz ði ˈestɪmeɪtɪd fɪlˈtreɪʃən reɪt əv ðə ˈkɪdniz/ the egfr shows the estimated filtration rate of the kidneys.", "word_plain": "The eGFR shows the estimated filtration rate of the kidneys.", "tts_lang": "en"}, "37": {"stt": "37", "vi": "Protein trong nước tiểu có thể là dấu hiệu tổn thương thận.", "zh": "/ˈproʊtiːn ɪn ðə ˈjʊrɪn kæn bi ə saɪn əv ˈkɪdni ˈdæmɪdʒ/", "han": "Protein in the urine can be a sign of kidney damage.", "color": "#3a86ff", "nvi": "protein trong nuoc tieu co the la dau hieu ton thuong than.", "nzh": "/ˈproʊtiːn ɪn ðə ˈjʊrɪn kæn bi ə saɪn əv ˈkɪdni ˈdæmɪdʒ/ protein in the urine can be a sign of kidney damage.", "word_plain": "Protein in the urine can be a sign of kidney damage.", "tts_lang": "en"}, "38": {"stt": "38", "vi": "Chúng tôi cần siêu âm để kiểm tra thận và bàng quang.", "zh": "/wi niːd ən ˈʌltrəsaʊnd tə tʃek jʊr ˈkɪdniz ænd ˈblædər/", "han": "We need an ultrasound to check your kidneys and bladder.", "color": "#06d6a0", "nvi": "chung toi can sieu am de kiem tra than va bang quang.", "nzh": "/wi niːd ən ˈʌltrəsaʊnd tə tʃek jʊr ˈkɪdniz ænd ˈblædər/ we need an ultrasound to check your kidneys and bladder.", "word_plain": "We need an ultrasound to check your kidneys and bladder.", "tts_lang": "en"}, "39": {"stt": "39", "vi": "Siêu âm có thể giúp phát hiện sỏi, ứ nước thận hoặc khối bất thường.", "zh": "/ˈʌltrəsaʊnd kæn help dɪˈtekt stoʊnz, ˌhaɪdroʊnəˈfroʊsɪs, ɔːr æbˈnɔːrməl ˈmæsɪz/", "han": "Ultrasound can help detect stones, hydronephrosis, or abnormal masses.", "color": "#ffb703", "nvi": "sieu am co the giup phat hien soi, u nuoc than hoac khoi bat thuong.", "nzh": "/ˈʌltrəsaʊnd kæn help dɪˈtekt stoʊnz, ˌhaɪdroʊnəˈfroʊsɪs, ɔːr æbˈnɔːrməl ˈmæsɪz/ ultrasound can help detect stones, hydronephrosis, or abnormal masses.", "word_plain": "Ultrasound can help detect stones, hydronephrosis, or abnormal masses.", "tts_lang": "en"}, "40": {"stt": "40", "vi": "Nếu cần, chúng tôi sẽ chỉ định chụp CT để đánh giá rõ hơn.", "zh": "/ɪf ˈnesəseri, wi wɪl ˈɔːrdər ə ˌsiː ˈtiː skæn fər ə ˈklɪrər əˈsesmənt/", "han": "If necessary, we will order a CT scan for a clearer assessment.", "color": "#3a86ff", "nvi": "neu can, chung toi se chi dinh chup ct de danh gia ro hon.", "nzh": "/ɪf ˈnesəseri, wi wɪl ˈɔːrdər ə ˌsiː ˈtiː skæn fər ə ˈklɪrər əˈsesmənt/ if necessary, we will order a ct scan for a clearer assessment.", "word_plain": "If necessary, we will order a CT scan for a clearer assessment.", "tts_lang": "en"}, "41": {"stt": "41", "vi": "Kết quả cho thấy anh/chị có nhiễm trùng đường tiết niệu.", "zh": "/ðə rɪˈzʌlts ʃoʊ ðæt ju hæv ə ˈjʊrəneri trækt ɪnˈfekʃən/", "han": "The results show that you have a urinary tract infection.", "color": "#06d6a0", "nvi": "ket qua cho thay anh/chi co nhiem trung duong tiet nieu.", "nzh": "/ðə rɪˈzʌlts ʃoʊ ðæt ju hæv ə ˈjʊrəneri trækt ɪnˈfekʃən/ the results show that you have a urinary tract infection.", "word_plain": "The results show that you have a urinary tract infection.", "tts_lang": "en"}, "42": {"stt": "42", "vi": "Tình trạng này thường đáp ứng tốt với kháng sinh phù hợp.", "zh": "/ðɪs kənˈdɪʃən ˈjuːʒuəli rɪˈspɑːndz wel tə əˈproʊpriət ˌæntibaɪˈɑːtɪks/", "han": "This condition usually responds well to appropriate antibiotics.", "color": "#ffb703", "nvi": "tinh trang nay thuong dap ung tot voi khang sinh phu hop.", "nzh": "/ðɪs kənˈdɪʃən ˈjuːʒuəli rɪˈspɑːndz wel tə əˈproʊpriət ˌæntibaɪˈɑːtɪks/ this condition usually responds well to appropriate antibiotics.", "word_plain": "This condition usually responds well to appropriate antibiotics.", "tts_lang": "en"}, "43": {"stt": "43", "vi": "Anh/chị cần uống đủ nước nếu không có chống chỉ định.", "zh": "/ju ʃʊd drɪŋk ɪˈnʌf ˈwɔːtər ɪf ðer ɪz noʊ ˌkɑːntrəˌɪndɪˈkeɪʃən/", "han": "You should drink enough water if there is no contraindication.", "color": "#3a86ff", "nvi": "anh/chi can uong du nuoc neu khong co chong chi dinh.", "nzh": "/ju ʃʊd drɪŋk ɪˈnʌf ˈwɔːtər ɪf ðer ɪz noʊ ˌkɑːntrəˌɪndɪˈkeɪʃən/ you should drink enough water if there is no contraindication.", "word_plain": "You should drink enough water if there is no contraindication.", "tts_lang": "en"}, "44": {"stt": "44", "vi": "Anh/chị cần dùng thuốc đúng liều và đủ thời gian.", "zh": "/ju niːd tə teɪk ðə ˈmedɪsɪn æt ðə kəˈrekt doʊs ænd fər ðə fʊl kɔːrs/", "han": "You need to take the medicine at the correct dose and for the full course.", "color": "#06d6a0", "nvi": "anh/chi can dung thuoc dung lieu va du thoi gian.", "nzh": "/ju niːd tə teɪk ðə ˈmedɪsɪn æt ðə kəˈrekt doʊs ænd fər ðə fʊl kɔːrs/ you need to take the medicine at the correct dose and for the full course.", "word_plain": "You need to take the medicine at the correct dose and for the full course.", "tts_lang": "en"}, "45": {"stt": "45", "vi": "Không nên tự ý ngừng thuốc khi triệu chứng đã giảm.", "zh": "/du nɑːt stɑːp ðə ˈmedɪsɪn ɑːn jʊr oʊn wen ˈsɪmptəmz ɪmˈpruːv/", "han": "Do not stop the medicine on your own when symptoms improve.", "color": "#ffb703", "nvi": "khong nen tu y ngung thuoc khi trieu chung da giam.", "nzh": "/du nɑːt stɑːp ðə ˈmedɪsɪn ɑːn jʊr oʊn wen ˈsɪmptəmz ɪmˈpruːv/ do not stop the medicine on your own when symptoms improve.", "word_plain": "Do not stop the medicine on your own when symptoms improve.", "tts_lang": "en"}, "46": {"stt": "46", "vi": "Nếu sốt cao hoặc đau tăng lên, anh/chị cần quay lại ngay.", "zh": "/ɪf ju dɪˈveləp ə haɪ ˈfiːvər ɔːr ˈwɜːrsənɪŋ peɪn, ju ʃʊd rɪˈtɜːrn ɪˈmiːdiətli/", "han": "If you develop a high fever or worsening pain, you should return immediately.", "color": "#3a86ff", "nvi": "neu sot cao hoac dau tang len, anh/chi can quay lai ngay.", "nzh": "/ɪf ju dɪˈveləp ə haɪ ˈfiːvər ɔːr ˈwɜːrsənɪŋ peɪn, ju ʃʊd rɪˈtɜːrn ɪˈmiːdiətli/ if you develop a high fever or worsening pain, you should return immediately.", "word_plain": "If you develop a high fever or worsening pain, you should return immediately.", "tts_lang": "en"}, "47": {"stt": "47", "vi": "Kết quả gợi ý có sỏi trong đường tiết niệu.", "zh": "/ðə rɪˈzʌlts səˈdʒest ə stoʊn ɪn ðə ˈjʊrəneri trækt/", "han": "The results suggest a stone in the urinary tract.", "color": "#06d6a0", "nvi": "ket qua goi y co soi trong duong tiet nieu.", "nzh": "/ðə rɪˈzʌlts səˈdʒest ə stoʊn ɪn ðə ˈjʊrəneri trækt/ the results suggest a stone in the urinary tract.", "word_plain": "The results suggest a stone in the urinary tract.", "tts_lang": "en"}, "48": {"stt": "48", "vi": "Kích thước và vị trí của viên sỏi sẽ quyết định hướng điều trị.", "zh": "/ðə saɪz ænd loʊˈkeɪʃən əv ðə stoʊn wɪl ɡaɪd ˈtriːtmənt/", "han": "The size and location of the stone will guide treatment.", "color": "#ffb703", "nvi": "kich thuoc va vi tri cua vien soi se quyet dinh huong dieu tri.", "nzh": "/ðə saɪz ænd loʊˈkeɪʃən əv ðə stoʊn wɪl ɡaɪd ˈtriːtmənt/ the size and location of the stone will guide treatment.", "word_plain": "The size and location of the stone will guide treatment.", "tts_lang": "en"}, "49": {"stt": "49", "vi": "Một số viên sỏi nhỏ có thể tự ra ngoài theo nước tiểu.", "zh": "/sʌm smɔːl stoʊnz meɪ pæs ˈnætʃərəli ɪn ðə ˈjʊrɪn/", "han": "Some small stones may pass naturally in the urine.", "color": "#3a86ff", "nvi": "mot so vien soi nho co the tu ra ngoai theo nuoc tieu.", "nzh": "/sʌm smɔːl stoʊnz meɪ pæs ˈnætʃərəli ɪn ðə ˈjʊrɪn/ some small stones may pass naturally in the urine.", "word_plain": "Some small stones may pass naturally in the urine.", "tts_lang": "en"}, "50": {"stt": "50", "vi": "Anh/chị cần lọc nước tiểu để kiểm tra xem sỏi đã ra chưa.", "zh": "/ju meɪ niːd tə streɪn jʊr ˈjʊrɪn tə tʃek ˈweðər ðə stoʊn hæz pæst/", "han": "You may need to strain your urine to check whether the stone has passed.", "color": "#06d6a0", "nvi": "anh/chi can loc nuoc tieu de kiem tra xem soi da ra chua.", "nzh": "/ju meɪ niːd tə streɪn jʊr ˈjʊrɪn tə tʃek ˈweðər ðə stoʊn hæz pæst/ you may need to strain your urine to check whether the stone has passed.", "word_plain": "You may need to strain your urine to check whether the stone has passed.", "tts_lang": "en"}, "51": {"stt": "51", "vi": "Nếu sỏi gây tắc nghẽn hoặc nhiễm trùng, cần xử trí khẩn cấp.", "zh": "/ɪf ðə stoʊn ˈkɔːzɪz əbˈstrʌkʃən ɔːr ɪnˈfekʃən, ˈɜːrdʒənt ˈtriːtmənt ɪz ˈniːdɪd/", "han": "If the stone causes obstruction or infection, urgent treatment is needed.", "color": "#ffb703", "nvi": "neu soi gay tac nghen hoac nhiem trung, can xu tri khan cap.", "nzh": "/ɪf ðə stoʊn ˈkɔːzɪz əbˈstrʌkʃən ɔːr ɪnˈfekʃən, ˈɜːrdʒənt ˈtriːtmənt ɪz ˈniːdɪd/ if the stone causes obstruction or infection, urgent treatment is needed.", "word_plain": "If the stone causes obstruction or infection, urgent treatment is needed.", "tts_lang": "en"}, "52": {"stt": "52", "vi": "Chức năng thận của anh/chị hiện đang giảm so với bình thường.", "zh": "/jʊr ˈkɪdni ˈfʌŋkʃən ɪz ˈkɜːrəntli ˈloʊər ðæn ˈnɔːrməl/", "han": "Your kidney function is currently lower than normal.", "color": "#3a86ff", "nvi": "chuc nang than cua anh/chi hien dang giam so voi binh thuong.", "nzh": "/jʊr ˈkɪdni ˈfʌŋkʃən ɪz ˈkɜːrəntli ˈloʊər ðæn ˈnɔːrməl/ your kidney function is currently lower than normal.", "word_plain": "Your kidney function is currently lower than normal.", "tts_lang": "en"}, "53": {"stt": "53", "vi": "Chúng tôi cần theo dõi chức năng thận định kỳ.", "zh": "/wi niːd tə ˈmɑːnɪtər jʊr ˈkɪdni ˈfʌŋkʃən ˈreɡjələrli/", "han": "We need to monitor your kidney function regularly.", "color": "#06d6a0", "nvi": "chung toi can theo doi chuc nang than dinh ky.", "nzh": "/wi niːd tə ˈmɑːnɪtər jʊr ˈkɪdni ˈfʌŋkʃən ˈreɡjələrli/ we need to monitor your kidney function regularly.", "word_plain": "We need to monitor your kidney function regularly.", "tts_lang": "en"}, "54": {"stt": "54", "vi": "Kiểm soát huyết áp rất quan trọng để bảo vệ thận.", "zh": "/blʌd ˈpreʃər kənˈtroʊl ɪz ˈveri ɪmˈpɔːrtənt tə prəˈtekt jʊr ˈkɪdniz/", "han": "Blood pressure control is very important to protect your kidneys.", "color": "#ffb703", "nvi": "kiem soat huyet ap rat quan trong de bao ve than.", "nzh": "/blʌd ˈpreʃər kənˈtroʊl ɪz ˈveri ɪmˈpɔːrtənt tə prəˈtekt jʊr ˈkɪdniz/ blood pressure control is very important to protect your kidneys.", "word_plain": "Blood pressure control is very important to protect your kidneys.", "tts_lang": "en"}, "55": {"stt": "55", "vi": "Kiểm soát đường huyết giúp làm chậm tiến triển bệnh thận.", "zh": "/blʌd ˈʃʊɡər kənˈtroʊl helps sloʊ ðə prəˈɡreʃən əv ˈkɪdni dɪˈziːz/", "han": "Blood sugar control helps slow the progression of kidney disease.", "color": "#3a86ff", "nvi": "kiem soat duong huyet giup lam cham tien trien benh than.", "nzh": "/blʌd ˈʃʊɡər kənˈtroʊl helps sloʊ ðə prəˈɡreʃən əv ˈkɪdni dɪˈziːz/ blood sugar control helps slow the progression of kidney disease.", "word_plain": "Blood sugar control helps slow the progression of kidney disease.", "tts_lang": "en"}, "56": {"stt": "56", "vi": "Anh/chị nên hạn chế muối theo hướng dẫn của bác sĩ.", "zh": "/ju ʃʊd ˈlɪmɪt sɔːlt əˈkɔːrdɪŋ tə jʊr ˈdɑːktərz ədˈvaɪs/", "han": "You should limit salt according to your doctor’s advice.", "color": "#06d6a0", "nvi": "anh/chi nen han che muoi theo huong dan cua bac si.", "nzh": "/ju ʃʊd ˈlɪmɪt sɔːlt əˈkɔːrdɪŋ tə jʊr ˈdɑːktərz ədˈvaɪs/ you should limit salt according to your doctor’s advice.", "word_plain": "You should limit salt according to your doctor’s advice.", "tts_lang": "en"}, "57": {"stt": "57", "vi": "Không nên dùng thuốc giảm đau kéo dài nếu chưa hỏi bác sĩ.", "zh": "/du nɑːt juːz ˈpeɪnˌkɪlərz fər ə lɔːŋ taɪm wɪˈðaʊt ˈæskɪŋ jʊr ˈdɑːktər/", "han": "Do not use painkillers for a long time without asking your doctor.", "color": "#ffb703", "nvi": "khong nen dung thuoc giam dau keo dai neu chua hoi bac si.", "nzh": "/du nɑːt juːz ˈpeɪnˌkɪlərz fər ə lɔːŋ taɪm wɪˈðaʊt ˈæskɪŋ jʊr ˈdɑːktər/ do not use painkillers for a long time without asking your doctor.", "word_plain": "Do not use painkillers for a long time without asking your doctor.", "tts_lang": "en"}, "58": {"stt": "58", "vi": "Bệnh thận mạn cần được quản lý lâu dài.", "zh": "/ˈkrɑːnɪk ˈkɪdni dɪˈziːz rɪˈkwaɪərz lɔːŋ tɜːrm ˈmænɪdʒmənt/", "han": "Chronic kidney disease requires long-term management.", "color": "#3a86ff", "nvi": "benh than man can duoc quan ly lau dai.", "nzh": "/ˈkrɑːnɪk ˈkɪdni dɪˈziːz rɪˈkwaɪərz lɔːŋ tɜːrm ˈmænɪdʒmənt/ chronic kidney disease requires long-term management.", "word_plain": "Chronic kidney disease requires long-term management.", "tts_lang": "en"}, "59": {"stt": "59", "vi": "Mục tiêu là làm chậm tiến triển bệnh và phòng biến chứng.", "zh": "/ðə ɡoʊl ɪz tə sloʊ dɪˈziːz prəˈɡreʃən ænd prɪˈvent ˌkɑːmplɪˈkeɪʃənz/", "han": "The goal is to slow disease progression and prevent complications.", "color": "#06d6a0", "nvi": "muc tieu la lam cham tien trien benh va phong bien chung.", "nzh": "/ðə ɡoʊl ɪz tə sloʊ dɪˈziːz prəˈɡreʃən ænd prɪˈvent ˌkɑːmplɪˈkeɪʃənz/ the goal is to slow disease progression and prevent complications.", "word_plain": "The goal is to slow disease progression and prevent complications.", "tts_lang": "en"}, "60": {"stt": "60", "vi": "Anh/chị cần tái khám theo lịch hẹn để điều chỉnh điều trị.", "zh": "/ju niːd ˈfɑːloʊ ʌp ˈvɪzɪts æz ˈskedʒuːld tə əˈdʒʌst ˈtriːtmənt/", "han": "You need follow-up visits as scheduled to adjust treatment.", "color": "#ffb703", "nvi": "anh/chi can tai kham theo lich hen de dieu chinh dieu tri.", "nzh": "/ju niːd ˈfɑːloʊ ʌp ˈvɪzɪts æz ˈskedʒuːld tə əˈdʒʌst ˈtriːtmənt/ you need follow-up visits as scheduled to adjust treatment.", "word_plain": "You need follow-up visits as scheduled to adjust treatment.", "tts_lang": "en"}, "61": {"stt": "61", "vi": "Hiện tại anh/chị chưa cần lọc máu, nhưng cần theo dõi sát.", "zh": "/ju du nɑːt niːd daɪˈæləsɪs naʊ, bʌt kloʊs ˈmɑːnɪtərɪŋ ɪz ˈnesəseri/", "han": "You do not need dialysis now, but close monitoring is necessary.", "color": "#3a86ff", "nvi": "hien tai anh/chi chua can loc mau, nhung can theo doi sat.", "nzh": "/ju du nɑːt niːd daɪˈæləsɪs naʊ, bʌt kloʊs ˈmɑːnɪtərɪŋ ɪz ˈnesəseri/ you do not need dialysis now, but close monitoring is necessary.", "word_plain": "You do not need dialysis now, but close monitoring is necessary.", "tts_lang": "en"}, "62": {"stt": "62", "vi": "Khi chức năng thận giảm nhiều, chúng ta sẽ bàn về các lựa chọn điều trị thay thế thận.", "zh": "/wen ˈkɪdni ˈfʌŋkʃən dɪˈklaɪnz sɪɡˈnɪfɪkəntli, wi wɪl dɪˈskʌs ˈriːnəl rɪˈpleɪsmənt ˈɑːpʃənz/", "han": "When kidney function declines significantly, we will discuss renal replacement options.", "color": "#06d6a0", "nvi": "khi chuc nang than giam nhieu, chung ta se ban ve cac lua chon dieu tri thay the than.", "nzh": "/wen ˈkɪdni ˈfʌŋkʃən dɪˈklaɪnz sɪɡˈnɪfɪkəntli, wi wɪl dɪˈskʌs ˈriːnəl rɪˈpleɪsmənt ˈɑːpʃənz/ when kidney function declines significantly, we will discuss renal replacement options.", "word_plain": "When kidney function declines significantly, we will discuss renal replacement options.", "tts_lang": "en"}, "63": {"stt": "63", "vi": "Lọc máu chu kỳ là một phương án khi suy thận giai đoạn cuối.", "zh": "/ˈreɡjələr ˌhiːmoʊdaɪˈæləsɪs ɪz ən ˈɑːpʃən fər end steɪdʒ ˈkɪdni ˈfeɪljər/", "han": "Regular hemodialysis is an option for end-stage kidney failure.", "color": "#ffb703", "nvi": "loc mau chu ky la mot phuong an khi suy than giai doan cuoi.", "nzh": "/ˈreɡjələr ˌhiːmoʊdaɪˈæləsɪs ɪz ən ˈɑːpʃən fər end steɪdʒ ˈkɪdni ˈfeɪljər/ regular hemodialysis is an option for end-stage kidney failure.", "word_plain": "Regular hemodialysis is an option for end-stage kidney failure.", "tts_lang": "en"}, "64": {"stt": "64", "vi": "Lọc màng bụng là một lựa chọn khác phù hợp với một số người bệnh.", "zh": "/ˌperɪtəˈniːəl daɪˈæləsɪs ɪz əˈnʌðər ˈɑːpʃən ˈsuːtəbəl fər sʌm ˈpeɪʃənts/", "han": "Peritoneal dialysis is another option suitable for some patients.", "color": "#3a86ff", "nvi": "loc mang bung la mot lua chon khac phu hop voi mot so nguoi benh.", "nzh": "/ˌperɪtəˈniːəl daɪˈæləsɪs ɪz əˈnʌðər ˈɑːpʃən ˈsuːtəbəl fər sʌm ˈpeɪʃənts/ peritoneal dialysis is another option suitable for some patients.", "word_plain": "Peritoneal dialysis is another option suitable for some patients.", "tts_lang": "en"}, "65": {"stt": "65", "vi": "Ghép thận có thể là lựa chọn tối ưu nếu đủ điều kiện.", "zh": "/ˈkɪdni ˌtrænzplænˈteɪʃən meɪ bi ðə best ˈɑːpʃən ɪf ju ɑːr ˈelɪdʒəbəl/", "han": "Kidney transplantation may be the best option if you are eligible.", "color": "#06d6a0", "nvi": "ghep than co the la lua chon toi uu neu du dieu kien.", "nzh": "/ˈkɪdni ˌtrænzplænˈteɪʃən meɪ bi ðə best ˈɑːpʃən ɪf ju ɑːr ˈelɪdʒəbəl/ kidney transplantation may be the best option if you are eligible.", "word_plain": "Kidney transplantation may be the best option if you are eligible.", "tts_lang": "en"}, "66": {"stt": "66", "vi": "Chúng tôi sẽ giải thích lợi ích và nguy cơ của từng phương án.", "zh": "/wi wɪl ɪkˈspleɪn ðə ˈbenəfɪts ænd rɪsks əv iːtʃ ˈɑːpʃən/", "han": "We will explain the benefits and risks of each option.", "color": "#ffb703", "nvi": "chung toi se giai thich loi ich va nguy co cua tung phuong an.", "nzh": "/wi wɪl ɪkˈspleɪn ðə ˈbenəfɪts ænd rɪsks əv iːtʃ ˈɑːpʃən/ we will explain the benefits and risks of each option.", "word_plain": "We will explain the benefits and risks of each option.", "tts_lang": "en"}, "67": {"stt": "67", "vi": "Anh/chị có thể đặt câu hỏi bất cứ lúc nào.", "zh": "/ju kæn æsk ˈkwestʃənz æt ˈeni taɪm/", "han": "You can ask questions at any time.", "color": "#3a86ff", "nvi": "anh/chi co the dat cau hoi bat cu luc nao.", "nzh": "/ju kæn æsk ˈkwestʃənz æt ˈeni taɪm/ you can ask questions at any time.", "word_plain": "You can ask questions at any time.", "tts_lang": "en"}, "68": {"stt": "68", "vi": "Tôi hiểu điều này có thể khiến anh/chị lo lắng.", "zh": "/aɪ ˌʌndərˈstænd ðɪs meɪ meɪk ju fiːl ˈwɜːrid/", "han": "I understand this may make you feel worried.", "color": "#06d6a0", "nvi": "toi hieu dieu nay co the khien anh/chi lo lang.", "nzh": "/aɪ ˌʌndərˈstænd ðɪs meɪ meɪk ju fiːl ˈwɜːrid/ i understand this may make you feel worried.", "word_plain": "I understand this may make you feel worried.", "tts_lang": "en"}, "69": {"stt": "69", "vi": "Chúng ta sẽ cùng xây dựng kế hoạch điều trị phù hợp.", "zh": "/wi wɪl wɜːrk təˈɡeðər tə meɪk ən əˈproʊpriət ˈtriːtmənt plæn/", "han": "We will work together to make an appropriate treatment plan.", "color": "#ffb703", "nvi": "chung ta se cung xay dung ke hoach dieu tri phu hop.", "nzh": "/wi wɪl wɜːrk təˈɡeðər tə meɪk ən əˈproʊpriət ˈtriːtmənt plæn/ we will work together to make an appropriate treatment plan.", "word_plain": "We will work together to make an appropriate treatment plan.", "tts_lang": "en"}, "70": {"stt": "70", "vi": "Anh/chị vui lòng mang theo kết quả xét nghiệm cũ trong lần tái khám.", "zh": "/pliːz brɪŋ jʊr ˈpriːviəs test rɪˈzʌlts tə ðə ˈfɑːloʊ ʌp ˈvɪzɪt/", "han": "Please bring your previous test results to the follow-up visit.", "color": "#3a86ff", "nvi": "anh/chi vui long mang theo ket qua xet nghiem cu trong lan tai kham.", "nzh": "/pliːz brɪŋ jʊr ˈpriːviəs test rɪˈzʌlts tə ðə ˈfɑːloʊ ʌp ˈvɪzɪt/ please bring your previous test results to the follow-up visit.", "word_plain": "Please bring your previous test results to the follow-up visit.", "tts_lang": "en"}, "71": {"stt": "71", "vi": "Tôi sẽ trình bày ngắn gọn về ca bệnh này.", "zh": "/aɪ wɪl ˈbriːfli prɪˈzent ðɪs ˈklɪnɪkəl keɪs/", "han": "I will briefly present this clinical case.", "color": "#06d6a0", "nvi": "toi se trinh bay ngan gon ve ca benh nay.", "nzh": "/aɪ wɪl ˈbriːfli prɪˈzent ðɪs ˈklɪnɪkəl keɪs/ i will briefly present this clinical case.", "word_plain": "I will briefly present this clinical case.", "tts_lang": "en"}, "72": {"stt": "72", "vi": "Bệnh nhân nhập viện vì đau hông lưng và sốt.", "zh": "/ðə ˈpeɪʃənt wəz ədˈmɪtɪd fər flæŋk peɪn ænd ˈfiːvər/", "han": "The patient was admitted for flank pain and fever.", "color": "#ffb703", "nvi": "benh nhan nhap vien vi dau hong lung va sot.", "nzh": "/ðə ˈpeɪʃənt wəz ədˈmɪtɪd fər flæŋk peɪn ænd ˈfiːvər/ the patient was admitted for flank pain and fever.", "word_plain": "The patient was admitted for flank pain and fever.", "tts_lang": "en"}, "73": {"stt": "73", "vi": "Tiền sử đáng chú ý gồm tăng huyết áp và đái tháo đường.", "zh": "/ðə ˈreləvənt ˈhɪstəri ɪnˈkluːdz ˌhaɪpərˈtenʃən ænd ˌdaɪəˈbiːtiːz/", "han": "The relevant history includes hypertension and diabetes.", "color": "#3a86ff", "nvi": "tien su dang chu y gom tang huyet ap va dai thao duong.", "nzh": "/ðə ˈreləvənt ˈhɪstəri ɪnˈkluːdz ˌhaɪpərˈtenʃən ænd ˌdaɪəˈbiːtiːz/ the relevant history includes hypertension and diabetes.", "word_plain": "The relevant history includes hypertension and diabetes.", "tts_lang": "en"}, "74": {"stt": "74", "vi": "Khám lâm sàng ghi nhận đau khi gõ vùng hông lưng.", "zh": "/ˈfɪzɪkəl ɪɡˌzæməˈneɪʃən ʃoʊd flæŋk ˈtendərnəs ɑːn pərˈkʌʃən/", "han": "Physical examination showed flank tenderness on percussion.", "color": "#06d6a0", "nvi": "kham lam sang ghi nhan dau khi go vung hong lung.", "nzh": "/ˈfɪzɪkəl ɪɡˌzæməˈneɪʃən ʃoʊd flæŋk ˈtendərnəs ɑːn pərˈkʌʃən/ physical examination showed flank tenderness on percussion.", "word_plain": "Physical examination showed flank tenderness on percussion.", "tts_lang": "en"}, "75": {"stt": "75", "vi": "Xét nghiệm nước tiểu cho thấy bạch cầu và nitrite dương tính.", "zh": "/ˌjʊrəˈnæləsɪs ʃoʊd ˈpɑːzətɪv ˈluːkəsaɪts ænd ˈnaɪtraɪts/", "han": "Urinalysis showed positive leukocytes and nitrites.", "color": "#ffb703", "nvi": "xet nghiem nuoc tieu cho thay bach cau va nitrite duong tinh.", "nzh": "/ˌjʊrəˈnæləsɪs ʃoʊd ˈpɑːzətɪv ˈluːkəsaɪts ænd ˈnaɪtraɪts/ urinalysis showed positive leukocytes and nitrites.", "word_plain": "Urinalysis showed positive leukocytes and nitrites.", "tts_lang": "en"}, "76": {"stt": "76", "vi": "Creatinine huyết thanh tăng so với nền trước đó.", "zh": "/ˈsɪrəm kriˈætɪniːn ɪnˈkriːst kəmˈperd wɪð ðə ˈpriːviəs ˈbeɪslaɪn/", "han": "Serum creatinine increased compared with the previous baseline.", "color": "#3a86ff", "nvi": "creatinine huyet thanh tang so voi nen truoc do.", "nzh": "/ˈsɪrəm kriˈætɪniːn ɪnˈkriːst kəmˈperd wɪð ðə ˈpriːviəs ˈbeɪslaɪn/ serum creatinine increased compared with the previous baseline.", "word_plain": "Serum creatinine increased compared with the previous baseline.", "tts_lang": "en"}, "77": {"stt": "77", "vi": "Chẩn đoán làm việc là viêm thận bể thận cấp.", "zh": "/ðə ˈwɜːrkɪŋ ˌdaɪəɡˈnoʊsɪs ɪz əˈkjuːt ˌpaɪəloʊnəˈfraɪtɪs/", "han": "The working diagnosis is acute pyelonephritis.", "color": "#06d6a0", "nvi": "chan doan lam viec la viem than be than cap.", "nzh": "/ðə ˈwɜːrkɪŋ ˌdaɪəɡˈnoʊsɪs ɪz əˈkjuːt ˌpaɪəloʊnəˈfraɪtɪs/ the working diagnosis is acute pyelonephritis.", "word_plain": "The working diagnosis is acute pyelonephritis.", "tts_lang": "en"}, "78": {"stt": "78", "vi": "Chúng tôi đã bắt đầu kháng sinh đường tĩnh mạch.", "zh": "/wi ˈstɑːrtɪd ˌɪntrəˈviːnəs ˌæntibaɪˈɑːtɪks/", "han": "We started intravenous antibiotics.", "color": "#ffb703", "nvi": "chung toi da bat dau khang sinh duong tinh mach.", "nzh": "/wi ˈstɑːrtɪd ˌɪntrəˈviːnəs ˌæntibaɪˈɑːtɪks/ we started intravenous antibiotics.", "word_plain": "We started intravenous antibiotics.", "tts_lang": "en"}, "79": {"stt": "79", "vi": "Cần đánh giá nguy cơ tắc nghẽn đường tiết niệu.", "zh": "/wi niːd tə əˈses ðə rɪsk əv ˈjʊrəneri trækt əbˈstrʌkʃən/", "han": "We need to assess the risk of urinary tract obstruction.", "color": "#3a86ff", "nvi": "can danh gia nguy co tac nghen duong tiet nieu.", "nzh": "/wi niːd tə əˈses ðə rɪsk əv ˈjʊrəneri trækt əbˈstrʌkʃən/ we need to assess the risk of urinary tract obstruction.", "word_plain": "We need to assess the risk of urinary tract obstruction.", "tts_lang": "en"}, "80": {"stt": "80", "vi": "Kế hoạch là theo dõi đáp ứng lâm sàng và điều chỉnh kháng sinh theo kháng sinh đồ.", "zh": "/ðə plæn ɪz tə ˈmɑːnɪtər ˈklɪnɪkəl rɪˈspɑːns ænd əˈdʒʌst ˌæntibaɪˈɑːtɪks əˈkɔːrdɪŋ tə ˈkʌltʃər rɪˈzʌlts/", "han": "The plan is to monitor clinical response and adjust antibiotics according to culture results.", "color": "#06d6a0", "nvi": "ke hoach la theo doi dap ung lam sang va dieu chinh khang sinh theo khang sinh do.", "nzh": "/ðə plæn ɪz tə ˈmɑːnɪtər ˈklɪnɪkəl rɪˈspɑːns ænd əˈdʒʌst ˌæntibaɪˈɑːtɪks əˈkɔːrdɪŋ tə ˈkʌltʃər rɪˈzʌlts/ the plan is to monitor clinical response and adjust antibiotics according to culture results.", "word_plain": "The plan is to monitor clinical response and adjust antibiotics according to culture results.", "tts_lang": "en"}, "81": {"stt": "81", "vi": "Trong bệnh thận mạn, albumin niệu là một yếu tố tiên lượng quan trọng.", "zh": "/ɪn ˈkrɑːnɪk ˈkɪdni dɪˈziːz, ælˌbjuːmɪˈnʊriə ɪz ən ɪmˈpɔːrtənt prɑːɡˈnɑːstɪk ˈfæktər/", "han": "In chronic kidney disease, albuminuria is an important prognostic factor.", "color": "#ffb703", "nvi": "trong benh than man, albumin nieu la mot yeu to tien luong quan trong.", "nzh": "/ɪn ˈkrɑːnɪk ˈkɪdni dɪˈziːz, ælˌbjuːmɪˈnʊriə ɪz ən ɪmˈpɔːrtənt prɑːɡˈnɑːstɪk ˈfæktər/ in chronic kidney disease, albuminuria is an important prognostic factor.", "word_plain": "In chronic kidney disease, albuminuria is an important prognostic factor.", "tts_lang": "en"}, "82": {"stt": "82", "vi": "Mục tiêu điều trị bao gồm kiểm soát huyết áp, đường huyết và nguy cơ tim mạch.", "zh": "/ˈtriːtmənt ɡoʊlz ɪnˈkluːd kənˈtroʊl əv blʌd ˈpreʃər, blʌd ˈʃʊɡər, ænd ˌkɑːrdi oʊˈvæskjələr rɪsk/", "han": "Treatment goals include control of blood pressure, blood sugar, and cardiovascular risk.", "color": "#3a86ff", "nvi": "muc tieu dieu tri bao gom kiem soat huyet ap, duong huyet va nguy co tim mach.", "nzh": "/ˈtriːtmənt ɡoʊlz ɪnˈkluːd kənˈtroʊl əv blʌd ˈpreʃər, blʌd ˈʃʊɡər, ænd ˌkɑːrdi oʊˈvæskjələr rɪsk/ treatment goals include control of blood pressure, blood sugar, and cardiovascular risk.", "word_plain": "Treatment goals include control of blood pressure, blood sugar, and cardiovascular risk.", "tts_lang": "en"}, "83": {"stt": "83", "vi": "Tôi sẽ tóm tắt các phát hiện chính trên siêu âm.", "zh": "/aɪ wɪl ˈsʌməraɪz ðə meɪn ˈʌltrəsaʊnd ˈfaɪndɪŋz/", "han": "I will summarize the main ultrasound findings.", "color": "#06d6a0", "nvi": "toi se tom tat cac phat hien chinh tren sieu am.", "nzh": "/aɪ wɪl ˈsʌməraɪz ðə meɪn ˈʌltrəsaʊnd ˈfaɪndɪŋz/ i will summarize the main ultrasound findings.", "word_plain": "I will summarize the main ultrasound findings.", "tts_lang": "en"}, "84": {"stt": "84", "vi": "Không thấy ứ nước thận, nhưng có nang thận đơn giản.", "zh": "/ðer ɪz noʊ ˌhaɪdroʊnəˈfroʊsɪs, bʌt ðer ɪz ə ˈsɪmpəl ˈriːnəl sɪst/", "han": "There is no hydronephrosis, but there is a simple renal cyst.", "color": "#ffb703", "nvi": "khong thay u nuoc than, nhung co nang than don gian.", "nzh": "/ðer ɪz noʊ ˌhaɪdroʊnəˈfroʊsɪs, bʌt ðer ɪz ə ˈsɪmpəl ˈriːnəl sɪst/ there is no hydronephrosis, but there is a simple renal cyst.", "word_plain": "There is no hydronephrosis, but there is a simple renal cyst.", "tts_lang": "en"}, "85": {"stt": "85", "vi": "Kết quả cấy nước tiểu đang chờ và sẽ định hướng điều trị tiếp theo.", "zh": "/ðə ˈjʊrɪn ˈkʌltʃər ɪz ˈpendɪŋ ænd wɪl ɡaɪd ˈfɜːrðər ˈtriːtmənt/", "han": "The urine culture is pending and will guide further treatment.", "color": "#3a86ff", "nvi": "ket qua cay nuoc tieu dang cho va se dinh huong dieu tri tiep theo.", "nzh": "/ðə ˈjʊrɪn ˈkʌltʃər ɪz ˈpendɪŋ ænd wɪl ɡaɪd ˈfɜːrðər ˈtriːtmənt/ the urine culture is pending and will guide further treatment.", "word_plain": "The urine culture is pending and will guide further treatment.", "tts_lang": "en"}, "86": {"stt": "86", "vi": "Bệnh nhân có nguy cơ tổn thương thận cấp do mất nước và nhiễm trùng.", "zh": "/ðə ˈpeɪʃənt ɪz æt rɪsk əv əˈkjuːt ˈkɪdni ˈɪndʒəri duː tə ˌdiːhaɪˈdreɪʃən ænd ɪnˈfekʃən/", "han": "The patient is at risk of acute kidney injury due to dehydration and infection.", "color": "#06d6a0", "nvi": "benh nhan co nguy co ton thuong than cap do mat nuoc va nhiem trung.", "nzh": "/ðə ˈpeɪʃənt ɪz æt rɪsk əv əˈkjuːt ˈkɪdni ˈɪndʒəri duː tə ˌdiːhaɪˈdreɪʃən ænd ɪnˈfekʃən/ the patient is at risk of acute kidney injury due to dehydration and infection.", "word_plain": "The patient is at risk of acute kidney injury due to dehydration and infection.", "tts_lang": "en"}, "87": {"stt": "87", "vi": "Chúng ta cần cân bằng dịch cẩn thận vì bệnh nhân có bệnh nền tim mạch.", "zh": "/wi niːd ˈkerfəl ˈfluːɪd ˈbæləns bɪˈkɔːz ðə ˈpeɪʃənt hæz ˌʌndərˈlaɪɪŋ ˌkɑːrdi oʊˈvæskjələr dɪˈziːz/", "han": "We need careful fluid balance because the patient has underlying cardiovascular disease.", "color": "#ffb703", "nvi": "chung ta can can bang dich can than vi benh nhan co benh nen tim mach.", "nzh": "/wi niːd ˈkerfəl ˈfluːɪd ˈbæləns bɪˈkɔːz ðə ˈpeɪʃənt hæz ˌʌndərˈlaɪɪŋ ˌkɑːrdi oʊˈvæskjələr dɪˈziːz/ we need careful fluid balance because the patient has underlying cardiovascular disease.", "word_plain": "We need careful fluid balance because the patient has underlying cardiovascular disease.", "tts_lang": "en"}, "88": {"stt": "88", "vi": "Liều thuốc cần được điều chỉnh theo mức lọc cầu thận.", "zh": "/ˌmedɪˈkeɪʃən ˈdoʊsɪz ʃʊd bi əˈdʒʌstɪd əˈkɔːrdɪŋ tə ɡloʊˈmerjələr fɪlˈtreɪʃən reɪt/", "han": "Medication doses should be adjusted according to glomerular filtration rate.", "color": "#3a86ff", "nvi": "lieu thuoc can duoc dieu chinh theo muc loc cau than.", "nzh": "/ˌmedɪˈkeɪʃən ˈdoʊsɪz ʃʊd bi əˈdʒʌstɪd əˈkɔːrdɪŋ tə ɡloʊˈmerjələr fɪlˈtreɪʃən reɪt/ medication doses should be adjusted according to glomerular filtration rate.", "word_plain": "Medication doses should be adjusted according to glomerular filtration rate.", "tts_lang": "en"}, "89": {"stt": "89", "vi": "Chúng tôi khuyến nghị tránh các thuốc có độc tính trên thận nếu có thể.", "zh": "/wi ˌrekəˈmend əˈvɔɪdɪŋ ˌnefrəˈtɑːksɪk drʌɡz ɪf ˈpɑːsəbəl/", "han": "We recommend avoiding nephrotoxic drugs if possible.", "color": "#06d6a0", "nvi": "chung toi khuyen nghi tranh cac thuoc co doc tinh tren than neu co the.", "nzh": "/wi ˌrekəˈmend əˈvɔɪdɪŋ ˌnefrəˈtɑːksɪk drʌɡz ɪf ˈpɑːsəbəl/ we recommend avoiding nephrotoxic drugs if possible.", "word_plain": "We recommend avoiding nephrotoxic drugs if possible.", "tts_lang": "en"}, "90": {"stt": "90", "vi": "Cần hội chẩn tiết niệu nếu có tắc nghẽn hoặc sỏi kẹt.", "zh": "/ə jʊˈrɑːlədʒi ˌkɑːnsəlˈteɪʃən ɪz ˈniːdɪd ɪf ðer ɪz əbˈstrʌkʃən ɔːr ən ɪmˈpæktɪd stoʊn/", "han": "A urology consultation is needed if there is obstruction or an impacted stone.", "color": "#ffb703", "nvi": "can hoi chan tiet nieu neu co tac nghen hoac soi ket.", "nzh": "/ə jʊˈrɑːlədʒi ˌkɑːnsəlˈteɪʃən ɪz ˈniːdɪd ɪf ðer ɪz əbˈstrʌkʃən ɔːr ən ɪmˈpæktɪd stoʊn/ a urology consultation is needed if there is obstruction or an impacted stone.", "word_plain": "A urology consultation is needed if there is obstruction or an impacted stone.", "tts_lang": "en"}, "91": {"stt": "91", "vi": "Anh/chị có câu hỏi nào về chẩn đoán của mình không?", "zh": "/duː ju hæv ˈeni ˈkwestʃənz əˈbaʊt jʊr ˌdaɪəɡˈnoʊsɪs/", "han": "Do you have any questions about your diagnosis?", "color": "#3a86ff", "nvi": "anh/chi co cau hoi nao ve chan doan cua minh khong?", "nzh": "/duː ju hæv ˈeni ˈkwestʃənz əˈbaʊt jʊr ˌdaɪəɡˈnoʊsɪs/ do you have any questions about your diagnosis?", "word_plain": "Do you have any questions about your diagnosis?", "tts_lang": "en"}, "92": {"stt": "92", "vi": "Tôi sẽ giải thích bằng từ ngữ dễ hiểu hơn.", "zh": "/aɪ wɪl ɪkˈspleɪn ɪt ɪn ˈsɪmplər tɜːrmz/", "han": "I will explain it in simpler terms.", "color": "#06d6a0", "nvi": "toi se giai thich bang tu ngu de hieu hon.", "nzh": "/aɪ wɪl ɪkˈspleɪn ɪt ɪn ˈsɪmplər tɜːrmz/ i will explain it in simpler terms.", "word_plain": "I will explain it in simpler terms.", "tts_lang": "en"}, "93": {"stt": "93", "vi": "Kết quả này chưa đủ để kết luận ung thư.", "zh": "/ðɪs rɪˈzʌlt ɪz nɑːt ɪˈnʌf tə ˌdaɪəɡˈnoʊs ˈkænsər/", "han": "This result is not enough to diagnose cancer.", "color": "#ffb703", "nvi": "ket qua nay chua du de ket luan ung thu.", "nzh": "/ðɪs rɪˈzʌlt ɪz nɑːt ɪˈnʌf tə ˌdaɪəɡˈnoʊs ˈkænsər/ this result is not enough to diagnose cancer.", "word_plain": "This result is not enough to diagnose cancer.", "tts_lang": "en"}, "94": {"stt": "94", "vi": "Chúng tôi cần thêm xét nghiệm để xác định nguyên nhân.", "zh": "/wi niːd ˈfɜːrðər tests tə aɪˈdentɪfaɪ ðə kɔːz/", "han": "We need further tests to identify the cause.", "color": "#3a86ff", "nvi": "chung toi can them xet nghiem de xac dinh nguyen nhan.", "nzh": "/wi niːd ˈfɜːrðər tests tə aɪˈdentɪfaɪ ðə kɔːz/ we need further tests to identify the cause.", "word_plain": "We need further tests to identify the cause.", "tts_lang": "en"}, "95": {"stt": "95", "vi": "Anh/chị nên theo dõi màu sắc nước tiểu và lượng nước tiểu mỗi ngày.", "zh": "/ju ʃʊd ˈmɑːnɪtər ðə ˈkʌlər ænd əˈmaʊnt əv jʊr ˈjʊrɪn iːtʃ deɪ/", "han": "You should monitor the color and amount of your urine each day.", "color": "#06d6a0", "nvi": "anh/chi nen theo doi mau sac nuoc tieu va luong nuoc tieu moi ngay.", "nzh": "/ju ʃʊd ˈmɑːnɪtər ðə ˈkʌlər ænd əˈmaʊnt əv jʊr ˈjʊrɪn iːtʃ deɪ/ you should monitor the color and amount of your urine each day.", "word_plain": "You should monitor the color and amount of your urine each day.", "tts_lang": "en"}, "96": {"stt": "96", "vi": "Anh/chị hãy quay lại ngay nếu không đi tiểu được.", "zh": "/pliːz kʌm bæk ɪˈmiːdiətli ɪf ju ˈkænɑːt ˈjʊrəneɪt/", "han": "Please come back immediately if you cannot urinate.", "color": "#ffb703", "nvi": "anh/chi hay quay lai ngay neu khong di tieu duoc.", "nzh": "/pliːz kʌm bæk ɪˈmiːdiətli ɪf ju ˈkænɑːt ˈjʊrəneɪt/ please come back immediately if you cannot urinate.", "word_plain": "Please come back immediately if you cannot urinate.", "tts_lang": "en"}, "97": {"stt": "97", "vi": "Anh/chị hãy quay lại ngay nếu có đau dữ dội, sốt cao hoặc nôn nhiều.", "zh": "/pliːz rɪˈtɜːrn ɪˈmiːdiətli ɪf ju hæv səˈvɪr peɪn, haɪ ˈfiːvər, ɔːr rɪˈpiːtɪd ˈvɑːmɪtɪŋ/", "han": "Please return immediately if you have severe pain, high fever, or repeated vomiting.", "color": "#3a86ff", "nvi": "anh/chi hay quay lai ngay neu co dau du doi, sot cao hoac non nhieu.", "nzh": "/pliːz rɪˈtɜːrn ɪˈmiːdiətli ɪf ju hæv səˈvɪr peɪn, haɪ ˈfiːvər, ɔːr rɪˈpiːtɪd ˈvɑːmɪtɪŋ/ please return immediately if you have severe pain, high fever, or repeated vomiting.", "word_plain": "Please return immediately if you have severe pain, high fever, or repeated vomiting.", "tts_lang": "en"}, "98": {"stt": "98", "vi": "Tôi sẽ ghi hướng dẫn dùng thuốc và lịch tái khám cho anh/chị.", "zh": "/aɪ wɪl raɪt daʊn jʊr ˌmedɪˈkeɪʃən ɪnˈstrʌkʃənz ænd ˈfɑːloʊ ʌp ˈskedʒuːl/", "han": "I will write down your medication instructions and follow-up schedule.", "color": "#06d6a0", "nvi": "toi se ghi huong dan dung thuoc va lich tai kham cho anh/chi.", "nzh": "/aɪ wɪl raɪt daʊn jʊr ˌmedɪˈkeɪʃən ɪnˈstrʌkʃənz ænd ˈfɑːloʊ ʌp ˈskedʒuːl/ i will write down your medication instructions and follow-up schedule.", "word_plain": "I will write down your medication instructions and follow-up schedule.", "tts_lang": "en"}, "99": {"stt": "99", "vi": "Cảm ơn anh/chị đã hợp tác trong quá trình thăm khám.", "zh": "/θæŋk ju fər jʊr koʊˌɑːpəˈreɪʃən ˈdʊrɪŋ ðə ˌkɑːnsəlˈteɪʃən/", "han": "Thank you for your cooperation during the consultation.", "color": "#ffb703", "nvi": "cam on anh/chi da hop tac trong qua trinh tham kham.", "nzh": "/θæŋk ju fər jʊr koʊˌɑːpəˈreɪʃən ˈdʊrɪŋ ðə ˌkɑːnsəlˈteɪʃən/ thank you for your cooperation during the consultation.", "word_plain": "Thank you for your cooperation during the consultation.", "tts_lang": "en"}, "100": {"stt": "100", "vi": "Nếu cần hỗ trợ thêm, anh/chị có thể liên hệ với bệnh viện hoặc quay lại phòng khám.", "zh": "/ɪf ju niːd ˈfɜːrðər səˈpɔːrt, ju kæn ˈkɑːntækt ðə ˈhɑːspɪtəl ɔːr rɪˈtɜːrn tə ðə ˈklɪnɪk/", "han": "If you need further support, you can contact the hospital or return to the clinic.", "color": "#3a86ff", "nvi": "neu can ho tro them, anh/chi co the lien he voi benh vien hoac quay lai phong kham.", "nzh": "/ɪf ju niːd ˈfɜːrðər səˈpɔːrt, ju kæn ˈkɑːntækt ðə ˈhɑːspɪtəl ɔːr rɪˈtɜːrn tə ðə ˈklɪnɪk/ if you need further support, you can contact the hospital or return to the clinic.", "word_plain": "If you need further support, you can contact the hospital or return to the clinic.", "tts_lang": "en"}, "101": {"stt": "1", "vi": "thận", "zh": "/ˈkɪdni/", "han": "kidney", "color": "#06d6a0", "nvi": "than", "nzh": "/ˈkɪdni/ kidney", "word_plain": "kidney", "tts_lang": "en"}, "102": {"stt": "2", "vi": "niệu quản", "zh": "/jʊˈriːtər/", "han": "ureter", "color": "#ffb703", "nvi": "nieu quan", "nzh": "/jʊˈriːtər/ ureter", "word_plain": "ureter", "tts_lang": "en"}, "103": {"stt": "3", "vi": "bàng quang", "zh": "/ˈblædər/", "han": "bladder", "color": "#3a86ff", "nvi": "bang quang", "nzh": "/ˈblædər/ bladder", "word_plain": "bladder", "tts_lang": "en"}, "104": {"stt": "4", "vi": "niệu đạo", "zh": "/jʊˈriːθrə/", "han": "urethra", "color": "#06d6a0", "nvi": "nieu dao", "nzh": "/jʊˈriːθrə/ urethra", "word_plain": "urethra", "tts_lang": "en"}, "105": {"stt": "5", "vi": "tuyến tiền liệt", "zh": "/ˈprɑːsteɪt ɡlænd/", "han": "prostate gland", "color": "#ffb703", "nvi": "tuyen tien liet", "nzh": "/ˈprɑːsteɪt ɡlænd/ prostate gland", "word_plain": "prostate gland", "tts_lang": "en"}, "106": {"stt": "6", "vi": "cầu thận", "zh": "/ɡloʊˈmerjʊləs/", "han": "glomerulus", "color": "#3a86ff", "nvi": "cau than", "nzh": "/ɡloʊˈmerjʊləs/ glomerulus", "word_plain": "glomerulus", "tts_lang": "en"}, "107": {"stt": "7", "vi": "ống thận", "zh": "/ˈriːnəl ˈtuːbjuːl/", "han": "renal tubule", "color": "#06d6a0", "nvi": "ong than", "nzh": "/ˈriːnəl ˈtuːbjuːl/ renal tubule", "word_plain": "renal tubule", "tts_lang": "en"}, "108": {"stt": "8", "vi": "bể thận", "zh": "/ˈriːnəl ˈpelvɪs/", "han": "renal pelvis", "color": "#ffb703", "nvi": "be than", "nzh": "/ˈriːnəl ˈpelvɪs/ renal pelvis", "word_plain": "renal pelvis", "tts_lang": "en"}, "109": {"stt": "9", "vi": "vỏ thận", "zh": "/ˈriːnəl ˈkɔːrteks/", "han": "renal cortex", "color": "#3a86ff", "nvi": "vo than", "nzh": "/ˈriːnəl ˈkɔːrteks/ renal cortex", "word_plain": "renal cortex", "tts_lang": "en"}, "110": {"stt": "10", "vi": "tủy thận", "zh": "/ˈriːnəl məˈdʌlə/", "han": "renal medulla", "color": "#06d6a0", "nvi": "tuy than", "nzh": "/ˈriːnəl məˈdʌlə/ renal medulla", "word_plain": "renal medulla", "tts_lang": "en"}, "111": {"stt": "11", "vi": "động mạch thận", "zh": "/ˈriːnəl ˈɑːrtəri/", "han": "renal artery", "color": "#ffb703", "nvi": "dong mach than", "nzh": "/ˈriːnəl ˈɑːrtəri/ renal artery", "word_plain": "renal artery", "tts_lang": "en"}, "112": {"stt": "12", "vi": "tĩnh mạch thận", "zh": "/ˈriːnəl veɪn/", "han": "renal vein", "color": "#3a86ff", "nvi": "tinh mach than", "nzh": "/ˈriːnəl veɪn/ renal vein", "word_plain": "renal vein", "tts_lang": "en"}, "113": {"stt": "13", "vi": "hệ tiết niệu", "zh": "/ˈjʊrəneri ˈsɪstəm/", "han": "urinary system", "color": "#06d6a0", "nvi": "he tiet nieu", "nzh": "/ˈjʊrəneri ˈsɪstəm/ urinary system", "word_plain": "urinary system", "tts_lang": "en"}, "114": {"stt": "14", "vi": "đường tiết niệu", "zh": "/ˈjʊrəneri trækt/", "han": "urinary tract", "color": "#ffb703", "nvi": "duong tiet nieu", "nzh": "/ˈjʊrəneri trækt/ urinary tract", "word_plain": "urinary tract", "tts_lang": "en"}, "115": {"stt": "15", "vi": "mô kẽ thận", "zh": "/ˈriːnəl ˌɪntərˈstɪʃiəm/", "han": "renal interstitium", "color": "#3a86ff", "nvi": "mo ke than", "nzh": "/ˈriːnəl ˌɪntərˈstɪʃiəm/ renal interstitium", "word_plain": "renal interstitium", "tts_lang": "en"}, "116": {"stt": "16", "vi": "bao thận", "zh": "/ˈriːnəl ˈkæpsəl/", "han": "renal capsule", "color": "#06d6a0", "nvi": "bao than", "nzh": "/ˈriːnəl ˈkæpsəl/ renal capsule", "word_plain": "renal capsule", "tts_lang": "en"}, "117": {"stt": "17", "vi": "nhú thận", "zh": "/ˈriːnəl pəˈpɪlə/", "han": "renal papilla", "color": "#ffb703", "nvi": "nhu than", "nzh": "/ˈriːnəl pəˈpɪlə/ renal papilla", "word_plain": "renal papilla", "tts_lang": "en"}, "118": {"stt": "18", "vi": "đài thận", "zh": "/ˈriːnəl ˈkeɪlɪks/", "han": "renal calyx", "color": "#3a86ff", "nvi": "dai than", "nzh": "/ˈriːnəl ˈkeɪlɪks/ renal calyx", "word_plain": "renal calyx", "tts_lang": "en"}, "119": {"stt": "19", "vi": "thận phải", "zh": "/raɪt ˈkɪdni/", "han": "right kidney", "color": "#06d6a0", "nvi": "than phai", "nzh": "/raɪt ˈkɪdni/ right kidney", "word_plain": "right kidney", "tts_lang": "en"}, "120": {"stt": "20", "vi": "thận trái", "zh": "/left ˈkɪdni/", "han": "left kidney", "color": "#ffb703", "nvi": "than trai", "nzh": "/left ˈkɪdni/ left kidney", "word_plain": "left kidney", "tts_lang": "en"}, "121": {"stt": "21", "vi": "đi tiểu", "zh": "/ˌjʊrəˈneɪʃən/", "han": "urination", "color": "#3a86ff", "nvi": "di tieu", "nzh": "/ˌjʊrəˈneɪʃən/ urination", "word_plain": "urination", "tts_lang": "en"}, "122": {"stt": "22", "vi": "tiểu buốt", "zh": "/dɪsˈjʊriə/", "han": "dysuria", "color": "#06d6a0", "nvi": "tieu buot", "nzh": "/dɪsˈjʊriə/ dysuria", "word_plain": "dysuria", "tts_lang": "en"}, "123": {"stt": "23", "vi": "tiểu máu", "zh": "/ˌhiːməˈtʊriə/", "han": "hematuria", "color": "#ffb703", "nvi": "tieu mau", "nzh": "/ˌhiːməˈtʊriə/ hematuria", "word_plain": "hematuria", "tts_lang": "en"}, "124": {"stt": "24", "vi": "tiểu nhiều lần", "zh": "/ˈjʊrəneri ˈfriːkwənsi/", "han": "urinary frequency", "color": "#3a86ff", "nvi": "tieu nhieu lan", "nzh": "/ˈjʊrəneri ˈfriːkwənsi/ urinary frequency", "word_plain": "urinary frequency", "tts_lang": "en"}, "125": {"stt": "25", "vi": "tiểu gấp", "zh": "/ˈjʊrəneri ˈɜːrdʒənsi/", "han": "urinary urgency", "color": "#06d6a0", "nvi": "tieu gap", "nzh": "/ˈjʊrəneri ˈɜːrdʒənsi/ urinary urgency", "word_plain": "urinary urgency", "tts_lang": "en"}, "126": {"stt": "26", "vi": "tiểu đêm", "zh": "/nɑːkˈtʊriə/", "han": "nocturia", "color": "#ffb703", "nvi": "tieu dem", "nzh": "/nɑːkˈtʊriə/ nocturia", "word_plain": "nocturia", "tts_lang": "en"}, "127": {"stt": "27", "vi": "bí tiểu", "zh": "/ˈjʊrəneri rɪˈtenʃən/", "han": "urinary retention", "color": "#3a86ff", "nvi": "bi tieu", "nzh": "/ˈjʊrəneri rɪˈtenʃən/ urinary retention", "word_plain": "urinary retention", "tts_lang": "en"}, "128": {"stt": "28", "vi": "tiểu không tự chủ", "zh": "/ˈjʊrəneri ɪnˈkɑːntɪnəns/", "han": "urinary incontinence", "color": "#06d6a0", "nvi": "tieu khong tu chu", "nzh": "/ˈjʊrəneri ɪnˈkɑːntɪnəns/ urinary incontinence", "word_plain": "urinary incontinence", "tts_lang": "en"}, "129": {"stt": "29", "vi": "giảm lượng nước tiểu", "zh": "/ˌɑːlɪˈɡjʊriə/", "han": "oliguria", "color": "#ffb703", "nvi": "giam luong nuoc tieu", "nzh": "/ˌɑːlɪˈɡjʊriə/ oliguria", "word_plain": "oliguria", "tts_lang": "en"}, "130": {"stt": "30", "vi": "vô niệu", "zh": "/æˈnʊriə/", "han": "anuria", "color": "#3a86ff", "nvi": "vo nieu", "nzh": "/æˈnʊriə/ anuria", "word_plain": "anuria", "tts_lang": "en"}, "131": {"stt": "31", "vi": "đau hông lưng", "zh": "/flæŋk peɪn/", "han": "flank pain", "color": "#06d6a0", "nvi": "dau hong lung", "nzh": "/flæŋk peɪn/ flank pain", "word_plain": "flank pain", "tts_lang": "en"}, "132": {"stt": "32", "vi": "đau bụng dưới", "zh": "/ˈloʊər æbˈdɑːmɪnəl peɪn/", "han": "lower abdominal pain", "color": "#ffb703", "nvi": "dau bung duoi", "nzh": "/ˈloʊər æbˈdɑːmɪnəl peɪn/ lower abdominal pain", "word_plain": "lower abdominal pain", "tts_lang": "en"}, "133": {"stt": "33", "vi": "sốt", "zh": "/ˈfiːvər/", "han": "fever", "color": "#3a86ff", "nvi": "sot", "nzh": "/ˈfiːvər/ fever", "word_plain": "fever", "tts_lang": "en"}, "134": {"stt": "34", "vi": "ớn lạnh", "zh": "/tʃɪlz/", "han": "chills", "color": "#06d6a0", "nvi": "on lanh", "nzh": "/tʃɪlz/ chills", "word_plain": "chills", "tts_lang": "en"}, "135": {"stt": "35", "vi": "buồn nôn", "zh": "/ˈnɔːziə/", "han": "nausea", "color": "#ffb703", "nvi": "buon non", "nzh": "/ˈnɔːziə/ nausea", "word_plain": "nausea", "tts_lang": "en"}, "136": {"stt": "36", "vi": "nôn", "zh": "/ˈvɑːmɪtɪŋ/", "han": "vomiting", "color": "#3a86ff", "nvi": "non", "nzh": "/ˈvɑːmɪtɪŋ/ vomiting", "word_plain": "vomiting", "tts_lang": "en"}, "137": {"stt": "37", "vi": "phù", "zh": "/ɪˈdiːmə/", "han": "edema", "color": "#06d6a0", "nvi": "phu", "nzh": "/ɪˈdiːmə/ edema", "word_plain": "edema", "tts_lang": "en"}, "138": {"stt": "38", "vi": "khó thở", "zh": "/ˈʃɔːrtnəs əv breθ/", "han": "shortness of breath", "color": "#ffb703", "nvi": "kho tho", "nzh": "/ˈʃɔːrtnəs əv breθ/ shortness of breath", "word_plain": "shortness of breath", "tts_lang": "en"}, "139": {"stt": "39", "vi": "mệt mỏi", "zh": "/fəˈtiːɡ/", "han": "fatigue", "color": "#3a86ff", "nvi": "met moi", "nzh": "/fəˈtiːɡ/ fatigue", "word_plain": "fatigue", "tts_lang": "en"}, "140": {"stt": "40", "vi": "ngứa", "zh": "/ˈɪtʃɪŋ/", "han": "itching", "color": "#06d6a0", "nvi": "ngua", "nzh": "/ˈɪtʃɪŋ/ itching", "word_plain": "itching", "tts_lang": "en"}, "141": {"stt": "41", "vi": "tăng huyết áp", "zh": "/ˌhaɪpərˈtenʃən/", "han": "hypertension", "color": "#ffb703", "nvi": "tang huyet ap", "nzh": "/ˌhaɪpərˈtenʃən/ hypertension", "word_plain": "hypertension", "tts_lang": "en"}, "142": {"stt": "42", "vi": "đái tháo đường", "zh": "/ˌdaɪəˈbiːtiːz məˈlaɪtəs/", "han": "diabetes mellitus", "color": "#3a86ff", "nvi": "dai thao duong", "nzh": "/ˌdaɪəˈbiːtiːz məˈlaɪtəs/ diabetes mellitus", "word_plain": "diabetes mellitus", "tts_lang": "en"}, "143": {"stt": "43", "vi": "bệnh thận mạn", "zh": "/ˈkrɑːnɪk ˈkɪdni dɪˈziːz/", "han": "chronic kidney disease", "color": "#06d6a0", "nvi": "benh than man", "nzh": "/ˈkrɑːnɪk ˈkɪdni dɪˈziːz/ chronic kidney disease", "word_plain": "chronic kidney disease", "tts_lang": "en"}, "144": {"stt": "44", "vi": "suy thận cấp", "zh": "/əˈkjuːt ˈkɪdni ˈɪndʒəri/", "han": "acute kidney injury", "color": "#ffb703", "nvi": "suy than cap", "nzh": "/əˈkjuːt ˈkɪdni ˈɪndʒəri/ acute kidney injury", "word_plain": "acute kidney injury", "tts_lang": "en"}, "145": {"stt": "45", "vi": "suy thận giai đoạn cuối", "zh": "/end steɪdʒ ˈkɪdni dɪˈziːz/", "han": "end-stage kidney disease", "color": "#3a86ff", "nvi": "suy than giai doan cuoi", "nzh": "/end steɪdʒ ˈkɪdni dɪˈziːz/ end-stage kidney disease", "word_plain": "end-stage kidney disease", "tts_lang": "en"}, "146": {"stt": "46", "vi": "viêm cầu thận", "zh": "/ɡloʊˌmerjʊloʊnəˈfraɪtɪs/", "han": "glomerulonephritis", "color": "#06d6a0", "nvi": "viem cau than", "nzh": "/ɡloʊˌmerjʊloʊnəˈfraɪtɪs/ glomerulonephritis", "word_plain": "glomerulonephritis", "tts_lang": "en"}, "147": {"stt": "47", "vi": "hội chứng thận hư", "zh": "/nəˈfrɑːtɪk ˈsɪndroʊm/", "han": "nephrotic syndrome", "color": "#ffb703", "nvi": "hoi chung than hu", "nzh": "/nəˈfrɑːtɪk ˈsɪndroʊm/ nephrotic syndrome", "word_plain": "nephrotic syndrome", "tts_lang": "en"}, "148": {"stt": "48", "vi": "viêm thận bể thận", "zh": "/ˌpaɪəloʊnəˈfraɪtɪs/", "han": "pyelonephritis", "color": "#3a86ff", "nvi": "viem than be than", "nzh": "/ˌpaɪəloʊnəˈfraɪtɪs/ pyelonephritis", "word_plain": "pyelonephritis", "tts_lang": "en"}, "149": {"stt": "49", "vi": "nhiễm trùng đường tiết niệu", "zh": "/ˈjʊrəneri trækt ɪnˈfekʃən/", "han": "urinary tract infection", "color": "#06d6a0", "nvi": "nhiem trung duong tiet nieu", "nzh": "/ˈjʊrəneri trækt ɪnˈfekʃən/ urinary tract infection", "word_plain": "urinary tract infection", "tts_lang": "en"}, "150": {"stt": "50", "vi": "sỏi thận", "zh": "/ˈkɪdni stoʊn/", "han": "kidney stone", "color": "#ffb703", "nvi": "soi than", "nzh": "/ˈkɪdni stoʊn/ kidney stone", "word_plain": "kidney stone", "tts_lang": "en"}, "151": {"stt": "51", "vi": "sỏi niệu quản", "zh": "/jʊˈriːtərəl stoʊn/", "han": "ureteral stone", "color": "#3a86ff", "nvi": "soi nieu quan", "nzh": "/jʊˈriːtərəl stoʊn/ ureteral stone", "word_plain": "ureteral stone", "tts_lang": "en"}, "152": {"stt": "52", "vi": "sỏi bàng quang", "zh": "/ˈblædər stoʊn/", "han": "bladder stone", "color": "#06d6a0", "nvi": "soi bang quang", "nzh": "/ˈblædər stoʊn/ bladder stone", "word_plain": "bladder stone", "tts_lang": "en"}, "153": {"stt": "53", "vi": "ứ nước thận", "zh": "/ˌhaɪdroʊnəˈfroʊsɪs/", "han": "hydronephrosis", "color": "#ffb703", "nvi": "u nuoc than", "nzh": "/ˌhaɪdroʊnəˈfroʊsɪs/ hydronephrosis", "word_plain": "hydronephrosis", "tts_lang": "en"}, "154": {"stt": "54", "vi": "phì đại tuyến tiền liệt lành tính", "zh": "/bɪˈnaɪn prɑːˈstætɪk ˌhaɪpərˈpleɪʒə/", "han": "benign prostatic hyperplasia", "color": "#3a86ff", "nvi": "phi dai tuyen tien liet lanh tinh", "nzh": "/bɪˈnaɪn prɑːˈstætɪk ˌhaɪpərˈpleɪʒə/ benign prostatic hyperplasia", "word_plain": "benign prostatic hyperplasia", "tts_lang": "en"}, "155": {"stt": "55", "vi": "viêm bàng quang", "zh": "/sɪˈstaɪtɪs/", "han": "cystitis", "color": "#06d6a0", "nvi": "viem bang quang", "nzh": "/sɪˈstaɪtɪs/ cystitis", "word_plain": "cystitis", "tts_lang": "en"}, "156": {"stt": "56", "vi": "viêm niệu đạo", "zh": "/ˌjʊrəˈθraɪtɪs/", "han": "urethritis", "color": "#ffb703", "nvi": "viem nieu dao", "nzh": "/ˌjʊrəˈθraɪtɪs/ urethritis", "word_plain": "urethritis", "tts_lang": "en"}, "157": {"stt": "57", "vi": "viêm tuyến tiền liệt", "zh": "/ˌprɑːstəˈtaɪtɪs/", "han": "prostatitis", "color": "#3a86ff", "nvi": "viem tuyen tien liet", "nzh": "/ˌprɑːstəˈtaɪtɪs/ prostatitis", "word_plain": "prostatitis", "tts_lang": "en"}, "158": {"stt": "58", "vi": "ung thư thận", "zh": "/ˈkɪdni ˈkænsər/", "han": "kidney cancer", "color": "#06d6a0", "nvi": "ung thu than", "nzh": "/ˈkɪdni ˈkænsər/ kidney cancer", "word_plain": "kidney cancer", "tts_lang": "en"}, "159": {"stt": "59", "vi": "ung thư bàng quang", "zh": "/ˈblædər ˈkænsər/", "han": "bladder cancer", "color": "#ffb703", "nvi": "ung thu bang quang", "nzh": "/ˈblædər ˈkænsər/ bladder cancer", "word_plain": "bladder cancer", "tts_lang": "en"}, "160": {"stt": "60", "vi": "ung thư tuyến tiền liệt", "zh": "/ˈprɑːsteɪt ˈkænsər/", "han": "prostate cancer", "color": "#3a86ff", "nvi": "ung thu tuyen tien liet", "nzh": "/ˈprɑːsteɪt ˈkænsər/ prostate cancer", "word_plain": "prostate cancer", "tts_lang": "en"}, "161": {"stt": "61", "vi": "xét nghiệm nước tiểu", "zh": "/ˌjʊrəˈnæləsɪs/", "han": "urinalysis", "color": "#06d6a0", "nvi": "xet nghiem nuoc tieu", "nzh": "/ˌjʊrəˈnæləsɪs/ urinalysis", "word_plain": "urinalysis", "tts_lang": "en"}, "162": {"stt": "62", "vi": "tổng phân tích nước tiểu", "zh": "/ruːˈtiːn ˌjʊrəˈnæləsɪs/", "han": "routine urinalysis", "color": "#ffb703", "nvi": "tong phan tich nuoc tieu", "nzh": "/ruːˈtiːn ˌjʊrəˈnæləsɪs/ routine urinalysis", "word_plain": "routine urinalysis", "tts_lang": "en"}, "163": {"stt": "63", "vi": "cấy nước tiểu", "zh": "/ˈjʊrɪn ˈkʌltʃər/", "han": "urine culture", "color": "#3a86ff", "nvi": "cay nuoc tieu", "nzh": "/ˈjʊrɪn ˈkʌltʃər/ urine culture", "word_plain": "urine culture", "tts_lang": "en"}, "164": {"stt": "64", "vi": "xét nghiệm máu", "zh": "/blʌd test/", "han": "blood test", "color": "#06d6a0", "nvi": "xet nghiem mau", "nzh": "/blʌd test/ blood test", "word_plain": "blood test", "tts_lang": "en"}, "165": {"stt": "65", "vi": "công thức máu", "zh": "/kəmˈpliːt blʌd kaʊnt/", "han": "complete blood count", "color": "#ffb703", "nvi": "cong thuc mau", "nzh": "/kəmˈpliːt blʌd kaʊnt/ complete blood count", "word_plain": "complete blood count", "tts_lang": "en"}, "166": {"stt": "66", "vi": "ure máu", "zh": "/blʌd jʊˈriːə ˈnaɪtrədʒən/", "han": "blood urea nitrogen", "color": "#3a86ff", "nvi": "ure mau", "nzh": "/blʌd jʊˈriːə ˈnaɪtrədʒən/ blood urea nitrogen", "word_plain": "blood urea nitrogen", "tts_lang": "en"}, "167": {"stt": "67", "vi": "creatinine", "zh": "/kriˈætɪniːn/", "han": "creatinine", "color": "#06d6a0", "nvi": "creatinine", "nzh": "/kriˈætɪniːn/ creatinine", "word_plain": "creatinine", "tts_lang": "en"}, "168": {"stt": "68", "vi": "mức lọc cầu thận ước tính", "zh": "/ˈestɪmeɪtɪd ɡloʊˈmerjələr fɪlˈtreɪʃən reɪt/", "han": "estimated glomerular filtration rate", "color": "#ffb703", "nvi": "muc loc cau than uoc tinh", "nzh": "/ˈestɪmeɪtɪd ɡloʊˈmerjələr fɪlˈtreɪʃən reɪt/ estimated glomerular filtration rate", "word_plain": "estimated glomerular filtration rate", "tts_lang": "en"}, "169": {"stt": "69", "vi": "điện giải đồ", "zh": "/ɪˈlektrəlaɪt ˈpænəl/", "han": "electrolyte panel", "color": "#3a86ff", "nvi": "dien giai do", "nzh": "/ɪˈlektrəlaɪt ˈpænəl/ electrolyte panel", "word_plain": "electrolyte panel", "tts_lang": "en"}, "170": {"stt": "70", "vi": "natri", "zh": "/ˈsoʊdiəm/", "han": "sodium", "color": "#06d6a0", "nvi": "natri", "nzh": "/ˈsoʊdiəm/ sodium", "word_plain": "sodium", "tts_lang": "en"}, "171": {"stt": "71", "vi": "kali", "zh": "/pəˈtæsiəm/", "han": "potassium", "color": "#ffb703", "nvi": "kali", "nzh": "/pəˈtæsiəm/ potassium", "word_plain": "potassium", "tts_lang": "en"}, "172": {"stt": "72", "vi": "canxi", "zh": "/ˈkælsiəm/", "han": "calcium", "color": "#3a86ff", "nvi": "canxi", "nzh": "/ˈkælsiəm/ calcium", "word_plain": "calcium", "tts_lang": "en"}, "173": {"stt": "73", "vi": "phospho", "zh": "/ˈfɑːsfeɪt/", "han": "phosphate", "color": "#06d6a0", "nvi": "phospho", "nzh": "/ˈfɑːsfeɪt/ phosphate", "word_plain": "phosphate", "tts_lang": "en"}, "174": {"stt": "74", "vi": "acid uric", "zh": "/ˈjʊrɪk ˈæsɪd/", "han": "uric acid", "color": "#ffb703", "nvi": "acid uric", "nzh": "/ˈjʊrɪk ˈæsɪd/ uric acid", "word_plain": "uric acid", "tts_lang": "en"}, "175": {"stt": "75", "vi": "albumin niệu", "zh": "/ælˌbjuːmɪˈnʊriə/", "han": "albuminuria", "color": "#3a86ff", "nvi": "albumin nieu", "nzh": "/ælˌbjuːmɪˈnʊriə/ albuminuria", "word_plain": "albuminuria", "tts_lang": "en"}, "176": {"stt": "76", "vi": "protein niệu", "zh": "/ˌproʊtiːˈnʊriə/", "han": "proteinuria", "color": "#06d6a0", "nvi": "protein nieu", "nzh": "/ˌproʊtiːˈnʊriə/ proteinuria", "word_plain": "proteinuria", "tts_lang": "en"}, "177": {"stt": "77", "vi": "tỷ lệ albumin/creatinine", "zh": "/ælˈbjuːmɪn tə kriˈætɪniːn ˈreɪʃioʊ/", "han": "albumin-to-creatinine ratio", "color": "#ffb703", "nvi": "ty le albumin/creatinine", "nzh": "/ælˈbjuːmɪn tə kriˈætɪniːn ˈreɪʃioʊ/ albumin-to-creatinine ratio", "word_plain": "albumin-to-creatinine ratio", "tts_lang": "en"}, "178": {"stt": "78", "vi": "độ thanh thải creatinine", "zh": "/kriˈætɪniːn ˈklɪrəns/", "han": "creatinine clearance", "color": "#3a86ff", "nvi": "do thanh thai creatinine", "nzh": "/kriˈætɪniːn ˈklɪrəns/ creatinine clearance", "word_plain": "creatinine clearance", "tts_lang": "en"}, "179": {"stt": "79", "vi": "khí máu động mạch", "zh": "/ɑːrˈtɪriəl blʌd ɡæs/", "han": "arterial blood gas", "color": "#06d6a0", "nvi": "khi mau dong mach", "nzh": "/ɑːrˈtɪriəl blʌd ɡæs/ arterial blood gas", "word_plain": "arterial blood gas", "tts_lang": "en"}, "180": {"stt": "80", "vi": "sinh thiết thận", "zh": "/ˈkɪdni ˈbaɪɑːpsi/", "han": "kidney biopsy", "color": "#ffb703", "nvi": "sinh thiet than", "nzh": "/ˈkɪdni ˈbaɪɑːpsi/ kidney biopsy", "word_plain": "kidney biopsy", "tts_lang": "en"}, "181": {"stt": "81", "vi": "siêu âm thận", "zh": "/ˈkɪdni ˈʌltrəsaʊnd/", "han": "kidney ultrasound", "color": "#3a86ff", "nvi": "sieu am than", "nzh": "/ˈkɪdni ˈʌltrəsaʊnd/ kidney ultrasound", "word_plain": "kidney ultrasound", "tts_lang": "en"}, "182": {"stt": "82", "vi": "siêu âm bàng quang", "zh": "/ˈblædər ˈʌltrəsaʊnd/", "han": "bladder ultrasound", "color": "#06d6a0", "nvi": "sieu am bang quang", "nzh": "/ˈblædər ˈʌltrəsaʊnd/ bladder ultrasound", "word_plain": "bladder ultrasound", "tts_lang": "en"}, "183": {"stt": "83", "vi": "chụp CT", "zh": "/ˌsiː ˈtiː skæn/", "han": "CT scan", "color": "#ffb703", "nvi": "chup ct", "nzh": "/ˌsiː ˈtiː skæn/ ct scan", "word_plain": "CT scan", "tts_lang": "en"}, "184": {"stt": "84", "vi": "chụp CT không cản quang", "zh": "/nɑːn ˈkɑːntræst ˌsiː ˈtiː skæn/", "han": "non-contrast CT scan", "color": "#3a86ff", "nvi": "chup ct khong can quang", "nzh": "/nɑːn ˈkɑːntræst ˌsiː ˈtiː skæn/ non-contrast ct scan", "word_plain": "non-contrast CT scan", "tts_lang": "en"}, "185": {"stt": "85", "vi": "chụp MRI", "zh": "/ˌem ɑːr ˈaɪ skæn/", "han": "MRI scan", "color": "#06d6a0", "nvi": "chup mri", "nzh": "/ˌem ɑːr ˈaɪ skæn/ mri scan", "word_plain": "MRI scan", "tts_lang": "en"}, "186": {"stt": "86", "vi": "chụp X-quang hệ tiết niệu", "zh": "/ˈjʊrəneri trækt ˈeks reɪ/", "han": "urinary tract X-ray", "color": "#ffb703", "nvi": "chup x-quang he tiet nieu", "nzh": "/ˈjʊrəneri trækt ˈeks reɪ/ urinary tract x-ray", "word_plain": "urinary tract X-ray", "tts_lang": "en"}, "187": {"stt": "87", "vi": "chụp niệu đồ tĩnh mạch", "zh": "/ˌɪntrəˈviːnəs jʊˈrɑːɡrəfi/", "han": "intravenous urography", "color": "#3a86ff", "nvi": "chup nieu do tinh mach", "nzh": "/ˌɪntrəˈviːnəs jʊˈrɑːɡrəfi/ intravenous urography", "word_plain": "intravenous urography", "tts_lang": "en"}, "188": {"stt": "88", "vi": "nội soi bàng quang", "zh": "/sɪˈstɑːskəpi/", "han": "cystoscopy", "color": "#06d6a0", "nvi": "noi soi bang quang", "nzh": "/sɪˈstɑːskəpi/ cystoscopy", "word_plain": "cystoscopy", "tts_lang": "en"}, "189": {"stt": "89", "vi": "đặt ống thông tiểu", "zh": "/ˈjʊrəneri ˌkæθətərəˈzeɪʃən/", "han": "urinary catheterization", "color": "#ffb703", "nvi": "dat ong thong tieu", "nzh": "/ˈjʊrəneri ˌkæθətərəˈzeɪʃən/ urinary catheterization", "word_plain": "urinary catheterization", "tts_lang": "en"}, "190": {"stt": "90", "vi": "ống thông tiểu", "zh": "/ˈjʊrəneri ˈkæθətər/", "han": "urinary catheter", "color": "#3a86ff", "nvi": "ong thong tieu", "nzh": "/ˈjʊrəneri ˈkæθətər/ urinary catheter", "word_plain": "urinary catheter", "tts_lang": "en"}, "191": {"stt": "91", "vi": "tán sỏi ngoài cơ thể", "zh": "/ˌekstrəkɔːrˈpɔːriəl ʃɑːk weɪv ˈlɪθətrɪpsi/", "han": "extracorporeal shock wave lithotripsy", "color": "#06d6a0", "nvi": "tan soi ngoai co the", "nzh": "/ˌekstrəkɔːrˈpɔːriəl ʃɑːk weɪv ˈlɪθətrɪpsi/ extracorporeal shock wave lithotripsy", "word_plain": "extracorporeal shock wave lithotripsy", "tts_lang": "en"}, "192": {"stt": "92", "vi": "nội soi niệu quản", "zh": "/jʊˌriːtəˈrɑːskəpi/", "han": "ureteroscopy", "color": "#ffb703", "nvi": "noi soi nieu quan", "nzh": "/jʊˌriːtəˈrɑːskəpi/ ureteroscopy", "word_plain": "ureteroscopy", "tts_lang": "en"}, "193": {"stt": "93", "vi": "đặt stent niệu quản", "zh": "/jʊˈriːtərəl stent ˈpleɪsmənt/", "han": "ureteral stent placement", "color": "#3a86ff", "nvi": "dat stent nieu quan", "nzh": "/jʊˈriːtərəl stent ˈpleɪsmənt/ ureteral stent placement", "word_plain": "ureteral stent placement", "tts_lang": "en"}, "194": {"stt": "94", "vi": "dẫn lưu thận qua da", "zh": "/ˌpɜːrkjʊˈteɪniəs nəˈfrɑːstəmi/", "han": "percutaneous nephrostomy", "color": "#06d6a0", "nvi": "dan luu than qua da", "nzh": "/ˌpɜːrkjʊˈteɪniəs nəˈfrɑːstəmi/ percutaneous nephrostomy", "word_plain": "percutaneous nephrostomy", "tts_lang": "en"}, "195": {"stt": "95", "vi": "cắt tuyến tiền liệt qua niệu đạo", "zh": "/ˌtrænzjʊˈriːθrəl rɪˈsekʃən əv ðə ˈprɑːsteɪt/", "han": "transurethral resection of the prostate", "color": "#ffb703", "nvi": "cat tuyen tien liet qua nieu dao", "nzh": "/ˌtrænzjʊˈriːθrəl rɪˈsekʃən əv ðə ˈprɑːsteɪt/ transurethral resection of the prostate", "word_plain": "transurethral resection of the prostate", "tts_lang": "en"}, "196": {"stt": "96", "vi": "phẫu thuật nội soi", "zh": "/ˌlæpərəˈskɑːpɪk ˈsɜːrdʒəri/", "han": "laparoscopic surgery", "color": "#3a86ff", "nvi": "phau thuat noi soi", "nzh": "/ˌlæpərəˈskɑːpɪk ˈsɜːrdʒəri/ laparoscopic surgery", "word_plain": "laparoscopic surgery", "tts_lang": "en"}, "197": {"stt": "97", "vi": "ghép thận", "zh": "/ˈkɪdni ˌtrænzplænˈteɪʃən/", "han": "kidney transplantation", "color": "#06d6a0", "nvi": "ghep than", "nzh": "/ˈkɪdni ˌtrænzplænˈteɪʃən/ kidney transplantation", "word_plain": "kidney transplantation", "tts_lang": "en"}, "198": {"stt": "98", "vi": "lọc máu", "zh": "/daɪˈæləsɪs/", "han": "dialysis", "color": "#ffb703", "nvi": "loc mau", "nzh": "/daɪˈæləsɪs/ dialysis", "word_plain": "dialysis", "tts_lang": "en"}, "199": {"stt": "99", "vi": "lọc máu chu kỳ", "zh": "/ˌhiːmoʊdaɪˈæləsɪs/", "han": "hemodialysis", "color": "#3a86ff", "nvi": "loc mau chu ky", "nzh": "/ˌhiːmoʊdaɪˈæləsɪs/ hemodialysis", "word_plain": "hemodialysis", "tts_lang": "en"}, "200": {"stt": "100", "vi": "lọc màng bụng", "zh": "/ˌperɪtəˈniːəl daɪˈæləsɪs/", "han": "peritoneal dialysis", "color": "#06d6a0", "nvi": "loc mang bung", "nzh": "/ˌperɪtəˈniːəl daɪˈæləsɪs/ peritoneal dialysis", "word_plain": "peritoneal dialysis", "tts_lang": "en"}, "201": {"stt": "101", "vi": "lọc máu cấp cứu", "zh": "/ɪˈmɜːrdʒənsi daɪˈæləsɪs/", "han": "emergency dialysis", "color": "#ffb703", "nvi": "loc mau cap cuu", "nzh": "/ɪˈmɜːrdʒənsi daɪˈæləsɪs/ emergency dialysis", "word_plain": "emergency dialysis", "tts_lang": "en"}, "202": {"stt": "102", "vi": "máy lọc máu", "zh": "/daɪˈæləsɪs məˈʃiːn/", "han": "dialysis machine", "color": "#3a86ff", "nvi": "may loc mau", "nzh": "/daɪˈæləsɪs məˈʃiːn/ dialysis machine", "word_plain": "dialysis machine", "tts_lang": "en"}, "203": {"stt": "103", "vi": "quả lọc", "zh": "/ˈdaɪəlaɪzər/", "han": "dialyzer", "color": "#06d6a0", "nvi": "qua loc", "nzh": "/ˈdaɪəlaɪzər/ dialyzer", "word_plain": "dialyzer", "tts_lang": "en"}, "204": {"stt": "104", "vi": "đường vào mạch máu", "zh": "/ˈvæskjələr ˈækses/", "han": "vascular access", "color": "#ffb703", "nvi": "duong vao mach mau", "nzh": "/ˈvæskjələr ˈækses/ vascular access", "word_plain": "vascular access", "tts_lang": "en"}, "205": {"stt": "105", "vi": "cầu nối động tĩnh mạch", "zh": "/ɑːrˌtɪrioʊˈviːnəs ˈfɪstʃələ/", "han": "arteriovenous fistula", "color": "#3a86ff", "nvi": "cau noi dong tinh mach", "nzh": "/ɑːrˌtɪrioʊˈviːnəs ˈfɪstʃələ/ arteriovenous fistula", "word_plain": "arteriovenous fistula", "tts_lang": "en"}, "206": {"stt": "106", "vi": "ống ghép mạch máu", "zh": "/ˈvæskjələr ɡræft/", "han": "vascular graft", "color": "#06d6a0", "nvi": "ong ghep mach mau", "nzh": "/ˈvæskjələr ɡræft/ vascular graft", "word_plain": "vascular graft", "tts_lang": "en"}, "207": {"stt": "107", "vi": "catheter tĩnh mạch trung tâm", "zh": "/ˈsentrəl ˈviːnəs ˈkæθətər/", "han": "central venous catheter", "color": "#ffb703", "nvi": "catheter tinh mach trung tam", "nzh": "/ˈsentrəl ˈviːnəs ˈkæθətər/ central venous catheter", "word_plain": "central venous catheter", "tts_lang": "en"}, "208": {"stt": "108", "vi": "dịch lọc", "zh": "/daɪˈælɪseɪt/", "han": "dialysate", "color": "#3a86ff", "nvi": "dich loc", "nzh": "/daɪˈælɪseɪt/ dialysate", "word_plain": "dialysate", "tts_lang": "en"}, "209": {"stt": "109", "vi": "siêu lọc", "zh": "/ˌʌltrəfɪlˈtreɪʃən/", "han": "ultrafiltration", "color": "#06d6a0", "nvi": "sieu loc", "nzh": "/ˌʌltrəfɪlˈtreɪʃən/ ultrafiltration", "word_plain": "ultrafiltration", "tts_lang": "en"}, "210": {"stt": "110", "vi": "chống đông", "zh": "/ˌæntikoʊˌæɡjəˈleɪʃən/", "han": "anticoagulation", "color": "#ffb703", "nvi": "chong dong", "nzh": "/ˌæntikoʊˌæɡjəˈleɪʃən/ anticoagulation", "word_plain": "anticoagulation", "tts_lang": "en"}, "211": {"stt": "111", "vi": "kháng sinh", "zh": "/ˌæntibaɪˈɑːtɪk/", "han": "antibiotic", "color": "#3a86ff", "nvi": "khang sinh", "nzh": "/ˌæntibaɪˈɑːtɪk/ antibiotic", "word_plain": "antibiotic", "tts_lang": "en"}, "212": {"stt": "112", "vi": "thuốc lợi tiểu", "zh": "/ˌdaɪjʊˈretɪk/", "han": "diuretic", "color": "#06d6a0", "nvi": "thuoc loi tieu", "nzh": "/ˌdaɪjʊˈretɪk/ diuretic", "word_plain": "diuretic", "tts_lang": "en"}, "213": {"stt": "113", "vi": "thuốc hạ huyết áp", "zh": "/ˌæntihaɪpərˈtensɪv ˈmedɪsɪn/", "han": "antihypertensive medicine", "color": "#ffb703", "nvi": "thuoc ha huyet ap", "nzh": "/ˌæntihaɪpərˈtensɪv ˈmedɪsɪn/ antihypertensive medicine", "word_plain": "antihypertensive medicine", "tts_lang": "en"}, "214": {"stt": "114", "vi": "thuốc ức chế men chuyển", "zh": "/eɪs ɪnˈhɪbɪtər/", "han": "ACE inhibitor", "color": "#3a86ff", "nvi": "thuoc uc che men chuyen", "nzh": "/eɪs ɪnˈhɪbɪtər/ ace inhibitor", "word_plain": "ACE inhibitor", "tts_lang": "en"}, "215": {"stt": "115", "vi": "thuốc chẹn thụ thể angiotensin", "zh": "/ˌændʒioʊˈtensɪn rɪˈseptər ˈblɑːkər/", "han": "angiotensin receptor blocker", "color": "#06d6a0", "nvi": "thuoc chen thu the angiotensin", "nzh": "/ˌændʒioʊˈtensɪn rɪˈseptər ˈblɑːkər/ angiotensin receptor blocker", "word_plain": "angiotensin receptor blocker", "tts_lang": "en"}, "216": {"stt": "116", "vi": "thuốc chẹn kênh canxi", "zh": "/ˈkælsiəm ˈtʃænəl ˈblɑːkər/", "han": "calcium channel blocker", "color": "#ffb703", "nvi": "thuoc chen kenh canxi", "nzh": "/ˈkælsiəm ˈtʃænəl ˈblɑːkər/ calcium channel blocker", "word_plain": "calcium channel blocker", "tts_lang": "en"}, "217": {"stt": "117", "vi": "thuốc chẹn beta", "zh": "/ˈbeɪtə ˈblɑːkər/", "han": "beta blocker", "color": "#3a86ff", "nvi": "thuoc chen beta", "nzh": "/ˈbeɪtə ˈblɑːkər/ beta blocker", "word_plain": "beta blocker", "tts_lang": "en"}, "218": {"stt": "118", "vi": "insulin", "zh": "/ˈɪnsəlɪn/", "han": "insulin", "color": "#06d6a0", "nvi": "insulin", "nzh": "/ˈɪnsəlɪn/ insulin", "word_plain": "insulin", "tts_lang": "en"}, "219": {"stt": "119", "vi": "thuốc giảm đau", "zh": "/ˈpeɪnˌkɪlər/", "han": "painkiller", "color": "#ffb703", "nvi": "thuoc giam dau", "nzh": "/ˈpeɪnˌkɪlər/ painkiller", "word_plain": "painkiller", "tts_lang": "en"}, "220": {"stt": "120", "vi": "thuốc chống viêm không steroid", "zh": "/nɑːnˈsterɔɪdəl ˌænti ɪnˈflæmətɔːri drʌɡ/", "han": "nonsteroidal anti-inflammatory drug", "color": "#3a86ff", "nvi": "thuoc chong viem khong steroid", "nzh": "/nɑːnˈsterɔɪdəl ˌænti ɪnˈflæmətɔːri drʌɡ/ nonsteroidal anti-inflammatory drug", "word_plain": "nonsteroidal anti-inflammatory drug", "tts_lang": "en"}, "221": {"stt": "121", "vi": "thuốc ức chế miễn dịch", "zh": "/ˌɪmjənoʊsəˈpresənt/", "han": "immunosuppressant", "color": "#06d6a0", "nvi": "thuoc uc che mien dich", "nzh": "/ˌɪmjənoʊsəˈpresənt/ immunosuppressant", "word_plain": "immunosuppressant", "tts_lang": "en"}, "222": {"stt": "122", "vi": "corticosteroid", "zh": "/ˌkɔːrtɪkoʊˈsterɔɪd/", "han": "corticosteroid", "color": "#ffb703", "nvi": "corticosteroid", "nzh": "/ˌkɔːrtɪkoʊˈsterɔɪd/ corticosteroid", "word_plain": "corticosteroid", "tts_lang": "en"}, "223": {"stt": "123", "vi": "erythropoietin", "zh": "/ɪˌrɪθroʊˈpɔɪətɪn/", "han": "erythropoietin", "color": "#3a86ff", "nvi": "erythropoietin", "nzh": "/ɪˌrɪθroʊˈpɔɪətɪn/ erythropoietin", "word_plain": "erythropoietin", "tts_lang": "en"}, "224": {"stt": "124", "vi": "chất gắn phosphate", "zh": "/ˈfɑːsfeɪt ˈbaɪndər/", "han": "phosphate binder", "color": "#06d6a0", "nvi": "chat gan phosphate", "nzh": "/ˈfɑːsfeɪt ˈbaɪndər/ phosphate binder", "word_plain": "phosphate binder", "tts_lang": "en"}, "225": {"stt": "125", "vi": "vitamin D", "zh": "/ˈvaɪtəmɪn diː/", "han": "vitamin D", "color": "#ffb703", "nvi": "vitamin d", "nzh": "/ˈvaɪtəmɪn diː/ vitamin d", "word_plain": "vitamin D", "tts_lang": "en"}, "226": {"stt": "126", "vi": "thuốc kiềm hóa nước tiểu", "zh": "/ˈjʊrəneri ˈælkəlaɪnaɪzər/", "han": "urinary alkalinizer", "color": "#3a86ff", "nvi": "thuoc kiem hoa nuoc tieu", "nzh": "/ˈjʊrəneri ˈælkəlaɪnaɪzər/ urinary alkalinizer", "word_plain": "urinary alkalinizer", "tts_lang": "en"}, "227": {"stt": "127", "vi": "thuốc chẹn alpha", "zh": "/ˈælfə ˈblɑːkər/", "han": "alpha blocker", "color": "#06d6a0", "nvi": "thuoc chen alpha", "nzh": "/ˈælfə ˈblɑːkər/ alpha blocker", "word_plain": "alpha blocker", "tts_lang": "en"}, "228": {"stt": "128", "vi": "thuốc ức chế 5-alpha-reductase", "zh": "/faɪv ˈælfə rɪˈdʌkteɪs ɪnˈhɪbɪtər/", "han": "five-alpha-reductase inhibitor", "color": "#ffb703", "nvi": "thuoc uc che 5-alpha-reductase", "nzh": "/faɪv ˈælfə rɪˈdʌkteɪs ɪnˈhɪbɪtər/ five-alpha-reductase inhibitor", "word_plain": "five-alpha-reductase inhibitor", "tts_lang": "en"}, "229": {"stt": "129", "vi": "liều dùng", "zh": "/ˈdoʊsɪdʒ/", "han": "dosage", "color": "#3a86ff", "nvi": "lieu dung", "nzh": "/ˈdoʊsɪdʒ/ dosage", "word_plain": "dosage", "tts_lang": "en"}, "230": {"stt": "130", "vi": "tác dụng phụ", "zh": "/saɪd ɪˈfekt/", "han": "side effect", "color": "#06d6a0", "nvi": "tac dung phu", "nzh": "/saɪd ɪˈfekt/ side effect", "word_plain": "side effect", "tts_lang": "en"}, "231": {"stt": "131", "vi": "mất nước", "zh": "/ˌdiːhaɪˈdreɪʃən/", "han": "dehydration", "color": "#ffb703", "nvi": "mat nuoc", "nzh": "/ˌdiːhaɪˈdreɪʃən/ dehydration", "word_plain": "dehydration", "tts_lang": "en"}, "232": {"stt": "132", "vi": "quá tải dịch", "zh": "/ˈfluːɪd ˈoʊvərloʊd/", "han": "fluid overload", "color": "#3a86ff", "nvi": "qua tai dich", "nzh": "/ˈfluːɪd ˈoʊvərloʊd/ fluid overload", "word_plain": "fluid overload", "tts_lang": "en"}, "233": {"stt": "133", "vi": "tăng kali máu", "zh": "/ˌhaɪpərkəˈliːmiə/", "han": "hyperkalemia", "color": "#06d6a0", "nvi": "tang kali mau", "nzh": "/ˌhaɪpərkəˈliːmiə/ hyperkalemia", "word_plain": "hyperkalemia", "tts_lang": "en"}, "234": {"stt": "134", "vi": "hạ natri máu", "zh": "/ˌhaɪpoʊnəˈtriːmiə/", "han": "hyponatremia", "color": "#ffb703", "nvi": "ha natri mau", "nzh": "/ˌhaɪpoʊnəˈtriːmiə/ hyponatremia", "word_plain": "hyponatremia", "tts_lang": "en"}, "235": {"stt": "135", "vi": "toan chuyển hóa", "zh": "/ˌmetəˈbɑːlɪk ˌæsɪˈdoʊsɪs/", "han": "metabolic acidosis", "color": "#3a86ff", "nvi": "toan chuyen hoa", "nzh": "/ˌmetəˈbɑːlɪk ˌæsɪˈdoʊsɪs/ metabolic acidosis", "word_plain": "metabolic acidosis", "tts_lang": "en"}, "236": {"stt": "136", "vi": "thiếu máu", "zh": "/əˈniːmiə/", "han": "anemia", "color": "#06d6a0", "nvi": "thieu mau", "nzh": "/əˈniːmiə/ anemia", "word_plain": "anemia", "tts_lang": "en"}, "237": {"stt": "137", "vi": "rối loạn xương khoáng", "zh": "/ˈmɪnərəl boʊn dɪsˈɔːrdər/", "han": "mineral bone disorder", "color": "#ffb703", "nvi": "roi loan xuong khoang", "nzh": "/ˈmɪnərəl boʊn dɪsˈɔːrdər/ mineral bone disorder", "word_plain": "mineral bone disorder", "tts_lang": "en"}, "238": {"stt": "138", "vi": "nhiễm trùng huyết", "zh": "/ˈsepsɪs/", "han": "sepsis", "color": "#3a86ff", "nvi": "nhiem trung huyet", "nzh": "/ˈsepsɪs/ sepsis", "word_plain": "sepsis", "tts_lang": "en"}, "239": {"stt": "139", "vi": "tắc nghẽn đường tiết niệu", "zh": "/ˈjʊrəneri trækt əbˈstrʌkʃən/", "han": "urinary tract obstruction", "color": "#06d6a0", "nvi": "tac nghen duong tiet nieu", "nzh": "/ˈjʊrəneri trækt əbˈstrʌkʃən/ urinary tract obstruction", "word_plain": "urinary tract obstruction", "tts_lang": "en"}, "240": {"stt": "140", "vi": "tổn thương thận do thuốc", "zh": "/drʌɡ ɪnˈduːst ˈkɪdni ˈɪndʒəri/", "han": "drug-induced kidney injury", "color": "#ffb703", "nvi": "ton thuong than do thuoc", "nzh": "/drʌɡ ɪnˈduːst ˈkɪdni ˈɪndʒəri/ drug-induced kidney injury", "word_plain": "drug-induced kidney injury", "tts_lang": "en"}, "241": {"stt": "141", "vi": "dị ứng thuốc", "zh": "/drʌɡ ˈælərdʒi/", "han": "drug allergy", "color": "#3a86ff", "nvi": "di ung thuoc", "nzh": "/drʌɡ ˈælərdʒi/ drug allergy", "word_plain": "drug allergy", "tts_lang": "en"}, "242": {"stt": "142", "vi": "chảy máu", "zh": "/ˈbliːdɪŋ/", "han": "bleeding", "color": "#06d6a0", "nvi": "chay mau", "nzh": "/ˈbliːdɪŋ/ bleeding", "word_plain": "bleeding", "tts_lang": "en"}, "243": {"stt": "143", "vi": "đông máu", "zh": "/ˈklɑːtɪŋ/", "han": "clotting", "color": "#ffb703", "nvi": "dong mau", "nzh": "/ˈklɑːtɪŋ/ clotting", "word_plain": "clotting", "tts_lang": "en"}, "244": {"stt": "144", "vi": "huyết khối", "zh": "/θrɑːmˈboʊsɪs/", "han": "thrombosis", "color": "#3a86ff", "nvi": "huyet khoi", "nzh": "/θrɑːmˈboʊsɪs/ thrombosis", "word_plain": "thrombosis", "tts_lang": "en"}, "245": {"stt": "145", "vi": "phù phổi", "zh": "/ˈpʌlməneri ɪˈdiːmə/", "han": "pulmonary edema", "color": "#06d6a0", "nvi": "phu phoi", "nzh": "/ˈpʌlməneri ɪˈdiːmə/ pulmonary edema", "word_plain": "pulmonary edema", "tts_lang": "en"}, "246": {"stt": "146", "vi": "loạn nhịp tim", "zh": "/əˈrɪðmiə/", "han": "arrhythmia", "color": "#ffb703", "nvi": "loan nhip tim", "nzh": "/əˈrɪðmiə/ arrhythmia", "word_plain": "arrhythmia", "tts_lang": "en"}, "247": {"stt": "147", "vi": "đau ngực", "zh": "/tʃest peɪn/", "han": "chest pain", "color": "#3a86ff", "nvi": "dau nguc", "nzh": "/tʃest peɪn/ chest pain", "word_plain": "chest pain", "tts_lang": "en"}, "248": {"stt": "148", "vi": "hạ huyết áp", "zh": "/ˌhaɪpoʊˈtenʃən/", "han": "hypotension", "color": "#06d6a0", "nvi": "ha huyet ap", "nzh": "/ˌhaɪpoʊˈtenʃən/ hypotension", "word_plain": "hypotension", "tts_lang": "en"}, "249": {"stt": "149", "vi": "chuột rút", "zh": "/ˈmʌsəl kræmps/", "han": "muscle cramps", "color": "#ffb703", "nvi": "chuot rut", "nzh": "/ˈmʌsəl kræmps/ muscle cramps", "word_plain": "muscle cramps", "tts_lang": "en"}, "250": {"stt": "150", "vi": "ngất", "zh": "/ˈfeɪntɪŋ/", "han": "fainting", "color": "#3a86ff", "nvi": "ngat", "nzh": "/ˈfeɪntɪŋ/ fainting", "word_plain": "fainting", "tts_lang": "en"}, "251": {"stt": "151", "vi": "chẩn đoán", "zh": "/ˌdaɪəɡˈnoʊsɪs/", "han": "diagnosis", "color": "#06d6a0", "nvi": "chan doan", "nzh": "/ˌdaɪəɡˈnoʊsɪs/ diagnosis", "word_plain": "diagnosis", "tts_lang": "en"}, "252": {"stt": "152", "vi": "triệu chứng", "zh": "/ˈsɪmptəm/", "han": "symptom", "color": "#ffb703", "nvi": "trieu chung", "nzh": "/ˈsɪmptəm/ symptom", "word_plain": "symptom", "tts_lang": "en"}, "253": {"stt": "153", "vi": "dấu hiệu", "zh": "/saɪn/", "han": "sign", "color": "#3a86ff", "nvi": "dau hieu", "nzh": "/saɪn/ sign", "word_plain": "sign", "tts_lang": "en"}, "254": {"stt": "154", "vi": "tiền sử bệnh", "zh": "/ˈmedɪkəl ˈhɪstəri/", "han": "medical history", "color": "#06d6a0", "nvi": "tien su benh", "nzh": "/ˈmedɪkəl ˈhɪstəri/ medical history", "word_plain": "medical history", "tts_lang": "en"}, "255": {"stt": "155", "vi": "khám lâm sàng", "zh": "/ˈfɪzɪkəl ɪɡˌzæməˈneɪʃən/", "han": "physical examination", "color": "#ffb703", "nvi": "kham lam sang", "nzh": "/ˈfɪzɪkəl ɪɡˌzæməˈneɪʃən/ physical examination", "word_plain": "physical examination", "tts_lang": "en"}, "256": {"stt": "156", "vi": "phác đồ điều trị", "zh": "/ˈtriːtmənt ˈproʊtəkɔːl/", "han": "treatment protocol", "color": "#3a86ff", "nvi": "phac do dieu tri", "nzh": "/ˈtriːtmənt ˈproʊtəkɔːl/ treatment protocol", "word_plain": "treatment protocol", "tts_lang": "en"}, "257": {"stt": "157", "vi": "kế hoạch điều trị", "zh": "/ˈtriːtmənt plæn/", "han": "treatment plan", "color": "#06d6a0", "nvi": "ke hoach dieu tri", "nzh": "/ˈtriːtmənt plæn/ treatment plan", "word_plain": "treatment plan", "tts_lang": "en"}, "258": {"stt": "158", "vi": "theo dõi", "zh": "/ˈmɑːnɪtərɪŋ/", "han": "monitoring", "color": "#ffb703", "nvi": "theo doi", "nzh": "/ˈmɑːnɪtərɪŋ/ monitoring", "word_plain": "monitoring", "tts_lang": "en"}, "259": {"stt": "159", "vi": "tái khám", "zh": "/ˈfɑːloʊ ʌp ˈvɪzɪt/", "han": "follow-up visit", "color": "#3a86ff", "nvi": "tai kham", "nzh": "/ˈfɑːloʊ ʌp ˈvɪzɪt/ follow-up visit", "word_plain": "follow-up visit", "tts_lang": "en"}, "260": {"stt": "160", "vi": "nhập viện", "zh": "/ˈhɑːspɪtəl ədˈmɪʃən/", "han": "hospital admission", "color": "#06d6a0", "nvi": "nhap vien", "nzh": "/ˈhɑːspɪtəl ədˈmɪʃən/ hospital admission", "word_plain": "hospital admission", "tts_lang": "en"}, "261": {"stt": "161", "vi": "ra viện", "zh": "/ˈhɑːspɪtəl dɪsˈtʃɑːrdʒ/", "han": "hospital discharge", "color": "#ffb703", "nvi": "ra vien", "nzh": "/ˈhɑːspɪtəl dɪsˈtʃɑːrdʒ/ hospital discharge", "word_plain": "hospital discharge", "tts_lang": "en"}, "262": {"stt": "162", "vi": "hội chẩn", "zh": "/ˌkɑːnsəlˈteɪʃən/", "han": "consultation", "color": "#3a86ff", "nvi": "hoi chan", "nzh": "/ˌkɑːnsəlˈteɪʃən/ consultation", "word_plain": "consultation", "tts_lang": "en"}, "263": {"stt": "163", "vi": "chuyển tuyến", "zh": "/rɪˈfɜːrəl/", "han": "referral", "color": "#06d6a0", "nvi": "chuyen tuyen", "nzh": "/rɪˈfɜːrəl/ referral", "word_plain": "referral", "tts_lang": "en"}, "264": {"stt": "164", "vi": "tư vấn bệnh nhân", "zh": "/ˈpeɪʃənt ˈkaʊnsəlɪŋ/", "han": "patient counseling", "color": "#ffb703", "nvi": "tu van benh nhan", "nzh": "/ˈpeɪʃənt ˈkaʊnsəlɪŋ/ patient counseling", "word_plain": "patient counseling", "tts_lang": "en"}, "265": {"stt": "165", "vi": "đồng ý điều trị", "zh": "/ɪnˈfɔːrmd kənˈsent/", "han": "informed consent", "color": "#3a86ff", "nvi": "dong y dieu tri", "nzh": "/ɪnˈfɔːrmd kənˈsent/ informed consent", "word_plain": "informed consent", "tts_lang": "en"}, "266": {"stt": "166", "vi": "nguy cơ", "zh": "/rɪsk/", "han": "risk", "color": "#06d6a0", "nvi": "nguy co", "nzh": "/rɪsk/ risk", "word_plain": "risk", "tts_lang": "en"}, "267": {"stt": "167", "vi": "lợi ích", "zh": "/ˈbenəfɪt/", "han": "benefit", "color": "#ffb703", "nvi": "loi ich", "nzh": "/ˈbenəfɪt/ benefit", "word_plain": "benefit", "tts_lang": "en"}, "268": {"stt": "168", "vi": "tiên lượng", "zh": "/prɑːɡˈnoʊsɪs/", "han": "prognosis", "color": "#3a86ff", "nvi": "tien luong", "nzh": "/prɑːɡˈnoʊsɪs/ prognosis", "word_plain": "prognosis", "tts_lang": "en"}, "269": {"stt": "169", "vi": "biến chứng", "zh": "/ˌkɑːmplɪˈkeɪʃən/", "han": "complication", "color": "#06d6a0", "nvi": "bien chung", "nzh": "/ˌkɑːmplɪˈkeɪʃən/ complication", "word_plain": "complication", "tts_lang": "en"}, "270": {"stt": "170", "vi": "cấp cứu", "zh": "/ɪˈmɜːrdʒənsi/", "han": "emergency", "color": "#ffb703", "nvi": "cap cuu", "nzh": "/ɪˈmɜːrdʒənsi/ emergency", "word_plain": "emergency", "tts_lang": "en"}, "271": {"stt": "171", "vi": "ăn nhạt", "zh": "/loʊ sɔːlt ˈdaɪət/", "han": "low-salt diet", "color": "#3a86ff", "nvi": "an nhat", "nzh": "/loʊ sɔːlt ˈdaɪət/ low-salt diet", "word_plain": "low-salt diet", "tts_lang": "en"}, "272": {"stt": "172", "vi": "hạn chế muối", "zh": "/sɔːlt rɪˈstrɪkʃən/", "han": "salt restriction", "color": "#06d6a0", "nvi": "han che muoi", "nzh": "/sɔːlt rɪˈstrɪkʃən/ salt restriction", "word_plain": "salt restriction", "tts_lang": "en"}, "273": {"stt": "173", "vi": "hạn chế dịch", "zh": "/ˈfluːɪd rɪˈstrɪkʃən/", "han": "fluid restriction", "color": "#ffb703", "nvi": "han che dich", "nzh": "/ˈfluːɪd rɪˈstrɪkʃən/ fluid restriction", "word_plain": "fluid restriction", "tts_lang": "en"}, "274": {"stt": "174", "vi": "chế độ ăn ít đạm", "zh": "/loʊ ˈproʊtiːn ˈdaɪət/", "han": "low-protein diet", "color": "#3a86ff", "nvi": "che do an it dam", "nzh": "/loʊ ˈproʊtiːn ˈdaɪət/ low-protein diet", "word_plain": "low-protein diet", "tts_lang": "en"}, "275": {"stt": "175", "vi": "kiểm soát cân nặng", "zh": "/weɪt kənˈtroʊl/", "han": "weight control", "color": "#06d6a0", "nvi": "kiem soat can nang", "nzh": "/weɪt kənˈtroʊl/ weight control", "word_plain": "weight control", "tts_lang": "en"}, "276": {"stt": "176", "vi": "bỏ thuốc lá", "zh": "/ˈsmoʊkɪŋ seˈseɪʃən/", "han": "smoking cessation", "color": "#ffb703", "nvi": "bo thuoc la", "nzh": "/ˈsmoʊkɪŋ seˈseɪʃən/ smoking cessation", "word_plain": "smoking cessation", "tts_lang": "en"}, "277": {"stt": "177", "vi": "hạn chế rượu", "zh": "/ˈælkəhɔːl rɪˈstrɪkʃən/", "han": "alcohol restriction", "color": "#3a86ff", "nvi": "han che ruou", "nzh": "/ˈælkəhɔːl rɪˈstrɪkʃən/ alcohol restriction", "word_plain": "alcohol restriction", "tts_lang": "en"}, "278": {"stt": "178", "vi": "tập thể dục", "zh": "/ˈeksərsaɪz/", "han": "exercise", "color": "#06d6a0", "nvi": "tap the duc", "nzh": "/ˈeksərsaɪz/ exercise", "word_plain": "exercise", "tts_lang": "en"}, "279": {"stt": "179", "vi": "uống đủ nước", "zh": "/ˈædɪkwət haɪˈdreɪʃən/", "han": "adequate hydration", "color": "#ffb703", "nvi": "uong du nuoc", "nzh": "/ˈædɪkwət haɪˈdreɪʃən/ adequate hydration", "word_plain": "adequate hydration", "tts_lang": "en"}, "280": {"stt": "180", "vi": "tránh tự ý dùng thuốc", "zh": "/əˈvɔɪd self ˌmedɪˈkeɪʃən/", "han": "avoid self-medication", "color": "#3a86ff", "nvi": "tranh tu y dung thuoc", "nzh": "/əˈvɔɪd self ˌmedɪˈkeɪʃən/ avoid self-medication", "word_plain": "avoid self-medication", "tts_lang": "en"}, "281": {"stt": "181", "vi": "người bệnh", "zh": "/ˈpeɪʃənt/", "han": "patient", "color": "#06d6a0", "nvi": "nguoi benh", "nzh": "/ˈpeɪʃənt/ patient", "word_plain": "patient", "tts_lang": "en"}, "282": {"stt": "182", "vi": "bác sĩ điều trị", "zh": "/əˈtendɪŋ fɪˈzɪʃən/", "han": "attending physician", "color": "#ffb703", "nvi": "bac si dieu tri", "nzh": "/əˈtendɪŋ fɪˈzɪʃən/ attending physician", "word_plain": "attending physician", "tts_lang": "en"}, "283": {"stt": "183", "vi": "bác sĩ nội thận", "zh": "/nəˈfrɑːlədʒɪst/", "han": "nephrologist", "color": "#3a86ff", "nvi": "bac si noi than", "nzh": "/nəˈfrɑːlədʒɪst/ nephrologist", "word_plain": "nephrologist", "tts_lang": "en"}, "284": {"stt": "184", "vi": "bác sĩ tiết niệu", "zh": "/jʊˈrɑːlədʒɪst/", "han": "urologist", "color": "#06d6a0", "nvi": "bac si tiet nieu", "nzh": "/jʊˈrɑːlədʒɪst/ urologist", "word_plain": "urologist", "tts_lang": "en"}, "285": {"stt": "185", "vi": "điều dưỡng", "zh": "/nɜːrs/", "han": "nurse", "color": "#ffb703", "nvi": "dieu duong", "nzh": "/nɜːrs/ nurse", "word_plain": "nurse", "tts_lang": "en"}, "286": {"stt": "186", "vi": "kỹ thuật viên lọc máu", "zh": "/daɪˈæləsɪs tekˈnɪʃən/", "han": "dialysis technician", "color": "#3a86ff", "nvi": "ky thuat vien loc mau", "nzh": "/daɪˈæləsɪs tekˈnɪʃən/ dialysis technician", "word_plain": "dialysis technician", "tts_lang": "en"}, "287": {"stt": "187", "vi": "phòng khám", "zh": "/ˈklɪnɪk/", "han": "clinic", "color": "#06d6a0", "nvi": "phong kham", "nzh": "/ˈklɪnɪk/ clinic", "word_plain": "clinic", "tts_lang": "en"}, "288": {"stt": "188", "vi": "khoa thận", "zh": "/nəˈfrɑːlədʒi dɪˈpɑːrtmənt/", "han": "nephrology department", "color": "#ffb703", "nvi": "khoa than", "nzh": "/nəˈfrɑːlədʒi dɪˈpɑːrtmənt/ nephrology department", "word_plain": "nephrology department", "tts_lang": "en"}, "289": {"stt": "189", "vi": "khoa tiết niệu", "zh": "/jʊˈrɑːlədʒi dɪˈpɑːrtmənt/", "han": "urology department", "color": "#3a86ff", "nvi": "khoa tiet nieu", "nzh": "/jʊˈrɑːlədʒi dɪˈpɑːrtmənt/ urology department", "word_plain": "urology department", "tts_lang": "en"}, "290": {"stt": "190", "vi": "đơn vị lọc máu", "zh": "/daɪˈæləsɪs ˈjuːnɪt/", "han": "dialysis unit", "color": "#06d6a0", "nvi": "don vi loc mau", "nzh": "/daɪˈæləsɪs ˈjuːnɪt/ dialysis unit", "word_plain": "dialysis unit", "tts_lang": "en"}, "291": {"stt": "191", "vi": "phòng cấp cứu", "zh": "/ɪˈmɜːrdʒənsi dɪˈpɑːrtmənt/", "han": "emergency department", "color": "#ffb703", "nvi": "phong cap cuu", "nzh": "/ɪˈmɜːrdʒənsi dɪˈpɑːrtmənt/ emergency department", "word_plain": "emergency department", "tts_lang": "en"}, "292": {"stt": "192", "vi": "phòng xét nghiệm", "zh": "/ˈlæbrətɔːri/", "han": "laboratory", "color": "#3a86ff", "nvi": "phong xet nghiem", "nzh": "/ˈlæbrətɔːri/ laboratory", "word_plain": "laboratory", "tts_lang": "en"}, "293": {"stt": "193", "vi": "phòng siêu âm", "zh": "/ˈʌltrəsaʊnd ruːm/", "han": "ultrasound room", "color": "#06d6a0", "nvi": "phong sieu am", "nzh": "/ˈʌltrəsaʊnd ruːm/ ultrasound room", "word_plain": "ultrasound room", "tts_lang": "en"}, "294": {"stt": "194", "vi": "hồ sơ bệnh án", "zh": "/ˈmedɪkəl ˈrekərd/", "han": "medical record", "color": "#ffb703", "nvi": "ho so benh an", "nzh": "/ˈmedɪkəl ˈrekərd/ medical record", "word_plain": "medical record", "tts_lang": "en"}, "295": {"stt": "195", "vi": "đơn thuốc", "zh": "/prɪˈskrɪpʃən/", "han": "prescription", "color": "#3a86ff", "nvi": "don thuoc", "nzh": "/prɪˈskrɪpʃən/ prescription", "word_plain": "prescription", "tts_lang": "en"}, "296": {"stt": "196", "vi": "phiếu hẹn", "zh": "/əˈpɔɪntmənt slɪp/", "han": "appointment slip", "color": "#06d6a0", "nvi": "phieu hen", "nzh": "/əˈpɔɪntmənt slɪp/ appointment slip", "word_plain": "appointment slip", "tts_lang": "en"}, "297": {"stt": "197", "vi": "bảo hiểm y tế", "zh": "/helθ ɪnˈʃʊrəns/", "han": "health insurance", "color": "#ffb703", "nvi": "bao hiem y te", "nzh": "/helθ ɪnˈʃʊrəns/ health insurance", "word_plain": "health insurance", "tts_lang": "en"}, "298": {"stt": "198", "vi": "chỉ định", "zh": "/ˈmedɪkəl ˈɔːrdər/", "han": "medical order", "color": "#3a86ff", "nvi": "chi dinh", "nzh": "/ˈmedɪkəl ˈɔːrdər/ medical order", "word_plain": "medical order", "tts_lang": "en"}, "299": {"stt": "199", "vi": "kết quả xét nghiệm", "zh": "/test rɪˈzʌlt/", "han": "test result", "color": "#06d6a0", "nvi": "ket qua xet nghiem", "nzh": "/test rɪˈzʌlt/ test result", "word_plain": "test result", "tts_lang": "en"}, "300": {"stt": "200", "vi": "hướng dẫn ra viện", "zh": "/dɪsˈtʃɑːrdʒ ɪnˈstrʌkʃənz/", "han": "discharge instructions", "color": "#ffb703", "nvi": "huong dan ra vien", "nzh": "/dɪsˈtʃɑːrdʒ ɪnˈstrʌkʃənz/ discharge instructions", "word_plain": "discharge instructions", "tts_lang": "en"}};
+  const TOTAL_COUNT = Object.keys(PAIRS).length;
+
+  let currentSection = 0;
+  let currentPage = 0;
+  let activeId = null;
+  // viewMode: 'normal' (phan trang binh thuong) | 'search' | 'mark' (loc cau
+  // danh dau chua nam vung). Chi 1 trong 3 che do duoc bat tai 1 thoi diem.
+  let viewMode = 'normal';
+  let markedIds = new Set();
+  try {
+    const savedMarks = JSON.parse(localStorage.getItem('bilingualMarked') || '[]');
+    markedIds = new Set(savedMarks.map(x => parseInt(x, 10)));
+  } catch (e) {}
+
+  // Nhay thang len dau trang, khong hieu ung cuon. Dat truc tiep scrollTop
+  // (thay vi chi goi window.scrollTo) vi mot so trinh duyet mobile (dac biet
+  // Safari) cuon co giat/hoat hinh khi trang co phan tu position:sticky.
+  function scrollToTop() {
+    // Bo focus khoi nut/select vua bam de trinh duyet mobile khong tu cuon
+    // theo phan tu dang focus (co the ghi de len vi tri ta vua dat).
+    if (document.activeElement && document.activeElement.blur) {
+      document.activeElement.blur();
+    }
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    window.scrollTo(0, 0);
+  }
+
+  function currentPages() {
+    return SECTIONS[currentSection].pages;
+  }
+
+  function normalizeSearch(str) {
+    return str
+      .replace(/\u0111/g, 'd').replace(/\u0110/g, 'D')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function makeItem(side, id) {
+    const p = PAIRS[id];
+    const div = document.createElement('div');
+    div.className = 'item';
+    div.id = side + '-' + id;
+    div.dataset.pair = id;
+    div.dataset.color = p.color;
+    div.tabIndex = 0;
+    const sttSpan = document.createElement('span');
+    sttSpan.className = 'stt';
+    sttSpan.textContent = p.stt;
+    const txtSpan = document.createElement('span');
+    txtSpan.className = 'txt';
+    // p.vi / p.zh / p.han la HTML da duoc escape san o phia Python, co the
+    // chua <strong> de giu dinh dang in dam tu Excel -> gan qua innerHTML.
+    if (side === 'zh' && p.han) {
+      const hanEl = document.createElement('span');
+      hanEl.className = 'hanzi';
+      hanEl.innerHTML = p.han;
+      txtSpan.appendChild(hanEl);
+      if (p.zh) {
+        const pinyinEl = document.createElement('span');
+        pinyinEl.className = 'pinyin';
+        pinyinEl.innerHTML = p.zh;
+        txtSpan.appendChild(pinyinEl);
+      }
+    } else {
+      txtSpan.innerHTML = side === 'vi' ? p.vi : p.zh;
+    }
+    const markBtn = document.createElement('button');
+    markBtn.type = 'button';
+    markBtn.className = 'mark-btn' + (markedIds.has(id) ? ' marked' : '');
+    markBtn.title = 'Danh dau cau chua nam vung';
+    markBtn.innerHTML = ICON_CHECK;
+    markBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMark(id);
+    });
+
+    div.appendChild(sttSpan);
+    div.appendChild(txtSpan);
+
+    // Nut phat am (Google TTS) - chi hien o cot ngon ngu dich, va chi khi
+    // nhan ra duoc ma ngon ngu tu ten cot.
+    if (side === 'zh' && p.tts_lang && p.word_plain) {
+      const speakBtn = document.createElement('button');
+      speakBtn.type = 'button';
+      speakBtn.className = 'speak-btn';
+      speakBtn.title = 'Nghe phat am (Google, can Internet)';
+      speakBtn.innerHTML = ICON_SPEAKER;
+      speakBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        playTTS(p.word_plain, p.tts_lang, speakBtn);
+      });
+      div.appendChild(speakBtn);
+    }
+
+    div.appendChild(markBtn);
+    div.addEventListener('click', () => highlightPair(id, div));
+    div.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') highlightPair(id, div);
+    });
+    return div;
+  }
+
+  function renderColumns(viIds, zhIds) {
+    const viCol = document.getElementById('viCol');
+    const zhCol = document.getElementById('zhCol');
+    viCol.innerHTML = '';
+    zhCol.innerHTML = '';
+    activeId = null;
+
+    if (viIds.length === 0) {
+      viCol.innerHTML = '<div class="empty">Khong co cau nao phu hop.</div>';
+      zhCol.innerHTML = '<div class="empty">Khong co cau nao phu hop.</div>';
+      return;
+    }
+    viIds.forEach(id => viCol.appendChild(makeItem('vi', id)));
+    zhIds.forEach(id => zhCol.appendChild(makeItem('zh', id)));
+  }
+
+  function renderSectionList() {
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.getElementById('sidebarToggleBtn');
+    const list = document.getElementById('sectionList');
+    list.innerHTML = '';
+
+    const hasMultipleSections = SECTIONS.length > 1;
+    const hasAnyTopics = SECTIONS.some(sec => sec.has_topic);
+    if (!hasMultipleSections && !hasAnyTopics) {
+      sidebar.style.display = 'none';
+      toggleBtn.style.display = 'none';
+      return;
+    }
+    sidebar.style.display = '';
+    toggleBtn.style.display = '';
+
+    SECTIONS.forEach((sec, si) => {
+      const group = document.createElement('div');
+      group.className = 'section-group';
+
+      if (hasMultipleSections) {
+        const btn = document.createElement('button');
+        btn.textContent = sec.title;
+        btn.className = 'section-item';
+        btn.classList.toggle('active', si === currentSection);
+        btn.onclick = () => gotoSection(si);
+        group.appendChild(btn);
+      }
+
+      // Danh sach chu de cua section, hien nhu 1 sub-menu ngay duoi ten
+      // section (chi hien cho section dang duoc chon, va chi khi section
+      // co cot Chu de thuc su - tranh liet ke hang chuc trang STT vo nghia).
+      if (sec.has_topic && sec.pages.length > 1 && si === currentSection) {
+        const sub = document.createElement('div');
+        sub.className = 'topic-list';
+        sec.pages.forEach((pg, pi) => {
+          const tbtn = document.createElement('button');
+          tbtn.textContent = pg.label;
+          tbtn.className = 'topic-item';
+          tbtn.classList.toggle('active', pi === currentPage);
+          tbtn.onclick = () => {
+            gotoPage(pi);
+            document.getElementById('sidebar').classList.add('collapsed');
+          };
+          sub.appendChild(tbtn);
+        });
+        group.appendChild(sub);
+      }
+
+      list.appendChild(group);
+    });
+  }
+
+  function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('collapsed');
+  }
+
+  function updateLangLabel() {
+    document.getElementById('zhColLabel').textContent = SECTIONS[currentSection].lang_label;
+  }
+
+  function gotoSection(index) {
+    if (index < 0 || index >= SECTIONS.length) return;
+    currentSection = index;
+    currentPage = 0;
+    viewMode = 'normal';
+    document.getElementById('searchInput').value = '';
+    document.getElementById('markFilterBtn').classList.remove('active');
+    renderSectionList();
+    updateLangLabel();
+    document.getElementById('sidebar').classList.add('collapsed');
+    const pg = currentPages()[currentPage];
+    renderColumns(pg.vi, pg.zh);
+    renderPager();
+    updateFooter();
+    scrollToTop();
+  }
+
+  function fillPagerControls(toolbarId, selectId, prevId, nextId, pages) {
+    const toolbar = document.getElementById(toolbarId);
+    if (pages.length <= 1) {
+      toolbar.style.display = 'none';
+      return;
+    }
+    toolbar.style.display = viewMode !== 'normal' ? 'none' : 'flex';
+    const select = document.getElementById(selectId);
+    select.innerHTML = '';
+    pages.forEach((pg, i) => {
+      const opt = document.createElement('option');
+      opt.value = i;
+      opt.textContent = pg.label;
+      select.appendChild(opt);
+    });
+    select.value = currentPage;
+    document.getElementById(prevId).disabled = currentPage === 0;
+    document.getElementById(nextId).disabled = currentPage === pages.length - 1;
+  }
+
+  function renderPager() {
+    const pages = currentPages();
+    fillPagerControls('pagerToolbar', 'pageSelect', 'prevBtn', 'nextBtn', pages);
+    fillPagerControls('pagerToolbarBottom', 'pageSelectBottom', 'prevBtnBottom', 'nextBtnBottom', pages);
+  }
+
+  function updateFooter() {
+    const footer = document.getElementById('footerInfo');
+    const pages = currentPages();
+    if (viewMode === 'search') {
+      const input = document.getElementById('searchInput');
+      const shown = document.querySelectorAll('#viCol .item').length;
+      footer.textContent = shown + ' / ' + TOTAL_COUNT + ' cau phu hop voi "' + input.value.trim() + '"';
+    } else if (viewMode === 'mark') {
+      const shown = document.querySelectorAll('#viCol .item').length;
+      footer.textContent = shown + ' cau dang danh dau chua nam vung (trong tong so ' + TOTAL_COUNT + ' cau)';
+    } else {
+      footer.textContent = TOTAL_COUNT + ' cap cau' +
+        (SECTIONS.length > 1 ? ' · section "' + SECTIONS[currentSection].title + '"' : '') +
+        (pages.length > 1 ? ' · trang ' + (currentPage + 1) + '/' + pages.length : '') +
+        ' · click hoac nhan Enter tren mot cau de ghep cap';
+    }
+  }
+
+  function gotoPage(index) {
+    const pages = currentPages();
+    if (index < 0 || index >= pages.length) return;
+    currentPage = index;
+    const pg = pages[currentPage];
+    renderColumns(pg.vi, pg.zh);
+    renderPager();
+    renderSectionList();
+    updateFooter();
+    scrollToTop();
+  }
+
+  function runSearch(query) {
+    const norm = normalizeSearch(query);
+    if (!norm) {
+      viewMode = 'normal';
+      renderSectionList();
+      renderPager();
+      gotoPage(currentPage);
+      return;
+    }
+    viewMode = 'search';
+    document.getElementById('markFilterBtn').classList.remove('active');
+    const matched = Object.keys(PAIRS)
+      .filter(id => PAIRS[id].nvi.includes(norm) || PAIRS[id].nzh.includes(norm))
+      .map(id => parseInt(id, 10))
+      .sort((a, b) => a - b);
+    renderSectionList();
+    renderPager();
+    renderColumns(matched, matched);
+    updateFooter();
+  }
+
+  function saveMarked() {
+    try { localStorage.setItem('bilingualMarked', JSON.stringify([...markedIds])); } catch (e) {}
+  }
+
+  function updateMarkCount() {
+    document.getElementById('markCount').textContent = markedIds.size;
+  }
+
+  function updateMarkButtons(id) {
+    const marked = markedIds.has(id);
+    ['vi', 'zh'].forEach(side => {
+      const el = document.getElementById(side + '-' + id);
+      if (!el) return;
+      const btn = el.querySelector('.mark-btn');
+      if (btn) btn.classList.toggle('marked', marked);
+    });
+  }
+
+  function toggleMark(id) {
+    if (markedIds.has(id)) {
+      markedIds.delete(id);
+    } else {
+      markedIds.add(id);
+    }
+    saveMarked();
+    updateMarkCount();
+    updateMarkButtons(id);
+    if (viewMode === 'mark') {
+      applyMarkFilter();
+    }
+  }
+
+  function applyMarkFilter() {
+    const ids = [...markedIds].sort((a, b) => a - b);
+    renderPager();
+    renderColumns(ids, ids);
+    updateFooter();
+  }
+
+  function toggleMarkFilter() {
+    const btn = document.getElementById('markFilterBtn');
+    if (viewMode === 'mark') {
+      viewMode = 'normal';
+      btn.classList.remove('active');
+      renderPager();
+      gotoPage(currentPage);
+      return;
+    }
+    viewMode = 'mark';
+    btn.classList.add('active');
+    document.getElementById('searchInput').value = '';
+    applyMarkFilter();
+  }
+
+  function clearAllMarks() {
+    if (markedIds.size === 0) return;
+    if (!confirm('Xoa danh dau cua tat ca ' + markedIds.size + ' cau chua nam vung?')) return;
+    markedIds.clear();
+    saveMarked();
+    updateMarkCount();
+    document.querySelectorAll('.mark-btn.marked').forEach(btn => btn.classList.remove('marked'));
+    if (viewMode === 'mark') {
+      applyMarkFilter();
+    }
+  }
+
+  function allItems(id) {
+    return [
+      document.getElementById('vi-' + id),
+      document.getElementById('zh-' + id)
+    ].filter(Boolean);
+  }
+
+  function clearHighlight() {
+    document.querySelectorAll('.item').forEach(el => {
+      el.classList.remove('active-self', 'pulse');
+      el.style.background = '';
+      el.style.borderColor = '';
+      el.style.color = '';
+    });
+    activeId = null;
+  }
+
+  function paintPair(id, temporary) {
+    const color = PAIRS[id] ? PAIRS[id].color : null;
+    allItems(id).forEach(el => {
+      el.style.background = color;
+      el.style.borderColor = color;
+      el.style.color = '#0f1115';
+      if (temporary) {
+        el.classList.add('pulse');
+        setTimeout(() => el.classList.remove('pulse'), 1400);
+      }
+    });
+  }
+
+  function highlightPair(id, sourceEl) {
+    if (activeId === id) {
+      clearHighlight();
+      return;
+    }
+    clearHighlight();
+    activeId = id;
+    paintPair(id, false);
+    sourceEl.classList.add('active-self');
+
+    // cuon phia con lai vao khung nhin
+    const other = [...allItems(id)].find(el => el !== sourceEl);
+    if (other) {
+      other.scrollIntoView({ behavior: 'auto', block: 'center' });
+      other.classList.add('pulse');
+      setTimeout(() => other.classList.remove('pulse'), 1400);
+    }
+  }
+
+  document.getElementById('searchInput').addEventListener('input', (e) => {
+    runSearch(e.target.value);
+  });
+
+  const ICON_SUN = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle>' +
+    '<line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line>' +
+    '<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>' +
+    '<line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line>' +
+    '<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
+  const ICON_MOON = '<svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+  const ICON_LIST = '<svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"></line>' +
+    '<line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+  const ICON_CHECK = '<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+  const ICON_SPEAKER = '<svg viewBox="0 0 24 24"><polygon points="3 9 8 9 13 4 13 20 8 15 3 15 3 9"></polygon>' +
+    '<path d="M16 8.5a4.5 4.5 0 0 1 0 7"></path><path d="M18.5 6a8 8 0 0 1 0 12"></path></svg>';
+
+  // Phat am qua Google Translate TTS (dich vu mien phi, khong chinh thuc -
+  // can Internet, gioi han ~200 ky tu/lan goi nen cau dai se duoc cat nho
+  // va phat noi tiep nhau).
+  let ttsAudio = null;
+
+  function splitForTTS(text) {
+    const maxLen = 190;
+    const trimmed = text.trim();
+    if (trimmed.length <= maxLen) return [trimmed];
+    const parts = [];
+    let rest = trimmed;
+    while (rest.length > maxLen) {
+      let cut = rest.lastIndexOf(' ', maxLen);
+      if (cut <= 0) cut = maxLen;
+      parts.push(rest.slice(0, cut).trim());
+      rest = rest.slice(cut).trim();
+    }
+    if (rest) parts.push(rest);
+    return parts.filter(Boolean);
+  }
+
+  function playTTS(text, lang, btn) {
+    if (!text || !lang) return;
+    if (ttsAudio) {
+      ttsAudio.pause();
+      ttsAudio = null;
+    }
+    document.querySelectorAll('.speak-btn.speaking').forEach(b => b.classList.remove('speaking'));
+    const chunks = splitForTTS(text);
+    let i = 0;
+    function playNext() {
+      if (i >= chunks.length) {
+        if (btn) btn.classList.remove('speaking');
+        ttsAudio = null;
+        return;
+      }
+      const url = 'https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=' +
+        encodeURIComponent(lang) + '&q=' + encodeURIComponent(chunks[i]);
+      ttsAudio = new Audio(url);
+      ttsAudio.referrerPolicy = 'no-referrer';
+      i++;
+      ttsAudio.addEventListener('ended', playNext);
+      ttsAudio.addEventListener('error', (ev) => {
+        console.error('TTS loi khi tai am thanh:', url, ev.target && ev.target.error);
+        if (btn) btn.classList.remove('speaking');
+        ttsAudio = null;
+      });
+      ttsAudio.play().catch((err) => {
+        console.error('TTS loi khi phat am thanh:', url, err);
+        if (btn) btn.classList.remove('speaking');
+        ttsAudio = null;
+      });
+    }
+    if (btn) btn.classList.add('speaking');
+    playNext();
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    document.getElementById('themeToggleBtn').innerHTML = theme === 'light' ? ICON_MOON : ICON_SUN;
+    try { localStorage.setItem('bilingualTheme', theme); } catch (e) {}
+  }
+
+  function toggleTheme() {
+    const current = document.documentElement.getAttribute('data-theme') || 'dark';
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  }
+
+  // Co chu: cac muc font-size trong CSS deu dung don vi rem, nen chi can
+  // doi font-size cua <html> la toan bo noi dung se phong to/thu nho theo.
+  const FONT_STEPS = [87.5, 100, 112.5, 125, 137.5, 150];
+  let fontStepIndex = 1;
+
+  function applyFontStep() {
+    const pct = FONT_STEPS[fontStepIndex];
+    document.documentElement.style.fontSize = pct + '%';
+    document.getElementById('fontDecBtn').disabled = fontStepIndex === 0;
+    document.getElementById('fontIncBtn').disabled = fontStepIndex === FONT_STEPS.length - 1;
+    try { localStorage.setItem('bilingualFontStep', String(fontStepIndex)); } catch (e) {}
+  }
+
+  function adjustFontSize(delta) {
+    const next = fontStepIndex + delta;
+    if (next < 0 || next >= FONT_STEPS.length) return;
+    fontStepIndex = next;
+    applyFontStep();
+  }
+
+  // An/hien phien am (IPA/Pinyin...) - luu lua chon vao localStorage.
+  let hidePhonetic = false;
+
+  function applyPhoneticVisibility() {
+    document.body.classList.toggle('hide-phonetic', hidePhonetic);
+    const btn = document.getElementById('phoneticToggleBtn');
+    btn.classList.toggle('active', hidePhonetic);
+    btn.title = hidePhonetic ? 'Dang an phien am - bam de hien lai' : 'Dang hien phien am - bam de an';
+  }
+
+  function togglePhonetic() {
+    hidePhonetic = !hidePhonetic;
+    applyPhoneticVisibility();
+    try { localStorage.setItem('bilingualHidePhonetic', hidePhonetic ? '1' : '0'); } catch (e) {}
+  }
+
+  // Khoi tao
+  document.getElementById('sidebarToggleBtn').innerHTML = ICON_LIST;
+  let savedTheme = 'dark';
+  try { savedTheme = localStorage.getItem('bilingualTheme') || 'dark'; } catch (e) {}
+  applyTheme(savedTheme);
+  try {
+    const savedStep = parseInt(localStorage.getItem('bilingualFontStep'), 10);
+    if (!isNaN(savedStep) && savedStep >= 0 && savedStep < FONT_STEPS.length) {
+      fontStepIndex = savedStep;
+    }
+  } catch (e) {}
+  applyFontStep();
+  try { hidePhonetic = localStorage.getItem('bilingualHidePhonetic') === '1'; } catch (e) {}
+  applyPhoneticVisibility();
+  updateMarkCount();
+  renderSectionList();
+  updateLangLabel();
+  gotoPage(0);
+</script>
+
+</body>
+</html>
